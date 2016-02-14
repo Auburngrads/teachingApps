@@ -1,4 +1,4 @@
-cdf.demo <-
+cdf_demo <-
 function(...) {
   
 library(shiny)

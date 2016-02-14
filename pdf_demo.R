@@ -1,4 +1,4 @@
-pdf.demo <-
+pdf_demo <-
 function(...) {
   
 library(shiny)

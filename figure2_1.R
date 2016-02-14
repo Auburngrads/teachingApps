@@ -1,16 +1,14 @@
-figure2.1 <-
+figure2_1 <-
 function(...) {
 
 library(shiny)
-library(shinyAce)
-library(shinythemes)
   
 shinyApp(options = list(width = "100%", height = "800px"),
-ui = fluidPage(theme = shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
 titlePanel("Input changes and click 'Evaluate' to edit Figure 2.1"),
   sidebarLayout( 
     sidebarPanel(
-      aceEditor("fig1plot", mode = "r", theme = "github", height = "450px",
+      shinyAce::aceEditor("fig1plot", mode = "r", theme = "github", height = "450px",
                       value = "par(family='serif',font=2)
 
 library(SMRD)
