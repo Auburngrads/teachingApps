@@ -3,9 +3,8 @@ function(...) {
   
 library(shiny)
   
-shinyApp(options = list(width = "100%", height = "750px"),
+shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
-titlePanel("Change the code and click 'Evaluate' to edit the CDF plot"),
   sidebarLayout( 
     sidebarPanel(width = 4,
       shinyAce::aceEditor("cdfplot", mode = "r", theme = "github", height = "450px", fontSize = 15,

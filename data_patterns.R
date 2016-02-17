@@ -3,11 +3,11 @@ function(...) {
 
 library(shiny)
 
-shinyApp(options = list(height = '800px', width = '99%'),
+shinyApp(options = list(height = '600px', width = '99%'),
   ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
        sidebarLayout(
         sidebarPanel(
-        shinyAce::aceEditor("pdflikeplot", mode = "r", theme = "github", height = "550px", fontSize = 14,
+        shinyAce::aceEditor("pdflikeplot", mode = "r", theme = "github", height = "450px", fontSize = 14,
                       value ="par(mfrow = c(1,2), mar = c(4,4,2,0))
 n = 50
 x.lnor <- rlnorm(n, meanlog = 4.5, sdlog = .2)
@@ -52,7 +52,7 @@ par(mfrow = c(1,1))"),
 
 actionButton("evalpdflike", h4("Evaluate"))),
 
-   mainPanel(plotOutput('plotpdflike', height = '700px')))),
+   mainPanel(plotOutput('plotpdflike', height = '600px')))),
 
 server = function(input, output, session) {
 

@@ -6,9 +6,9 @@ function(...) {
 shinyApp(options = list(width = "99%", height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
 
-tabPanel(h4("Data Set"), DT::dataTableOutput("heatexchanger", height = "565px")),
+tabPanel(h4("Data Set"), DT::dataTableOutput("heatexchanger", height = "575px")),
                 
-tabPanel(h4("Figure 1.6"),titlePanel("Use this code to reproduce the event plot in Figure 1.6. Input changes and click 'Evaluate'"),
+tabPanel(h4("Figure 1.6"), titlePanel("Edit this code and press 'Evaluate' to change the figure"),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("fig6plot", mode = "r", theme = "github", height = "450px",
@@ -60,9 +60,9 @@ arrows(x0 = rep(345,3),
        length=rep(0.1,3))"),
               actionButton("evalfig6", h4("Evaluate"))),
         
-        mainPanel(plotOutput("plotfig6", height = "550px"), width = 7))),
+        mainPanel(plotOutput("plotfig6", height = "600px"), width = 7))),
                 
-tabPanel(h4("Figure 1.7"),titlePanel("Use this code to reproduce the event plot in Figure 1.7. Input changes and click 'Evaluate'"),
+tabPanel(h4("Figure 1.7"), titlePanel("Edit this code and press 'Evaluate' to change the figure"),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("fig7plot", mode = "r", theme = "github", height = "450px",
@@ -114,7 +114,7 @@ arrows(x0 = rep(345,3),
        length=rep(0.1,3))"),
               actionButton("evalfig7", h4("Evaluate"))),
         
-        mainPanel(plotOutput("plotfig7", height = "550px"), width = 7)))),
+        mainPanel(plotOutput("plotfig7", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
   library(SMRD)

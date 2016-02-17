@@ -3,10 +3,8 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(width = "100%", height = "760px"),
+shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
-               titlePanel("Use this code to reproduce the plot in Figure 2.5. Input changes and click 'Evaluate'"),
-
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("fig5plot", mode = "r", theme = "github", height = "450px",
@@ -27,7 +25,7 @@ mtext(side = 3,
       font = 2,line = 2)"),
               actionButton("evalfig5", h4("Evaluate"))),
         
-        mainPanel(plotOutput("plotfig5", height = "650px"), width = 7))),
+        mainPanel(plotOutput("plotfig5", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
   library(SMRD)

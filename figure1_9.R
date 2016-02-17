@@ -6,9 +6,9 @@ function(...) {
 shinyApp(options = list(width = "99%", height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
 
-tabPanel(h4("Data Set"), DT::dataTableOutput("printedcircuitboard", height = "570px")),
+tabPanel(h4("Data Set"), DT::dataTableOutput("printedcircuitboard", height = "600px")),
                 
-tabPanel(h4("Figure 1.9"),titlePanel("Use this code to reproduce the scatterplot in Figure 1.1. Input changes and click 'Evaluate'"),
+tabPanel(h4("Figure 1.9"), titlePanel("Edit this code and press 'Evaluate' to change the figure"),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("fig9plot", mode = "r", theme = "github", height = "450px",
@@ -25,7 +25,7 @@ text(x = c(50,63,75,82),
        '0/70 censored'))"),
               actionButton("evalfig9", h4("Evaluate"))),
         
-        mainPanel(plotOutput("plotfig9", height = "550px"), width = 7)))),
+        mainPanel(plotOutput("plotfig9", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
   library(SMRD)

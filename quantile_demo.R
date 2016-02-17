@@ -3,10 +3,10 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(width = "99%", height = "800px"),
+shinyApp(options = list(width = "99%", height = "700px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
 
-tabPanel(h4("Quantile Function Plot"),titlePanel("Change the code and click 'Evaluate' to edit the Quantile plot"),
+tabPanel(h4("Quantile Function Plot"),
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor("quantplot", mode = "r", theme = "github", height = "450px", fontSize = 15,
@@ -28,7 +28,7 @@ las = 1)"),
         
         mainPanel(plotOutput("plotquant", height = "600px")))),
                 
-tabPanel(h4("Figure 2.3"),titlePanel("Change the code and click 'Evaluate' to edit the scatterplot in Figure 2.3"),
+tabPanel(h4("Figure 2.3"),
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor("fig3plot", mode = "r", theme = "github", height = "450px",

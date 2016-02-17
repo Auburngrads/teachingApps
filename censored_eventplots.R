@@ -3,7 +3,7 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(width = '100%', height = '800px'),
+shinyApp(options = list(width = '100%', height = '600px'),
   ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
     sidebarLayout(
       sidebarPanel(
@@ -32,7 +32,7 @@ event.plot(turbine.ld)
 par(mfrow=c(1,1))"),
               actionButton("evaleventplots", h4("Evaluate"))),
         
-        mainPanel(plotOutput("ploteventplots", height = "550px")))),
+        mainPanel(plotOutput("ploteventplots", height = "600px")))),
 
 server = function(input, output, session) {
   library(SMRD)

@@ -3,10 +3,8 @@ function(...) {
   
 library(shiny)
 
-shinyApp(options = list(width = "100%", height = "750px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
-titlePanel("Change the code and click 'Evaluate' to edit the PDF plot"),
-  sidebarLayout( 
+shinyApp(options = list(width = "100%", height = "600px"),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),  sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor("pdfplot", mode = "r", theme = "github", height = "450px", fontSize = 15,
                       value = "par(family='serif',mar = c(4,6,2,1))

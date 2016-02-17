@@ -14,7 +14,7 @@ shinyApp(options = list(width = "100%", height = "350px"),
                   value = 5, 
                   step = 1, 
                   animate=TRUE)),
-    mainPanel(plotOutput("first", height = "250px")))),
+    mainPanel(plotOutput("first", height = "300px")))),
 
 server <- function(input, output, session) {
  

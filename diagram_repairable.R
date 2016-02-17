@@ -3,7 +3,7 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(width = "100%", height = "800px"),
+shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
   sidebarLayout( 
     sidebarPanel(width = 5,
@@ -30,7 +30,7 @@ diagram::plotmat(A = AA, pos = 3, curve = .575,
          relsize=.99,box.cex=1.5,cex=1.25)"),
               actionButton("evalrepair", h4("Evaluate"))),
         
-        mainPanel(plotOutput("plotrepair", height = "550px"), width = 7))),
+        mainPanel(plotOutput("plotrepair", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
   library(diagram)

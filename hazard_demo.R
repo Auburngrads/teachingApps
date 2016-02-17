@@ -3,11 +3,10 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(width = "99%", height = "800px"),
+shinyApp(options = list(width = "99%", height = "700px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
 
 tabPanel(h4("Hazard Function Plot"),
-         titlePanel("Change the code and click 'Evaluate' to edit the Hazard plot"),
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor("hazplot", mode = "r", theme = "github", height = "450px", fontSize = 15,
@@ -31,7 +30,6 @@ las = 1)"),
         mainPanel(plotOutput("plothaz", height = "600px")))),
 
 tabPanel(h4("Bathtub-Shaped Hazard Plot"),
-         titlePanel("Change the code and click 'Evaluate' to edit the plot"),
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor("figbtplot", mode = "r", theme = "github", height = "450px",

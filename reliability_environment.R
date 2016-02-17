@@ -3,7 +3,7 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(width = "100%", height = "760px"),
+shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
   sidebarLayout( 
     sidebarPanel(
@@ -40,7 +40,7 @@ text(x = rep(400, 5), y = seq(425, 75, -75),
      cex = rep(2.5,5), family = 'mono')"),
               actionButton("evalenvir", h4("Evaluate"))),
         
-        mainPanel(plotOutput("plotenvir", height = "550px")))),
+        mainPanel(plotOutput("plotenvir", height = "600px")))),
 
 server = function(input, output, session) {
   

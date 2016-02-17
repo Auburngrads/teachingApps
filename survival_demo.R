@@ -3,9 +3,8 @@ function(...) {
   
 library(shiny)
   
-shinyApp(options = list(width = "100%", height = "750px"),
+shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
-titlePanel("Change the code and click 'Evaluate' to edit the Survival plot"),
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor("relplot", mode = "r", theme = "github", height = "450px", fontSize = 15,

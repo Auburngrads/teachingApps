@@ -8,7 +8,7 @@ ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-sh
 
 tabPanel(h4("Data Set"), DT::dataTableOutput("lzbearing", height = "600px")),
                 
-tabPanel(h4("Figure 1.1"),titlePanel("Use this code to reproduce the histogram in Figure 1.1. Input changes and click 'Evaluate'"),
+tabPanel(h4("Figure 1.1"),titlePanel("Edit this code and press 'Evaluate' to change the figure"),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("fig1plot", mode = "r", theme = "github", height = "450px", fontSize = 15,
@@ -23,9 +23,9 @@ hist(lzbearing$megacycles,
      las = 1)"),
               actionButton("evalfig1", h4("Evaluate"))),
         
-        mainPanel(plotOutput("plotfig1", height = "550px"), width = 7))),
+        mainPanel(plotOutput("plotfig1", height = "600px"), width = 7))),
 
-tabPanel(h4("Figure 1.2"),titlePanel("Use this code to reproduce the event plot in Figure 1.2. Input changes and click 'Evaluate'"),
+tabPanel(h4("Figure 1.2"),titlePanel("Edit this code and press 'Evaluate' to change the figure"),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("fig2plot", mode = "r", theme = "github", height = "450px", fontSize = 15,
@@ -39,7 +39,7 @@ lzbearing.ld <- frame.to.ld(lzbearing,
 event.plot(lzbearing.ld)"),
               actionButton("evalfig2", h4("Evaluate"))),
         
-        mainPanel(plotOutput("plotfig2", height = "550px"), width = 7)))),
+        mainPanel(plotOutput("plotfig2", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
   library(SMRD)
