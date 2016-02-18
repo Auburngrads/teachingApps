@@ -33,11 +33,11 @@ axis(side = 1, tck = -.015, labels = NA) ; axis(side = 1, lwd = 0, line = -.6)
 mtext(side = 1, expression(t[p]), line = 2.25,cex = 1.3)
 mtext(side = 2, expression(Phi[SEV](t[p])),line = 2,cex = 1.3)
 switch(input$axis1, 
-"True Axis"        ={axis( side=2, labels=NA, at=SMRD:::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-                     mtext(side=2, at=SMRD:::qsev(c(.01,.05,.1,.2,.5,.9,.97)),               
-                    round(SMRD:::qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)     },
-"Transformed Axis" ={axis( side=2, labels=NA, at=SMRD:::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-                     mtext(side=2, at=SMRD:::qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
+"True Axis"        ={axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+                     mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),               
+                    round(qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)     },
+"Transformed Axis" ={axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+                     mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
                            c(".01",".05",".1",".2",".5",".9",".97"),line=.75) })
 }, "Normal" = {
 LOGN<-(qnorm(CDF))
@@ -110,11 +110,11 @@ axis(side = 1, tck = -.015, labels = NA) ; axis(side = 1, lwd = 0, line = -.6)
 mtext(side = 1, expression(t[p]), line = 2.25,cex = 1.3)
 mtext(side = 2, expression( Phi[SEV](t[p])),line = 2,cex = 1.3)
 switch(input$axis2, 
-"True Axis"        ={axis( side=2, labels=NA, at=SMRD:::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-                     mtext(side=2, at=SMRD:::qsev(c(.01,.05,.1,.2,.5,.9,.97)),               
-                    round(SMRD:::qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
-"Transformed Axis" ={axis( side=2, labels=NA, at=SMRD:::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-                     mtext(side=2, at=SMRD:::qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
+"True Axis"        ={axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+                     mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),               
+                    round(qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
+"Transformed Axis" ={axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+                     mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
                            c(".01",".05",".1",".2",".5",".9",".97"),line=.75) })
 }, "Normal" = {
 LOGN<-(qnorm(CDF))

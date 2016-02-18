@@ -9,21 +9,23 @@ ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shin
     sidebarPanel(
       shinyAce::aceEditor("plots", mode = "r", theme = "github", height = "450px",
                       value = "par(family='serif', font=2, cex=1.75)
+library(SMRD)
+
 p<- seq(.01,.99,.01)
 mean1 <- 40
 sdev1 <- 10
 mean2 <- 80
 sdev2 <- 5
 
-plot(qnorm(p, mean=mean1, sd=sdev1), qnorm(p),
+plot(qsev(p, location=mean1, scale=sdev1), qsev(p),
      type='l',
      lwd=2, col=1,
      xlim=range(0,100),
      las = 1,
      xlab='Time',
-     ylab='Standard Normal Quantile')
+     ylab='Standard SEV Quantile')
 
-lines(qnorm(p,mean=mean2, sd=sdev2), qnorm(p), lwd=2, col=2)
+lines(qsev(p,location=mean2, scale=sdev2), qsev(p), lwd=2, col=2)
 abline(h=0, lty=2)
 
 text(c(15, 85), c(-1,-2), 
@@ -35,7 +37,7 @@ box(lwd=1.25)"),
         mainPanel(plotOutput("norm", height = "600px")))),
 
 server = function(input, output, session) {
-  
+  library(SMRD)
   output$norm <- renderPlot({
       par(mar = c(4,4,2,2))
       input$evalplots

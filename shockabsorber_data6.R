@@ -13,30 +13,38 @@ ShockAbsorber.ld <- frame.to.ld(shockabsorber,
 
 shinyApp(options = list(width = "99%", height = "800px"),
 
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
-tabPanel(h4(HTML("<big>Data Set</big>")),   DT::dataTableOutput("table.shock", height = "80%") ),    
-tabPanel(h4(HTML("<big>Summary</big>")), verbatimTextOutput("summary.shock") ), 
+ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
+                includeCSS('css/my-shiny.css'),
+                
+tabPanel(h4("Data Set"),   DT::dataTableOutput("table.shock", height = "80%") ),    
+tabPanel(h4("Summary"), verbatimTextOutput("summary.shock") ), 
 
-tabPanel(h4(HTML("<big>Event Plots</big>")),
+tabPanel(h4("Event Plots"),
 sidebarLayout(
 sidebarPanel(width = 3,
-selectInput("PLOT_3", label = h2(HTML("<b>Plot:</b>")),
-                    choices = c("Event Plot","Histogram"),
-                    selected = "Event Plot")),  
+selectInput("PLOT_3", label = h2("Plot:"),
+                    choices = c("Event Plot",
+                                "Histogram"),
+            selected = "Event Plot")),
 mainPanel( plotOutput("eventplot.shock", height = '650px'), width = 9))),
 
-tabPanel(h4(HTML("<big>CDF Plot</big>")),
+tabPanel(h4("CDF Plot"),
 sidebarLayout(
 sidebarPanel(width = 3,
-selectInput("DIST_3", label = h2(HTML("<b>Distribution:</b>")),
-                    choices = c("Weibull","Exponential","Normal","Lognormal",                                                "Smallest Extreme Value","Largest Extreme Value","Frechet"), 
+selectInput("DIST_3", label = h2("Distribution:"),
+                    choices = c("Weibull",
+                                "Exponential",
+                                "Normal",
+                                "Lognormal",
+                                "Smallest Extreme Value",
+                                "Largest Extreme Value","Frechet"), 
                     selected = "Weibull"),
 
-selectInput("CI_3",   label = h2(HTML("<b>Confidence Level:</b>")),
+selectInput("CI_3",   label = h2("Confidence Level:"),
                     choices = c(0.99, 0.95, 0.90, 0.85, 0.80, 0.50), 
                     selected = 0.95),
                    
-selectInput("BT_3",   label = h2(HTML("<b>Band Type:</b>")),
+selectInput("BT_3",   label = h2("Band Type:"),
                     choices = c("Pointwise", "Simultaneous", "none"), 
                     selected = "Pointwise")),  
 
@@ -44,15 +52,18 @@ mainPanel( plotOutput("cdfplot.shock", height = '650px'), width = 9)))),
 
 server = function(input, output, session) {
            
-output$table.shock <- DT::renderDataTable({ DT::datatable(ShockAbsorber.ld,
-                                                          options = list(pageLength = 12)) })
+output$table.shock <- DT::renderDataTable({ 
+  
+  DT::datatable(ShockAbsorber.ld, options = list(pageLength = 12)) })
 
-output$summary.shock <- renderPrint({ summary(ShockAbsorber.ld)                        })
+output$summary.shock <- renderPrint({ 
+  
+  summary(ShockAbsorber.ld)                        })
 
 output$eventplot.shock <- renderPlot({ 
   par(family = "serif",bg = NA, font = 2)
   if (input$PLOT_3 == "Event Plot") event.plot(ShockAbsorber.ld) 
-  if (input$PLOT_3 == "Histogram") hist(SMRD:::Response(ShockAbsorber.ld), 
+  if (input$PLOT_3 == "Histogram") hist(Response(ShockAbsorber.ld), 
                                       probability = TRUE, col = 1, 
                                       border = "white", main = "", 
                                       xlab = attr(ShockAbsorber.ld,"time.units"))})

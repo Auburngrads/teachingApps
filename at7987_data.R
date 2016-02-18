@@ -16,22 +16,23 @@ shinyApp(options = list(width = "99%", height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
                 includeCSS('css/my-shiny.css'),
 
-tabPanel(h4(HTML("<big>Data Set</big>")),DT::dataTableOutput("table.at7987", height = "80%") ), 
+tabPanel(h4("Data Set"),DT::dataTableOutput("table.at7987", height = "80%") ), 
 
-tabPanel(h4(HTML("<big>Summary</big>")), verbatimTextOutput("summary.at7987") ), 
+tabPanel(h4("Summary"), verbatimTextOutput("summary.at7987") ), 
 
-tabPanel(h4(HTML("<big>Event Plots</big>")),
+tabPanel(h4("Event Plots"),
 sidebarLayout(
 sidebarPanel(width = 3,
-selectInput("PLOT_2", label = h2(HTML("<b>Plot:</b>")), choices = c("Event Plot","Histogram"),
+selectInput("PLOT_2", label = h2("Plot:"),
+            choices = c("Event Plot","Histogram"),
             selected = "Event Plot")),  
 mainPanel( plotOutput("eventplot.at7987", height = '650px'), width = 9))),
 
-tabPanel(h4(HTML("<big>CDF Plot</big>")),
+tabPanel(h4("CDF Plot"),
 sidebarLayout(
 sidebarPanel(width = 3,
 selectInput("dist_2", 
-            label = h2(HTML("<b>Distribution:</b>")),
+            label = h2("Distribution:"),
             choices = c("None",
                         "Weibull",
                         "Exponential",
@@ -55,7 +56,7 @@ selectInput("bt_2",
 mainPanel( plotOutput("cdfplot.at7987", height = '650px'), width = 9))),
 
 tabPanel(h4('Code Mirror'), 
-         mainPanel(codemirrorR::codemirrorOutput('figures'), width = 12))),
+         mainPanel(codemirrorR::codemirrorOutput('figures', height = '650px'), width = 12))),
 
 server = function(input, output, session) {
 
