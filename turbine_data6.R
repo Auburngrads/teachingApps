@@ -15,30 +15,30 @@ Turbine.ld <- frame.to.ld(turbine,
 shinyApp(options = list(width = "99%", height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
 
-tabPanel(h4(HTML("<big>Data Set</big>")),  DT::dataTableOutput("table.turb", height = "80%") ),    
+tabPanel(h4("Data Set"),  DT::dataTableOutput("table.turb", height = "80%") ),    
 
-tabPanel(h4(HTML("<big>Summary</big>")), verbatimTextOutput("summary.turb") ), 
+tabPanel(h4("Summary"), verbatimTextOutput("summary.turb") ), 
 
-tabPanel(h4(HTML("<big>Event Plots</big>")),
+tabPanel(h4("Event Plots"),
 sidebarLayout(
 sidebarPanel(width = 3,
-selectInput("PLOT_5", label = h2(HTML("<b>Plot:</b>")),
+selectInput("PLOT_5", label = h2("Plot:"),
                     choices = c("Event Plot","Histogram"),
                     selected = "Event Plot")),  
 mainPanel( plotOutput("eventplot.turb", height = '650px'), width = 9))),
 
-tabPanel(h4(HTML("<big>CDF Plot</big>")),
+tabPanel(h4("CDF Plot"),
 sidebarLayout(
 sidebarPanel(width = 3,
-selectInput("DIST_5", label = h2(HTML("<b>Distribution:</b>")),
+selectInput("DIST_5", label = h2("Distribution:"),
                     choices = c("Weibull","Exponential","Normal","Lognormal",                                                "Smallest Extreme Value","Largest Extreme Value","Frechet"), 
                     selected = "Weibull"),
 
-selectInput("CI_5",   label = h2(HTML("<b>Confidence Level:</b>")),
+selectInput("CI_5",   label = h2("Confidence Level:"),
                     choices = c(0.99, 0.95, 0.90, 0.85, 0.80, 0.50), 
                     selected = 0.95),
                    
-selectInput("BT_5",   label = h2(HTML("<b>Band Type:</b>")),
+selectInput("BT_5",   label = h2("Band Type:"),
                     choices = c("Pointwise", "Simultaneous", "none"), 
                     selected = "Pointwise")),  
 mainPanel( plotOutput("cdfplot.turb", height = '650px'), width = 9)))),

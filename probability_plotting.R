@@ -2,6 +2,7 @@ probability_plotting <-
 function(...) {
   
   library(shiny)
+  library(SMRD)
 
 shinyApp(options = list(width = "99%", height = "600px"), 
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
