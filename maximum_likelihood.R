@@ -78,7 +78,7 @@ par(family = 'serif', font = 1, mar = c(4.5,6,1,1))
   #mtext(side = 1, 'time', line = 2, cex = 2)
   text(x = 110, y = .005, paste('total samples =', mle$sims, sep = " "), cex = 2, font = 2)
 text(rep(60,3), c(0.025,0.0225, 0.02), c('Blue', 'Green', 'Red'), col = c('blue', 'darkgreen', 'red'), cex = 2, adj = 0, font = 2)
-text(rep(69,3), c(0.025,0.0225, 0.02), rep('=',3), col = c('blue', 'darkgreen', 'red'), cex = 2, adj = 0, font = 2)
+text(rep(70,3), c(0.025,0.0225, 0.02)-.0001, rep('=',3), col = c('blue', 'darkgreen', 'red'), cex = 2, adj = 0, font = 2)
 text(x = 60, y = 0.028, expression(bold(prod(f(t[i]~symbol('|')~theta),i==1,n)==sum(log~bgroup('[',f(t[i]~symbol('|')~theta),']'), i==1,n)%->%Log-likelihood)), adj = 0, cex = 1.8)
 
   if(input$mlesample) { 
@@ -89,7 +89,7 @@ segments(c(0,0,0,mle$dats[mle$sims]), c(mle$dat1[mle$sims],mle$dat2[mle$sims],ml
 points(mle$dats[1:mle$sims],mle$dat1[1:mle$sims], pch = 16, cex = 2, col = alpha('blue', 1))
 points(mle$dats[1:mle$sims],mle$dat2[1:mle$sims], pch = 16, cex = 2, col = alpha('darkgreen', 1))
 points(mle$dats[1:mle$sims],mle$dat3[1:mle$sims], pch = 16, cex = 2, col = alpha('red', 1))
-text(rep(72.5,3), c(0.025,0.0225, 0.02), c(round(sum(log(mle$dat1)), digits = 4), round(sum(log(mle$dat2)), digits = 4), round(sum(log(mle$dat3)), digits = 4)), col = c('blue', 'darkgreen', 'red'), cex = 2, adj = 0)
+text(rep(74,3), c(0.025,0.0225, 0.02), c(round(sum(log(mle$dat1)), digits = 4), round(sum(log(mle$dat2)), digits = 4), round(sum(log(mle$dat3)), digits = 4)), col = c('blue', 'darkgreen', 'red'), cex = 2, adj = 0)
 dat5 <- max(c(round(sum(log(mle$dat1)), digits = 4), round(sum(log(mle$dat2)), digits = 4), round(sum(log(mle$dat3)), digits = 4)))
 
 if (dat5==round(sum(log(mle$dat1)), digits = 4)) points(57.5,.0250,pch=16, col='blue', cex=2)
@@ -107,7 +107,7 @@ axis(side = 2, labels = round(mle$dat3[mle$sims], digits = 4), line = -.9, at = 
 points(mle$dats[1:mle$sims],mle$dat1[1:mle$sims], pch = 16, cex = 2, col = alpha('blue', 1))
 points(mle$dats[1:mle$sims],mle$dat2[1:mle$sims], pch = 16, cex = 2, col = alpha('darkgreen', 1))
 points(mle$dats[1:mle$sims],mle$dat3[1:mle$sims], pch = 16, cex = 2, col = alpha('red', 1))
-text(rep(72.5,3), c(0.025,0.0225, 0.02), c(round(sum(log(mle$dat1)), digits = 4), round(sum(log(mle$dat2)), digits = 4), round(sum(log(mle$dat3)), digits = 4)), col = c('blue', 'darkgreen', 'red'), cex = 2, adj = 0)
+text(rep(74,3), c(0.025,0.0225, 0.02), c(round(sum(log(mle$dat1)), digits = 4), round(sum(log(mle$dat2)), digits = 4), round(sum(log(mle$dat3)), digits = 4)), col = c('blue', 'darkgreen', 'red'), cex = 2, adj = 0)
 axis(side = 1, labels = FALSE, at = mle$dats[mle$sims], padj = -.75, cex.axis = 2, tck = 0)
 axis(side = 2, labels = FALSE, tck = 0, las = 1, cex.axis = 2)
 }
