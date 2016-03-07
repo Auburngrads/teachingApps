@@ -1,6 +1,6 @@
 figure7_1 <-
 function(...) {
-shinyApp(options = list(height = '800px', width = '99%'),
+shinyApp(options = list(height = '725px', width = '99%'),
   ui =navbarPage(theme = shinythemes::shinytheme('flatly'), 
                 includeCSS('css/my-shiny.css'),
     tabPanel(h4('Figure 7.1'),
@@ -13,7 +13,7 @@ shinyApp(options = list(height = '800px', width = '99%'),
     
     tabPanel(h4('Table 7.1'), DT::dataTableOutput('table.1', height = '80%')),
     tabPanel(h4('Code Mirror'), codemirrorR::codemirrorOutput('cm.table.1', 
-                                                              height = '650px'))),
+                                                              height = '600px'))),
 
 server = function(input, output, session) {
 
