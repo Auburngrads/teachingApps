@@ -32,7 +32,7 @@ text(c(15, 85), c(-1,-2),
      c(expression(mu*', '*sigma*' = 40, 10'),
        expression(mu*', '*sigma*' = 80, 5')))
 box(lwd=1.25)"),
-              actionButton("evalplots", h4("Evaluate"))),
+              actionButton("evalplots", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("norm", height = "600px")))),
 

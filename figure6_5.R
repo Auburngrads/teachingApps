@@ -35,7 +35,7 @@ legend('bottomright',
          expression(eta*','*beta*' = 500,0.5'),
          expression(eta*','*beta*' = 500,1.0')),
        lty = 1,col = c(1:3), lwd = 2, bty = 'n')"),
-              actionButton("evalplots", h4("Evaluate"))),
+              actionButton("evalplots", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("lnorm", height = "600px")))),
 

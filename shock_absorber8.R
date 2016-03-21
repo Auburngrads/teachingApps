@@ -6,7 +6,7 @@ function(...) {
 
 par(family = "serif", font = 2)
 
-ShockAbsorber.ld <- 
+ShockAbsorber.ld <<- 
 frame.to.ld(shockabsorber,
             response.column = 1, 
             censor.column = 3, 

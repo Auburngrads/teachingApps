@@ -12,29 +12,29 @@ shinyApp(options = list(height = '800px', width = '99%'),
 tabPanel(h4('MTBF Test Planning Tool'),
          sidebarLayout(
            sidebarPanel(width = 3,
-             numericInput('ttt', h3('Available Test Time'), 
+             sliderInput('ttt', h4('Available Test Time'), 
                           min = 100, 
                           max = 1000, 
                           step = 10, 
                           value = 400),
-             numericInput('fails', h3('Failures Allowed'), 
+             sliderInput('fails', h4('Failures Allowed'), 
                           min = 0, 
                           max = 30, 
                           step = 1, 
                           value = 1),
-             numericInput('thresh', h3('Threshold MTBF'), 
+             sliderInput('thresh', h4('Threshold MTBF'), 
                           min = 10, 
-                          max = 120, 
+                          max = 500, 
                           step = 5, 
                           value = 40),
-             numericInput('objective', h3('Objective MTBF'), 
+             sliderInput('objective', h4('Objective MTBF'), 
                           min = 10, 
-                          max = 120, 
+                          max = 500, 
                           step = 5, 
                           value = 70),
-             numericInput('contract', h3('Contract MTBF'), 
+             sliderInput('contract', h4('Contract MTBF'), 
                           min = 10, 
-                          max = 120, 
+                          max = 500, 
                           step = 5, 
                           value = 90)),
            mainPanel(plotlyOutput('mtbf', height = '650px'),width = 9))),
@@ -59,7 +59,7 @@ server = function(input, output, session) {
   
   output$mtbf <- renderPlotly({
 
-mtbf <- seq(1,120,1)
+mtbf <- seq(1,500,1)
 accept <- ppois(input$fails, input$ttt/mtbf)
 datas <- data.frame(mtbf, accept) 
 
@@ -67,11 +67,11 @@ observe({
 
 if(input$thresh>=input$objective) { 
 
-   updateNumericInput(session, "objective", value = input$thresh+5) } 
+   updateSliderInput(session, "objective", value = input$thresh+5) } 
 
 if(input$objective>=input$contract) { 
 
-   updateNumericInput(session, "contract", value = input$objective+5) }
+   updateSliderInput(session, "contract", value = input$objective+5) }
   
 })
 
@@ -107,9 +107,15 @@ p4 <- add_trace(p3,
                 name = 'Contract',
                 hoverinfo = 'text',
                 marker = list(size = 10, color = 'red'))
-p5 <- layout(p4,
-             yaxis = list(title = "Probability of Acceptance - Pr(accept)"), 
-             xaxis = list(title = 'True System Reliability - MTBF'),
+p5 <- 
+  layout(p4,
+         yaxis = list(title = "Probability of Acceptance - Pr(accept)",
+                      range = extendrange(c(0,ppois(input$fails,
+                                                    input$ttt/input$contract)*1.25)),
+                      titlefont = list(size = 16)),
+         xaxis = list(title = 'True System Reliability - MTBF',
+                      range = extendrange(c(input$thresh,input$contract), f = .5),
+                      titlefont = list(size = 16)),
              
              annotations = list(
                list(x = c(input$thresh),
@@ -136,7 +142,7 @@ p5 <- layout(p4,
                     ax = -60,
                     arrowhead = 0,
                     arrowcolor = 'red')),
-             font = list(size = 14))
+             font = list(size = 16))
 })
     output$howtomtbf <- renderUI({HTML(
 '<li>R, like most languages, does not maximize functions - but <red>minimizes</red> them</li>

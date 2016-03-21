@@ -42,7 +42,7 @@ legend('topleft',
          expression('exp('*mu*'),'*sigma*' = 500,2'),
          expression('exp('*mu*'),'*sigma*' = 500,1')),
        lty = 1,col = c(1:3),lwd = 2, bty = 'n')"),
-              actionButton("evalplots", h4("Evaluate"))),
+              actionButton("evalplots", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("lnorm", height = "600px")))),
 

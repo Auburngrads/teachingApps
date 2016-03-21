@@ -30,7 +30,7 @@ text(c(100,650),c(4,2.5),
      c(expression(theta*', '*gamma*' = 50, 0'),
        expression(theta*', '*gamma*' = 200, 0')))
 box(lwd=1.25)"),
-              actionButton("evalplots", h4("Evaluate"))),
+              actionButton("evalplots", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("exp", height = "600px")))),
 
