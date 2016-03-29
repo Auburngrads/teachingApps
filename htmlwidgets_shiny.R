@@ -10,6 +10,7 @@ function(...) {
   library(parcoords)
   library(taucharts)
   library(htmlwidgets)
+  library(plotly)
 
 shinyApp(options = list(height = '800px', width = '100%'),
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
@@ -47,7 +48,37 @@ ui = navbarPage(theme = shinythemes::shinytheme('flatly'),
   
   tabPanel(h4("D3heatmap"),
   fluidPage(
-    mainPanel(d3heatmapOutput("d3heatmap", height = '650px'), width = 12)))),
+    mainPanel(d3heatmapOutput("d3heatmap", height = '650px'), width = 12))),
+  
+  tabPanel(h4('Plotly'),
+         sidebarLayout(
+           sidebarPanel(width = 3,
+             sliderInput('ttt', h4('Available Test Time'), 
+                          min = 100, 
+                          max = 1000, 
+                          step = 10, 
+                          value = 400),
+             sliderInput('fails', h4('Failures Allowed'), 
+                          min = 0, 
+                          max = 30, 
+                          step = 1, 
+                          value = 1),
+             sliderInput('thresh', h4('Threshold MTBF'), 
+                          min = 10, 
+                          max = 500, 
+                          step = 5, 
+                          value = 40),
+             sliderInput('objective', h4('Objective MTBF'), 
+                          min = 10, 
+                          max = 500, 
+                          step = 5, 
+                          value = 70),
+             sliderInput('contract', h4('Contract MTBF'), 
+                          min = 10, 
+                          max = 500, 
+                          step = 5, 
+                          value = 90)),
+           mainPanel(plotlyOutput('mtbf', height = '650px'),width = 9)))),
 
 server = function(input, output, session) {
   
@@ -76,8 +107,8 @@ server = function(input, output, session) {
   output$leaflet <- renderLeaflet({
     
       leaflet() %>%
-      addTiles() %>%  
-      addMarkers(c(lng=-84.084253,-84.083084), lat=c(39.783018,39.782334), 
+      addTiles() %>%   
+      addMarkers(c(lng=-84.309820,-84.311226), lat=c(39.350752,39.351341), 
                  popup=c("We Are Here", "Ok, We're Really Here"))
 })
   output$threejs <- renderGlobe({
@@ -113,6 +144,93 @@ dmd <- diamonds[sample(1:nrow(diamonds),1000),] %>%
   output$d3heatmap <- renderD3heatmap({
     
     d3heatmap(mtcars, scale = "column", colors = "Spectral")
+})
+  output$mtbf <- renderPlotly({
+
+mtbf <- seq(1,500,1)
+accept <- ppois(input$fails, input$ttt/mtbf)
+datas <- data.frame(mtbf, accept) 
+
+observe({
+
+if(input$thresh>=input$objective) { 
+
+   updateSliderInput(session, "objective", value = input$thresh+5) } 
+
+if(input$objective>=input$contract) { 
+
+   updateSliderInput(session, "contract", value = input$objective+5) }
+  
+})
+
+p1 <- plot_ly(datas, 
+              x = mtbf, 
+              y = accept, 
+              showlegend = T, 
+              name = 'Pr(accept)', 
+              text = paste(
+'Pr(accept) = ', round(accept, digits = 5),'<br>',
+'True MTBF = ', mtbf,'<br>',
+'Allowed Failures = ', input$fails,'<br>',
+'Total Test Time = ', input$ttt),
+              hoverinfo = 'markers+text')
+p2 <- add_trace(p1,
+                x = rep(input$thresh,2), 
+                y = c(0,ppois(input$fails, input$ttt/input$thresh)),
+                showlegend = T,
+                name = 'Threshold',
+                hoverinfo = 'text',
+                marker = list(size = 10, color = 'orange'))
+p3 <- add_trace(p2,
+                x = rep(input$objective,2), 
+                y = c(0,ppois(input$fails, input$ttt/input$objective)),
+                showlegend = T,
+                name = 'Objective',
+                hoverinfo = 'text',
+                marker = list(size = 10, color = 'green'))
+p4 <- add_trace(p3,
+                x = rep(input$contract,2), 
+                y = c(0,ppois(input$fails, input$ttt/input$contract)),
+                showlegend = T,
+                name = 'Contract',
+                hoverinfo = 'text',
+                marker = list(size = 10, color = 'red'))
+p5 <- 
+  layout(p4,
+         yaxis = list(title = "Probability of Acceptance - Pr(accept)",
+                      range = extendrange(c(0,ppois(input$fails,
+                                                    input$ttt/input$contract)*1.25)),
+                      titlefont = list(size = 16)),
+         xaxis = list(title = 'True System Reliability - MTBF',
+                      range = extendrange(c(input$thresh,input$contract), f = .5),
+                      titlefont = list(size = 16)),
+             
+             annotations = list(
+               list(x = c(input$thresh),
+                    y = ppois(input$fails, input$ttt/input$thresh),
+                    text = 'Threshold ',
+                    showarrow = T,
+                    ay = -40,
+                    ax = -40,
+                    arrowhead = 0,
+                    arrowcolor = 'orange'),
+               list(x = input$objective,
+                    y = ppois(input$fails, input$ttt/input$objective),
+                    text = "Objective",
+                    showarrow = T,
+                    ay = -60,
+                    ax = -50,
+                    arrowhead = 0,
+                    arrowcolor = 'green'),
+               list(x = input$contract,
+                    y = ppois(input$fails, input$ttt/input$contract),
+                    text = "Contract",
+                    showarrow = T,
+                    ay = -80,
+                    ax = -60,
+                    arrowhead = 0,
+                    arrowcolor = 'red')),
+             font = list(size = 16))
 })
 })
 }

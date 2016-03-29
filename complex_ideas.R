@@ -13,7 +13,7 @@ function(...) {
 ############################################################
 ## ui
 ############################################################
-shinyApp(options = list(width = "100%", height = "800px"),
+shinyApp(options = list( height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
                 includeCSS('css/my-shiny.css'),
                 
@@ -117,7 +117,29 @@ sidebarLayout(
     
     actionButton('clear',h4('Clear All Samples'), width = '100%')),
   
-  mainPanel(plotOutput('plotmle', height = '650px'), width = 9)))),
+  mainPanel(plotOutput('plotmle', height = '650px'), width = 9))),
+
+tabPanel(h4('Dice Roll'),
+         sidebarLayout(
+            sidebarPanel(width = 3,
+            selectInput('rv.func', label = h2('Random Variable'),
+                  choices = c('Sum of Rolls', 'Product of Rolls', 'Difference of Rolls'), 
+                  selected = 'Sum of Rolls'),
+                         
+            numericInput('no.dice', label = h2('Number Of Rolls'), 
+                        min = 1, max = 4, value = 1),
+              
+            numericInput('no.sides', label = h2('Number Of Sides'), 
+                          min = 4, max = 20, value = 6)),
+          
+          mainPanel(width = 9,
+                    tabsetPanel(
+                      tabPanel(h4("Outcomes"), 
+                               DT::dataTableOutput("results", height = "550px")),
+                      tabPanel(h4('Borel Algegra'),
+                               plotOutput('diceresults', height = '550px')),
+                      tabPanel(h4('Probabilities'),
+                               plotOutput('diceprobs', height = '550px'))))))),
 
 server = function(input, output, session) {
 
@@ -272,13 +294,13 @@ switch(input$distro1,
   mtext(side = 2, expression(Phi[SEV](t[p])),line = 2,cex = 1.3)
     switch(input$axis1, 
       "True Axis" = {
-        axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-        mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),            
-              round(qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)     },
+        axis( side=2, labels=NA, at=SMRD::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+        mtext(side=2, at=SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),            
+              round(SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)     },
 
       "Transformed Axis" = {
-        axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-        mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
+        axis( side=2, labels=NA, at=SMRD::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+        mtext(side=2, at=SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
                            c(".01",".05",".1",".2",".5",".9",".97"),line=.75) })
 }, "Normal" = {
 
@@ -322,7 +344,7 @@ switch(input$distro1,
   
 }, "LEV" = {
 
-  LLEV<-qlev(CDF)
+  LLEV<-SMRD::qlev(CDF)
   plot(NA,xlim=range(1,100),ylim=range(LLEV),ylab="",xlab="",axes=FALSE)
   box(lwd=1.25)
   abline(h=LLEV, lty=2,col="steelblue")
@@ -332,13 +354,13 @@ switch(input$distro1,
 
   switch(input$axis1, 
          "True Axis" = {
-           axis( side=2, labels=NA, at=qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=qlev(c(.01,.05,.1,.2,.5,.9,.97)),               
-                    round(qlev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
+           axis( side=2, labels=NA, at=SMRD::qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),               
+                    round(SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
 
          "Transformed Axis" = {
-           axis( side=2, labels=NA, at=qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=qlev(c(.01,.05,.1,.2,.5,.9,.97)),  
+           axis( side=2, labels=NA, at=SMRD::qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),  
                            c(".01",".05",".1",".2",".5",".9",".97"),line=.75) })
   
 }, "Exponential" = {
@@ -377,13 +399,13 @@ switch(input$distro2,
 
   switch(input$axis2, 
          "True Axis" = {
-           axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),               
-                    round(qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
+           axis( side=2, labels=NA, at=SMRD::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),               
+                    round(SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
 
          "Transformed Axis" = {
-           axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
+           axis( side=2, labels=NA, at=SMRD::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
                            c(".01",".05",".1",".2",".5",".9",".97"),line=.75) })
   
 }, "Normal" = {
@@ -430,7 +452,7 @@ switch(input$distro2,
   
 }, "LEV" = {
 
-  LLEV<-qlev(CDF)
+  LLEV<-SMRD::qlev(CDF)
   plot(NA,xlim=range(1,100),ylim=range(LLEV),ylab="",xlab="",axes=FALSE)
   box(lwd=1.25)
   abline(h=LLEV, lty=2,col="steelblue")
@@ -440,13 +462,13 @@ switch(input$distro2,
 
   switch(input$axis2, 
          "True Axis" = {
-           axis( side=2, labels=NA, at=qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=qlev(c(.01,.05,.1,.2,.5,.9,.97)),               
-                    round(qlev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
+           axis( side=2, labels=NA, at=SMRD::qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),               
+                    round(SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
 
          "Transformed Axis" = { 
-           axis( side=2, labels=NA, at=qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=qlev(c(.01,.05,.1,.2,.5,.9,.97)),  
+           axis( side=2, labels=NA, at=SMRD::qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),  
                            c(".01",".05",".1",".2",".5",".9",".97"),line=.75) })
   
 }, "Exponential" = {
@@ -493,7 +515,8 @@ PLOT <- switch (input$w,
                 'CDF' = {
   mjs_plot(weib.df, x = Time, y = CDF, decimals = 4, top = 0) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'F(t)')},
+  mjs_labs(x_label = 'Time', y_label = 'F(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint {font-size: 20pt}")},
   
                 'PDF' = {
   mjs_plot(weib.df, x = Time, y = PDF, decimals = 4) %>%
@@ -503,17 +526,20 @@ PLOT <- switch (input$w,
                 'Survival' = {
   mjs_plot(weib.df, x = Time, y = REL, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'S(t)')},
+  mjs_labs(x_label = 'Time', y_label = 'S(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint {font-size: 20pt}")},
   
                 'Hazard' = {
   mjs_plot(weib.df, x = Time, y = haz, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'h(t)') },
+  mjs_labs(x_label = 'Time', y_label = 'h(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint {font-size: 20pt}") },
   
                 'Cum Hazard' = {
   mjs_plot(weib.df, x = Time, y = HAZ, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'H(t)') }) ; PLOT
+  mjs_labs(x_label = 'Time', y_label = 'H(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint {font-size: 20pt}") }) ; PLOT
 
 })
 
@@ -669,6 +695,101 @@ axis(side = 2,
      col = c('blue','darkgreen','red'), 
      tck = 0)
 } 
+})
+dice   <- reactive({ as.numeric(input$no.dice) })
+sides  <- reactive({ as.numeric(input$no.sides) })
+fun    <- reactive({ switch(input$rv.func, 'Sum of Rolls' = 'sum',
+                                'Product of Rolls' = 'prod',
+                                'Difference of Rolls' = 'diff')})
+events <- reactive({ unique(combn(rep(1:sides(),dice()),dice(), simplify = FALSE))})
+omega  <- reactive({ as.numeric(attr(table(unlist(lapply(events(), FUN = fun()))),'dimnames')[[1]])})
+counts <- reactive({ table(unlist(lapply(events(), FUN = fun()))) })
+data   <- reactive({ rep(omega(),counts()) })
+  
+output$results <- DT::renderDataTable({ 
+
+if(dice()==1 & as.character(fun())=='diff') { 
+  
+  cat('\nHow do you expect to find the difference with only one number?\n')
+  
+} else {
+  
+outcomes <- list()
+
+for (i in 1:length(omega())) {
+    
+outcomes[[i]] <-lapply(events()[which(unlist(lapply(events(), fun()))==omega()[i])], 
+                       FUN = function(x)  noquote(paste(c(x), collapse = ',')))
+}
+
+Outcomes <-matrix(sort(noquote(unlist(outcomes))), byrow = FALSE, 
+                  nrow = length(unlist(outcomes))/sides())
+
+  
+  DT::datatable(Outcomes,options = list(pageLength = sides())) 
+}
+}) 
+  
+output$diceresults <- renderPlot({
+
+if(dice()==1 & as.character(fun())=='diff') { 
+  
+  cat('\nHow do you expect to find the difference with only one number?\n')
+  
+} else {
+  
+par(mar = c(5,4.5,0,1), font = 2, cex = 1.1, family = 'serif')
+
+hist(data(), 
+     breaks = (min(omega())-0.5):(max(omega())+0.5), 
+     xlim = extendrange(omega()), main = '', las = 1, 
+     col = rainbow(length(omega())), 
+     xlab = toupper(paste(c(fun(),' of ',dice(),' dice rolls (', sides(),'-sided die)'), collapse = '')), 
+     xaxt = 'n')
+
+axis(side = 1, labels = omega(), at = omega())
+
+if (sides() <= 8 & as.character(fun())=='sum') {
+
+for (i in 1:length(omega())) {
+  
+  text(x = rep( omega()[i],counts()[i]), 
+       y = 0.5:counts()[ i], 
+       lapply(events()[which(unlist(lapply(events(), fun()))==omega()[i])], 
+              FUN = function(x) noquote(paste(c(x), collapse = ','))), 
+       cex = sqrt(6/sides()))
+}}}
+})
+      
+output$diceprobs <- renderPlot({
+
+if(dice()==1 & as.character(fun())=='diff') { 
+  
+  cat('\nHow do you expect to find the difference with only one number?\n')
+  
+} else {
+  
+hist(data(), 
+     breaks = (min(omega())-0.5):(max(omega())+0.5), 
+     xlim = extendrange(omega()), main = '', las = 1, 
+     col = rainbow(length(omega())), 
+     xlab = toupper(paste(c(fun(),' of ',dice(),' dice rolls (', sides(),'-sided die)'), collapse = '')), 
+     xaxt = 'n', 
+     prob = TRUE, 
+     ylim = extendrange(c(0,max(counts())/sum(counts()))*1.1))
+
+axis(side = 1, labels = omega(), at = omega())
+
+if (!((dice()>= 3 | sides() > 8) & as.character(fun())=='prod')) {
+
+for (i in 1:length(omega())) {
+  
+  text(x = omega()[i], 
+       y = (counts()[i]/sum(counts())), 
+       round(counts()[i]/sum(counts()), digits = 3), 
+       cex = (10/sides())-(2/sides()), srt = 90, adj = -0.1,
+       col = rainbow(length(omega()))[i], font = 2)
+}}}
 })
 }) 
 }
