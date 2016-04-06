@@ -4,61 +4,76 @@ function(...) {
   library(shiny)
   library(metricsgraphics)
   
-shinyApp(options = list(width = "100%", height = "600px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"),"",
+shinyApp(options = list(height = "700px"),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
+               includeCSS("css/my-shiny.css"),
 sidebarLayout(
-sidebarPanel(width = 3,
-  selectInput("n", label = h2(HTML("<b>Function</b>")),
-              choices = c("CDF","PDF","Survival","Hazard","Cum Hazard"), 
-  selected = "CDF"),
+sidebarPanel(width = 3, hr(),
   
-  sliderInput("range.n", label =h2(HTML("<b>Range</b>")),
+  sliderInput("range.n", label = h2("Range"),
               min = -20, max = 20, value = c(-4,4)),
-  numericInput("mu.n", label = h2(HTML("<b>Mean (&mu;)</b>")),
-              min = -3, max = 3, step = 0.5, value = 0),
-  numericInput("sig.n", label = h2(HTML("<b>Std Dev (&sigma;)</b>")),
-              min = 0.5, max = 5, step = 0.5, value = 1 )),
+  hr(),
+  sliderInput("mu.n", label = h2(HTML("Mean (&mu;)")),
+              min = -3, max = 3, step = 0.5, value = 0, animate = T),
+  hr(),
+  sliderInput("sig.n", label = h2(HTML("Std Dev (&sigma;)")),
+              min = 0.5, max = 5, step = 0.5, value = 1, animate = T)),
 
-mainPanel(metricsgraphicsOutput("plotnorm", height = "600px"),width = 9))),
+mainPanel(width = 9,
+ tabsetPanel(type = 'pills',
+  tabPanel(h4('Distribution Function'),metricsgraphicsOutput("norC",height = "600px")),
+  tabPanel(h4('Density'),    metricsgraphicsOutput("norP",height = "600px")),
+  tabPanel(h4('Survival'),               metricsgraphicsOutput("norR",height = "600px")),
+  tabPanel(h4('Hazard'),                 metricsgraphicsOutput("norh",height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("norH",height = "600px")),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("norQ",height = "600px")))))),
 
 server = function(input, output, session) {
-  
-output$plotnorm <- renderMetricsgraphics({
 
-Time<-signif(seq(min(input$range.n), max(input$range.n), length = 500),digits = 4)
-CDF <- pnorm(Time,mean=input$mu.n,sd=input$sig.n)
-PDF <- dnorm(Time,mean=input$mu.n,sd=input$sig.n)
-REL <- 1-CDF
-haz <- PDF/REL
-HAZ <- -1*log(1-pnorm(Time,mean=input$mu.n,sd=input$sig.n))
+t <- reactive({ signif(seq(min(input$range.n), max(input$range.n), length = 500), digits = 4)})
+p <- signif(seq(0, 1, length = 500), digits = 4) 
+C <- reactive({ pnorm(t(), input$mu.n, input$sig.n)})
+P <- reactive({ dnorm(t(), input$mu.n, input$sig.n)})
+R <- reactive({ 1-C()})
+h <- reactive({ exp(log(P())/log(R()))})
+H <- reactive({ -1*log(1-pnorm(t(), input$mu.n, input$sig.n))})
+Q <- reactive({ qnorm(p, input$mu.n, input$sig.n)})
+df <- reactive({data.frame(Time = t(),PROB = p, CDF = C(),PDF = P(),REL = R(),haz = h(),HAZ = H(), QUANT = Q())})
 
-norm.df <- data.frame(Time, CDF, PDF, REL, haz, HAZ)
-PLOT.norm <- switch (input$n, 
-                'CDF' = {
-  mjs_plot(norm.df, x = Time, y = CDF, decimals = 4, top = 0) %>%
+  output$norC <- renderMetricsgraphics({
+  mjs_plot(df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'F(t)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")},
+  mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
   
-                'PDF' = {
-  mjs_plot(norm.df, x = Time, y = PDF, decimals = 4) %>%
+  output$norP <- renderMetricsgraphics({
+  mjs_plot(df(), x = Time, y = PDF, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'f(t)') },
+  mjs_labs(x_label = 'Time (t)', y_label = 'f(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
   
-                'Survival' = {
-  mjs_plot(norm.df, x = Time, y = REL, decimals = 4) %>%
+  output$norR <- renderMetricsgraphics({
+  mjs_plot(df(), x = Time, y = REL, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'S(t)')},
+  mjs_labs(x_label = 'Time (t)', y_label = 'S(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
   
-                'Hazard' = {
-  mjs_plot(norm.df, x = Time, y = haz, decimals = 4) %>%
+  output$norh <- renderMetricsgraphics({
+  mjs_plot(df(), x = Time, y = haz, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'h(t)') },
+  mjs_labs(x_label = 'Time (t)', y_label = 'h(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
   
-                'Cum Hazard' = {
-  mjs_plot(norm.df, x = Time, y = HAZ, decimals = 4) %>%
+  output$norH <- renderMetricsgraphics({
+  mjs_plot(df(), x = Time, y = HAZ, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'H(t)') }) ; PLOT.norm
-}) 
+  mjs_labs(x_label = 'Time (t)', y_label = 'H(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
+  
+  output$norQ <- renderMetricsgraphics({
+  mjs_plot(df(), x = PROB, y = QUANT, decimals = 4) %>%
+  mjs_line(area = TRUE) %>%
+  mjs_labs(x_label = 'Probability', y_label = 'q(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
 })
 }

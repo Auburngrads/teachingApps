@@ -4,60 +4,75 @@ function(...) {
   library(shiny)
   library(metricsgraphics)
   
-shinyApp(options = list(width = "100%", height = "600px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"),"",
+shinyApp(options = list(height = "700px"),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
 sidebarLayout(
-sidebarPanel(width = 3,
-  selectInput("w", label = h2(HTML("<b>Function</b>")),
-              choices = c("CDF","PDF","Survival","Hazard","Cum Hazard"), selected = "CDF"),
-  
-sliderInput("range.w", label = h2(HTML("<b>Range</b>")),  min = 0, max = 50, value = c(0,25)),
-numericInput("scale.w", label = h2(HTML("<b>Scale (&eta;)</b>")),  
-            min = 5, max = 30, step = 1, value = 10),
-numericInput("shape.w", label = h2(HTML("<b>Shape (&beta;)</b>")),  
-            min = .5, max = 10, step = .5, value = .5)),
+sidebarPanel(width = 3, hr(),
+  sliderInput("range.w", label = h2("Range"),  min = 0, max = 50, value = c(0,25)),
+  hr(),
+  sliderInput("scale.w", label = h2(HTML("Scale (&eta;)")),  
+            min = 5, max = 30, step = 1, value = 10, animate = T),
+  hr(),
+  sliderInput("shape.w", label = h2(HTML("Shape (&beta;)")),  
+            min = .5, max = 10, step = .5, value = .5, animate = T)),
 
-mainPanel(metricsgraphicsOutput("plotweib", height = "600px"),width = 9))),
+mainPanel(width = 9,
+ tabsetPanel(type = 'pills',
+  tabPanel(h4('Distribution Function'),metricsgraphicsOutput("weibC",height = "600px")),
+  tabPanel(h4('Density'),    metricsgraphicsOutput("weibP",height = "600px")),
+  tabPanel(h4('Survival'),               metricsgraphicsOutput("weibR",height = "600px")),
+  tabPanel(h4('Hazard'),                 metricsgraphicsOutput("weibh",height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("weibH",height = "600px")),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("weibQ",height = "600px")))))),
 
-server = function(input,output,session) {
-  
-output$plotweib <- renderMetricsgraphics({
+server = function(input, output, session) {
 
 weibhaz <-function(x,sc, sh) {sh/sc*(x/sc)^(sh-1)}
-Time<-signif(seq(min(input$range.w), max(input$range.w), length = 500),digits = 4)
-CDF <- pweibull(Time,sc=input$scale.w,sh=input$shape.w)
-PDF <- dweibull(Time,sc=input$scale.w,sh=input$shape.w)
-REL <- 1-CDF
-haz <- weibhaz(Time, sc=input$scale.w,sh=input$shape.w)
-HAZ <- -1*log(1-pweibull(Time,sc=input$scale.w,sh=input$shape.w))
+  
+t = reactive({ signif(seq(min(input$range.w), max(input$range.w), length = 500), digits = 4)})
+p <- signif(seq(0, 1, length = 500), digits = 4) 
+C <- reactive({ pweibull(t(), input$shape.w, input$scale.w)})
+P <- reactive({ dweibull(t(), input$shape.w, input$scale.w)})
+R <- reactive({ 1-C()})
+h <- reactive({ weibhaz(t(), input$scale.w, input$shape.w)})
+H <- reactive({ -1*log(1-pweibull(t(), input$shape.w, input$scale.w))})
+Q <- reactive({ qweibull(p, input$shape.w, input$scale.w)})
+df <- reactive({data.frame(Time = t(),PROB = p, CDF = C(),PDF = P(),REL = R(),haz = h(),HAZ = H(), QUANT = Q())})
 
-weib.df <- data.frame(Time, CDF, PDF, REL, haz, HAZ)
-PLOT.w <- switch (input$w, 
-                'CDF' = {
-  mjs_plot(weib.df, x = Time, y = CDF, decimals = 4, top = 0) %>%
+  output$weibC <- renderMetricsgraphics({
+  mjs_plot(df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'F(t)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")},
+  mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
   
-                'PDF' = {
-  mjs_plot(weib.df, x = Time, y = PDF, decimals = 4) %>%
+  output$weibP <- renderMetricsgraphics({
+  mjs_plot(df(), x = Time, y = PDF, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'f(t)') },
+  mjs_labs(x_label = 'Time (t)', y_label = 'f(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
   
-                'Survival' = {
-  mjs_plot(weib.df, x = Time, y = REL, decimals = 4) %>%
+  output$weibR <- renderMetricsgraphics({
+  mjs_plot(df(), x = Time, y = REL, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'S(t)')},
+  mjs_labs(x_label = 'Time (t)', y_label = 'S(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
   
-                'Hazard' = {
-  mjs_plot(weib.df, x = Time, y = haz, decimals = 4) %>%
+  output$weibh <- renderMetricsgraphics({
+  mjs_plot(df(), x = Time, y = haz, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'h(t)') },
+  mjs_labs(x_label = 'Time (t)', y_label = 'h(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
   
-                'Cum Hazard' = {
-  mjs_plot(weib.df, x = Time, y = HAZ, decimals = 4) %>%
+  output$weibH <- renderMetricsgraphics({
+  mjs_plot(df(), x = Time, y = HAZ, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time', y_label = 'H(t)') }) ; PLOT.w 
-})
+  mjs_labs(x_label = 'Time (t)', y_label = 'H(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
+  
+  output$weibQ <- renderMetricsgraphics({
+  mjs_plot(df(), x = PROB, y = QUANT, decimals = 4) %>%
+  mjs_line(area = TRUE) %>%
+  mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
 })
 }

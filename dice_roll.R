@@ -10,7 +10,7 @@ shinyApp(options = list(height = '650px', width = '100%'),
                   choices = c('Sum of Rolls', 'Product of Rolls', 'Difference of Rolls'), 
                   selected = 'Sum of Rolls'),
                          
-            numericInput('no.dice', label = h2('<b>Number Of Rolls'), 
+            numericInput('no.dice', label = h2('Number Of Rolls'), 
                         min = 1, max = 4, value = 1),
               
             numericInput('no.sides', label = h2('Number Of Sides'), 
