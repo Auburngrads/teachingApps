@@ -3,7 +3,7 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(width = "99%", height = "800px"),
+shinyApp(options = list(width = "100%", height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
 
 tabPanel(h4("Data Set"), DT::dataTableOutput("printedcircuitboard", height = "600px")),
@@ -23,7 +23,7 @@ text(x = c(50,63,75,82),
        '11/68 censored',
        '0/70 censored',
        '0/70 censored'))"),
-              actionButton("evalfig9", h4("Evaluate"))),
+              actionButton("evalfig9", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotfig9", height = "600px"), width = 7)))),
 

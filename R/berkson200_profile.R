@@ -3,7 +3,7 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(height = '600px', width = '99%'),
+shinyApp(options = list(height = '600px'),
       
   ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
                      includeCSS('css/my-shiny.css'),
@@ -37,7 +37,7 @@ one.dim.profile(berkson200.mle.exp,
 ### NOTE: `one.dim.profile` will give the upper and 
 ###        lower confidence limits if `print.ci = TRUE`"),
 
-actionButton("berk200profiles", h4("Evaluate")), width = 5),
+actionButton("berk200profiles", h4("Evaluate"), width = '100%'), width = 5),
         
         mainPanel(plotOutput("berk200prof", height = "600px"), width = 7))),
 

@@ -1,0 +1,124 @@
+.navbar-static-top {
+
+border-radius: 100px;
+width: 99%;
+margin: 15px 0.5% 15px 0.5%;
+
+}
+
+body {
+
+margin: 0 0 0 0;
+}
+
+h4 {
+  
+  font-size: 20pt;
+  font-weight: bold;
+  
+}
+
+h2 {
+  
+  font-size: 26pt;
+  font-size: bold;
+  
+}
+
+red    {  color: red;     font-weight: bold; }
+blue   {  color: blue;    font-weight: bold; }
+green  {  color: green;   font-weight: bold; }
+purple {  color: purple;  font-weight: bold; }
+orange {  color: orange;  font-weight: bold; }
+brown  {  color: brown;   font-weight: bold; }
+
+/* Data Table CSS Settings */
+
+table.dataTable th.dt-right, table.dataTable td.dt-right {
+  
+  font-size: 130%;
+}
+
+table.dataTable th, table.dataTable td {
+  
+  font-size: 130%;
+}
+
+table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+  
+  font-size: 130%;
+}
+
+.CodeMirror {
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+pre {
+  
+  background-color: #FFF;
+  font-family: monospace;
+}
+
+.shiny-text-output {
+  
+  font-weight: bold;
+  font-size: 20pt;
+  color: #2C3E50;
+  
+}
+
+focus  {  background-color: #F39C12; 
+          border-color: orange;
+          border-radius: 10px;
+          padding: 4.5px 8px 6.5px 8px;
+          white-space: nowrap;
+}
+
+.shiny-text-output li {  
+  
+  margin: 30px 0 30px 0;
+}
+
+code {
+  font-size: 22pt;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  color: red;
+  font-weight: normal;
+  background-color: #e6e6e6;
+  padding: 2px 5px 2px 5px;
+  border-radius: 5px;
+}
+
+.plot-container-plotly g.infolayer {
+  font-size: 20px;
+}
+
+.plot-container-plotly .svg-container svg.main-svg g.infolayer {
+  font-size: 20px;
+}
+
+plotlybox {
+  
+  display: block;
+  width: 30px;
+  text-align: left;
+  
+}
+
+p {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.MathJax_SVG_Display  {
+  
+  font-size: 110%;
+  color: #1a252f;
+}
+
+.MathJax_Display  {
+  
+  font-size: 150%;
+  color: #1a252f;
+}

@@ -30,7 +30,7 @@ diagram::plotmat(A = AA, pos = 4, curve = .575,
          arr.width = 0.25, my = .15, box.size = 0.08, 
          arr.type = 'triangle', dtext = -1,
          relsize=.99, box.cex=1.5, cex=1.25)"),
-              actionButton("evalreal", h4("Evaluate"))),
+              actionButton("evalreal", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotreal", height = "600px"), width = 7))),
 

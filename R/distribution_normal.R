@@ -22,11 +22,11 @@ sidebarPanel(width = 3, hr(),
 mainPanel(width = 9,
  tabsetPanel(type = 'pills',
   tabPanel(h4('Distribution Function'),metricsgraphicsOutput("norC",height = "600px")),
-  tabPanel(h4('Density'),    metricsgraphicsOutput("norP",height = "600px")),
-  tabPanel(h4('Survival'),               metricsgraphicsOutput("norR",height = "600px")),
-  tabPanel(h4('Hazard'),                 metricsgraphicsOutput("norh",height = "600px")),
-  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("norH",height = "600px")),
-  tabPanel(h4('Quantile'),               metricsgraphicsOutput("norQ",height = "600px")))))),
+  tabPanel(h4('Density'),              metricsgraphicsOutput("norP",height = "600px")),
+  tabPanel(h4('Survival'),             metricsgraphicsOutput("norR",height = "600px")),
+  tabPanel(h4('Hazard'),               metricsgraphicsOutput("norh",height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),    metricsgraphicsOutput("norH",height = "600px")),
+  tabPanel(h4('Quantile'),             metricsgraphicsOutput("norQ",height = "600px")))))),
 
 server = function(input, output, session) {
 

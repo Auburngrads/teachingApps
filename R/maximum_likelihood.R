@@ -4,7 +4,7 @@ function(...) {
   library(shiny)
   library(scales)
   
-shinyApp(options = list(width = "99%", height = "800px"),
+shinyApp(options = list( height = "800px"),
          
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
                 includeCSS('css/my-shiny.css'),

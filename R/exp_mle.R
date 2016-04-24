@@ -3,7 +3,7 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(height = '600px', width = '99%'),
+shinyApp(options = list(height = '600px'),
   
   ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
     sidebarLayout(
@@ -34,7 +34,7 @@ text(x = sum(obs)/2,
                                    sum(obs)/2), 
                                  collapse = '~')),
      adj = 0)"),
-actionButton("mlexpplots", h4("Evaluate")), width = 5),
+actionButton("mlexpplots", h4("Evaluate"), width = '100%'), width = 5),
         
         mainPanel(plotOutput("mlexp", height = "600px"), width = 7))),
 

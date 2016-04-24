@@ -26,7 +26,7 @@ diagram::plotmat(A = AA, pos = 3, curve = .575,
          arr.width = 0.25, my = .25, box.size = 0.08, 
          arr.type = 'triangle', dtext = -1,
          relsize=.99, box.cex=1.5, cex=1.25)"),
-              actionButton("evalreplace", h4("Evaluate"))),
+              actionButton("evalreplace", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotreplace", height = "600px"), width = 7))),
 

@@ -3,7 +3,7 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(height = '800px', width = '99%'),
+shinyApp(options = list(height = '800px'),
     
   ui = navbarPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
        tabPanel(h4('Numerical Solution'),
@@ -34,7 +34,7 @@ nlminb(start = runif(2, 1.5, 4.2),
        objective = joint.prob, 
        x = obs)[1:5]"),
 
-actionButton("mlsolnum", h4("Evaluate")), width = 6),
+actionButton("mlsolnum", h4("Evaluate"), width = '100%'), width = 6),
         
         mainPanel(verbatimTextOutput("mlsolns"), width = 6))),
 
@@ -57,7 +57,7 @@ simple.contour(obs.ld,
                do.persp = T,
                factor = 2)"),
 
-actionButton("mlsolplot", h4("Evaluate")), width = 6),
+actionButton("mlsolplot", h4("Evaluate"), width = '100%'), width = 6),
         
         mainPanel(plotOutput("mlplots", height = '600px'), width = 6))),
 

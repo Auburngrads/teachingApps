@@ -3,7 +3,7 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(height = '750px', width = '99%'),
+shinyApp(options = list(height = '750px'),
     
   ui = navbarPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
        tabPanel(h4('Numerical Solution'),
@@ -31,7 +31,7 @@ nlminb(start = 4,
 
 ## Why is $objective negative?"),
 
-actionButton("mlexpnums", h4("Evaluate")), width = 6),
+actionButton("mlexpnums", h4("Evaluate"), width = '100%'), width = 6),
         
         mainPanel(verbatimTextOutput("mlexp2"), width = 6))),
 

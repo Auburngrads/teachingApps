@@ -3,7 +3,7 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(width = "99%", height = "800px"), 
+shinyApp(options = list(width = "100%", height = "800px"), 
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
 
 tabPanel(h4("Data Set"), DT::dataTableOutput("lzbearing", height = "600px")),
@@ -21,7 +21,7 @@ hist(lzbearing$megacycles,
      prob=TRUE,
      main='Figure 1.1 - Histogram of the ball bearing failure data',
      las = 1)"),
-              actionButton("evalfig1", h4("Evaluate"))),
+              actionButton("evalfig1", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotfig1", height = "600px"), width = 7))),
 
@@ -37,7 +37,7 @@ lzbearing.ld <- frame.to.ld(lzbearing,
                             time.units = 'Megacycles')
 
 event.plot(lzbearing.ld)"),
-              actionButton("evalfig2", h4("Evaluate"))),
+              actionButton("evalfig2", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotfig2", height = "600px"), width = 7)))),
 

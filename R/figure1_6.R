@@ -3,7 +3,7 @@ function(...) {
   
   library(shiny)
   
-shinyApp(options = list(width = "99%", height = "800px"),
+shinyApp(options = list(width = "100%", height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
 
 tabPanel(h4("Data Set"), DT::dataTableOutput("heatexchanger", height = "575px")),
@@ -58,7 +58,7 @@ arrows(x0 = rep(345,3),
        y0 = seq(56,256,100),
        x1 = rep(350,3),
        length=rep(0.1,3))"),
-              actionButton("evalfig6", h4("Evaluate"))),
+              actionButton("evalfig6", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotfig6", height = "600px"), width = 7))),
                 
@@ -112,7 +112,7 @@ arrows(x0 = rep(345,3),
        y0 = seq(56,256,100),
        x1 = rep(350,3),
        length=rep(0.1,3))"),
-              actionButton("evalfig7", h4("Evaluate"))),
+              actionButton("evalfig7", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotfig7", height = "600px"), width = 7)))),
 

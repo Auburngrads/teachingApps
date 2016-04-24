@@ -1,6 +1,6 @@
 figure7_1 <-
 function(...) {
-shinyApp(options = list(height = '725px', width = '99%'),
+shinyApp(options = list(height = '725px'),
   ui =navbarPage(theme = shinythemes::shinytheme('flatly'), 
                 includeCSS('css/my-shiny.css'),
     tabPanel(h4('Figure 7.1'),
