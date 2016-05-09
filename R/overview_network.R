@@ -1,8 +1,8 @@
 overview_network <-
 function(...) {
 
-library(shiny)
-library(visNetwork)
+requireNamespace('shiny')
+requireNamespace('visNetwork')
 
 shinyApp(options = list(height = '600px'),
          
@@ -52,7 +52,7 @@ edges <- data.frame(from = rep(1:5, times = c(4,4,4,4,4)), to = 2:length(unlist(
 visNetwork::visNetwork(nodes, edges, width = "100%", height = '100%') %>%
   #visNodes(id = 'DATA SCIENCE',shape = "icon",icon = list(code = "f091", size = 100)) %>%
   visNetwork::addFontAwesome() %>%
-  visOptions(highlightNearest = list(enabled =TRUE, degree = 0)) %>% visInteraction(navigationButtons = TRUE)
+  visNetwork::visOptions(highlightNearest = list(enabled =TRUE, degree = 0)) %>% visNetwork::visInteraction(navigationButtons = TRUE)
 })
 })
 }

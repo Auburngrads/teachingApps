@@ -5,14 +5,14 @@ function(...) {
   library(scales) # for transparency in density-plot fill
   library(metricsgraphics)
 
-############################################################
-## Set up the gamma-distributed population
-###########################################################
+##############################################
+### Set up the gamma-distributed population
+############################################
 
 
-############################################################
-## ui
-############################################################
+##############################################
+### ui
+##############################################
 shinyApp(options = list( height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
                 includeCSS('../css/my-shiny.css'),
@@ -152,7 +152,7 @@ popDen <- list(x=xSkew,y=ySkew)
 popMean <- shapeGamma*scaleGamma
 yMax <- 1.5*max(popDen$y)
   
-## set seed so that users are likely to get different results
+### set seed so that users are likely to get different results
 set.seed(as.numeric(Sys.time()))
   
 rv <- reactiveValues(sample = NULL, mean = NULL, lower = NULL, upper = NULL, sims = 0,
