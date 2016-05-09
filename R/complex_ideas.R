@@ -15,7 +15,7 @@ function(...) {
 ############################################################
 shinyApp(options = list( height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-                includeCSS('css/my-shiny.css'),
+                includeCSS('../css/my-shiny.css'),
                 
 tabPanel(h4("Conf. Intervals"),
 sidebarLayout(

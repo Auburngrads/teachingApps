@@ -15,7 +15,7 @@ Table.3.4<-data.frame(t,d,r,n,p,q,S,D)
 colnames(Table.3.4) <- c("km","Failed","Censored","Entered","p","q","S(t)","F(t)")
 
 shinyApp(options = list(height = '800px', width = '99%'),
- ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+ ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('../css/my-shiny.css'),
         
       tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock1", height = "80%")),
       tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock2", height = "80%") )),

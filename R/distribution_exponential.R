@@ -7,7 +7,7 @@ function(...) {
 shinyApp(options = list(height = "700px"),
          
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
-               includeCSS('css/my-shiny.css'),
+               includeCSS('../css/my-shiny.css'),
 sidebarLayout(
 sidebarPanel(width = 3, hr(),
   sliderInput("rangee", label = h2("Range:"),

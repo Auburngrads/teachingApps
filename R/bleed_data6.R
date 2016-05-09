@@ -17,7 +17,7 @@ stressor.ld(Bleed.ld, stress.var = "Other")
 par(family = "serif",font = 2)
 shinyApp(options = list(width = '99%', height = '800px'),
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'),
-                includeCSS('css/my-shiny.css'),
+                includeCSS('../css/my-shiny.css'),
                 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.bleed", height = "80%") ), 
 

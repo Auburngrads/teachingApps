@@ -7,7 +7,7 @@ function(...) {
 ## Set up the gamma-distributed population
 ###########################################################
 shinyApp(options = list(height = '600px', width = '99%'),
-ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('../css/my-shiny.css'),
  sidebarLayout(
  sidebarPanel(
   sliderInput(inputId="n",h2('Sample Size (n)'),value=10,min=2,max=50,step=1),

@@ -4,7 +4,7 @@ function(...) {
   library(shiny)
   
 shinyApp(options = list(width = "99%", height = "700px"),
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('../css/my-shiny.css'),
 
 tabPanel(h4("Quantile Function Plot"),
   sidebarLayout( 

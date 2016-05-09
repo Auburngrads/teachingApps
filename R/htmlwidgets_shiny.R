@@ -14,7 +14,7 @@ function(...) {
 
 shinyApp(options = list(height = '800px', width = '100%'),
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
-                includeCSS('css/my-shiny.css'),
+                includeCSS('../css/my-shiny.css'),
   tabPanel(h4("Dygraph"),
   sidebarLayout(
     sidebarPanel(width = 3,

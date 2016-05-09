@@ -4,7 +4,7 @@ function(...) {
   library(shiny)
   
 shinyApp(options = list(width = "100%", height = "350px"),
-  ui = fluidPage(theme = shinythemes::shinytheme("flatly"),  includeCSS('css/my-shiny.css'),
+  ui = fluidPage(theme = shinythemes::shinytheme("flatly"),  includeCSS('../css/my-shiny.css'),
     sidebarLayout(
     sidebarPanel(
       sliderInput("mean", 

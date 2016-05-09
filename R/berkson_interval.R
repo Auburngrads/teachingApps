@@ -1,16 +1,16 @@
-shockabsorber_surfaces <-
+berkson_interval <-
 function(...) {
   
   library(shiny)
   library(SMRD)
   
-shinyApp(options = list(height = '600px', width = '99%'),
+shinyApp(options = list(height = '600px', width = '100%'),
     
     ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
                    includeCSS('../css/my-shiny.css'),
          sidebarLayout(
-           sidebarPanel(
-             shinyAce::aceEditor("shocksurf", 
+           sidebarPanel(width = 4,
+             shinyAce::aceEditor("berkint", 
                                  mode = "r", 
                                  theme = "github", 
                                  height = "450px", 
@@ -22,35 +22,36 @@ library(SMRD)
 
 zoom <- 1.5
 
-ShockAbsorber.ld <- 
-frame.to.ld(shockabsorber,
-            response.column = 1, 
+Berkson200.ld <- 
+frame.to.ld(berkson200,
+            response.column = c(1,2), 
             censor.column = 3,
+            case.weight.column = 4,
             time.units = 'Kilometers')
 
-simple.contour(ShockAbsorber.ld, 
-               distribution = 'weibull', 
-               rel.or.conf = 'Joint confidence region', 
-               factor = zoom,
+simple.contour(Berkson200.ld, 
+               distribution = 'exponential', 
+               xlim = c(400,800),
                original.par = F)
 
-simple.contour(ShockAbsorber.ld, 
+simple.contour(Berkson200.ld, 
                distribution = 'weibull', 
-               rel.or.conf = 'Relative likelihood', 
-               factor = zoom)
+               show.confidence = F, 
+               zoom.level = zoom)
 
 par(mfrow = c(1,1))"),
-actionButton("shocksurfs", h4("Evaluate")), width = 4),
+
+        actionButton("berks", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("shurf", height = "600px"), width = 8))),
+        mainPanel(plotOutput("berkint", height = "600px"), width = 8))),
 
 server = function(input, output, session) {
 
   library(SMRD)
     
-  output$shurf <- renderPlot({
-      input$shocksurfs
-      return(isolate(eval(parse(text=input$shocksurf))))
+  output$berkint <- renderPlot({
+      input$berks
+      return(isolate(eval(parse(text=input$berkint))))
 })
 })
 }

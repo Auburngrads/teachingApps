@@ -3,7 +3,7 @@ function(...) {
 
 shinyApp(options = list(height = '650px', width = '100%'),
     ui =fluidPage(theme = shinythemes::shinytheme('flatly'), 
-                  includeCSS('css/my-shiny.css'),
+                  includeCSS('../css/my-shiny.css'),
           sidebarLayout(
             sidebarPanel(width = 3,
             selectInput('rv.func', label = h2('Random Variable'),

@@ -5,7 +5,7 @@ function(...) {
   
 shinyApp(options = list(height = '800px'),
     
-  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
+  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), includeCSS('../css/my-shiny.css'),
        tabPanel(h4('Numerical Solution'),
         sidebarLayout(
           sidebarPanel(shinyAce::aceEditor("solnum", mode = "r", theme = "github", 
