@@ -2,7 +2,7 @@ acceptance_mtbf <-
 function(...) {
 
 loadNamespace('shiny')
-loadNamespace(plotly)
+loadNamespace('plotly')
 
 shinyApp(options = list(height = '800px', width = '99%'),
          

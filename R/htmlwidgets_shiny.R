@@ -3,14 +3,14 @@ function(...) {
   
   loadNamespace('shiny')
   loadNamespace('metricsgraphics')
-  loadNamespace(dygraphs)
-  loadNamespace(leaflet)
+  loadNamespace('dygraphs')
+  loadNamespace('leaflet')
   loadNamespace('threejs')
-  loadNamespace(d3heatmap)
+  loadNamespace('d3heatmap')
   loadNamespace('parcoords')
-  loadNamespace(taucharts)
-  loadNamespace(htmlwidgets)
-  loadNamespace(plotly)
+  loadNamespace('taucharts')
+  loadNamespace('htmlwidgets')
+  loadNamespace('plotly')
 
 shinyApp(options = list(height = '800px', width = '100%'),
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
