@@ -1,7 +1,7 @@
 probability_plotting <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   loadNamespace(SMRD)
 
 shinyApp(options = list(width = "99%", height = "600px"), 

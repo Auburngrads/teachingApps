@@ -1,7 +1,7 @@
 figure1_1 <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   
 shinyApp(options = list(width = "100%", height = "800px"), 
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),

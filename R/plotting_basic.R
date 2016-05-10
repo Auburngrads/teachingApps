@@ -1,7 +1,7 @@
 plotting_basic <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
 
 shinyApp(options = list(height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),

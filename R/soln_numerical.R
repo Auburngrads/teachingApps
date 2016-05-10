@@ -1,7 +1,7 @@
 soln_numerical <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   
 shinyApp(options = list(height = '800px'),
     

@@ -1,7 +1,7 @@
 complex_ideas <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   loadNamespace(scales) # for transparency in density-plot fill
   loadNamespace(metricsgraphics)
 

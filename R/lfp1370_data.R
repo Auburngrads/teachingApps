@@ -1,7 +1,7 @@
 lfp1370_data <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   
 shinyApp(options = list(height = '800px', width = '99%'),
   ui = navbarPage(theme = shinythemes::shinytheme('flatly'),includeCSS('css/my-shiny.css'),

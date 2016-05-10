@@ -1,7 +1,7 @@
 replace_plots <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   loadNamespace(SMRD)
   
 ZelenCap.ld <- frame.to.ld(zelencap, 

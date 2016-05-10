@@ -1,7 +1,7 @@
 distribution_logistic <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   loadNamespace(metricsgraphics)
   
 shinyApp(options = list(height = "700px"),

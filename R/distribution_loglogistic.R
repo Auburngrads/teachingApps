@@ -1,7 +1,7 @@
 distribution_loglogistic <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   loadNamespace(metricsgraphics)
   loadNamespace(actuar)
   

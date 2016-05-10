@@ -1,7 +1,7 @@
 confidence_intervals <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
 
 ############################################################
 ## Set up the gamma-distributed population

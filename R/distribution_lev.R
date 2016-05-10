@@ -1,7 +1,7 @@
 distribution_lev <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   loadNamespace(metricsgraphics)
   loadNamespace(SMRD)
   

@@ -1,7 +1,7 @@
 berkson200_profile <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   
 shinyApp(options = list(height = '600px'),
       

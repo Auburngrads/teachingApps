@@ -1,7 +1,7 @@
 basic_histogram <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   
 shinyApp(options = list(height = '650px'),
          

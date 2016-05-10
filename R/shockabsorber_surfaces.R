@@ -1,7 +1,7 @@
 shockabsorber_surfaces <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   loadNamespace(SMRD)
   
 shinyApp(options = list(height = '600px', width = '99%'),

@@ -1,7 +1,7 @@
 maximum_likelihood <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   loadNamespace(scales)
   
 shinyApp(options = list( height = "800px"),

@@ -1,7 +1,7 @@
 htmlwidgets_shiny <-
 function(...) {
   
-  loadNamespace(shiny)
+  loadNamespace('shiny')
   loadNamespace(metricsgraphics)
   loadNamespace(dygraphs)
   loadNamespace(leaflet)
