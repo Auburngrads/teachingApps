@@ -2,7 +2,7 @@ complex_ideas <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace(scales) # for transparency in density-plot fill
+  loadNamespace('scales') # for transparency in density-plot fill
   loadNamespace('metricsgraphics')
 
 ##############################################
@@ -79,19 +79,34 @@ sidebarPanel(width = 3,
                           "Logistic",
                           "LEV"), 
               selected = "SEV"),
-  selectInput("axis1", label = h2("Distribution 1 Axis:"),
-              choices = c("True Axis","Transformed Axis"), selected = "True Axis"),
-  selectInput("distro2", label = h2("Distribution 2:"),
-              choices = c("Exponential","Normal","SEV","Logistic","LEV"), selected = "SEV"),
+  selectInput("axis1", 
+              label = h2("Distribution 1 Axis:"),
+              choices = c("True Axis",
+                          "Transformed Axis"), 
+              selected = "True Axis"),
+  
+  selectInput("distro2", 
+              label = h2("Distribution 2:"),
+              choices = c("Exponential",
+                          "Normal",
+                          "SEV",
+                          "Logistic",
+                          "LEV"), 
+              selected = "SEV"),
+  
   selectInput("axis2", label = h2("Distribution 2 Axis:"),
-              choices = c("True Axis","Transformed Axis"), selected = "Transformed Axis")),
+              choices = c("True Axis",
+                          "Transformed Axis"), 
+              selected = "Transformed Axis")),
 
 mainPanel(plotOutput("probplot", height = "650px"), width = 9 ))),
 
 tabPanel(h4("Weibull Distro"),
   sidebarLayout(
     sidebarPanel(width = 3,
-  selectInput("w", label = h2("Function:"),
+                 
+  selectInput("w", 
+              label = h2("Function:"),
               choices = c("CDF","PDF","Survival","Hazard","Cum Hazard"), 
   selected = "PDF"),
   
@@ -294,13 +309,13 @@ switch(input$distro1,
   mtext(side = 2, expression(Phi[SEV](t[p])),line = 2,cex = 1.3)
     switch(input$axis1, 
       "True Axis" = {
-        axis( side=2, labels=NA, at=SMRD::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-        mtext(side=2, at=SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),            
-              round(SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)     },
+        axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+        mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),            
+              round(qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)     },
 
       "Transformed Axis" = {
-        axis( side=2, labels=NA, at=SMRD::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-        mtext(side=2, at=SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
+        axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+        mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
                            c(".01",".05",".1",".2",".5",".9",".97"),line=.75) })
 }, "Normal" = {
 
@@ -344,7 +359,7 @@ switch(input$distro1,
   
 }, "LEV" = {
 
-  LLEV<-SMRD::qlev(CDF)
+  LLEV<-qlev(CDF)
   plot(NA,xlim=range(1,100),ylim=range(LLEV),ylab="",xlab="",axes=FALSE)
   box(lwd=1.25)
   abline(h=LLEV, lty=2,col="steelblue")
@@ -354,13 +369,13 @@ switch(input$distro1,
 
   switch(input$axis1, 
          "True Axis" = {
-           axis( side=2, labels=NA, at=SMRD::qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),               
-                    round(SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
+           axis( side=2, labels=NA, at=qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=qlev(c(.01,.05,.1,.2,.5,.9,.97)),               
+                    round(qlev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
 
          "Transformed Axis" = {
-           axis( side=2, labels=NA, at=SMRD::qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),  
+           axis( side=2, labels=NA, at=qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=qlev(c(.01,.05,.1,.2,.5,.9,.97)),  
                            c(".01",".05",".1",".2",".5",".9",".97"),line=.75) })
   
 }, "Exponential" = {
@@ -399,13 +414,13 @@ switch(input$distro2,
 
   switch(input$axis2, 
          "True Axis" = {
-           axis( side=2, labels=NA, at=SMRD::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),               
-                    round(SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
+           axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),               
+                    round(qsev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
 
          "Transformed Axis" = {
-           axis( side=2, labels=NA, at=SMRD::qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=SMRD::qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
+           axis( side=2, labels=NA, at=qsev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),  
                            c(".01",".05",".1",".2",".5",".9",".97"),line=.75) })
   
 }, "Normal" = {
@@ -452,7 +467,7 @@ switch(input$distro2,
   
 }, "LEV" = {
 
-  LLEV<-SMRD::qlev(CDF)
+  LLEV<-qlev(CDF)
   plot(NA,xlim=range(1,100),ylim=range(LLEV),ylab="",xlab="",axes=FALSE)
   box(lwd=1.25)
   abline(h=LLEV, lty=2,col="steelblue")
@@ -462,13 +477,13 @@ switch(input$distro2,
 
   switch(input$axis2, 
          "True Axis" = {
-           axis( side=2, labels=NA, at=SMRD::qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),               
-                    round(SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
+           axis( side=2, labels=NA, at=qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=qlev(c(.01,.05,.1,.2,.5,.9,.97)),               
+                    round(qlev(c(.01,.05,.1,.2,.5,.9,.97)),digits = 1),line=.75)  },
 
          "Transformed Axis" = { 
-           axis( side=2, labels=NA, at=SMRD::qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
-           mtext(side=2, at=SMRD::qlev(c(.01,.05,.1,.2,.5,.9,.97)),  
+           axis( side=2, labels=NA, at=qlev(c(.01,.02,.05,.1,.2,.5,.9,.97)))
+           mtext(side=2, at=qlev(c(.01,.05,.1,.2,.5,.9,.97)),  
                            c(".01",".05",".1",".2",".5",".9",".97"),line=.75) })
   
 }, "Exponential" = {
@@ -504,11 +519,11 @@ output$plotweib <- renderMetricsgraphics({
 weibhaz <-function(x,sc, sh) {sh/sc*(x/sc)^(sh-1)}
 Time<-signif(seq(min(input$range.w), max(input$range.w), length = 500),digits = 4)
 
-CDF <- pweibull(Time,sc=input$scale.w,sh=input$shape.w)
-PDF <- dweibull(Time,sc=input$scale.w,sh=input$shape.w)
+CDF <- pweibull(Time,scale=input$scale.w,shape=input$shape.w)
+PDF <- dweibull(Time,scale=input$scale.w,shape=input$shape.w)
 REL <- 1-CDF
-haz <- weibhaz(Time, sc=input$scale.w,sh=input$shape.w)
-HAZ <- -1*log(1-pweibull(Time,sc=input$scale.w,sh=input$shape.w))
+haz <- weibhaz(Time, scale=input$scale.w,shape=input$shape.w)
+HAZ <- -1*log(1-pweibull(Time,scale=input$scale.w,shape=input$shape.w))
 weib.df <- data.frame(Time, CDF, PDF, REL, haz, HAZ)
 
 PLOT <- switch (input$w, 

@@ -5,7 +5,7 @@ Version: 1.0
 Date: 2016-04-24
 Author: Jason K. Freels
 Maintainer: Jason K. Freels <auburngrads@live.com>
-Description: More about what it does (maybe more than one line)
+Description: This package does stuff.  The stuff it does is really cool.  You should really use this package.
 License: GPL-2
 Depends:
     R (>= 3.1.0)
@@ -16,7 +16,9 @@ Imports:
     metricsgraphics,
     threejs,
     htmlwidgets,
-    DT
+    DT,
+    visNetwork,
+    codemirrorR
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:
