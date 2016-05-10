@@ -1,7 +1,7 @@
 figure6_3 <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = "100%", height = "600px"), 
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),

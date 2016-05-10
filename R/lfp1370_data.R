@@ -1,7 +1,7 @@
 lfp1370_data <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(height = '800px', width = '99%'),
   ui = navbarPage(theme = shinythemes::shinytheme('flatly'),includeCSS('css/my-shiny.css'),
@@ -11,7 +11,7 @@ shinyApp(options = list(height = '800px', width = '99%'),
             sidebarPanel(
             shinyAce::aceEditor('lfpeventplot', mode = 'r', theme = 'github', fontSize = 14,
                       value = "par(family = 'serif', font = 2, cex = 1.15)
-library(SMRD)
+loadNamespace(SMRD)
 lfp.ld<- frame.to.ld(lfp1370,
                      response.column = 1,
                      censor.column = 2,
@@ -28,7 +28,7 @@ event.plot(lfp.ld)"),
             sidebarPanel(
             shinyAce::aceEditor('lfpcdfplot', mode = 'r', theme = 'github', fontSize = 14,
                       value = "par(family = 'serif', font = 2, cex = 1.15)
-library(SMRD)
+loadNamespace(SMRD)
 lfp.ld<- frame.to.ld(lfp1370,
                      response.column = 1,
                      censor.column = 2,
@@ -41,7 +41,7 @@ plot(lfp.ld)"),
         mainPanel(plotOutput('plotlfpcdf', height = '600px'))))),
 
 server = function(input, output, session) {
-library(SMRD)
+loadNamespace(SMRD)
   output$lfp1370 <- DT::renderDataTable({DT::datatable(lfp1370,
                                                        options = list(pageLength = 12))})
 

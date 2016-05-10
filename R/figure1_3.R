@@ -1,7 +1,7 @@
 figure1_3 <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = "100%", height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
@@ -18,7 +18,7 @@ tabPanel(h4('Figure 1.3'), titlePanel("Edit this code and press 'Evaluate' to ch
         mainPanel(plotOutput("plotfig3", height = "600px"))))),
 
 server = function(input, output, session) {
-  library(SMRD)
+  loadNamespace(SMRD)
   output$lfp1370 <- DT::renderDataTable({ DT::datatable(lfp1370,
                                                        options = list(pageLength = 12)) })
   

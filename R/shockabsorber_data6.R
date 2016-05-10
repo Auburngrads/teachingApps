@@ -1,8 +1,8 @@
 shockabsorber_data6 <-
 function(...) {
   
-  library(shiny)
-  library(SMRD)
+  loadNamespace(shiny)
+  loadNamespace(SMRD)
   
 par(family = "serif",font = 2)
 ShockAbsorber.ld <- frame.to.ld(shockabsorber,

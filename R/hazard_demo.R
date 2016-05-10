@@ -1,7 +1,7 @@
 hazard_demo <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = "99%", height = "700px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),

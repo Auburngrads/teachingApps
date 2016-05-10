@@ -1,7 +1,7 @@
 figure1_1 <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = "100%", height = "800px"), 
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
@@ -12,7 +12,7 @@ tabPanel(h4("Figure 1.1"),titlePanel("Edit this code and press 'Evaluate' to cha
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("fig1plot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "library(SMRD)
+                      value = "loadNamespace(SMRD)
 par(family='serif', font=2)
 hist(lzbearing$megacycles,
      breaks=seq(0,200,20),
@@ -29,7 +29,7 @@ tabPanel(h4("Figure 1.2"),titlePanel("Edit this code and press 'Evaluate' to cha
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("fig2plot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "library(SMRD)
+                      value = "loadNamespace(SMRD)
 par(family='serif', font=2)
 
 lzbearing.ld <- frame.to.ld(lzbearing, 
@@ -42,7 +42,7 @@ event.plot(lzbearing.ld)"),
         mainPanel(plotOutput("plotfig2", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
-  library(SMRD)
+  loadNamespace(SMRD)
   output$lzbearing <- DT::renderDataTable({ DT::datatable(lzbearing,
                                                        options = list(pageLength = 12)) })
   

@@ -1,14 +1,14 @@
 diagram_repairable <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("repairplot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "library(diagram)
+                      value = "loadNamespace(diagram)
 Mat2 <- matrix(NA, nrow = 3, ncol = 3)
 
 AA <- as.data.frame(Mat2)
@@ -33,7 +33,7 @@ diagram::plotmat(A = AA, pos = 3, curve = .575,
         mainPanel(plotOutput("plotrepair", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
-  library(diagram)
+  loadNamespace(diagram)
   output$plotrepair <- renderPlot({
       par(mar = c(0,0,0,0))
       input$evalrepair

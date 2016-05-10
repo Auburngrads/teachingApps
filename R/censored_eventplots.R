@@ -1,7 +1,7 @@
 censored_eventplots <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = '100%', height = '600px'),
   ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
@@ -35,7 +35,7 @@ par(mfrow=c(1,1))"),
         mainPanel(plotOutput("ploteventplots", height = "600px")))),
 
 server = function(input, output, session) {
-  library(SMRD)
+  loadNamespace(SMRD)
 
 output$ploteventplots <- renderPlot({
       input$evaleventplots

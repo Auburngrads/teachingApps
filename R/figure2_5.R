@@ -1,7 +1,7 @@
 figure2_5 <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
@@ -28,7 +28,7 @@ mtext(side = 3,
         mainPanel(plotOutput("plotfig5", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
-  library(SMRD)
+  loadNamespace(SMRD)
   
   output$plotfig5 <- renderPlot({
       input$evalfig5

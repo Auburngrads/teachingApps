@@ -1,16 +1,16 @@
 htmlwidgets_shiny <-
 function(...) {
   
-  library(shiny)
-  library(metricsgraphics)
-  library(dygraphs)
-  library(leaflet)
-  library(threejs)
-  library(d3heatmap)
-  library(parcoords)
-  library(taucharts)
-  library(htmlwidgets)
-  library(plotly)
+  loadNamespace(shiny)
+  loadNamespace(metricsgraphics)
+  loadNamespace(dygraphs)
+  loadNamespace(leaflet)
+  loadNamespace(threejs)
+  loadNamespace(d3heatmap)
+  loadNamespace(parcoords)
+  loadNamespace(taucharts)
+  loadNamespace(htmlwidgets)
+  loadNamespace(plotly)
 
 shinyApp(options = list(height = '800px', width = '100%'),
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
@@ -118,7 +118,7 @@ server = function(input, output, session) {
   
   output$parcoords <- renderParcoords({
     
-     library(dplyr)
+     loadNamespace(dplyr)
     diamonds <- ggplot2::diamonds
 dmd <- diamonds[sample(1:nrow(diamonds),1000),] %>%
   mutate( carat = cut(carat, breaks=c(0,1,2,3,4,5), right = T)) %>%

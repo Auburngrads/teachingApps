@@ -1,8 +1,8 @@
 shock_absorber8 <-
 function(...) {
   
-  library(shiny)
-  library(SMRD)
+  loadNamespace(shiny)
+  loadNamespace(SMRD)
 
 par(family = "serif", font = 2)
 

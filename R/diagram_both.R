@@ -1,14 +1,14 @@
 diagram_both <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("realplot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "library(diagram)
+                      value = "loadNamespace(diagram)
 DiffMat <- matrix(NA, nrow = 4, ncol = 4)
 
 AA <- as.data.frame(DiffMat)
@@ -35,7 +35,7 @@ diagram::plotmat(A = AA, pos = 4, curve = .575,
         mainPanel(plotOutput("plotreal", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
-  library(diagram)
+  loadNamespace(diagram)
   output$plotreal <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(4,4,2,2))
       input$evalreal

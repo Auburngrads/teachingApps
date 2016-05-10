@@ -1,7 +1,7 @@
 stress_strength <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = "100%", height = "350px"),
   ui = fluidPage(theme = shinythemes::shinytheme("flatly"),  includeCSS('css/my-shiny.css'),

@@ -1,8 +1,8 @@
 distribution_normal <-
 function(...) {
   
-  library(shiny)
-  library(metricsgraphics)
+  loadNamespace(shiny)
+  loadNamespace(metricsgraphics)
   
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),

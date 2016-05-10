@@ -1,7 +1,7 @@
 berkson200_profile <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(height = '600px'),
       
@@ -17,7 +17,7 @@ shinyApp(options = list(height = '600px'),
                                           value = 
 "par(family  = 'serif')
 
-library(SMRD)
+loadNamespace(SMRD)
 
 berkson200.ld <- 
 frame.to.ld(berkson200,

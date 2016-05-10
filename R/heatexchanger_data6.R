@@ -1,8 +1,8 @@
 heatexchanger_data6 <-
 function(...) {
   
-  library(shiny)
-  library(SMRD)
+  loadNamespace(shiny)
+  loadNamespace(SMRD)
   
 par(family = "serif",font = 2)
 HeatExchanger.ld <- frame.to.ld(heatexchanger,

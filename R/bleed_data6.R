@@ -1,8 +1,8 @@
 bleed_data6 <-
 function(...) {
   
-  library(shiny)
-  library(SMRD)
+  loadNamespace(shiny)
+  loadNamespace(SMRD)
   
 Bleed.ld <- frame.to.ld(bleed,
                         response.column = 1, 

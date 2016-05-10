@@ -1,9 +1,9 @@
 complex_ideas <-
 function(...) {
   
-  library(shiny)
-  library(scales) # for transparency in density-plot fill
-  library(metricsgraphics)
+  loadNamespace(shiny)
+  loadNamespace(scales) # for transparency in density-plot fill
+  loadNamespace(metricsgraphics)
 
 ##############################################
 ### Set up the gamma-distributed population

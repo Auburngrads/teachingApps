@@ -1,7 +1,7 @@
 figure6_4 <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = "100%", height = "600px"), 
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
@@ -9,7 +9,7 @@ ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shin
     sidebarPanel(
       shinyAce::aceEditor("plots", mode = "r", theme = "github", height = "450px",
                       value = "par(family='serif', font=2, cex=1.75)
-library(SMRD)
+loadNamespace(SMRD)
 
 p<- seq(.01,.99,.01)
 mean1 <- 40
@@ -37,7 +37,7 @@ box(lwd=1.25)"),
         mainPanel(plotOutput("norm", height = "600px")))),
 
 server = function(input, output, session) {
-  library(SMRD)
+  loadNamespace(SMRD)
   output$norm <- renderPlot({
       par(mar = c(4,4,2,2))
       input$evalplots

@@ -1,7 +1,7 @@
 ace_very_normal <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(height = '600px', width = '99%'),
   

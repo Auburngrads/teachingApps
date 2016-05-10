@@ -1,7 +1,7 @@
 table3_5 <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(height = '800px', width = '99%'),
 

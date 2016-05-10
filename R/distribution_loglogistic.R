@@ -1,9 +1,9 @@
 distribution_loglogistic <-
 function(...) {
   
-  library(shiny)
-  library(metricsgraphics)
-  library(actuar)
+  loadNamespace(shiny)
+  loadNamespace(metricsgraphics)
+  loadNamespace(actuar)
   
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),

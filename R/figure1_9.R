@@ -1,7 +1,7 @@
 figure1_9 <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = "100%", height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
@@ -28,7 +28,7 @@ text(x = c(50,63,75,82),
         mainPanel(plotOutput("plotfig9", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
-  library(SMRD)
+  loadNamespace(SMRD)
   output$printedcircuitboard <- DT::renderDataTable({ DT::datatable(printedcircuitboard,
                                                        options = list(pageLength = 12)) })
   

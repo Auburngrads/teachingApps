@@ -1,7 +1,7 @@
 exp_numerical <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(height = '750px'),
     

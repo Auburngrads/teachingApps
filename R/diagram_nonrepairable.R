@@ -1,14 +1,14 @@
 diagram_nonrepairable <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("replaceplot", mode = "r", theme = "github", height = "450px",
-                      value = "library(diagram)
+                      value = "loadNamespace(diagram)
 Mat1 <- matrix(NA, nrow = 3, ncol = 3)
 
 AA <- as.data.frame(Mat1)
@@ -31,7 +31,7 @@ diagram::plotmat(A = AA, pos = 3, curve = .575,
         mainPanel(plotOutput("plotreplace", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
-  library(diagram)
+  loadNamespace(diagram)
   output$plotreplace <- renderPlot({
       par(mar = c(0,0,0,0))
       input$evalreplace

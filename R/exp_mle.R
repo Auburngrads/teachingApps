@@ -1,7 +1,7 @@
 exp_mle <-
 function(...) {
   
-  library(shiny)
+  loadNamespace(shiny)
   
 shinyApp(options = list(height = '600px'),
   
