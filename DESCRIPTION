@@ -15,7 +15,7 @@ Imports:
     shiny,
     metricsgraphics,
     threejs,
-    parcoords,
+    htmlwidgets,
     DT
 NeedsCompilation: no
 Archs: i386, x64
