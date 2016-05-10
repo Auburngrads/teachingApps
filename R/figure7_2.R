@@ -2,7 +2,7 @@ figure7_2 <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
 
 shinyApp(options = list(height = '600px', width = '100%'),
 

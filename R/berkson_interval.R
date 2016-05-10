@@ -2,7 +2,7 @@ berkson_interval <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
   
 shinyApp(options = list(height = '600px', width = '100%'),
     
@@ -18,7 +18,7 @@ shinyApp(options = list(height = '600px', width = '100%'),
                                  value = "
 par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
 
-loadNamespace(SMRD)
+loadNamespace('SMRD')
 
 zoom <- 1.5
 
@@ -47,7 +47,7 @@ par(mfrow = c(1,1))"),
 
 server = function(input, output, session) {
 
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
     
   output$berkint <- renderPlot({
       input$berks

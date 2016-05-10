@@ -35,7 +35,7 @@ par(mfrow=c(1,1))"),
         mainPanel(plotOutput("ploteventplots", height = "600px")))),
 
 server = function(input, output, session) {
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
 
 output$ploteventplots <- renderPlot({
       input$evaleventplots

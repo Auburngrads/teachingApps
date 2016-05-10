@@ -28,7 +28,7 @@ text(x = c(50,63,75,82),
         mainPanel(plotOutput("plotfig9", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
   output$printedcircuitboard <- DT::renderDataTable({ DT::datatable(printedcircuitboard,
                                                        options = list(pageLength = 12)) })
   

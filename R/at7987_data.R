@@ -2,7 +2,7 @@ at7987_data <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
   
 par(family="serif",font=2)
 at7987.ld <- frame.to.ld(at7987,

@@ -18,7 +18,7 @@ tabPanel(h4('Figure 1.3'), titlePanel("Edit this code and press 'Evaluate' to ch
         mainPanel(plotOutput("plotfig3", height = "600px"))))),
 
 server = function(input, output, session) {
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
   output$lfp1370 <- DT::renderDataTable({ DT::datatable(lfp1370,
                                                        options = list(pageLength = 12)) })
   

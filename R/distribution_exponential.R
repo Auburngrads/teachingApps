@@ -2,7 +2,7 @@ distribution_exponential <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace(metricsgraphics)
+  loadNamespace('metricsgraphics')
   
 shinyApp(options = list(height = "700px"),
          

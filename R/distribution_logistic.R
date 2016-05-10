@@ -2,7 +2,7 @@ distribution_logistic <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace(metricsgraphics)
+  loadNamespace('metricsgraphics')
   
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),

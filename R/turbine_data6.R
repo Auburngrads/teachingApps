@@ -2,7 +2,7 @@ turbine_data6 <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
   
 par(family = "serif",font = 2)
 Turbine.ld <- frame.to.ld(turbine,

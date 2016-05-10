@@ -2,8 +2,8 @@ distribution_lev <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace(metricsgraphics)
-  loadNamespace(SMRD)
+  loadNamespace('metricsgraphics')
+  loadNamespace('SMRD')
   
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),

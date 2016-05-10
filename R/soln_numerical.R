@@ -45,7 +45,7 @@ tabPanel(h4('Graphical Solution'),
 value = "par(mar = c(1,0,0.5,2), cex = 1.25)
 obs <- c(4.2564, 0.5319)
 
-loadNamespace(SMRD)
+loadNamespace('SMRD')
 
 model <- 'weibull'
 
@@ -67,7 +67,7 @@ tabPanel(h4('How To Use This App'),
 
 server = function(input, output, session) {
   
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
   
   output$mlsolns <- renderPrint({
       input$mlsolnum

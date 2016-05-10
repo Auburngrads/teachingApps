@@ -2,7 +2,7 @@ bleed_data6 <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
   
 Bleed.ld <- frame.to.ld(bleed,
                         response.column = 1, 

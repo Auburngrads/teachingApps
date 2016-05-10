@@ -2,12 +2,12 @@ htmlwidgets_shiny <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace(metricsgraphics)
+  loadNamespace('metricsgraphics')
   loadNamespace(dygraphs)
   loadNamespace(leaflet)
-  loadNamespace(threejs)
+  loadNamespace('threejs')
   loadNamespace(d3heatmap)
-  loadNamespace(parcoords)
+  loadNamespace('parcoords')
   loadNamespace(taucharts)
   loadNamespace(htmlwidgets)
   loadNamespace(plotly)

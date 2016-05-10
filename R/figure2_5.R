@@ -28,7 +28,7 @@ mtext(side = 3,
         mainPanel(plotOutput("plotfig5", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
   
   output$plotfig5 <- renderPlot({
       input$evalfig5

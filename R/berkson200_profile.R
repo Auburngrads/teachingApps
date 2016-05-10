@@ -17,7 +17,7 @@ shinyApp(options = list(height = '600px'),
                                           value = 
 "par(family  = 'serif')
 
-loadNamespace(SMRD)
+loadNamespace('SMRD')
 
 berkson200.ld <- 
 frame.to.ld(berkson200,

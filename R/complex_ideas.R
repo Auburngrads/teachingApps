@@ -3,7 +3,7 @@ function(...) {
   
   loadNamespace('shiny')
   loadNamespace(scales) # for transparency in density-plot fill
-  loadNamespace(metricsgraphics)
+  loadNamespace('metricsgraphics')
 
 ##############################################
 ### Set up the gamma-distributed population

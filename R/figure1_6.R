@@ -117,7 +117,7 @@ arrows(x0 = rep(345,3),
         mainPanel(plotOutput("plotfig7", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
   output$heatexchanger <- DT::renderDataTable({ DT::datatable(heatexchanger,
                                                        options = list(pageLength = 10)) })
   

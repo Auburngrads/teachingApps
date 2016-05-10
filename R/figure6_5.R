@@ -9,7 +9,7 @@ ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shin
     sidebarPanel(
       shinyAce::aceEditor("plots", mode = "r", theme = "github", height = "450px",
                       value = "par(family='serif',font=2,cex=1.75, bg = NA)
-loadNamespace(SMRD)
+loadNamespace('SMRD')
 
 p<- seq(.01,.99,.01)
 
@@ -40,7 +40,7 @@ legend('bottomright',
         mainPanel(plotOutput("lnorm", height = "600px")))),
 
 server = function(input, output, session) {
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
   output$lnorm <- renderPlot({
       par(mar = c(4,4,2,2))
       input$evalplots

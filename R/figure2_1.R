@@ -10,7 +10,7 @@ ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shi
       shinyAce::aceEditor("fig1plot", mode = "r", theme = "github", height = "450px",
                       value = "par(family='serif',font=2)
 
-loadNamespace(SMRD)
+loadNamespace('SMRD')
 
 distribution.plot('Weibull',
 shape=c(1.7), ## Change this value or add more
@@ -21,7 +21,7 @@ my.title='')"),
         
         mainPanel(plotOutput("plotfig1", height = "600px")))),
 server = function(input, output, session) {
-  loadNamespace(SMRD)
+  loadNamespace('SMRD')
 
 output$plotfig1 <- renderPlot({
       input$evalfig1
