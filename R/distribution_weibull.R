@@ -1,8 +1,8 @@
 distribution_weibull <-
 function(...) {
   
-  loadNamespace('shiny')
-  loadNamespace('metricsgraphics')
+  attachNamespace('shiny')
+  attachNamespace('metricsgraphics')
   
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
