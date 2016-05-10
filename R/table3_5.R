@@ -5,7 +5,7 @@ function(...) {
   
 shinyApp(options = list(height = '800px', width = '99%'),
 
-ui = navbarPage(theme = shinythemes::shinytheme('flatly'), includeCSS('../css/my-shiny.css'),
+ui = navbarPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
     tabPanel(h4('Table 3.5'), DT::dataTableOutput('table5'))),
   
 server = function(input, output, session) {

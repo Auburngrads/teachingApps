@@ -4,7 +4,7 @@ function(...) {
   library(shiny)
   
 shinyApp(options = list(width = "100%", height = "600px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('../css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor("fig1plot", mode = "r", theme = "github", height = "450px",

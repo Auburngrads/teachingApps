@@ -16,7 +16,7 @@ ZelenCap.ld <- frame.to.ld(zelencap,
 shinyApp(options = list(width = "100%", height = "800px"),
 
     ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-                    includeCSS('../css/my-shiny.css'),
+                    includeCSS('css/my-shiny.css'),
 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table2", height = "650px") ),  
 tabPanel(h4("Data Summary"), verbatimTextOutput("summary2") ), 

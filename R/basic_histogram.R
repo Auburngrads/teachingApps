@@ -6,7 +6,7 @@ function(...) {
 shinyApp(options = list(height = '650px'),
          
 ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
-                 includeCSS('../css/my-shiny.css'),
+                 includeCSS('css/my-shiny.css'),
      sidebarLayout( 
         sidebarPanel(
            shinyAce::aceEditor("code", 

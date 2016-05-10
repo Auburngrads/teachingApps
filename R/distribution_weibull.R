@@ -5,7 +5,7 @@ function(...) {
   library(metricsgraphics)
   
 shinyApp(options = list(height = "700px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('../css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
 sidebarLayout(
 sidebarPanel(width = 3, hr(),
   sliderInput("range.w", label = h2("Range"),  min = 0, max = 50, value = c(0,25)),

@@ -4,7 +4,7 @@ function(...) {
   library(shiny)
   
 shinyApp(options = list(height = '800px', width = '99%'),
-  ui = navbarPage(theme = shinythemes::shinytheme('flatly'),includeCSS('../css/my-shiny.css'),
+  ui = navbarPage(theme = shinythemes::shinytheme('flatly'),includeCSS('css/my-shiny.css'),
         tabPanel(h4('Data Set'), DT::dataTableOutput('lfp1370')),
         tabPanel(h4('Event Plot'),
             sidebarLayout(

@@ -4,7 +4,7 @@ function(...) {
 library(shiny)
 
 shinyApp(options = list(height = '600px', width = '99%'),
-  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('../css/my-shiny.css'),
+  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
        sidebarLayout(
          sidebarPanel(width = 5,
           shinyAce::aceEditor("likeplot", mode = "r", theme = "github", height = "450px", fontSize = 15,

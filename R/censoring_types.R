@@ -4,7 +4,7 @@ function(...) {
   library(shiny)
 
 shinyApp(options = list(height = '250px', width = '100%'), 
-  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('../css/my-shiny.css'),         sidebarLayout(
+  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),         sidebarLayout(
     sidebarPanel(width = 3,
   selectInput("censor", 
               label = h2("Type of Censoring"),

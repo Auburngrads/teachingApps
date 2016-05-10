@@ -5,7 +5,7 @@ function(...) {
   library(SMRD)
 
 shinyApp(options = list(width = "99%", height = "600px"), 
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('../css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
 sidebarLayout(
 sidebarPanel(width = 3,
   selectInput("dist1", label = h2("Distribution (Left)"),

@@ -13,7 +13,7 @@ Turbine.ld <- frame.to.ld(turbine,
                           time.units = "Hundred Hours")
 
 shinyApp(options = list(width = "99%", height = "800px"),
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('../css/my-shiny.css'),
+ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
 
 tabPanel(h4("Data Set"),  DT::dataTableOutput("table.turb", height = "80%") ),    
 

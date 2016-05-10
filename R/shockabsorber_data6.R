@@ -14,7 +14,7 @@ ShockAbsorber.ld <- frame.to.ld(shockabsorber,
 shinyApp(options = list(width = "99%", height = "800px"),
 
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-                includeCSS('../css/my-shiny.css'),
+                includeCSS('css/my-shiny.css'),
                 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.shock", height = "80%") ),    
 tabPanel(h4("Summary"), verbatimTextOutput("summary.shock") ), 

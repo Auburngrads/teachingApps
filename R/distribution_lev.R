@@ -6,7 +6,7 @@ function(...) {
   library(SMRD)
   
 shinyApp(options = list(height = "700px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('../css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
 sidebarLayout(
 sidebarPanel(width = 3, hr(),
   sliderInput("range.lev", label = h2("Range"),

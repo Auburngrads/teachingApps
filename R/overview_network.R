@@ -1,13 +1,13 @@
 overview_network <-
 function(...) {
 
-requireNamespace('shiny')
-requireNamespace('visNetwork')
+require('shiny')
+require('visNetwork')
 
 shinyApp(options = list(height = '600px'),
          
 ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
-               includeCSS('../css/my-shiny.css'),
+               includeCSS('css/my-shiny.css'),
                
       mainPanel(visNetwork::visNetworkOutput('visnet1',height = '600px'),width = 12)),
 
