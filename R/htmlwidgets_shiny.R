@@ -11,6 +11,7 @@ function(...) {
   if(!isNamespaceLoaded('taucharts'))        attachNamespace('taucharts')
   if(!isNamespaceLoaded('htmlwidgets'))      attachNamespace('htmlwidgets')
   if(!isNamespaceLoaded('plotly'))           attachNamespace('plotly')
+  if(!isNamespaceLoaded('ggplot2'))          attachNamespace('ggplot2')
 
 shinyApp(options = list(height = '800px', width = '100%'),
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
@@ -28,23 +29,23 @@ ui = navbarPage(theme = shinythemes::shinytheme('flatly'),
       br(),
       div(h2(HTML("<b>To: </b>")), h3(strong(textOutput("to", inline = TRUE))))),
     
-    mainPanel(dygraphs::dygraphOutput("dygraph", height = '650px'), width = 9))),
+    mainPanel(dygraphOutput("dygraph", height = '650px'), width = 9))),
   
   tabPanel(h4("Leaflet"),
   fluidPage(
-    mainPanel(leaflet::leafletOutput("leaflet", height = '650px'), width = 12))),
+    mainPanel(leafletOutput("leaflet", height = '650px'), width = 12))),
   
   tabPanel(h4("threejs"),
   fluidPage(
-    mainPanel(threejs::globeOutput("threejs", height = '650px'), width = 12))),
+    mainPanel(globeOutput("threejs", height = '650px'), width = 12))),
   
   tabPanel(h4("parcoords"),
   fluidPage(fluidRow(
-    column(parcoords::parcoordsOutput("parcoords", height = '650px'), width = 12)))),
+    column(parcoordsOutput("parcoords", height = '650px'), width = 12)))),
   
   tabPanel(h4("taucharts"),
   fluidPage(
-    mainPanel(taucharts::tauchartsOutput("taucharts", height = '650px'), width = 12))),
+    mainPanel(tauchartsOutput("taucharts", height = '650px'), width = 12))),
   
   tabPanel(h4("D3heatmap"),
   fluidPage(
@@ -118,7 +119,7 @@ server = function(input, output, session) {
   
   output$parcoords <- renderParcoords({
     
-    diamonds <- ggplot2::diamonds
+    diamonds <- diamonds
 dmd <- diamonds[sample(1:nrow(diamonds),1000),] %>%
   dplyr::mutate( carat = cut(carat, breaks=c(0,1,2,3,4,5), right = T)) %>%
   dplyr::select( carat, color, cut, clarity, depth, table, price,  x, y, z)

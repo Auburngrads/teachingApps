@@ -7,13 +7,11 @@ Author: Jason K. Freels
 Maintainer: Jason K. Freels <auburngrads@live.com>
 Description: This package does stuff.  The stuff it does is really cool.  You should really use this package.
 License: GPL-2
-Depends:
-    R (>= 3.1.0)
-Imports:
-    graphics,stats,shiny,metricsgraphics,threejs,htmlwidgets,
-    DT,visNetwork,codemirrorR,plotly,SMRD,shinyAce,shinythemes,
-    scales,d3heatmap,dygraphs,ggplot2,leaflet,parcoords,taucharts,
-    dplyr
+LazyData: true
+Depends:  R (>= 3.1.0), shiny, SMRD
+Imports: codemirrorR,visNetwork,shinyAce,shinythemes,DT,dplyr,diagram,htmlwidgets
+Suggests: graphics,stats,threejs,htmlwidgets,scales,jkf,ggplot2,
+    plotly,d3heatmap,dygraphs,leaflet,parcoords,taucharts,metricsgraphics
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:

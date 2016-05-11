@@ -2,7 +2,7 @@ distribution_lev <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace('metricsgraphics')
+  if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
   loadNamespace('SMRD')
   
 shinyApp(options = list(height = "700px"),

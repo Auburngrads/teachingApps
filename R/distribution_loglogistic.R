@@ -2,7 +2,7 @@ distribution_loglogistic <-
 function(...) {
   
   loadNamespace('shiny')
-  loadNamespace('metricsgraphics')
+  if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
   loadNamespace(actuar)
   
 shinyApp(options = list(height = "700px"),

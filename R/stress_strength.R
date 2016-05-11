@@ -2,6 +2,7 @@ stress_strength <-
 function(...) {
   
   if(!isNamespaceLoaded('shiny')) attachNamespace('shiny')
+  if(!isNamespaceLoaded('jkf')) attachNamespace('jkf')
   
 shinyApp(options = list(width = "100%", height = "350px"),
   ui = fluidPage(theme = shinythemes::shinytheme("flatly"),  
