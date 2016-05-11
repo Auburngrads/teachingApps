@@ -1,7 +1,8 @@
 table3_4 <-
 function(...) {
   
-  loadNamespace('shiny')
+  if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
+  if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
   
 t<-c(6700,6950,7820,8790,9120,9660,9820,11310,11690,11850,11880,12140,12200)
 d<-c(1   ,0   ,0   ,0   ,1   ,0   ,0   ,0    ,0    ,0    ,0    ,0    ,1)

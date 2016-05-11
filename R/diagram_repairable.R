@@ -1,14 +1,21 @@
 diagram_repairable <-
 function(...) {
   
-  loadNamespace('shiny')
+  if(!isNamespaceLoaded('shiny')) attachNamespace('shiny')
+  if(!isNamespaceLoaded('diagram')) attachNamespace('diagram')
   
 shinyApp(options = list(width = "100%", height = "600px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
+              try(includeCSS('css/my-shiny.css'), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("repairplot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "loadNamespace(diagram)
+      shinyAce::aceEditor("repairplot", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px", 
+                          fontSize = 15,
+                          value = 
+"library(diagram)
 Mat2 <- matrix(NA, nrow = 3, ncol = 3)
 
 AA <- as.data.frame(Mat2)
@@ -33,8 +40,8 @@ diagram::plotmat(A = AA, pos = 3, curve = .575,
         mainPanel(plotOutput("plotrepair", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
-  loadNamespace(diagram)
-  output$plotrepair <- renderPlot({
+
+    output$plotrepair <- renderPlot({
       par(mar = c(0,0,0,0))
       input$evalrepair
       return(isolate(eval(parse(text=input$repairplot))))

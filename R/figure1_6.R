@@ -1,18 +1,24 @@
 figure1_6 <-
 function(...) {
   
-  loadNamespace('shiny')
+ if(!isNamespaceLoaded('shiny')) attachNamespace('shiny')
+ if(!isNamespaceLoaded('SMRD')) attachNamespace('SMRD')
   
 shinyApp(options = list(width = "100%", height = "800px"),
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
+               try(includeCSS('css/my-shiny.css'), silent = TRUE),
 
 tabPanel(h4("Data Set"), DT::dataTableOutput("heatexchanger", height = "575px")),
                 
 tabPanel(h4("Figure 1.6"), titlePanel("Edit this code and press 'Evaluate' to change the figure"),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig6plot", mode = "r", theme = "github", height = "450px",
-                      value = "par(family='serif',font=2, mar = c(0,0,0,0))
+      shinyAce::aceEditor("fig6plot", 
+                          mode = "r", 
+                          theme = "github",
+                          height = "450px",
+                          value = 
+"par(family='serif',font=2, mar = c(0,0,0,0))
 plot(NA, axes = FALSE, xlab = '', ylab = '',
      xlim = range(-50,350),
      ylim = range(-10,300))
@@ -58,15 +64,20 @@ arrows(x0 = rep(345,3),
        y0 = seq(56,256,100),
        x1 = rep(350,3),
        length=rep(0.1,3))"),
-              actionButton("evalfig6", h4("Evaluate"), width = '100%')),
+
+        actionButton("evalfig6", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotfig6", height = "600px"), width = 7))),
                 
 tabPanel(h4("Figure 1.7"), titlePanel("Edit this code and press 'Evaluate' to change the figure"),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig7plot", mode = "r", theme = "github", height = "450px",
-                      value = "par(family='serif',font=2,mar = c(0,0,0,0))
+      shinyAce::aceEditor("fig7plot", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px",
+                          value = 
+"par(family='serif',font=2,mar = c(0,0,0,0))
 plot(NA,axes = FALSE,xlab = '',ylab = '',
      xlim = range(-50,350),
      ylim = range(-10,300))
@@ -112,12 +123,13 @@ arrows(x0 = rep(345,3),
        y0 = seq(56,256,100),
        x1 = rep(350,3),
        length=rep(0.1,3))"),
-              actionButton("evalfig7", h4("Evaluate"), width = '100%')),
+
+        actionButton("evalfig7", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotfig7", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
-  loadNamespace('SMRD')
+
   output$heatexchanger <- DT::renderDataTable({ DT::datatable(heatexchanger,
                                                        options = list(pageLength = 10)) })
   

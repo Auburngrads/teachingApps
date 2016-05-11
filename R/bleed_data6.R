@@ -1,8 +1,8 @@
 bleed_data6 <-
 function(...) {
   
-  loadNamespace('shiny')
-  loadNamespace('SMRD')
+if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
+if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
   
 Bleed.ld <- frame.to.ld(bleed,
                         response.column = 1, 
@@ -11,8 +11,8 @@ Bleed.ld <- frame.to.ld(bleed,
                         x.columns = c(4),
                         data.title = "Bleed Failure Data",
                         time.units = "Hours")
-stressor.ld(Bleed.ld, stress.var = "D")
-stressor.ld(Bleed.ld, stress.var = "Other")
+ld.split(Bleed.ld, stress.var = "D")
+ld.split(Bleed.ld, stress.var = "Other")
   
 par(family = "serif",font = 2)
 shinyApp(options = list(width = '99%', height = '800px'),
@@ -93,16 +93,16 @@ output$eventplot.bleed <- renderPlot({
 })
 output$eventplot.bleed.d <- renderPlot({ 
   par(family = "serif",bg = NA, font = 2)
-  if (input$PLOT_6 == "Event Plot") event.plot(Bleed.DBase.ld) 
-  if (input$PLOT_6 == "Histogram") hist(Response(Bleed.DBase.ld), 
+  if (input$PLOT_6 == "Event Plot") event.plot(Bleed.dbase.ld) 
+  if (input$PLOT_6 == "Histogram") hist(Response(Bleed.dbase.ld), 
                                       probability = TRUE, col = 1, 
                                       border = "white", main = "", 
                                       xlab = attr(Bleed.ld,"time.units"))
 })
 output$eventplot.bleed.o <- renderPlot({ 
   par(family = "serif",bg = NA, font = 2)
-  if (input$PLOT_6 == "Event Plot") event.plot(Bleed.OtherBase.ld) 
-  if (input$PLOT_6 == "Histogram") hist(Response(Bleed.OtherBase.ld), 
+  if (input$PLOT_6 == "Event Plot") event.plot(Bleed.otherbase.ld) 
+  if (input$PLOT_6 == "Histogram") hist(Response(Bleed.otherbase.ld), 
                                       probability = TRUE, col = 1, 
                                       border = "white", main = "", 
                                       xlab = attr(Bleed.ld,"time.units"))

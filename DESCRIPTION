@@ -10,15 +10,10 @@ License: GPL-2
 Depends:
     R (>= 3.1.0)
 Imports:
-    graphics,
-    stats,
-    shiny,
-    metricsgraphics,
-    threejs,
-    htmlwidgets,
-    DT,
-    visNetwork,
-    codemirrorR
+    graphics,stats,shiny,metricsgraphics,threejs,htmlwidgets,
+    DT,visNetwork,codemirrorR,plotly,SMRD,shinyAce,shinythemes,
+    scales,d3heatmap,dygraphs,ggplot2,leaflet,parcoords,taucharts,
+    dplyr
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:

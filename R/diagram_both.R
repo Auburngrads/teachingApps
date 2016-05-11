@@ -1,14 +1,21 @@
 diagram_both <-
 function(...) {
   
-  loadNamespace('shiny')
+  if(!isNamespaceLoaded('shiny')) attachNamespace('shiny')
+  if(!isNamespaceLoaded('diagram')) attachNamespace('diagram')
   
 shinyApp(options = list(width = "100%", height = "600px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
+              try(includeCSS('css/my-shiny.css'), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("realplot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "loadNamespace(diagram)
+      shinyAce::aceEditor("realplot", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px", 
+                          fontSize = 15,
+                          value = 
+"library(diagram)
 DiffMat <- matrix(NA, nrow = 4, ncol = 4)
 
 AA <- as.data.frame(DiffMat)
@@ -30,13 +37,14 @@ diagram::plotmat(A = AA, pos = 4, curve = .575,
          arr.width = 0.25, my = .15, box.size = 0.08, 
          arr.type = 'triangle', dtext = -1,
          relsize=.99, box.cex=1.5, cex=1.25)"),
-              actionButton("evalreal", h4("Evaluate"), width = '100%')),
+
+        actionButton("evalreal", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotreal", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
-  loadNamespace(diagram)
-  output$plotreal <- renderPlot({
+
+    output$plotreal <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(4,4,2,2))
       input$evalreal
       return(isolate(eval(parse(text=input$realplot))))

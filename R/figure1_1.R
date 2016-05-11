@@ -1,20 +1,27 @@
 figure1_1 <-
 function(...) {
   
-  loadNamespace('shiny')
+  if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
+  if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
   
 shinyApp(options = list(width = "100%", height = "800px"), 
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
+                      try(includeCSS('css/my-shiny.css'), silent = TRUE),
 
 tabPanel(h4("Data Set"), DT::dataTableOutput("lzbearing", height = "600px")),
                 
 tabPanel(h4("Figure 1.1"),titlePanel("Edit this code and press 'Evaluate' to change the figure"),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig1plot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "loadNamespace('SMRD')
+      shinyAce::aceEditor("fig1plot", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px", 
+                          fontSize = 15,
+                          value = "
+library(SMRD)
 par(family='serif', font=2)
-hist(lzbearing$megacycles,
+hist(lzbearing$mcycles,
      breaks=seq(0,200,20),
      col='black',
      border='white',
@@ -28,8 +35,13 @@ hist(lzbearing$megacycles,
 tabPanel(h4("Figure 1.2"),titlePanel("Edit this code and press 'Evaluate' to change the figure"),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig2plot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "loadNamespace('SMRD')
+      shinyAce::aceEditor("fig2plot", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px", 
+                          fontSize = 15,
+                          value = 
+"library(SMRD)
 par(family='serif', font=2)
 
 lzbearing.ld <- frame.to.ld(lzbearing, 
@@ -37,13 +49,14 @@ lzbearing.ld <- frame.to.ld(lzbearing,
                             time.units = 'Megacycles')
 
 event.plot(lzbearing.ld)"),
-              actionButton("evalfig2", h4("Evaluate"), width = '100%')),
+
+        actionButton("evalfig2", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotfig2", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
-  loadNamespace('SMRD')
-  output$lzbearing <- DT::renderDataTable({ DT::datatable(lzbearing,
+
+    output$lzbearing <- DT::renderDataTable({ DT::datatable(lzbearing,
                                                        options = list(pageLength = 12)) })
   
 output$plotfig1 <- renderPlot({

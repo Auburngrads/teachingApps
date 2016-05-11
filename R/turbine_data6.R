@@ -1,8 +1,8 @@
 turbine_data6 <-
 function(...) {
   
-  loadNamespace('shiny')
-  loadNamespace('SMRD')
+  if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
+  if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
   
 par(family = "serif",font = 2)
 Turbine.ld <- frame.to.ld(turbine,

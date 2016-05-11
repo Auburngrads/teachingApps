@@ -1,8 +1,8 @@
 overview_network <-
 function(...) {
 
-require('shiny')
-require('visNetwork')
+if(!isNamespaceLoaded('shiny')) attachNamespace('shiny')
+if(!isNamespaceLoaded('visNetwork')) attachNamespace('visNetwork')
 
 shinyApp(options = list(height = '600px'),
          

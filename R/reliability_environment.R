@@ -1,14 +1,20 @@
 reliability_environment <-
 function(...) {
   
-  loadNamespace('shiny')
+if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
   
 shinyApp(options = list(width = "100%", height = "600px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
+                      try(includeCSS('css/my-shiny.css'), silent = TRUE), 
+                
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("fig1plot", mode = "r", theme = "github", height = "450px",
-                      value = "par(mar = c(0,0,0,0))
+      shinyAce::aceEditor("fig1plot", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px",
+                          value = 
+"par(mar = c(0,0,0,0))
 plot(NA, 
      xlim = range(0,500), ylim = range(25,525), 
      axes = FALSE, 
@@ -38,7 +44,7 @@ text(x = rep(400, 5), y = seq(425, 75, -75),
        'Expect High Performance',
        'Expect to Last'), 
      cex = rep(2.5,5), family = 'mono')"),
-              actionButton("evalenvir", h4("Evaluate"))),
+              actionButton("evalenvir", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotenvir", height = "600px")))),
 

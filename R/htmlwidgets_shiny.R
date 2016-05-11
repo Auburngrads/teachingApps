@@ -1,20 +1,20 @@
 htmlwidgets_shiny <-
 function(...) {
   
-  loadNamespace('shiny')
-  loadNamespace('metricsgraphics')
-  loadNamespace('dygraphs')
-  loadNamespace('leaflet')
-  loadNamespace('threejs')
-  loadNamespace('d3heatmap')
-  loadNamespace('parcoords')
-  loadNamespace('taucharts')
-  loadNamespace('htmlwidgets')
-  loadNamespace('plotly')
+  if(!isNamespaceLoaded('shiny'))            attachNamespace('shiny')
+  if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
+  if(!isNamespaceLoaded('dygraphs'))         attachNamespace('dygraphs')
+  if(!isNamespaceLoaded('leaflet'))          attachNamespace('leaflet')
+  if(!isNamespaceLoaded('threejs'))          attachNamespace('threejs')
+  if(!isNamespaceLoaded('d3heatmap'))        attachNamespace('d3heatmap')
+  if(!isNamespaceLoaded('parcoords'))        attachNamespace('parcoords')
+  if(!isNamespaceLoaded('taucharts'))        attachNamespace('taucharts')
+  if(!isNamespaceLoaded('htmlwidgets'))      attachNamespace('htmlwidgets')
+  if(!isNamespaceLoaded('plotly'))           attachNamespace('plotly')
 
 shinyApp(options = list(height = '800px', width = '100%'),
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
-                includeCSS('css/my-shiny.css'),
+                ifelse(exists('css/my-shiny.css'), includeCSS('css/my-shiny.css'), ""),
   tabPanel(h4("Dygraph"),
   sidebarLayout(
     sidebarPanel(width = 3,
@@ -118,11 +118,10 @@ server = function(input, output, session) {
   
   output$parcoords <- renderParcoords({
     
-     loadNamespace(dplyr)
     diamonds <- ggplot2::diamonds
 dmd <- diamonds[sample(1:nrow(diamonds),1000),] %>%
-  mutate( carat = cut(carat, breaks=c(0,1,2,3,4,5), right = T)) %>%
-  select( carat, color, cut, clarity, depth, table, price,  x, y, z)
+  dplyr::mutate( carat = cut(carat, breaks=c(0,1,2,3,4,5), right = T)) %>%
+  dplyr::select( carat, color, cut, clarity, depth, table, price,  x, y, z)
   parcoords(data = dmd,
     rownames = F # turn off rownames from the data.frame
     , brushMode = "1D-axes"

@@ -1,14 +1,20 @@
 diagram_nonrepairable <-
 function(...) {
   
-  loadNamespace('shiny')
+  if(!isNamespaceLoaded('shiny')) attachNamespace('shiny')
+  if(!isNamespaceLoaded('diagram')) attachNamespace('diagram')
   
 shinyApp(options = list(width = "100%", height = "600px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
+              try(includeCSS('css/my-shiny.css'), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("replaceplot", mode = "r", theme = "github", height = "450px",
-                      value = "loadNamespace(diagram)
+      shinyAce::aceEditor("replaceplot", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px",
+                          value = 
+"library(diagram)
 Mat1 <- matrix(NA, nrow = 3, ncol = 3)
 
 AA <- as.data.frame(Mat1)
@@ -26,13 +32,14 @@ diagram::plotmat(A = AA, pos = 3, curve = .575,
          arr.width = 0.25, my = .25, box.size = 0.08, 
          arr.type = 'triangle', dtext = -1,
          relsize=.99, box.cex=1.5, cex=1.25)"),
-              actionButton("evalreplace", h4("Evaluate"), width = '100%')),
+
+        actionButton("evalreplace", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotreplace", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
-  loadNamespace(diagram)
-  output$plotreplace <- renderPlot({
+
+    output$plotreplace <- renderPlot({
       par(mar = c(0,0,0,0))
       input$evalreplace
       return(isolate(eval(parse(text=input$replaceplot))))
