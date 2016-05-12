@@ -130,7 +130,7 @@ arrows(x0 = rep(345,3),
 
 server = function(input, output, session) {
 
-  output$heatexchanger <- DT::renderDataTable({ DT::datatable(heatexchanger,
+  output$heatexchanger <- DT::renderDataTable({ DT::datatable(SMRD::heatexchanger,
                                                        options = list(pageLength = 10)) })
   
   output$plotfig6 <- renderPlot({

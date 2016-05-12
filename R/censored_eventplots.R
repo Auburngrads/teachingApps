@@ -10,14 +10,14 @@ shinyApp(options = list(width = '100%', height = '600px'),
       shinyAce::aceEditor("eventplots", mode = "r", theme = "github", height = "450px",
                       value = 
 "\n
-lfp1370.ld <- frame.to.ld(SMRD:::datas$lfp1370,
+lfp1370.ld <- frame.to.ld(SMRD::lfp1370,
               response.column = 1, 
               censor.column = 2, 
               case.weight.column = 3,
               data.title = 'Integrated Circuit Failure Data After 1370 Hours',
               time.units = 'Hours')
 
-turbine.ld <- frame.to.ld(SMRD:::datas$turbine,
+turbine.ld <- frame.to.ld(SMRD::turbine,
               response.column = 1, 
               censor.column = 2,
               case.weight.column = 3,

@@ -5,7 +5,7 @@ function(...) {
   loadNamespace('SMRD')
   
 par(family="serif",font=2)
-at7987.ld <- frame.to.ld(SMRD:::datas$at7987,
+at7987.ld <- frame.to.ld(SMRD::at7987,
                          response.column = 1,
                          censor.column = 2,
                          case.weight.column = 3,
@@ -94,7 +94,7 @@ output$figures <- codemirrorR::renderCodemirror({codemirrorR::codemirror(mode = 
 
 ## Figure 6.5
 
-at7987.ld <- frame.to.ld(SMRD:::datas$at7987,
+at7987.ld <- frame.to.ld(SMRD::at7987,
                          response.column = 1,
                          censor.column = 2,
                          case.weight.column = 3,

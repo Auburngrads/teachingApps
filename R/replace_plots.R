@@ -4,7 +4,7 @@ function(...) {
  if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
  if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
   
-ZelenCap.ld <- frame.to.ld(SMRD:::datas$zelencap, 
+ZelenCap.ld <- frame.to.ld(SMRD::zelencap, 
                            response.column = 1, 
                            censor.column = 2, 
                            case.weight.column = 3,

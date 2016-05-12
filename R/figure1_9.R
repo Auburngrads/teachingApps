@@ -19,7 +19,7 @@ tabPanel(h4("Figure 1.9"), titlePanel("Edit this code and press 'Evaluate' to ch
                           height = "450px",
                           value = 
 "par(family= 'serif', font=2)
-plot(hoursl~rh, data = printedcircuitboard,
+plot(hoursl~rh, data = SMRD::printedcircuitboard,
      pch = 'X', cex = .85, log = 'y',
      ylim = c(10,10000),xlim = c(45,85))
 
@@ -36,7 +36,7 @@ text(x = c(50,63,75,82),
 
 server = function(input, output, session) {
 
-  output$printedcircuitboard <- DT::renderDataTable({ DT::datatable(printedcircuitboard,
+  output$printedcircuitboard <- DT::renderDataTable({ DT::datatable(SMRD::printedcircuitboard,
                                                        options = list(pageLength = 12)) })
   
   output$plotfig9 <- renderPlot({

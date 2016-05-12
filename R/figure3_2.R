@@ -10,7 +10,7 @@ shinyApp(options = list(height = '600px', width = '100%'),
         shinyAce::aceEditor("npplot", mode = "r", theme = "github", height = "475px", fontSize = 14,
                       value = "par(family = 'serif', font = 2, cex = 1.15)
 loadNamespace('SMRD')
-HE.ld <- frame.to.ld(SMRD:::datas$heatexchanger,
+HE.ld <- frame.to.ld(SMRD::heatexchanger,
                      response.column = c(1,2), 
                      censor.column = 3,
                      case.weight.column = 4,

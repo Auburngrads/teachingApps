@@ -22,12 +22,12 @@ output$berkson <- renderPlot({
   par(family="serif",font=2)
 
 berkson <- switch(input$n7.1, 
-                  "20" = {berkson20},
-                  "200" = {berkson200},
-                  "2000" = {berkson2000},
-                  "10220" = {berkson10220})
+                  "20" = {SMRD::berkson20},
+                  "200" = {SMRD::berkson200},
+                  "2000" = {SMRD::berkson2000},
+                  "10220" = {SMRD::berkson10220})
 
-berkson.ld <- frame.to.ld(SMRD:::datas$berkson,
+berkson.ld <- frame.to.ld(berkson,
                           response.column = c(1,2),
                           censor.column = 3,
                           case.weight.column = 4)

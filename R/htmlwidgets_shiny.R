@@ -118,10 +118,10 @@ server = function(input, output, session) {
   
   output$parcoords <- renderParcoords({
     
-    diamonds <- teachingApps:::datas$diamonds
-dmd <- diamonds[sample(1:nrow(diamonds),1000),] %>%
-  dplyr::mutate( carat = cut(carat, breaks=c(0,1,2,3,4,5), right = T)) %>%
-  dplyr::select( carat, color, cut, clarity, depth, table, price,  x, y, z)
+    diamonds <- diamonds
+dmd <- diamonds[sample(1:nrow(diamonds),1000),]
+dmd <- dplyr::mutate(.data = dmd, carat = cut(carat, breaks=c(0,1,2,3,4,5), right = T))
+dmd <- dplyr::select(.data = dmd, carat, color, cut, clarity, depth, table, price,  x, y, z)
   parcoords(data = dmd,
     rownames = F # turn off rownames from the data.frame
     , brushMode = "1D-axes"

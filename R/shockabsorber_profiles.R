@@ -21,7 +21,7 @@ par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
 loadNamespace('SMRD')
 
 ShockAbsorber.ld <- 
-frame.to.ld(SMRD:::datas$shockabsorber,
+frame.to.ld(SMRD::shockabsorber,
             response.column = 1, 
             censor.column = 3,
             time.units = 'Kilometers')

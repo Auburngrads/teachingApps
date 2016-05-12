@@ -12,7 +12,7 @@ shinyApp(options = list(height = '800px', width = '99%'),
             shinyAce::aceEditor('lfpeventplot', mode = 'r', theme = 'github', fontSize = 14,
                       value = "par(family = 'serif', font = 2, cex = 1.15)
 loadNamespace('SMRD')
-lfp.ld<- frame.to.ld(SMRD:::datas$lfp1370,
+lfp.ld<- frame.to.ld(SMRD::lfp1370,
                      response.column = 1,
                      censor.column = 2,
                      case.weight.column=3,
@@ -29,7 +29,7 @@ event.plot(lfp.ld)"),
             shinyAce::aceEditor('lfpcdfplot', mode = 'r', theme = 'github', fontSize = 14,
                       value = "par(family = 'serif', font = 2, cex = 1.15)
 loadNamespace('SMRD')
-lfp.ld<- frame.to.ld(SMRD:::datas$lfp1370,
+lfp.ld<- frame.to.ld(SMRD::lfp1370,
                      response.column = 1,
                      censor.column = 2,
                      case.weight.column=3,
@@ -41,8 +41,8 @@ plot(lfp.ld)"),
         mainPanel(plotOutput('plotlfpcdf', height = '600px'))))),
 
 server = function(input, output, session) {
-loadNamespace('SMRD')
-  output$lfp1370 <- DT::renderDataTable({DT::datatable(lfp1370,
+
+  output$lfp1370 <- DT::renderDataTable({DT::datatable(SMRD::lfp1370,
                                                        options = list(pageLength = 12))})
 
   output$plotlfpevent <- renderPlot({

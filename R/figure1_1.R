@@ -21,7 +21,7 @@ tabPanel(h4("Figure 1.1"),titlePanel("Edit this code and press 'Evaluate' to cha
                           value = "
 library(SMRD)
 par(family='serif', font=2)
-hist(SMRD:::datas$lzbearing$mcycles,
+hist(SMRD::lzbearing$mcycles,
      breaks=seq(0,200,20),
      col='black',
      border='white',
@@ -44,7 +44,7 @@ tabPanel(h4("Figure 1.2"),titlePanel("Edit this code and press 'Evaluate' to cha
 "library(SMRD)
 par(family='serif', font=2)
 
-lzbearing.ld <- frame.to.ld(SMRD:::datas$lzbearing, 
+lzbearing.ld <- frame.to.ld(SMRD::lzbearing, 
                             response.column = 1, 
                             time.units = 'Megacycles')
 
@@ -56,7 +56,7 @@ event.plot(lzbearing.ld)"),
 
 server = function(input, output, session) {
 
-    output$lzbearing <- DT::renderDataTable({ DT::datatable(SMRD:::datas$lzbearing,
+    output$lzbearing <- DT::renderDataTable({ DT::datatable(SMRD::lzbearing,
                                                        options = list(pageLength = 12)) })
   
 output$plotfig1 <- renderPlot({

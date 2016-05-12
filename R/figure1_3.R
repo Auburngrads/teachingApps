@@ -19,7 +19,7 @@ tabPanel(h4('Figure 1.3'), titlePanel("Edit this code and press 'Evaluate' to ch
                           height = "450px", 
                           fontSize = 14,
                           value = 
-"IC.ld<-frame.to.ld(frame = lfp1370,\nresponse.column = 1,\ncensor.column = 2,\ncase.weight.column = 3,\ndata.title = 'IC Failure Data',\ntime.units = 'Hours')\n\npar(family='serif',font=2,bg=NA)\n\nevent.plot(IC.ld)\n\n\n\n# event.plot( ) is part of the SMRD package\n\n# SMRD commands can only be performed on\n# 'life.data' objects\n\n# frame.to.ld( ) converts a 'data.frame'\n# to a 'life.data' object"),
+"IC.ld<-frame.to.ld(frame = SMRD::lfp1370,\nresponse.column = 1,\ncensor.column = 2,\ncase.weight.column = 3,\ndata.title = 'IC Failure Data',\ntime.units = 'Hours')\n\npar(family='serif',font=2,bg=NA)\n\nevent.plot(IC.ld)\n\n\n\n# event.plot( ) is part of the SMRD package\n\n# SMRD commands can only be performed on\n# 'life.data' objects\n\n# frame.to.ld( ) converts a 'data.frame'\n# to a 'life.data' object"),
 
         actionButton("evalfig3", h4('Evaluate'), width = '100%')),
         
@@ -27,7 +27,7 @@ tabPanel(h4('Figure 1.3'), titlePanel("Edit this code and press 'Evaluate' to ch
 
 server = function(input, output, session) {
 
-  output$lfp1370 <- DT::renderDataTable({ DT::datatable(lfp1370,
+  output$lfp1370 <- DT::renderDataTable({ DT::datatable(SMRD::lfp1370,
                                                        options = list(pageLength = 12)) })
   
   output$plotfig3 <- renderPlot({
