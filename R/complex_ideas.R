@@ -1,10 +1,11 @@
 complex_ideas <-
 function(...) {
   
-  loadNamespace('shiny')
-  if(!isNamespaceLoaded('scales'))            attachNamespace('scales') # for transparency in density-plot fill
+  if(!isNamespaceLoaded('shiny'))            attachNamespace('shiny')
+  if(!isNamespaceLoaded('scales'))           attachNamespace('scales') 
   if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
-
+  if(!isNamespaceLoaded('SMRD'))             attachNamespace('SMRD') 
+  
 ##############################################
 ### Set up the gamma-distributed population
 ############################################
@@ -15,7 +16,7 @@ function(...) {
 ##############################################
 shinyApp(options = list( height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-                includeCSS('css/my-shiny.css'),
+                try(includeCSS('css/my-shiny.css'), silent = TRUE),
                 
 tabPanel(h4("Conf. Intervals"),
 sidebarLayout(
@@ -33,8 +34,9 @@ sidebarLayout(
               max = 99,
               step = 1),
   hr(),
-  actionButton("takeSample",h4("Generate A Sample"), width = '100%'), hr(),
-  actionButton("reset",h4("Clear & Re-Start"), width = '100%')),
+  actionButton("takeSample", h4("Generate A Sample"), width = '100%'), 
+  hr(),
+  actionButton("reset", h4("Clear & Re-Start"), width = '100%')),
   
   mainPanel(plotOutput("plotci", height = "650px"), width = 9))),
 
@@ -107,29 +109,49 @@ tabPanel(h4("Weibull Distro"),
                  
   selectInput("w", 
               label = h2("Function:"),
-              choices = c("CDF","PDF","Survival","Hazard","Cum Hazard"), 
-  selected = "PDF"),
+              choices = c("CDF",
+                          "PDF",
+                          "Survival",
+                          "Hazard",
+                          "Cum Hazard"), 
+              selected = "PDF"),
   
-  sliderInput("range.w", label = h2("Range:"),
-              min = 0, max = 50, value = c(0,25)),
-  sliderInput("scale.w", label = h2("Scale:"),
-              min = 5, max = 30, step = 5, value = 10, animate=TRUE),
-  sliderInput("shape.w", label = h2("Shape:"),
-              min = .5, max = 6, step=.5, value = .5 ,animate=TRUE)),
+  sliderInput("range.w", 
+              label = h2("Range:"),
+              min = 0, 
+              max = 50, 
+              value = c(0,25)),
+  sliderInput("scale.w", 
+              label = h2("Scale:"),
+              min = 5, 
+              max = 30, 
+              step = 5, 
+              value = 10, 
+              animate = TRUE),
+  sliderInput("shape.w", 
+              label = h2("Shape:"),
+              min = .5, 
+              max = 6, 
+              step=.5, 
+              value = .5 ,
+              animate = TRUE)),
   
   mainPanel(metricsgraphicsOutput("plotweib",height = "650px"),width = 9))),
 
 tabPanel(h4("ML Estimation"), 
 sidebarLayout(
   sidebarPanel(width = 3,
-    selectInput('correct', h2('True Distribution'), choices = c('Green', 'Blue', 'Red'), selected = 'Blue'),
+    selectInput('correct', 
+                h2('True Distribution'), 
+                choices = c('Green', 
+                            'Blue', 
+                            'Red'), 
+                selected = 'Blue'),
     hr(),
     actionButton('mlesample',h4('Generate 1 Sample'), width = '100%'), 
     hr(),
     actionButton('mlesample10',h4('Generate 10 Samples'), width = '100%'),
-    
     hr(),
-    
     actionButton('clear',h4('Clear All Samples'), width = '100%')),
   
   mainPanel(plotOutput('plotmle', height = '650px'), width = 9))),
@@ -137,15 +159,24 @@ sidebarLayout(
 tabPanel(h4('Dice Roll'),
          sidebarLayout(
             sidebarPanel(width = 3,
-            selectInput('rv.func', label = h2('Random Variable'),
-                  choices = c('Sum of Rolls', 'Product of Rolls', 'Difference of Rolls'), 
-                  selected = 'Sum of Rolls'),
+            selectInput('rv.func', 
+                        label = h2('Random Variable'),
+                        choices = c('Sum of Rolls', 
+                                    'Product of Rolls', 
+                                    'Difference of Rolls'), 
+                        selected = 'Sum of Rolls'),
                          
-            numericInput('no.dice', label = h2('Number Of Rolls'), 
-                        min = 1, max = 4, value = 1),
+            sliderInput('no.dice', 
+                        label = h2('Number Of Rolls'), 
+                        min = 1, 
+                        max = 4, 
+                        value = 1),
               
-            numericInput('no.sides', label = h2('Number Of Sides'), 
-                          min = 4, max = 20, value = 6)),
+            sliderInput('no.sides', 
+                        label = h2('Number Of Sides'), 
+                        min = 4, 
+                        max = 20, 
+                        value = 6)),
           
           mainPanel(width = 9,
                     tabsetPanel(
@@ -160,7 +191,8 @@ server = function(input, output, session) {
 
 shapeGamma <- 2
 scaleGamma <- 50
-xSkew <- seq(0,shapeGamma*scaleGamma+7.5*sqrt(shapeGamma)*scaleGamma,
+xSkew <- seq(0,
+             shapeGamma*scaleGamma+7.5*sqrt(shapeGamma)*scaleGamma,
              length.out=600)
 ySkew <- dgamma(xSkew,shape=shapeGamma,scale=scaleGamma)
 popDen <- list(x=xSkew,y=ySkew)
@@ -170,8 +202,12 @@ yMax <- 1.5*max(popDen$y)
 ### set seed so that users are likely to get different results
 set.seed(as.numeric(Sys.time()))
   
-rv <- reactiveValues(sample = NULL, mean = NULL, lower = NULL, upper = NULL, sims = 0,
-                       good = 0)
+rv <- reactiveValues(sample = NULL, 
+                     mean = NULL, 
+                     lower = NULL, 
+                     upper = NULL, 
+                     sims = 0,
+                     good = 0)
   
 observeEvent(input$takeSample, 
                {
@@ -204,12 +240,25 @@ observeEvent(input$reset,
 output$plotci <- renderPlot({
 par(family = "serif", font = 2, mar = c(4.5,4,1,2))  
     # the underlying population
-    plot(popDen$x,popDen$y,type="l",lwd=3,col="red",cex.axis = 1.25, yaxt = "n",
-         xlab=expression(bold("t")),
-         ylab="",
-         ylim = c(0,yMax), cex.lab = 1.5)
-    text(c(300,400,500),rep(0.0108,3),c("Simulations","Good","Percent Good"), cex = 2)
-    text(c(300,400,500), rep(0.0100,3),c(rv$sims, rv$good, round(rv$good/rv$sims, digits = 4)), cex = 2)
+  plot(x = popDen$x,
+       y = popDen$y,
+       type = "l",
+       lwd = 3,
+       col = "red",
+       cex.axis = 1.25, 
+       yaxt = "n",
+       main="Density Curve of Population",
+       xlab="",
+       ylab="",
+       ylim = c(0,yMax))
+  text(x = c(400,500,600),
+       y = rep(0.0108,3),
+       labels = c("Simulations","Good","Percent Good"), 
+       cex = 1.4)
+  text(x = c(400,500,600), 
+       y = rep(0.0100,3),
+       labels = c(rv$sims, rv$good, round(rv$good/rv$sims, digits = 4)), 
+       cex = 1.4)
     box(lwd = 2.5)
     axis(side = 2, las = 1, cex.axis = 1.25, tck = 0.025, hadj = 0.65)
     mtext(side = 2, "density f(t)", line = 3, cex.lab = 1.5)
@@ -223,27 +272,41 @@ par(family = "serif", font = 2, mar = c(4.5,4,1,2))
       firstx <- xdens[1]
       lastx <- xdens[length(xdens)]
       lines(density(rv$sample, from = 0), lwd = 2, col = "blue")
-      polygon(x = c(firstx,xdens,lastx), y = c(0,ydens,0), col = alpha("blue",0.25))
+      polygon(x = c(firstx,xdens,lastx), 
+              y = c(0,ydens,0), 
+              col = alpha("lightblue",0.5))
       # now the interval
       intLevel <- 0.95*yMax
-      segments(x0 = rv$lower, y0 = intLevel, x1 = rv$upper, y1 = intLevel, 
-               col = "green", lwd = 3)
-      text(x=rv$lower,y=intLevel,labels="(")
-      text(x=rv$upper,y=intLevel,labels=")")
-      points(rv$mean, intLevel, col = "blue", pch = 20,cex=2)
+      segments(x0 = rv$lower, 
+               y0 = intLevel, 
+               x1 = rv$upper, 
+               y1 = intLevel, 
+               col = "green", 
+               lwd = 3)
+      text(x = c(rv$lower,rv$upper),
+           y = c(intLevel,intLevel),
+           labels = c("(",")"))
+      points(rv$mean, 
+             intLevel, 
+             col = "blue", 
+             pch = 20,
+             cex = 2)
       rug(rv$sample)
     }
 })
 
 output$plotclt <- renderPlot({
   set.seed(42)
-par(bg=NA, family="serif", mar = c(4,4,1,2))
+par(family="serif", mar = c(4,4,1,2))
 if(input$distribution=="Weibull"    )  {
   w.shape<-2.15 
   w.scale=15 
   w.mean <- w.scale*gamma(1+1/w.shape) ;  
   w.var<-w.scale^2*(gamma(1+2/w.shape)-gamma(1+1/w.shape)^2)
-  dist <- replicate(300,sqrt(input$S)*(mean(rweibull(input$S,shape=w.shape, scale=w.scale))-w.mean)/sqrt(w.var))} else
+  dist <- replicate(300,
+                    sqrt(input$S)*(mean(rweibull(input$S,
+                                                 shape=w.shape, 
+                                                 scale=w.scale))-w.mean)/sqrt(w.var))} else
 
 if(input$distribution=="Exponential")  {
   e.rate<-.5
@@ -522,7 +585,7 @@ Time<-signif(seq(min(input$range.w), max(input$range.w), length = 500),digits = 
 CDF <- pweibull(Time,scale=input$scale.w,shape=input$shape.w)
 PDF <- dweibull(Time,scale=input$scale.w,shape=input$shape.w)
 REL <- 1-CDF
-haz <- weibhaz(Time, scale=input$scale.w,shape=input$shape.w)
+haz <- weibhaz(Time, sc = input$scale.w,sh = input$shape.w)
 HAZ <- -1*log(1-pweibull(Time,scale=input$scale.w,shape=input$shape.w))
 weib.df <- data.frame(Time, CDF, PDF, REL, haz, HAZ)
 

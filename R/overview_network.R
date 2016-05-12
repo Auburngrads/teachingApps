@@ -1,19 +1,19 @@
 overview_network <-
 function(...) {
 
-if(!isNamespaceLoaded('shiny')) attachNamespace('shiny')
-if(!isNamespaceLoaded('visNetwork')) attachNamespace('visNetwork')
+if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
+if(!isNamespaceLoaded('visNetwork'))  attachNamespace('visNetwork')
 
 shinyApp(options = list(height = '600px'),
          
 ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
-               try(includeCSS('css/my-shiny.css'),silent = TRUE),
+               try(includeCSS('css/my-shiny.css'), silent = TRUE),
                
-      mainPanel(visNetworkOutput('visnet1',height = '600px'),width = 12)),
+      mainPanel(visNetwork::visNetworkOutput('visnet1',height = '600px'),width = 12)),
 
 server = function(input, output, session) {
 
-  output$visnet1 <- renderVisNetwork({
+  output$visnet1 <- visNetwork::renderVisNetwork({
            
 n.names <- list(
 hub <- 'DATA SCIENCE',
@@ -49,11 +49,10 @@ nodes <- data.frame(id = 1:length(unlist(n.names)),
                     color = rep(c('orange','blue','gray','gray','gray','gray'), 
                                 times = lapply(n.names, length)))
 edges <- data.frame(from = rep(1:5, times = c(4,4,4,4,4)), to = 2:length(unlist(n.names)))
-  visNetwork(nodes, edges, width = "100%", height = '100%') %>%
+visNetwork::visNetwork(nodes, edges, width = "100%", height = '100%') %>%
   #visNodes(id = 'DATA SCIENCE',shape = "icon",icon = list(code = "f091", size = 100)) %>%
   visNetwork::addFontAwesome() %>%
-  visNetwork::visOptions(highlightNearest = list(enabled =TRUE, degree = 0)) %>% 
-  visNetwork::visInteraction(navigationButtons = TRUE)
+  visNetwork::visOptions(highlightNearest = list(enabled =TRUE, degree = 0)) %>% visNetwork::visInteraction(navigationButtons = TRUE)
 })
 })
 }
