@@ -1,9 +1,9 @@
 distribution_loglogistic <-
 function(...) {
   
-  loadNamespace('shiny')
+  if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
   if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
-  loadNamespace(actuar)
+  if(!isNamespaceLoaded('actuar'))  attachNamespace('actuar')
   
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),

@@ -11,8 +11,8 @@ Bleed.ld <- frame.to.ld(bleed,
                         x.columns = c(4),
                         data.title = "Bleed Failure Data",
                         time.units = "Hours")
-ld.split(Bleed.ld, stress.var = "D")
-ld.split(Bleed.ld, stress.var = "Other")
+ld.split(Bleed.ld, stress.var.list = "D")
+ld.split(Bleed.ld, stress.var.list = "Other")
   
 par(family = "serif",font = 2)
 shinyApp(options = list(width = '99%', height = '800px'),

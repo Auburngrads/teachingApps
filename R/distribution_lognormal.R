@@ -1,10 +1,10 @@
 distribution_lognormal <-
 function(...) {
 
-  loadNamespace('shiny')
-  loadNamespace(metricsgraphics
-          )
-shinyApp(options = list(height = "700px"),
+  if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
+  if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
+  
+  shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
                includeCSS("css/my-shiny.css"),
 sidebarLayout(

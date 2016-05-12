@@ -326,7 +326,9 @@ if(input$distribution=="Lognormal")	   {
   l.scale=10 
   l.mean<-exp(l.scale+l.shape^2/2) 
   l.var<-(exp(l.shape^2)-1)*exp(2*l.scale+l.shape^2)
-  dist <- replicate(300,sqrt(input$S)*(mean(rlnorm(input$S, mean=l.scale, sd=l.shape))-l.mean)/sqrt(l.var))}    else
+  dist <- replicate(300,sqrt(input$S)*(mean(rlnorm(input$S, 
+                                                   meanlog = l.scale, 
+                                                   sdlog = l.shape))-l.mean)/sqrt(l.var))}    else
 
 if(input$distribution=="Normal")       
   {dist <- replicate(300,sqrt(input$S)*mean(rnorm(input$S, mean=0, sd=1)))} else   
