@@ -21,7 +21,7 @@ shinyApp(options = list(width = "100%", height = "350px"),
 server <- function(input, output, session) {
  
   output$first <- renderPlot({
-  jkf::jkf.par(mar = c(2,4,2,2))
+  jkf:::jkf.par(mar = c(2,4,2,2))
   plot(seq(0,30,.1),dnorm(seq(0,30,.1),input$mean,2),
        xlim=range(0,22),
        ylim=range(0,.2),
