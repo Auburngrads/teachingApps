@@ -27,7 +27,7 @@ berkson <- switch(input$n7.1,
                   "2000" = {berkson2000},
                   "10220" = {berkson10220})
 
-berkson.ld <- frame.to.ld(berkson,
+berkson.ld <- frame.to.ld(SMRD:::datas$berkson,
                           response.column = c(1,2),
                           censor.column = 3,
                           case.weight.column = 4)

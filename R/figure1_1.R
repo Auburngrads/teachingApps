@@ -44,7 +44,7 @@ tabPanel(h4("Figure 1.2"),titlePanel("Edit this code and press 'Evaluate' to cha
 "library(SMRD)
 par(family='serif', font=2)
 
-lzbearing.ld <- frame.to.ld(lzbearing, 
+lzbearing.ld <- frame.to.ld(SMRD:::datas$lzbearing, 
                             response.column = 1, 
                             time.units = 'Megacycles')
 

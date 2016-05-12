@@ -23,7 +23,7 @@ loadNamespace('SMRD')
 zoom <- 1.5
 
 ShockAbsorber.ld <- 
-frame.to.ld(shockabsorber,
+frame.to.ld(SMRD:::datas$shockabsorber,
             response.column = 1, 
             censor.column = 3,
             time.units = 'Kilometers')

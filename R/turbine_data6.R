@@ -5,7 +5,7 @@ function(...) {
   if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
   
 par(family = "serif",font = 2)
-Turbine.ld <- frame.to.ld(turbine,
+Turbine.ld <- frame.to.ld(SMRD:::datas$turbine,
                           response.column = 1,
                           censor.column = 2,
                           case.weight.column=3,

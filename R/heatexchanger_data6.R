@@ -5,7 +5,7 @@ function(...) {
   loadNamespace('SMRD')
   
 par(family = "serif",font = 2)
-HeatExchanger.ld <- frame.to.ld(heatexchanger,
+HeatExchanger.ld <- frame.to.ld(SMRD:::datas$heatexchanger,
                                 response.column = c(1,2),
                                 censor.column = 3,
                                 case.weight.column=4,

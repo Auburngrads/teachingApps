@@ -4,7 +4,7 @@ function(...) {
 if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
 if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
   
-Bleed.ld <- frame.to.ld(bleed,
+Bleed.ld <- frame.to.ld(SMRD:::datas$bleed,
                         response.column = 1, 
                         censor.column = 2, 
                         case.weight.column = 3,
@@ -125,7 +125,7 @@ output$cdfplot.bleed.o <- renderPlot({
 })
 output$figures.bleed <- codemirrorR::renderCodemirror({codemirrorR::codemirror(mode = 'r',
 "
-Bleed.ld <- frame.to.ld(bleed,
+Bleed.ld <- frame.to.ld(SMRD:::datas$bleed,
                         response.column = 1, 
                         censor.column = 2, 
                         case.weight.column = 3,

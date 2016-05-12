@@ -3,7 +3,7 @@
   # library(SMRD)
   # library(ggplot2)
   # 
-  # datas <- c(diamonds = diamonds,
+  # datas <- list(diamonds = diamonds,
   #               shockabsorber = shockabsorber,
   #               turbine = turbine,
   #               zelencap = zelencap,

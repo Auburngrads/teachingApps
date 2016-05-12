@@ -23,7 +23,7 @@ loadNamespace('SMRD')
 zoom <- 1.5
 
 Berkson200.ld <- 
-frame.to.ld(berkson200,
+frame.to.ld(SMRD:::datas$berkson200,
             response.column = c(1,2), 
             censor.column = 3,
             case.weight.column = 4,
