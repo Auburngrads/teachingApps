@@ -18,7 +18,7 @@ shinyApp(options = list(height = '600px', width = '100%'),
                                  value = "
 par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
 
-loadNamespace('SMRD')
+library(SMRD)
 
 zoom <- 1.5
 

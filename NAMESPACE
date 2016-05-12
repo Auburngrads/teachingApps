@@ -1,3 +1,4 @@
+import(stats)
 import(SMRD)
 import(threejs)
 import(htmlwidgets)

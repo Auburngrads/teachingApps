@@ -11,11 +11,10 @@ function(...) {
   if(!isNamespaceLoaded('taucharts'))        attachNamespace('taucharts')
   if(!isNamespaceLoaded('htmlwidgets'))      attachNamespace('htmlwidgets')
   if(!isNamespaceLoaded('plotly'))           attachNamespace('plotly')
-  if(!isNamespaceLoaded('ggplot2'))          attachNamespace('ggplot2')
 
 shinyApp(options = list(height = '800px', width = '100%'),
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
-                ifelse(exists('css/my-shiny.css'), includeCSS('css/my-shiny.css'), ""),
+                try(includeCSS('css/my-shiny.css'), silent = T),
   tabPanel(h4("Dygraph"),
   sidebarLayout(
     sidebarPanel(width = 3,

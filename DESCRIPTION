@@ -12,7 +12,7 @@ Depends:  R (>= 3.1.0)
 Imports: 
     codemirrorR,shinyAce,shinythemes,DT,actuar,
     dplyr,htmlwidgets,shiny,SMRD,threejs,scales,jkf,
-    plotly,d3heatmap,dygraphs,leaflet,
+    plotly,d3heatmap,dygraphs,leaflet,stats,
     parcoords,taucharts,metricsgraphics,visNetwork,diagram
 NeedsCompilation: no
 Archs: i386, x64
