@@ -118,7 +118,7 @@ server = function(input, output, session) {
   
   output$parcoords <- renderParcoords({
     
-    diamonds <- diamonds
+    diamonds <- datas$diamonds
 dmd <- diamonds[sample(1:nrow(diamonds),1000),] %>%
   dplyr::mutate( carat = cut(carat, breaks=c(0,1,2,3,4,5), right = T)) %>%
   dplyr::select( carat, color, cut, clarity, depth, table, price,  x, y, z)
