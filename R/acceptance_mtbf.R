@@ -1,13 +1,15 @@
 acceptance_mtbf <-
 function(...) {
 
-if(!isNamespaceLoaded('shiny')) attachNamespace('shiny')
-if(!isNamespaceLoaded('plotly')) attachNamespace('plotly')
+try(attachNamespace('shiny'), silent = TRUE)
+try(attachNamespace('plotly'), silent = TRUE)
 
 shinyApp(options = list(height = '800px', width = '99%'),
          
     ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
-                    try(includeCSS('css/my-shiny.css'), silent = T),
+                    try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = T),
           
 tabPanel(h4('MTBF Test Planning Tool'),
          sidebarLayout(

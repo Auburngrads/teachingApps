@@ -1,12 +1,14 @@
 diagram_both <-
 function(...) {
   
-  if(!isNamespaceLoaded('shiny')) attachNamespace('shiny')
-  if(!isNamespaceLoaded('diagram')) attachNamespace('diagram')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('diagram'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
-              try(includeCSS('css/my-shiny.css'), silent = TRUE),
+              try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("realplot", 
@@ -15,8 +17,7 @@ ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
                           height = "450px", 
                           fontSize = 15,
                           value = 
-"library(diagram)
-DiffMat <- matrix(NA, nrow = 4, ncol = 4)
+"DiffMat <- matrix(NA, nrow = 4, ncol = 4)
 
 AA <- as.data.frame(DiffMat)
 AA[[1,2]] <- 'F[1:0]'

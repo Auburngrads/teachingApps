@@ -3,21 +3,31 @@ function(...) {
 
 shinyApp(options = list(height = '650px', width = '100%'),
     ui =fluidPage(theme = shinythemes::shinytheme('flatly'), 
-                  includeCSS('css/my-shiny.css'),
+                 try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
           sidebarLayout(
             sidebarPanel(width = 3,
-            selectInput('rv.func', label = h2('Random Variable'),
-                  choices = c('Sum of Rolls', 'Product of Rolls', 'Difference of Rolls'), 
-                  selected = 'Sum of Rolls'),
-                         
-            numericInput('no.dice', label = h2('Number Of Rolls'), 
-                        min = 1, max = 4, value = 1),
-              
-            numericInput('no.sides', label = h2('Number Of Sides'), 
-                          min = 4, max = 20, value = 6)),
+            selectInput('rv.func', 
+                        label = h2('Random Variable'),
+                        choices = c('Sum of Rolls', 
+                                    'Product of Rolls', 
+                                    'Difference of Rolls'), 
+
+                        selected = 'Sum of Rolls'),
+            sliderInput('no.dice', 
+                         label = h2('Number Of Rolls'), 
+                         min = 1, 
+                         max = 4, 
+                         value = 1),
+            sliderInput('no.sides', 
+                        label = h2('Number Of Sides'), 
+                        min = 4, 
+                        max = 20, 
+                        value = 6)),
           
           mainPanel(width = 9,
-                    tabsetPanel(
+                    tabsetPanel(type = 'pills',
                       tabPanel(h4("Outcomes"), 
                                DT::dataTableOutput("results", height = "550px")),
                       tabPanel(h4('Borel Algegra'),

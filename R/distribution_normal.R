@@ -1,23 +1,38 @@
 distribution_normal <-
 function(...) {
   
-  loadNamespace('shiny')
-  if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('metricsgraphics'), silent = TRUE)
   
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
-               includeCSS("css/my-shiny.css"),
+              trtry(includeCSS(system.file('css',
+                                          'my-shiny.css', 
+                                          package = 'teachingApps')), silent = TRUE),
 sidebarLayout(
-sidebarPanel(width = 3, hr(),
-  
-  sliderInput("range.n", label = h2("Range"),
-              min = -20, max = 20, value = c(-4,4)),
+sidebarPanel(width = 3, 
   hr(),
-  sliderInput("mu.n", label = h2(HTML("Mean (&mu;)")),
-              min = -3, max = 3, step = 0.5, value = 0, animate = T),
+  sliderInput("range.n", 
+              label = h2("Range"),
+              min = -20, 
+              max = 20, 
+              value = c(-4,4)),
   hr(),
-  sliderInput("sig.n", label = h2(HTML("Std Dev (&sigma;)")),
-              min = 0.5, max = 5, step = 0.5, value = 1, animate = T)),
+  sliderInput("mu.n", 
+              label = h2(HTML("Mean (&mu;)")),
+              min = -3, 
+              max = 3, 
+              step = 0.5, 
+              value = 0, 
+              animate = T),
+  hr(),
+  sliderInput("sig.n", 
+              label = h2(HTML("Std Dev (&sigma;)")),
+              min = 0.5, 
+              max = 5, 
+              step = 0.5, 
+              value = 1, 
+              animate = T)),
 
 mainPanel(width = 9,
  tabsetPanel(type = 'pills',

@@ -1,15 +1,18 @@
 berkson200_profile <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(height = '600px'),
       
   ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
-                     includeCSS('css/my-shiny.css'),
+                    try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
                      
        sidebarLayout(
-         sidebarPanel(shinyAce::aceEditor("berkprofile200", 
+         sidebarPanel(width = 5,
+                      shinyAce::aceEditor("berkprofile200", 
                                           mode = "r", 
                                           theme = "github", 
                                           height = "450px", 
@@ -37,7 +40,7 @@ one.dim.profile(berkson200.mle.exp,
 ### NOTE: `one.dim.profile` will give the upper and 
 ###        lower confidence limits if `print.ci = TRUE`"),
 
-actionButton("berk200profiles", h4("Evaluate"), width = '100%'), width = 5),
+        actionButton("berk200profiles", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("berk200prof", height = "600px"), width = 7))),
 

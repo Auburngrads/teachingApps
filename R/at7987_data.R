@@ -1,8 +1,8 @@
 at7987_data <-
 function(...) {
   
-  loadNamespace('shiny')
-  loadNamespace('SMRD')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('SMRD'), silent = TRUE)
   
 par(family="serif",font=2)
 at7987.ld <- frame.to.ld(SMRD::at7987,
@@ -14,7 +14,9 @@ at7987.ld <- frame.to.ld(SMRD::at7987,
 shinyApp(options = list(width = "99%", height = "800px"),
 
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
-                includeCSS('css/my-shiny.css'),
+               try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
 
 tabPanel(h4("Data Set"),DT::dataTableOutput("table.at7987", height = "80%") ), 
 

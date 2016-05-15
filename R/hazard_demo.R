@@ -1,10 +1,12 @@
 hazard_demo <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(width = "99%", height = "700px"),
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+ui = navbarPage(theme = shinythemes::shinytheme("flatly"), try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
 
 tabPanel(h4("Hazard Function Plot"),
   sidebarLayout( 

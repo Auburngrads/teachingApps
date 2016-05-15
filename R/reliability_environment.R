@@ -1,11 +1,13 @@
 reliability_environment <-
 function(...) {
   
-if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
+try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
-                      try(includeCSS('css/my-shiny.css'), silent = TRUE), 
+                      try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE), 
                 
   sidebarLayout( 
     sidebarPanel(

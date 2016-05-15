@@ -1,8 +1,8 @@
 shock_absorber8 <-
 function(...) {
   
-  loadNamespace('shiny')
-  loadNamespace('SMRD')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('SMRD'), silent = TRUE)
 
 par(family = "serif", font = 2)
 
@@ -15,7 +15,9 @@ frame.to.ld(SMRD::shockabsorber,
 shinyApp(options = list(height = '800px', width = '99%'),
          
      ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
-                     includeCSS('css/my-shiny.css'),
+                    try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
                      
      tabPanel(h4("Data Set"),   DT::dataTableOutput("table.shock", 
                                                 height = "80%") ),    

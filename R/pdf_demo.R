@@ -1,10 +1,12 @@
 pdf_demo <-
 function(...) {
   
-loadNamespace('shiny')
+try(attachNamespace('shiny'), silent = TRUE)
 
 shinyApp(options = list(width = "100%", height = "600px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),  sidebarLayout( 
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),  sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor("pdfplot", mode = "r", theme = "github", height = "450px", fontSize = 15,
                       value = "par(family='serif',mar = c(4,6,2,1))

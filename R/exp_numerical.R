@@ -1,11 +1,13 @@
 exp_numerical <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(height = '750px'),
     
-  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
+  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
        tabPanel(h4('Numerical Solution'),
         sidebarLayout(
           sidebarPanel(shinyAce::aceEditor("mlexpnum", mode = "r", theme = "github", 

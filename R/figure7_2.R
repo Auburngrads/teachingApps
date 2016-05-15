@@ -1,13 +1,15 @@
 figure7_2 <-
 function(...) {
   
-  loadNamespace('shiny')
-  loadNamespace('SMRD')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('SMRD'), silent = TRUE)
 
 shinyApp(options = list(height = '600px', width = '100%'),
 
      ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
-                    includeCSS('css/my-shiny.css'),
+                   try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
                     
      sidebarLayout(           
      sidebarPanel(width = 3,           

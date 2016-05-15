@@ -1,7 +1,7 @@
 table3_4 <-
 function(...) {
   
-  if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
   
 t<-c(6700,6950,7820,8790,9120,9660,9820,11310,11690,11850,11880,12140,12200)
@@ -16,7 +16,9 @@ Table.3.4<-data.frame(t,d,r,n,p,q,S,D)
 colnames(Table.3.4) <- c("km","Failed","Censored","Entered","p","q","S(t)","F(t)")
 
 shinyApp(options = list(height = '800px', width = '99%'),
- ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+ ui = navbarPage(theme = shinythemes::shinytheme("flatly"), try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
         
       tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock1", height = "80%")),
       tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock2", height = "80%") )),

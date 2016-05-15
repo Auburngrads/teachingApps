@@ -1,13 +1,15 @@
 overview_network <-
 function(...) {
 
-if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
+try(attachNamespace('shiny'), silent = TRUE)
 if(!isNamespaceLoaded('visNetwork'))  attachNamespace('visNetwork')
 
 shinyApp(options = list(height = '600px'),
          
 ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
-               try(includeCSS('css/my-shiny.css'), silent = TRUE),
+               try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
                
       mainPanel(visNetwork::visNetworkOutput('visnet1',height = '600px'),width = 12)),
 

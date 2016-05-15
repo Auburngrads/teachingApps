@@ -1,26 +1,33 @@
 htmlwidgets_shiny <-
 function(...) {
   
-  if(!isNamespaceLoaded('shiny'))            attachNamespace('shiny')
-  if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
-  if(!isNamespaceLoaded('dygraphs'))         attachNamespace('dygraphs')
-  if(!isNamespaceLoaded('leaflet'))          attachNamespace('leaflet')
-  if(!isNamespaceLoaded('threejs'))          attachNamespace('threejs')
-  if(!isNamespaceLoaded('d3heatmap'))        attachNamespace('d3heatmap')
-  if(!isNamespaceLoaded('parcoords'))        attachNamespace('parcoords')
-  if(!isNamespaceLoaded('taucharts'))        attachNamespace('taucharts')
-  if(!isNamespaceLoaded('htmlwidgets'))      attachNamespace('htmlwidgets')
-  if(!isNamespaceLoaded('plotly'))           attachNamespace('plotly')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('metricsgraphics'), silent = TRUE)
+  try(attachNamespace('dygraphs'), silent = TRUE)
+  try(attachNamespace('leaflet'), silent = TRUE)
+  try(attachNamespace('threejs'), silent = TRUE)
+  try(attachNamespace('d3heatmap'), silent = TRUE)
+  try(attachNamespace('parcoords'), silent = TRUE)
+  try(attachNamespace('taucharts'), silent = TRUE)
+  try(attachNamespace('htmlwidgets'), silent = TRUE)
+  try(attachNamespace('plotly'), silent = TRUE)
 
 shinyApp(options = list(height = '800px', width = '100%'),
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
-                try(includeCSS('css/my-shiny.css'), silent = T),
+                try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = T),
   tabPanel(h4("Dygraph"),
   sidebarLayout(
     sidebarPanel(width = 3,
-      numericInput("months", label = h2(HTML("<b>Months to Predict</b>")), 
-                   value = 72, min = 12, max = 144, step = 12),
-      selectInput("interval", label = h2(HTML("<b>Prediction Interval</b>")),
+      numericInput("months", 
+                   label = h2(HTML("<b>Months to Predict</b>")), 
+                   value = 72, 
+                   min = 12, 
+                   max = 144, 
+                   step = 12),
+      selectInput("interval", 
+                  label = h2(HTML("<b>Prediction Interval</b>")),
                   choices = c("0.80", "0.90", "0.95", "0.99"),
                   selected = "0.95"),
       hr(),

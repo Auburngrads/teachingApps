@@ -1,15 +1,17 @@
 figure3_2 <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(height = '600px', width = '100%'),
-    ui = fluidPage(theme = shinythemes::shinytheme('flatly'),includeCSS('css/my-shiny.css'),
+    ui = fluidPage(theme = shinythemes::shinytheme('flatly'), try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
     sidebarLayout(
       sidebarPanel(
         shinyAce::aceEditor("npplot", mode = "r", theme = "github", height = "475px", fontSize = 14,
                       value = "par(family = 'serif', font = 2, cex = 1.15)
-loadNamespace('SMRD')
+try(attachNamespace('SMRD'), silent = TRUE)
 HE.ld <- frame.to.ld(SMRD::heatexchanger,
                      response.column = c(1,2), 
                      censor.column = 3,
@@ -21,7 +23,7 @@ plot(HE.ld,band.type = 'Pointwise')"),
         
         mainPanel(plotOutput("plot3.2", height = "600px")))),
 server = function(input, output, session) {
-loadNamespace('SMRD')
+try(attachNamespace('SMRD'), silent = TRUE)
 output$plot3.2 <- renderPlot({
       input$eval3.2
       return(isolate(eval(parse(text=input$npplot))))

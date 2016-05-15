@@ -1,7 +1,7 @@
 random_generator <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
 
 set.seed(NULL) ; set1 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
 set.seed(NULL) ; set2 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
@@ -10,7 +10,9 @@ set.seed(42)   ; set4 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
 
 
 shinyApp(options = list(height = '800px', width = '100%'),
-  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
+  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
     tabPanel(h4('PRN Data'), DT::dataTableOutput('prn'))),
   server = function(input, output, session) {
     

@@ -1,8 +1,8 @@
 replace_plots <-
 function(...) {
   
- if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
- if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
+ try(attachNamespace('shiny'), silent = TRUE)
+ try(attachNamespace('SMRD'), silent = TRUE
   
 ZelenCap.ld <- frame.to.ld(SMRD::zelencap, 
                            response.column = 1, 
@@ -16,7 +16,8 @@ ZelenCap.ld <- frame.to.ld(SMRD::zelencap,
 shinyApp(options = list(width = "100%", height = "800px"),
 
     ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-                    try(includeCSS('css/my-shiny.css'), silent = TRUE),
+                    try(includeCSS(system.file('css','my-shiny.css', package = 'teachingApps')),
+                        silent = TRUE),
 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table2", height = "650px") ),  
 tabPanel(h4("Data Summary"), verbatimTextOutput("summary2") ), 

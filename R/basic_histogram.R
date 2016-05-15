@@ -1,12 +1,14 @@
 basic_histogram <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(height = '650px'),
          
 ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
-                 includeCSS('css/my-shiny.css'),
+                try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
      sidebarLayout( 
         sidebarPanel(
            shinyAce::aceEditor("code", 

@@ -1,11 +1,13 @@
 plotting_basic <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
 
 shinyApp(options = list(height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-                includeCSS('css/my-shiny.css'),
+               try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
 tabPanel(h4("shinyAce"),
   sidebarLayout( 
     sidebarPanel(

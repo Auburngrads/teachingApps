@@ -1,12 +1,14 @@
 diagram_nonrepairable <-
 function(...) {
   
-  if(!isNamespaceLoaded('shiny')) attachNamespace('shiny')
-  if(!isNamespaceLoaded('diagram')) attachNamespace('diagram')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('diagram'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
-              try(includeCSS('css/my-shiny.css'), silent = TRUE),
+              try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("replaceplot", 
@@ -14,8 +16,7 @@ ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
                           theme = "github", 
                           height = "450px",
                           value = 
-"library(diagram)
-Mat1 <- matrix(NA, nrow = 3, ncol = 3)
+"Mat1 <- matrix(NA, nrow = 3, ncol = 3)
 
 AA <- as.data.frame(Mat1)
 AA[[2,1]] <- 'F[0:1]'

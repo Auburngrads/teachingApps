@@ -1,15 +1,23 @@
 censored_eventplots <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(width = '100%', height = '600px'),
-  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
+         
+  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
+                 try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
     sidebarLayout(
       sidebarPanel(
-      shinyAce::aceEditor("eventplots", mode = "r", theme = "github", height = "450px",
-                      value = 
-"\n
+      shinyAce::aceEditor("eventplots", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px",
+                          value = 
+"library(SMRD)
+
 lfp1370.ld <- frame.to.ld(SMRD::lfp1370,
               response.column = 1, 
               censor.column = 2, 
@@ -30,12 +38,12 @@ event.plot(lfp1370.ld)
 event.plot(turbine.ld) 
 
 par(mfrow=c(1,1))"),
-              actionButton("evaleventplots", h4("Evaluate"))),
+
+        actionButton("evaleventplots", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("ploteventplots", height = "600px")))),
 
 server = function(input, output, session) {
-  loadNamespace('SMRD')
 
 output$ploteventplots <- renderPlot({
       input$evaleventplots

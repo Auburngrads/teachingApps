@@ -1,25 +1,43 @@
 distribution_weibull <-
 function(...) {
   
- if(!isNamespaceLoaded('shiny'))            attachNamespace('shiny')
- if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
+ try(attachNamespace('shiny'), silent = TRUE)
+ try(attachNamespace('metricsgraphics'), silent = TRUE)
   
 shinyApp(options = list(height = "700px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
+               try(includeCSS(system.file('css',
+                                          'my-shiny.css', 
+                                          package = 'teachingApps')), silent = TRUE),
 sidebarLayout(
-sidebarPanel(width = 3, hr(),
-  sliderInput("range.w", label = h2("Range"),  min = 0, max = 50, value = c(0,25)),
+sidebarPanel(width = 3, 
   hr(),
-  sliderInput("scale.w", label = h2(HTML("Scale (&eta;)")),  
-            min = 5, max = 30, step = 1, value = 10, animate = T),
+  sliderInput("range.w", 
+              label = h2("Range"),  
+              min = 0, 
+              max = 50, 
+              value = c(0,25)),
   hr(),
-  sliderInput("shape.w", label = h2(HTML("Shape (&beta;)")),  
-            min = .5, max = 10, step = .5, value = .5, animate = T)),
+  sliderInput("scale.w", 
+              label = h2(HTML("Scale (&eta;)")),  
+              min = 5, 
+              max = 30, 
+              step = 1, 
+              value = 10, 
+              animate = T),
+  hr(),
+  sliderInput("shape.w", 
+              label = h2(HTML("Shape (&beta;)")),  
+              min = .5, 
+              max = 10, 
+              step = .5, 
+              value = .5, 
+              animate = T)),
 
 mainPanel(width = 9,
  tabsetPanel(type = 'pills',
-  tabPanel(h4('Distribution Function'),metricsgraphicsOutput("weibC",height = "600px")),
-  tabPanel(h4('Density'),    metricsgraphicsOutput("weibP",height = "600px")),
+  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("weibC",height = "600px")),
+  tabPanel(h4('Density'),                metricsgraphicsOutput("weibP",height = "600px")),
   tabPanel(h4('Survival'),               metricsgraphicsOutput("weibR",height = "600px")),
   tabPanel(h4('Hazard'),                 metricsgraphicsOutput("weibh",height = "600px")),
   tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("weibH",height = "600px")),

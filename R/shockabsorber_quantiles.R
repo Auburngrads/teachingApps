@@ -1,13 +1,15 @@
 shockabsorber_quantiles <-
 function(...) {
   
-  loadNamespace('shiny')
-  loadNamespace('SMRD')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('SMRD'), silent = TRUE)
   
 shinyApp(options = list(height = '600px', width = '99%'),
     
     ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
-                   includeCSS('css/my-shiny.css'),
+                  try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
          sidebarLayout(
            sidebarPanel(
              shinyAce::aceEditor("shockquant", 
@@ -18,7 +20,7 @@ shinyApp(options = list(height = '600px', width = '99%'),
                                  value = "
 par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
 
-loadNamespace('SMRD')
+try(attachNamespace('SMRD'), silent = TRUE)
 
 ShockAbsorber.ld <- 
 frame.to.ld(SMRD::shockabsorber,
@@ -47,7 +49,7 @@ actionButton("shockquants", h4("Evaluate")), width = 4),
 
 server = function(input, output, session) {
 
-  loadNamespace('SMRD')
+  try(attachNamespace('SMRD'), silent = TRUE)
     
   output$squant <- renderPlot({
       input$shockquants

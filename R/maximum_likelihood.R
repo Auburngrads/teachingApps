@@ -1,13 +1,15 @@
 maximum_likelihood <-
 function(...) {
   
-  if(!isNamespaceLoaded('shiny'))            attachNamespace('shiny')
-  if(!isNamespaceLoaded('scales'))            attachNamespace('scales')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('scales'), silent = TRUE)
   
 shinyApp(options = list( height = "800px"),
          
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-                try(includeCSS('css/my-shiny.css'),silent = TRUE),
+                try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')),silent = TRUE),
 
 tabPanel(h4("ML Estimation"), 
 sidebarLayout(

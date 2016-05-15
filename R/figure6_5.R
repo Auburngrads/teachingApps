@@ -1,15 +1,17 @@
 figure6_5 <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "600px"), 
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor("plots", mode = "r", theme = "github", height = "450px",
                       value = "par(family='serif',font=2,cex=1.75, bg = NA)
-loadNamespace('SMRD')
+try(attachNamespace('SMRD'), silent = TRUE)
 
 p<- seq(.01,.99,.01)
 
@@ -40,7 +42,7 @@ legend('bottomright',
         mainPanel(plotOutput("lnorm", height = "600px")))),
 
 server = function(input, output, session) {
-  loadNamespace('SMRD')
+  try(attachNamespace('SMRD'), silent = TRUE)
   output$lnorm <- renderPlot({
       par(mar = c(4,4,2,2))
       input$evalplots

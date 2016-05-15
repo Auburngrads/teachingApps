@@ -1,27 +1,38 @@
 distribution_logistic <-
 function(...) {
   
-  loadNamespace('shiny')
-  if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('metricsgraphics'), silent = TRUE)
   
 shinyApp(options = list(height = "700px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"),includeCSS('css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
+               try(includeCSS(system.file('css',
+                                          'my-shiny.css', 
+                                          package = 'teachingApps')), silent = TRUE),
 sidebarLayout(
-sidebarPanel(width = 3, hr(),
-  
-  sliderInput("range.l", label = h2("Range"),
-              min = -20, max = 20, value = c(-4,4)),
+sidebarPanel(width = 3, 
   hr(),
-  sliderInput("mu.l", label = h2(HTML("Mean (&mu;)")),
-              min = -3, max = 3, step = 0.5, value = 0, animate = T),
+  sliderInput("range.l", 
+              label = h2("Range"),
+              min = -20, 
+              max = 20, 
+              value = c(-4,4)),
+  hr(),
+  sliderInput("mu.l", 
+              label = h2(HTML("Mean (&mu;)")),
+              min = -3, 
+              max = 3, 
+              step = 0.5, 
+              value = 0, 
+              animate = T),
   hr(),
   sliderInput("sig.l", label = h2(HTML("Std Dev (&sigma;)")),
               min = 0.5, max = 5, step = 0.5, value = 1, animate = T)),
 
 mainPanel(width = 9,
  tabsetPanel(type = 'pills',
-  tabPanel(h4('Distribution Function'),metricsgraphicsOutput("logC",height = "600px")),
-  tabPanel(h4('Density'),    metricsgraphicsOutput("logP",height = "600px")),
+  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("logC",height = "600px")),
+  tabPanel(h4('Density'),                metricsgraphicsOutput("logP",height = "600px")),
   tabPanel(h4('Survival'),               metricsgraphicsOutput("logR",height = "600px")),
   tabPanel(h4('Hazard'),                 metricsgraphicsOutput("logh",height = "600px")),
   tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("logH",height = "600px")),

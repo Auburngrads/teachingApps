@@ -1,17 +1,27 @@
 lfp1370_data <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(height = '800px', width = '99%'),
-  ui = navbarPage(theme = shinythemes::shinytheme('flatly'),includeCSS('css/my-shiny.css'),
+  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
+                  try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
+                  
         tabPanel(h4('Data Set'), DT::dataTableOutput('lfp1370')),
         tabPanel(h4('Event Plot'),
             sidebarLayout(
             sidebarPanel(
-            shinyAce::aceEditor('lfpeventplot', mode = 'r', theme = 'github', fontSize = 14,
-                      value = "par(family = 'serif', font = 2, cex = 1.15)
-loadNamespace('SMRD')
+            shinyAce::aceEditor('lfpeventplot', 
+                                mode = 'r', 
+                                theme = 'github', 
+                                fontSize = 14,
+                                value = 
+"par(family = 'serif', font = 2, cex = 1.15)
+
+library(SMRD)
+
 lfp.ld<- frame.to.ld(SMRD::lfp1370,
                      response.column = 1,
                      censor.column = 2,
@@ -19,16 +29,22 @@ lfp.ld<- frame.to.ld(SMRD::lfp1370,
                      data.title = 'Integrated Circuit Failure Data',
                      time.units = 'Hours')
 event.plot(lfp.ld)"),
-              actionButton('evallfpevent', h4('Evaluate'))),
+
+        actionButton('evallfpevent', h4('Evaluate'))),
 
         mainPanel(plotOutput('plotlfpevent', height = '600px')))),
 
         tabPanel(h4('CDF Plot'),
             sidebarLayout(
             sidebarPanel(
-            shinyAce::aceEditor('lfpcdfplot', mode = 'r', theme = 'github', fontSize = 14,
-                      value = "par(family = 'serif', font = 2, cex = 1.15)
-loadNamespace('SMRD')
+            shinyAce::aceEditor('lfpcdfplot', 
+                                mode = 'r', 
+                                theme = 'github', 
+                                fontSize = 14,
+                                value = 
+"par(family = 'serif', font = 2, cex = 1.15)
+
+library(SMRD)
 lfp.ld<- frame.to.ld(SMRD::lfp1370,
                      response.column = 1,
                      censor.column = 2,
@@ -36,7 +52,8 @@ lfp.ld<- frame.to.ld(SMRD::lfp1370,
                      data.title = 'Integrated Circuit Failure Data',
                      time.units = 'Hours')
 plot(lfp.ld)"),
-              actionButton('evallfpcdf', h4('Evaluate'))),
+
+        actionButton('evallfpcdf', h4('Evaluate'))),
 
         mainPanel(plotOutput('plotlfpcdf', height = '600px'))))),
 

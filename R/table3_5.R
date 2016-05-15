@@ -1,11 +1,13 @@
 table3_5 <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(height = '800px', width = '99%'),
 
-ui = navbarPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
+ui = navbarPage(theme = shinythemes::shinytheme('flatly'), try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
     tabPanel(h4('Table 3.5'), DT::dataTableOutput('table5'))),
   
 server = function(input, output, session) {

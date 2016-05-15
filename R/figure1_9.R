@@ -1,12 +1,14 @@
 figure1_9 <-
 function(...) {
   
- if(!isNamespaceLoaded('shiny')) attachNamespace('shiny')
+ try(attachNamespace('shiny'), silent = TRUE)
  if(!isNamespaceLoaded('SMRD')) attachNamespace('SMRD')
   
 shinyApp(options = list(width = "100%", height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
-               try(includeCSS('css/my-shiny.css'), silent = TRUE),
+               try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
 
 tabPanel(h4("Data Set"), DT::dataTableOutput("printedcircuitboard", height = "600px")),
                 

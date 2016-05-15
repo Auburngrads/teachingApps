@@ -1,13 +1,15 @@
 berkson_interval <-
 function(...) {
   
-  loadNamespace('shiny')
-  loadNamespace('SMRD')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('SMRD'), silent = TRUE)
   
 shinyApp(options = list(height = '600px', width = '100%'),
     
     ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
-                   includeCSS('css/my-shiny.css'),
+                  try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
          sidebarLayout(
            sidebarPanel(width = 4,
              shinyAce::aceEditor("berkint", 
@@ -47,8 +49,6 @@ par(mfrow = c(1,1))"),
 
 server = function(input, output, session) {
 
-  loadNamespace('SMRD')
-    
   output$berkint <- renderPlot({
       input$berks
       return(isolate(eval(parse(text=input$berkint))))

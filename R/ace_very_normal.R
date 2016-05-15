@@ -1,16 +1,23 @@
 ace_very_normal <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(height = '600px', width = '99%'),
   
 ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
-                 includeCSS('css/my-shiny.css'),
+                try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
 sidebarLayout(
   sidebarPanel(
-    shinyAce::aceEditor("plots", mode = "r", theme = "github", height = "450px",
-                      value = "par(family='serif',font=2, cex=1.5)
+    shinyAce::aceEditor("plots", 
+                        mode = "r", 
+                        theme = "github", 
+                        height = "450px",
+                        value = 
+"par(family='serif',font=2, cex=1.5)
+
 curve(dnorm(x,mean = 4.256432, sd = 0.25), 
       xlim = c(0,10), 
       lwd = 2, 
@@ -36,7 +43,8 @@ legend(x = 7, y = 1.5,
        lwd = 2,
        bty = 'n', 
        y.intersp = 0.75)"),
-              actionButton("evalplots", h4("Evaluate"))),
+
+        actionButton("evalplots", h4("Evaluate"))),
         
         mainPanel(plotOutput("exp", height = "600px")))),
 

@@ -1,10 +1,12 @@
 figure2_5 <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "600px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("fig5plot", mode = "r", theme = "github", height = "450px",
@@ -28,7 +30,7 @@ mtext(side = 3,
         mainPanel(plotOutput("plotfig5", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
-  loadNamespace('SMRD')
+  try(attachNamespace('SMRD'), silent = TRUE)
   
   output$plotfig5 <- renderPlot({
       input$evalfig5

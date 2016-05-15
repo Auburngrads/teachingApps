@@ -1,15 +1,25 @@
 data_patterns <-
 function(...) {
 
-loadNamespace('shiny')
+try(attachNamespace('shiny'), silent = TRUE)
 
 shinyApp(options = list(height = '600px', width = '99%'),
-  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
+  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
+                 try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
        sidebarLayout(
         sidebarPanel(
-        shinyAce::aceEditor("pdflikeplot", mode = "r", theme = "github", height = "450px", fontSize = 14,
-                      value ="par(mfrow = c(1,2), mar = c(4,4,2,0))
+        shinyAce::aceEditor("pdflikeplot", 
+                            mode = "r", 
+                            theme = "github", 
+                            height = "450px", 
+                            fontSize = 14,
+                            value =
+"par(mfrow = c(1,2), mar = c(4,4,2,0))
+
 n = 50
+
 x.lnor <- rlnorm(n, meanlog = 4.5, sdlog = .2)
 x.weib <- rweibull(n, scale = 120, shape = 5.5)
 x.exp  <- rexp(n, 1/40)
@@ -50,7 +60,7 @@ axis(side = 1, at = x.weib, col = 2, labels = FALSE, tck = .05 )
 axis(side = 1, at = x.exp,  col = 'green', labels = FALSE, tck = .05 )
 par(mfrow = c(1,1))"),
 
-actionButton("evalpdflike", h4("Evaluate"))),
+   actionButton("evalpdflike", h4("Evaluate"), width = '100%')),
 
    mainPanel(plotOutput('plotpdflike', height = '600px')))),
 

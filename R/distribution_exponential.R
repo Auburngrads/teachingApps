@@ -1,28 +1,44 @@
 distribution_exponential <-
 function(...) {
   
-  loadNamespace('shiny')
-  if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('metricsgraphics'), silent = TRUE)
   
 shinyApp(options = list(height = "700px"),
          
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
-               includeCSS('css/my-shiny.css'),
+              try(includeCSS(system.file('css',
+                                         'my-shiny.css', 
+                                         package = 'teachingApps')), silent = TRUE),
 sidebarLayout(
-sidebarPanel(width = 3, hr(),
-  sliderInput("rangee", label = h2("Range:"),
-              min = 0, max = 50, value = c(0,20)),
+sidebarPanel(width = 3, 
+             hr(),
+  sliderInput("rangee", 
+              label = h2("Range:"),
+              min = 0, 
+              max = 50, 
+              value = c(0,20)),
   hr(),
-  sliderInput("theta", label = h2(HTML("Scale (&theta;)")),
-              min = .5, max = 10, step = .5, value = 1, animate = T),
+  sliderInput("theta", 
+              label = h2(HTML("Scale (&theta;)")),
+              min = .5, 
+              max = 10, 
+              step = .5, 
+              value = 1, 
+              animate = T),
   hr(),
-  sliderInput("gamma", label = h2(HTML("Location (&gamma;)")),
-              min = 0, max = 15, step = 1, value = 0, animate = T)),
+  sliderInput("gamma", 
+              label = h2(HTML("Location (&gamma;)")),
+              min = 0, 
+              max = 15, 
+              step = 1, 
+              value = 0, 
+              animate = T)),
 
   mainPanel(width = 9,
  tabsetPanel(type = 'pills',
-  tabPanel(h4('Distribution Function'),metricsgraphicsOutput("expC",height = "600px")),
-  tabPanel(h4('Density'),    metricsgraphicsOutput("expP",height = "600px")),
+  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("expC",height = "600px")),
+  tabPanel(h4('Density'),                metricsgraphicsOutput("expP",height = "600px")),
   tabPanel(h4('Survival'),               metricsgraphicsOutput("expR",height = "600px")),
   tabPanel(h4('Hazard'),                 metricsgraphicsOutput("exph",height = "600px")),
   tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("expH",height = "600px")),

@@ -2,7 +2,9 @@ figure7_1 <-
 function(...) {
 shinyApp(options = list(height = '725px'),
   ui =navbarPage(theme = shinythemes::shinytheme('flatly'), 
-                includeCSS('css/my-shiny.css'),
+               try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
     tabPanel(h4('Figure 7.1'),
     sidebarLayout(
     sidebarPanel(width = 3,

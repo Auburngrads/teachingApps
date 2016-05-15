@@ -1,11 +1,13 @@
 soln_numerical <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(height = '800px'),
     
-  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
+  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
        tabPanel(h4('Numerical Solution'),
         sidebarLayout(
           sidebarPanel(shinyAce::aceEditor("solnum", mode = "r", theme = "github", 
@@ -45,7 +47,7 @@ tabPanel(h4('Graphical Solution'),
 value = "par(mar = c(1,0,0.5,2), cex = 1.25)
 obs <- c(4.2564, 0.5319)
 
-loadNamespace('SMRD')
+try(attachNamespace('SMRD'), silent = TRUE)
 
 model <- 'weibull'
 
@@ -67,7 +69,7 @@ tabPanel(h4('How To Use This App'),
 
 server = function(input, output, session) {
   
-  loadNamespace('SMRD')
+  try(attachNamespace('SMRD'), silent = TRUE)
   
   output$mlsolns <- renderPrint({
       input$mlsolnum

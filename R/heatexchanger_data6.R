@@ -1,8 +1,8 @@
 heatexchanger_data6 <-
 function(...) {
   
-  loadNamespace('shiny')
-  loadNamespace('SMRD')
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('SMRD'), silent = TRUE)
   
 par(family = "serif",font = 2)
 HeatExchanger.ld <- frame.to.ld(SMRD::heatexchanger,
@@ -15,7 +15,9 @@ HeatExchanger.ld <- frame.to.ld(SMRD::heatexchanger,
 shinyApp(options = list(width = "99%", height = "800px"),
 
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-                includeCSS('css/my-shiny.css'),
+               try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
                 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.heat", height = "80%") ),
 

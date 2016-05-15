@@ -1,7 +1,7 @@
 bleed_data6 <-
 function(...) {
   
-if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
+try(attachNamespace('shiny'), silent = TRUE)
 if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
   
 Bleed.ld <- frame.to.ld(SMRD::bleed,
@@ -14,10 +14,11 @@ Bleed.ld <- frame.to.ld(SMRD::bleed,
 Bleed.Dbase.ld <-     ld.split(Bleed.ld, stress.var.list = "D")
 Bleed.Otherbase.ld <- ld.split(Bleed.ld, stress.var.list = "Other")
   
-par(family = "serif",font = 2)
 shinyApp(options = list(width = '99%', height = '800px'),
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'),
-                includeCSS('css/my-shiny.css'),
+               try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
                 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.bleed", height = "80%") ), 
 
@@ -84,7 +85,7 @@ output$summary.bleed.o <- renderPrint({ summary(Bleed.Otherbase.ld)            }
 
 
 output$eventplot.bleed <- renderPlot({ 
-  par(family = "serif",bg = NA, font = 2)
+  par(family = "serif", font = 2)
   if (input$PLOT_6 == "Event Plot") event.plot(Bleed.ld) 
   if (input$PLOT_6 == "Histogram") hist(Response(Bleed.ld), 
                                       probability = TRUE, col = 1, 
@@ -92,7 +93,7 @@ output$eventplot.bleed <- renderPlot({
                                       xlab = attr(Bleed.ld,"time.units"))
 })
 output$eventplot.bleed.d <- renderPlot({ 
-  par(family = "serif",bg = NA, font = 2)
+  par(family = "serif", font = 2)
   if (input$PLOT_6 == "Event Plot") event.plot(Bleed.Dbase.ld) 
   if (input$PLOT_6 == "Histogram") hist(Response(Bleed.Dbase.ld), 
                                       probability = TRUE, col = 1, 
@@ -100,14 +101,13 @@ output$eventplot.bleed.d <- renderPlot({
                                       xlab = attr(Bleed.ld,"time.units"))
 })
 output$eventplot.bleed.o <- renderPlot({ 
-  par(family = "serif",bg = NA, font = 2)
+  par(family = "serif", font = 2)
   if (input$PLOT_6 == "Event Plot") event.plot(Bleed.Otherbase.ld) 
   if (input$PLOT_6 == "Histogram") hist(Response(Bleed.Otherbase.ld), 
                                       probability = TRUE, col = 1, 
                                       border = "white", main = "", 
                                       xlab = attr(Bleed.ld,"time.units"))
 })
-
 output$cdfplot.bleed <- renderPlot({ 
   par(family = "serif",bg = NA, font = 2)
   plot(Bleed.ld, distribution = input$DIST_6, 
@@ -133,8 +133,8 @@ Bleed.ld <- frame.to.ld(SMRD::bleed,
                         data.title = 'Bleed Failure Data',
                         time.units = 'Hours')
 stressor.ld(Bleed.ld, stress.var = 'D', print = FALSE)
-stressor.ld(Bleed.ld, stress.var = 'Other')
-
-                                                                         ")})
+stressor.ld(Bleed.ld, stress.var = 'Other')")
+  
+})
 })
 }

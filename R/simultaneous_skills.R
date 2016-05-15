@@ -1,12 +1,14 @@
 simultaneous_skills <-
 function(...) {
 
-  if(!isNamespaceLoaded('shiny'))  attachNamespace('shiny')
+  try(attachNamespace('shiny'), silent = T)
   
 shinyApp(options = list(width = "100%", height = "800px"),
          
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-                try(includeCSS('css/my-shiny.css'), silent = TRUE),
+                try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
 tabPanel(h4("shinyAce"),
   sidebarLayout( 
     sidebarPanel(

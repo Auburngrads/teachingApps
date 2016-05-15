@@ -1,10 +1,10 @@
 complex_ideas <-
 function(...) {
   
-  if(!isNamespaceLoaded('shiny'))            attachNamespace('shiny')
-  if(!isNamespaceLoaded('scales'))           attachNamespace('scales') 
-  if(!isNamespaceLoaded('metricsgraphics'))  attachNamespace('metricsgraphics')
-  if(!isNamespaceLoaded('SMRD'))             attachNamespace('SMRD') 
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('scales'), silent = TRUE) 
+  try(attachNamespace('metricsgraphics'), silent = TRUE)
+  try(attachNamespace('SMRD'), silent = TRUE) 
   
 ##############################################
 ### Set up the gamma-distributed population
@@ -16,7 +16,9 @@ function(...) {
 ##############################################
 shinyApp(options = list( height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-                try(includeCSS('css/my-shiny.css'), silent = TRUE),
+                try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
                 
 tabPanel(h4("Conf. Intervals"),
 sidebarLayout(

@@ -1,11 +1,13 @@
 exp_mle <-
 function(...) {
   
-  loadNamespace('shiny')
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(height = '600px'),
   
-  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), includeCSS('css/my-shiny.css'),
+  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                           package = 'teachingApps')), silent = TRUE),
     sidebarLayout(
       sidebarPanel(
         shinyAce::aceEditor("mlexpplot", mode = "r", theme = "github", height = "450px", 
