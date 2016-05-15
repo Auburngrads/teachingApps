@@ -13,7 +13,6 @@ shinyApp(options = list(height = '600px', width = '100%'),
                     
      sidebarLayout(           
      sidebarPanel(width = 3,           
-  
                   selectInput("n7.2", 
                               label = h2("Observations"),
                               choices = c(20, 200, 2000, 10220), 

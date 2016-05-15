@@ -5,14 +5,20 @@ function(...) {
   
 shinyApp(options = list(height = '750px'),
     
-  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
+                  try(includeCSS(system.file('css',
+                                             'my-shiny.css', 
+                                             package = 'teachingApps')), silent = TRUE),
        tabPanel(h4('Numerical Solution'),
         sidebarLayout(
-          sidebarPanel(shinyAce::aceEditor("mlexpnum", mode = "r", theme = "github", 
-                                           height = "500px", fontSize = 20,
-value = "obs <- c(4.2564, 0.5319)
+          sidebarPanel(width = 6,
+                       shinyAce::aceEditor("mlexpnum", 
+                                           mode = "r", 
+                                           theme = "github", 
+                                           height = "500px", 
+                                           fontSize = 16,
+                                           value = 
+"obs <- c(4.2564, 0.5319)
 
 joint.exp <- function(x, param) { 
   
@@ -33,12 +39,12 @@ nlminb(start = 4,
 
 ## Why is $objective negative?"),
 
-actionButton("mlexpnums", h4("Evaluate"), width = '100%'), width = 6),
+        actionButton("mlexpnums", h4("Evaluate"), width = '100%')),
         
         mainPanel(verbatimTextOutput("mlexp2"), width = 6))),
 
 
-      tabPanel(h4('Overview of nlminb()'),
+  tabPanel(h4('Overview of nlminb()'),
 
         mainPanel(uiOutput("nlminb", class = 'shiny-text-output'), width = 12))),
 

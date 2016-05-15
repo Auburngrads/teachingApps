@@ -2,17 +2,17 @@ figure1_1 <-
 function(...) {
   
   try(attachNamespace('shiny'), silent = TRUE)
-  if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
+  try(attachNamespace('SMRD'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "800px"), 
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
-                      try(includeCSS(system.file('css',
+                try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
 
 tabPanel(h4("Data Set"), DT::dataTableOutput("lzbearing", height = "600px")),
                 
-tabPanel(h4("Figure 1.1"),titlePanel("Edit this code and press 'Evaluate' to change the figure"),
+tabPanel(h4("Figure 1.1"),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("fig1plot", 
@@ -30,11 +30,12 @@ hist(SMRD::lzbearing$mcycles,
      prob=TRUE,
      main='Figure 1.1 - Histogram of the ball bearing failure data',
      las = 1)"),
-              actionButton("evalfig1", h4("Evaluate"), width = '100%')),
+      
+        actionButton("evalfig1", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotfig1", height = "600px"), width = 7))),
 
-tabPanel(h4("Figure 1.2"),titlePanel("Edit this code and press 'Evaluate' to change the figure"),
+tabPanel(h4("Figure 1.2"),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor("fig2plot", 

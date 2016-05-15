@@ -4,13 +4,18 @@ function(...) {
   try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "600px"),
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"), try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
+               try(includeCSS(system.file('css',
+                                          'my-shiny.css', 
+                                          package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig5plot", mode = "r", theme = "github", height = "450px",
-                      value = "x<-seq(0,2.4,by=.01)\npar(family='serif', font=2,bg=NA)\ny<-function(t) {pweibull(t,shape=1.7,scale=1)}\n\n
+      shinyAce::aceEditor("fig5plot", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px",
+                          value = 
+"x<-seq(0,2.4,by=.01)\npar(family='serif', font=2,bg=NA)\ny<-function(t) {pweibull(t,shape=1.7,scale=1)}\n\n
 plot(x, y(x), type = 'l',lwd = 2,\nxlab = 't',ylab = 'f(t)', las = 1)\n
 segments(c(0,.5,1,1.5,2,rep(0,5)),
          c(rep(0,5),y(c(0.01,.5,1,1.5,2))),
@@ -30,7 +35,6 @@ mtext(side = 3,
         mainPanel(plotOutput("plotfig5", height = "600px"), width = 7))),
 
 server = function(input, output, session) {
-  try(attachNamespace('SMRD'), silent = TRUE)
   
   output$plotfig5 <- renderPlot({
       input$evalfig5

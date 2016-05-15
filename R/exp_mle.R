@@ -5,14 +5,20 @@ function(...) {
   
 shinyApp(options = list(height = '600px'),
   
-  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
+                 try(includeCSS(system.file('css',
+                                            'my-shiny.css', 
+                                            package = 'teachingApps')), silent = TRUE),
     sidebarLayout(
-      sidebarPanel(
-        shinyAce::aceEditor("mlexpplot", mode = "r", theme = "github", height = "450px", 
+      sidebarPanel(width = 5,
+        shinyAce::aceEditor("mlexpplot", 
+                            mode = "r", 
+                            theme = "github",
+                            height = "450px", 
                             fontSize = 16,
-                      value = "par(font = 2, mar = c(4,5.5,1,1), family = 'serif', cex = 1.5)
+                            value = 
+"par(font = 2, mar = c(4,5.5,1,1), family = 'serif', cex = 1.5)
+
 obs <- c(4.2564, 0.5319)
 
 theta <- seq(0.25, 10, .05)
@@ -36,7 +42,8 @@ text(x = sum(obs)/2,
                                    sum(obs)/2), 
                                  collapse = '~')),
      adj = 0)"),
-actionButton("mlexpplots", h4("Evaluate"), width = '100%'), width = 5),
+
+        actionButton("mlexpplots", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("mlexp", height = "600px"), width = 7))),
 

@@ -2,7 +2,7 @@ bleed_data6 <-
 function(...) {
   
 try(attachNamespace('shiny'), silent = TRUE)
-if(!isNamespaceLoaded('SMRD'))  attachNamespace('SMRD')
+try(attachNamespace('SMRD'), silent = TRUE)
   
 Bleed.ld <- frame.to.ld(SMRD::bleed,
                         response.column = 1, 

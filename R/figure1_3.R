@@ -2,19 +2,19 @@ figure1_3 <-
 function(...) {
   
   try(attachNamespace('shiny'), silent = TRUE)
-  if(!isNamespaceLoaded('SMRD')) attachNamespace('SMRD')
+  try(attachNamespace('SMRD'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
-               try(includeCSS(system.file('css',
+                try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
 
 tabPanel(h4("Data Set"), DT::dataTableOutput("lfp1370", height = "575px")),
                 
-tabPanel(h4('Figure 1.3'), titlePanel("Edit this code and press 'Evaluate' to change the figure"),
+tabPanel(h4('Figure 1.3'),
   sidebarLayout( 
-    sidebarPanel(
+    sidebarPanel(width = 5,
       shinyAce::aceEditor("fig3plot", 
                           mode = "r", 
                           theme = "github", 
@@ -25,7 +25,7 @@ tabPanel(h4('Figure 1.3'), titlePanel("Edit this code and press 'Evaluate' to ch
 
         actionButton("evalfig3", h4('Evaluate'), width = '100%')),
         
-        mainPanel(plotOutput("plotfig3", height = "600px"))))),
+        mainPanel(plotOutput("plotfig3", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
 

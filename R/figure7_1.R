@@ -1,15 +1,21 @@
 figure7_1 <-
 function(...) {
+  
+  try(attachNamespace('shiny'), silent = TRUE)
+  try(attachNamespace('SMRD'), silent = TRUE)
+  
 shinyApp(options = list(height = '725px'),
   ui =navbarPage(theme = shinythemes::shinytheme('flatly'), 
                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
-    tabPanel(h4('Figure 7.1'),
+                                          'my-shiny.css', 
+                                          package = 'teachingApps')), silent = TRUE),
+tabPanel(h4('Figure 7.1'),
     sidebarLayout(
     sidebarPanel(width = 3,
-      selectInput("n7.1", label = h2("Observations:"),
-              choices = c("20", "200", "2000", "10220"), selected = "20")),
+      selectInput("n7.1", 
+                  label = h2("Observations:"),
+                  choices = c("20", "200", "2000", "10220"), 
+                  selected = "20")),
     
     mainPanel(plotOutput('berkson', height = '600px'), width = 9))),
     
@@ -46,8 +52,8 @@ n.2000 <- c(292,494,332,236,261,308,73,4)
 n.200 <- c(41,44,24,32,29,21,9,0)
 n.20 <- c(3,7,4,1,3,2,0,0)
 table.7.1 <- data.frame(L,U,n.10220,n.2000,n.200,n.20)
-colnames(table.7.1) <- c("Lower","Upper","n = 10220","n = 2000","n = 200","n = 20")
 
+colnames(table.7.1) <- c("Lower","Upper","n = 10220","n = 2000","n = 200","n = 20")
 
 DT::datatable(table.7.1, options = list(pageLength = 12))
   
@@ -79,7 +85,6 @@ pander::pandoc.table(table.7.1, style = 'rmarkdown')
 ## Coerce `table.7.1` into a static LaTeX table using the xtable package
 
 xtable::xtable(table.7.1)
-
                                                                          ")
 })
 })

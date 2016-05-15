@@ -4,13 +4,20 @@ function(...) {
   try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "600px"), 
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"), try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+         
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
+               try(includeCSS(system.file('css',
+                                          'my-shiny.css', 
+                                          package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("plots", mode = "r", theme = "github", height = "450px",
-                      value = "par(family='serif',font=2, cex=1.75)
+      shinyAce::aceEditor("plots", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px",
+                          value = 
+"par(family='serif',font=2, cex=1.75)
+
 p <- seq(.01,.99,.01)
 gamma1 <- 0
 theta1 <- 50
@@ -32,7 +39,8 @@ text(c(100,650),c(4,2.5),
      c(expression(theta*', '*gamma*' = 50, 0'),
        expression(theta*', '*gamma*' = 200, 0')))
 box(lwd=1.25)"),
-              actionButton("evalplots", h4("Evaluate"), width = '100%')),
+
+        actionButton("evalplots", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("exp", height = "600px")))),
 

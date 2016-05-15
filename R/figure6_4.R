@@ -4,14 +4,20 @@ function(...) {
   try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "600px"), 
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"), try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
+               try(includeCSS(system.file('css',
+                                          'my-shiny.css', 
+                                          package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("plots", mode = "r", theme = "github", height = "450px",
-                      value = "par(family='serif', font=2, cex=1.75)
-try(attachNamespace('SMRD'), silent = TRUE)
+      shinyAce::aceEditor("plots", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px",
+                          value = 
+"par(family='serif', font=2, cex=1.75)
+
+library(SMRD)
 
 p<- seq(.01,.99,.01)
 mean1 <- 40
@@ -34,12 +40,13 @@ text(c(15, 85), c(-1,-2),
      c(expression(mu*', '*sigma*' = 40, 10'),
        expression(mu*', '*sigma*' = 80, 5')))
 box(lwd=1.25)"),
-              actionButton("evalplots", h4("Evaluate"), width = '100%')),
+
+        actionButton("evalplots", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("norm", height = "600px")))),
 
 server = function(input, output, session) {
-  try(attachNamespace('SMRD'), silent = TRUE)
+  
   output$norm <- renderPlot({
       par(mar = c(4,4,2,2))
       input$evalplots
