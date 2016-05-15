@@ -4,9 +4,10 @@ function(...) {
 try(attachNamespace('shiny'), silent = TRUE)
 
 shinyApp(options = list(height = '600px', width = '99%'),
-  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
+                 try(includeCSS(system.file('css',
+                                            'my-shiny.css', 
+                                            package = 'teachingApps')), silent = TRUE),
        sidebarLayout(
          sidebarPanel(width = 5,
           shinyAce::aceEditor("likeplot", mode = "r", theme = "github", height = "450px", fontSize = 15,

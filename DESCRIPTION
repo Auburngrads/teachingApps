@@ -14,6 +14,11 @@ Imports:
     dplyr,htmlwidgets,shiny,SMRD,threejs,scales,jkf,
     plotly,d3heatmap,dygraphs,leaflet,stats,
     parcoords,taucharts,metricsgraphics,visNetwork,diagram
+Remotes: 
+    github::timelyportfolio/parcoords,
+    github::hrbrmstr/taucharts,
+    github::timelyportfolio/codemirrorR,
+    github::Auburngrads/jkf
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:

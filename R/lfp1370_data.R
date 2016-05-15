@@ -53,7 +53,7 @@ lfp.ld<- frame.to.ld(SMRD::lfp1370,
                      time.units = 'Hours')
 plot(lfp.ld)"),
 
-        actionButton('evallfpcdf', h4('Evaluate'))),
+        actionButton('evallfpcdf', h4('Evaluate'), width = '100%')),
 
         mainPanel(plotOutput('plotlfpcdf', height = '600px'))))),
 

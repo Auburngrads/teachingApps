@@ -3,16 +3,21 @@ function(...) {
   
   try(attachNamespace('shiny'), silent = TRUE)
   
-shinyApp(options = list(width = "99%", height = "700px"),
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"), try(includeCSS(system.file('css',
+shinyApp(options = list(height = "700px"),
+ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
+                try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
 
 tabPanel(h4("Hazard Function Plot"),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("hazplot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "par(family='serif',mar = c(4,6,2,1))
+      shinyAce::aceEditor("hazplot", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px", fontSize = 15,
+                          value = 
+"par(family='serif',mar = c(4,6,2,1))
 
 curve(
 dlnorm(x, meanlog = log(1.25), sdlog = 1)/
@@ -27,15 +32,21 @@ col = 5,
 cex.lab = 1.5,
 cex.axis = 1.5,
 las = 1)"),
-              actionButton("evalhaz", h4("Evaluate"))),
+
+        actionButton("evalhaz", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plothaz", height = "600px")))),
 
 tabPanel(h4("Bathtub-Shaped Hazard Plot"),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("figbtplot", mode = "r", theme = "github", height = "450px",
-                      value = "par(family='serif',font=2)
+      shinyAce::aceEditor("figbtplot", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px",
+                          value = 
+"par(family='serif',font=2)
+
 NMWPdf<-function(t){
 (.071*.595*t^(.595-1)+
 7.015*10^-8*(.016+.197*t)*
@@ -60,7 +71,8 @@ text(x = c(7.5, 40, 75),
      y = rep(.001, 3),
      c('Infant Mortality','Useful Life','Wearout'),
      cex = 1.5)"),
-              actionButton("evalfigbt", h4("Evaluate"))),
+
+       actionButton("evalfigbt", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotfigbt", height = "600px"))))),
 
