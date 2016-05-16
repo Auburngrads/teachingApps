@@ -6,7 +6,7 @@ function(...) {
   
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
-              trtry(includeCSS(system.file('css',
+              try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = TRUE),
 sidebarLayout(
