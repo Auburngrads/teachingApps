@@ -7,11 +7,11 @@ function(...) {
 shinyApp(options = list(height = '600px', width = '99%'),
     
     ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
-                  try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+                   try(includeCSS(system.file('css',
+                                              'my-shiny.css', 
+                                              package = 'teachingApps')), silent = TRUE),
          sidebarLayout(
-           sidebarPanel(
+           sidebarPanel(width = 4,
              shinyAce::aceEditor("shockquant", 
                                  mode = "r", 
                                  theme = "github", 
@@ -20,7 +20,7 @@ shinyApp(options = list(height = '600px', width = '99%'),
                                  value = "
 par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
 
-try(attachNamespace('SMRD'), silent = TRUE)
+library(SMRD)
 
 ShockAbsorber.ld <- 
 frame.to.ld(SMRD::shockabsorber,
@@ -43,14 +43,13 @@ simple.contour(ShockAbsorber.ld,
                size = 300)
 
 par(mfrow = c(1,1))"),
-actionButton("shockquants", h4("Evaluate")), width = 4),
+             
+        actionButton("shockquants", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("squant", height = "600px"), width = 8))),
 
 server = function(input, output, session) {
 
-  try(attachNamespace('SMRD'), silent = TRUE)
-    
   output$squant <- renderPlot({
       input$shockquants
       return(isolate(eval(parse(text=input$shockquant))))

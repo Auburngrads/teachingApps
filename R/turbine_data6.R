@@ -9,40 +9,53 @@ Turbine.ld <- frame.to.ld(SMRD::turbine,
                           response.column = 1,
                           censor.column = 2,
                           case.weight.column=3,
-                          data.title = "Turbine Wheel Data Set",
                           time.units = "Hundred Hours")
 
 shinyApp(options = list(width = "99%", height = "800px"),
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"), try(includeCSS(system.file('css',
+ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
+                try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
 
 tabPanel(h4("Data Set"),  DT::dataTableOutput("table.turb", height = "80%") ),    
-
 tabPanel(h4("Summary"), verbatimTextOutput("summary.turb") ), 
-
 tabPanel(h4("Event Plots"),
-sidebarLayout(
-sidebarPanel(width = 3,
-selectInput("PLOT_5", label = h2("Plot:"),
-                    choices = c("Event Plot","Histogram"),
-                    selected = "Event Plot")),  
+  sidebarLayout(
+    sidebarPanel(width = 3,
+      selectInput("PLOT_5", 
+                  label = h2("Plot:"),
+                  choices = c("Event Plot",
+                              "Histogram"),
+                  selected = "Event Plot")),  
+    
 mainPanel( plotOutput("eventplot.turb", height = '650px'), width = 9))),
 
 tabPanel(h4("CDF Plot"),
-sidebarLayout(
-sidebarPanel(width = 3,
-selectInput("DIST_5", label = h2("Distribution:"),
-                    choices = c("Weibull","Exponential","Normal","Lognormal",                                                "Smallest Extreme Value","Largest Extreme Value","Frechet"), 
-                    selected = "Weibull"),
+  sidebarLayout(
+    sidebarPanel(width = 3,
+      selectInput("DIST_5", 
+                  label = h2("Distribution:"),
+                  choices = c("Weibull",
+                              "Exponential",
+                              "Normal",
+                              "Lognormal",
+                              "Smallest Extreme Value",
+                              "Largest Extreme Value",
+                              "Frechet"), 
+                  selected = "Weibull"),
 
-selectInput("CI_5",   label = h2("Confidence Level:"),
-                    choices = c(0.99, 0.95, 0.90, 0.85, 0.80, 0.50), 
-                    selected = 0.95),
+      selectInput("CI_5",   
+                  label = h2("Confidence Level:"),
+                  choices = c(0.99, 0.95, 0.90, 0.85, 0.80, 0.50), 
+                  selected = 0.95),
                    
-selectInput("BT_5",   label = h2("Band Type:"),
-                    choices = c("Pointwise", "Simultaneous", "none"), 
-                    selected = "Pointwise")),  
+      selectInput("BT_5",
+                  label = h2("Band Type:"),
+                  choices = c("Pointwise", 
+                              "Simultaneous", 
+                              "none"), 
+                  selected = "Pointwise")),  
+    
 mainPanel( plotOutput("cdfplot.turb", height = '650px'), width = 9)))),
 
 server = function(input, output, session) {

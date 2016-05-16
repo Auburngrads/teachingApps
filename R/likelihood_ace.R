@@ -10,8 +10,12 @@ shinyApp(options = list(height = '600px', width = '99%'),
                                             package = 'teachingApps')), silent = TRUE),
        sidebarLayout(
          sidebarPanel(width = 5,
-          shinyAce::aceEditor("likeplot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value ="
+          shinyAce::aceEditor("likeplot", 
+                              mode = "r", 
+                              theme = "github", 
+                              height = "450px", 
+                              fontSize = 15,
+                              value ="
 par(family = 'serif', mar = c(4,4,1,2))
 curve(dexp(x, rate = 1), 
       lwd = 2, col = 1, 
@@ -51,7 +55,7 @@ than for the exponential distribution',
       cex = 1.5, 
       adj = 0)"),
 
-actionButton("evallike", h4("Evaluate"))),
+   actionButton("evallike", h4("Evaluate"), width = '100%')),
 
    mainPanel(plotOutput('plotlike', height = '600px'), width = 7))),
 

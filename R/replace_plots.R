@@ -2,26 +2,24 @@ replace_plots <-
 function(...) {
   
  try(attachNamespace('shiny'), silent = TRUE)
- try(attachNamespace('SMRD'), silent = TRUE
+ try(attachNamespace('SMRD'), silent = TRUE)
   
 ZelenCap.ld <- frame.to.ld(SMRD::zelencap, 
                            response.column = 1, 
                            censor.column = 2, 
                            case.weight.column = 3,
                            x.columns = c(4, 5), 
-                           data.title = "Zelen Capacitor Data",
                            time.units = "Hours", 
                            xlabel = c(expression(C^o), expression("Volts")))
 
 shinyApp(options = list(width = "100%", height = "800px"),
 
     ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-                    try(includeCSS(system.file('css','my-shiny.css', package = 'teachingApps')),
-                        silent = TRUE),
+                    try(includeCSS(system.file('css','my-shiny.css', 
+                                               package = 'teachingApps')),  silent = TRUE),
 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table2", height = "650px") ),  
 tabPanel(h4("Data Summary"), verbatimTextOutput("summary2") ), 
-
 tabPanel(h4("Event Plots"),
   sidebarLayout(
   sidebarPanel(width = 3,
@@ -31,6 +29,7 @@ tabPanel(h4("Event Plots"),
                           "Histogram"),
               selected = "Event Plot"),
   htmlOutput('breaks')),  
+  
   mainPanel( plotOutput("eventplot2", height = "650px"), width = 9))),
 
 tabPanel(h4("CDF Plot"),

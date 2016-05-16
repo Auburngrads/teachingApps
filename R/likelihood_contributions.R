@@ -4,13 +4,18 @@ function(...) {
   try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(height = '600px', width = '99%'),
-  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+  ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
+                 try(includeCSS(system.file('css',
+                                            'my-shiny.css', 
+                                            package = 'teachingApps')), silent = TRUE),
        sidebarLayout(
          sidebarPanel(width = 5,
-          shinyAce::aceEditor("censorplot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "
+          shinyAce::aceEditor("censorplot", 
+                              mode = "r", 
+                              theme = "github", 
+                              height = "450px", 
+                              fontSize = 15,
+                              value = "
 par(family = 'serif', font = 2)
 
 curve(dweibull(x, shape = 1.7, scale = 1),
@@ -33,9 +38,11 @@ polygon(x = c(2,seq(2,2.4,.01),2.4),
 
 text(x = c(.16,1.3,2.2),
      y = c(.75,.65,.15),
-     c('Left Censoring','Interval Censoring','Right Censoring'))"),
+     labels = c('Left Censoring',
+                'Interval Censoring',
+                'Right Censoring'))"),
 
-     actionButton("evalcensor", h4("Evaluate"))),
+   actionButton("evalcensor", h4("Evaluate"), width = '100%')),
 
    mainPanel(plotOutput('plotcensor', height = '600px'), width = 7))),
 

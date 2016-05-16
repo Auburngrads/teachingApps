@@ -5,14 +5,20 @@ function(...) {
   
 shinyApp(options = list(height = '800px'),
     
-  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
+                  try(includeCSS(system.file('css',
+                                             'my-shiny.css', 
+                                             package = 'teachingApps')), silent = TRUE),
        tabPanel(h4('Numerical Solution'),
         sidebarLayout(
-          sidebarPanel(shinyAce::aceEditor("solnum", mode = "r", theme = "github", 
-                                           height = "530px", fontSize = 20,
-value = "obs <- c(4.2564, 0.5319)
+          sidebarPanel(width = 6,
+            shinyAce::aceEditor("solnum", 
+                                mode = "r", 
+                                theme = "github", 
+                                height = "530px", 
+                                fontSize = 20,
+                                value = 
+"obs <- c(4.2564, 0.5319)
 
 model <- 'normal'
 
@@ -36,18 +42,24 @@ nlminb(start = runif(2, 1.5, 4.2),
        objective = joint.prob, 
        x = obs)[1:5]"),
 
-actionButton("mlsolnum", h4("Evaluate"), width = '100%'), width = 6),
+        actionButton("mlsolnum", h4("Evaluate"), width = '100%')),
         
         mainPanel(verbatimTextOutput("mlsolns"), width = 6))),
 
 tabPanel(h4('Graphical Solution'),
         sidebarLayout(
-          sidebarPanel(shinyAce::aceEditor("solplot", mode = "r", theme = "github", 
-                                           height = "450px", fontSize = 20,
-value = "par(mar = c(1,0,0.5,2), cex = 1.25)
+          sidebarPanel(width = 6,
+            shinyAce::aceEditor("solplot", 
+                                mode = "r", 
+                                theme = "github", 
+                                height = "450px", 
+                                fontSize = 20,
+                                value = 
+"par(mar = c(1,0,0.5,2), cex = 1.25)
+
 obs <- c(4.2564, 0.5319)
 
-try(attachNamespace('SMRD'), silent = TRUE)
+library(SMRD)
 
 model <- 'weibull'
 
@@ -59,7 +71,7 @@ simple.contour(obs.ld,
                do.persp = T,
                factor = 2)"),
 
-actionButton("mlsolplot", h4("Evaluate"), width = '100%'), width = 6),
+actionButton("mlsolplot", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("mlplots", height = '600px'), width = 6))),
 
@@ -68,8 +80,6 @@ tabPanel(h4('How To Use This App'),
         mainPanel(uiOutput("howto1", class = 'shiny-text-output'), width = 12))),
 
 server = function(input, output, session) {
-  
-  try(attachNamespace('SMRD'), silent = TRUE)
   
   output$mlsolns <- renderPrint({
       input$mlsolnum

@@ -5,10 +5,11 @@ function(...) {
   try(attachNamespace('jkf'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "350px"),
+         
   ui = fluidPage(theme = shinythemes::shinytheme("flatly"),  
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+                 try(includeCSS(system.file('css',
+                                            'my-shiny.css', 
+                                            package = 'teachingApps')), silent = TRUE),
     sidebarLayout(
     sidebarPanel(
       sliderInput("mean", 

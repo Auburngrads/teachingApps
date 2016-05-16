@@ -12,13 +12,24 @@ p<-c("1/38","","","","1/34","","","","","","","","1/26")
 q<-c("37/38","","","","33/34","","","","","","","","25/26")
 S<-c(rep(.9737,4),rep(.9451,8),.9087)
 D<-c(rep(.0263,4),rep(.0549,8),.0913)
+
 Table.3.4<-data.frame(t,d,r,n,p,q,S,D)
-colnames(Table.3.4) <- c("km","Failed","Censored","Entered","p","q","S(t)","F(t)")
+
+colnames(Table.3.4) <- c("km",
+                         "Failed",
+                         "Censored",
+                         "Entered",
+                         "p",
+                         "q",
+                         "S(t)",
+                         "F(t)")
 
 shinyApp(options = list(height = '800px', width = '99%'),
- ui = navbarPage(theme = shinythemes::shinytheme("flatly"), try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+         
+ ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
+                 try(includeCSS(system.file('css',
+                                            'my-shiny.css', 
+                                            package = 'teachingApps')), silent = TRUE),
         
       tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock1", height = "80%")),
       tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock2", height = "80%") )),

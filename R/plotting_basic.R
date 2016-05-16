@@ -5,7 +5,7 @@ function(...) {
 
 shinyApp(options = list(height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
-               try(includeCSS(system.file('css',
+                try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
 tabPanel(h4("shinyAce"),
@@ -34,7 +34,7 @@ plot(x, y,
      type = 'p',
      las = 0)"),
      
-     actionButton("evalplots", h2("Evaluate"), width = '100%')),
+  actionButton("evalplots", h2("Evaluate"), width = '100%')),
         
   mainPanel(plotOutput("plots", height = "550px")))),
 
@@ -178,8 +178,10 @@ server = function(input, output, session) {
            xlab = "Side 1", 
            ylab = "Side 2", 
            main = "Title",
-           cex = input$cex, cex.axis = input$cex.axis, 
-           cex.lab = input$cex.lab, cex.main = input$cex.main)
+           cex = input$cex, 
+           cex.axis = input$cex.axis, 
+           cex.lab = input$cex.lab, 
+           cex.main = input$cex.main)
       box(lwd = 2)
 })
   output$objectplot <- renderPlot({
