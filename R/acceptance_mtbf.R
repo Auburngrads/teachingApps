@@ -1,3 +1,4 @@
+
 acceptance_mtbf <-
 function(...) {
 
@@ -5,8 +6,9 @@ try(attachNamespace('shiny'), silent = TRUE)
 try(attachNamespace('plotly'), silent = TRUE)
 
 shinyApp(options = list(height = '800px', width = '99%'),
+         headerPanel(HTML(teachingApps:::teachingApp('acceptance_mtbf'))),
          
-    ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
+    ui = navbarPage(theme = shinythemes::shinytheme('flatly'),
                     try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = T),
