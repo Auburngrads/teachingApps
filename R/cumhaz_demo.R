@@ -1,4 +1,4 @@
-cumhazard_demo <- function(...) {
+cumhaz_demo <- function(...) {
   
   try(attachNamespace('shiny'), silent = TRUE)
   
