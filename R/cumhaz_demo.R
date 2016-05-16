@@ -1,6 +1,6 @@
 cumhazard_demo <- function(...) {
   
-  try(attachNamespace('shiny'), silent = TRUE))
+  try(attachNamespace('shiny'), silent = TRUE)
   
 shinyApp(options = list(width = "100%", height = "600px"),
          
