@@ -13,6 +13,7 @@ function(...) {
   try(attachNamespace('plotly'), silent = TRUE)
 
 shinyApp(options = list(height = '800px', width = '100%'),
+         
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 

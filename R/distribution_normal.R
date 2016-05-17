@@ -5,6 +5,7 @@ function(...) {
   try(attachNamespace('metricsgraphics'), silent = TRUE)
   
 shinyApp(options = list(height = "700px"),
+         
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
               try(includeCSS(system.file('css',
                                           'my-shiny.css', 
