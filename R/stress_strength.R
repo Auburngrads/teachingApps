@@ -10,6 +10,7 @@ shinyApp(options = list(width = "100%", height = "350px"),
                  try(includeCSS(system.file('css',
                                             'my-shiny.css', 
                                             package = 'teachingApps')), silent = TRUE),
+                 fixedPanel(htmlOutput('sign'),bottom = '3%', left = '3%', height = '40px'),
     sidebarLayout(
     sidebarPanel(
       sliderInput("mean", 
@@ -24,6 +25,8 @@ shinyApp(options = list(width = "100%", height = "350px"),
 
 server <- function(input, output, session) {
  
+  output$sign <- renderUI({HTML('<red>Hello</red>')})
+  
   output$first <- renderPlot({
     
   jkf.par(mar = c(2,4,2,2))

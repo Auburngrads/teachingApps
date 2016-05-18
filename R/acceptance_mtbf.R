@@ -1,4 +1,3 @@
-
 acceptance_mtbf <-
 function(...) {
 
@@ -9,8 +8,8 @@ shinyApp(options = list(height = '800px', width = '99%'),
          
     ui = navbarPage(theme = shinythemes::shinytheme('flatly'),
                     try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = T),
+                                               'my-shiny.css', 
+                                               package = 'teachingApps')), silent = T),
           
 tabPanel(h4('MTBF Test Planning Tool'),
          sidebarLayout(
