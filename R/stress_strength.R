@@ -10,7 +10,7 @@ shinyApp(options = list(width = "100%", height = "350px"),
                  try(includeCSS(system.file('css',
                                             'my-shiny.css', 
                                             package = 'teachingApps')), silent = TRUE),
-                 fixedPanel(htmlOutput('sign'),bottom = '3%', left = '1%', height = '40px'),
+                 fixedPanel(htmlOutput('sign'),bottom = '3%', left = '2%', height = '40px'),
     sidebarLayout(
     sidebarPanel(
       sliderInput("mean", 
