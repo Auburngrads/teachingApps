@@ -46,9 +46,15 @@ legend(x = 7, y = 1.5,
 
         actionButton("evalplots", h4("Evaluate"))),
         
-        mainPanel(plotOutput("exp", height = "600px")))),
+        mainPanel(plotOutput("exp", height = "600px"))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$exp <- renderPlot({
       par(mar = c(4,4,2,2))

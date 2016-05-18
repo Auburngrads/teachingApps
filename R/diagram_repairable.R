@@ -38,9 +38,15 @@ diagram::plotmat(A = AA, pos = 3, curve = .575,
          relsize=.99,box.cex=1.5,cex=1.25)"),
               actionButton("evalrepair", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotrepair", height = "600px"), width = 7))),
+        mainPanel(plotOutput("plotrepair", height = "600px"), width = 7)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
     output$plotrepair <- renderPlot({
       par(mar = c(0,0,0,0))

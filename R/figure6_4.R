@@ -43,9 +43,15 @@ box(lwd=1.25)"),
 
         actionButton("evalplots", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("norm", height = "600px")))),
+        mainPanel(plotOutput("norm", height = "600px"))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$norm <- renderPlot({
       par(mar = c(4,4,2,2))

@@ -32,9 +32,15 @@ shinyApp(options = list(height = '800px', width = '99%'),
                                             package = 'teachingApps')), silent = TRUE),
         
       tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock1", height = "80%")),
-      tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock2", height = "80%") )),
+      tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock2", height = "80%") ),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$table.shock1 <- DT::renderDataTable({DT::datatable(SMRD::shockabsorber, rownames = F,
                                                             options = list(pageLength = 13))})

@@ -72,9 +72,15 @@ tabPanel(h4("Bases: Other"), plotOutput("cdfplot.bleed.o", height = '600px'))
 tabPanel(h4('Code Mirror'), 
 
 mainPanel(codemirrorR::codemirrorOutput('figures.bleed', height = '600px'), 
-          width = 12))),
+          width = 12)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
 output$table.bleed <- DT::renderDataTable({ DT::datatable(Bleed.ld,
                                                           options = list(pageLength = 12)) })

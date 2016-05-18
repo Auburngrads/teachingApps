@@ -29,9 +29,15 @@ ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
               label = h4("Sample Size:"),
               min = 3, max = 30, value = 3, step = 3,animate=TRUE)), 
   
-  mainPanel(plotOutput("CLT", height = "600px"  )))),
+  mainPanel(plotOutput("CLT", height = "600px"  ))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$CLT <- renderPlot({
     

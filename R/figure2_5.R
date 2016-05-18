@@ -32,9 +32,15 @@ mtext(side = 3,
       font = 2,line = 2)"),
               actionButton("evalfig5", h4("Evaluate"))),
         
-        mainPanel(plotOutput("plotfig5", height = "600px"), width = 7))),
+        mainPanel(plotOutput("plotfig5", height = "600px"), width = 7)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$plotfig5 <- renderPlot({
       input$evalfig5

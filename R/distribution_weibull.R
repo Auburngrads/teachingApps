@@ -41,9 +41,15 @@ mainPanel(width = 9,
   tabPanel(h4('Survival'),               metricsgraphicsOutput("weibR",height = "600px")),
   tabPanel(h4('Hazard'),                 metricsgraphicsOutput("weibh",height = "600px")),
   tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("weibH",height = "600px")),
-  tabPanel(h4('Quantile'),               metricsgraphicsOutput("weibQ",height = "600px")))))),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("weibQ",height = "600px"))))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
 weibhaz <-function(x,sc, sh) {sh/sc*(x/sc)^(sh-1)}
   

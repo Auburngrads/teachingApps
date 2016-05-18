@@ -21,9 +21,15 @@ tabPanel(h4('Figure 7.1'),
     
     tabPanel(h4('Table 7.1'), DT::dataTableOutput('table.1', height = '80%')),
     tabPanel(h4('Code Mirror'), codemirrorR::codemirrorOutput('cm.table.1', 
-                                                              height = '600px'))),
+                                                              height = '600px')),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
 output$berkson <- renderPlot({
 

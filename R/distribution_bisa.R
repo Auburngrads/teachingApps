@@ -44,9 +44,15 @@ sidebarPanel(width = 3,hr(),
   tabPanel(h4('Hazard'),               metricsgraphicsOutput("bisah",height = "600px")),
   tabPanel(h4('Cumulative Hazard'),    metricsgraphicsOutput("bisaH",height = "600px")),
   tabPanel(h4('Quantile'),             metricsgraphicsOutput("bisaQ",height = "600px"))
-  )))),
+  ))),
 
-server = function(input, output, session) { 
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
+server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+ 
 
 t <-  reactive({ signif(seq(input$rangebisa[1], input$rangebisa[2],length = 500), dig = 4) })
 p <-  reactive({ signif(seq(0, 1, length = 500), digits = 4)  })

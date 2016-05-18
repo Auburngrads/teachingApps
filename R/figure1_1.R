@@ -55,9 +55,15 @@ event.plot(lzbearing.ld)"),
 
         actionButton("evalfig2", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotfig2", height = "600px"), width = 7)))),
+        mainPanel(plotOutput("plotfig2", height = "600px"), width = 7))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
     output$lzbearing <- DT::renderDataTable({ DT::datatable(SMRD::lzbearing,
                                                        options = list(pageLength = 12)) })

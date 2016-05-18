@@ -11,9 +11,15 @@ ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = TRUE),
                
-      mainPanel(visNetwork::visNetworkOutput('visnet1',height = '600px'),width = 12)),
+      mainPanel(visNetwork::visNetworkOutput('visnet1',height = '600px'),width = 12),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
   output$visnet1 <- visNetwork::renderVisNetwork({
            

@@ -38,9 +38,15 @@ sidebarPanel(width = 3,
                           "Transformed Axis"), 
               selected = "Transformed Axis")),
 
-mainPanel(plotOutput("compare", height = "600px"), width = 9))),
+mainPanel(plotOutput("compare", height = "600px"), width = 9)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$compare <- renderPlot({
 

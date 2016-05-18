@@ -27,9 +27,15 @@ sidebarLayout(
     hr(),
     actionButton('clear',h4('clear'), width = '100%')),
   
-  mainPanel(plotOutput('plotmle', height = '650px'), width = 8)))),
+  mainPanel(plotOutput('plotmle', height = '650px'), width = 8))),
 
-server = function(input, output, session) {                
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
+server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+                
 
 mle <- reactiveValues(dats = NULL, 
                       params = NULL, 

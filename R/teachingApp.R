@@ -1,4 +1,10 @@
-teachingApp <- function(name,...) {
+#' Leave signature for teachingApps 
+#'
+#' @param name The name of the app \code{character}
+#'
+#' @export
+
+teachingApp <- function(name) {
   
   if(!is.character(name)) stop('name must be a character string')
   

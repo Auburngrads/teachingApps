@@ -1,3 +1,4 @@
+export(teachingApp)
 import(stats)
 import(threejs)
 import(htmlwidgets)

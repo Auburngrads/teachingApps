@@ -56,9 +56,15 @@ tabPanel(h4("CDF Plot"),
                               "none"), 
                   selected = "Pointwise")),  
     
-mainPanel( plotOutput("cdfplot.turb", height = '650px'), width = 9)))),
+mainPanel( plotOutput("cdfplot.turb", height = '650px'), width = 9))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
 output$table.turb <- DT::renderDataTable({ DT::datatable(Turbine.ld,
                                                           options = list(pageLength = 12)) })

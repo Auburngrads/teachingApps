@@ -42,9 +42,15 @@ one.dim.profile(berkson200.mle.exp,
 
         actionButton("berk200profiles", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("berk200prof", height = "600px"), width = 7))),
+        mainPanel(plotOutput("berk200prof", height = "600px"), width = 7)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$berk200prof <- renderPlot({
       input$berk200profiles

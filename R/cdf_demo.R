@@ -33,10 +33,14 @@ las = 1)"),
 
         actionButton("evalcdf", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotcdf", height = "600px"), width = 8))),
+        mainPanel(plotOutput("plotcdf", height = "600px"), width = 8)),
+
+        fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
-
+  
+  output$sign <- renderUI({HTML(teachingApp('cdf_demo'))})
+  
 output$plotcdf <- renderPlot({
       input$evalcdf
       return(isolate(eval(parse(text=input$cdfplot))))

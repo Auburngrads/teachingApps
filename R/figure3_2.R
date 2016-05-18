@@ -30,9 +30,15 @@ plot(HE.ld,band.type = 'Pointwise')"),
 
         actionButton("eval3.2", h4("Evaluate"),width = '100%')),
         
-        mainPanel(plotOutput("plot3.2", height = "600px")))),
+        mainPanel(plotOutput("plot3.2", height = "600px"))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
 output$plot3.2 <- renderPlot({
       input$eval3.2

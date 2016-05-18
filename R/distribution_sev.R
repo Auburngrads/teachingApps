@@ -42,9 +42,15 @@ mainPanel(width = 9,
   tabPanel(h4('Survival'),               metricsgraphicsOutput("sevR",height = "600px")),
   tabPanel(h4('Hazard'),                 metricsgraphicsOutput("sevh",height = "600px")),
   tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("sevH",height = "600px")),
-  tabPanel(h4('Quantile'),               metricsgraphicsOutput("sevQ",height = "600px")))))),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("sevQ",height = "600px"))))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
 t = reactive({ signif(seq(min(input$range.s), max(input$range.s), length = 500), digits = 4)})
 p <- signif(seq(0, 1, length = 500), digits = 4) 

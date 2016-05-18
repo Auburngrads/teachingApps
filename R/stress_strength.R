@@ -10,7 +10,6 @@ shinyApp(options = list(width = "100%", height = "350px"),
                  try(includeCSS(system.file('css',
                                             'my-shiny.css', 
                                             package = 'teachingApps')), silent = TRUE),
-                 fixedPanel(htmlOutput('sign'),bottom = '3%', left = '2%', height = '40px'),
     sidebarLayout(
     sidebarPanel(
       sliderInput("mean", 
@@ -21,7 +20,9 @@ shinyApp(options = list(width = "100%", height = "350px"),
                   step = 1, 
                   animate=TRUE)),
     
-    mainPanel(plotOutput("first", height = "300px")))),
+    mainPanel(plotOutput("first", height = "300px"))),
+    
+    fixedPanel(htmlOutput('sign'),bottom = '3%', left = '2%', height = '40px')),
 
 server <- function(input, output, session) {
  

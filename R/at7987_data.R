@@ -58,9 +58,15 @@ selectInput("bt_2",
 mainPanel( plotOutput("cdfplot.at7987", height = '650px'), width = 9))),
 
 tabPanel(h4('Code Mirror'), 
-         mainPanel(codemirrorR::codemirrorOutput('figures', height = '650px'), width = 12))),
+         mainPanel(codemirrorR::codemirrorOutput('figures', height = '650px'), width = 12)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
 output$table.at7987 <- DT::renderDataTable({ DT::datatable(at7987.ld,
                                                            options = list(pageLength = 12)) })

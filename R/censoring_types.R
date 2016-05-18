@@ -17,9 +17,15 @@ sidebarPanel(width = 3,
                           "Inspection Data"),
               selected = "Exact Failures")),
   
-  mainPanel(plotOutput("plotcens", height = "200px"), width = 9))),
+  mainPanel(plotOutput("plotcens", height = "200px"), width = 9)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$plotcens <- renderPlot({
 

@@ -46,9 +46,15 @@ nlminb(start = 4,
 
   tabPanel(h4('Overview of nlminb()'),
 
-        mainPanel(uiOutput("nlminb", class = 'shiny-text-output'), width = 12))),
+        mainPanel(uiOutput("nlminb", class = 'shiny-text-output'), width = 12)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$mlexp2 <- renderPrint({
       input$mlexpnums

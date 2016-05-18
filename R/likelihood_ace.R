@@ -57,9 +57,15 @@ than for the exponential distribution',
 
    actionButton("evallike", h4("Evaluate"), width = '100%')),
 
-   mainPanel(plotOutput('plotlike', height = '600px'), width = 7))),
+   mainPanel(plotOutput('plotlike', height = '600px'), width = 7)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
 output$plotlike <- renderPlot({
       input$evallike

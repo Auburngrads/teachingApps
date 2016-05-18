@@ -61,9 +61,15 @@ text(x = rep(400, 5),
 
         actionButton("evalenvir", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotenvir", height = "600px")))),
+        mainPanel(plotOutput("plotenvir", height = "600px"))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$plotenvir <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(4,4,2,2))

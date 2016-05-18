@@ -187,9 +187,15 @@ tabPanel(h4('Dice Roll'),
                       tabPanel(h4('Borel Algegra'),
                                plotOutput('diceresults', height = '550px')),
                       tabPanel(h4('Probabilities'),
-                               plotOutput('diceprobs', height = '550px'))))))),
+                               plotOutput('diceprobs', height = '550px')))))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
 shapeGamma <- 2
 scaleGamma <- 50

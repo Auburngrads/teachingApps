@@ -77,9 +77,15 @@ actionButton("mlsolplot", h4("Evaluate"), width = '100%')),
 
 tabPanel(h4('How To Use This App'),
 
-        mainPanel(uiOutput("howto1", class = 'shiny-text-output'), width = 12))),
+        mainPanel(uiOutput("howto1", class = 'shiny-text-output'), width = 12)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$mlsolns <- renderPrint({
       input$mlsolnum

@@ -37,9 +37,15 @@ text(x = c(50,63,75,82),
 
         actionButton("evalfig9", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotfig9", height = "600px"), width = 7)))),
+        mainPanel(plotOutput("plotfig9", height = "600px"), width = 7))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
   output$printedcircuitboard <- DT::renderDataTable({ DT::datatable(SMRD::printedcircuitboard,
                                                        options = list(pageLength = 12)) })

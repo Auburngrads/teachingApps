@@ -50,9 +50,15 @@ selectInput("BT_3",   label = h2("Band Type:"),
                     choices = c("Pointwise", "Simultaneous", "none"), 
                     selected = "Pointwise")),  
 
-mainPanel( plotOutput("cdfplot.shock", height = '650px'), width = 9)))),
+mainPanel( plotOutput("cdfplot.shock", height = '650px'), width = 9))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
            
 output$table.shock <- DT::renderDataTable({ 
   

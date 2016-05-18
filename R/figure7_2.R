@@ -23,9 +23,15 @@ shinyApp(options = list(height = '600px', width = '100%'),
                               choices = c("50","80","90","95","99"), 
                               selected = "95")),
   
-     mainPanel(plotOutput('berksonrel', height = '600px'), width = 9))),
+     mainPanel(plotOutput('berksonrel', height = '600px'), width = 9)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
   output$berksonrel <- renderPlot({
   

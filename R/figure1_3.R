@@ -25,9 +25,15 @@ tabPanel(h4('Figure 1.3'),
 
         actionButton("evalfig3", h4('Evaluate'), width = '100%')),
         
-        mainPanel(plotOutput("plotfig3", height = "600px"), width = 7)))),
+        mainPanel(plotOutput("plotfig3", height = "600px"), width = 7))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
   output$lfp1370 <- DT::renderDataTable({ DT::datatable(SMRD::lfp1370,
                                                        options = list(pageLength = 12)) })

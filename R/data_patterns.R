@@ -62,9 +62,15 @@ par(mfrow = c(1,1))"),
 
    actionButton("evalpdflike", h4("Evaluate"), width = '100%')),
 
-   mainPanel(plotOutput('plotpdflike', height = '600px')))),
+   mainPanel(plotOutput('plotpdflike', height = '600px'))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
 output$plotpdflike <- renderPlot({
       input$evalpdflike

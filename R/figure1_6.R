@@ -154,9 +154,15 @@ arrows(x0 = rep(345,3),
 
         actionButton("evalfig7", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotfig7", height = "600px"), width = 7)))),
+        mainPanel(plotOutput("plotfig7", height = "600px"), width = 7))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
   output$heatexchanger <- DT::renderDataTable({ DT::datatable(SMRD::heatexchanger,
                                                        options = list(pageLength = 10)) })

@@ -41,9 +41,15 @@ diagram::plotmat(A = AA, pos = 4, curve = .575,
 
         actionButton("evalreal", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotreal", height = "600px"), width = 7))),
+        mainPanel(plotOutput("plotreal", height = "600px"), width = 7)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
     output$plotreal <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(4,4,2,2))

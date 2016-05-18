@@ -34,9 +34,15 @@ las = 1)"),
 
         actionButton("evalrel", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotrel", height = "600px")))),
+        mainPanel(plotOutput("plotrel", height = "600px"))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
 output$plotrel <- renderPlot({
       input$evalrel

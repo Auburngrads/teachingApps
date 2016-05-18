@@ -30,9 +30,15 @@ ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
                   choices = c("Weibull","Lognormal"), 
                   selected = "Weibull")),
   
-  mainPanel(plotOutput('simulate', height = '600px'), width = 9))),
+  mainPanel(plotOutput('simulate', height = '600px'), width = 9)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
   output$simulate <- renderPlot({
 

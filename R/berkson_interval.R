@@ -45,9 +45,15 @@ par(mfrow = c(1,1))"),
 
         actionButton("berks", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("berkint", height = "600px"), width = 8))),
+        mainPanel(plotOutput("berkint", height = "600px"), width = 8)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
 
   output$berkint <- renderPlot({
       input$berks

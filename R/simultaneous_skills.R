@@ -152,9 +152,15 @@ tabPanel(h4("Plot Annotations"),
                                   "No Show 'n'"), 
                       selected = "Show 's'")),
     
-      mainPanel(plotOutput("axis", height = "600px"), width = 9)))),
+      mainPanel(plotOutput("axis", height = "600px"), width = 9))),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+
   
   output$plots <- renderPlot({
       par(mar = c(4,4,2,2))

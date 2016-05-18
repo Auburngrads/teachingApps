@@ -48,9 +48,15 @@ sidebarPanel(width = 3,
   tabPanel(h4('Hazard'),               metricsgraphicsOutput("gomah",height = "600px")),
   tabPanel(h4('Cumulative Hazard'),    metricsgraphicsOutput("gomaH",height = "600px")),
   tabPanel(h4('Quantile'),             metricsgraphicsOutput("gomaQ",height = "600px"))
-  )))),
+  ))),
 
-server = function(input, output, session) { 
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
+server = function(input, output, session) {
+  
+  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  
+ 
   
 t <-  reactive({ signif(seq(input$rangegoma[1], input$rangegoma[2],length = 500),digits = 4)})
 p <-  reactive({ signif(seq(0.001, .999, length = 500), digits = 4) })
