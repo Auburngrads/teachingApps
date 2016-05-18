@@ -25,7 +25,9 @@ shinyApp(options = list(width = "100%", height = "350px"),
 
 server <- function(input, output, session) {
  
-  output$sign <- renderUI({HTML('<red>Hello</red>')})
+  name <- jkf::teachingApp('stress_strength')
+  
+  output$sign <- renderUI({HTML(name)})
   
   output$first <- renderPlot({
     
