@@ -4,9 +4,9 @@ function(...) {
 try(attachNamespace('shiny'), silent = TRUE)
 try(attachNamespace('plotly'), silent = TRUE)
 
-shinyApp(options = list(height = '800px', width = '99%'),
+shinyApp(options = list(height = '800px', width = '100%'),
          
-    ui = navbarPage(theme = shinythemes::shinytheme('flatly'),
+    ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
                     try(includeCSS(system.file('css',
                                                'my-shiny.css', 
                                                package = 'teachingApps')), silent = T),
@@ -43,7 +43,7 @@ tabPanel(h4('MTBF Test Planning Tool'),
 
 tabPanel(h4('How To Use The Tool'),
 
-        mainPanel(uiOutput("howtomtbf", class = 'shiny-text-output'), width = 12)),
+        mainPanel(withMathJax(uiOutput("howtomtbf", class = 'shiny-text-output'), width = 12))),
 
 tabPanel(h4('Examples'),
 
@@ -150,16 +150,160 @@ p5 <-
                     arrowcolor = 'red')),
              font = list(size = 16))
 })
-    output$howtomtbf <- renderUI({HTML(
-'<li>R, like most languages, does not maximize functions - but <red>minimizes</red> them</li>
+    output$howtomtbf <- renderUI({withMathJax(HTML(
+'- Here are the equations 
 
-<li>Therefore, to find `maximum` values we minimize the <u>negative</u> of a function</li>
-
-<center><p><focus>This is why the <code>joint.exp()</code> returns a negative<focus></p></center>
-
-<li>This does not change the value of the point at which the maximum value occurs (returned by <code>$par</code>)</li>  
-
-<li>But, we must remember that the value of the likelihood function (returned by <code>$objective</code>) must be multiplied by -1</li>')
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mtable columnalign="right left right left right left right left right left right left" rowspacing=".5em" columnspacing="0.278em 2em 0.278em 2em 0.278em 2em 0.278em 2em 0.278em 2em 0.278em">
+    <mtr>
+      <mtd>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>&#x03B8;<!-- <U+03B8> --></mi>
+        <mo>,</mo>
+        <mi>&#x03BA;<!-- <U+03BA> --></mi>
+        <mo stretchy="false">)</mo>
+      </mtd>
+      <mtd>
+        <mo>=</mo>
+        <mfrac>
+          <mn>1</mn>
+          <mrow>
+            <mi mathvariant="normal">&#x0393;<!-- G --></mi>
+            <mo stretchy="false">(</mo>
+            <mi>&#x03BA;<!-- <U+03BA> --></mi>
+            <mo stretchy="false">)</mo>
+            <mi>&#x03B8;<!-- <U+03B8> --></mi>
+          </mrow>
+        </mfrac>
+        <msup>
+          <mrow>
+            <mo>(</mo>
+            <mfrac>
+              <mi>t</mi>
+              <mi>&#x03B8;<!-- <U+03B8> --></mi>
+            </mfrac>
+            <mo>)</mo>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03BA;<!-- <U+03BA> --></mi>
+            <mo>&#x2212;<!-- - --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+      </mtd>
+    </mtr>
+    <mtr>
+      <mtd />
+    </mtr>
+    <mtr>
+      <mtd>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>&#x03B8;<!-- <U+03B8> --></mi>
+        <mo>,</mo>
+        <mi>&#x03BA;<!-- <U+03BA> --></mi>
+        <mo stretchy="false">)</mo>
+      </mtd>
+      <mtd>
+        <mo>=</mo>
+        <msub>
+          <mi mathvariant="normal">&#x0393;<!-- G --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>I</mi>
+          </mrow>
+        </msub>
+        <mrow>
+          <mo>(</mo>
+          <mfrac>
+            <mi>t</mi>
+            <mi>&#x03B8;<!-- <U+03B8> --></mi>
+          </mfrac>
+          <mo>,</mo>
+          <mi>&#x03BA;<!-- <U+03BA> --></mi>
+          <mo>)</mo>
+        </mrow>
+      </mtd>
+    </mtr>
+    <mtr>
+      <mtd />
+    </mtr>
+    <mtr>
+      <mtd>
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+      </mtd>
+      <mtd>
+        <mo>=</mo>
+        <mi>&#x03B8;<!-- <U+03B8> --></mi>
+        <msubsup>
+          <mi mathvariant="normal">&#x0393;<!-- G --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>I</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- - --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>&#x03BA;<!-- <U+03BA> --></mi>
+        <mo stretchy="false">)</mo>
+      </mtd>
+    </mtr>
+    <mtr>
+      <mtd />
+    </mtr>
+    <mtr>
+      <mtd>
+        <mi>E</mi>
+        <mo stretchy="false">[</mo>
+        <mi>T</mi>
+        <mo stretchy="false">]</mo>
+      </mtd>
+      <mtd>
+        <mo>=</mo>
+        <mi>&#x03BA;<!-- <U+03BA> --></mi>
+        <mi>&#x03B8;<!-- <U+03B8> --></mi>
+      </mtd>
+    </mtr>
+    <mtr>
+      <mtd />
+    </mtr>
+    <mtr>
+      <mtd>
+        <mi>V</mi>
+        <mi>a</mi>
+        <mi>r</mi>
+        <mo stretchy="false">[</mo>
+        <mi>T</mi>
+        <mo stretchy="false">]</mo>
+      </mtd>
+      <mtd>
+        <mo>=</mo>
+        <mi>&#x03BA;<!-- <U+03BA> --></mi>
+        <msup>
+          <mi>&#x03B8;<!-- <U+03B8> --></mi>
+          <mn>2</mn>
+        </msup>
+      </mtd>
+    </mtr>
+  </mtable>
+</math>'))
 })
     output$examplemtbf <- renderUI({HTML(
 '<li>R, like most languages, does not maximize functions - but <red>minimizes</red> them</li>
@@ -206,7 +350,7 @@ p5 <-
 
 <li>A 'point estimate' is the simple calculation of the proportion (number of successes divided by total number of trials) or mean-time (total time divided by number of failures). Uncertainty in our estimate results in a parameter estimate (confidence) interval whose width is determined by the sampling plan parameters. The tool described herein is set up with the lower bound of the point estimate set at the threshold</li>
 
-<li>The inherently stochastic behavior of real-world systems admits the possibility that an acceptable system may fail during the limited test period.  Similarly, a truly unacceptable system may pass. For this reason it is critical that the sampling plan be properly scoped to address these risks. Sizing an OC plan requires two risk variables, alpha and beta (numbers between 0 and 1). Alpha is also called consumer's risk and indicates the probability that the consumer observes the requisite number of failures (or less) and accepts a system that is actually below threshold (1-alpha is called confidence). Beta is also called producer's risk and indicates the probability that the producer's truly acceptable system results in too many failures and is rejected (1-beta is called power). Balancing these risks on an OC curve requires both lower bound (acquisition system threshold) and goal (acquisition system objective) values to properly determine a sampling plan. DoD acquisition policy defines the threshold (T) as 'the minimum acceptable operational value? and objective (O) values as ?the desired operational goal.'  In some cases the objective value may be the same as the threshold.  The contracted performance value can be used in lieu of an objective value.  These details will be demonstrated later graphically</li>
+<li>The inherently stochastic behavior of real-world systems admits the possibility that an acceptable system may fail during the limited test period.  Similarly, a truly unacceptable system may pass. For this reason it is critical that the sampling plan be properly scoped to address these risks. Sizing an OC plan requires two risk variables, alpha and beta (numbers between 0 and 1). Alpha is also called consumer's risk and indicates the probability that the consumer observes the requisite number of failures (or less) and accepts a system that is actually below threshold (1-alpha is called confidence). Beta is also called producer's risk and indicates the probability that the producer's truly acceptable system results in too many failures and is rejected (1-beta is called power). Balancing these risks on an OC curve requires both lower bound (acquisition system threshold) and goal (acquisition system objective) values to properly determine a sampling plan. DoD acquisition policy defines the threshold (T) as 'the minimum acceptable operational value??? and objective (O) values as ?the desired operational goal.'  In some cases the objective value may be the same as the threshold.  The contracted performance value can be used in lieu of an objective value.  These details will be demonstrated later graphically</li>
 
 <li>For a given alpha and beta, test time increases as T and O get closer together.  Realistic values with a meaningful difference between them will reduce the test time required to make an accurate assessment</li>
 </ol>")
@@ -222,7 +366,7 @@ p5 <-
 
 <li>A 'point estimate' is the simple calculation of the proportion (number of successes divided by total number of trials) or mean-time (total time divided by number of failures). Uncertainty in our estimate results in a parameter estimate (confidence) interval whose width is determined by the sampling plan parameters. The tool described herein is set up with the lower bound of the point estimate set at the threshold</li>
 
-<li>The inherently stochastic behavior of real-world systems admits the possibility that an acceptable system may fail during the limited test period.  Similarly, a truly unacceptable system may pass. For this reason it is critical that the sampling plan be properly scoped to address these risks. Sizing an OC plan requires two risk variables, alpha and beta (numbers between 0 and 1). Alpha is also called consumer's risk and indicates the probability that the consumer observes the requisite number of failures (or less) and accepts a system that is actually below threshold (1-alpha is called confidence). Beta is also called producer's risk and indicates the probability that the producer's truly acceptable system results in too many failures and is rejected (1-beta is called power). Balancing these risks on an OC curve requires both lower bound (acquisition system threshold) and goal (acquisition system objective) values to properly determine a sampling plan. DoD acquisition policy defines the threshold (T) as 'the minimum acceptable operational value? and objective (O) values as ?the desired operational goal.'  In some cases the objective value may be the same as the threshold.  The contracted performance value can be used in lieu of an objective value.  These details will be demonstrated later graphically</li>
+<li>The inherently stochastic behavior of real-world systems admits the possibility that an acceptable system may fail during the limited test period.  Similarly, a truly unacceptable system may pass. For this reason it is critical that the sampling plan be properly scoped to address these risks. Sizing an OC plan requires two risk variables, alpha and beta (numbers between 0 and 1). Alpha is also called consumer's risk and indicates the probability that the consumer observes the requisite number of failures (or less) and accepts a system that is actually below threshold (1-alpha is called confidence). Beta is also called producer's risk and indicates the probability that the producer's truly acceptable system results in too many failures and is rejected (1-beta is called power). Balancing these risks on an OC curve requires both lower bound (acquisition system threshold) and goal (acquisition system objective) values to properly determine a sampling plan. DoD acquisition policy defines the threshold (T) as 'the minimum acceptable operational value??? and objective (O) values as ?the desired operational goal.'  In some cases the objective value may be the same as the threshold.  The contracted performance value can be used in lieu of an objective value.  These details will be demonstrated later graphically</li>
 
 <li>For a given alpha and beta, test time increases as T and O get closer together.  Realistic values with a meaningful difference between them will reduce the test time required to make an accurate assessment</li>
 </ul>
