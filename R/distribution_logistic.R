@@ -31,7 +31,7 @@ sidebarPanel(width = 3,
 
 mainPanel(width = 9,
  tabsetPanel(type = 'pills',
-  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("logC",height = "600px")),
+  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("logC",height = "550px")),
   tabPanel(h4('Density'),                metricsgraphicsOutput("logP",height = "600px")),
   tabPanel(h4('Survival'),               metricsgraphicsOutput("logR",height = "600px")),
   tabPanel(h4('Hazard'),                 metricsgraphicsOutput("logh",height = "600px")),
@@ -42,7 +42,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  output$sign <- renderUI({HTML(teachingApp('distribution_logistic'))})
   
 
 
