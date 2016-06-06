@@ -97,7 +97,7 @@ server = function(input, output, session) {
 
   
   predicted <- reactive({
-    hw <- HoltWinters(ldeaths)
+    hw <- HoltWinters(datasets::ldeaths)
     predict(hw, n.ahead = input$months, 
             prediction.interval = TRUE,
             level = as.numeric(input$interval))
@@ -148,7 +148,7 @@ dmd <- dplyr::select(.data = dmd, carat, color, cut, clarity, depth, table, pric
 })
   output$taucharts <- renderTaucharts({
     
-    tauchart(mtcars) %>%
+    tauchart(datasets::mtcars) %>%
     tau_point("wt", "mpg", color="cyl") %>%
     tau_color_manual(c("blue", "maroon", "black")) %>%
     tau_tooltip() %>%
@@ -156,7 +156,7 @@ dmd <- dplyr::select(.data = dmd, carat, color, cut, clarity, depth, table, pric
 })
   output$d3heatmap <- renderD3heatmap({
     
-    d3heatmap(mtcars, scale = "column", colors = "Spectral")
+    d3heatmap(datasets::mtcars, scale = "column", colors = "Spectral")
 })
   output$mtbf <- renderPlotly({
 

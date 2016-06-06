@@ -27,7 +27,7 @@ par(mfrow = c(1,1)) # Return plot window to a 1x1 array"),
 
     actionButton("evalreg", h4("Evaluate"), width = '100%')),
         
-    mainPanel(plotOutput("plotreg", height = "550px"), width = 7))),
+    mainPanel(plotOutput("plotreg", height = "550px"), width = 7)),
 
 fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 

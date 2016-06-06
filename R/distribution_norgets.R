@@ -57,7 +57,7 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApp('distribution_norgets'))})
   
-t <-  reactive({ signif(seq(input$range.nget[1], input$range.nget[2],length = 500), dig = 4) })
+t <-  reactive({ signif(seq(input$range.nget[1], input$range.nget[2],length = 500), digits = 4) })
 p <-  reactive({ signif(seq(0, 1, length = 500), digits = 4)  })
 C <-  reactive({ pgets(t(),input$al.nget,input$si.nget,input$xi.nget,distribution = "normal") })
 P <-  reactive({ dgets(t(),input$al.nget,input$si.nget,input$xi.nget,distribution = "normal")})

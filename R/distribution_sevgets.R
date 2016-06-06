@@ -57,7 +57,7 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApp('distribution_sevgets'))})
   
-t <-  reactive({ signif(seq(input$range.sget[1], input$range.sget[2],length = 500), dig = 4) })
+t <-  reactive({ signif(seq(input$range.sget[1], input$range.sget[2],length = 500), digits = 4) })
 p <-  reactive({ signif(seq(0, 1, length = 500), digits = 4)  })
 C <-  reactive({ pgets(t(),input$al.sgets,input$si.sgets,input$xi.sgets,distribution = "sev") })
 P <-  reactive({ dgets(t(),input$al.sgets,input$si.sgets,input$xi.sgets,distribution = "sev")})

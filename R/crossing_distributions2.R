@@ -9,8 +9,8 @@ ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = T),
       inputPanel(
-      selectInput('dist1', h2('Distro 1'), choice = c('Normal'), selected = 'Normal'),
-      selectInput('dist2', h2('Distro 2'), choice = c('Normal'), selected = 'Normal')),
+      selectInput('dist1', h2('Distro 1'), choices = c('Normal'), selected = 'Normal'),
+      selectInput('dist2', h2('Distro 2'), choices = c('Normal'), selected = 'Normal')),
       
       fluidRow(
         column(width = 2,

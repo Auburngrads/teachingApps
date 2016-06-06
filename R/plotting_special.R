@@ -103,9 +103,9 @@ las = 1)"),
 tabPanel(h4("Trellis Plots"),
    sidebarLayout(
       sidebarPanel(
-         checkboxGroupInput("mtcars", 
+         checkboxGroupInput(datasets::mtcars,
                             label = h4("mtcars Columns Plotted"), 
-                            choices = names(mtcars), 
+                            choices = names(datasets::mtcars), 
                             selected = "mpg")),
       mainPanel(plotOutput("trellis", height = "550px"))))),
   
@@ -127,7 +127,7 @@ server = function(input, output, session) {
       return(isolate(eval(parse(text=input$boxcode))))
 })
 output$trellis <- renderPlot({
-    plot(mtcars[,c(input$mtcars)], col = rainbow(length(input$mtcars)), 
+    plot(datasets::mtcars[,c(input$mtcars)], col = rainbow(length(input$mtcars)), 
          pch = 16, cex = 1+length(input$mtcars)*.1)
 })
 })

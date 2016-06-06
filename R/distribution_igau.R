@@ -54,7 +54,7 @@ server = function(input, output, session) {
   
  
   
-t <-  reactive({ signif(seq(input$rangeigau[1], input$rangeigau[2], length = 500), dig = 4) })
+t <-  reactive({ signif(seq(input$rangeigau[1], input$rangeigau[2], length = 500), digits = 4) })
 p <-  reactive({ signif(seq(0.001, .999, length = 500), digits = 4) })
 C <-  reactive({ pigau(t(), input$be.igau,input$th.igau)})
 P <-  reactive({ digau(t(), input$be.igau,input$th.igau)})

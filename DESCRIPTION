@@ -13,7 +13,9 @@ Imports:
     codemirrorR,shinyAce,shinythemes,DT,actuar,
     dplyr,htmlwidgets,shiny,threejs,scales,jkf,
     plotly,d3heatmap,dygraphs,leaflet,stats,
-    parcoords,taucharts,metricsgraphics,visNetwork,diagram
+    parcoords,taucharts,metricsgraphics,visNetwork,diagram,
+    datasets,graphics,grDevices,utils,d3Network,networkD3,
+    shinydashboard,DiagrammeR
 Remotes: 
     github::timelyportfolio/parcoords,
     github::hrbrmstr/taucharts,

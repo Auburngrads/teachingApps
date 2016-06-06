@@ -54,7 +54,7 @@ server = function(input, output, session) {
   
  
 
-t <-  reactive({ signif(seq(input$rangebisa[1], input$rangebisa[2],length = 500), dig = 4) })
+t <-  reactive({ signif(seq(input$rangebisa[1], input$rangebisa[2],length = 500), digits = 4) })
 p <-  reactive({ signif(seq(0, 1, length = 500), digits = 4)  })
 C <-  reactive({ pbisa(t(), input$be.bisa,input$th.bisa) })
 P <-  reactive({ dbisa(t(), input$be.bisa,input$th.bisa)})
