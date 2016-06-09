@@ -15,7 +15,7 @@ ui = navbarPage(theme = shinythemes::shinytheme('flatly'),
         sidebarPanel(
          sliderInput('threshold', 
                      label = h2('Cost Threshold'),
-                     min = 1000,
+                     min = 10000,
                      max = 60000,
                      value = 35000,
                      step = 1000),
@@ -94,14 +94,18 @@ hist(total.cost,
         las = 1, 
         tck = 0.015,
      mar = c(4.1, 4.1, .1, 1.1),
-     xlim = c(1000,80000))
+     xlim = c(10000,80000))
 abline(v=input$threshold, col = rgb(red = prob-0,green = 1-prob,blue = 0), lwd = 3)
 mtext(side = 3,
       at = input$threshold,
-      text = substitute(a%<-%b~Pr(cost>=c)~'='~d , 
-                        list(a = ' ', b = '', c = paste(c('$',input$threshold), collapse = ''), d = prob)),
+      text = if(input$threshold<50000) { 
+                    substitute(a%<-%b~Pr(cost>=c)~'='~d, 
+                               list(a = ' ', b = '', c = paste(c('$',input$threshold), collapse = ''), d = prob)) 
+        } else {
+                    substitute(Pr(cost>=c)~'='~d~a%->%b, 
+                               list(a = '', b = '', c = paste(c('$',input$threshold), collapse = ''), d = prob)) },
       font = 2,
-      adj = 0,
+      adj = if(input$threshold<50000) {0} else {1},
       padj = .75,
       cex = 2,
       line = 0,
