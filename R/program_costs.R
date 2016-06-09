@@ -5,9 +5,9 @@ program_costs <- function(...) {
 shinyApp(options = list(height = '800px'),
          
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'),
-               try(includeCSS(system.file('css',
-                                          'my-shiny.css', 
-                                           package = 'teachingApps')), silent = T),
+                try(includeCSS(system.file('css',
+                                           'my-shiny.css', 
+                                            package = 'teachingApps')), silent = T),
           
      tabPanel(h4('Visualization'),
       #headerPanel('Visualizing the Distribution of Operating Costs'), 
@@ -93,8 +93,9 @@ hist(total.cost,
         font.axis = 2, 
         las = 1, 
         tck = 0.015,
-     mar = c(4.1, 4.1, .1, 1.1))
-abline(v=input$threshold, col="red", lwd = 3)
+     mar = c(4.1, 4.1, .1, 1.1),
+     xlim = c(1000,80000))
+abline(v=input$threshold, col = rgb(red = prob-0,green = 1-prob,blue = 0), lwd = 3)
 mtext(side = 3,
       at = input$threshold,
       text = substitute(a%<-%b~Pr(cost>=c)~'='~d , 
@@ -102,8 +103,9 @@ mtext(side = 3,
       font = 2,
       adj = 0,
       padj = .75,
-      cex = 1.5,
-      line = 0)
+      cex = 2,
+      line = 0,
+      col = rgb(red = prob-0,green = 1-prob,blue = 0) )
 })
 output$howtohist <- renderUI({withMathJax(HTML(
 '- Here are the equations 
