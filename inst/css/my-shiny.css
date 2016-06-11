@@ -81,13 +81,15 @@ focus  {  background-color: #F39C12;
 }
 
 code {
-  font-size: 22pt;
+  font-size: .8em;
   font-family: 'Source Code Pro', 'Courier New', monospace;
   color: red;
   font-weight: normal;
   background-color: #e6e6e6;
-  padding: 2px 5px 2px 5px;
-  border-radius: 5px;
+  padding: .1em .3em .1em .3em;
+  border-radius: .3em;
+  white-space: nowrap;
+  vertical-align: 10%;
 }
 
 .plot-container-plotly g.infolayer {
@@ -121,4 +123,115 @@ p {
   
   font-size: 150%;
   color: #1a252f;
+}
+
+code > span.kw { color: #555; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal (decimal values) */
+code > span.bn { color: #d14; } /* BaseN */
+code > span.fl { color: #d14; } /* Float */
+code > span.ch { color: #d14; } /* Char */
+code > span.st { color: #d14; } /* String */
+code > span.co { color: #888888; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* OtherToken */
+code > span.al { color: #ff0000; font-weight: bold; } /* AlertToken */
+code > span.fu { color: #900; font-weight: bold; } /* Function calls */ 
+code > span.er { color: #a61717; background-color: #e3d2d2; } /* ErrorTok */
+
+/* allow R chunks to render in a large font */
+pre.sourceCode {
+   font-size: 70%;
+   background-color: #e6e6e6;
+   margin: 5px 150px 5px -5px;
+   line-height: 100%;
+   padding: 15px 0 15px 75px;
+   border-color: #e6e6e6;
+}
+
+code.sourceCode{
+  font-size: 18pt;
+   border: none;
+   font-weight: 550;
+}
+
+table {
+  width: 100% !important;
+  border-collapse: -moz-initial;
+  border-collapse: initial;
+  border-spacing: 2px;
+  border-bottom: 1px solid #797979;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 60px; 
+  margin-bottom: 60px;
+}
+
+/* line 479, scss/default.scss */
+table tr > td:first-child, table th {
+  font-weight: bold;
+  font-size: 22;
+}
+/* line 484, scss/default.scss */
+table tr:nth-child(odd) {
+  background-color: #e6e6e6;
+}
+/* line 488, scss/default.scss */
+table th {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #4387fd), color-stop(80%, #2a7cdf)) no-repeat;
+  background: -webkit-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+  background: -moz-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+  background: -o-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+  background: linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+  color: #FFF;
+  padding: 0.25em 0.25em;
+  font-weight: bold;
+  font-size: 18pt;
+}
+/* line 494, scss/default.scss */
+table td {
+  font-size: 22px;
+  font-weight: bold;
+  padding: 0.25em 0.25em;
+}
+/* line 499, scss/default.scss */
+table td.highlight {
+  color: #515151;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #ffd14d), color-stop(80%, #f6c000)) no-repeat;
+  background: -webkit-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: -moz-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: -o-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+}
+/* line 504, scss/default.scss */
+table.rows {
+  border-bottom: none;
+  border-right: 1px solid #797979;
+}
+
+.example {
+  border-style: solid;
+  border-width: 0 15px 1px 15px;
+  border-color: #2C3E50;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  margin-bottom: 30px;
+  padding-bottom:30px;
+}
+
+table.example {
+  width: 80%;
+}
+
+/* Data Table CSS Settings */
+
+table.dataTable th.dt-right, table.dataTable td.dt-right {
+  
+  font-size: 16pt;
+}
+
+table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+  
+  font-size: 16pt;
 }
