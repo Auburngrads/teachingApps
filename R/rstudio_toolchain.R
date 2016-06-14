@@ -9,7 +9,7 @@ shinyApp(options = list(height = '800px', width = '100%'),
                     try(includeCSS(system.file('css',
                                                'my-shiny.css', 
                                                package = 'teachingApps')), silent = T),
-   
+                    
 tabPanel(h4('Windows (Personal)'),
          
    mainPanel(width = 12,
@@ -206,8 +206,20 @@ output$rs_windows_a <- renderUI({HTML('
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>))</code></pre></div>
 <pre><code>## [1] 0.6112686</code></pre>
 </div>' ) })
-output$rt_windows_a <- renderUI({HTML( ) })
-output$l_windows_a  <- renderUI({HTML( ) })
+output$rt_windows_a <- renderUI({ })
+output$l_windows_a  <- renderUI({ 
+   
+withMathJax(HTML('<h1>For $T\\sim NOR(\\mu,4)$</h1><br>
+$$
+\\begin{aligned}
+f(y|\\mu,\\sigma)&=\\frac{1}{\\sigma}\\phi_{logis}\\left(\\frac{y-\\mu}{\\sigma}\\right)=\\frac{1}{\\sigma}\\exp\\left(\\frac{y-\\mu}{\\sigma}\\right)\\left[1+\\exp\\left(\\frac{y-\\mu}{\\sigma}\\right)\\right]^{-2}\\\\
+F(y|\\mu,\\sigma)&=\\Phi_{logis}\\left(\\frac{y-\\mu}{\\sigma}\\right)=\\exp\\left(\\frac{y-\\mu}{\\sigma}\\right)\\left[1+\\exp\\left(\\frac{y-\\mu}{\\sigma}\\right)\\right]^{-1}\\\\
+h(y|\\mu,\\sigma)&=\\frac{1}{\\sigma}\\Phi_{logis}\\left(\\frac{y-\\mu}{\\sigma}\\right)\\\\
+y_{p}&=\\mu+\\Phi^{-1}_{logis}(p)\\sigma, \\;\\;\\;\\;\\;\\;\\;\\;\\text{where}\\;\\Phi^{-1}_{logis}(p)=\\log [p/(1-p)]\\\\
+E[Y]&=\\mu\\\\
+Var[Y]&=\\sigma^2\\pi^2/3
+\\end{aligned}
+$$')) })
 output$g_windows_a  <- renderUI({HTML( ) })
 
 output$r_mac  <- renderUI({ install_rw })
@@ -229,4 +241,3 @@ output$l_unix  <- renderUI({HTML( ) })
 output$g_unix  <- renderUI({HTML( ) })
 })
 }
-

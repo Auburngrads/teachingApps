@@ -4,12 +4,14 @@ function(...) {
   try(attachNamespace('shiny'), silent = TRUE)
   try(attachNamespace('metricsgraphics'), silent = TRUE)
   
-shinyApp(options = list(height = "700px"),
+shinyApp(options = list(height = "850px"),
          
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
+ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
               try(includeCSS(system.file('css',
                                          'my-shiny.css', 
                                          package = 'teachingApps')), silent = TRUE),
+
+tabPanel(h4('Shiny App'),
 sidebarLayout(
 sidebarPanel(width = 3, 
              hr(),
@@ -46,12 +48,16 @@ sidebarPanel(width = 3,
 
 fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
+tabPanel(h4('Distribution Functions'),
+         mainPanel(uiOutput('expfunc'), width = 12)),
+
+tabPanel(h4('Distribution Properties'),
+         mainPanel(uiOutput('expprops', class = 'shiny-text-output'), width = 12))),
+
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+  output$sign <- renderUI({HTML(teachingApp('distribution_exponential'))})
   
-
-
 t = reactive({ signif(seq(min(input$rangee), max(input$rangee), length = 500), digits = 4)})
 p <- signif(seq(0, 1, length = 500), digits = 4) 
 C <- reactive({ pexp(t() - input$gamma, 1/input$theta)})
@@ -97,5 +103,35 @@ df <- reactive({data.frame(Time = t(),PROB = p, CDF = C(),PDF = P(),REL = R(),ha
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
+
+output$expfunc <- renderUI({ 
+  withMathJax(HTML('<h2>Functional relationships for 
+<script id="MathJax-Element-31" type="math/tex">\\;T \\sim EXP(\\theta,\\gamma),\\;\\;T \\in [0,\\infty)</script>
+</h2>
+<br/>
+<br/>
+$$
+\\begin{aligned}
+f(t|\\theta,\\gamma)&=\\frac{1}{\\theta}\\exp\\left(-\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
+F(t|\\theta,\\gamma)&=1-\\exp\\left(\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
+h(t|\\theta,\\gamma)&=\\frac{1}{\\theta}, t>\\gamma\\\\\\\\\
+t_{p}&=\\gamma-\\log(1-p)\\theta\\\\\\\\
+E[T]&=\\gamma+\\theta\\\\\\\\
+Var[T]&=\\theta^2
+\\end{aligned}
+$$'))
+})
+output$expprops <- renderUI({HTML('<h2>About the Exponential Distribution</h2>
+<ul>
+<li><p>Is the continuous counterpart to the geometric distribution</p></li>
+<li><p>Describes the inter-arrival time durations between events in a homogeneous Poisson process</p></li>
+<li><p>Is used to model the "useful-life" region of the bathtub curve</p></li>
+<li><p>Implies that failures are due to random events or chance</p></li>
+<li><p>Is a "memoryless" distribution</p></li>
+<li><p>Is one of the most commonly used lifetime distributions in reliability analyses</p></li>
+<li><p>Is the simplest distribution used in the analysis of reliability data</p></li>
+<li><p>In real world scenarios, assuming exponentially distributed failure times is rarely valid</p></li>
+</ul>')
+})
 })
 }

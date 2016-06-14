@@ -19,9 +19,22 @@ h4 {
 }
 
 h2 {
-  
-  font-size: 26pt;
-  font-size: bold;
+  padding: 0 0.5em 5px 30px;
+  margin: 1.5em 0 0.75em 0;
+  width: 100%;
+  display: block; 
+  font-size: 32pt;
+  line-height: 1.3em;
+  border-color: #149C82;
+  border-style: solid;
+  border-left-width: 25px;
+  border-right-width: 0;
+  border-top-width: 0;
+  border-bottom-width: thin;
+  font-weight: bold;
+  font-style: italic;
+  text-transform: capitalize;
+}
   
 }
 
@@ -62,6 +75,7 @@ pre {
   border-radius: 8px;
   color: #2c3e50;
   border-color: #2c3e50;
+  font-size: 16pt;
 }
 
 .shiny-text-output {
@@ -85,7 +99,7 @@ focus  {  background-color: #F39C12;
 }
 
 code {
-  font-size: 16pt;
+  font-size: .8em;
   font-family: 'Source Code Pro', 'Courier New', monospace;
   color: red;
   font-weight: normal;
