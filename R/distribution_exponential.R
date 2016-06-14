@@ -108,8 +108,6 @@ output$expfunc <- renderUI({
   withMathJax(HTML('<h3>Functional relationships for 
 <script id="MathJax-Element-31" type="math/tex">\\;T \\sim EXP(\\theta,\\gamma),\\;\\;T \\in [0,\\infty)</script>
 </h3>
-<br/>
-<br/>
 $$
 \\begin{aligned}
 f(t|\\theta,\\gamma)&=\\frac{1}{\\theta}\\exp\\left(-\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
