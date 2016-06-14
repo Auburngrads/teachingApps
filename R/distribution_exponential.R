@@ -105,9 +105,9 @@ df <- reactive({data.frame(Time = t(),PROB = p, CDF = C(),PDF = P(),REL = R(),ha
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
 
 output$expfunc <- renderUI({ 
-  withMathJax(HTML('<h2>Functional relationships for 
+  withMathJax(HTML('<h3>Functional relationships for 
 <script id="MathJax-Element-31" type="math/tex">\\;T \\sim EXP(\\theta,\\gamma),\\;\\;T \\in [0,\\infty)</script>
-</h2>
+</h3>
 <br/>
 <br/>
 $$
@@ -121,7 +121,7 @@ Var[T]&=\\theta^2
 \\end{aligned}
 $$'))
 })
-output$expprops <- renderUI({HTML('<h2>About the Exponential Distribution</h2>
+output$expprops <- renderUI({HTML('<h3>About the Exponential Distribution</h3>
 <ul>
 <li><p>Is the continuous counterpart to the geometric distribution</p></li>
 <li><p>Describes the inter-arrival time durations between events in a homogeneous Poisson process</p></li>
