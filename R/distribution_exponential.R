@@ -44,15 +44,15 @@ sidebarPanel(width = 3,
   tabPanel(h4('Survival'),               metricsgraphicsOutput("expR",height = "600px")),
   tabPanel(h4('Hazard'),                 metricsgraphicsOutput("exph",height = "600px")),
   tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("expH",height = "600px")),
-  tabPanel(h4('Quantile'),               metricsgraphicsOutput("expQ",height = "600px"))))),
-
-fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("expQ",height = "600px")))))),
 
 tabPanel(h4('Distribution Functions'),
          mainPanel(uiOutput('expfunc'), width = 12)),
 
 tabPanel(h4('Distribution Properties'),
-         mainPanel(uiOutput('expprops', class = 'shiny-text-output'), width = 12))),
+         mainPanel(uiOutput('expprops', class = 'shiny-text-output'), width = 12)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
