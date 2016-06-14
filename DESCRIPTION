@@ -17,10 +17,7 @@ Imports:
     datasets,graphics,grDevices,utils,d3Network,networkD3,
     shinydashboard,DiagrammeR
 Remotes: 
-    github::timelyportfolio/parcoords,
-    github::hrbrmstr/taucharts,
-    github::timelyportfolio/codemirrorR,
-    github::Auburngrads/jkf
+    github::timelyportfolio/codemirrorR
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:
