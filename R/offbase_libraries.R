@@ -37,7 +37,7 @@ server = function(input, output, session) {
 output$libmap <- renderLeaflet({
 
     Base_Locs <- data.table(Base_Locations)
-    abb <- Base_Locs[which(Base_Locs[,1]==input$bases),3]
+    abb <- Base_Locs[which(Base_Locs[,`Base (Long Name)`==input$bases]),`Base (Abbreviation)`]
     lib <- eval(parse(text = paste(c(abb,'_Libs'), collapse = '')))
     lib <- subset(lib, lib[,`miles`<=input$radius])
 
