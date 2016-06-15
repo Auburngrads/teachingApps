@@ -38,7 +38,7 @@ output$libmap <- renderLeaflet({
 
     Base_Locs <- data.table(publicLibs::Base_Locations)
     num <- which(Base_Locs[,`Base (Long Name)`==input$bases])
-    abb <- Base_Locs[num,`Base (Abbreviation)`]
+    abb <- Base_Locs$`Base (Abbreviation)`[num]
     lib <- eval(parse(text = paste(c(abb,'_Libs'), collapse = '')))
     lib <- subset(lib, lib[,`miles`<=input$radius])
 
