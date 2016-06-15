@@ -18,6 +18,7 @@ Imports:
     shinydashboard,DiagrammeR
 Remotes: 
     github::timelyportfolio/codemirrorR
+    github::Auburngrads/publicLibs
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:
