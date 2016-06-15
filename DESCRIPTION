@@ -17,7 +17,7 @@ Imports:
     datasets,graphics,grDevices,utils,d3Network,networkD3,
     shinydashboard,DiagrammeR
 Remotes: 
-    github::timelyportfolio/codemirrorR
+    github::timelyportfolio/codemirrorR,
     github::Auburngrads/publicLibs
 NeedsCompilation: no
 Archs: i386, x64
