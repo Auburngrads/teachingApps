@@ -12,17 +12,17 @@ margin: 0 0 0 0;
 }
 
 h4 {
-  
+
   font-size: 20pt;
   font-weight: bold;
-  
+
 }
 
 h3 {
   padding: 0 0.5em 5px 30px;
   margin: .75em 0 0.75em 0;
   width: 100%;
-  display: block; 
+  display: block;
   font-size: 32pt;
   line-height: 1.3em;
   border-color: #149C82;
@@ -35,7 +35,7 @@ h3 {
   font-style: italic;
   text-transform: capitalize;
 }
-  
+
 
 red    {  color: red;     font-weight: bold; }
 blue   {  color: blue;    font-weight: bold; }
@@ -47,17 +47,17 @@ brown  {  color: brown;   font-weight: bold; }
 /* Data Table CSS Settings */
 
 table.dataTable th.dt-right, table.dataTable td.dt-right {
-  
+
   font-size: 130%;
 }
 
 table.dataTable th, table.dataTable td {
-  
+
   font-size: 130%;
 }
 
 table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
-  
+
   font-size: 130%;
 }
 
@@ -67,7 +67,7 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 }
 
 pre {
-  
+
   background-color: #FFF;
   font-family: monospace;
   border-style: solid ;
@@ -78,22 +78,22 @@ pre {
 }
 
 .shiny-text-output {
-  
+
   font-weight: bold;
   font-size: 20pt;
   color: #2C3E50;
-  
+
 }
 
-focus  {  background-color: #F39C12; 
+focus  {  background-color: #F39C12;
           border-color: orange;
           border-radius: 10px;
           padding: 4.5px 8px 6.5px 8px;
           white-space: nowrap;
 }
 
-.shiny-text-output li {  
-  
+.shiny-text-output li {
+
   margin: 30px 0 30px 0;
 }
 
@@ -118,11 +118,11 @@ code {
 }
 
 plotlybox {
-  
+
   display: block;
   width: 30px;
   text-align: left;
-  
+
 }
 
 p {
@@ -131,35 +131,35 @@ p {
 }
 
 .MathJax_SVG_Display  {
-  
+
   font-size: 110%;
   color: #1a252f;
 }
 
 .MathJax_Display  {
-  
+
   font-size: 150%;
   color: #1a252f;
 }
 
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-   margin: 0; 
-  padding: 0; 
-  vertical-align: baseline; 
-  border: none; 
-  
+   margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  border: none;
+
 }
-table.sourceCode { 
-  width: 100%; 
-  line-height: 100%; 
+table.sourceCode {
+  width: 100%;
+  line-height: 100%;
 }
-td.lineNumbers { 
-  text-align: right; 
-  padding-right: 4px; 
-  padding-left: 4px; 
-  color: #aaaaaa; 
+td.lineNumbers {
+  text-align: right;
+  padding-right: 4px;
+  padding-left: 4px;
+  color: #aaaaaa;
   border-right: 1px solid #aaaaaa; }
-  
+
 td.sourceCode { padding-left: 5px; }
 
 code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
@@ -217,7 +217,7 @@ table {
   border-bottom: 1px solid #797979;
   margin-right: 10%;
   margin-left: 10%;
-  margin-top: 60px; 
+  margin-top: 60px;
   margin-bottom: 60px;
 }
 
@@ -282,13 +282,18 @@ table.example {
 /* Data Table CSS Settings */
 
 table.dataTable th.dt-right, table.dataTable td.dt-right {
-  
+
   font-size: 16pt;
 }
 
 table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
-  
+
   font-size: 16pt;
 }
 
 div.sourceCode { overflow-x: auto; }
+
+.leaflet-popup-content {
+
+  font-size: 15pt;
+}
