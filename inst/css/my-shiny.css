@@ -19,15 +19,15 @@ h4 {
 }
 
 h3 {
-  padding: 0 0.5em 5px 30px;
-  margin: .75em 0 0.75em 0;
+  padding: 0 0.5em 10px 0.5em;
+  margin:  0;
   width: 100%;
   display: block;
   font-size: 32pt;
   line-height: 1.3em;
   border-color: #149C82;
   border-style: solid;
-  border-left-width: 25px;
+  border-left-width: 0;
   border-right-width: 0;
   border-top-width: 0;
   border-bottom-width: thin;
@@ -131,15 +131,18 @@ p {
 }
 
 .MathJax_SVG_Display  {
-
-  font-size: 110%;
-  color: #1a252f;
+  
+  font-size: inherit;
 }
 
-.MathJax_Display  {
+.MathJax_Display {
+  
+  font-size: inherit;
+}
 
-  font-size: 150%;
-  color: #1a252f;
+.MathJax {
+  
+  font-size: inherit;
 }
 
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -296,4 +299,17 @@ div.sourceCode { overflow-x: auto; }
 .leaflet-popup-content {
 
   font-size: 15pt;
+}
+
+table.dataTable thead .sorting {
+  
+ background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #4387fd), color-stop(80%, #2a7cdf)) no-repeat !important;
+  background: -webkit-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
+  background: -moz-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
+  background: -o-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
+  background: linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
+  color: #FFF;
+  padding: 0.25em 0.25em;
+  font-weight: bold;
+  font-size: 18pt;
 }
