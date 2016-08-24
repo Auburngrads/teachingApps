@@ -1,7 +1,9 @@
-turbine_data6<- function() {
+turbine_data6 <- function() {
 
-    app <- source(system.file("apps", "turbine_data6.R", package = "teachingApps"))
+    file <- system.file("apps", "turbine_data6.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

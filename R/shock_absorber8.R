@@ -1,7 +1,9 @@
-shock_absorber8<- function() {
+shock_absorber8 <- function() {
 
-    app <- source(system.file("apps", "shock_absorber8.R", package = "teachingApps"))
+    file <- system.file("apps", "shock_absorber8.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

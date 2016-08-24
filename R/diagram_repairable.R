@@ -1,7 +1,9 @@
-diagram_repairable<- function() {
+diagram_repairable <- function() {
 
-    app <- source(system.file("apps", "diagram_repairable.R", package = "teachingApps"))
+    file <- system.file("apps", "diagram_repairable.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

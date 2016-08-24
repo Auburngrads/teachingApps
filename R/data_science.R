@@ -1,7 +1,9 @@
-data_science<- function() {
+data_science <- function() {
 
-    app <- source(system.file("apps", "data_science.R", package = "teachingApps"))
+    file <- system.file("apps", "data_science.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

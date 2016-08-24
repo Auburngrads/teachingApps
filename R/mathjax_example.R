@@ -1,7 +1,9 @@
-mathjax_example<- function() {
+mathjax_example <- function() {
 
-    app <- source(system.file("apps", "mathjax_example.R", package = "teachingApps"))
+    file <- system.file("apps", "mathjax_example.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

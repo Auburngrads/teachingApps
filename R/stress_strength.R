@@ -1,7 +1,9 @@
-stress_strength<- function() {
+stress_strength <- function() {
 
-    app <- source(system.file("apps", "stress_strength.R", package = "teachingApps"))
+    file <- system.file("apps", "stress_strength.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

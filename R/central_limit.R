@@ -1,7 +1,9 @@
-central_limit<- function() {
+central_limit <- function() {
 
-    app <- source(system.file("apps", "central_limit.R", package = "teachingApps"))
+    file <- system.file("apps", "central_limit.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

@@ -1,7 +1,9 @@
-censored_eventplots<- function() {
+censored_eventplots <- function() {
 
-    app <- source(system.file("apps", "censored_eventplots.R", package = "teachingApps"))
+    file <- system.file("apps", "censored_eventplots.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

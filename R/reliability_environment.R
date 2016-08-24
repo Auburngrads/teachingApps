@@ -1,7 +1,9 @@
-reliability_environment<- function() {
+reliability_environment <- function() {
 
-    app <- source(system.file("apps", "reliability_environment.R", package = "teachingApps"))
+    file <- system.file("apps", "reliability_environment.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

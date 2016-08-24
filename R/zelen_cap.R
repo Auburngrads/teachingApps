@@ -1,7 +1,9 @@
-zelen_cap<- function() {
+zelen_cap <- function() {
 
-    app <- source(system.file("apps", "zelen_cap.R", package = "teachingApps"))
+    file <- system.file("apps", "zelen_cap.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

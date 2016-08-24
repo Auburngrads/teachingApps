@@ -1,7 +1,9 @@
-plotting_adding<- function() {
+plotting_adding <- function() {
 
-    app <- source(system.file("apps", "plotting_adding.R", package = "teachingApps"))
+    file <- system.file("apps", "plotting_adding.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

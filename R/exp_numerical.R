@@ -1,7 +1,9 @@
-exp_numerical<- function() {
+exp_numerical <- function() {
 
-    app <- source(system.file("apps", "exp_numerical.R", package = "teachingApps"))
+    file <- system.file("apps", "exp_numerical.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

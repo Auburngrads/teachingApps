@@ -1,7 +1,9 @@
-simultaneous_skills<- function() {
+simultaneous_skills <- function() {
 
-    app <- source(system.file("apps", "simultaneous_skills.R", package = "teachingApps"))
+    file <- system.file("apps", "simultaneous_skills.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

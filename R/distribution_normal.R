@@ -1,7 +1,9 @@
-distribution_normal<- function() {
+distribution_normal <- function() {
 
-    app <- source(system.file("apps", "distribution_normal.R", package = "teachingApps"))
+    file <- system.file("apps", "distribution_normal.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

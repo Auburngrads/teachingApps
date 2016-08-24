@@ -1,7 +1,9 @@
-program_costs<- function() {
+program_costs <- function() {
 
-    app <- source(system.file("apps", "program_costs.R", package = "teachingApps"))
+    file <- system.file("apps", "program_costs.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

@@ -1,7 +1,9 @@
-confidence_intervals<- function() {
+confidence_intervals <- function() {
 
-    app <- source(system.file("apps", "confidence_intervals.R", package = "teachingApps"))
+    file <- system.file("apps", "confidence_intervals.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

@@ -1,7 +1,9 @@
-distribution_exponential_full<- function() {
+distribution_exponential_full <- function() {
 
-    app <- source(system.file("apps", "distribution_exponential_full.R", package = "teachingApps"))
+    file <- system.file("apps", "distribution_exponential_full.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

@@ -1,7 +1,9 @@
-diagrammer_network<- function() {
+diagrammer_network <- function() {
 
-    app <- source(system.file("apps", "diagrammer_network.R", package = "teachingApps"))
+    file <- system.file("apps", "diagrammer_network.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

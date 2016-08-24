@@ -1,7 +1,9 @@
-basic_dashboard<- function() {
+basic_dashboard <- function() {
 
-    app <- source(system.file("apps", "basic_dashboard.R", package = "teachingApps"))
+    file <- system.file("apps", "basic_dashboard.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

@@ -1,7 +1,9 @@
-distribution_loglogistic<- function() {
+distribution_loglogistic <- function() {
 
-    app <- source(system.file("apps", "distribution_loglogistic.R", package = "teachingApps"))
+    file <- system.file("apps", "distribution_loglogistic.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

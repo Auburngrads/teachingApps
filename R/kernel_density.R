@@ -1,7 +1,9 @@
-kernel_density<- function() {
+kernel_density <- function() {
 
-    app <- source(system.file("apps", "kernel_density.R", package = "teachingApps"))
+    file <- system.file("apps", "kernel_density.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

@@ -1,4 +1,5 @@
-offbase_libraries <- function() {
+offbase_libraries <- 
+function(...) {
 
 try(attachNamespace('shiny'), silent = TRUE)
 try(attachNamespace('leaflet'), silent = TRUE)
@@ -48,8 +49,8 @@ output$libmap <- renderLeaflet({
       addTiles() %>%
       addMarkers(~latitude,~longitude, popup = ~location)
 })
-output$aboutlib <- renderUI({HTML('good stuff goes here')})
+output$aboutlib <- renderUI({HTML('good stuff goes here')
 
 })
+})
 }
-

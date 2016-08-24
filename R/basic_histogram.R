@@ -1,7 +1,9 @@
-basic_histogram<- function() {
+basic_histogram <- function() {
 
-    app <- source(system.file("apps", "basic_histogram.R", package = "teachingApps"))
+    file <- system.file("apps", "basic_histogram.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

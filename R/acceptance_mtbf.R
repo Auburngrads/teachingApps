@@ -1,7 +1,9 @@
-acceptance_mtbf<- function() {
+acceptance_mtbf <- function() {
 
-    app <- source(system.file("apps", "acceptance_mtbf.R", package = "teachingApps"))
+    file <- system.file("apps", "acceptance_mtbf.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

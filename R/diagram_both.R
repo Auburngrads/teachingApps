@@ -1,7 +1,9 @@
-diagram_both<- function() {
+diagram_both <- function() {
 
-    app <- source(system.file("apps", "diagram_both.R", package = "teachingApps"))
+    file <- system.file("apps", "diagram_both.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

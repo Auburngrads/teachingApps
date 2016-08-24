@@ -1,7 +1,9 @@
-shockabsorber_surfaces<- function() {
+shockabsorber_surfaces <- function() {
 
-    app <- source(system.file("apps", "shockabsorber_surfaces.R", package = "teachingApps"))
+    file <- system.file("apps", "shockabsorber_surfaces.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

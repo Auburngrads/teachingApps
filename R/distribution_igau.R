@@ -1,7 +1,9 @@
-distribution_igau<- function() {
+distribution_igau <- function() {
 
-    app <- source(system.file("apps", "distribution_igau.R", package = "teachingApps"))
+    file <- system.file("apps", "distribution_igau.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

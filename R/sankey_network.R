@@ -1,7 +1,9 @@
-sankey_network<- function() {
+sankey_network <- function() {
 
-    app <- source(system.file("apps", "sankey_network.R", package = "teachingApps"))
+    file <- system.file("apps", "sankey_network.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

@@ -1,7 +1,9 @@
-replace_plots<- function() {
+replace_plots <- function() {
 
-    app <- source(system.file("apps", "replace_plots.R", package = "teachingApps"))
+    file <- system.file("apps", "replace_plots.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

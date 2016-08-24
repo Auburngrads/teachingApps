@@ -1,7 +1,9 @@
-complex_ideas<- function() {
+complex_ideas <- function() {
 
-    app <- source(system.file("apps", "complex_ideas.R", package = "teachingApps"))
+    file <- system.file("apps", "complex_ideas.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

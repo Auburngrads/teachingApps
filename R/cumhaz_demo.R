@@ -1,7 +1,9 @@
-cumhaz_demo<- function() {
+cumhaz_demo <- function() {
 
-    app <- source(system.file("apps", "cumhaz_demo.R", package = "teachingApps"))
+    file <- system.file("apps", "cumhaz_demo.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

@@ -1,7 +1,9 @@
-censoring_types<- function() {
+censoring_types <- function() {
 
-    app <- source(system.file("apps", "censoring_types.R", package = "teachingApps"))
+    file <- system.file("apps", "censoring_types.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

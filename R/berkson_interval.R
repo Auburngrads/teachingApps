@@ -1,7 +1,9 @@
-berkson_interval<- function() {
+berkson_interval <- function() {
 
-    app <- source(system.file("apps", "berkson_interval.R", package = "teachingApps"))
+    file <- system.file("apps", "berkson_interval.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

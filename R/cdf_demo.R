@@ -1,7 +1,9 @@
-cdf_demo<- function() {
+cdf_demo <- function() {
 
-    app <- source(system.file("apps", "cdf_demo.R", package = "teachingApps"))
+    file <- system.file("apps", "cdf_demo.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

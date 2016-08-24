@@ -1,7 +1,9 @@
-ace_very_normal<- function() {
+ace_very_normal <- function() {
 
-    app <- source(system.file("apps", "ace_very_normal.R", package = "teachingApps"))
+    file <- system.file("apps", "ace_very_normal.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

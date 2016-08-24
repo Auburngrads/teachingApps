@@ -1,7 +1,9 @@
-data_patterns<- function() {
+data_patterns <- function() {
 
-    app <- source(system.file("apps", "data_patterns.R", package = "teachingApps"))
+    file <- system.file("apps", "data_patterns.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

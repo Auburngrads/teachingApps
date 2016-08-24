@@ -1,7 +1,9 @@
-table3_5<- function() {
+table3_5 <- function() {
 
-    app <- source(system.file("apps", "table3_5.R", package = "teachingApps"))
+    file <- system.file("apps", "table3_5.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

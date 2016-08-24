@@ -1,7 +1,9 @@
-acceptance_proportion<- function() {
+acceptance_proportion <- function() {
 
-    app <- source(system.file("apps", "acceptance_proportion.R", package = "teachingApps"))
+    file <- system.file("apps", "acceptance_proportion.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

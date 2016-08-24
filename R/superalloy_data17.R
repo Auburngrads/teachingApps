@@ -1,7 +1,9 @@
-superalloy_data17<- function() {
+superalloy_data17 <- function() {
 
-    app <- source(system.file("apps", "superalloy_data17.R", package = "teachingApps"))
+    file <- system.file("apps", "superalloy_data17.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

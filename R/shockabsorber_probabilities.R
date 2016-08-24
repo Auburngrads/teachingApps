@@ -1,7 +1,9 @@
-shockabsorber_probabilities<- function() {
+shockabsorber_probabilities <- function() {
 
-    app <- source(system.file("apps", "shockabsorber_probabilities.R", package = "teachingApps"))
+    file <- system.file("apps", "shockabsorber_probabilities.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

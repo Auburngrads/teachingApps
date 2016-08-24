@@ -1,7 +1,9 @@
-dice_roll<- function() {
+dice_roll <- function() {
 
-    app <- source(system.file("apps", "dice_roll.R", package = "teachingApps"))
+    file <- system.file("apps", "dice_roll.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

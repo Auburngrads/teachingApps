@@ -1,7 +1,9 @@
-at7987_data<- function() {
+at7987_data <- function() {
 
-    app <- source(system.file("apps", "at7987_data.R", package = "teachingApps"))
+    file <- system.file("apps", "at7987_data.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

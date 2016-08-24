@@ -1,7 +1,9 @@
-distribution_weibull<- function() {
+distribution_weibull <- function() {
 
-    app <- source(system.file("apps", "distribution_weibull.R", package = "teachingApps"))
+    file <- system.file("apps", "distribution_weibull.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

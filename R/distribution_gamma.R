@@ -1,7 +1,9 @@
-distribution_gamma<- function() {
+distribution_gamma <- function() {
 
-    app <- source(system.file("apps", "distribution_gamma.R", package = "teachingApps"))
+    file <- system.file("apps", "distribution_gamma.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

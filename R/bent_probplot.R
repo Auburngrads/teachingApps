@@ -1,7 +1,9 @@
-bent_probplot<- function() {
+bent_probplot <- function() {
 
-    app <- source(system.file("apps", "bent_probplot.R", package = "teachingApps"))
+    file <- system.file("apps", "bent_probplot.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

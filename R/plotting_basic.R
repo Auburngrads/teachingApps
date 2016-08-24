@@ -1,7 +1,9 @@
-plotting_basic<- function() {
+plotting_basic <- function() {
 
-    app <- source(system.file("apps", "plotting_basic.R", package = "teachingApps"))
+    file <- system.file("apps", "plotting_basic.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

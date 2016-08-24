@@ -1,7 +1,9 @@
-lfp1370_data<- function() {
+lfp1370_data <- function() {
 
-    app <- source(system.file("apps", "lfp1370_data.R", package = "teachingApps"))
+    file <- system.file("apps", "lfp1370_data.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

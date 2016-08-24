@@ -1,7 +1,9 @@
-plotting_par<- function() {
+plotting_par <- function() {
 
-    app <- source(system.file("apps", "plotting_par.R", package = "teachingApps"))
+    file <- system.file("apps", "plotting_par.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

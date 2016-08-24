@@ -1,7 +1,9 @@
-crossing_distributions2<- function() {
+crossing_distributions2 <- function() {
 
-    app <- source(system.file("apps", "crossing_distributions2.R", package = "teachingApps"))
+    file <- system.file("apps", "crossing_distributions2.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

@@ -1,7 +1,9 @@
-rstudio_toolchain<- function() {
+rstudio_toolchain <- function() {
 
-    app <- source(system.file("apps", "rstudio_toolchain.R", package = "teachingApps"))
+    file <- system.file("apps", "rstudio_toolchain.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

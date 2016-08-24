@@ -1,7 +1,9 @@
-likelihood_contributions<- function() {
+likelihood_contributions <- function() {
 
-    app <- source(system.file("apps", "likelihood_contributions.R", package = "teachingApps"))
+    file <- system.file("apps", "likelihood_contributions.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

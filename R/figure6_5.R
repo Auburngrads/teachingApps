@@ -1,7 +1,9 @@
-figure6_5<- function() {
+figure6_5 <- function() {
 
-    app <- source(system.file("apps", "figure6_5.R", package = "teachingApps"))
+    file <- system.file("apps", "figure6_5.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

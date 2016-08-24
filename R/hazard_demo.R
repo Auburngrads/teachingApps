@@ -1,7 +1,9 @@
-hazard_demo<- function() {
+hazard_demo <- function() {
 
-    app <- source(system.file("apps", "hazard_demo.R", package = "teachingApps"))
+    file <- system.file("apps", "hazard_demo.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

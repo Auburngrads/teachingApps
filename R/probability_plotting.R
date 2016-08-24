@@ -1,7 +1,9 @@
-probability_plotting<- function() {
+probability_plotting <- function() {
 
-    app <- source(system.file("apps", "probability_plotting.R", package = "teachingApps"))
+    file <- system.file("apps", "probability_plotting.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

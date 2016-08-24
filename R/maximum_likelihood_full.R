@@ -1,7 +1,9 @@
-maximum_likelihood_full<- function() {
+maximum_likelihood_full <- function() {
 
-    app <- source(system.file("apps", "maximum_likelihood_full.R", package = "teachingApps"))
+    file <- system.file("apps", "maximum_likelihood_full.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

@@ -1,7 +1,9 @@
-random_generator<- function() {
+random_generator <- function() {
 
-    app <- source(system.file("apps", "random_generator.R", package = "teachingApps"))
+    file <- system.file("apps", "random_generator.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

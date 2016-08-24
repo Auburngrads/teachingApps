@@ -1,7 +1,9 @@
-exp_mle<- function() {
+exp_mle <- function() {
 
-    app <- source(system.file("apps", "exp_mle.R", package = "teachingApps"))
+    file <- system.file("apps", "exp_mle.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

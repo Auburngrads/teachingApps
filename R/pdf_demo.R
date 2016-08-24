@@ -1,7 +1,9 @@
-pdf_demo<- function() {
+pdf_demo <- function() {
 
-    app <- source(system.file("apps", "pdf_demo.R", package = "teachingApps"))
+    file <- system.file("apps", "pdf_demo.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

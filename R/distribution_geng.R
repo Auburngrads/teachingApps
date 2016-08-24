@@ -1,7 +1,9 @@
-distribution_geng<- function() {
+distribution_geng <- function() {
 
-    app <- source(system.file("apps", "distribution_geng.R", package = "teachingApps"))
+    file <- system.file("apps", "distribution_geng.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }

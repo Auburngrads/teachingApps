@@ -1,7 +1,9 @@
-distribution_beta<- function() {
+distribution_beta <- function() {
 
-    app <- source(system.file("apps", "distribution_beta.R", package = "teachingApps"))
+    file <- system.file("apps", "distribution_beta.R", package = "teachingApps")
+
+    lines <- parse(text = readLines(file))
   
-  eval(as.call(app))
+    eval(as.call(lines))
   
 }
