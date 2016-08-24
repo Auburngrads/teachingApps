@@ -1,48 +1,7 @@
-sankey_network <- function(...) {
+sankey_network<- function() {
 
-  try(attachNamespace('shiny'), silent = TRUE)
-  try(attachNamespace('networkD3'), silent = TRUE)
+    app <- source(system.file("apps", "sankey_network.R", package = "teachingApps"))
   
-shinyApp(options = list(height = '600px'),
-
-ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
-               try(includeCSS(system.file('css',
-                                          'my-shiny.css', 
-                                          package = 'teachingApps')), silent = T),
-               
-     mainPanel(networkD3::sankeyNetworkOutput('sankey1')),
-
-fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
-
-server = function(input, output, session) {
+  eval(as.call(app))
   
-  output$sign <- renderUI({HTML(teachingApp('sankey_network'))})
-         
- output$sankey1 <- networkD3::renderSankeyNetwork({
-   
-
-name <- c('Scraping Data', 'Cleaning Data', 'Analyzing Data', 'Summarizing Results', 'Visualizing Results')
-nodes <- data.frame(name, stringsAsFactors = F)
-
-source <- c('Scraping Data', 'Cleaning Data', 'Analyzing Data', 'Summarizing Results')
-target <- c('Cleaning Data', 'Analyzing Data', 'Summarizing Results', 'Visualizing Results')
-value  <- c(1,4,2,5)
-
-links <- data.frame(source, target, value)
-
-links2 <- merge(links,nodes,by.x = "source",by.y = "name")
-#links2$source <-NULL
-#names(links2) <- c("source","target","value")
-links2 <- merge(links2,nodes,by.x = "target",by.y = "name")
-#links2$target <- NULL
-#names(links2) <- c("source","target","value")
-
-d3Network::d3Sankey(Links = links, 
-                         Nodes = nodes, 
-                         Source = 'source', 
-                         Target = 'target',
-                         Value =  'value', NodeID = 'name',
-                         nodeWidth = 3, width = 700)
-})        
-})
 }
