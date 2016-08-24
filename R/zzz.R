@@ -39,3 +39,28 @@ teachingApp <- function(name) {
                 paste(c(gitURL, gitFile), collapse = '/'),"'>CODE</a> for this app</div>"), collapse = ''))
     
 }
+
+createFun <- function() {
+  
+  file = "C:\\Users\\Jason\\OneDrive\\Work-Stuff\\Computer Systems\\GitHub\\teachingApps\\inst\\apps\\acceptance_mtbf.R"
+  
+  dir = dirname(file)
+  
+  names <- gsub('.R', '', list.files(dir))
+  
+  for(i in 1:length(names)) {
+    
+    text <- paste(c(names[i],'<- function() {
+
+    app <- source(system.file("apps", "', names[i],'.R", package = "teachingApps"))
+  
+  eval(as.call(app))
+  
+}'), collapse = '')
+  
+    file2 <- "C:\\Users\\Jason\\OneDrive\\Work-Stuff\\Computer Systems\\GitHub\\teachingApps\\R\\zzz.R"
+    dir2  <- dirname(file2)
+    
+    writeLines(text = text, con = paste(c(dir2,'/',names[i],'.R'), collapse = ''))
+}
+}
