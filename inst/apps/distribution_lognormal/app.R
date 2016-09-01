@@ -51,7 +51,7 @@ tabPanel(h4('Distribution Properties'),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('distribution_lognormal'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('distribution_lognormal'))})
   
 t = reactive({ signif(seq(min(input$range.ln), max(input$range.ln), length = 500), digits = 4)})
 p <- signif(seq(0, 1, length = 500), digits = 4) 

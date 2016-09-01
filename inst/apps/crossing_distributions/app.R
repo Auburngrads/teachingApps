@@ -70,7 +70,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('crossing_distributions'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('crossing_distributions'))})
            
 output$nor.nor <- renderPlot({
   

@@ -57,7 +57,7 @@ miniTabstripPanel(
 
 server = function(input, output, session) {
 
-#  output$sign <- renderUI({HTML(teachingApp('acceptance_mtbf'))})
+#  output$sign <- renderUI({HTML(teachingApps::teachingApp('acceptance_mtbf'))})
   
   output$mtbf <- renderPlotly({
 

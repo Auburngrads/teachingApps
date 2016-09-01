@@ -20,7 +20,7 @@ shinyApp(options = list(width = "100%", height = "350px"),
 
 server <- function(input, output, session) {
  
-  output$sign <- renderUI({HTML(teachingApp('stress_strength'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('stress_strength'))})
   
   output$first <- renderPlot({
     

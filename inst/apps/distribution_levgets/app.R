@@ -51,7 +51,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('distribution_levgets'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('distribution_levgets'))})
   
 t <-  reactive({ signif(seq(input$range.lget[1], input$range.lget[2],length = 500), digits = 4) })
 p <-  reactive({ signif(seq(0, 1, length = 500), digits = 4)  })

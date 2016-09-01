@@ -45,7 +45,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('berkson200_profile'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('berkson200_profile'))})
   
   output$berk200prof <- renderPlot({
       input$berk200profiles

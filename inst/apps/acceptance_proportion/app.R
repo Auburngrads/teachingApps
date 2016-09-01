@@ -43,7 +43,7 @@ server = function(input, output, session) {
   
   library('plotly')
   
-  output$sign <- renderUI({HTML(teachingApp('acceptance_proportion'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('acceptance_proportion'))})
   
   output$prop <- renderPlotly({
 

@@ -39,7 +39,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('maximum_likelihood'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('maximum_likelihood'))})
   
 mle <- reactiveValues(dats = NULL, 
                       params = NULL, 

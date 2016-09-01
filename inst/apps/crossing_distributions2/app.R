@@ -44,7 +44,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('crossing_distributions2'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('crossing_distributions2'))})
   
 output$cross <- renderPlot({
 param1 <- c(input$normal1.1,input$normal1.2)

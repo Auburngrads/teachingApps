@@ -44,7 +44,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('program_costs'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('program_costs'))})
 
   output$buyer  <- renderPlot({
     

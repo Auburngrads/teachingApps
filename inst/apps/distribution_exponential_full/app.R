@@ -53,7 +53,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('distribution_exponential'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('distribution_exponential'))})
   
 t = reactive({ signif(seq(min(input$rangee), max(input$rangee), length = 500), digits = 4)})
 p <- signif(seq(0, 1, length = 500), digits = 4) 

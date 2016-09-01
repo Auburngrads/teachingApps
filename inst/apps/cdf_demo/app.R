@@ -35,7 +35,7 @@ las = 1)"),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('cdf_demo'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('cdf_demo'))})
   
 output$plotcdf <- renderPlot({
       input$evalcdf

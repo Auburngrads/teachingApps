@@ -57,7 +57,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('figure1_1'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('figure1_1'))})
 
   output$lzbearing <- DT::renderDataTable({ DT::datatable(SMRD::lzbearing,
                                                        options = list(pageLength = 12)) })

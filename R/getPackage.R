@@ -14,15 +14,15 @@ getPackage <- function(pkg = NULL, repo = NULL) {
   if(is.null(repo)) {
 
 eval(substitute(ifelse(!a%in%installed.packages(),
-                       {install.packages(a, repos = 'http://cran.rstudio.com') ; requireNamespace(a)},
-                       requireNamespace(a)),
+                       {install.packages(a, repos = 'http://cran.rstudio.com') ; try(attachNamespace(a), silent = T)},
+                       try(attachNamespace(a), silent = T)),
                 list(a = pkg)))
 
   } else {
 
 eval(substitute(ifelse(!a%in%installed.packages(),
-                       {devtools::install_github(paste(c(b,a), collapse = '/')) ; requireNamespace(a) },
-                       requireNamespace(a)),
+                       {devtools::install_github(paste(c(b,a), collapse = '/')) ; try(attachNamespace(a), silent = T) },
+                       try(attachNamespace(a), silent = T)),
                 list(a = pkg, b = repo)))
 
 }

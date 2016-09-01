@@ -29,7 +29,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('regression_plots'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('regression_plots'))})
   
   output$plotreg <- renderPlot({
     

@@ -23,7 +23,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApp('mathjax_examples'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp('mathjax_examples'))})
   
   output$ex1 <- renderUI({
     withMathJax(helpText('Dynamic output 1:  $$\\alpha^2$$'))
