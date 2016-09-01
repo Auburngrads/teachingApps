@@ -1,9 +1,16 @@
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @import shiny
+#' @export
+
 cdf_demo <- function() {
 
-    file <- system.file("apps", "cdf_demo.R", package = "teachingApps")
+    file <- system.file("apps","cdf_demo", "app.R", package = "teachingApps")
 
-    lines <- parse(text = readLines(file))
-  
-    eval(as.call(lines))
+    shiny::runApp(file)
   
 }

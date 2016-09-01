@@ -1,9 +1,16 @@
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @import shiny
+#' @export
+
 soln_numerical <- function() {
 
-    file <- system.file("apps", "soln_numerical.R", package = "teachingApps")
+    file <- system.file("apps","soln_numerical", "app.R", package = "teachingApps")
 
-    lines <- parse(text = readLines(file))
-  
-    eval(as.call(lines))
+    shiny::runApp(file)
   
 }

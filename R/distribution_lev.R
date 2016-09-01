@@ -1,9 +1,16 @@
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @import shiny
+#' @export
+
 distribution_lev <- function() {
 
-    file <- system.file("apps", "distribution_lev.R", package = "teachingApps")
+    file <- system.file("apps","distribution_lev", "app.R", package = "teachingApps")
 
-    lines <- parse(text = readLines(file))
-  
-    eval(as.call(lines))
+    shiny::runApp(file)
   
 }

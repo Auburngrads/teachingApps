@@ -1,9 +1,16 @@
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @import shiny
+#' @export
+
 distribution_poisson <- function() {
 
-    file <- system.file("apps", "distribution_poisson.R", package = "teachingApps")
+    file <- system.file("apps","distribution_poisson", "app.R", package = "teachingApps")
 
-    lines <- parse(text = readLines(file))
-  
-    eval(as.call(lines))
+    shiny::runApp(file)
   
 }

@@ -1,9 +1,16 @@
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @import shiny
+#' @export
+
 figure1_1 <- function() {
 
-    file <- system.file("apps", "figure1_1.R", package = "teachingApps")
+    file <- system.file("apps","figure1_1", "app.R", package = "teachingApps")
 
-    lines <- parse(text = readLines(file))
-  
-    eval(as.call(lines))
+    shiny::runApp(file)
   
 }

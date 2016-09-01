@@ -1,9 +1,16 @@
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @import shiny
+#' @export
+
 shockabsorber_probabilities <- function() {
 
-    file <- system.file("apps", "shockabsorber_probabilities.R", package = "teachingApps")
+    file <- system.file("apps","shockabsorber_probabilities", "app.R", package = "teachingApps")
 
-    lines <- parse(text = readLines(file))
-  
-    eval(as.call(lines))
+    shiny::runApp(file)
   
 }

@@ -1,4 +1,4 @@
-.onLoad <- function(libname, pkgname) {
+#.onLoad <- function(libname, pkgname) {
   
   # library(SMRD)
   # library(ggplot2)
@@ -6,8 +6,16 @@
   # datas <- list(diamonds = diamonds)
   # 
   # devtools::use_data(datas, internal = T, overwrite = T)
-  
-jkf.par <<- function(...) {
+#}
+
+#' Custom \code{par} function
+#' 
+#' @param ... Parameter passed to \code{par} in addition to those defined
+#' 
+#' @importFrom graphics par
+#' 
+#' @export
+jkf.par <- function(...) {
     
     par(cex.lab=1.05,
         cex.axis=1.05,
@@ -20,7 +28,7 @@ jkf.par <<- function(...) {
         tck=0.015,
         family='serif',...)
 }
-}
+
 
 #' Leave signature for teachingApps 
 #'
@@ -33,7 +41,7 @@ teachingApp <- function(name) {
   if(!is.character(name)) stop('name must be a character string')
   
   gitFile <- paste(c(name,'.R'), collapse = '')
-  gitURL  <- 'https://github.com/Auburngrads/teachingApps/blob/master/R'
+  gitURL  <- 'https://github.com/Auburngrads/teachingApps/blob/master/inst/apps'
   
     return(paste(c("<div style='font-size: 22pt; font-weight: bold;'>Get the <a href='",
                 paste(c(gitURL, gitFile), collapse = '/'),"'>CODE</a> for this app</div>"), collapse = ''))
@@ -42,25 +50,35 @@ teachingApp <- function(name) {
 
 createFun <- function() {
   
-  file = "C:\\Users\\Jason\\OneDrive\\Work-Stuff\\Computer Systems\\GitHub\\teachingApps\\inst\\apps\\acceptance_mtbf.R"
+  dir = "C:\\Users\\Jason\\OneDrive\\Work-Stuff\\Computer Systems\\GitHub\\teachingApps\\inst\\apps"
   
-  dir = dirname(file)
+  #dir = dirname(file)
   
-  names <- gsub('.R', '', list.files(dir))
+  apps <- list.files(dir)
   
-  for(i in 1:length(names)) {
+  #names <- gsub('.R', '', list.files(dir))
+  
+  for(i in 1:length(apps)) {
     
-    text <- paste(c(names[i],'<- function() {
+    text <- paste(c("#' Function Title\n",
+                    "#'\n",
+                    "#' @description Description\n",
+                    "#'\n",
+                    "#' @import shinythemes\n",
+                    "#' @import shinyAce\n",
+                    "#' @import shiny\n",
+                    "#' @export\n\n",apps[i],
+                    ' <- function() {
 
-    app <- source(system.file("apps", "', names[i],'.R", package = "teachingApps"))
-  
-  eval(as.call(app))
+    file <- system.file("apps", "', apps[i],'app.R", package = "teachingApps")
+
+    shiny::runApp(file)
   
 }'), collapse = '')
   
     file2 <- "C:\\Users\\Jason\\OneDrive\\Work-Stuff\\Computer Systems\\GitHub\\teachingApps\\R\\zzz.R"
     dir2  <- dirname(file2)
     
-    writeLines(text = text, con = paste(c(dir2,'/',names[i],'.R'), collapse = ''))
+    writeLines(text = text, con = paste(c(dir2,'/',apps[i],'.R'), collapse = ''))
 }
 }

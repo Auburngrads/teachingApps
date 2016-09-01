@@ -9,16 +9,7 @@ Description: This package does stuff.  The stuff it does is really cool.  You sh
 License: GPL-2
 LazyData: true
 Depends:  R (>= 3.1.0)
-Imports: 
-    codemirrorR,shinyAce,shinythemes,DT,actuar,
-    dplyr,htmlwidgets,shiny,threejs,scales,jkf,
-    plotly,d3heatmap,dygraphs,leaflet,stats,
-    parcoords,taucharts,metricsgraphics,visNetwork,diagram,
-    datasets,graphics,grDevices,utils,d3Network,networkD3,
-    shinydashboard,DiagrammeR
-Remotes: 
-    github::timelyportfolio/codemirrorR,
-    github::Auburngrads/publicLibs
+Imports:  shiny,shinyAce,shinythemes,DT,devtools,graphics
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:

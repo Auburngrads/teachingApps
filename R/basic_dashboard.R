@@ -1,9 +1,16 @@
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @import shiny
+#' @export
+
 basic_dashboard <- function() {
 
-    file <- system.file("apps", "basic_dashboard.R", package = "teachingApps")
+    file <- system.file("apps","basic_dashboard", "app.R", package = "teachingApps")
 
-    lines <- parse(text = readLines(file))
-  
-    eval(as.call(lines))
+    shiny::runApp(file)
   
 }

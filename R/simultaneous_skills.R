@@ -1,9 +1,16 @@
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @import shiny
+#' @export
+
 simultaneous_skills <- function() {
 
-    file <- system.file("apps", "simultaneous_skills.R", package = "teachingApps")
+    file <- system.file("apps","simultaneous_skills", "app.R", package = "teachingApps")
 
-    lines <- parse(text = readLines(file))
-  
-    eval(as.call(lines))
+    shiny::runApp(file)
   
 }

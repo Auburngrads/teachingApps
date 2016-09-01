@@ -1,9 +1,16 @@
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @import shiny
+#' @export
+
 distribution_bisa <- function() {
 
-    file <- system.file("apps", "distribution_bisa.R", package = "teachingApps")
+    file <- system.file("apps","distribution_bisa", "app.R", package = "teachingApps")
 
-    lines <- parse(text = readLines(file))
-  
-    eval(as.call(lines))
+    shiny::runApp(file)
   
 }

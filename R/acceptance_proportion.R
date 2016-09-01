@@ -1,9 +1,16 @@
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @import shiny
+#' @export
+
 acceptance_proportion <- function() {
 
-    file <- system.file("apps", "acceptance_proportion.R", package = "teachingApps")
+    file <- system.file("apps","acceptance_proportion", "app.R", package = "teachingApps")
 
-    lines <- parse(text = readLines(file))
-  
-    eval(as.call(lines))
+    shiny::runApp(file)
   
 }

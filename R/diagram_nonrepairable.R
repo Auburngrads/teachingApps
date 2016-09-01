@@ -1,9 +1,16 @@
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @import shiny
+#' @export
+
 diagram_nonrepairable <- function() {
 
-    file <- system.file("apps", "diagram_nonrepairable.R", package = "teachingApps")
+    file <- system.file("apps","diagram_nonrepairable", "app.R", package = "teachingApps")
 
-    lines <- parse(text = readLines(file))
-  
-    eval(as.call(lines))
+    shiny::runApp(file)
   
 }
