@@ -57,7 +57,7 @@ server = function(input, output, session) {
 
   try(attachNamespace('plotly'), silent = TRUE)
     
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('acceptance_mtbf'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
   output$mtbf <- renderPlotly({
 
