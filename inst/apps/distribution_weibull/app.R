@@ -1,4 +1,4 @@
-teachingApps::getpackage('metricsgraphics')
+teachingApps::getPackage('metricsgraphics')
   
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
