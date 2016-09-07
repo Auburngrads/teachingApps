@@ -1,4 +1,4 @@
-teachingApps::getpackage('metricsgraphics')
+teachingApps::getPackage('metricsgraphics')
   
 shinyApp(options = list(height = "850px"),
          

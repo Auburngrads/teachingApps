@@ -31,10 +31,14 @@ axis(side = 1, at = v, labels = F)"),
 
           actionButton("eval", h3("Evaluate"))),
         
-          mainPanel(plotOutput("output", height = '600px')))),
-  
+          mainPanel(plotOutput("output", height = '600px'), width = 7)),
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
 server = function(input, output, session) {
-  
+
+    output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+    
     output$output <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(3.5,4,2,2))
       input$eval
