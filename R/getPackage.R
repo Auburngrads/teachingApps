@@ -13,23 +13,14 @@ getPackage <- function(pkg = NULL, repo = NULL) {
 
   if(is.null(repo)) {
 
-if(!pkg%in%installed.packages()) {
+if(!pkg%in%installed.packages()) install.packages(pkg, repos = 'http://cran.rstudio.com') 
   
-  install.packages(pkg, repos = 'http://cran.rstudio.com') 
   
-      do.call(library, list(package = pkg, character.only = TRUE))
-  
-  } else { do.call(library, list(package = pkg, character.only = TRUE)) }
+  } else {
 
-                      } else {
+if(!pkg%in%installed.packages()) devtools::install_github(paste(c(b,a), collapse = '/')) 
+  
+  }
+do.call(library, list(package = pkg, character.only = TRUE))
 
-if(!pkg%in%installed.packages()) {
-  
-  devtools::install_github(paste(c(b,a), collapse = '/')) 
-  
-      do.call(library, list(package = pkg, character.only = TRUE))
-  
-  } else { do.call(library, list(package = pkg, character.only = TRUE)) }
-
-}
-}
+  }
