@@ -9,17 +9,19 @@
 #'
 #' @details If \code{repo = NULL} the package will be installed from the CRAN.  Otherwise, \code{repo} is a character string that referring to the GitHub account in which the package is located  
 
-getPackage <- function(pkg = NULL, repo = NULL) {
+getPackage <- function(pkg = NULL, repo = NULL, pub = FALSE ) {
 
+  if(!pub) {
+  
   if(is.null(repo)) {
 
 if(!pkg%in%installed.packages()) install.packages(pkg, repos = 'http://cran.rstudio.com') 
-  
   
   } else {
 
 if(!pkg%in%installed.packages()) devtools::install_github(paste(c(b,a), collapse = '/')) 
   
+  }
   }
 do.call(library, list(package = pkg, character.only = TRUE))
 

@@ -1,5 +1,5 @@
-library('metricsgraphics')
-library('shinythemes')
+getPackage('metricsgraphics')
+getPackage('shinythemes')
   
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
