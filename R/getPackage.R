@@ -11,7 +11,7 @@
 
 getPackage <- function(pkg = NULL, repo = NULL, pub = FALSE ) {
 
-  if(!pub) {
+  if(pub) {
   
   if(is.null(repo)) {
 
