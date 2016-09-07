@@ -4,17 +4,21 @@
 \alias{getPackage}
 \title{Installs and/or loads an R package}
 \usage{
-getPackage(pkg = NULL, repo = NULL)
+getPackage(pkg = NULL, repo = NULL, pub = TRUE)
 }
 \arguments{
 \item{pkg}{Name of a package to be installed/loaded (as a character string)}
 
 \item{repo}{The repository from which the package should be installed.}
+
+\item{pub}{\code{logical} variable indicating whether the app be published (see details)}
 }
 \description{
 Installs and/or loads an R package
 }
 \details{
-If \code{repo = NULL} the package will be installed from the CRAN.  Otherwise, \code{repo} is a character string that referring to the GitHub account in which the package is located
+If \code{repo = NULL} the package will be installed from the CRAN.  Otherwise, \code{repo} is a character string that referring to the GitHub account in which the package is located.
+
+  When publishing apps on shinyapps.io or shinyServer, attempting to \code{install.packages} will result in an error.  Calls to \code{install.packages} should not be included within an app.
 }
 

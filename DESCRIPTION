@@ -9,7 +9,7 @@ Description: This package does stuff.  The stuff it does is really cool.  You sh
 License: GPL-2
 LazyData: true
 Depends:  R (>= 3.1.0)
-Imports:  shiny,shinyAce,shinythemes,DT,devtools,graphics
+Imports:  shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:
