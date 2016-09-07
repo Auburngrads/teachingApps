@@ -42,7 +42,7 @@ teachingApp <- function(name) {
   gitFile <- paste(c(name,'app.R'), collapse = '/')
   gitURL  <- 'https://github.com/Auburngrads/teachingApps/blob/master/inst/apps'
   
-    return(paste(c("<div style='font-size: 22pt; font-weight: bold;'>Get the <a href='",
+    return(paste(c("<div style='font-size: 22pt; font-weight: bold;'>Get the <a target=' ' href='",
                 paste(c(gitURL, gitFile), collapse = '/'),"'>CODE</a> for this app</div>"), collapse = ''))
     
 }
