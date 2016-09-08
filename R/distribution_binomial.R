@@ -14,7 +14,7 @@
 
 distribution_binomial <- function(pub = FALSE) {
 
-    file <- system.file("apps", distribution_binomial, "app.R", package = "teachingApps")
+    file <- system.file("apps", "distribution_binomial", "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

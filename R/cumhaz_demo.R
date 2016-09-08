@@ -14,7 +14,7 @@
 
 cumhaz_demo <- function(pub = FALSE) {
 
-    file <- system.file("apps", cumhaz_demo, "app.R", package = "teachingApps")
+    file <- system.file("apps", "cumhaz_demo", "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

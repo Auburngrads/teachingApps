@@ -14,7 +14,7 @@
 
 quantile_demo <- function(pub = FALSE) {
 
-    file <- system.file("apps", quantile_demo, "app.R", package = "teachingApps")
+    file <- system.file("apps", "quantile_demo", "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

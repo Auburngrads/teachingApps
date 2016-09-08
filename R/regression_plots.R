@@ -14,7 +14,7 @@
 
 regression_plots <- function(pub = FALSE) {
 
-    file <- system.file("apps", regression_plots, "app.R", package = "teachingApps")
+    file <- system.file("apps", "regression_plots", "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

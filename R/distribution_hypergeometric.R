@@ -14,7 +14,7 @@
 
 distribution_hypergeometric <- function(pub = FALSE) {
 
-    file <- system.file("apps", distribution_hypergeometric, "app.R", package = "teachingApps")
+    file <- system.file("apps", "distribution_hypergeometric", "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

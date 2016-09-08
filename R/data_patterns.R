@@ -14,7 +14,7 @@
 
 data_patterns <- function(pub = FALSE) {
 
-    file <- system.file("apps", data_patterns, "app.R", package = "teachingApps")
+    file <- system.file("apps", "data_patterns", "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

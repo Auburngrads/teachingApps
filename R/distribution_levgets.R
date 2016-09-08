@@ -14,7 +14,7 @@
 
 distribution_levgets <- function(pub = FALSE) {
 
-    file <- system.file("apps", distribution_levgets, "app.R", package = "teachingApps")
+    file <- system.file("apps", "distribution_levgets", "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

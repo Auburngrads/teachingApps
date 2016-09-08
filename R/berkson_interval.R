@@ -14,7 +14,7 @@
 
 berkson_interval <- function(pub = FALSE) {
 
-    file <- system.file("apps", berkson_interval, "app.R", package = "teachingApps")
+    file <- system.file("apps", "berkson_interval", "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

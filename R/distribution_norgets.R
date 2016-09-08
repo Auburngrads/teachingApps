@@ -14,7 +14,7 @@
 
 distribution_norgets <- function(pub = FALSE) {
 
-    file <- system.file("apps", distribution_norgets, "app.R", package = "teachingApps")
+    file <- system.file("apps", "distribution_norgets", "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

@@ -14,7 +14,7 @@
 
 confidence_intervals <- function(pub = FALSE) {
 
-    file <- system.file("apps", confidence_intervals, "app.R", package = "teachingApps")
+    file <- system.file("apps", "confidence_intervals", "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

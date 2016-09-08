@@ -14,7 +14,7 @@
 
 maximum_likelihood <- function(pub = FALSE) {
 
-    file <- system.file("apps", maximum_likelihood, "app.R", package = "teachingApps")
+    file <- system.file("apps", "maximum_likelihood", "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)
