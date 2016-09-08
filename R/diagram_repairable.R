@@ -14,7 +14,7 @@
 
 diagram_repairable <- function(pub = FALSE) {
 
-    file <- system.file("apps", "diagram_repairableapp.R", package = "teachingApps")
+    file <- system.file("apps", diagram_repairable, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

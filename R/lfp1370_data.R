@@ -14,7 +14,7 @@
 
 lfp1370_data <- function(pub = FALSE) {
 
-    file <- system.file("apps", "lfp1370_dataapp.R", package = "teachingApps")
+    file <- system.file("apps", lfp1370_data, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

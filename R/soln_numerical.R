@@ -14,7 +14,7 @@
 
 soln_numerical <- function(pub = FALSE) {
 
-    file <- system.file("apps", "soln_numericalapp.R", package = "teachingApps")
+    file <- system.file("apps", soln_numerical, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

@@ -14,7 +14,7 @@
 
 overview_network <- function(pub = FALSE) {
 
-    file <- system.file("apps", "overview_networkapp.R", package = "teachingApps")
+    file <- system.file("apps", overview_network, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

@@ -14,7 +14,7 @@
 
 htmlwidgets_shiny <- function(pub = FALSE) {
 
-    file <- system.file("apps", "htmlwidgets_shinyapp.R", package = "teachingApps")
+    file <- system.file("apps", htmlwidgets_shiny, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

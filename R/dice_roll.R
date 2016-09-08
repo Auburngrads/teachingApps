@@ -14,9 +14,10 @@
 
 dice_roll <- function(pub = FALSE) {
 
-    file <- system.file("apps", "dice_rollapp.R", package = "teachingApps")
+    file <- system.file("apps", dice_roll, "app.R", package = "teachingApps")
 
-    getPackage("DT", pub = pub)
+    getPackage("plotly", pub = pub)
+    getPackage("miniUI", pub = pub)
 
     shiny::runApp(file)
   

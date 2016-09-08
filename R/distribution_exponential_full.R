@@ -14,7 +14,7 @@
 
 distribution_exponential_full <- function(pub = FALSE) {
 
-    file <- system.file("apps", "distribution_exponential_fullapp.R", package = "teachingApps")
+    file <- system.file("apps", distribution_exponential_full, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

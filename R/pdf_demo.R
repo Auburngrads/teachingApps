@@ -14,7 +14,7 @@
 
 pdf_demo <- function(pub = FALSE) {
 
-    file <- system.file("apps", "pdf_demoapp.R", package = "teachingApps")
+    file <- system.file("apps", pdf_demo, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

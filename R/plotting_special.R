@@ -14,7 +14,7 @@
 
 plotting_special <- function(pub = FALSE) {
 
-    file <- system.file("apps", "plotting_specialapp.R", package = "teachingApps")
+    file <- system.file("apps", plotting_special, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

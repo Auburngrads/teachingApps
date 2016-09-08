@@ -14,7 +14,7 @@
 
 offbase_libraries <- function(pub = FALSE) {
 
-    file <- system.file("apps", "offbase_librariesapp.R", package = "teachingApps")
+    file <- system.file("apps", offbase_libraries, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

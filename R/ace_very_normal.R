@@ -14,7 +14,7 @@
 
 ace_very_normal <- function(pub = FALSE) {
 
-    file <- system.file("apps", "ace_very_normalapp.R", package = "teachingApps")
+    file <- system.file("apps", ace_very_normal, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

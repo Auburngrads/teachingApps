@@ -14,7 +14,7 @@
 
 diagram_both <- function(pub = FALSE) {
 
-    file <- system.file("apps", "diagram_bothapp.R", package = "teachingApps")
+    file <- system.file("apps", diagram_both, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

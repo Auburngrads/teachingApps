@@ -14,7 +14,7 @@
 
 bent_probplot <- function(pub = FALSE) {
 
-    file <- system.file("apps", "bent_probplotapp.R", package = "teachingApps")
+    file <- system.file("apps", bent_probplot, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

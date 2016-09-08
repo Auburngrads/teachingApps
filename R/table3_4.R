@@ -14,7 +14,7 @@
 
 table3_4 <- function(pub = FALSE) {
 
-    file <- system.file("apps", "table3_4app.R", package = "teachingApps")
+    file <- system.file("apps", table3_4, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

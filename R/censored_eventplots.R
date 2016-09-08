@@ -14,7 +14,7 @@
 
 censored_eventplots <- function(pub = FALSE) {
 
-    file <- system.file("apps", "censored_eventplotsapp.R", package = "teachingApps")
+    file <- system.file("apps", censored_eventplots, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

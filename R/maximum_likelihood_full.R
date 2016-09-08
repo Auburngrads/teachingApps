@@ -14,9 +14,10 @@
 
 maximum_likelihood_full <- function(pub = FALSE) {
 
-    file <- system.file("apps", "maximum_likelihood_fullapp.R", package = "teachingApps")
+    file <- system.file("apps", maximum_likelihood_full, "app.R", package = "teachingApps")
 
-    getPackage('scales')
+    getPackage("plotly", pub = pub)
+    getPackage("miniUI", pub = pub)
 
     shiny::runApp(file)
   

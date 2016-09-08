@@ -14,7 +14,7 @@
 
 stress_strength <- function(pub = FALSE) {
 
-    file <- system.file("apps", "stress_strengthapp.R", package = "teachingApps")
+    file <- system.file("apps", stress_strength, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

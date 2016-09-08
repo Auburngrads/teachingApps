@@ -14,7 +14,7 @@
 
 berkson200_profile <- function(pub = FALSE) {
 
-    file <- system.file("apps", "berkson200_profileapp.R", package = "teachingApps")
+    file <- system.file("apps", berkson200_profile, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

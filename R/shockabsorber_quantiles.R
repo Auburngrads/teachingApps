@@ -14,7 +14,7 @@
 
 shockabsorber_quantiles <- function(pub = FALSE) {
 
-    file <- system.file("apps", "shockabsorber_quantilesapp.R", package = "teachingApps")
+    file <- system.file("apps", shockabsorber_quantiles, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

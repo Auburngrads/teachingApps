@@ -14,7 +14,7 @@
 
 heatexchanger_data6 <- function(pub = FALSE) {
 
-    file <- system.file("apps", "heatexchanger_data6app.R", package = "teachingApps")
+    file <- system.file("apps", heatexchanger_data6, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

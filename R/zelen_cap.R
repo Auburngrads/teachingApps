@@ -14,7 +14,7 @@
 
 zelen_cap <- function(pub = FALSE) {
 
-    file <- system.file("apps", "zelen_capapp.R", package = "teachingApps")
+    file <- system.file("apps", zelen_cap, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

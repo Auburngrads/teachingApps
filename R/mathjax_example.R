@@ -14,7 +14,7 @@
 
 mathjax_example <- function(pub = FALSE) {
 
-    file <- system.file("apps", "mathjax_exampleapp.R", package = "teachingApps")
+    file <- system.file("apps", mathjax_example, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

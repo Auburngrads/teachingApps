@@ -14,7 +14,7 @@
 
 rstudio_toolchain <- function(pub = FALSE) {
 
-    file <- system.file("apps", "rstudio_toolchainapp.R", package = "teachingApps")
+    file <- system.file("apps", rstudio_toolchain, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)

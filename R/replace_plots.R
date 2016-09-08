@@ -14,7 +14,7 @@
 
 replace_plots <- function(pub = FALSE) {
 
-    file <- system.file("apps", "replace_plotsapp.R", package = "teachingApps")
+    file <- system.file("apps", replace_plots, "app.R", package = "teachingApps")
 
     getPackage("plotly", pub = pub)
     getPackage("miniUI", pub = pub)
