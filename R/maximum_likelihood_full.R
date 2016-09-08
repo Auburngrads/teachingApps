@@ -5,11 +5,18 @@
 #' @import shinythemes
 #' @import shinyAce
 #' @import shiny
+#'
+#' @param pub Will this app be published? (see details)
+#'
+#' @details When publishing apps using shinyapps.io or shinyServer, set \code{pub = TRUE} to prevent calls to \code{install.packages}. Calls to \code{install.packages} should not be included within an app and will result in an error.
+#'
 #' @export
 
-maximum_likelihood_full <- function() {
+maximum_likelihood_full <- function(pub = FALSE) {
 
-    file <- system.file("apps","maximum_likelihood_full", "app.R", package = "teachingApps")
+    file <- system.file("apps", "maximum_likelihood_fullapp.R", package = "teachingApps")
+
+    getPackage('scales')
 
     shiny::runApp(file)
   

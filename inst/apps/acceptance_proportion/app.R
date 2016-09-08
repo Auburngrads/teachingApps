@@ -1,4 +1,4 @@
-teachingApps::getPackage('plotly')
+teachingApps::getPackage('plotly', pub = TRUE)
 
 shinyApp(options = list(height = '800px', width = '100%'),
          

@@ -5,11 +5,18 @@
 #' @import shinythemes
 #' @import shinyAce
 #' @import shiny
+#'
+#' @param pub Will this app be published? (see details)
+#'
+#' @details When publishing apps using shinyapps.io or shinyServer, set \code{pub = TRUE} to prevent calls to \code{install.packages}. Calls to \code{install.packages} should not be included within an app and will result in an error.
+#'
 #' @export
 
-dice_roll <- function() {
+dice_roll <- function(pub = FALSE) {
 
-    file <- system.file("apps","dice_roll", "app.R", package = "teachingApps")
+    file <- system.file("apps", "dice_rollapp.R", package = "teachingApps")
+
+    getPackage("DT", pub = pub)
 
     shiny::runApp(file)
   

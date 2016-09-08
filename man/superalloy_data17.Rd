@@ -4,9 +4,15 @@
 \alias{superalloy_data17}
 \title{Function Title}
 \usage{
-superalloy_data17()
+superalloy_data17(pub = FALSE)
+}
+\arguments{
+\item{pub}{Will this app be published? (see details)}
 }
 \description{
 Description
+}
+\details{
+When publishing apps using shinyapps.io or shinyServer, set \code{pub = TRUE} to prevent calls to \code{install.packages}. Calls to \code{install.packages} should not be included within an app and will result in an error.
 }
 

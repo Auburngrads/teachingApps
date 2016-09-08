@@ -4,7 +4,7 @@
 \alias{getPackage}
 \title{Installs and/or loads an R package}
 \usage{
-getPackage(pkg = NULL, repo = NULL, pub = TRUE)
+getPackage(pkg = NULL, repo = NULL, pub = FALSE)
 }
 \arguments{
 \item{pkg}{Name of a package to be installed/loaded (as a character string)}

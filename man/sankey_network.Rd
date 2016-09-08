@@ -4,9 +4,15 @@
 \alias{sankey_network}
 \title{Function Title}
 \usage{
-sankey_network()
+sankey_network(pub = FALSE)
+}
+\arguments{
+\item{pub}{Will this app be published? (see details)}
 }
 \description{
 Description
+}
+\details{
+When publishing apps using shinyapps.io or shinyServer, set \code{pub = TRUE} to prevent calls to \code{install.packages}. Calls to \code{install.packages} should not be included within an app and will result in an error.
 }
 

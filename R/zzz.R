@@ -66,10 +66,18 @@ createFun <- function() {
                     "#' @import shinythemes\n",
                     "#' @import shinyAce\n",
                     "#' @import shiny\n",
+                    "#'\n", 
+                    "#' @param pub Will this app be published? (see details)\n",
+                    "#'\n", 
+                    "#' @details When publishing apps using shinyapps.io or shinyServer, set \\code{pub = TRUE} to prevent calls to \\code{install.packages}. Calls to \\code{install.packages} should not be included within an app and will result in an error.\n",
+                    "#'\n",
                     "#' @export\n\n",apps[i],
-                    ' <- function() {
+                    ' <- function(pub = FALSE) {
 
     file <- system.file("apps", "', apps[i],'app.R", package = "teachingApps")
+
+    getPackage("plotly", pub = pub)
+    getPackage("miniUI", pub = pub)
 
     shiny::runApp(file)
   

@@ -1,5 +1,3 @@
-teachingApps::getPackage('scales')
-  
 shinyApp(options = list( height = "800px"),
          
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
