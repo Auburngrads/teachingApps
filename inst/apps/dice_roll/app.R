@@ -76,13 +76,13 @@ if(dice()==1 & as.character(fun())=='diff') {
   
 } else {
   
-par(mar = c(5,4.5,0,1), font = 2, cex = 1.1, family = 'serif')
+par(mar = c(5,4.5,0,1), font = 2, cex = 1.1)
 
 hist(data(), 
      breaks = (min(omega())-0.5):(max(omega())+0.5), 
      xlim = extendrange(omega()), main = '', las = 1, 
      col = rainbow(length(omega())), 
-     xlab = toupper(paste(c(fun(),' of ',dice(),' dice rolls (', sides(),'-sided die)'), collapse = '')), 
+     xlab = parse(text = toupper(paste(c('sample~space %->%',fun(),'~of~',dice(),'~dice~rolls~(', sides(),'-sided~die)'), collapse = ''))),
      xaxt = 'n')
 
 axis(side = 1, labels = omega(), at = omega())
@@ -106,12 +106,14 @@ if(dice()==1 & as.character(fun())=='diff') {
   cat('\nHow do you expect to find the difference with only one number?\n')
   
 } else {
-  
+
+  par(mar = c(5,4.5,0,1), font = 2, cex = 1.1)
+    
 hist(data(), 
      breaks = (min(omega())-0.5):(max(omega())+0.5), 
      xlim = extendrange(omega()), main = '', las = 1, 
      col = rainbow(length(omega())), 
-     xlab = toupper(paste(c(fun(),' of ',dice(),' dice rolls (', sides(),'-sided die)'), collapse = '')), 
+     xlab = parse(text = toupper(paste(c('sample~space%->%', fun(),'~of~',dice(),'~dice~rolls~(', sides(),'-sided~die)'), collapse = ''))),
      xaxt = 'n', 
      prob = TRUE, 
      ylim = extendrange(c(0,max(counts())/sum(counts()))*1.1))
