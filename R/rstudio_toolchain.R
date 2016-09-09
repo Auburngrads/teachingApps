@@ -16,8 +16,7 @@ rstudio_toolchain <- function(pub = FALSE) {
 
     file <- system.file("apps", "rstudio_toolchain", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackage('codemirrorR', repo = 'timelyportfolio', pub = pub)
 
     shiny::runApp(file)
   

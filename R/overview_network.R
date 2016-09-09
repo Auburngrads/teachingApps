@@ -16,8 +16,7 @@ overview_network <- function(pub = FALSE) {
 
     file <- system.file("apps", "overview_network", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackage('visNetwork', pub = pub)
 
     shiny::runApp(file)
   

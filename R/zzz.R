@@ -59,6 +59,12 @@ createFun <- function() {
   
   for(i in 1:length(apps)) {
     
+    app  <- system.file("apps", apps[i], "app.R", package = "teachingApps")
+    pkgs <- readLines(app)[1:10]
+    pkgs <- pkgs[sapply(pkgs, nchar) > 0]
+    pkgs <- gsub('#', '', pkgs)
+    pkgs <- gsub("')", "', pub = pub)", pkgs)
+    
     text <- paste(c("#' Function Title\n",
                     "#'\n",
                     "#' @description Description\n",
@@ -76,8 +82,7 @@ createFun <- function() {
 
     file <- system.file("apps", "', apps[i],'", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    ',paste(c(pkgs), collapse = '\n'),'
 
     shiny::runApp(file)
   

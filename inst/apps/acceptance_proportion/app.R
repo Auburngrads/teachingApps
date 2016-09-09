@@ -1,4 +1,14 @@
-teachingApps::getPackage('plotly', pub = TRUE)
+#teachingApps::getPackage('plotly')
+
+
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(height = '800px', width = '100%'),
          
@@ -43,7 +53,7 @@ server = function(input, output, session) {
   
   library('plotly')
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('acceptance_proportion'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
   output$prop <- renderPlotly({
 

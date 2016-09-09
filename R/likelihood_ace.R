@@ -16,8 +16,7 @@ likelihood_ace <- function(pub = FALSE) {
 
     file <- system.file("apps", "likelihood_ace", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    
 
     shiny::runApp(file)
   

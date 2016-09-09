@@ -16,8 +16,7 @@ distribution_weibull <- function(pub = FALSE) {
 
     file <- system.file("apps", "distribution_weibull", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    getPackage('metricsgraphics', pub = pub)
 
     shiny::runApp(file)
   

@@ -1,3 +1,15 @@
+#teachingApps::getPackage('plotly')
+#teachingApps::getPackage('miniUI')
+
+
+
+
+
+
+
+
+
+
 shinyApp(
 ui = miniPage(gadgetTitleBar('MTBF Test Planning Tool'),
 miniTabstripPanel(

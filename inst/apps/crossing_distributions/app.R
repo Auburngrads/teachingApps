@@ -1,4 +1,14 @@
-teachingApps::getPackage('scales')
+#teachingApps::getPackage('scales')
+
+
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(height = '700px', width = '100%'),
          
@@ -70,7 +80,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('crossing_distributions'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
            
 output$nor.nor <- renderPlot({
   
@@ -158,4 +168,3 @@ output$weib.weib <- renderPlot({
             col = alpha('purple', .4))}
 })
 })
-}

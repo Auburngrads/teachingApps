@@ -16,8 +16,7 @@ reliability_environment <- function(pub = FALSE) {
 
     file <- system.file("apps", "reliability_environment", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    
 
     shiny::runApp(file)
   

@@ -1,5 +1,15 @@
-teachingApps::getPackage('SMRD')
-  
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
+
 par(family="serif",font=2)
 at7987.ld <- frame.to.ld(SMRD::at7987,
                          response.column = 1,

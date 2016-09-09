@@ -1,4 +1,14 @@
-teachingApps::getPackage('SMRD')
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
   
 shinyApp(options = list(height = '800px', width = '99%'),
   ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 

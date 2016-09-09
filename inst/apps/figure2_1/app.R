@@ -1,4 +1,14 @@
-teachingApps::getPackage('SMRD')
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(width = "100%", height = "600px"),
          

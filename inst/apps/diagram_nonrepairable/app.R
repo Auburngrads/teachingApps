@@ -1,4 +1,14 @@
-teachingApps::getPackage('diagram')
+#teachingApps::getPackage('diagram')
+
+
+
+
+
+
+
+
+
+
   
 shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 

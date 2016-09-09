@@ -1,4 +1,14 @@
-teachingApps::getPackage('SMRD')
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
   
 shinyApp(options = list(width = "100%", height = "800px"), 
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
@@ -57,7 +67,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('figure1_1'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
 
   output$lzbearing <- DT::renderDataTable({ DT::datatable(SMRD::lzbearing,
                                                        options = list(pageLength = 12)) })

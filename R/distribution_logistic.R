@@ -16,8 +16,7 @@ distribution_logistic <- function(pub = FALSE) {
 
     file <- system.file("apps", "distribution_logistic", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackage('metricsgraphics', pub = pub)
 
     shiny::runApp(file)
   

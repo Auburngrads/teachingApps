@@ -1,4 +1,14 @@
-  teachingApps::getPackage('scales')
+#teachingApps::getPackage('scales')
+
+
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(height = '700px'),
 ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
@@ -44,7 +54,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('crossing_distributions2'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
 output$cross <- renderPlot({
 param1 <- c(input$normal1.1,input$normal1.2)

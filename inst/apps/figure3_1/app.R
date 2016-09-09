@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 shinyApp(options = list(height = '600px', width = '100%'),
     ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
                    try(includeCSS(system.file('css',

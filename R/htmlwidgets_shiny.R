@@ -16,8 +16,15 @@ htmlwidgets_shiny <- function(pub = FALSE) {
 
     file <- system.file("apps", "htmlwidgets_shiny", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+     teachingApps::getPackage('metricsgraphics', pub = pub)
+ teachingApps::getPackage('dygraphs', pub = pub)
+ teachingApps::getPackage('leaflet', pub = pub)
+ teachingApps::getPackage('threejs', pub = pub)
+ teachingApps::getPackage('d3heatmap', pub = pub)
+ teachingApps::getPackage('parcoords', repo = 'timelyportfolio', pub = pub)
+ teachingApps::getPackage('taucharts', repo = 'hrbrmstr', pub = pub)
+ teachingApps::getPackage('htmlwidgets', pub = pub)
+ teachingApps::getPackage('plotly', pub = pub)
 
     shiny::runApp(file)
   

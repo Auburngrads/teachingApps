@@ -16,8 +16,7 @@ replace_plots <- function(pub = FALSE) {
 
     file <- system.file("apps", "replace_plots", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackage('SMRD', pub = pub)
 
     shiny::runApp(file)
   

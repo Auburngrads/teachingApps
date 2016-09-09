@@ -1,4 +1,14 @@
-teachingApps::getPackage('SMRD')
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
   
 Bleed.ld <- frame.to.ld(SMRD::bleed,
                         response.column = 1, 

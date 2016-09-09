@@ -1,4 +1,14 @@
-teachingApps::getPackage('SMRD')
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(width = "99%", height = "600px"), 
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 

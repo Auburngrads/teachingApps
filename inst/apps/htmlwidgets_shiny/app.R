@@ -1,12 +1,14 @@
-teachingApps::getPackage('metricsgraphics')
-teachingApps::getPackage('dygraphs')
-teachingApps::getPackage('leaflet')
-teachingApps::getPackage('threejs')
-teachingApps::getPackage('d3heatmap')
-teachingApps::getPackage('parcoords', repo = 'timelyportfolio')
-teachingApps::getPackage('taucharts', repo = 'hrbrmstr')
-teachingApps::getPackage('htmlwidgets')
-teachingApps::getPackage('plotly')
+# teachingApps::getPackage('metricsgraphics')
+# teachingApps::getPackage('dygraphs')
+# teachingApps::getPackage('leaflet')
+# teachingApps::getPackage('threejs')
+# teachingApps::getPackage('d3heatmap')
+# teachingApps::getPackage('parcoords', repo = 'timelyportfolio')
+# teachingApps::getPackage('taucharts', repo = 'hrbrmstr')
+# teachingApps::getPackage('htmlwidgets')
+# teachingApps::getPackage('plotly')
+
+
 
 shinyApp(options = list(height = '800px', width = '100%'),
          

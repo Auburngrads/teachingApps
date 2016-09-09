@@ -16,8 +16,7 @@ basic_dashboard <- function(pub = FALSE) {
 
     file <- system.file("apps", "basic_dashboard", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackage('shinydashboard', pub = pub)
 
     shiny::runApp(file)
   

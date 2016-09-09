@@ -1,4 +1,14 @@
-teachingApps::getPackage('networkD3')
+#teachingApps::getPackage('networkD3')
+
+
+
+
+
+
+
+
+
+
   
 shinyApp(options = list(height = '600px'),
 
@@ -13,7 +23,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('sankey_network'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
          
  output$sankey1 <- networkD3::renderSankeyNetwork({
    

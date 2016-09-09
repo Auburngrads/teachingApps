@@ -1,8 +1,14 @@
-berkson_interval <-
-function(...) {
-  
-  try(attachNamespace('shiny'), silent = TRUE)
-  try(attachNamespace('SMRD'), silent = TRUE)
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
   
 shinyApp(options = list(height = '600px', width = '100%'),
     
@@ -60,4 +66,3 @@ server = function(input, output, session) {
       return(isolate(eval(parse(text=input$berkint))))
 })
 })
-}

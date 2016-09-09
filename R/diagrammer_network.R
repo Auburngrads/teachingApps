@@ -16,8 +16,7 @@ diagrammer_network <- function(pub = FALSE) {
 
     file <- system.file("apps", "diagrammer_network", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackage('diagrammeR', pub = pub)
 
     shiny::runApp(file)
   

@@ -1,4 +1,16 @@
-shinyApp(options = list(width = "99%", height = "700px"),
+
+
+
+
+
+
+
+
+
+
+
+
+shinyApp(options = list(height = "700px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"), 
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 

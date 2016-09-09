@@ -1,4 +1,14 @@
-teachingApps::getPackage('SMRD')
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
   
 superalloy.ld <- frame.to.ld(SMRD::superalloy,
                              response.column = 1, 

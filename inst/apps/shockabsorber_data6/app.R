@@ -1,4 +1,14 @@
-teachingApps::getPackage('SMRD')
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
   
 par(family = "serif",font = 2)
 ShockAbsorber.ld <- frame.to.ld(SMRD::shockabsorber,

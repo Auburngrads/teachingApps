@@ -1,3 +1,15 @@
+#teachingApps::getPackage('plotly')
+
+
+
+
+
+
+
+
+
+
+
 ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 

@@ -1,5 +1,14 @@
-teachingApps::getPackage('metricsgraphics')
-teachingApps::getPackage('actuar')
+#teachingApps::getPackage('metricsgraphics')
+#teachingApps::getPackage('actuar')
+
+
+
+
+
+
+
+
+
   
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 

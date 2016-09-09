@@ -16,8 +16,8 @@ distribution_egeng <- function(pub = FALSE) {
 
     file <- system.file("apps", "distribution_egeng", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackage('SMRD', pub = pub)
+teachingApps::getPackage('metricsgraphics', pub = pub)
 
     shiny::runApp(file)
   

@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 shinyApp(options = list(height = '650px'),
   ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
                  try(includeCSS(system.file('css',
@@ -29,7 +41,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('regression_plots'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
   output$plotreg <- renderPlot({
     

@@ -1,4 +1,14 @@
-teachingApps::getPackage('shinydashboard')
+#teachingApps::getPackage('shinydashboard')
+
+
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(height = '800px'),
          

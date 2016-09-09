@@ -1,4 +1,14 @@
-teachingApps::getPackage('SMRD')
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
   
 shinyApp(options = list(height = '600px', width = '100%'),
          
@@ -33,7 +43,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('bent_probplot'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
   output$bleedplot <- renderPlot({
       par(mar = c(4,4,2,2))

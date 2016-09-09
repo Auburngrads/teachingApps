@@ -1,4 +1,14 @@
-teachingApps::getPackage('SMRD')
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
 
 ZelenCap.ld <- frame.to.ld(SMRD::zelencap, 
                            response.column = 1, 

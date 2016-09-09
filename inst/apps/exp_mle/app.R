@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 shinyApp(options = list(height = '600px'),
   
   ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
@@ -46,7 +58,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('exp_mle'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
   output$mlexp <- renderPlot({
       input$mlexpplots

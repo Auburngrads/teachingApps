@@ -16,8 +16,7 @@ figure2_5 <- function(pub = FALSE) {
 
     file <- system.file("apps", "figure2_5", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    
 
     shiny::runApp(file)
   

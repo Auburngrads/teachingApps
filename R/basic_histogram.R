@@ -16,8 +16,7 @@ basic_histogram <- function(pub = FALSE) {
 
     file <- system.file("apps", "basic_histogram", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    
 
     shiny::runApp(file)
   

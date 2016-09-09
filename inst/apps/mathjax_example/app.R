@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 shinyApp(options = list(height = '600px', width = '100%'),
          
 ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
@@ -23,7 +35,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('mathjax_examples'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
   output$ex1 <- renderUI({
     withMathJax(helpText('Dynamic output 1:  $$\\alpha^2$$'))

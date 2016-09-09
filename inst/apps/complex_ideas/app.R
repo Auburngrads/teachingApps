@@ -1,15 +1,15 @@
-teachingApps::getPackage('scales')
-teachingApps::getPackage('metricsgraphics')
-teachingApps::getPackage('SMRD')
+# teachingApps::getPackage('scales')
+# teachingApps::getPackage('metricsgraphics')
+# teachingApps::getPackage('SMRD')
   
-##############################################
-### Set up the gamma-distributed population
-############################################
 
 
-##############################################
-### ui
-##############################################
+
+
+
+
+
+
 shinyApp(options = list( height = "800px"),
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
                 try(includeCSS(system.file('css',

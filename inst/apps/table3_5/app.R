@@ -1,4 +1,14 @@
-teachingApps::getPackage('DT')
+#teachingApps::getPackage('DT')
+
+
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(height = '800px', width = '99%'),
 

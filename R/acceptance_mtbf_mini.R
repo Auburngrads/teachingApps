@@ -16,8 +16,8 @@ acceptance_mtbf_mini <- function(pub = FALSE) {
 
     file <- system.file("apps", "acceptance_mtbf_mini", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackage('plotly', pub = pub)
+teachingApps::getPackage('miniUI', pub = pub)
 
     shiny::runApp(file)
   

@@ -1,4 +1,14 @@
-teachingApps::getPackage('visNetwork')
+#teachingApps::getPackage('visNetwork')
+
+
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(height = '600px'),
          

@@ -16,8 +16,7 @@ diagram_both <- function(pub = FALSE) {
 
     file <- system.file("apps", "diagram_both", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackage('diagram', pub = pub)
 
     shiny::runApp(file)
   

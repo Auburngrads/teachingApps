@@ -16,8 +16,7 @@ kernel_density <- function(pub = FALSE) {
 
     file <- system.file("apps", "kernel_density", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    
 
     shiny::runApp(file)
   

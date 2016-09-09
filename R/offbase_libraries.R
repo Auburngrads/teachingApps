@@ -16,8 +16,9 @@ offbase_libraries <- function(pub = FALSE) {
 
     file <- system.file("apps", "offbase_libraries", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackage('leaflet', pub = pub)
+teachingApps::getPackage('publicLibs', repo = 'Auburngrads', pub = pub)
+teachingApps::getPackage('data.table', pub = pub)
 
     shiny::runApp(file)
   

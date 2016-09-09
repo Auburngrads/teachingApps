@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 shinyApp(options = list(width = "100%", height = "600px"),
          
 ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
@@ -35,7 +47,7 @@ las = 1)"),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('cdf_demo'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
 output$plotcdf <- renderPlot({
       input$evalcdf

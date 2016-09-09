@@ -1,8 +1,15 @@
-teachingApps::getPackage('scales')
+#teachingApps::getPackage('scales')
 
-############################################################
-## Set up the gamma-distributed population
-###########################################################
+
+
+
+
+
+
+
+
+
+
 shinyApp(options = list(height = '600px'),
 ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
                try(includeCSS(system.file('css',

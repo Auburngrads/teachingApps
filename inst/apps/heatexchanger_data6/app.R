@@ -1,4 +1,14 @@
-teachingApps::getPackage('SMRD')
+#teachingApps::getPackage('SMRD')
+
+
+
+
+
+
+
+
+
+
   
 HeatExchanger.ld <- frame.to.ld(SMRD::heatexchanger,
                                 response.column = c(1,2),

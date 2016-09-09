@@ -1,4 +1,14 @@
-teachingApps::getPackage('codemirrorR', repo = 'timelyportfolio')
+#teachingApps::getPackage('codemirrorR', repo = 'timelyportfolio')
+
+
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(height = '800px', width = '100%'),
          

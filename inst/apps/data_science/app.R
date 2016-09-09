@@ -1,5 +1,14 @@
-teachingApps::getPackage('visNetwork')
-teachingApps::getPackage('shinythemes')
+#teachingApps::getPackage('visNetwork')
+
+
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(height = '600px'),
          
@@ -21,7 +30,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('data_science'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
   output$stats <- visNetwork::renderVisNetwork({
            

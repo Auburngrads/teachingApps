@@ -16,8 +16,7 @@ empirical_cdf <- function(pub = FALSE) {
 
     file <- system.file("apps", "empirical_cdf", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    
 
     shiny::runApp(file)
   

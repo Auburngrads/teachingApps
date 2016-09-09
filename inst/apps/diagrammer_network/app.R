@@ -1,4 +1,14 @@
-teachingApps::getPackage('diagrammeR')
+#teachingApps::getPackage('diagrammeR')
+
+
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(width = '100%'),
  
@@ -15,7 +25,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('diagrammer_network'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
 
     output$grtest <- renderGrViz({
     

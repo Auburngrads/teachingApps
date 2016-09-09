@@ -16,8 +16,7 @@ distribution_gamma <- function(pub = FALSE) {
 
     file <- system.file("apps", "distribution_gamma", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackage('metricsgraphics', pub = pub)
 
     shiny::runApp(file)
   

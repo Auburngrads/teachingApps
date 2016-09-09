@@ -16,8 +16,7 @@ random_generator <- function(pub = FALSE) {
 
     file <- system.file("apps", "random_generator", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    teachingApps::getPackge('DT', pub = pub)
 
     shiny::runApp(file)
   

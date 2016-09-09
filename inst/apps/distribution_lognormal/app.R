@@ -1,6 +1,16 @@
-teachingApps::getPackage('metricsgraphics')
+#teachingApps::getPackage('metricsgraphics')
+
+
+
+
+
+
+
+
+
+
   
-  shinyApp(options = list(height = "700px"),
+shinyApp(options = list(height = "700px"),
            
 ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
                try(includeCSS(system.file('css',
@@ -51,7 +61,7 @@ tabPanel(h4('Distribution Properties'),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp('distribution_lognormal'))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
 t = reactive({ signif(seq(min(input$range.ln), max(input$range.ln), length = 500), digits = 4)})
 p <- signif(seq(0, 1, length = 500), digits = 4) 

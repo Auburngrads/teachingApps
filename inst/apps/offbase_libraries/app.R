@@ -1,6 +1,14 @@
-teachingApps::getPackage('leaflet')
-teachingApps::getPackage('publicLibs', repo = 'Auburngrads')
-teachingApps::getPackage('data.table')
+#teachingApps::getPackage('leaflet')
+#teachingApps::getPackage('publicLibs', repo = 'Auburngrads')
+#teachingApps::getPackage('data.table')
+
+
+
+
+
+
+
+
 
 shinyApp(options = list(height = '800px', width = '100%'),
 

@@ -16,8 +16,7 @@ simultaneous_skills <- function(pub = FALSE) {
 
     file <- system.file("apps", "simultaneous_skills", "app.R", package = "teachingApps")
 
-    getPackage("plotly", pub = pub)
-    getPackage("miniUI", pub = pub)
+    
 
     shiny::runApp(file)
   
