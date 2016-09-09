@@ -84,4 +84,3 @@ output$plotpdflike <- renderPlot({
       return(isolate(eval(parse(text=input$pdflikeplot))))
 })
 })
-

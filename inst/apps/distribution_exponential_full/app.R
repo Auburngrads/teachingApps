@@ -139,4 +139,3 @@ output$expprops <- renderUI({HTML('<h3>About the Exponential Distribution</h3>
 </ul>')
 })
 })
-

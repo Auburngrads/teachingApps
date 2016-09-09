@@ -280,4 +280,3 @@ visOptions(highlightNearest = list(enabled =TRUE, degree = 0)) %>%
 visInteraction(navigationButtons = TRUE)
 })
 })
-

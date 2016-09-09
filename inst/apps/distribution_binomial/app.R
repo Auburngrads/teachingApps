@@ -112,5 +112,5 @@ server = function(input, output, session) {
           mjs_point(point_size = 10)  %>%
           mjs_labs(x_label = "Probability (p)", y_label = "t(p)") %>%
           mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
-      })
-    })
+})
+})

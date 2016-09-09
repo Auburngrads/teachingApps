@@ -17,15 +17,6 @@ distribution_geometric <- function(pub = FALSE) {
     file <- system.file("apps", "distribution_geometric", "app.R", package = "teachingApps")
 
     teachingApps::getPackage("metricsgraphics")
-  
-shinyApp(options = list(height = "700px"), 
-         
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"), 
-               try(includeCSS(system.file("css", 
-                                          "my-shiny.css", 
-                                          package = "teachingApps")), silent = TRUE), 
-sidebarLayout(
-  sidebarPanel(width = 3, 
 
     shiny::runApp(file)
   

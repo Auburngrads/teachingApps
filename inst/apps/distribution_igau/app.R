@@ -103,6 +103,6 @@ df <- reactive({ data.frame(Time = t(),PROB = p(), CDF = C(),PDF = P(),REL = R()
   mjs_plot(df(), x = PROB, y = QUANT, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
 })
-
+})

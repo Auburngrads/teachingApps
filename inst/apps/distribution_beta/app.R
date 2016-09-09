@@ -119,4 +119,3 @@ server = function(input, output, session) {
           mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
 })
 })
-

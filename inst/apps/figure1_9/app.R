@@ -62,4 +62,3 @@ server = function(input, output, session) {
       return(isolate(eval(parse(text=input$fig9plot))))
 })
 })
-}
