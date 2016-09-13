@@ -1,6 +1,6 @@
-# teachingApps::getPackage('scales')
-# teachingApps::getPackage('metricsgraphics')
-# teachingApps::getPackage('SMRD')
+library('scales')
+library('metricsgraphics')
+library('SMRD')
   
 
 

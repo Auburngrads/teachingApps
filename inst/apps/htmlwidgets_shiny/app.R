@@ -1,12 +1,12 @@
-# teachingApps::getPackage('metricsgraphics')
-# teachingApps::getPackage('dygraphs')
-# teachingApps::getPackage('leaflet')
-# teachingApps::getPackage('threejs')
-# teachingApps::getPackage('d3heatmap')
-# teachingApps::getPackage('parcoords', repo = 'timelyportfolio')
-# teachingApps::getPackage('taucharts', repo = 'hrbrmstr')
-# teachingApps::getPackage('htmlwidgets')
-# teachingApps::getPackage('plotly')
+library('metricsgraphics')
+library('dygraphs')
+library('leaflet')
+library('threejs')
+library('d3heatmap')
+library('parcoords')
+library('taucharts')
+library('htmlwidgets')
+library('plotly')
 
 
 

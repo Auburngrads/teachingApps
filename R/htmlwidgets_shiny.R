@@ -16,7 +16,7 @@ htmlwidgets_shiny <- function(pub = FALSE) {
 
     file <- system.file("apps", "htmlwidgets_shiny", "app.R", package = "teachingApps")
 
-     teachingApps::getPackage('metricsgraphics', pub = pub)
+ teachingApps::getPackage('metricsgraphics', pub = pub)
  teachingApps::getPackage('dygraphs', pub = pub)
  teachingApps::getPackage('leaflet', pub = pub)
  teachingApps::getPackage('threejs', pub = pub)

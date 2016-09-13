@@ -16,7 +16,7 @@ complex_ideas <- function(pub = FALSE) {
 
     file <- system.file("apps", "complex_ideas", "app.R", package = "teachingApps")
 
-     teachingApps::getPackage('scales', pub = pub)
+ teachingApps::getPackage('scales', pub = pub)
  teachingApps::getPackage('metricsgraphics', pub = pub)
  teachingApps::getPackage('SMRD', pub = pub)
   
