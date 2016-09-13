@@ -1,12 +1,8 @@
-#.onLoad <- function(libname, pkgname) {
+.onLoad <- function(libname, pkgname) {
   
-  # library(SMRD)
-  # library(ggplot2)
-  # 
-  # datas <- list(diamonds = diamonds)
-  # 
-  # devtools::use_data(datas, internal = T, overwrite = T)
-#}
+  .appenv <<- new.env()
+  
+}
 
 #' Custom \code{par} function
 #' 

@@ -1,4 +1,4 @@
-#teachingApps::getPackage('plotly')
+teachingApps::getPackage('plotly', pub = get('pub', envir = .appenv))
 
 
 
