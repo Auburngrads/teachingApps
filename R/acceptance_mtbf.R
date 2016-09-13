@@ -16,10 +16,8 @@ acceptance_mtbf <- function(pub = FALSE) {
 
     file <- system.file("apps", "acceptance_mtbf", "app.R", package = "teachingApps")
 
-    #teachingApps::getPackage('plotly', pub = pub)
+    teachingApps::getPackage('plotly', pub = pub)
     
-    assign(x = 'pub', value = pub, envir = .appenv, inherits = T)
-
     shiny::runApp(file)
   
 }
