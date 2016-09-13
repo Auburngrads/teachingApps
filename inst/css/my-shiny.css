@@ -313,3 +313,7 @@ table.dataTable thead .sorting {
   font-weight: bold;
   font-size: 18pt;
 }
+
+iframe{ 
+  border-width 0px;
+}

@@ -380,5 +380,5 @@ p5 <-
 })
 }
 
-shinyApp(ui = ui, server = server, options = list(height = '800px', width = '100%'))
+shinyApp(ui = ui, server = server, options = list(height = '100%', width = '70%'))
 
