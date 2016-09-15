@@ -52,9 +52,13 @@ polygon(density(w)$x,
 
           actionButton("eval", h4("Evaluate"))),
         
-          mainPanel(plotOutput("output", height = '600px')))),
+          mainPanel(plotOutput("output", height = '600px'))),
   
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
 server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
     output$output <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(3.5,4,2,2))

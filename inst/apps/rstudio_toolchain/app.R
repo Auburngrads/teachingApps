@@ -1,4 +1,4 @@
-#teachingApps::getPackage('codemirrorR', repo = 'timelyportfolio')
+library('codemirrorR', repo = 'timelyportfolio')
 
 
 
@@ -70,9 +70,13 @@ tabPanel(h4('Unix'),
   tabPanel(h4(HTML('<green>3) Install Rtools</green>')),  uiOutput("rt_unix",class = 'shiny-text-output')),
   tabPanel(h4(HTML('<red>4) Install LaTeX</red>')),   uiOutput("l_unix", class = 'shiny-text-output')),
   tabPanel(h4(HTML('<blue>5) Install/Configure Git</blue>')),     uiOutput("g_unix", class = 'shiny-text-output')),
-  tabPanel(h4(HTML('<brown>6) Create/Link an R-Project</brown>')),   uiOutput("rp_unix", class = 'shiny-text-output')))))),
+  tabPanel(h4(HTML('<brown>6) Create/Link an R-Project</brown>')),   uiOutput("rp_unix", class = 'shiny-text-output'))))),
 
-server <- function(input, output) {
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
+server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
 
   install_rw <- HTML({
 "<h1>Procedure for Installing and Setting Up R</h1>

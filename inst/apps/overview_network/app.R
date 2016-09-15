@@ -1,4 +1,4 @@
-#teachingApps::getPackage('visNetwork')
+library('visNetwork')
 
 
 

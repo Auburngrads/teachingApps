@@ -1,4 +1,4 @@
-#teachingApps::getPackage('networkD3')
+library('networkD3')
 
 
 

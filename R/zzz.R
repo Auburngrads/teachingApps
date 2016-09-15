@@ -1,6 +1,6 @@
 .onLoad <- function(libname, pkgname) {
   
-  .appenv <<- new.env()
+options('appURL' = 'https://afit.shinypps.io/')
   
 }
 

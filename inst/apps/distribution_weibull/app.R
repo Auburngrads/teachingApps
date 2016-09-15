@@ -1,4 +1,4 @@
-#getPackage('metricsgraphics')
+#library('metricsgraphics')
 
 
 

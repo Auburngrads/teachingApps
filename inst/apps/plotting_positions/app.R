@@ -36,9 +36,13 @@ ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
         hr(),
         actionButton("takeSample.pp",h2("Sample Data"), width = '100%')),
       
-        mainPanel(plotOutput("probplotcompare", height = '600px')))),
+        mainPanel(plotOutput("probplotcompare", height = '600px'))),
 
-server = function(input,output, session) {
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
+server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
      
 rv1 <- reactiveValues( data.mat = NULL )
 

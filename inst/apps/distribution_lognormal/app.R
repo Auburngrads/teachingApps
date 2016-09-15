@@ -1,4 +1,4 @@
-#teachingApps::getPackage('metricsgraphics')
+library('metricsgraphics')
 
 
 

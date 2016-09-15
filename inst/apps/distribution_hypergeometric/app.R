@@ -1,4 +1,4 @@
-#teachingApps::getPackage("metricsgraphics")
+library("metricsgraphics")
 
 
 
@@ -53,10 +53,14 @@ mainPanel(width = 9,
                    metricsgraphicsOutput("hypH", height = "600px")),
           tabPanel(h4("Quantile"), 
                    metricsgraphicsOutput("hypQ", height = "600px")))
-))), 
+)), 
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
 
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+  
   t <- reactive({ input$N.hyp })
   p <- reactive({ signif(seq(0, 1, length = length(max(t()):min(t()))), digits = 4) })
   C <- reactive({ pgeom(t(), input$prob.geom)})

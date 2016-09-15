@@ -65,8 +65,6 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px'))
 
 server = function(input, output, session) {
 
-  try(attachNamespace('plotly'), silent = TRUE)
-    
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
   output$mtbf <- renderPlotly({

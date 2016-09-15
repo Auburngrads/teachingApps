@@ -1,4 +1,4 @@
-#teachingApps::getPackage('diagram')
+library('diagram')
 
 
 

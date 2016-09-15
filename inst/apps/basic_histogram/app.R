@@ -37,7 +37,11 @@ hist(x, col = 1,
         
      mainPanel(plotOutput("output", height = '600px')))),
   
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
 server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
 
       output$output <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(5,4,2,2))

@@ -1,4 +1,4 @@
-#teachingApps::getPackge('DT')
+library('DT')
 
 
 
@@ -21,9 +21,13 @@ shinyApp(options = list(height = '800px', width = '100%'),
                   try(includeCSS(system.file('css','my-shiny.css', 
                                              package = 'teachingApps')), silent = TRUE),
                   
-    tabPanel(h4('PRN Data'), DT::dataTableOutput('prn'))),
+    tabPanel(h4('PRN Data'), DT::dataTableOutput('prn')),
   
-  server = function(input, output, session) {
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
+server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
     
     output$prn <- DT::renderDataTable({
       

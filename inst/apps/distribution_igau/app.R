@@ -1,5 +1,5 @@
-#teachingApps::getPackage('SMRD')
-#teachingApps::getPackage('metricsgraphics')
+library('SMRD')
+library('metricsgraphics')
 
 
 
@@ -56,8 +56,6 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
-  
- 
   
 t <-  reactive({ signif(seq(input$rangeigau[1], input$rangeigau[2], length = 500), digits = 4) })
 p <-  reactive({ signif(seq(0.001, .999, length = 500), digits = 4) })

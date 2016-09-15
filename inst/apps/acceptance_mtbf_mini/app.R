@@ -1,5 +1,5 @@
-#teachingApps::getPackage('plotly')
-#teachingApps::getPackage('miniUI')
+library('plotly')
+library('miniUI')
 
 
 

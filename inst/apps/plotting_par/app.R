@@ -134,9 +134,13 @@ par(mfrow = c(1,1))"),
 
   actionButton("plotseval", h2("Evaluate"), width = '100%')),
         
-  mainPanel(plotOutput("plots", height = "550px"))))),
+  mainPanel(plotOutput("plots", height = "550px")))),
   
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
 server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
 
 output$marplot <- renderPlot({
       par(mar = c(input$mar1, input$mar2, input$mar3, input$mar4), xpd = TRUE)

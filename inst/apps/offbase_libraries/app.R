@@ -1,6 +1,6 @@
-#teachingApps::getPackage('leaflet')
-#teachingApps::getPackage('publicLibs', repo = 'Auburngrads')
-#teachingApps::getPackage('data.table')
+library('leaflet')
+library('publicLibs', repo = 'Auburngrads')
+library('data.table')
 
 
 
@@ -34,10 +34,14 @@ tabPanel(h4('Off-Base Libraries'),
            mainPanel(leafletOutput('libmap', height = '600px'), width = 9))),
 
 tabPanel(h4('About This Tool'),
-         mainPanel(uiOutput('aboutlib', height = '600px'), width = 12))),
+         
+         mainPanel(uiOutput('aboutlib', height = '600px'), width = 12)),
 
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
 
 output$libmap <- renderLeaflet({
 

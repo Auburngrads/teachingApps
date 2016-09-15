@@ -1,5 +1,5 @@
-#teachingApps::getPackage('SMRD')
-#teachingApps::getPackage('metricsgraphics')
+library('SMRD')
+library('metricsgraphics')
 
 
 
@@ -60,8 +60,6 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
- 
-
 t <- reactive({ signif(seq(input$range.egeng[1], input$range.egeng[2], length = 500), digits = 4)})
 p <- signif(seq(0, 1, length = 500), digits = 4) 
 C <- reactive({ pegengl(t(), input$mu.egeng, input$sig.egeng, input$lam.egeng)})

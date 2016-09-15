@@ -1,4 +1,4 @@
-#teachingApps::getPackage("metricsgraphics")
+library("metricsgraphics")
 
 
 
@@ -55,10 +55,14 @@ mainPanel(width = 9,
                    metricsgraphicsOutput("binH", height = "600px")),
           tabPanel(h4("Quantile"), 
                    metricsgraphicsOutput("binQ", height = "600px")))
-))), 
+)), 
+
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
 
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+  
   t <- reactive({ min(input$range.bin):max(input$range.bin) })
   p <- reactive({ signif(seq(0, 1, length = length(max(t()):min(t()))), digits = 4) })
   C <- reactive({ pbinom(t(), input$n.bin,input$prob.bin)})

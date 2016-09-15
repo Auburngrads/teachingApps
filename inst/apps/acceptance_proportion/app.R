@@ -1,4 +1,4 @@
-#teachingApps::getPackage('plotly')
+library('plotly')
 
 
 

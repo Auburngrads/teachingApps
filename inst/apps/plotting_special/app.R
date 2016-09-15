@@ -114,9 +114,13 @@ tabPanel(h4("Trellis Plots"),
                             label = h4("mtcars Columns Plotted"), 
                             choices = names(datasets::mtcars), 
                             selected = "mpg")),
-      mainPanel(plotOutput("trellis", height = "550px"))))),
+      mainPanel(plotOutput("trellis", height = "550px")))),
   
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
 server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
   output$barplot <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(4.5,4,2,2))

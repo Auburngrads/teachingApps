@@ -10,12 +10,10 @@ License: GPL-2
 LazyData: true
 Depends:  R (>= 3.1.0)
 Imports:  shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
-          utils,visNetwork,DiagrammeR
+          utils,knitr
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:
     testthat,
-    knitr,
-    rmarkdown,
-    SMRD
+    rmarkdown
 RoxygenNote: 5.0.1

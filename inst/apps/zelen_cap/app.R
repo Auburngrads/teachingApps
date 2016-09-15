@@ -1,4 +1,4 @@
-#teachingApps::getPackage('SMRD')
+library('SMRD')
 
 
 
@@ -119,9 +119,13 @@ ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
                               "Frechet"), 
                   selected = "Weibull")),
     
-    mainPanel( plotOutput("altplot",height = "565px"))))), 
+    mainPanel( plotOutput("altplot",height = "565px")))), 
   
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
 server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
          
   output$summary2 <- renderPrint({ summary(ZelenCap.ld)})
 

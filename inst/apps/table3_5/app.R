@@ -1,4 +1,4 @@
-#teachingApps::getPackage('DT')
+library('DT')
 
 
 
@@ -17,9 +17,13 @@ ui = navbarPage(theme = shinythemes::shinytheme('flatly'),
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
                 
-    tabPanel(h4('Table 3.5'), DT::dataTableOutput('table5'))),
+    tabPanel(h4('Table 3.5'), DT::dataTableOutput('table5')),
   
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
 server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
    
     output$table5 <- DT::renderDataTable({
       

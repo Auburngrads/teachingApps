@@ -16,7 +16,7 @@ random_generator <- function(pub = FALSE) {
 
     file <- system.file("apps", "random_generator", "app.R", package = "teachingApps")
 
-    teachingApps::getPackge('DT', pub = pub)
+    teachingApps::getPackage('DT', pub = pub)
 
     shiny::runApp(file)
   

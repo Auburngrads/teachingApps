@@ -1,5 +1,5 @@
-#teachingApps::getPackage('metricsgraphics')
-#teachingApps::getPackage('actuar')
+library('metricsgraphics')
+library('actuar')
 
 
 

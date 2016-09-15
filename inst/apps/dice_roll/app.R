@@ -1,4 +1,4 @@
-#teachingApps::getPackage('DT')
+library('DT')
 
 
 
@@ -42,9 +42,13 @@ shinyApp(options = list(height = '650px', width = '100%'),
                       tabPanel(h4('Borel Algegra'),
                                plotOutput('diceresults', height = '550px')),
                       tabPanel(h4('Probabilities'),
-                               plotOutput('diceprobs', height = '550px')))))),
+                               plotOutput('diceprobs', height = '550px'))))),
     
-server = function(input, output, session){
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
+server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
 
 dice   <- reactive({ as.numeric(input$no.dice) })
 sides  <- reactive({ as.numeric(input$no.sides) })

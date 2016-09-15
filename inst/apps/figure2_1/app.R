@@ -1,4 +1,4 @@
-#teachingApps::getPackage('SMRD')
+library('SMRD')
 
 
 

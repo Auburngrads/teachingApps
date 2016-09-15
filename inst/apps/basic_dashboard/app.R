@@ -1,4 +1,4 @@
-#teachingApps::getPackage('shinydashboard')
+library('shinydashboard')
 
 
 

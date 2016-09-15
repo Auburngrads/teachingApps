@@ -174,9 +174,13 @@ legend('topright',
 
   actionButton("legeval", h2("Evaluate"), width = '100%')),
         
-  mainPanel(plotOutput("legend", height = "550px"))))), 
+  mainPanel(plotOutput("legend", height = "550px")))), 
   
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
 server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
     
   output$text <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(4.5,4,2,2))

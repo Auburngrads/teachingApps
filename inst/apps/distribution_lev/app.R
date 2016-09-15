@@ -1,5 +1,5 @@
-#teachingApps::getPackage('metricsgraphics')
-#teachingApps::getPackage('SMRD')
+library('metricsgraphics')
+library('SMRD')
 
 
 

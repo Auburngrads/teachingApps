@@ -41,9 +41,13 @@ las = 1)"),
                               
         actionButton("evalHAZ", h4("Evaluate"), width = '100%')),
                             
-        mainPanel(plotOutput("plotHAZ", height = "600px")))),
+        mainPanel(plotOutput("plotHAZ", height = "600px"))),
            
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+
 server = function(input, output, session) {
+
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
              
 output$plotHAZ <- renderPlot({
 

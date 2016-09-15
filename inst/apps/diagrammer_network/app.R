@@ -1,4 +1,4 @@
-#teachingApps::getPackage('diagrammeR')
+library('diagrammeR')
 
 
 
