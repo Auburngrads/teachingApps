@@ -6,26 +6,32 @@
 #' @import shinyAce
 #' @import shiny
 #'
-#' @param pub Will this app be published? (see details)
+#' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
 #'
 #' @details When publishing apps using shinyapps.io or shinyServer, set \code{pub = TRUE} to prevent calls to \code{install.packages}. Calls to \code{install.packages} should not be included within an app and will result in an error.
 #'
 #' @export
 
-htmlwidgets_shiny <- function(pub = FALSE) {
+htmlwidgets_shiny <- function(rmd = TRUE) {
 
     file <- system.file("apps", "htmlwidgets_shiny", "app.R", package = "teachingApps")
 
- teachingApps::getPackage('metricsgraphics', pub = pub)
- teachingApps::getPackage('dygraphs', pub = pub)
- teachingApps::getPackage('leaflet', pub = pub)
- teachingApps::getPackage('threejs', pub = pub)
- teachingApps::getPackage('d3heatmap', pub = pub)
- teachingApps::getPackage('parcoords', repo = 'timelyportfolio', pub = pub)
- teachingApps::getPackage('taucharts', repo = 'hrbrmstr', pub = pub)
- teachingApps::getPackage('htmlwidgets', pub = pub)
- teachingApps::getPackage('plotly', pub = pub)
+ teachingApps::getPackage('metricsgraphics')
+ teachingApps::getPackage('dygraphs')
+ teachingApps::getPackage('leaflet')
+ teachingApps::getPackage('threejs')
+ teachingApps::getPackage('d3heatmap')
+ teachingApps::getPackage('parcoords', repo = 'timelyportfolio')
+ teachingApps::getPackage('taucharts', repo = 'hrbrmstr')
+ teachingApps::getPackage('htmlwidgets')
+ teachingApps::getPackage('plotly')
 
+    if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
+      
+    } else {
+      
     shiny::runApp(file)
+      
+    }
   
 }

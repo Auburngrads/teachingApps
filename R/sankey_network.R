@@ -6,18 +6,24 @@
 #' @import shinyAce
 #' @import shiny
 #'
-#' @param pub Will this app be published? (see details)
+#' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
 #'
 #' @details When publishing apps using shinyapps.io or shinyServer, set \code{pub = TRUE} to prevent calls to \code{install.packages}. Calls to \code{install.packages} should not be included within an app and will result in an error.
 #'
 #' @export
 
-sankey_network <- function(pub = FALSE) {
+sankey_network <- function(rmd = TRUE) {
 
     file <- system.file("apps", "sankey_network", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('networkD3', pub = pub)
+    teachingApps::getPackage('networkD3')
 
+    if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
+      
+    } else {
+      
     shiny::runApp(file)
+      
+    }
   
 }

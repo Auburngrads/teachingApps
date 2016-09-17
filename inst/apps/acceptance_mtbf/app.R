@@ -61,7 +61,7 @@ tabPanel(h4('About'),
 
         mainPanel(uiOutput("aboutmtbf", class = 'shiny-text-output'), width = 12)),
 
-fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px'))
 
 server = function(input, output, session) {
 

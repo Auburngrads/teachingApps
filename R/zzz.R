@@ -59,7 +59,7 @@ createFun <- function() {
     pkgs <- readLines(app)[1:10]
     pkgs <- pkgs[sapply(pkgs, nchar) > 0]
     pkgs <- gsub('#', '', pkgs)
-    pkgs <- gsub("')", "', pub = pub)", pkgs)
+    pkgs <- gsub("')", "')", pkgs)
     
     text <- paste(c("#' Function Title\n",
                     "#'\n",
@@ -69,7 +69,7 @@ createFun <- function() {
                     "#' @import shinyAce\n",
                     "#' @import shiny\n",
                     "#'\n", 
-                    "#' @param pub Will this app be published? (see details)\n",
+                    "#' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)\n",
                     "#'\n", 
                     "#' @details When publishing apps using shinyapps.io or shinyServer, set \\code{pub = TRUE} to prevent calls to \\code{install.packages}. Calls to \\code{install.packages} should not be included within an app and will result in an error.\n",
                     "#'\n",
