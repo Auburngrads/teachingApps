@@ -1,6 +1,6 @@
-library('scales')
-library('metricsgraphics')
-library('SMRD')
+library(scales)
+library(metricsgraphics)
+library(SMRD)
   
 
 
