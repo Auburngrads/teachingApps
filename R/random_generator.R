@@ -12,11 +12,11 @@
 #'
 #' @export
 
-random_generator <- function(rmd = TRUE) {
+random_generator <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "random_generator", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('DT')
+    teachingApps::getPackage(pub = pub, pkg  = 'DT')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

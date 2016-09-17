@@ -12,13 +12,13 @@
 #'
 #' @export
 
-complex_ideas <- function(rmd = TRUE) {
+complex_ideas <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "complex_ideas", "app.R", package = "teachingApps")
 
- teachingApps::getPackage('scales')
- teachingApps::getPackage('metricsgraphics')
- teachingApps::getPackage('SMRD')
+ teachingApps::getPackage(pub = pub, pkg  = 'scales')
+ teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
+ teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
   
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))

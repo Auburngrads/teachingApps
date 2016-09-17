@@ -12,11 +12,11 @@
 #'
 #' @export
 
-basic_dashboard <- function(rmd = TRUE) {
+basic_dashboard <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "basic_dashboard", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('shinydashboard')
+    teachingApps::getPackage(pub = pub, pkg  = 'shinydashboard')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

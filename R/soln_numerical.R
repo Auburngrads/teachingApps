@@ -12,7 +12,7 @@
 #'
 #' @export
 
-soln_numerical <- function(rmd = TRUE) {
+soln_numerical <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "soln_numerical", "app.R", package = "teachingApps")
 

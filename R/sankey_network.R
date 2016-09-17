@@ -12,11 +12,11 @@
 #'
 #' @export
 
-sankey_network <- function(rmd = TRUE) {
+sankey_network <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "sankey_network", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('networkD3')
+    teachingApps::getPackage(pub = pub, pkg  = 'networkD3')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

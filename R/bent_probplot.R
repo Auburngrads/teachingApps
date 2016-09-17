@@ -12,11 +12,11 @@
 #'
 #' @export
 
-bent_probplot <- function(rmd = TRUE) {
+bent_probplot <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "bent_probplot", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('SMRD')
+    teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

@@ -12,7 +12,7 @@
 #'
 #' @export
 
-reliability_environment <- function(rmd = TRUE) {
+reliability_environment <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "reliability_environment", "app.R", package = "teachingApps")
 

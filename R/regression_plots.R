@@ -12,7 +12,7 @@
 #'
 #' @export
 
-regression_plots <- function(rmd = TRUE) {
+regression_plots <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "regression_plots", "app.R", package = "teachingApps")
 

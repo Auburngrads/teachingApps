@@ -12,11 +12,11 @@
 #'
 #' @export
 
-overview_network <- function(rmd = TRUE) {
+overview_network <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "overview_network", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('visNetwork')
+    teachingApps::getPackage(pub = pub, pkg  = 'visNetwork')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

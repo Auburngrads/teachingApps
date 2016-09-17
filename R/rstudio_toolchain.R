@@ -12,11 +12,11 @@
 #'
 #' @export
 
-rstudio_toolchain <- function(rmd = TRUE) {
+rstudio_toolchain <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "rstudio_toolchain", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('codemirrorR', repo = 'timelyportfolio')
+    teachingApps::getPackage(pub = pub, pkg  = 'codemirrorR', repo = 'timelyportfolio')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

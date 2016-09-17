@@ -12,7 +12,7 @@
 #'
 #' @export
 
-cdf_demo <- function(rmd = TRUE) {
+cdf_demo <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "cdf_demo", "app.R", package = "teachingApps")
 

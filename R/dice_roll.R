@@ -12,11 +12,11 @@
 #'
 #' @export
 
-dice_roll <- function(rmd = TRUE) {
+dice_roll <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "dice_roll", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('DT')
+    teachingApps::getPackage(pub = pub, pkg  = 'DT')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

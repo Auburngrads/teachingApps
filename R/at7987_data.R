@@ -12,11 +12,11 @@
 #'
 #' @export
 
-at7987_data <- function(rmd = TRUE) {
+at7987_data <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "at7987_data", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('SMRD')
+    teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

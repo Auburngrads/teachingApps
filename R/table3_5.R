@@ -12,11 +12,11 @@
 #'
 #' @export
 
-table3_5 <- function(rmd = TRUE) {
+table3_5 <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "table3_5", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('DT')
+    teachingApps::getPackage(pub = pub, pkg  = 'DT')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

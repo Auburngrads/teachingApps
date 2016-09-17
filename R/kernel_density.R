@@ -12,7 +12,7 @@
 #'
 #' @export
 
-kernel_density <- function(rmd = TRUE) {
+kernel_density <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "kernel_density", "app.R", package = "teachingApps")
 

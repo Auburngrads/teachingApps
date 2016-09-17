@@ -12,7 +12,7 @@
 #'
 #' @export
 
-survival_demo <- function(rmd = TRUE) {
+survival_demo <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "survival_demo", "app.R", package = "teachingApps")
 

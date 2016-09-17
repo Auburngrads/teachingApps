@@ -12,7 +12,7 @@
 #'
 #' @export
 
-exp_mle <- function(rmd = TRUE) {
+exp_mle <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "exp_mle", "app.R", package = "teachingApps")
 

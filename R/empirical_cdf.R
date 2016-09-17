@@ -12,7 +12,7 @@
 #'
 #' @export
 
-empirical_cdf <- function(rmd = TRUE) {
+empirical_cdf <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "empirical_cdf", "app.R", package = "teachingApps")
 

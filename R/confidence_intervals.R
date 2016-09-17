@@ -12,11 +12,11 @@
 #'
 #' @export
 
-confidence_intervals <- function(rmd = TRUE) {
+confidence_intervals <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "confidence_intervals", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('scales')
+    teachingApps::getPackage(pub = pub, pkg  = 'scales')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

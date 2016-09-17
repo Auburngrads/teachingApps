@@ -12,7 +12,7 @@
 #'
 #' @export
 
-simultaneous_skills <- function(rmd = TRUE) {
+simultaneous_skills <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "simultaneous_skills", "app.R", package = "teachingApps")
 

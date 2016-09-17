@@ -12,7 +12,7 @@
 #'
 #' @export
 
-exp_numerical <- function(rmd = TRUE) {
+exp_numerical <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "exp_numerical", "app.R", package = "teachingApps")
 

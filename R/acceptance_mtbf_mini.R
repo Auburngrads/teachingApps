@@ -12,12 +12,12 @@
 #'
 #' @export
 
-acceptance_mtbf_mini <- function(rmd = TRUE) {
+acceptance_mtbf_mini <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "acceptance_mtbf_mini", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('plotly')
-teachingApps::getPackage('miniUI')
+    teachingApps::getPackage(pub = pub, pkg  = 'plotly')
+teachingApps::getPackage(pub = pub, pkg  = 'miniUI')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

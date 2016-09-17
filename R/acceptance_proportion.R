@@ -12,11 +12,11 @@
 #'
 #' @export
 
-acceptance_proportion <- function(rmd = TRUE) {
+acceptance_proportion <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "acceptance_proportion", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('plotly')
+    teachingApps::getPackage(pub = pub, pkg  = 'plotly')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

@@ -12,7 +12,7 @@
 #'
 #' @export
 
-stress_strength <- function(rmd = TRUE) {
+stress_strength <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "stress_strength", "app.R", package = "teachingApps")
 

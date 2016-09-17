@@ -12,7 +12,7 @@
 #'
 #' @export
 
-censored_eventplots <- function(rmd = TRUE) {
+censored_eventplots <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "censored_eventplots", "app.R", package = "teachingApps")
 

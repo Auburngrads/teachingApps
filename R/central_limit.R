@@ -12,7 +12,7 @@
 #'
 #' @export
 
-central_limit <- function(rmd = TRUE) {
+central_limit <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "central_limit", "app.R", package = "teachingApps")
 

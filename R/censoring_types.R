@@ -12,7 +12,7 @@
 #'
 #' @export
 
-censoring_types <- function(rmd = TRUE) {
+censoring_types <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "censoring_types", "app.R", package = "teachingApps")
 

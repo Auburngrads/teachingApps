@@ -12,11 +12,11 @@
 #'
 #' @export
 
-probability_plotting <- function(rmd = TRUE) {
+probability_plotting <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "probability_plotting", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('SMRD')
+    teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

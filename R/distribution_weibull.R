@@ -12,11 +12,11 @@
 #'
 #' @export
 
-distribution_weibull <- function(rmd = TRUE) {
+distribution_weibull <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "distribution_weibull", "app.R", package = "teachingApps")
 
-    getPackage('metricsgraphics')
+    getPackage(pub = pub, pkg  = 'metricsgraphics')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

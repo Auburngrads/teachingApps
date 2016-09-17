@@ -12,11 +12,11 @@
 #'
 #' @export
 
-distribution_beta <- function(rmd = TRUE) {
+distribution_beta <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "distribution_beta", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage("metricsgraphics")
+    teachingApps::getPackage(pub = pub, pkg  = "metricsgraphics")
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

@@ -12,7 +12,7 @@
 #'
 #' @export
 
-likelihood_contributions <- function(rmd = TRUE) {
+likelihood_contributions <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "likelihood_contributions", "app.R", package = "teachingApps")
 

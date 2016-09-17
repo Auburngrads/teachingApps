@@ -12,11 +12,11 @@
 #'
 #' @export
 
-berkson200_profile <- function(rmd = TRUE) {
+berkson200_profile <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "berkson200_profile", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('SMRD')
+    teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

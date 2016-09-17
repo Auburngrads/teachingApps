@@ -12,7 +12,7 @@
 #'
 #' @export
 
-basic_histogram <- function(rmd = TRUE) {
+basic_histogram <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "basic_histogram", "app.R", package = "teachingApps")
 

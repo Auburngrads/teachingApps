@@ -12,7 +12,7 @@
 #'
 #' @export
 
-mathjax_example <- function(rmd = TRUE) {
+mathjax_example <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "mathjax_example", "app.R", package = "teachingApps")
 

@@ -12,7 +12,7 @@
 #'
 #' @export
 
-data_patterns <- function(rmd = TRUE) {
+data_patterns <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "data_patterns", "app.R", package = "teachingApps")
 

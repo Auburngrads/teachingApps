@@ -12,12 +12,12 @@
 #'
 #' @export
 
-distribution_loglogistic <- function(rmd = TRUE) {
+distribution_loglogistic <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "distribution_loglogistic", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('metricsgraphics')
-teachingApps::getPackage('actuar')
+    teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
+teachingApps::getPackage(pub = pub, pkg  = 'actuar')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

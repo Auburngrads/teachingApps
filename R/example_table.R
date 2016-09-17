@@ -12,7 +12,7 @@
 #'
 #' @export
 
-example_table <- function(rmd = TRUE) {
+example_table <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "example_table", "app.R", package = "teachingApps")
 

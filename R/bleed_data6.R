@@ -12,11 +12,11 @@
 #'
 #' @export
 
-bleed_data6 <- function(rmd = TRUE) {
+bleed_data6 <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "bleed_data6", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('SMRD')
+    teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

@@ -12,11 +12,11 @@
 #'
 #' @export
 
-crossing_distributions <- function(rmd = TRUE) {
+crossing_distributions <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "crossing_distributions", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('scales')
+    teachingApps::getPackage(pub = pub, pkg  = 'scales')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

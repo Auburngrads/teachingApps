@@ -12,7 +12,7 @@
 #'
 #' @export
 
-plotting_par <- function(rmd = TRUE) {
+plotting_par <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "plotting_par", "app.R", package = "teachingApps")
 

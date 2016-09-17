@@ -12,11 +12,11 @@
 #'
 #' @export
 
-shock_absorber8 <- function(rmd = TRUE) {
+shock_absorber8 <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "shock_absorber8", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('SMRD')
+    teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

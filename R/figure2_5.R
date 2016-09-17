@@ -12,7 +12,7 @@
 #'
 #' @export
 
-figure2_5 <- function(rmd = TRUE) {
+figure2_5 <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "figure2_5", "app.R", package = "teachingApps")
 

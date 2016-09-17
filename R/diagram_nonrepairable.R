@@ -12,11 +12,11 @@
 #'
 #' @export
 
-diagram_nonrepairable <- function(rmd = TRUE) {
+diagram_nonrepairable <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "diagram_nonrepairable", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('diagram')
+    teachingApps::getPackage(pub = pub, pkg  = 'diagram')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

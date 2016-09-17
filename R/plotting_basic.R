@@ -12,7 +12,7 @@
 #'
 #' @export
 
-plotting_basic <- function(rmd = TRUE) {
+plotting_basic <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "plotting_basic", "app.R", package = "teachingApps")
 

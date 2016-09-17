@@ -12,11 +12,11 @@
 #'
 #' @export
 
-maximum_likelihood_full <- function(rmd = TRUE) {
+maximum_likelihood_full <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "maximum_likelihood_full", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('scales')
+    teachingApps::getPackage(pub = pub, pkg  = 'scales')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

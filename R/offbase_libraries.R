@@ -12,13 +12,13 @@
 #'
 #' @export
 
-offbase_libraries <- function(rmd = TRUE) {
+offbase_libraries <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "offbase_libraries", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('leaflet')
-teachingApps::getPackage('publicLibs', repo = 'Auburngrads')
-teachingApps::getPackage('data.table')
+    teachingApps::getPackage(pub = pub, pkg  = 'leaflet')
+teachingApps::getPackage(pub = pub, pkg  = 'publicLibs', repo = 'Auburngrads')
+teachingApps::getPackage(pub = pub, pkg  = 'data.table')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

@@ -12,7 +12,7 @@
 #'
 #' @export
 
-program_costs <- function(rmd = TRUE) {
+program_costs <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "program_costs", "app.R", package = "teachingApps")
 

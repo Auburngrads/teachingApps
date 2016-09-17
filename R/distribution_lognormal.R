@@ -12,11 +12,11 @@
 #'
 #' @export
 
-distribution_lognormal <- function(rmd = TRUE) {
+distribution_lognormal <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "distribution_lognormal", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('metricsgraphics')
+    teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

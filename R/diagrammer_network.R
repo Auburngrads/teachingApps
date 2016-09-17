@@ -12,11 +12,11 @@
 #'
 #' @export
 
-diagrammer_network <- function(rmd = TRUE) {
+diagrammer_network <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "diagrammer_network", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage('diagrammeR')
+    teachingApps::getPackage(pub = pub, pkg  = 'diagrammeR')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       

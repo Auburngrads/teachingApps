@@ -12,7 +12,7 @@
 #'
 #' @export
 
-quantile_demo <- function(rmd = TRUE) {
+quantile_demo <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "quantile_demo", "app.R", package = "teachingApps")
 

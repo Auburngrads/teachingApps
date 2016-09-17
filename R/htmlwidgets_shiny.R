@@ -12,19 +12,19 @@
 #'
 #' @export
 
-htmlwidgets_shiny <- function(rmd = TRUE) {
+htmlwidgets_shiny <- function(rmd = TRUE, pub = FALSE) {
 
     file <- system.file("apps", "htmlwidgets_shiny", "app.R", package = "teachingApps")
 
- teachingApps::getPackage('metricsgraphics')
- teachingApps::getPackage('dygraphs')
- teachingApps::getPackage('leaflet')
- teachingApps::getPackage('threejs')
- teachingApps::getPackage('d3heatmap')
- teachingApps::getPackage('parcoords', repo = 'timelyportfolio')
- teachingApps::getPackage('taucharts', repo = 'hrbrmstr')
- teachingApps::getPackage('htmlwidgets')
- teachingApps::getPackage('plotly')
+ teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
+ teachingApps::getPackage(pub = pub, pkg  = 'dygraphs')
+ teachingApps::getPackage(pub = pub, pkg  = 'leaflet')
+ teachingApps::getPackage(pub = pub, pkg  = 'threejs')
+ teachingApps::getPackage(pub = pub, pkg  = 'd3heatmap')
+ teachingApps::getPackage(pub = pub, pkg  = 'parcoords', repo = 'timelyportfolio')
+ teachingApps::getPackage(pub = pub, pkg  = 'taucharts', repo = 'hrbrmstr')
+ teachingApps::getPackage(pub = pub, pkg  = 'htmlwidgets')
+ teachingApps::getPackage(pub = pub, pkg  = 'plotly')
 
     if(rmd) { library(shiny) ; eval(parse(text = readLines(file)))
       
