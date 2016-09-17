@@ -1,4 +1,4 @@
-library('SMRD')
+library(pos = -1,  package = 'SMRD')
 
 
 
@@ -25,7 +25,7 @@ ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
                          value = 
 "par(family='serif',font=2)
 
-library(SMRD)
+library(pos = -1,  package = SMRD)
 
 distribution.plot('Weibull',
 shape=c(1.7), ## Change this value or add more

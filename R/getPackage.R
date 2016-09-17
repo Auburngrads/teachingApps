@@ -27,5 +27,6 @@ if(!pkg%in%installed.packages()) install.packages(pkg, repos = 'http://cran.rstu
 if(!pkg%in%installed.packages()) devtools::install_github(paste(c(repo,pkg), collapse = '/')) 
   
   }
-  } 
+  }
+  do.call(library, list(package = pkg, character.only = TRUE))
   }

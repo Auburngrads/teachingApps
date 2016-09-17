@@ -1,4 +1,4 @@
-library('SMRD')
+library(pos = -1,  package = 'SMRD')
 
 
 
@@ -27,7 +27,7 @@ shinyApp(options = list(height = '800px', width = '99%'),
                                 value = 
 "par(family = 'serif', font = 2, cex = 1.15)
 
-library(SMRD)
+library(pos = -1,  package = SMRD)
 
 lfp.ld<- frame.to.ld(SMRD::lfp1370,
                      response.column = 1,
@@ -51,7 +51,7 @@ event.plot(lfp.ld)"),
                                 value = 
 "par(family = 'serif', font = 2, cex = 1.15)
 
-library(SMRD)
+library(pos = -1,  package = SMRD)
 lfp.ld<- frame.to.ld(SMRD::lfp1370,
                      response.column = 1,
                      censor.column = 2,

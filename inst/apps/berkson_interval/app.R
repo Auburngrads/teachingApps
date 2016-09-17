@@ -1,4 +1,4 @@
-library('SMRD')
+library(pos = -1,  package = 'SMRD')
 
 
 
@@ -26,7 +26,7 @@ shinyApp(options = list(height = '600px', width = '100%'),
                                  value = "
 par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
 
-library(SMRD)
+library(pos = -1,  package = SMRD)
 
 zoom <- 1.5
 

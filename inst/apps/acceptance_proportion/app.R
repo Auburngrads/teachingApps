@@ -1,4 +1,4 @@
-library('plotly')
+library(pos = -1,  package = 'plotly')
 
 
 
@@ -51,7 +51,7 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 
 server = function(input, output, session) {
   
-  library('plotly')
+  library(pos = -1,  package = 'plotly')
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   

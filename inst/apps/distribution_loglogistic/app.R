@@ -1,5 +1,5 @@
-library('metricsgraphics')
-library('actuar')
+library(pos = -1,  package = 'metricsgraphics')
+library(pos = -1,  package = 'actuar')
 
 
 

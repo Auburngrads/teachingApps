@@ -1,4 +1,4 @@
-library('diagram')
+library(pos = -1,  package = 'diagram')
 
 
 

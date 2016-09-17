@@ -1,4 +1,4 @@
-library('metricsgraphics')
+library(pos = -1,  package = 'metricsgraphics')
 
 
 

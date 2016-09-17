@@ -1,4 +1,4 @@
-library('SMRD')
+library(pos = -1,  package = 'SMRD')
 
 
 

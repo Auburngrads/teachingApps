@@ -24,7 +24,7 @@ ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
                                 fontSize = 15, 
                                 height = '450px',
                                 value = 
-"library(scales)
+"library(pos = -1,  package = scales)
 
 beta <- 2
 theta <- 15

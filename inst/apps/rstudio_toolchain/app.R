@@ -1,4 +1,4 @@
-library('codemirrorR', repo = 'timelyportfolio')
+library(pos = -1,  package = 'codemirrorR', repo = 'timelyportfolio')
 
 
 

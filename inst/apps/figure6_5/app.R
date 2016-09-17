@@ -1,4 +1,4 @@
-library('SMRD')
+library(pos = -1,  package = 'SMRD')
 
 
 
@@ -24,7 +24,7 @@ ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
                           value = 
 "par(family='serif',font=2,cex=1.75)
 
-library(SMRD)
+library(pos = -1,  package = SMRD)
 
 p<- seq(.01,.99,.01)
 

@@ -1,4 +1,4 @@
-library('visNetwork')
+library(pos = -1,  package = 'visNetwork')
 
 
 

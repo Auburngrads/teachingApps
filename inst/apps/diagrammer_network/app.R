@@ -1,4 +1,4 @@
-library('diagrammeR')
+library(pos = -1,  package = 'diagrammeR')
 
 
 

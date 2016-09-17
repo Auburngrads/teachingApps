@@ -1,6 +1,6 @@
-library('leaflet')
-library('publicLibs', repo = 'Auburngrads')
-library('data.table')
+library(pos = -1,  package = 'leaflet')
+library(pos = -1,  package = 'publicLibs', repo = 'Auburngrads')
+library(pos = -1,  package = 'data.table')
 
 
 

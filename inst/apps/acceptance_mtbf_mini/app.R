@@ -1,5 +1,5 @@
-library('plotly')
-library('miniUI')
+library(pos = -1,  package = 'plotly')
+library(pos = -1,  package = 'miniUI')
 
 
 

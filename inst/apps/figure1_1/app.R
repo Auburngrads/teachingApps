@@ -1,4 +1,4 @@
-library('SMRD')
+library(pos = -1,  package = 'SMRD')
 
 
 
@@ -27,7 +27,7 @@ tabPanel(h4("Figure 1.1"),
                           height = "450px", 
                           fontSize = 15,
                           value = "
-library(SMRD)
+library(pos = -1,  package = SMRD)
 par(family='serif', font=2)
 hist(SMRD::lzbearing$mcycles,
      breaks=seq(0,200,20),
@@ -50,7 +50,7 @@ tabPanel(h4("Figure 1.2"),
                           height = "450px", 
                           fontSize = 15,
                           value = 
-"library(SMRD)
+"library(pos = -1,  package = SMRD)
 par(family='serif', font=2)
 
 lzbearing.ld <- frame.to.ld(SMRD::lzbearing, 

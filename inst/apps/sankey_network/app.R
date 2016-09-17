@@ -1,4 +1,4 @@
-library('networkD3')
+library(pos = -1,  package = 'networkD3')
 
 
 

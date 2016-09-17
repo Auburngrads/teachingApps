@@ -1,4 +1,4 @@
-library('DT')
+library(pos = -1,  package = 'DT')
 
 
 
