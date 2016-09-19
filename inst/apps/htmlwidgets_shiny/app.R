@@ -1,4 +1,12 @@
-
+library(pos = 2,  package = 'metricsgraphics')
+library(pos = 2,  package = 'dygraphs')
+library(pos = 2,  package = 'leaflet')
+library(pos = 2,  package = 'threejs')
+library(pos = 2,  package = 'd3heatmap')
+library(pos = 2,  package = 'parcoords')
+library(pos = 2,  package = 'taucharts')
+library(pos = 2,  package = 'htmlwidgets')
+library(pos = 2,  package = 'plotly')
 
 
 
@@ -83,16 +91,6 @@ fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
-  
-  library(pos = 2,  package = 'metricsgraphics')
-library(pos = 2,  package = 'dygraphs')
-library(pos = 2,  package = 'leaflet')
-library(pos = 2,  package = 'threejs')
-library(pos = 2,  package = 'd3heatmap')
-library(pos = 2,  package = 'parcoords')
-library(pos = 2,  package = 'taucharts')
-library(pos = 2,  package = 'htmlwidgets')
-library(pos = 2,  package = 'plotly')
   
   predicted <- reactive({
     hw <- HoltWinters(datasets::ldeaths)
