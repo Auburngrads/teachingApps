@@ -28,5 +28,5 @@ if(!pkg%in%installed.packages()) devtools::install_github(paste(c(repo,pkg), col
   
   }
   }
-  do.call(library, list(package = pkg, character.only = TRUE))
+  do.call(library, list(package = pkg, character.only = TRUE), envir = sys.frame())
   }
