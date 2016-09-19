@@ -26,7 +26,7 @@ htmlwidgets_shiny <- function(rmd = TRUE, pub = FALSE) {
  teachingApps::getPackage(pub = pub, pkg  = 'htmlwidgets')
  teachingApps::getPackage(pub = pub, pkg  = 'plotly')
 
-    if(rmd) { library(shiny) ; eval(parse(file), envir = environment())
+    if(rmd) { library(shiny) ; eval(parse(file), envir = sys.frame())
       
     } else {
       
