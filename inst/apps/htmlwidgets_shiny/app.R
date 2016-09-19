@@ -1,12 +1,12 @@
-library(pos = -1,  package = 'metricsgraphics')
-library(pos = -1,  package = 'dygraphs')
-library(pos = -1,  package = 'leaflet')
-library(pos = -1,  package = 'threejs')
-library(pos = -1,  package = 'd3heatmap')
-library(pos = -1,  package = 'parcoords')
-library(pos = -1,  package = 'taucharts')
-library(pos = -1,  package = 'htmlwidgets')
-library(pos = -1,  package = 'plotly')
+library(pos = 1,  package = 'metricsgraphics')
+library(pos = 1,  package = 'dygraphs')
+library(pos = 1,  package = 'leaflet')
+library(pos = 1,  package = 'threejs')
+library(pos = 1,  package = 'd3heatmap')
+library(pos = 1,  package = 'parcoords')
+library(pos = 1,  package = 'taucharts')
+library(pos = 1,  package = 'htmlwidgets')
+library(pos = 1,  package = 'plotly')
 
 
 
