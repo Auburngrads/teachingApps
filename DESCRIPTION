@@ -19,6 +19,6 @@ Suggests:
     SMRD,
     dygraphs
 Remotes:
-    install_github("timelyportfolio/parcoords")
-    install_github("hrbrmstr/taucharts")
+    github::timelyportfolio/parcoords,
+    github::hrbrmstr/taucharts
 RoxygenNote: 5.0.1
