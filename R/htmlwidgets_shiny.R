@@ -30,7 +30,7 @@ htmlwidgets_shiny <- function(rmd = TRUE, pub = FALSE) {
       
       do.call(library, list(package = 'shiny', character.only = T))
       
-      source(file)
+      evaluate::evaluate(file(file))
       
     } else {
       
