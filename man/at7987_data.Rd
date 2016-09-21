@@ -4,9 +4,11 @@
 \alias{at7987_data}
 \title{Function Title}
 \usage{
-at7987_data(pub = FALSE)
+at7987_data(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

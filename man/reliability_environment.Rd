@@ -4,9 +4,11 @@
 \alias{reliability_environment}
 \title{Function Title}
 \usage{
-reliability_environment(pub = FALSE)
+reliability_environment(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

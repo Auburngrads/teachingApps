@@ -4,9 +4,11 @@
 \alias{shockabsorber_quantiles}
 \title{Function Title}
 \usage{
-shockabsorber_quantiles(pub = FALSE)
+shockabsorber_quantiles(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

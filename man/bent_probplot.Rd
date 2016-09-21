@@ -4,9 +4,11 @@
 \alias{bent_probplot}
 \title{Function Title}
 \usage{
-bent_probplot(pub = FALSE)
+bent_probplot(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

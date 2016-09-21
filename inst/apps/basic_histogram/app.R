@@ -17,7 +17,7 @@ ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
      sidebarLayout( 
-        sidebarPanel(
+        sidebarPanel(width = 5,
            shinyAce::aceEditor("code", 
                                mode = "r", 
                                theme = "github", 
@@ -33,9 +33,9 @@ hist(x, col = 1,
      breaks = c(0,1,2,3,4,5,6,7,8,9,10,11),
      main = '')"),
 
-     actionButton("eval", "Evaluate"), width = '100%'),
+     actionButton("eval", h3("Evaluate"), width = '100%')),
         
-     mainPanel(plotOutput("output", height = '600px')))),
+     mainPanel(plotOutput("output", height = '600px'), width = 7)),
   
 fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 

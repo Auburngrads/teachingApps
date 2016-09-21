@@ -33,7 +33,7 @@ ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
   hr(),
   actionButton("reset",h4("Start Over"), width = '100%')),
  
- mainPanel(plotOutput('ciplot', height = '600px')))),
+ mainPanel(plotOutput('ciplot', height = '600px'))),
 
 fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
 

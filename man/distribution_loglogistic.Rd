@@ -4,9 +4,11 @@
 \alias{distribution_loglogistic}
 \title{Function Title}
 \usage{
-distribution_loglogistic(pub = FALSE)
+distribution_loglogistic(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

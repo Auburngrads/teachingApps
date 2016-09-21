@@ -4,9 +4,11 @@
 \alias{cumhaz_demo}
 \title{Function Title}
 \usage{
-cumhaz_demo(pub = FALSE)
+cumhaz_demo(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

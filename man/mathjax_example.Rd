@@ -4,9 +4,11 @@
 \alias{mathjax_example}
 \title{Function Title}
 \usage{
-mathjax_example(pub = FALSE)
+mathjax_example(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

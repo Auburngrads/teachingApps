@@ -110,7 +110,7 @@ las = 1)"),
 tabPanel(h4("Trellis Plots"),
    sidebarLayout(
       sidebarPanel(
-         checkboxGroupInput(datasets::mtcars,
+         checkboxGroupInput('mtcars',
                             label = h4("mtcars Columns Plotted"), 
                             choices = names(datasets::mtcars), 
                             selected = "mpg")),

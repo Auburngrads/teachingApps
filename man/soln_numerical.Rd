@@ -4,9 +4,11 @@
 \alias{soln_numerical}
 \title{Function Title}
 \usage{
-soln_numerical(pub = FALSE)
+soln_numerical(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

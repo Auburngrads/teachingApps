@@ -4,9 +4,11 @@
 \alias{berkson_interval}
 \title{Function Title}
 \usage{
-berkson_interval(pub = FALSE)
+berkson_interval(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

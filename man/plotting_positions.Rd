@@ -4,9 +4,11 @@
 \alias{plotting_positions}
 \title{Function Title}
 \usage{
-plotting_positions(pub = FALSE)
+plotting_positions(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

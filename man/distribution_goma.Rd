@@ -4,9 +4,11 @@
 \alias{distribution_goma}
 \title{Function Title}
 \usage{
-distribution_goma(pub = FALSE)
+distribution_goma(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

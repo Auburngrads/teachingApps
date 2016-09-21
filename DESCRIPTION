@@ -1,7 +1,7 @@
 Package: teachingApps
 Type: Package
 Title: Collection of Shiny apps I use for teaching
-Version: 1.1
+Version: 1.2
 Date: 2016-09-01
 Author: Jason K. Freels
 Maintainer: Jason K. Freels <auburngrads@live.com>
@@ -10,14 +10,13 @@ License: GPL-2
 LazyData: true
 Depends:  R (>= 3.1.0)
 Imports:  shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
-          utils,knitr,leaflet,threejs,d3heatmap,plotly,htmlwidgets
+          utils,knitr,leaflet,threejs,d3heatmap,plotly,htmlwidgets,dygraphs
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:
     testthat,
     rmarkdown,
-    SMRD,
-    dygraphs
+    SMRD
 Remotes:
     github::timelyportfolio/parcoords,
     github::hrbrmstr/taucharts

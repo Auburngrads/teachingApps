@@ -4,9 +4,11 @@
 \alias{zelen_cap}
 \title{Function Title}
 \usage{
-zelen_cap(pub = FALSE)
+zelen_cap(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

@@ -4,9 +4,11 @@
 \alias{hazard_demo}
 \title{Function Title}
 \usage{
-hazard_demo(pub = FALSE)
+hazard_demo(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

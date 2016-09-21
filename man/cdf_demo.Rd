@@ -4,9 +4,11 @@
 \alias{cdf_demo}
 \title{Function Title}
 \usage{
-cdf_demo(pub = FALSE)
+cdf_demo(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

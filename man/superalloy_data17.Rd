@@ -4,9 +4,11 @@
 \alias{superalloy_data17}
 \title{Function Title}
 \usage{
-superalloy_data17(pub = FALSE)
+superalloy_data17(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

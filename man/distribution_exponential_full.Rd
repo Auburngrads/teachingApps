@@ -4,9 +4,11 @@
 \alias{distribution_exponential_full}
 \title{Function Title}
 \usage{
-distribution_exponential_full(pub = FALSE)
+distribution_exponential_full(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

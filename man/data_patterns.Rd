@@ -4,9 +4,11 @@
 \alias{data_patterns}
 \title{Function Title}
 \usage{
-data_patterns(pub = FALSE)
+data_patterns(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

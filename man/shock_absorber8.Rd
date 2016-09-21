@@ -4,9 +4,11 @@
 \alias{shock_absorber8}
 \title{Function Title}
 \usage{
-shock_absorber8(pub = FALSE)
+shock_absorber8(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

@@ -4,9 +4,11 @@
 \alias{sankey_network}
 \title{Function Title}
 \usage{
-sankey_network(pub = FALSE)
+sankey_network(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

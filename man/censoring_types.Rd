@@ -4,9 +4,11 @@
 \alias{censoring_types}
 \title{Function Title}
 \usage{
-censoring_types(pub = FALSE)
+censoring_types(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

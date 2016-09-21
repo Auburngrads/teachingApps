@@ -4,9 +4,11 @@
 \alias{distribution_igau}
 \title{Function Title}
 \usage{
-distribution_igau(pub = FALSE)
+distribution_igau(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

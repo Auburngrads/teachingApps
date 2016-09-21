@@ -4,9 +4,11 @@
 \alias{example_table}
 \title{Function Title}
 \usage{
-example_table(pub = FALSE)
+example_table(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

@@ -4,9 +4,11 @@
 \alias{probability_plotting}
 \title{Function Title}
 \usage{
-probability_plotting(pub = FALSE)
+probability_plotting(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

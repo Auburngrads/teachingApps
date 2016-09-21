@@ -4,9 +4,11 @@
 \alias{diagram_nonrepairable}
 \title{Function Title}
 \usage{
-diagram_nonrepairable(pub = FALSE)
+diagram_nonrepairable(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

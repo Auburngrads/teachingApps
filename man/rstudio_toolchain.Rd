@@ -4,9 +4,11 @@
 \alias{rstudio_toolchain}
 \title{Function Title}
 \usage{
-rstudio_toolchain(pub = FALSE)
+rstudio_toolchain(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

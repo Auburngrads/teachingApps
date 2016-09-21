@@ -4,9 +4,11 @@
 \alias{distribution_binomial}
 \title{Function Title}
 \usage{
-distribution_binomial(pub = FALSE)
+distribution_binomial(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

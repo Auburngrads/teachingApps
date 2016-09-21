@@ -4,9 +4,11 @@
 \alias{exp_mle}
 \title{Function Title}
 \usage{
-exp_mle(pub = FALSE)
+exp_mle(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

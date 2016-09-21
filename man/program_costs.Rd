@@ -4,9 +4,11 @@
 \alias{program_costs}
 \title{Function Title}
 \usage{
-program_costs(pub = FALSE)
+program_costs(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

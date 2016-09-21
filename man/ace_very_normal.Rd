@@ -4,9 +4,11 @@
 \alias{ace_very_normal}
 \title{Function Title}
 \usage{
-ace_very_normal(pub = FALSE)
+ace_very_normal(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

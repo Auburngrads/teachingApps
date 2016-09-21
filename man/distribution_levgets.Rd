@@ -4,9 +4,11 @@
 \alias{distribution_levgets}
 \title{Function Title}
 \usage{
-distribution_levgets(pub = FALSE)
+distribution_levgets(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

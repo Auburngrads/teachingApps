@@ -4,9 +4,11 @@
 \alias{likelihood_ace}
 \title{Function Title}
 \usage{
-likelihood_ace(pub = FALSE)
+likelihood_ace(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

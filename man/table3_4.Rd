@@ -4,9 +4,11 @@
 \alias{table3_4}
 \title{Function Title}
 \usage{
-table3_4(pub = FALSE)
+table3_4(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

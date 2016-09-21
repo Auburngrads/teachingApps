@@ -4,9 +4,11 @@
 \alias{berkson200_profile}
 \title{Function Title}
 \usage{
-berkson200_profile(pub = FALSE)
+berkson200_profile(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

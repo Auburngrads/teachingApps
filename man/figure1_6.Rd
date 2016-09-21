@@ -4,9 +4,11 @@
 \alias{figure1_6}
 \title{Function Title}
 \usage{
-figure1_6(pub = FALSE)
+figure1_6(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

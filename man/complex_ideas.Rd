@@ -4,9 +4,11 @@
 \alias{complex_ideas}
 \title{Function Title}
 \usage{
-complex_ideas(pub = FALSE)
+complex_ideas(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

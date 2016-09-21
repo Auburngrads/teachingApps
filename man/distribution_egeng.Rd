@@ -4,9 +4,11 @@
 \alias{distribution_egeng}
 \title{Function Title}
 \usage{
-distribution_egeng(pub = FALSE)
+distribution_egeng(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

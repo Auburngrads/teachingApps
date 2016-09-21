@@ -4,9 +4,11 @@
 \alias{lfp1370_data}
 \title{Function Title}
 \usage{
-lfp1370_data(pub = FALSE)
+lfp1370_data(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

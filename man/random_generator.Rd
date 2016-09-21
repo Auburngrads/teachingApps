@@ -4,9 +4,11 @@
 \alias{random_generator}
 \title{Function Title}
 \usage{
-random_generator(pub = FALSE)
+random_generator(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

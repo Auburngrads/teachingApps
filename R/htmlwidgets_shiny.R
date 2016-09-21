@@ -5,9 +5,17 @@
 #' @import shinythemes
 #' @import shinyAce
 #' @import shiny
+#' @import metricsgraphics
+#' @import plotly
+#' @import dygraphs
+#' @import htmlwidgets
+#' @import leaflet
+#' @import d3heatmap
+#' @import threejs
 #'
 #' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
-#'
+#' @param pub Will this app be published? (see details)
+#' 
 #' @details When publishing apps using shinyapps.io or shinyServer, set \code{pub = TRUE} to prevent calls to \code{install.packages}. Calls to \code{install.packages} should not be included within an app and will result in an error.
 #'
 #' @export
@@ -30,7 +38,7 @@ htmlwidgets_shiny <- function(rmd = TRUE, pub = FALSE) {
       
       do.call(library, list(package = 'shiny', character.only = T))
       
-      eval(parse(file = (file(file))))
+      eval(parse(file = file))
       
     } else {
       

@@ -4,9 +4,11 @@
 \alias{shockabsorber_probabilities}
 \title{Function Title}
 \usage{
-shockabsorber_probabilities(pub = FALSE)
+shockabsorber_probabilities(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{

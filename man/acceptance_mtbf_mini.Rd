@@ -4,9 +4,11 @@
 \alias{acceptance_mtbf_mini}
 \title{Function Title}
 \usage{
-acceptance_mtbf_mini(pub = FALSE)
+acceptance_mtbf_mini(rmd = TRUE, pub = FALSE)
 }
 \arguments{
+\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
+
 \item{pub}{Will this app be published? (see details)}
 }
 \description{
