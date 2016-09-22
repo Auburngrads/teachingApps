@@ -10,7 +10,9 @@ License: GPL-2
 LazyData: true
 Depends:  R (>= 3.1.0)
 Imports:  shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
-          utils,knitr,leaflet,threejs,d3heatmap,plotly,htmlwidgets,dygraphs
+          utils,knitr,leaflet,threejs,d3heatmap,plotly,htmlwidgets,dygraphs,
+          networkD3,diagram,DiagrammeR,visNetwork,scales,data.table,miniUI,
+          shinydashboard
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:
@@ -19,5 +21,6 @@ Suggests:
     SMRD
 Remotes:
     github::timelyportfolio/parcoords,
-    github::hrbrmstr/taucharts
+    github::hrbrmstr/taucharts,
+    github::timelyportfolio.codemirrorR
 RoxygenNote: 5.0.1

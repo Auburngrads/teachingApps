@@ -21,7 +21,7 @@ Bleed.Dbase.ld <-     ld.split(Bleed.ld, stress.var.list = "D")
 Bleed.Otherbase.ld <- ld.split(Bleed.ld, stress.var.list = "Other")
   
 shinyApp(options = list(width = '99%', height = '800px'),
-ui = navbarPage(theme = shinythemes::shinytheme('flatly'),
+ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
                try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),

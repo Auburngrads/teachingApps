@@ -12,7 +12,7 @@ library(pos = -1,  package = 'SMRD')
   
 shinyApp(options = list(height = '600px', width = '100%'),
          
-ui = fluidPage(theme = shinythemes::shinytheme('flatly'), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)), 
                try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = T),

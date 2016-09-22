@@ -17,7 +17,7 @@ set.seed(42)   ; set4 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
 
 
 shinyApp(options = list(height = '800px', width = '100%'),
-  ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
+  ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)), 
                   try(includeCSS(system.file('css','my-shiny.css', 
                                              package = 'teachingApps')), silent = TRUE),
                   

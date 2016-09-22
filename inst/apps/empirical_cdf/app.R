@@ -12,7 +12,7 @@
 
 shinyApp(options = list(height = '650px'),
          
-ui = fluidPage(theme = shinythemes::shinytheme('flatly'),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
                try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = T),

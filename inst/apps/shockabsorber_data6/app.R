@@ -19,7 +19,7 @@ ShockAbsorber.ld <- frame.to.ld(SMRD::shockabsorber,
 
 shinyApp(options = list(width = "99%", height = "800px"),
 
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
+ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
                try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),

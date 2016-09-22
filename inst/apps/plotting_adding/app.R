@@ -12,7 +12,7 @@
 
 shinyApp(options = list(height = "800px"),
          
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
+ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = T),
@@ -20,7 +20,8 @@ ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
 tabPanel(h4("Add Text"),
       sidebarLayout( 
         sidebarPanel(
-            shinyAce::aceEditor("textcode", 
+            shinyAce::aceEditor(fontSize = 16,
+                                "textcode", 
                                 mode = "r", 
                                 theme = "github", 
                                 height = "475px", 
@@ -50,7 +51,8 @@ text(x = 10, y = 5,
 tabPanel(h4("Add Equations"),
       sidebarLayout( 
         sidebarPanel(
-            shinyAce::aceEditor("eqncode", 
+            shinyAce::aceEditor(fontSize = 16,
+                                "eqncode", 
                                 mode = "r", 
                                 theme = "github",
                                 height = "475px", 
@@ -77,7 +79,8 @@ expression(pi%~~%frac(22,7)+
 tabPanel(h4("Add Points"),
       sidebarLayout( 
         sidebarPanel(
-            shinyAce::aceEditor("ptcode", 
+            shinyAce::aceEditor(fontSize = 16,
+                                "ptcode", 
                                 mode = "r", 
                                 theme = "github", 
                                 height = "475px", 
@@ -119,7 +122,8 @@ tabPanel(h4("Add Lines"),
 tabPanel(h4("Add A Grid"),
       sidebarLayout( 
         sidebarPanel(
-            shinyAce::aceEditor("gridcode", 
+            shinyAce::aceEditor(fontSize = 16,
+                                "gridcode", 
                                 mode = "r", 
                                 theme = "github", 
                                 height = "475px", 
@@ -150,7 +154,8 @@ grid(10,10)"),
 tabPanel(h4("Add A Legend"),
       sidebarLayout( 
         sidebarPanel(
-            shinyAce::aceEditor("legcode", 
+            shinyAce::aceEditor(fontSize = 16,
+                                "legcode", 
                                 mode = "r", 
                                 theme = "github", 
                                 height = "475px",
@@ -216,7 +221,8 @@ output$lineace <- renderUI({ switch(input$lines,
                            
     'lines1' = {
     
-    shinyAce::aceEditor("linecode", 
+    shinyAce::aceEditor(fontSize = 16,
+                        "linecode", 
                          mode = "r", 
                          theme = "github", 
                          height = "475px", 
@@ -244,7 +250,8 @@ lines(c(10,5), c(14,27),
       
   'lines2' = { 
     
-    shinyAce::aceEditor("abcode1", 
+    shinyAce::aceEditor(fontSize = 16,
+                        "abcode1", 
                         mode = "r", 
                         theme = "github", 
                         height = "475px", 
@@ -272,7 +279,8 @@ abline(a = 10, b = 3,
     
  'lines3' = {
     
-    shinyAce::aceEditor("abcode2", 
+    shinyAce::aceEditor(fontSize = 16,
+                        "abcode2", 
                         mode = "r", 
                         theme = "github", 
                         height = "475px", 

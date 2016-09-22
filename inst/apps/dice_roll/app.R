@@ -11,7 +11,7 @@ library(pos = -1,  package = 'DT')
 
 
 shinyApp(options = list(height = '650px', width = '100%'),
-    ui =fluidPage(theme = shinythemes::shinytheme('flatly'), 
+    ui =fluidPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)), 
                  try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),

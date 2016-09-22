@@ -2,6 +2,8 @@
   
 options('appURL' = 'https://afit.shinyapps.io/')
   
+  .jkf.apps <<- new.env()
+  
 }
 
 #' Custom \code{par} function

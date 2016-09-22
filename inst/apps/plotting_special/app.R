@@ -12,14 +12,15 @@
 
 shinyApp(options = list(height = "800px"),
          
-  ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
+  ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
                   try(includeCSS(system.file('css',
                                              'my-shiny.css', 
                                              package = 'teachingApps')), silent = T),
 tabPanel(h4("Bar Plots"),
    sidebarLayout( 
       sidebarPanel(
-         shinyAce::aceEditor("barcode", 
+         shinyAce::aceEditor(fontSize = 16,
+                             "barcode", 
                              mode = "r", 
                              theme = "github", 
                              height = "475px",

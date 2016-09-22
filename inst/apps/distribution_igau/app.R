@@ -12,7 +12,7 @@ library(pos = -1,  package = 'metricsgraphics')
   
 shinyApp(options = list(height = "700px"),
          
-ui = fluidPage(theme = shinythemes::shinytheme("flatly"),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
                try(includeCSS(system.file('css',
                                           'my-shiny.css',
                                           package = 'teachingApps')), silent = TRUE),

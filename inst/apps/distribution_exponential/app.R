@@ -12,7 +12,7 @@ library(pos = -1,  package = 'metricsgraphics')
   
 shinyApp(options = list(height = "850px"),
          
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
+ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
               try(includeCSS(system.file('css',
                                          'my-shiny.css', 
                                          package = 'teachingApps')), silent = TRUE),

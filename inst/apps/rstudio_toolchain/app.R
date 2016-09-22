@@ -12,7 +12,7 @@ library(pos = -1,  package = 'codemirrorR', repo = 'timelyportfolio')
 
 shinyApp(options = list(height = '800px', width = '100%'),
          
-    ui = navbarPage(theme = shinythemes::shinytheme('flatly'), 
+    ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)), 
                     try(includeCSS(system.file('css',
                                                'my-shiny.css', 
                                                package = 'teachingApps')), silent = T),

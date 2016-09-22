@@ -20,7 +20,7 @@ ZelenCap.ld <- frame.to.ld(SMRD::zelencap,
 
 shinyApp(options = list(width = "100%", height = "800px"),
 
-    ui = navbarPage(theme = shinythemes::shinytheme("flatly"),
+    ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
                     try(includeCSS(system.file('css','my-shiny.css', 
                                                package = 'teachingApps')),  silent = TRUE),
 

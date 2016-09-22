@@ -15,12 +15,13 @@
 #'
 #' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
 #' @param pub Will this app be published? (see details)
-#' 
-#' @details When publishing apps using shinyapps.io or shinyServer, set \code{pub = TRUE} to prevent calls to \code{install.packages}. Calls to \code{install.packages} should not be included within an app and will result in an error.
+#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
+#'  
+#' @details When publishing apps using shinyapps.io or shinyServer, set code{pub = TRUE} to prevent calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 #'
 #' @export
 
-htmlwidgets_shiny <- function(rmd = TRUE, pub = FALSE) {
+htmlwidgets_shiny <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
 
     file <- system.file("apps", "htmlwidgets_shiny", "app.R", package = "teachingApps")
 
@@ -34,6 +35,8 @@ htmlwidgets_shiny <- function(rmd = TRUE, pub = FALSE) {
  teachingApps::getPackage(pub = pub, pkg  = 'htmlwidgets')
  teachingApps::getPackage(pub = pub, pkg  = 'plotly')
 
+    assign('theme', theme, envir = .jkf.apps)
+    
     if(rmd) { 
       
       do.call(library, list(package = 'shiny', character.only = T))

@@ -4,17 +4,19 @@
 \alias{figure3_2}
 \title{Function Title}
 \usage{
-figure3_2(rmd = TRUE, pub = FALSE)
+figure3_2(rmd = TRUE, pub = FALSE, theme = "flatly")
 }
 \arguments{
 \item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
 
 \item{pub}{Will this app be published? (see details)}
+
+\item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
 }
 \description{
 Description
 }
 \details{
-When publishing apps using shinyapps.io or shinyServer, set \code{pub = TRUE} to prevent calls to \code{install.packages}. Calls to \code{install.packages} should not be included within an app and will result in an error.
+When publishing apps using shinyapps.io or shinyServer, set code{pub = TRUE} to prevent calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 }
 
