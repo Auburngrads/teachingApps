@@ -4,7 +4,15 @@
 #'
 #' @import shinythemes
 #' @import shinyAce
-#' @import shiny
+#' @importFrom shiny shinyApp renderPrint renderPlot actionButton h2 h3 h4
+#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div runGadget
+#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout 
+#' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel
+#' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput
+#' @importFrom shiny updateNumericInput strong stopApp browserViewer
+#' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
+#' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
+#' @importFrom shiny observe observeEvent reactiveValues reactive renderText
 #' @importFrom DT dataTableOutput renderDataTable datatable
 #'
 #' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
