@@ -29,7 +29,7 @@ maximum_likelihood <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
 
     teachingApps::getPackage(pub = pub, pkg  = 'scales')
 
-    assign('theme', theme, inherits = T)
+    assign('theme', theme, envir = .jkf.apps, inherits = T)
     
     if(rmd) { 
       
