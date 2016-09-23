@@ -1,4 +1,4 @@
-library(pos = -1,  package = 'diagrammeR')
+library(pos = -1,  package = 'DiagrammeR')
 
 
 
@@ -12,7 +12,7 @@ library(pos = -1,  package = 'diagrammeR')
 
 shinyApp(options = list(width = '100%'),
  
-ui = fluidPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = get('theme')),
                try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = T),
