@@ -5,6 +5,7 @@
 #' @import shinythemes
 #' @import shinyAce
 #' @import shiny
+#' @importFrom DT dataTableOutput renderDataTable datatable
 #'
 #' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
 #' @param pub Will this app be published? (see details)
@@ -19,6 +20,7 @@ at7987_data <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
     file <- system.file("apps", "at7987_data", "app.R", package = "teachingApps")
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
+    teachingApps::getPackage(pub = pub, pkg  = 'DT')
 
     assign('theme', theme, envir = .jkf.apps)
     

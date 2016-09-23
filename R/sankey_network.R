@@ -5,7 +5,8 @@
 #' @import shinythemes
 #' @import shinyAce
 #' @import shiny
-#' @import networkD3
+#' @importFrom  networkD3 sankeyNetworkOutput renderSankeyNetwork
+#' @importFrom d3Network d3Sankey
 #'
 #' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
 #' @param pub Will this app be published? (see details)

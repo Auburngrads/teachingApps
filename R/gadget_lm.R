@@ -5,7 +5,8 @@
 #' @import shinythemes
 #' @import shinyAce
 #' @import shiny
-#' @importFrom DT dataTableOutput renderDataTable datatable
+#' @import miniUI
+#' @importFrom ggplot2 ggplot aes theme_bw geom_point geom_smooth coord_cartesian
 #'
 #' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
 #' @param pub Will this app be published? (see details)
@@ -15,13 +16,13 @@
 #'
 #' @export
 
-bleed_data6 <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
+gadget_lm <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
 
-    file <- system.file("apps", "bleed_data6", "app.R", package = "teachingApps")
+    file <- system.file("apps", "gadget_lm", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
-    teachingApps::getPackage(pub = pub, pkg  = 'DT')
-
+    teachingApps::getPackage(pub = pub, pkg  = 'miniUI')
+    teachingApps::getPackage(pub = pub, pkg  = 'ggplot2')
+    
     assign('theme', theme, envir = .jkf.apps)
     
     if(rmd) { 
@@ -35,5 +36,4 @@ bleed_data6 <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
     shiny::runApp(file)
       
     }
-  
 }

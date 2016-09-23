@@ -7,6 +7,7 @@
 #' @import shiny
 #' @import scales
 #' @import metricsgraphics
+#' @importFrom DT dataTableOutput renderDataTable datatable
 #'
 #' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
 #' @param pub Will this app be published? (see details)
@@ -23,7 +24,7 @@ complex_ideas <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
  teachingApps::getPackage(pub = pub, pkg  = 'scales')
  teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
  teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
-  
+ teachingApps::getPackage(pub = pub, pkg  = 'DT')
 
     assign('theme', theme, envir = .jkf.apps)
     
