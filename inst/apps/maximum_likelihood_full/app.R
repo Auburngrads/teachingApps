@@ -10,10 +10,11 @@ library(pos = -1,  package = 'scales')
 
 
   
+load('args.Rdata')
 shinyApp(options = list(height = "800px"),
          
 ui = navbarPage(windowTitle = 'Maximum Likelihood',
-                theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
+                theme = shinythemes::shinytheme(theme = arg2$theme),
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')),silent = TRUE),

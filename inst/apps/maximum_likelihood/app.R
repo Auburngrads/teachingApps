@@ -8,11 +8,10 @@ library(pos = -1,  package = 'scales')
 
 
 
-
-
+load('args.Rdata')
 shinyApp(options = list( height = "800px"),
          
-ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
+ui = navbarPage(theme = shinythemes::shinytheme(theme = as.character(arg2$theme)),
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')),silent = TRUE),

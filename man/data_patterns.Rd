@@ -4,11 +4,9 @@
 \alias{data_patterns}
 \title{Function Title}
 \usage{
-data_patterns(rmd = TRUE, pub = FALSE, theme = "flatly")
+data_patterns(pub = FALSE, theme = "flatly")
 }
 \arguments{
-\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
-
 \item{pub}{Will this app be published? (see details)}
 
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}

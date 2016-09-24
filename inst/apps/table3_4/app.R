@@ -30,9 +30,10 @@ colnames(Table.3.4) <- c("km",
                          "S(t)",
                          "F(t)")
 
+load('args.Rdata')
 shinyApp(options = list(height = '800px', width = '99%'),
          
- ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)), 
+ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
                  try(includeCSS(system.file('css',
                                             'my-shiny.css', 
                                             package = 'teachingApps')), silent = TRUE),

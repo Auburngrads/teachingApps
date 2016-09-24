@@ -14,7 +14,7 @@
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText
 #'
-#' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
+#'
 #' @param pub Will this app be published? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
 #'  
@@ -22,24 +22,15 @@
 #'
 #' @export
 
-figure6_3 <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
+figure6_3 <- function(pub = FALSE, theme = 'flatly') {
 
     file <- system.file("apps", "figure6_3", "app.R", package = "teachingApps")
 
+    arg2 <- data.frame(theme = as.character(theme))
     
-
-    assign('theme', theme, envir = .jkf.apps)
+    save(list = 'arg2', 
+         file = paste(c(dirname(file),'/args','.Rdata'), collapse = ''))
     
-    if(rmd) { 
-      
-      do.call(library, list(package = 'shiny', character.only = T))
-      
-      eval(parse(file = file))
-      
-    } else {
-      
     shiny::runApp(file)
-      
-    }
   
 }

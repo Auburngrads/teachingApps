@@ -71,7 +71,7 @@ createFun <- function() {
                     "#' @import shinyAce\n",
                     "#' @import shiny\n",
                     "#'\n", 
-                    "#' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)\n",
+                    "#'\n",
                     "#'\n", 
                     "#' @details When publishing apps using shinyapps.io or shinyServer, set \\code{pub = TRUE} to prevent calls to \\code{install.packages}. Calls to \\code{install.packages} should not be included within an app and will result in an error.\n",
                     "#'\n",

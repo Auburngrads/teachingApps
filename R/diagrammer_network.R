@@ -15,7 +15,7 @@
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText
 #' @import DiagrammeR
 #'
-#' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
+#'
 #' @param pub Will this app be published? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
 #'  
@@ -23,7 +23,7 @@
 #'
 #' @export
 
-diagrammer_network <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
+diagrammer_network <- function(pub = FALSE, theme = 'flatly') {
 
     file <- system.file("apps", "diagrammer_network", "app.R", package = "teachingApps")
 
@@ -31,16 +31,9 @@ diagrammer_network <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
 
     assign('theme', theme, inherits = T)
     
-    if(rmd) { 
-      
-      do.call(library, list(package = 'shiny', character.only = T))
-      
-      eval(parse(file = file))
-      
-    } else {
-      
+    save(list = 'arg2', 
+         file = paste(c(dirname(file),'/args','.Rdata'), collapse = ''))
+    
     shiny::runApp(file)
-      
-    }
   
 }

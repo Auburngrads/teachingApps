@@ -16,9 +16,10 @@ superalloy.ld <- frame.to.ld(SMRD::superalloy,
                              x.columns = c(4,5,6),
                              time.units = "Kilocycles")
 
+load('args.Rdata')
 shinyApp(options = list(height = '800px'),
          
-ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)), 
+ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = T),

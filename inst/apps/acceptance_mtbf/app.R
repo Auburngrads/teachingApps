@@ -10,7 +10,7 @@ library(pos = -1,  package = 'plotly')
 
 
 
-ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)), 
+ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = T),

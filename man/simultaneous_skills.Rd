@@ -4,11 +4,9 @@
 \alias{simultaneous_skills}
 \title{Function Title}
 \usage{
-simultaneous_skills(rmd = TRUE, pub = FALSE, theme = "flatly")
+simultaneous_skills(pub = FALSE, theme = "flatly")
 }
 \arguments{
-\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
-
 \item{pub}{Will this app be published? (see details)}
 
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}

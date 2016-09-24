@@ -10,6 +10,7 @@ library(pos = -1,  package = 'shinydashboard')
 
 
 
+load('args.Rdata')
 shinyApp(options = list(height = '800px'),
          
 ui <- dashboardPage(

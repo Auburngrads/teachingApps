@@ -10,6 +10,7 @@ library(pos = -1,  package = 'DiagrammeR')
 
 
 
+load('args.Rdata')
 shinyApp(options = list(width = '100%'),
  
 ui = fluidPage(theme = shinythemes::shinytheme(theme = get('theme')),

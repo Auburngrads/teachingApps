@@ -21,7 +21,7 @@
 #' @import d3heatmap
 #' @import threejs
 #'
-#' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
+#'
 #' @param pub Will this app be published? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
 #'  
@@ -29,7 +29,7 @@
 #'
 #' @export
 
-htmlwidgets_shiny <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
+htmlwidgets_shiny <- function(pub = FALSE, theme = 'flatly') {
 
     file <- system.file("apps", "htmlwidgets_shiny", "app.R", package = "teachingApps")
 
@@ -42,19 +42,11 @@ htmlwidgets_shiny <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
  teachingApps::getPackage(pub = pub, pkg  = 'taucharts', repo = 'hrbrmstr')
  teachingApps::getPackage(pub = pub, pkg  = 'htmlwidgets')
  teachingApps::getPackage(pub = pub, pkg  = 'plotly')
-
-    assign('theme', theme, envir = .jkf.apps)
+arg2 <- data.frame(theme = as.character(theme))
     
-    if(rmd) { 
-      
-      do.call(library, list(package = 'shiny', character.only = T))
-      
-      eval(parse(file = file))
-      
-    } else {
-      
+    save(list = 'arg2', 
+         file = paste(c(dirname(file),'/args','.Rdata'), collapse = ''))
+    
     shiny::runApp(file)
-      
-    }
   
 }

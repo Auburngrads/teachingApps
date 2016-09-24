@@ -17,9 +17,10 @@ HeatExchanger.ld <- frame.to.ld(SMRD::heatexchanger,
                                 data.title = "Heat Exchanger Crack Data",
                                 time.units = "Years")
 
+load('args.Rdata')
 shinyApp(options = list(width = "99%", height = "800px"),
 
-ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
+ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                try(includeCSS(system.file('css',
                                          'my-shiny.css', 
                                          package = 'teachingApps')), silent = TRUE),

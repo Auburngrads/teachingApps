@@ -18,9 +18,10 @@ ZelenCap.ld <- frame.to.ld(SMRD::zelencap,
                            time.units = "Hours", 
                            xlabel = c(expression(C^o), expression("Volts")))
 
+load('args.Rdata')
 shinyApp(options = list(width = "100%", height = "625px"),
 
-ui = navbarPage(theme = shinythemes::shinytheme(theme = get('theme', envir = .jkf.apps)),
+ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),

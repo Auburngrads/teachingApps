@@ -4,11 +4,9 @@
 \alias{shockabsorber_surfaces}
 \title{Function Title}
 \usage{
-shockabsorber_surfaces(rmd = TRUE, pub = FALSE, theme = "flatly")
+shockabsorber_surfaces(pub = FALSE, theme = "flatly")
 }
 \arguments{
-\item{rmd}{Will this app be included in an Rmarkdown document or presentation? (see details)}
-
 \item{pub}{Will this app be published? (see details)}
 
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}

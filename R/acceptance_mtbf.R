@@ -15,7 +15,7 @@
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText
 #' @import plotly
 #'
-#' @param rmd Will this app be included in an Rmarkdown document or presentation? (see details)
+#'
 #' @param pub Will this app be published? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
 #'  
@@ -23,13 +23,12 @@
 #'
 #' @export
 
-acceptance_mtbf <- function(rmd = TRUE, pub = FALSE, theme = 'flatly') {
+acceptance_mtbf <- function(pub = FALSE, theme = 'flatly') {
 
     file <- system.file("apps", "acceptance_mtbf", "app.R", package = "teachingApps")
 
     teachingApps::getPackage(pub = pub, pkg  = 'plotly')
-    
-    assign('theme', theme, envir = .jkf.apps)
+    arg2 <- data.frame(theme = as.character(theme))
     
     if(rmd) { 
       
