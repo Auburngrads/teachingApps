@@ -47,7 +47,7 @@ legend(x = 7, y = 1.5,
         
         mainPanel(plotOutput("exp", height = "600px"), width = 7)),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

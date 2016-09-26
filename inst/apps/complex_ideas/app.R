@@ -186,7 +186,7 @@ tabPanel(h4('Dice Roll'),
                       tabPanel(h4('Probabilities'),
                                plotOutput('diceprobs', height = '550px')))))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

@@ -32,7 +32,7 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
   checkboxInput('ex5_visible', 'Show Example 5', FALSE),
   uiOutput('ex5'),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

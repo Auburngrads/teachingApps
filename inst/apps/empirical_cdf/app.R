@@ -48,7 +48,7 @@ axis(side = 1, at = v, labels = F)"),
         
           mainPanel(plotOutput("output", height = '600px'), width = 7)),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 

@@ -60,7 +60,7 @@ legend('topleft',
         
         mainPanel(plotOutput("lnorm", height = "600px"))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

@@ -41,7 +41,7 @@ shinyApp(options = list(height = '800px', width = '99%'),
       tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock1", height = "80%")),
       tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock2", height = "80%") ),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

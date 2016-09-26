@@ -110,7 +110,7 @@ tabPanel(h4('Code Mirror'),
          
 mainPanel(codemirrorR::codemirrorOutput('mlemirror', height = '600px'), width = 12)),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

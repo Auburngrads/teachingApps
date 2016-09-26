@@ -41,7 +41,7 @@ teachingApp <- function(name) {
     return(paste(c("<ul class='photo-grid'>
 <li>
 <figure>
-<img src='http://www.omicrono.com/wp-content/uploads/2015/08/github-mark.png'> 
+<img src='http://i.imgur.com/5DusfUM.gif'> 
 <figcaption><p>Get the <a target=' ' href='",
                 paste(c(gitURL, gitFile), collapse = '/'),"'>CODE</a> for this app</p></figcaption>
 </figure>

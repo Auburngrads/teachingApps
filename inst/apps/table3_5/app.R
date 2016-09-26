@@ -20,7 +20,7 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                 
     tabPanel(h4('Table 3.5'), DT::dataTableOutput('table5')),
   
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 
