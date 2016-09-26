@@ -46,7 +46,7 @@ mainPanel(width = 12, uiOutput('mleprops', class = 'shiny-text-output'))),
 tabPanel(h4('Video'),
 mainPanel(width = 12, uiOutput('mlevideo', class = 'shiny-text-output'))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

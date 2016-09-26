@@ -325,7 +325,7 @@ iframe{
 }
 
 .photo-grid li {
-	border: 5px solid white;
+	border: 0;
 	display: inline-block;
 	margin: 0;
 	width: 289px;
@@ -344,7 +344,7 @@ iframe{
 }
 
 .photo-grid figure {
-	height: 60px;
+	height: 40px;
 	overflow: hidden;
 	position: relative;
 	width: 289px;
@@ -379,7 +379,7 @@ iframe{
 }
 .photo-grid img {
 	display: block;
-	height: 60px;
+	height: 40px;
 	-webkit-transition: all 300ms;
 	-moz-transition: all 300ms;
 	-o-transition: all 300ms;

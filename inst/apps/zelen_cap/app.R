@@ -122,7 +122,7 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
     
     mainPanel( plotOutput("altplot",height = "565px")))), 
   
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 

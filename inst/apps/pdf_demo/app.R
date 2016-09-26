@@ -42,7 +42,7 @@ curve(dexp(x,rate = 1.7),
         
         mainPanel(plotOutput("plotpdf", height = "600px"))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

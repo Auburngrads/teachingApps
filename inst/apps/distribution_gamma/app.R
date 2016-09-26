@@ -47,7 +47,7 @@ mainPanel(width = 9,
   tabPanel(h4('Cumulative Hazard'),    metricsgraphicsOutput("gammaH",height = "600px")),
   tabPanel(h4('Quantile'),             metricsgraphicsOutput("gammaQ",height = "600px")) ))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

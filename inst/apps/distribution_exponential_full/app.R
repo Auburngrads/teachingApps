@@ -60,7 +60,7 @@ tabPanel(h4('Distribution Functions'),
 tabPanel(h4('Distribution Properties'),
          mainPanel(uiOutput('expprops', class = 'shiny-text-output'), width = 12)),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

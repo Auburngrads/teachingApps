@@ -22,7 +22,7 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = get('theme')),
      sidebarPanel(width = 4),
      mainPanel(grVizOutput('grtest'))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

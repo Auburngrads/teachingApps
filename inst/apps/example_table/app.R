@@ -18,7 +18,7 @@ shinyApp(options = list(height = '550px'),
                                            package = 'teachingApps')), silent = T),
         mainPanel(width = 12, DT::dataTableOutput('amt')),
         
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 

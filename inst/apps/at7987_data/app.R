@@ -67,7 +67,7 @@ mainPanel( plotOutput("cdfplot.at7987", height = '650px'), width = 9))),
 tabPanel(h4('Code Mirror'), 
          mainPanel(codemirrorR::codemirrorOutput('figures', height = '650px'), width = 12)),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

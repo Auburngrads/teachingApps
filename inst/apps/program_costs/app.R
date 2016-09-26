@@ -53,7 +53,7 @@ tabPanel(h4('How To Use This App'),
 
          mainPanel(withMathJax(uiOutput("howtohist", class = 'shiny-text-output'), width = 12))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

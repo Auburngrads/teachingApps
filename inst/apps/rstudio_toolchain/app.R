@@ -73,7 +73,7 @@ tabPanel(h4('Unix'),
   tabPanel(h4(HTML('<blue>5) Install/Configure Git</blue>')),     uiOutput("g_unix", class = 'shiny-text-output')),
   tabPanel(h4(HTML('<brown>6) Create/Link an R-Project</brown>')),   uiOutput("rp_unix", class = 'shiny-text-output'))))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 

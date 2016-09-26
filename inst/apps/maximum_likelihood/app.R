@@ -34,7 +34,7 @@ sidebarLayout(
   
   mainPanel(plotOutput('plotmle', height = '650px'), width = 8))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

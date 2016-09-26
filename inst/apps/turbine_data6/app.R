@@ -65,7 +65,7 @@ tabPanel(h4("CDF Plot"),
     
 mainPanel( plotOutput("cdfplot.turb", height = '650px'), width = 9))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

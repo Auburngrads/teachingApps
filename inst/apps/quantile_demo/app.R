@@ -96,7 +96,7 @@ mtext(side = 1,
         
         mainPanel(plotOutput("plotfig3", height = "600px")))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   

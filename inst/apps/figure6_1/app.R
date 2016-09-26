@@ -54,7 +54,7 @@ box(lwd=1.25)"),
         
         mainPanel(plotOutput("exp", height = "600px"))),
 
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
