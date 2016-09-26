@@ -315,5 +315,118 @@ table.dataTable thead .sorting {
 }
 
 iframe{ 
-  border-width 0px;
+  border-width: 0;
+}
+
+.photo-grid {
+	margin: 1em auto;
+	max-width: 289px;
+	text-align: center;
+}
+
+.photo-grid li {
+	border: 5px solid white;
+	display: inline-block;
+	margin: 0;
+	width: 289px;
+}
+
+.photo-grid img {
+	display: block;
+	height: 40px;
+	max-width: 100%;
+	 position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.photo-grid figure {
+	height: 60px;
+	overflow: hidden;
+	position: relative;
+	width: 289px;
+}
+
+.photo-grid figcaption {
+	background: rgba(0,0,0,0.8);
+	color: white;
+	display: table;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 100;
+	border-radius: 30px;
+}
+
+.photo-grid figcaption p {
+	display: table-cell;
+	font-size: 1.5em;
+	position: relative;
+	top: -40px;
+	width: 289px;
+	vertical-align: middle;
+}
+
+.photo-grid li:hover figcaption {
+	opacity: 1;
+	border-radius: 30px;
+}
+.photo-grid img {
+	display: block;
+	height: 60px;
+	-webkit-transition: all 300ms;
+	-moz-transition: all 300ms;
+	-o-transition: all 300ms;
+	max-width: 289px;
+}
+
+.photo-grid li:hover img {
+	-webkit-transform: scale(2);
+	-o-transform: scale(2);
+	-moz-transform: scale(2);
+	-ms-transform: scale(2);
+	transform: scale(2);
+}
+.photo-grid figcaption p {
+	display: table-cell;
+	font-size: 1.5em;
+	position: relative;
+	top: -40px;
+	width: 289px;
+	-webkit-transition: all 300ms ease-out;
+	-moz-transition: all 300ms ease-out;
+	-o-transition: all 300ms ease-out;
+	vertical-align: middle;
+}
+
+.photo-grid li:hover figcaption p {
+	-moz-transform: translateY(40px);
+	-webkit-transform: translateY(40px);
+	-o-transform: translateY(40px);
+	-ms-transform: translateY(40px);
+	transform: translateY(40px);
+}
+.photo-grid figcaption {
+	background: rgba(0,0,0,0.8);
+	color: white;
+	display: table;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	-webkit-transition: all 300ms;
+	-moz-transition: all 300ms;
+	-o-transition: all 300ms;
+	-webkit-transition-delay: 100ms;
+	-moz-transition-delay: 100ms;
+	-o-transition-delay: 100ms;
+	z-index: 100;
 }

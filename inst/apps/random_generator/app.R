@@ -24,7 +24,7 @@ shinyApp(options = list(height = '800px', width = '100%'),
                   
     tabPanel(h4('PRN Data'), DT::dataTableOutput('prn')),
   
-fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
 
 server = function(input, output, session) {
 

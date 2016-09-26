@@ -20,7 +20,7 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                
       mainPanel(visNetwork::visNetworkOutput('visnet1',height = '600px'),width = 12),
 
-fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
 
 server = function(input, output, session) {
   

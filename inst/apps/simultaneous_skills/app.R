@@ -162,7 +162,7 @@ tabPanel(h4("Plot Annotations"),
     
       mainPanel(plotOutput("axis", height = "600px"), width = 9))),
 
-fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
 
 server = function(input, output, session) {
   

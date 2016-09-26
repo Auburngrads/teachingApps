@@ -9,7 +9,7 @@ library(pos = -1,  package = 'scales')
 
 
 load('args.Rdata')
-shinyApp(options = list( height = "800px"),
+shinyApp(options = list( height = "6vh"),
          
 ui = navbarPage(theme = shinythemes::shinytheme(theme = as.character(arg2$theme)),
                 try(includeCSS(system.file('css',
@@ -34,7 +34,7 @@ sidebarLayout(
   
   mainPanel(plotOutput('plotmle', height = '650px'), width = 8))),
 
-fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
 
 server = function(input, output, session) {
   

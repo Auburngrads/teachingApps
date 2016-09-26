@@ -54,7 +54,7 @@ text(x = c(.16,1.3,2.2),
 
    mainPanel(plotOutput('plotcensor', height = '600px'), width = 7)),
 
-fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
 
 server = function(input, output, session) {
   

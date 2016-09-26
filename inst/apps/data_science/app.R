@@ -27,7 +27,7 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
   tabPanel(h4('Web Development'),         visNetworkOutput("webdev",height = "600px")),
   tabPanel(h4('This Course'),             visNetworkOutput("stat687",height = "600px")))),
 
-fixedPanel(htmlOutput('sign'),bottom = '1%', right = '1%', height = '30px')),
+fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
 
 server = function(input, output, session) {
   

@@ -2,8 +2,6 @@
   
 options('appURL' = 'https://afit.shinyapps.io/')
   
-  .jkf.apps <<- new.env()
-  
 }
 
 #' Custom \code{par} function
@@ -40,8 +38,15 @@ teachingApp <- function(name) {
   gitFile <- paste(c(name,'app.R'), collapse = '/')
   gitURL  <- 'https://github.com/Auburngrads/teachingApps/blob/master/inst/apps'
   
-    return(paste(c("<div style='font-size: 22pt; font-weight: bold;'>Get the <a target=' ' href='",
-                paste(c(gitURL, gitFile), collapse = '/'),"'>CODE</a> for this app</div>"), collapse = ''))
+    return(paste(c("<ul class='photo-grid'>
+<li>
+<figure>
+<img src='http://www.omicrono.com/wp-content/uploads/2015/08/github-mark.png'> 
+<figcaption><p>Get the <a target=' ' href='",
+                paste(c(gitURL, gitFile), collapse = '/'),"'>CODE</a> for this app</p></figcaption>
+</figure>
+</li>
+</ul>"), collapse = ''))
     
 }
 
