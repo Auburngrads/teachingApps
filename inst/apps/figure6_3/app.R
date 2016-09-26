@@ -19,7 +19,9 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                            package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("plots", mode = "r", theme = "github", height = "450px",
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "plots", mode = "r", theme = "github", height = "450px",
                       value = "par(family='serif',font=2,cex=1.75)
 p <- seq(.01,.99,.01)
 meanlog1 <- log(50)

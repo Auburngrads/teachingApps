@@ -20,11 +20,13 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                
      sidebarLayout(
         sidebarPanel(width = 5,
-           shinyAce::aceEditor("fig56plot", 
+           shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "fig56plot", 
                                mode = "r", 
                                theme = "github", 
                                height = "450px", 
-                               fontSize = 15,
+                               
                                value ="
 par(lwd = 2, family = 'serif', las = 1, 
     mgp = c(2.25,0.7, 0), tcl = -0.3, 

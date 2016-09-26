@@ -1,16 +1,5 @@
-
-
-
-
-
-
-
-
-
-
-
-
 load('args.Rdata')
+
 shinyApp(options = list(height = '600px', width = '99%'),
   
 ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
@@ -18,13 +7,15 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
 sidebarLayout(
-  sidebarPanel(
-    shinyAce::aceEditor("plots", 
+  sidebarPanel(width = 5,
+    shinyAce::aceEditor(fontSize = 16, 
+                        wordWrap = T,
+                        outputId = "plots", 
                         mode = "r", 
                         theme = "github", 
                         height = "450px",
                         value = 
-"par(family='serif',font=2, cex=1.5)
+"par(family = 'serif',font = 2, cex = 1.5)
 
 curve(dnorm(x,mean = 4.256432, sd = 0.25), 
       xlim = c(0,10), 
@@ -52,9 +43,9 @@ legend(x = 7, y = 1.5,
        bty = 'n', 
        y.intersp = 0.75)"),
 
-        actionButton("evalplots", h4("Evaluate"))),
+        actionButton("evalplots", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("exp", height = "600px"))),
+        mainPanel(plotOutput("exp", height = "600px"), width = 7)),
 
 fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
 

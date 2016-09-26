@@ -19,11 +19,13 @@ shinyApp(options = list(width = "100%", height = "600px"),
                                             package = 'teachingApps')), silent = TRUE),
        sidebarLayout( 
           sidebarPanel(
-              shinyAce::aceEditor("HAZplot", 
+              shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "HAZplot", 
                                   mode = "r", 
                                   theme = "github", 
                                   height = "450px", 
-                                  fontSize = 15,
+                                  
                                   value = 
 "par(family='serif',mar = c(4,6,2,1))
                 

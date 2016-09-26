@@ -20,11 +20,13 @@ shinyApp(options = list(height = '750px'),
        tabPanel(h4('Numerical Solution'),
         sidebarLayout(
           sidebarPanel(width = 6,
-                       shinyAce::aceEditor("mlexpnum", 
+                       shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "mlexpnum", 
                                            mode = "r", 
                                            theme = "github", 
                                            height = "500px", 
-                                           fontSize = 16,
+                                           
                                            value = 
 "obs <- c(4.2564, 0.5319)
 

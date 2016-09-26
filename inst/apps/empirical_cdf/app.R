@@ -19,10 +19,12 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                           package = 'teachingApps')), silent = T),
       sidebarLayout( 
         sidebarPanel(width = 5,
-            shinyAce::aceEditor("code", 
+            shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "code", 
                                 mode = "r", 
                                 theme = "github", 
-                                fontSize = 15, 
+                                 
                                 height = '500px',
                                 value = 
 "beta <- 2

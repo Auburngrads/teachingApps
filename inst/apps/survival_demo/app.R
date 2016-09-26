@@ -19,11 +19,13 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                            package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("relplot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "relplot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
-                          fontSize = 15,
+                          
                           value = 
 "par(family='serif',mar = c(4,6,2,1))
 

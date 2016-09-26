@@ -23,7 +23,9 @@ tabPanel(h4("Data Set"), DT::dataTableOutput("printedcircuitboard", height = "60
 tabPanel(h4("Figure 1.9"),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig9plot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "fig9plot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px",

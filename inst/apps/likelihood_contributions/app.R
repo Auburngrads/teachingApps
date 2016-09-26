@@ -18,11 +18,13 @@ shinyApp(options = list(height = '600px', width = '99%'),
                                             package = 'teachingApps')), silent = TRUE),
        sidebarLayout(
          sidebarPanel(width = 5,
-          shinyAce::aceEditor("censorplot", 
+          shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "censorplot", 
                               mode = "r", 
                               theme = "github", 
                               height = "450px", 
-                              fontSize = 15,
+                              
                               value = "
 par(family = 'serif', font = 2)
 

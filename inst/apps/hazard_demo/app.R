@@ -20,10 +20,12 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
 tabPanel(h4("Hazard Function Plot"),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("hazplot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "hazplot", 
                           mode = "r", 
                           theme = "github", 
-                          height = "450px", fontSize = 15,
+                          height = "450px", 
                           value = 
 "par(family='serif',mar = c(4,6,2,1))
 
@@ -48,7 +50,9 @@ las = 1)"),
 tabPanel(h4("Bathtub-Shaped Hazard Plot"),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("figbtplot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "figbtplot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px",

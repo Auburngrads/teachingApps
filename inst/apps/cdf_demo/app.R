@@ -19,11 +19,13 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                            package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 4,
-      shinyAce::aceEditor("cdfplot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "cdfplot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
-                          fontSize = 15,
+                          
                           value = 
 "par(family='serif',mar = c(4,6,2,1))
 

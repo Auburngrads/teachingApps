@@ -21,10 +21,12 @@ shinyApp(options = list(height = '800px', width = '99%'),
         tabPanel(h4('Event Plot'),
             sidebarLayout(
             sidebarPanel(
-            shinyAce::aceEditor('lfpeventplot', 
+            shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = 'lfpeventplot', 
                                 mode = 'r', 
                                 theme = 'github', 
-                                fontSize = 14,
+                                
                                 value = 
 "par(family = 'serif', font = 2, cex = 1.15)
 
@@ -45,10 +47,12 @@ event.plot(lfp.ld)"),
         tabPanel(h4('CDF Plot'),
             sidebarLayout(
             sidebarPanel(
-            shinyAce::aceEditor('lfpcdfplot', 
+            shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = 'lfpcdfplot', 
                                 mode = 'r', 
                                 theme = 'github', 
-                                fontSize = 14,
+                                
                                 value = 
 "par(family = 'serif', font = 2, cex = 1.15)
 

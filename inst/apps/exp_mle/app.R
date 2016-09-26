@@ -19,11 +19,13 @@ shinyApp(options = list(height = '600px'),
                                             package = 'teachingApps')), silent = TRUE),
     sidebarLayout(
       sidebarPanel(width = 5,
-        shinyAce::aceEditor("mlexpplot", 
+        shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "mlexpplot", 
                             mode = "r", 
                             theme = "github",
                             height = "450px", 
-                            fontSize = 16,
+                            
                             value = 
 "par(font = 2, mar = c(4,5.5,1,1), family = 'serif', cex = 1.5)
 

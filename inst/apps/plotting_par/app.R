@@ -1,16 +1,5 @@
-
-
-
-
-
-
-
-
-
-
-
-
 load('args.Rdata')
+
 shinyApp(options = list(height = "800px"),
          
   ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
@@ -91,9 +80,10 @@ tabPanel(h4("Plot Window Margins"),
 
 tabPanel(h4("Multiple Curves"), 
    sidebarLayout( 
-      sidebarPanel(
-        shinyAce::aceEditor(fontSize = 16,
-                            "curvescode", 
+      sidebarPanel(width = 5,
+        shinyAce::aceEditor(fontSize = 16, 
+                            wordWrap = T,
+                            outputId = "curvescode", 
                             mode = "r", 
                             theme = "github", 
                             height = "475px",
@@ -111,13 +101,14 @@ points(x2,y2,pch = 16, col = 4)"),
       
   actionButton("curveseval", h2("Evaluate"), width = '100%')),
         
-  mainPanel(plotOutput("curves", height = "550px")))),
+  mainPanel(plotOutput("curves", height = "550px"), width = 7))),
     
 tabPanel(h4("Multiple Plots"),
    sidebarLayout( 
-      sidebarPanel(
-         shinyAce::aceEditor(fontSize = 16,
-                             "plotscode", 
+      sidebarPanel(width = 5,
+         shinyAce::aceEditor(fontSize = 16, 
+                             wordWrap = T,
+                             outputId = "plotscode", 
                              mode = "r", 
                              theme = "github", 
                              height = "475px",
@@ -137,7 +128,7 @@ par(mfrow = c(1,1))"),
 
   actionButton("plotseval", h2("Evaluate"), width = '100%')),
         
-  mainPanel(plotOutput("plots", height = "550px")))),
+  mainPanel(plotOutput("plots", height = "550px"), width = 7))),
   
 fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
 

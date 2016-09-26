@@ -1,16 +1,5 @@
-
-
-
-
-
-
-
-
-
-
-
-
 load('args.Rdata')
+
 shinyApp(options = list(height = "800px"),
          
   ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
@@ -19,9 +8,10 @@ shinyApp(options = list(height = "800px"),
                                              package = 'teachingApps')), silent = T),
 tabPanel(h4("Bar Plots"),
    sidebarLayout( 
-      sidebarPanel(
-         shinyAce::aceEditor(fontSize = 16,
-                             "barcode", 
+      sidebarPanel(width = 5,
+         shinyAce::aceEditor(fontSize = 16, 
+                             wordWrap = T,
+                             outputId = "barcode", 
                              mode = "r", 
                              theme = "github", 
                              height = "475px",
@@ -52,12 +42,14 @@ legend('topleft',
        
   actionButton("bareval", h2("Evaluate"), width = '100%')),
         
-  mainPanel(plotOutput("barplot", height = "550px")))),
+  mainPanel(plotOutput("barplot", height = "550px"), width = 7))),
 
 tabPanel(h4("Pie Charts"),
    sidebarLayout( 
-      sidebarPanel(
-          shinyAce::aceEditor("piecode", 
+      sidebarPanel(width = 5,
+          shinyAce::aceEditor(fontSize = 16, 
+                              wordWrap = T,
+                              outputId = "piecode", 
                               mode = "r", 
                               theme = "github", 
                               height = "475px",
@@ -86,12 +78,14 @@ mtext(side = 1,
               
    actionButton("pieeval", h2("Evaluate"), width = '100%')),
         
-   mainPanel(plotOutput("piechart", height = "550px")))),
+   mainPanel(plotOutput("piechart", height = "550px"), width = 7))),
 
 tabPanel(h4("Box Plots"),
    sidebarLayout( 
-      sidebarPanel(
-         shinyAce::aceEditor("boxcode", 
+      sidebarPanel(width = 5,
+         shinyAce::aceEditor(fontSize = 16, 
+                             wordWrap = T,
+                             outputId = "boxcode", 
                              mode = "r", 
                              theme = "github", 
                              height = "475px",
@@ -107,7 +101,7 @@ las = 1)"),
 
    actionButton("boxeval", h2("Evaluate"), width = '100%')),
         
-   mainPanel(plotOutput("boxplot", height = "550px")))),
+   mainPanel(plotOutput("boxplot", height = "550px"), width = 7))),
 
 tabPanel(h4("Trellis Plots"),
    sidebarLayout(

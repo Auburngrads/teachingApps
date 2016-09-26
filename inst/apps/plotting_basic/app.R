@@ -1,16 +1,5 @@
-
-
-
-
-
-
-
-
-
-
-
-
 load('args.Rdata')
+
 shinyApp(options = list(height = "800px"),
          
 ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
@@ -19,8 +8,10 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                            package = 'teachingApps')), silent = T),
 tabPanel(h4("shinyAce"),
   sidebarLayout( 
-    sidebarPanel(
-      shinyAce::aceEditor("plots", 
+    sidebarPanel(width = 5,
+      shinyAce::aceEditor(fontSize = 16, 
+                          wordWrap = T,
+                          outputId = "plots", 
                           mode = "r", 
                           theme = "github", 
                           height = "475px",
@@ -45,7 +36,7 @@ plot(x, y,
      
      actionButton("evalplots", h2("Evaluate"), width = '100%')),
         
-  mainPanel(plotOutput("plots", height = "550px")))),
+  mainPanel(plotOutput("plots", height = "550px"), width = 7))),
 
 tabPanel(h4("Plot Type"), 
          titlePanel("The default is type = 'p'"),

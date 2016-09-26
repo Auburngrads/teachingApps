@@ -20,7 +20,9 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
 
 sidebarLayout(
   sidebarPanel(width = 5,
-    shinyAce::aceEditor("bleedplot", 
+    shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "bleedplot", 
                         mode = "r", 
                         theme = "github", 
                         height = "450px",

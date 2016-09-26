@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 load('args.Rdata')
 shinyApp(options = list(height = "800px"),
          
@@ -20,9 +8,10 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                 
 tabPanel(h4("Add Text"),
       sidebarLayout( 
-        sidebarPanel(
-            shinyAce::aceEditor(fontSize = 16,
-                                "textcode", 
+        sidebarPanel(width = 5,
+            shinyAce::aceEditor(fontSize = 16, 
+                                wordWrap = T,
+                                outputId = "textcode", 
                                 mode = "r", 
                                 theme = "github", 
                                 height = "475px", 
@@ -47,12 +36,14 @@ text(x = 10, y = 5,
 
     actionButton("texteval", h2("Evaluate"), width = '100%')),
         
-    mainPanel(plotOutput("text", height = "550px")))),
+    mainPanel(plotOutput("text", height = "550px"), width = 7))),
 
 tabPanel(h4("Add Equations"),
       sidebarLayout( 
-        sidebarPanel(
-            shinyAce::aceEditor(fontSize = 16,
+        sidebarPanel(width = 5,
+            shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = 
                                 "eqncode", 
                                 mode = "r", 
                                 theme = "github",
@@ -75,13 +66,14 @@ expression(pi%~~%frac(22,7)+
 
    actionButton("eqneval", h2("Evaluate"), width = '100%')),
         
-   mainPanel(plotOutput("eqn", height = "550px")))),
+   mainPanel(plotOutput("eqn", height = "550px"), width = 7))),
 
 tabPanel(h4("Add Points"),
       sidebarLayout( 
-        sidebarPanel(
-            shinyAce::aceEditor(fontSize = 16,
-                                "ptcode", 
+        sidebarPanel(width = 5,
+            shinyAce::aceEditor(fontSize = 16, 
+                                wordWrap = T,
+                                outputId = "ptcode", 
                                 mode = "r", 
                                 theme = "github", 
                                 height = "475px", 
@@ -104,7 +96,7 @@ points(c(10,5), c(14,27),
        
  actionButton("pteval", h2("Evaluate"), width = '100%')),
         
- mainPanel(plotOutput("point", height = "550px")))),
+ mainPanel(plotOutput("point", height = "550px"), width = 7))),
 
 tabPanel(h4("Add Lines"),
    sidebarLayout( 
@@ -122,9 +114,10 @@ tabPanel(h4("Add Lines"),
 
 tabPanel(h4("Add A Grid"),
       sidebarLayout( 
-        sidebarPanel(
-            shinyAce::aceEditor(fontSize = 16,
-                                "gridcode", 
+        sidebarPanel(width = 5,
+            shinyAce::aceEditor(fontSize = 16, 
+                                wordWrap = T,
+                                outputId = "gridcode", 
                                 mode = "r", 
                                 theme = "github", 
                                 height = "475px", 
@@ -150,13 +143,14 @@ grid(10,10)"),
        
   actionButton("grideval", h2("Evaluate"), width = '100%')),
         
-  mainPanel(plotOutput("grid", height = "550px")))),
+  mainPanel(plotOutput("grid", height = "550px"), width = 7))),
 
 tabPanel(h4("Add A Legend"),
       sidebarLayout( 
-        sidebarPanel(
-            shinyAce::aceEditor(fontSize = 16,
-                                "legcode", 
+        sidebarPanel(width = 5,
+            shinyAce::aceEditor(fontSize = 16, 
+                                wordWrap = T,
+                                outputId = "legcode", 
                                 mode = "r", 
                                 theme = "github", 
                                 height = "475px",
@@ -180,7 +174,7 @@ legend('topright',
 
   actionButton("legeval", h2("Evaluate"), width = '100%')),
         
-  mainPanel(plotOutput("legend", height = "550px")))), 
+  mainPanel(plotOutput("legend", height = "550px"), width = 7))), 
   
 fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px')),
 
@@ -222,7 +216,9 @@ output$lineace <- renderUI({ switch(input$lines,
                            
     'lines1' = {
     
-    shinyAce::aceEditor(fontSize = 16,
+    shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = 
                         "linecode", 
                          mode = "r", 
                          theme = "github", 
@@ -251,7 +247,9 @@ lines(c(10,5), c(14,27),
       
   'lines2' = { 
     
-    shinyAce::aceEditor(fontSize = 16,
+    shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = 
                         "abcode1", 
                         mode = "r", 
                         theme = "github", 
@@ -280,7 +278,9 @@ abline(a = 10, b = 3,
     
  'lines3' = {
     
-    shinyAce::aceEditor(fontSize = 16,
+    shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = 
                         "abcode2", 
                         mode = "r", 
                         theme = "github", 

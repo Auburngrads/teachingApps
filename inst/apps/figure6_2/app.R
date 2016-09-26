@@ -19,7 +19,9 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                           package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("plots", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "plots", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px",

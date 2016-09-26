@@ -22,11 +22,13 @@ tabPanel(h4("Data Set"), DT::dataTableOutput("lzbearing", height = "600px")),
 tabPanel(h4("Figure 1.1"),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig1plot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "fig1plot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
-                          fontSize = 15,
+                          
                           value = "
 library(pos = -1,  package = SMRD)
 par(family='serif', font=2)
@@ -45,11 +47,13 @@ hist(SMRD::lzbearing$mcycles,
 tabPanel(h4("Figure 1.2"),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig2plot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "fig2plot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
-                          fontSize = 15,
+                          
                           value = 
 "library(pos = -1,  package = SMRD)
 par(family='serif', font=2)

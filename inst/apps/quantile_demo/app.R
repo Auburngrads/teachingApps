@@ -20,11 +20,13 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
 tabPanel(h4("Quantile Function Plot"),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("quantplot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "quantplot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
-                          fontSize = 15,
+                          
                           value = 
 "par(family='serif',mar = c(4,6,2,1))
 
@@ -47,7 +49,9 @@ curve(qweibull(x,shape = 1.7, scale = 1),
 tabPanel(h4("Figure 2.3"),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("fig3plot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "fig3plot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px",

@@ -18,11 +18,13 @@ shinyApp(options = list(height = '600px', width = '99%'),
                                            package = 'teachingApps')), silent = TRUE),
        sidebarLayout(
         sidebarPanel(
-        shinyAce::aceEditor("pdflikeplot", 
+        shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "pdflikeplot", 
                             mode = "r", 
                             theme = "github", 
                             height = "450px", 
-                            fontSize = 14,
+                            
                             value =
 "par(mfrow = c(1,2), mar = c(4,4,2,0))
 

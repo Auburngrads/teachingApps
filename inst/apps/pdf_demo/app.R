@@ -17,11 +17,13 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = TRUE),  sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("pdfplot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "pdfplot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
-                          fontSize = 15,
+                          
                           value = 
 "par(family='serif',mar = c(4,6,2,1))
 

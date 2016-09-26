@@ -18,7 +18,9 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                           package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig5plot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "fig5plot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px",
@@ -38,7 +40,7 @@ box(lwd=1.25)\n\n
 mtext(side = 3,
       expression('Figure 2.5 - Graphical interpretation of the relationship between the '*pi[i]*' values and F('*t[i]*')'),
       font = 2,line = 2)"),
-              actionButton("evalfig5", h4("Evaluate"))),
+              actionButton("evalfig5", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotfig5", height = "600px"), width = 7)),
 

@@ -18,11 +18,13 @@ shinyApp(options = list(height = '600px', width = '99%'),
                                             package = 'teachingApps')), silent = TRUE),
        sidebarLayout(
          sidebarPanel(width = 5,
-          shinyAce::aceEditor("likeplot", 
+          shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "likeplot", 
                               mode = "r", 
                               theme = "github", 
                               height = "450px", 
-                              fontSize = 15,
+                              
                               value ="
 par(family = 'serif', mar = c(4,4,1,2))
 curve(dexp(x, rate = 1), 

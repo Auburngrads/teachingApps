@@ -20,11 +20,13 @@ shinyApp(options = list(height = '600px'),
                      
        sidebarLayout(
          sidebarPanel(width = 5,
-                      shinyAce::aceEditor("berkprofile200", 
+                      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "berkprofile200", 
                                           mode = "r", 
                                           theme = "github", 
                                           height = "450px", 
-                                          fontSize = 16,
+                                          
                                           value = 
 "par(family  = 'serif')
 

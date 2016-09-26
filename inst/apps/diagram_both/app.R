@@ -18,11 +18,13 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                          package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("realplot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "realplot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
-                          fontSize = 15,
+                          
                           value = 
 "DiffMat <- matrix(NA, nrow = 4, ncol = 4)
 

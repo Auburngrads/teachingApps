@@ -19,10 +19,12 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                           package = 'teachingApps')), silent = T),
       sidebarLayout( 
         sidebarPanel(width = 5,
-            shinyAce::aceEditor("code", 
+            shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "code", 
                                 mode = "r", 
                                 theme = "github", 
-                                fontSize = 15, 
+                                 
                                 height = '450px',
                                 value = 
 "library(pos = -1,  package = scales)
@@ -51,7 +53,7 @@ polygon(density(w)$x,
         density(w)$y,
         col = alpha('lightblue',0.5))"),
 
-          actionButton("eval", h4("Evaluate"))),
+          actionButton("eval", h4("Evaluate"), width = '100%')),
         
           mainPanel(plotOutput("output", height = '600px'))),
   

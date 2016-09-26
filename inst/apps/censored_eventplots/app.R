@@ -19,7 +19,9 @@ shinyApp(options = list(width = '100%', height = '600px'),
                                            package = 'teachingApps')), silent = TRUE),
     sidebarLayout(
       sidebarPanel(
-      shinyAce::aceEditor("eventplots", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "eventplots", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px",

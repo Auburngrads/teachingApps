@@ -20,7 +20,9 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
 tabPanel(h4("shinyAce"),
   sidebarLayout( 
     sidebarPanel(
-      shinyAce::aceEditor("plots", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "plots", 
                           mode = "r", 
                           theme = "github", 
                           height = "475px",

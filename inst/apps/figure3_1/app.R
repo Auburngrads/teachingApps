@@ -18,7 +18,9 @@ shinyApp(options = list(height = '600px', width = '100%'),
                                               package = 'teachingApps')), silent = TRUE),
     sidebarLayout(
       sidebarPanel(
-        shinyAce::aceEditor("binplot", 
+        shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "binplot", 
                             mode = "r", 
                             theme = "github", 
                             height = "450px",

@@ -19,11 +19,13 @@ shinyApp(options = list(height = '600px', width = '99%'),
                                               package = 'teachingApps')), silent = TRUE),
          sidebarLayout(
            sidebarPanel(width = 4,
-             shinyAce::aceEditor("shockprof", 
+             shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "shockprof", 
                                  mode = "r", 
                                  theme = "github", 
                                  height = "450px", 
-                                 fontSize = 16,
+                                 
                                  value = "
 par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
 

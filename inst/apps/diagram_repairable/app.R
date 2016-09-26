@@ -18,11 +18,13 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                            package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 5,
-      shinyAce::aceEditor("repairplot", 
+      shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "repairplot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
-                          fontSize = 15,
+                          
                           value = 
 "Mat2 <- matrix(NA, nrow = 3, ncol = 3)
 

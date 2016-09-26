@@ -18,11 +18,13 @@ shinyApp(options = list(height = '600px', width = '100%'),
                                               package = 'teachingApps')), silent = TRUE),
     sidebarLayout(
       sidebarPanel(
-        shinyAce::aceEditor("npplot", 
+        shinyAce::aceEditor(fontSize = 16, 
+                                     wordWrap = T,
+                                     outputId = "npplot", 
                             mode = "r", 
                             theme = "github", 
                             height = "475px", 
-                            fontSize = 14,
+                            
                             value = 
 "par(family = 'serif', font = 2, cex = 1.15)
 
