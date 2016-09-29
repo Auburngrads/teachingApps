@@ -11,6 +11,10 @@ body {
 margin: 0 0 0 0;
 }
 
+hr {
+  border-color: #149C82;
+}
+
 h4 {
 
   font-size: 20pt;
@@ -33,7 +37,6 @@ h3 {
   border-bottom-width: thin;
   font-weight: bold;
   font-style: italic;
-  text-transform: capitalize;
 }
 
 

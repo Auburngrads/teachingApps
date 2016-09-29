@@ -18,6 +18,9 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
 
+tabPanel(h4('Background'),
+         mainPanel(uiOutput('example1.8'), class = 'shiny-text-output', width = 12)),
+                
 tabPanel(h4("Data Set"), DT::dataTableOutput("printedcircuitboard", height = "600px")),
                 
 tabPanel(h4("Figure 1.9"),
@@ -53,8 +56,10 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
-  
 
+output$example1.8 <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('background.Rmd')))
+})
 
   output$printedcircuitboard <- DT::renderDataTable({ DT::datatable(SMRD::printedcircuitboard,
                                                        options = list(pageLength = 12)) })

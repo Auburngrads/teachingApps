@@ -17,14 +17,17 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
 
+tabPanel(h4('Background'),
+         mainPanel(uiOutput('example1.2'), class = 'shiny-text-output', width = 12)),
+                
 tabPanel(h4("Data Set"), DT::dataTableOutput("lfp1370", height = "575px")),
                 
 tabPanel(h4('Figure 1.3'),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "fig3plot", 
+                          wordWrap = T,
+                          outputId = "fig3plot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
@@ -42,7 +45,9 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
-
+output$example1.2 <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('background.Rmd')))
+})
 
   output$lfp1370 <- DT::renderDataTable({ DT::datatable(SMRD::lfp1370,
                                                        options = list(pageLength = 12)) })

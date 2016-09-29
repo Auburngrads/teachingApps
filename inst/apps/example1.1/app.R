@@ -16,8 +16,10 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
-
-tabPanel(h4("Data Set"), DT::dataTableOutput("lzbearing", height = "600px")),
+tabPanel(h4('Background'),
+         mainPanel(uiOutput('example1.1'), class = 'shiny-text-output', width = 12)),
+                
+tabPanel(h4("Table 1.1"), DT::dataTableOutput("lzbearing", height = "600px")),
                 
 tabPanel(h4("Figure 1.1"),
   sidebarLayout( 
@@ -74,7 +76,11 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
 
-  output$lzbearing <- DT::renderDataTable({ DT::datatable(SMRD::lzbearing,
+output$example1.1 <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('background.Rmd')))
+})
+  
+output$lzbearing <- DT::renderDataTable({ DT::datatable(SMRD::lzbearing,
                                                        options = list(pageLength = 12)) })
   
 output$plotfig1 <- renderPlot({

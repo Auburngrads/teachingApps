@@ -63,6 +63,7 @@ mainPanel(width = 9,
                    metricsgraphicsOutput("betaH", height = "600px")),
           tabPanel(h4("Quantile"), 
                    metricsgraphicsOutput("betaQ", height = "600px")))))),
+
 tabPanel(h4('Distribution Functions'),
          mainPanel(uiOutput('betafunc'), class = 'shiny-text-output', width = 12)),
 

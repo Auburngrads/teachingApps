@@ -2,15 +2,15 @@
 output: html_document
 ---
 
-<h3>Functional relationships for <script type="math/tex">\;T \sim EXP(\theta,\gamma),\;\;T \in [0,\infty)</script>
-</h3>
+### Functional relationships for <script type='math/tex'>Y \sim LEV(\mu,\sigma),\;\;Y\in(-\infty,\infty)</script>
+
 $$
-\\begin{aligned}
-f(t|\\theta,\\gamma)&=\\frac{1}{\\theta}\\exp\\left(-\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
-F(t|\\theta,\\gamma)&=1-\\exp\\left(\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
-h(t|\\theta,\\gamma)&=\\frac{1}{\\theta}, t>\\gamma\\\\\\\\\
-t_{p}&=\\gamma-\\log(1-p)\\theta\\\\\\\\
-E[T]&=\\gamma+\\theta\\\\\\\\
-Var[T]&=\\theta^2
-\\end{aligned}
+\begin{aligned}
+f(t|\mu,\sigma)&=\frac{1}{\sigma}\phi_{lev}\left(\frac{y-\mu}{\sigma}\right)=\frac{1}{\sigma}e^{\left(-\frac{y-\mu}{\sigma}\right)}e^{-e^{\left(-\frac{y-\mu}{\sigma}\right)}}\\\\\\\\
+F(t|\mu,\sigma)&=\Phi_{lev}\left(\frac{y-\mu}{\sigma}\right)=e^{-e^{\left(-\frac{y-\mu}{\sigma}\right)}}\\\\\\\\
+h(t|\mu,\sigma)&=\frac{\exp\left(-\frac{y-\mu}{\sigma}\right)}{\sigma \left(\exp\left[\exp\left(-\frac{y-\mu}{\sigma}\right)\right]-1\right)}\\\\\\\\
+t_{p}&=\exp\left[\mu+\Phi^{-1}_{sev}(p)\sigma\right]\\\\\\\\
+E[T]&=\mu+\sigma\gamma\\\\\\\\
+Var[T]&=\sigma^2\pi^2/6
+\end{aligned}
 $$
