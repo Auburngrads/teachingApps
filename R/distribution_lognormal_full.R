@@ -13,7 +13,6 @@
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText
-#' @import plotly
 #'
 #'
 #' @param pub Will this app be published? (see details)
@@ -23,22 +22,16 @@
 #'
 #' @export
 
-acceptance_mtbf <- function(pub = FALSE, theme = 'flatly') {
+distribution_lognormal_full <- function(pub = FALSE, theme = 'flatly') {
 
-    file <- system.file("apps", "acceptance_mtbf", "app.R", package = "teachingApps")
+    file <- system.file("apps", "distribution_lognormal_full", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage(pub = pub, pkg  = 'plotly')
-    arg2 <- data.frame(theme = as.character(theme))
+    teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
+arg2 <- data.frame(theme = as.character(theme))
     
-    # if(rmd) { 
-    #   
-    #   do.call(library, list(package = 'shiny', character.only = T))
-    #   
-    #   eval(parse(file = file))
-    #   
-    # } else {
-      
+    save(list = 'arg2', 
+         file = paste(c(dirname(file),'/args','.Rdata'), collapse = ''))
+    
     shiny::runApp(file)
-      
-    #}
+  
 }

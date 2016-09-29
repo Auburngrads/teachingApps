@@ -56,8 +56,6 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
-
-
 t = reactive({ signif(seq(min(input$range.s), max(input$range.s), length = 500), digits = 4)})
 p <- signif(seq(0, 1, length = 500), digits = 4) 
 C <- reactive({ psev(t(), input$mu.sev, input$sig.sev)})

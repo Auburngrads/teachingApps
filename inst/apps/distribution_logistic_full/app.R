@@ -12,10 +12,13 @@ library(pos = -1,  package = 'metricsgraphics')
   
 load('args.Rdata')
 shinyApp(options = list(height = "700px"),
-ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
-               try(includeCSS(system.file('css',
+         
+ui = navbarPage(windowTitle = 'Logistic Distribution', 
+              theme = shinythemes::shinytheme(theme = arg2$theme),
+              try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = TRUE),
+tabPanel(h4('Shiny App'),
 sidebarLayout(
 sidebarPanel(width = 3, 
   hr(),
@@ -43,7 +46,13 @@ mainPanel(width = 9,
   tabPanel(h4('Survival'),               metricsgraphicsOutput("logR",height = "600px")),
   tabPanel(h4('Hazard'),                 metricsgraphicsOutput("logh",height = "600px")),
   tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("logH",height = "600px")),
-  tabPanel(h4('Quantile'),               metricsgraphicsOutput("logQ",height = "600px"))))),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("logQ",height = "600px")))))),
+
+tabPanel(h4('Distribution Functions'),
+         mainPanel(uiOutput('logfunc'), class = 'shiny-text-output', width = 12)),
+
+tabPanel(h4('Distribution Properties'),
+         mainPanel(uiOutput('logprops', class = 'shiny-text-output'), width = 12)),
 
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
@@ -96,4 +105,10 @@ df <- reactive({data.frame(Time = t(),PROB = p, CDF = C(),PDF = P(),REL = R(),ha
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
+
+output$logfunc <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('log-func.Rmd')))
+})
+output$logprops <- renderUI({HTML(includeMarkdown('log-props.Rmd'))
+}) 
 })

@@ -1,0 +1,177 @@
+---
+title: "Untitled"
+author: "Jason K Freels"
+date: "September 25, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<!--
+<style type='text/css'>
+.photo-grid {
+	margin: 1em auto;
+	max-width: 289px;
+	text-align: center;
+	position: absolute;
+	top: 20%;
+	left: 30%;
+}
+
+.photo-grid li {
+	border: 5px solid white;
+	display: inline-block;
+	margin: 0;
+	width: 289px;
+}
+
+.photo-grid img {
+	display: block;
+	height: 60px;
+		background-image: url("http://www.omicrono.com/wp-content/uploads/2015/08/github-mark.png");
+	max-width: 100%;
+	vertical-align: middle;
+	 position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.photo-grid figure {
+	height: 60px;
+	overflow: hidden;
+	position: relative;
+	width: 289px;
+}
+
+.photo-grid figcaption {
+	background: rgba(0,0,0,0.8);
+	color: white;
+	display: table;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 100;
+	border-radius: 30px;
+}
+
+.photo-grid figcaption p {
+	display: table-cell;
+	font-size: 1.5em;
+	position: relative;
+	top: -40px;
+	width: 289px;
+	vertical-align: middle;
+}
+
+.photo-grid li:hover figcaption {
+	opacity: 1;
+	border-radius: 30px;
+}
+.photo-grid img {
+	display: block;
+	height: 60px;
+	-webkit-transition: all 300ms;
+	-moz-transition: all 300ms;
+	transition: all 300ms;
+	max-width: 289px;
+}
+
+.photo-grid li:hover img {
+	-webkit-transform: scale(1.75);
+	-moz-transform: scale(1.75);
+	transform: scale(1.75);
+}
+.photo-grid figcaption p {
+	display: table-cell;
+	font-size: 1.5em;
+	position: relative;
+	top: -40px;
+	width: 289px;
+	-webkit-transition: all 300ms ease-out;
+	-moz-transition: all 300ms ease-out;
+	transition: all 300ms ease-out;
+	vertical-align: middle;
+}
+
+.photo-grid li:hover figcaption p {
+	-moz-transform: translateY(40px);
+	-webkit-transform: translateY(40px);
+	transform: translateY(40px);
+}
+.photo-grid figcaption {
+	background: rgba(0,0,0,0.8);
+	color: white;
+	display: table;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	-webkit-transition: all 300ms;
+	-moz-transition: all 300ms;
+	transition: all 300ms;
+	-webkit-transition-delay: 100ms;
+	-moz-transition-delay: 100ms;
+	transition-delay: 100ms;
+	z-index: 100;
+}
+</style>
+
+## R Markdown
+
+<ul class='photo-grid'>
+<li>
+<figure>
+<figcaption><p>Get the <a><b>CODE</b></a> for this app</p></figcaption>
+</figure>
+</li>
+</ul>
+-->
+
+## Test app
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+```{r}
+#teachingApps::ace_very_normal()
+```
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+<img src='http://i.imgur.com/5DusfUM.gif'>
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+'<h3>Functional relationships for 
+<script type="math/tex">\\;T \\sim EXP(\\theta,\\gamma),\\;\\;T \\in [0,\\infty)</script>
+</h3>
+$$
+\\begin{aligned}
+f(t|\\theta,\\gamma)&=\\frac{1}{\\theta}\\exp\\left(-\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
+F(t|\\theta,\\gamma)&=1-\\exp\\left(\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
+h(t|\\theta,\\gamma)&=\\frac{1}{\\theta}, t>\\gamma\\\\\\\\\
+t_{p}&=\\gamma-\\log(1-p)\\theta\\\\\\\\
+E[T]&=\\gamma+\\theta\\\\\\\\
+Var[T]&=\\theta^2
+\\end{aligned}
+$$'

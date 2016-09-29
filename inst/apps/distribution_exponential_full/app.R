@@ -11,7 +11,7 @@ library(pos = -1,  package = 'metricsgraphics')
 
   
 load('args.Rdata')
-shinyApp(options = list(height = "850px"),
+shinyApp(options = list(height = "800px"),
          
 ui = navbarPage(windowTitle = 'Exponential Distribution', 
                 theme = shinythemes::shinytheme(theme = arg2$theme),
@@ -113,30 +113,8 @@ df <- reactive({data.frame(Time = t(),PROB = p, CDF = C(),PDF = P(),REL = R(),ha
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
 
 output$expfunc <- renderUI({ 
-  withMathJax(HTML('<h3>Functional relationships for 
-<script id="MathJax-Element-31" type="math/tex">\\;T \\sim EXP(\\theta,\\gamma),\\;\\;T \\in [0,\\infty)</script>
-</h3>
-$$
-\\begin{aligned}
-f(t|\\theta,\\gamma)&=\\frac{1}{\\theta}\\exp\\left(-\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
-F(t|\\theta,\\gamma)&=1-\\exp\\left(\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
-h(t|\\theta,\\gamma)&=\\frac{1}{\\theta}, t>\\gamma\\\\\\\\\
-t_{p}&=\\gamma-\\log(1-p)\\theta\\\\\\\\
-E[T]&=\\gamma+\\theta\\\\\\\\
-Var[T]&=\\theta^2
-\\end{aligned}
-$$'))
+  withMathJax(HTML(includeMarkdown('exp-func.Rmd')))
 })
-output$expprops <- renderUI({HTML('<h3>About the Exponential Distribution</h3>
-<ul>
-<li><p>Is the continuous counterpart to the geometric distribution</p></li>
-<li><p>Describes the inter-arrival time durations between events in a homogeneous Poisson process</p></li>
-<li><p>Is used to model the "useful-life" region of the bathtub curve</p></li>
-<li><p>Implies that failures are due to random events or chance</p></li>
-<li><p>Is a "memoryless" distribution</p></li>
-<li><p>Is one of the most commonly used lifetime distributions in reliability analyses</p></li>
-<li><p>Is the simplest distribution used in the analysis of reliability data</p></li>
-<li><p>In real world scenarios, assuming exponentially distributed failure times is rarely valid</p></li>
-</ul>')
+output$expprops <- renderUI({HTML(includeMarkdown('exp-props.Rmd'))
 })
 })

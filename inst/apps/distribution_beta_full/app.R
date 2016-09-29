@@ -1,4 +1,4 @@
-library(pos = -1,  package = "metricsgraphics")
+library(pos = -1,  package = 'metricsgraphics')
 
 
 
@@ -11,12 +11,14 @@ library(pos = -1,  package = "metricsgraphics")
 
   
 load('args.Rdata')
-shinyApp(options = list(height = "700px"), 
+shinyApp(options = list(height = "700px"),
          
-ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
-               try(includeCSS(system.file("css", 
-                                          "my-shiny.css", 
-                                          package = "teachingApps")), silent = TRUE), 
+ui = navbarPage(windowTitle = 'Beta Distribution', 
+              theme = shinythemes::shinytheme(theme = arg2$theme),
+              try(includeCSS(system.file('css',
+                                          'my-shiny.css', 
+                                          package = 'teachingApps')), silent = TRUE),
+tabPanel(h4('Shiny App'),
 sidebarLayout(
   sidebarPanel(width = 3, 
 sliderInput("shape1", 
@@ -60,14 +62,19 @@ mainPanel(width = 9,
           tabPanel(h4("Cumulative Hazard"), 
                    metricsgraphicsOutput("betaH", height = "600px")),
           tabPanel(h4("Quantile"), 
-                   metricsgraphicsOutput("betaQ", height = "600px"))))),
+                   metricsgraphicsOutput("betaQ", height = "600px")))))),
+tabPanel(h4('Distribution Functions'),
+         mainPanel(uiOutput('betafunc'), class = 'shiny-text-output', width = 12)),
+
+tabPanel(h4('Distribution Properties'),
+         mainPanel(uiOutput('betaprops', class = 'shiny-text-output'), width = 12)),
 
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
-
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+
   t <- reactive({ signif(seq(0,1, length.out = 500), digits = 4) + input$loc.beta })
   p <- reactive({ signif(seq(0, 1, length = 500), digits = 4) })
   C <- reactive({ pbeta(t(), input$shape1, input$shape2)})
@@ -122,4 +129,11 @@ server = function(input, output, session) {
           mjs_labs(x_label = "Probability (p)", y_label = "x(p)") %>%
           mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
 })
+
+  
+output$betafunc <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('beta-func.Rmd')))
+})
+output$betaprops <- renderUI({HTML(includeMarkdown('beta-props.Rmd'))
+}) 
 })
