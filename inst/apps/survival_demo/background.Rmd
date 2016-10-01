@@ -16,7 +16,8 @@ $$S(t) \ge 0, \forall t \in \mathbb{R}^{+}$$
 
 - The survival function is non-increasing 
 
-$$\begin{aligned}S(0)&=1\\\\ \displaystyle\lim_{t \to \infty} S(t)&=0\end{aligned}$$
+$$\begin{aligned}S(0)&=1\\\\\\\\
+\displaystyle\lim_{t \to \infty} S(t)&=0\end{aligned}$$
 
 - Alternate names
 
