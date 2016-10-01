@@ -16,7 +16,8 @@ $$F(t) \ge 0, \forall t \in \mathbb{R}^{+}$$
 
 - The CDF is non-decreasing 
 
-$$\begin{aligned}F(0)&=0\\\\\displaystyle \lim_{t \to \infty} F(t)&=1\end{aligned}$$
+$$\begin{aligned}F(0)&=0\\\\\\\\
+\displaystyle \lim_{t \to \infty} F(t)&=1\end{aligned}$$
 
 - Alternate names for the CDF
 
