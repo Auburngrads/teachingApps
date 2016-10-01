@@ -11,24 +11,33 @@
 
 
 load('args.Rdata')
-shinyApp(options = list(height = "700px"),
-ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
+shinyApp(options = list(height = "800px"),
+         
+ui = navbarPage(windowTitle = 'Quantile Function',
+                theme = shinythemes::shinytheme(theme = arg2$theme), 
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
 
+tabPanel(h4('Properties'),
+         mainPanel(uiOutput('quandemo'), class = 'shiny-text-output', width = 12)),
+
+tabPanel(h4('Computing Values in R'),
+         mainPanel(uiOutput('quanr'), class = 'shiny-text-output', width = 12)),
+                
+                
+                
 tabPanel(h4("Quantile Function Plot"),
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "quantplot", 
+                          wordWrap = T,
+                          outputId = "quantplot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
-                          
                           value = 
-"par(family='serif',mar = c(4,6,2,1))
+"par(family = 'serif',mar = c(4,6,2,1))
 
 curve(qweibull(x,shape = 1.7, scale = 1),
       xlab = 'Time, t',
@@ -50,17 +59,17 @@ tabPanel(h4("Figure 2.3"),
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "fig3plot", 
+                          wordWrap = T,
+                          outputId = "fig3plot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px",
                           value = 
-"par(mfrow=c(1,2),family='serif', font=2)
+"par(mfrow = c(1,2),family = 'serif', font = 2)
 
-x <- seq(0,2.4,by=.01)
-y <- pweibull(seq(0,2.4,by=.01), shape=1.7, scale=1)
-z <- dweibull(seq(0,2.4,by=.01), shape=1.7, scale=1)
+x <- seq(0,2.4,by = .01)
+y <- pweibull(seq(0,2.4,by = .01), shape = 1.7, scale = 1)
+z <- dweibull(seq(0,2.4,by = .01), shape = 1.7, scale = 1)
 
 plot(x = x, 
      y = z, 
@@ -102,7 +111,13 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
+output$quandemo <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('background.Rmd')))
+})
 
+output$quanr <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
+})
   
 output$plotquant <- renderPlot({
       input$evalquant

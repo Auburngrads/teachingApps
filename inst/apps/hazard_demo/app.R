@@ -11,26 +11,33 @@
 
 
 load('args.Rdata')
-shinyApp(options = list(height = "700px"),
-ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
+shinyApp(options = list(height = "800px"),
+ui = navbarPage(windowTitle = 'Hazard Demo',
+                theme = shinythemes::shinytheme(theme = arg2$theme), 
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
+
+tabPanel(h4('Properties'),
+         mainPanel(uiOutput('hazdemo'), class = 'shiny-text-output', width = 12)),
+
+tabPanel(h4('Computing Values in R'),
+         mainPanel(uiOutput('hazr'), class = 'shiny-text-output', width = 12)),
 
 tabPanel(h4("Hazard Function Plot"),
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "hazplot", 
+                          wordWrap = T,
+                          outputId = "hazplot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
                           value = 
-"par(family='serif',mar = c(4,6,2,1))
+"par(family = 'serif',mar = c(4,6,2,1))
 
 curve(
-dlnorm(x, meanlog = log(1.25), sdlog = 1)/
+dlnorm(x, meanlog = log(1.25), sdlog = 1/
 (1-plnorm(x, meanlog = log(1.25), sdlog = 1)),
 xlab = 'Time, t',
 ylab = expression(h(t)[Log-Normal]),
@@ -94,7 +101,13 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
+output$hazdemo <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('background.Rmd')))
+})
 
+output$hazr <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
+})
 
 output$plothaz <- renderPlot({
       input$evalhaz

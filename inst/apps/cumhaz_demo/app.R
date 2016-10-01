@@ -11,23 +11,31 @@
 
 
 load('args.Rdata')
-shinyApp(options = list(width = "100%", height = "600px"),
+shinyApp(options = list(width = "100%", height = "800px"),
          
-  ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
-                 try(includeCSS(system.file('css',
-                                            'my-shiny.css', 
-                                            package = 'teachingApps')), silent = TRUE),
-       sidebarLayout( 
-          sidebarPanel(
-              shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "HAZplot", 
-                                  mode = "r", 
-                                  theme = "github", 
-                                  height = "450px", 
-                                  
-                                  value = 
-"par(family='serif',mar = c(4,6,2,1))
+  ui = navbarPage(windowTitle = 'Cumulative Hazard Demo',
+                  theme = shinythemes::shinytheme(theme = arg2$theme), 
+                  try(includeCSS(system.file('css',
+                                             'my-shiny.css', 
+                                             package = 'teachingApps')), silent = TRUE),
+                  
+tabPanel(h4('Properties'),
+         mainPanel(uiOutput('HAZdemo'), class = 'shiny-text-output', width = 12)),
+
+tabPanel(h4('Computing Values in R'),
+         mainPanel(uiOutput('HAZr'), class = 'shiny-text-output', width = 12)),
+
+tabPanel(h4('Shiny App'),                 
+   sidebarLayout( 
+      sidebarPanel(
+          shinyAce::aceEditor(fontSize = 16, 
+                              wordWrap = T,
+                              outputId = "HAZplot", 
+                              mode = "r", 
+                              theme = "github", 
+                              height = "450px", 
+                              value = 
+"par(family = 'serif',mar = c(4,6,2,1))
                 
 curve(
 -log(1-pgamma(x, shape = 3, rate = 1.5)),
@@ -44,14 +52,22 @@ las = 1)"),
                               
         actionButton("evalHAZ", h4("Evaluate"), width = '100%')),
                             
-        mainPanel(plotOutput("plotHAZ", height = "600px"))),
+        mainPanel(plotOutput("plotHAZ", height = "600px")))),
            
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
-             
+
+output$HAZdemo <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('background.Rmd')))
+})
+
+output$HAZr <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
+})
+              
 output$plotHAZ <- renderPlot({
 
   input$evalHAZ
