@@ -12,6 +12,7 @@
 
 load('args.Rdata')
 shinyApp(options = list(height = "800px"),
+         
 ui = navbarPage(windowTitle = 'Hazard Demo',
                 theme = shinythemes::shinytheme(theme = arg2$theme), 
                 try(includeCSS(system.file('css',
@@ -26,7 +27,7 @@ tabPanel(h4('Computing Values in R'),
 
 tabPanel(h4("Hazard Function Plot"),
   sidebarLayout( 
-    sidebarPanel(
+    sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
                           wordWrap = T,
                           outputId = "hazplot", 
@@ -37,7 +38,7 @@ tabPanel(h4("Hazard Function Plot"),
 "par(family = 'serif',mar = c(4,6,2,1))
 
 curve(
-dlnorm(x, meanlog = log(1.25), sdlog = 1/
+dlnorm(x, meanlog = log(1.25), sdlog = 1)/
 (1-plnorm(x, meanlog = log(1.25), sdlog = 1)),
 xlab = 'Time, t',
 ylab = expression(h(t)[Log-Normal]),
@@ -52,21 +53,21 @@ las = 1)"),
 
         actionButton("evalhaz", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plothaz", height = "600px")))),
+        mainPanel(plotOutput("plothaz", height = "600px"), width = 7))),
 
-tabPanel(h4("Bathtub-Shaped Hazard Plot"),
+tabPanel(h4("Bathtub-Shaped Hazard"),
   sidebarLayout( 
-    sidebarPanel(
+    sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "figbtplot", 
+                          wordWrap = T,
+                          outputId = "figbtplot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px",
                           value = 
-"par(family='serif',font=2)
+"par(family = 'serif',font = 2)
 
-NMWPdf<-function(t){
+NMWPdf <- function(t){
 (.071*.595*t^(.595-1)+
 7.015*10^-8*(.016+.197*t)*
 t^(.016-1)*
@@ -85,7 +86,6 @@ segments(x0 = c(18,63),
          y0 = c(0,0),
          x1 = c(18,63),
          y1 = c(.03,.03),lty=2)
-box(lwd=1.25)
 text(x = c(7.5, 40, 75),
      y = rep(.001, 3),
      c('Infant Mortality','Useful Life','Wearout'),

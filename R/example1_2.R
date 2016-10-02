@@ -22,9 +22,9 @@
 #'
 #' @export
 
-example1.5 <- function(pub = FALSE, theme = 'flatly') {
+example1_2 <- function(pub = FALSE, theme = 'flatly') {
 
-    file <- system.file("apps", "example1.5", "app.R", package = "teachingApps")
+    file <- system.file("apps", "example1_2", "app.R", package = "teachingApps")
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
 arg2 <- data.frame(theme = as.character(theme))
