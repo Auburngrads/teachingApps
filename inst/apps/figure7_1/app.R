@@ -66,7 +66,7 @@ table.7.1 <- data.frame(L,U,n.10220,n.2000,n.200,n.20)
 
 colnames(table.7.1) <- c("Lower","Upper","n = 10220","n = 2000","n = 200","n = 20")
 
-DT::datatable(table.7.1, options = list(pageLength = 12))
+DT::datatable(table.7.1, options = list(pageLength = 10))
   
 })
 

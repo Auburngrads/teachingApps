@@ -76,7 +76,7 @@ server = function(input, output, session) {
 
 
 output$table.at7987 <- DT::renderDataTable({ DT::datatable(at7987.ld,
-                                                           options = list(pageLength = 12)) })
+                                                           options = list(pageLength = 10)) })
   
 output$summary.at7987 <- renderPrint({ summary(at7987.ld)                        })
 

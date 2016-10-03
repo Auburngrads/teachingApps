@@ -90,7 +90,7 @@ server = function(input, output, session) {
 
 
 output$table.bleed <- DT::renderDataTable({ DT::datatable(Bleed.ld,
-                                                          options = list(pageLength = 12)) })
+                                                          options = list(pageLength = 10)) })
 
 output$summary.bleed   <- renderPrint({ summary(Bleed.ld)                      })
 output$summary.bleed.d <- renderPrint({ summary(Bleed.Dbase.ld)                })

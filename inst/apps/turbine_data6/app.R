@@ -74,7 +74,7 @@ server = function(input, output, session) {
 
   
 output$table.turb <- DT::renderDataTable({ DT::datatable(Turbine.ld,
-                                                          options = list(pageLength = 12)) })
+                                                          options = list(pageLength = 10)) })
 
 output$summary.turb <- renderPrint({ summary(Turbine.ld)                        })
 

@@ -75,7 +75,7 @@ server = function(input, output, session) {
            
 output$table.heat <- DT::renderDataTable({ 
   
-  DT::datatable(HeatExchanger.ld, options = list(pageLength = 12)) })
+  DT::datatable(HeatExchanger.ld, options = list(pageLength = 10)) })
 
 output$summary.heat <- renderPrint({ 
   

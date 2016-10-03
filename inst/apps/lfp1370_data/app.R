@@ -78,7 +78,7 @@ server = function(input, output, session) {
 
 
   output$lfp1370 <- DT::renderDataTable({DT::datatable(SMRD::lfp1370,
-                                                       options = list(pageLength = 12))})
+                                                       options = list(pageLength = 10))})
 
   output$plotlfpevent <- renderPlot({
       input$evallfpevent

@@ -69,7 +69,7 @@ server = function(input, output, session) {
            
 output$table.shock <- DT::renderDataTable({ 
   
-  DT::datatable(ShockAbsorber.ld, options = list(pageLength = 12)) })
+  DT::datatable(ShockAbsorber.ld, options = list(pageLength = 10)) })
 
 output$summary.shock <- renderPrint({ 
   

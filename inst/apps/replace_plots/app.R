@@ -172,7 +172,7 @@ selectInput("cimle2",
   output$summary2 <- renderPrint({ summary(ZelenCap.ld)                        
 })
   output$table2 <- DT::renderDataTable({ DT::datatable(ZelenCap.ld,options =    
-                                                         list(pageLength = 12)) 
+                                                         list(pageLength = 10)) 
 })
   output$eventplot2 <- renderPlot({ 
   par(family = "serif",font = 2)

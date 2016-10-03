@@ -33,7 +33,7 @@ tabPanel(h4("Figure 1.9"),
                           theme = "github", 
                           height = "450px",
                           value = 
-"par(family= 'serif', font=2)
+"par(family = 'serif', font = 2)
 
 plot(hoursl~rh, 
      data = SMRD::printedcircuitboard,
@@ -42,7 +42,7 @@ plot(hoursl~rh,
 
 text(x = c(50,63,75,82), 
      y = c(7000,6000,1000,350), 
-     labels c('48/70 censored',
+     labels = c('48/70 censored',
               '11/68 censored',
               '0/70 censored',
               '0/70 censored'))"),
@@ -62,7 +62,7 @@ output$example1.8 <- renderUI({
 })
 
   output$printedcircuitboard <- DT::renderDataTable({ DT::datatable(SMRD::printedcircuitboard,
-                                                       options = list(pageLength = 12)) })
+                                                       options = list(pageLength = 10)) })
   
   output$plotfig9 <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(4,4,2,2))
