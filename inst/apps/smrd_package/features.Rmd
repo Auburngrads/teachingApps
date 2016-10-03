@@ -1,0 +1,41 @@
+---
+output: html_document
+---
+
+# Feature of the SMRD package
+
+<hr/>
+
+- The SMRD package was created to estimate various reliability measures for failure data with:
+
+    + Failure times with multiple failure modes
+
+    + Censored failure times (right, left, and interval censoring)
+
+    + Truncated failure times (right, left, and interval truncation)
+
+    + Failure times with explanatory variables (normal, Weibull, and logistic regression)
+
+    + Repeated measures degradation data
+
+    + Repairable system failures (recurring events)
+
+    + Physical degradation
+
+    + Failure times with prior information (Bayesian reliability)
+
+    + Reliability growth test data
+
+    + Reliability test simulations
+
+- _SMRD_ was built for use with Markdown documents and presentations 
+
+    + Allows for a seamless workflow to create papers & presentations incredibly fast 
+    
+    + The package can be used to create high-quality plots with a single line of code 
+
+    + Turn results into $\LaTeX$ tables instantly {with the xtable, stargazer, and pander packages}
+
+    + Easily create interactive content {with the shiny, htmlwidgets, and ggvis packages} 
+
+    + Over 120 data sets have been built into the package, see list `data(package = "SMRD")`

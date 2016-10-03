@@ -1,0 +1,29 @@
+---
+output: html_document
+---
+
+# Background of the SMRD package
+
+<hr/>
+
+- SMRD was originally called SPLIDA (<u>S</u>-<u>P</u>lus <u>LI</u>fe <u>D</u>ata <u>A</u>nalysis)
+
+    + SPLIDA was written in S-Plus by [Dr. Bill Meeker](http://www.public.iastate.edu/~wqmeeker/homepage.html) during his career at Bell Labs and Iowa State University
+
+    + Companion software to text 'Statistical Methods for Reliability Data' by Meeker & Escobar
+
+    + GUI interface - plots and results were difficult to customize
+
+    + The S/S-Plus language is the precursor to R
+
+- Meeker later re-wrote _SPLIDA_ into R and renamed the package _RSplida_
+
+    + Translation was rushed and incomplete
+
+    + Retained many of the 'GUI' limitations of SPLIDA
+
+    + Couldn't be used with RStudio
+    
+    + Not user-friendly
+
+- In 2014, _RSplida_ was completely re-built and updated by Freels and renamed _SMRD_

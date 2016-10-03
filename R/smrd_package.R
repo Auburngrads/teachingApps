@@ -22,9 +22,9 @@
 #'
 #' @export
 
-shockabsorber_quantiles <- function(pub = FALSE, theme = 'flatly') {
+smrd_package <- function(pub = FALSE, theme = 'flatly') {
 
-    file <- system.file("apps", "shockabsorber_quantiles", "app.R", package = "teachingApps")
+    file <- system.file("apps", "smrd_package", "app.R", package = "teachingApps")
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
     
