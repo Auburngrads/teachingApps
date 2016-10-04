@@ -12,24 +12,29 @@ library(pos = -1,  package = 'SMRD')
   
 load('args.Rdata')
 shinyApp(options = list(width = "100%", height = "800px"),
-ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                title = 'Example 1.5',
+                theme = shinythemes::shinytheme(theme = arg2$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(basename(getwd()))),
 
-tabPanel(h4("Data Set"), DT::dataTableOutput("heatexchanger", height = "575px")),
+tabPanel(h4('Background'),
+         mainPanel(uiOutput('example1.5'), class = 'shiny-text-output', width = 12)),
                 
+tabPanel(h4("Data Set"), DT::dataTableOutput("heatexchanger", height = "575px")),
+
+navbarMenu(h4('Figures'), icon = icon('bar-chart-o'),           
 tabPanel(h4("Figure 1.6"),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "fig6plot", 
+                          wordWrap = T,
+                          outputId = "fig6plot", 
                           mode = "r", 
                           theme = "github",
                           height = "450px",
                           value = 
-"par(family='serif',font=2, mar = c(0,0,0,0))
+"par(family = 'serif',font = 2, mar = c(0,0,0,0))
 
 plot(NA, 
      axes = FALSE, 
@@ -93,17 +98,17 @@ arrows(x0 = rep(345,3),
         
         mainPanel(plotOutput("plotfig6", height = "600px"), width = 7))),
                 
-tabPanel(h4("Figure 1.7"), titlePanel("Edit this code and press 'Evaluate' to change the figure"),
+tabPanel(h4("Figure 1.7"),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "fig7plot", 
+                          wordWrap = T,
+                          outputId = "fig7plot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px",
                           value = 
-"par(family='serif',font=2,mar = c(0,0,0,0))
+"par(family = 'serif',font = 2,mar = c(0,0,0,0))
 
 plot(NA,
      axes = FALSE,
@@ -165,16 +170,14 @@ arrows(x0 = rep(345,3),
 
         actionButton("evalfig7", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotfig7", height = "600px"), width = 7))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+        mainPanel(plotOutput("plotfig7", height = "600px"), width = 7))))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
-  
-
-
+  output$example1.5 <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('background.Rmd')))
+})
+   
   output$heatexchanger <- DT::renderDataTable({ DT::datatable(SMRD::heatexchanger,
                                                        options = list(pageLength = 10)) })
   

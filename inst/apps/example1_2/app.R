@@ -12,10 +12,11 @@ library(pos = -1,  package = 'SMRD')
   
 load('args.Rdata')
 shinyApp(options = list(width = "100%", height = "800px"),
-ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                title = 'Example 1.2',
+                theme = shinythemes::shinytheme(theme = arg2$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(basename(getwd()))),
 
 tabPanel(h4('Background'),
          mainPanel(uiOutput('example1.2'), class = 'shiny-text-output', width = 12)),
@@ -37,13 +38,9 @@ tabPanel(h4('Figure 1.3'),
 
         actionButton("evalfig3", h4('Evaluate'), width = '100%')),
         
-        mainPanel(plotOutput("plotfig3", height = "600px"), width = 7))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+        mainPanel(plotOutput("plotfig3", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
 output$example1.2 <- renderUI({ 
   withMathJax(HTML(includeMarkdown('background.Rmd')))
