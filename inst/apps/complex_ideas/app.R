@@ -13,7 +13,7 @@ library(pos = -1,  package = DT)
 load('args.Rdata')
 shinyApp(options = list( height = "800px"),
 ui = navbarPage(collapsible = T, 
-                title = 'Example 1.1',
+                title = 'Complex Ideas',
                 theme = shinythemes::shinytheme(theme = arg2$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
                 footer = HTML(teachingApps::teachingApp(basename(getwd()))),

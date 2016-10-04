@@ -14,7 +14,7 @@ load('args.Rdata')
 shinyApp(options = list(height = '800px', width = '100%'),
          
 ui = navbarPage(collapsible = T, 
-                title = 'Example 1.1',
+                title = 'htmlwidgets',
                 theme = shinythemes::shinytheme(theme = arg2$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
                 footer = HTML(teachingApps::teachingApp(basename(getwd()))),

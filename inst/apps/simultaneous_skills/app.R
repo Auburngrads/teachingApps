@@ -14,7 +14,7 @@ load('args.Rdata')
 shinyApp(options = list(width = "100%", height = "800px"),
          
 ui = navbarPage(collapsible = T, 
-                title = 'Example 1.1',
+                title = 'R Plotting',
                 theme = shinythemes::shinytheme(theme = arg2$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
                 footer = HTML(teachingApps::teachingApp(basename(getwd()))),
@@ -23,15 +23,15 @@ tabPanel(h4("shinyAce"),
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "plots", 
+                          wordWrap = T,
+                          outputId = "plots", 
                           mode = "r", 
                           theme = "github", 
                           height = "475px",
                           value = 
-"par(family='serif', font=2)
+"par(family = 'serif', font = 2)
 
-x<-seq(0,2.4,by=.01)
+x<-seq(0,2.4,by = .01)
 y<-dweibull(seq(0,2.4,by=.01),shape=1.7,scale=1)
 
 plot(x = x, 

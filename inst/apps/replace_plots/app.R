@@ -22,7 +22,7 @@ load('args.Rdata')
 shinyApp(options = list(width = "100%", height = "800px"),
 
 ui = navbarPage(collapsible = T, 
-                title = 'Example 1.1',
+                title = 'Replace Plots',
                 theme = shinythemes::shinytheme(theme = arg2$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
                 footer = HTML(teachingApps::teachingApp(basename(getwd()))),
