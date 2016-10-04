@@ -21,9 +21,11 @@ ZelenCap.ld <- frame.to.ld(SMRD::zelencap,
 load('args.Rdata')
 shinyApp(options = list(width = "100%", height = "800px"),
 
-    ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
-                    try(includeCSS(system.file('css','my-shiny.css', 
-                                               package = 'teachingApps')),  silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                title = 'Example 1.1',
+                theme = shinythemes::shinytheme(theme = arg2$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(basename(getwd()))),
 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table2", height = "650px") ),  
 tabPanel(h4("Data Summary"), verbatimTextOutput("summary2") ), 
@@ -120,13 +122,9 @@ tabPanel(h4("Accelerated Test Plot"),
                           "Frechet"), 
               selected = "Weibull")),  
   
-  mainPanel( plotOutput("altplot", height = "650px"), width = 9))),
+  mainPanel( plotOutput("altplot", height = "650px"), width = 9)))),
            
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
-
 server = function(input, output, session) {
-
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
 
 observe({
   

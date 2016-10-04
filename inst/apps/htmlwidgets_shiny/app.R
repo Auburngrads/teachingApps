@@ -13,10 +13,12 @@ library(pos = 2,  package = 'plotly')
 load('args.Rdata')
 shinyApp(options = list(height = '800px', width = '100%'),
          
-ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = T),
+ui = navbarPage(collapsible = T, 
+                title = 'Example 1.1',
+                theme = shinythemes::shinytheme(theme = arg2$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(basename(getwd()))),
+                
   tabPanel(h4("Dygraph"),
   sidebarLayout(
     sidebarPanel(width = 3,
@@ -85,13 +87,9 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                           max = 500, 
                           step = 5, 
                           value = 90)),
-           mainPanel(plotlyOutput('mtbf', height = '650px'),width = 9))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+           mainPanel(plotlyOutput('mtbf', height = '650px'),width = 9)))),
 
 server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
   predicted <- reactive({
     hw <- HoltWinters(datasets::ldeaths)

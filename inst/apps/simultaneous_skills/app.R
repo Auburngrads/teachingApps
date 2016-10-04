@@ -13,10 +13,12 @@
 load('args.Rdata')
 shinyApp(options = list(width = "100%", height = "800px"),
          
-ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                title = 'Example 1.1',
+                theme = shinythemes::shinytheme(theme = arg2$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(basename(getwd()))),
+                
 tabPanel(h4("shinyAce"),
   sidebarLayout( 
     sidebarPanel(
@@ -162,15 +164,9 @@ tabPanel(h4("Plot Annotations"),
                                   "No Show 'n'"), 
                       selected = "Show 's'")),
     
-      mainPanel(plotOutput("axis", height = "600px"), width = 9))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+      mainPanel(plotOutput("axis", height = "600px"), width = 9)))),
 
 server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
-  
-
   
   output$plots <- renderPlot({
       par(mar = c(4,4,2,2))

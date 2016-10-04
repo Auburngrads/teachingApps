@@ -12,10 +12,11 @@ library(pos = -1,  package = DT)
 
 load('args.Rdata')
 shinyApp(options = list( height = "800px"),
-ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                title = 'Example 1.1',
+                theme = shinythemes::shinytheme(theme = arg2$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(basename(getwd()))),
                 
 tabPanel(h4("Conf. Intervals"),
 sidebarLayout(
@@ -184,13 +185,9 @@ tabPanel(h4('Dice Roll'),
                       tabPanel(h4('Borel Algegra'),
                                plotOutput('diceresults', height = '550px')),
                       tabPanel(h4('Probabilities'),
-                               plotOutput('diceprobs', height = '550px')))))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+                               plotOutput('diceprobs', height = '550px'))))))),
 
 server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
 shapeGamma <- 2
 scaleGamma <- 50
