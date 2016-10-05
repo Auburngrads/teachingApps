@@ -1,5 +1,5 @@
 library(pos = -1,  package = 'leaflet')
-library(pos = -1,  package = 'publicLibs', repo = 'Auburngrads')
+library(pos = -1,  package = 'publicLibs')
 library(pos = -1,  package = 'data.table')
 
 
@@ -13,10 +13,11 @@ library(pos = -1,  package = 'data.table')
 load('args.Rdata')
 shinyApp(options = list(height = '800px', width = '100%'),
 
-    ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme),
-                    try(includeCSS(system.file('css',
-                                               'my-shiny.css',
-                                               package = 'teachingApps')), silent = T),
+ui = navbarPage(collapsible = T, 
+                title = 'Offbase Libraries',
+                theme = shinythemes::shinytheme(theme = arg2$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(basename(getwd()))),
 
 tabPanel(h4('Off-Base Libraries'),
          sidebarLayout(
@@ -36,13 +37,9 @@ tabPanel(h4('Off-Base Libraries'),
 
 tabPanel(h4('About This Tool'),
          
-         mainPanel(uiOutput('aboutlib', height = '600px'), width = 12)),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+         mainPanel(uiOutput('aboutlib', height = '600px'), width = 12))),
 
 server = function(input, output, session) {
-
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
 
 output$libmap <- renderLeaflet({
 

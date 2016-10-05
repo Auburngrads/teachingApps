@@ -173,7 +173,8 @@ if(input$objective>=input$contract) {
 
 p1 <- plot_ly(datas, 
               x = mtbf, 
-              y = accept, 
+              y = accept,
+              type = 'scatter',
               showlegend = T, 
               name = 'Pr(accept)', 
               text = paste(
@@ -183,6 +184,7 @@ p1 <- plot_ly(datas,
 'Total Test Time = ', input$ttt),
               hoverinfo = 'markers+text')
 p2 <- add_trace(p1,
+                type = 'scatter',
                 x = rep(input$thresh,2), 
                 y = c(0,ppois(input$fails, input$ttt/input$thresh)),
                 showlegend = T,
