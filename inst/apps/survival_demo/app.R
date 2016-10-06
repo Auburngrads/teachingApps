@@ -13,11 +13,12 @@
 load('args.Rdata')
 shinyApp(options = list(width = "100%", height = "800px"),
          
-ui = navbarPage(windowTitle = 'Survival Demo',
-                theme = shinythemes::shinytheme(theme = arg2$theme), 
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                            package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                title = 'Survival Function',
+                theme = shinythemes::shinytheme(theme = arg2$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(basename(getwd()))),
+                
 tabPanel(h4('Properties'),
          mainPanel(uiOutput('survdemo'), class = 'shiny-text-output', width = 12)),
 
@@ -51,13 +52,9 @@ las = 1)"),
 
         actionButton("evalrel", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotrel", height = "600px")))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+        mainPanel(plotOutput("plotrel", height = "600px"))))),
 
 server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
 output$survdemo <- renderUI({ 
   withMathJax(HTML(includeMarkdown('background.Rmd')))
