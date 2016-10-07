@@ -25,7 +25,7 @@ tabPanel(h4('Properties'),
 tabPanel(h4('Computing Values in R'),
          mainPanel(uiOutput('quanr'), class = 'shiny-text-output', width = 12)),
                 
-                
+navbarMenu(h4('Plots'), icon = icon('bar-chart-o'),                
                 
 tabPanel(h4("Quantile Function Plot"),
   sidebarLayout( 
@@ -103,7 +103,7 @@ mtext(side = 1,
 
         actionButton("evalfig3", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotfig3", height = "600px"))))),
+        mainPanel(plotOutput("plotfig3", height = "600px")))))),
 
 server = function(input, output, session) {
   

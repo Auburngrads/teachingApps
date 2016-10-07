@@ -6,7 +6,8 @@ output: html_document
 
 <hr/>
 
-- In R, no function exists for $S(t)$, but since $S(t)=1-F(t)$, we can say 
+- - No predefined R function exists for $S(t)$, but we can take advantage of the fact that 
+$$S(t)=1-F(t)$$ 
 
     + For $\;T \sim Weibull(\beta,\theta)$<br>$S(t)=$ `1 - pweibull(q = quantile, shape = shape param, scale = scale param)`
 

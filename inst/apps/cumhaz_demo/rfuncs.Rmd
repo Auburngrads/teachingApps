@@ -6,7 +6,8 @@ output: html_document
 
 <hr/>
 
-- In R, no function exists for $H(t)$, but since $H(t)=-\ln[1-F(t)]$, we can say 
+- No predefined R function exists for $H(t)$, but we can take advantage of the fact that
+$$H(t)=-\ln[1-F(t)]$$ 
 
     + For $\;T \sim Weibull(\beta,\theta)$<br>$H(t)=$ `-log(1 - pweibull(q = quantile, shape = shape param, scale = scale param))`
 

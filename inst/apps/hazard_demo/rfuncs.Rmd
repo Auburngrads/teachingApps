@@ -6,7 +6,8 @@ output: html_document
 
 <hr/>
 
-- In R, no function exists for $h(t)$, but since $h(t)=\frac{f(t)}{S(t)}$, we can say 
+- No predefined R function exists for $h(t)$, but we can take advantage of the fact that 
+$$h(t)=\frac{f(t)}{S(t)}$$
 
     + For $\;T \sim Weibull(\beta,\theta)$<br>$h(t)=$ `dweibull(q, shape, scale)/(1 - pweibull(q, shape, scale))`
 
@@ -17,4 +18,4 @@ output: html_document
     + For $\;T \sim Lognormal(\mu,\sigma)$<br>$h(t)=$ `dlnorm(q, meanlog,sdlog)/(1 - plnorm(q, meanlog, sdlog))`
 
     + For $T \sim Gamma(\kappa,\beta)$<br>$h(t)=$ `dgamma(q, shape, scale)/(1-pgamma(q, shape, scale))`
-    
+

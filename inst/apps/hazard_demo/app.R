@@ -25,6 +25,8 @@ tabPanel(h4('Properties'),
 tabPanel(h4('Computing Values in R'),
          mainPanel(uiOutput('hazr'), class = 'shiny-text-output', width = 12)),
 
+navbarMenu(h4('Plots'), icon = icon('bar-chart-o'), 
+
 tabPanel(h4("Hazard Function Plot"),
   sidebarLayout( 
     sidebarPanel(width = 5,
@@ -93,7 +95,7 @@ text(x = c(7.5, 40, 75),
 
        actionButton("evalfigbt", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotfigbt", height = "600px"))))),
+        mainPanel(plotOutput("plotfigbt", height = "600px"), width = 7))))),
 
 server = function(input, output, session) {
   

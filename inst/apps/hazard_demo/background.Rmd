@@ -23,3 +23,4 @@ $$h(t)=\lim_{\Delta t \to 0} \frac{Pr(t < T \le t+\Delta t|T \ge t)}{\Delta t}$$
     + Useful Life: Systems (people) that survive the early stages of life typically experience a long period in which the probability of failure is relatively low
 
     + Wearout: As systems (people) age the probability of failure begins to increase
+
