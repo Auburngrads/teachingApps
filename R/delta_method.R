@@ -22,13 +22,10 @@
 #'
 #' @export
 
-example3_1 <- function(pub = FALSE, theme = 'flatly') {
+delta_method <- function(pub = FALSE, theme = 'flatly') {
 
-    file <- system.file("apps", "example3_1", "app.R", package = "teachingApps")
+    file <- system.file("apps", "delta_method", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
-    teachingApps::getPackage(pub = pub, pkg  = 'DT')
-    
     arg2 <- data.frame(theme = as.character(theme))
     
     save(list = 'arg2', 

@@ -2,6 +2,10 @@
 output: html_document
 ---
 
+## Figure 3.1
+
+<hr/>
+
 - Figure 3.1 shows censoring events occuring at the end of years 1, 2, and 3
 
 - The nonparametric estimates for $F(t_{i})$ computed using the simple binomial method assume that the number of items at risk does not change after each inspection
@@ -24,4 +28,7 @@ $$\hat{F}(t_{i})=\frac{\#\text{ of failures up to time }t_i}{n}=\frac{\sum_{j=1}
     + The number of failures $d_{j}=1\;\text{(Year 1)},\;3\;\text{(Year 2)},\;5\;\text{(Year 3)}$
 
 - Thus, for the Plant 1 data
-$$\begin{aligned}\hat{F}(1)=1/100\\ \hat{F}(2)=3/100\\ \hat{F}(3)=5/100\\ \end{aligned}$$
+$$\begin{aligned}\hat{F}(1)=1/100\\\\
+\hat{F}(2)=3/100\\\\
+\hat{F}(3)=5/100\\\\
+\end{aligned}$$

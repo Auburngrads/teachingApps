@@ -1,0 +1,105 @@
+---
+output: html_document
+---
+
+## Derivation of Greenwood's Formula
+
+<hr/>
+
+- Greenwood's formula is 
+
+- The text states that using the Delta Method with $\theta=q_j$ and $g(\theta)=S(t_i)$ results in
+$$\displaystyle \hat{S}(t_{i})\approx S(t_i)+ \sum_{j=1}^{i}\frac{\partial S}{\partial q_{j}}\vert_{q_{j}}(\hat{q}_{j}-q_{j})$$
+
+- However, there's not much detail showing how this result was achieved
+
+- The following example walks through the derivation of Equation 3.8
+
+<div class='example'>
+### Example - Derivation of Equation 3.8
+
+## First, We Must Identify The Parameter <red>$\theta$</red>
+
+- Our goal is to find a expression for $\widehat{Var}[\hat{F}(t_i)]$
+    
+    + From Equation 3.6, we see that $\hat{S}(t_i)$ is a function of $\hat{p_j}$
+
+    + Since $\hat{F}(t_{i})=1-\hat{S}(t_{i})$, we know that $Var[\hat{F}(t_{i})]=Var[\hat{S}(t_{i})]$ 
+
+    + Similarly, $\hat{q_j}=1-\hat{p_j}$ and $Var[\hat{q_j}]=Var[\hat{p_j}]$ 
+
+- Therefore, <red>$\theta = p_{j} \;\text{or}\;q_{j}$</red>
+
+## Next, Find The Variance of The Parameter <purple>$Var[\theta]$</purple>
+
+- Since $q_{j}=1-p_{j}$, we know that $Var[q_{j}]=Var[p_{j}]$
+
+- Recall that $\hat{p}=\frac{x}{n}$ where $x$ is the number of observed "successes"
+
+- Also, note that $\hat{p}$ is an unbiased estimator for $p$
+
+$$E[\hat{p}]=E\left[\frac{x}{n}\right]=\frac{E[x]}{n}=\frac{np}{n}=p$$
+
+- Since $\hat{p}$ is an unbiased estimator for $p$,
+
+$$
+\begin{aligned}
+Var[\hat{p}]&=Var[p]\\\\
+&=Var\left[\frac{x}{n}\right]=\frac{1}{n^{2}}Var[x]=\frac{Var[x]}{n^{2}}\\\\\\
+&=\frac{np(1-p)}{n^{2}}=\frac{p(1-p)}{n}\\
+\end{aligned}
+$$
+
+- Therefore, <purple>$Var[p]=\frac{p(1-p)}{n}=\frac{1-q(q)}{n}$</purple>
+
+## Now, What is The Function of the Parameter<blue>$g(\theta)?$</blue>
+
+- From Equation 3.6
+
+$$
+\begin{aligned}
+S(t_{i})&=\prod_{j=1}^{i}[1-p_{j}], i=1,...,m \\
+&=(1-p_{1})(1-p_{2})...(1-p_{i})\\
+&=(q_{1})(q_{2})...(q_{i})
+\end{aligned}
+$$
+
+- Therefore, <blue>$g[p]=\prod_{j=1}^{i}[1-p_{j}]=\prod_{j=1}^{i}[q_{j}], i=1,...,m$</blue> 
+
+## Finally, What is <green>$\frac{\partial g(\theta_{i})}{\partial \theta_{i}}, \;\; i=1,...m$?</green>
+
+- In this case, it's easier to compute the derivatives $\frac{\partial S(t_{i})}{\partial q_{i}}, \;\; i=1,...m$
+
+- We know that $\forall i \in 1,2,...m$
+
+$$
+\begin{aligned}
+\frac{\partial S(t_{i})}{\partial q_{i}}&=\frac{\partial \left( q_{1}q_{2}...q_{i-1}q_{i}\right)}{\partial q_{i}}\\\\\\
+&=q_{1}q_{2}...q_{i-1}\\\\\\
+&=\frac{S(t_{i})}{q_{i}}\\
+\end{aligned}
+$$
+
+- Therefore, <green>$\frac{\partial g(\theta_{i})}{\partial \theta_{i}}, \;\; i=1,...m=\frac{S(t_{i})}{q_{i}}$</green>
+
+## Putting Everything Together
+
+$$
+\begin{aligned}
+Var[S(t_{i})]&=\sum_{j=1}^{i}\left[\frac{\partial S(t_{i})}{\partial q_{j}}\right]^{2}Var(q_{j})\\
+&=\sum_{j=1}^{i}\left[\frac{S(t_{i})}{q_{j}}\right]^{2}\frac{p_{j}(1-p_{j})}{n_{j}}\\
+&=S(t_{i})^{2}\sum_{j=1}^{i}\frac{p_{j}(1-p_{j})}{n_{j}(1-p_{j})^{2}}\\
+&=S(t_{i})^{2}\sum_{j=1}^{i}\frac{p_{j}}{n_{j}(1-p_{j})}\\
+\end{aligned}
+$$
+
+
+# 3.6.2 - Greenwood's formula
+
+Substituting the estimated values into (3.8) gives what is known as Greenwood's formula
+
+$$\displaystyle \widehat{Var}\left[\hat{F}(t_{i})\right]=\widehat{Var}\left[\hat{S}(t_i)\right]=\left[\hat{S}(t_{i})\right]^{2}\sum_{j=1}^{i}\frac{\hat{p}_{j}}{n_{j}(1-\hat{p_{j}})}$$
+
+Greenwood's formula can then be used to estimate the standard error of $\hat{F}(t_{i})$ as
+
+$$\hat{se}_{\hat{F}}=\sqrt{\widehat{Var}[\hat{F}(t_{i})]}$$
