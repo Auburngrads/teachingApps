@@ -15,9 +15,6 @@ $$\displaystyle \hat{S}(t_{i})\approx S(t_i)+ \sum_{j=1}^{i}\frac{\partial S}{\p
 
 - The following example walks through the derivation of Equation 3.8
 
-<div class='example'>
-### Example - Derivation of Equation 3.8
-
 ## First, We Must Identify The Parameter <red>$\theta$</red>
 
 - Our goal is to find a expression for $\widehat{Var}[\hat{F}(t_i)]$
@@ -86,10 +83,10 @@ $$
 
 $$
 \begin{aligned}
-Var[S(t_{i})]&=\sum_{j=1}^{i}\left[\frac{\partial S(t_{i})}{\partial q_{j}}\right]^{2}Var(q_{j})\\
-&=\sum_{j=1}^{i}\left[\frac{S(t_{i})}{q_{j}}\right]^{2}\frac{p_{j}(1-p_{j})}{n_{j}}\\
-&=S(t_{i})^{2}\sum_{j=1}^{i}\frac{p_{j}(1-p_{j})}{n_{j}(1-p_{j})^{2}}\\
-&=S(t_{i})^{2}\sum_{j=1}^{i}\frac{p_{j}}{n_{j}(1-p_{j})}\\
+Var[S(t_{i})]&=\sum_{j=1}^{i}\left[\frac{\partial S(t_{i})}{\partial q_{j}}\right]^{2}Var(q_{j})\\\\
+&=\sum_{j=1}^{i}\left[\frac{S(t_{i})}{q_{j}}\right]^{2}\frac{p_{j}(1-p_{j})}{n_{j}}\\\\
+&=S(t_{i})^{2}\sum_{j=1}^{i}\frac{p_{j}(1-p_{j})}{n_{j}(1-p_{j})^{2}}\\\\
+&=S(t_{i})^{2}\sum_{j=1}^{i}\frac{p_{j}}{n_{j}(1-p_{j})}
 \end{aligned}
 $$
 

@@ -33,6 +33,8 @@ output: html_document
 
 ## The General Delta Method Equation
 
+<hr/>
+
 <small>
 $$ 
 Var\left[g(\hat{\theta})\right]\approx \sum_{i=1}^{r} \left[\frac{\partial g(\mathbf{\theta})}{\partial \theta_{i}}\right]^{2} Var(\hat{\theta_{i}})+\sum_{i=1}^r \mathop{\sum^{r}_{j=1}}_{i\ne j}\left[\frac{\partial g(\mathbf{\theta})}{\partial \theta_{i}}\right]\left[\frac{\partial g(\mathbf{\theta})}{\partial \theta_{j}}\right] Cov(\hat{\theta}_{i}, \hat{\theta}_{j})
