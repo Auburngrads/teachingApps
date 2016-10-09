@@ -5,7 +5,7 @@
 \title{Quickly update the code for a shiny app}
 \usage{
 updateApp(repo = NULL, pkg = repo, lib = .libPaths()[1], app = NULL,
-  open.folder = FALSE, css = FALSE)
+  open.folder = FALSE, css = FALSE, git = NULL)
 }
 \arguments{
 \item{repo}{Name of the directory in which the raw app code is stored}
@@ -19,11 +19,14 @@ updateApp(repo = NULL, pkg = repo, lib = .libPaths()[1], app = NULL,
 \item{open.folder}{If \code{TRUE}, \code{browseURL()} is called to open view the files in the app directory}
 
 \item{css}{Logical variable indicating if the css files should be updated}
+
+\item{git}{Local directory in which git repositories are stored (see details)}
 }
 \description{
 Quickly update the code for a shiny app
 }
 \details{
 This function assumes that the raw app code is in the \code{inst/} directory
+Prior to using this function the default git directory must be established in \code{options} using \code{teachingApps::setGit()}
 }
 

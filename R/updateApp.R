@@ -6,19 +6,30 @@
 #' @param app Name of the app to be updated
 #' @param open.folder If \code{TRUE}, \code{browseURL()} is called to open view the files in the app directory
 #' @param css Logical variable indicating if the css files should be updated
+#' @param git Local directory in which git repositories are stored (see details)
 #' 
-#' @details This function assumes that the raw app code is in the \code{inst/} directory   
+#' @details This function assumes that the raw app code is in the \code{inst/} directory
+#' Prior to using this function the default git directory must be established in \code{options} using \code{teachingApps::setGit()} 
 #' 
 #' @export
 
-updateApp <- function(repo = NULL, pkg = repo, lib = .libPaths()[1], app = NULL, open.folder = FALSE, css = FALSE) {
+updateApp <- function(repo = NULL, pkg = repo, lib = .libPaths()[1], 
+                      app = NULL, open.folder = FALSE, css = FALSE, 
+                      git = NULL) {
   
-  gitRoot <- paste(c('C:/Users/Jason/OneDrive/Work-Stuff/Computer Systems/GitHub/',
-                   package,
-                   '/inst'), 
-                 collapse = '')
+  if(is.null(git)) {
+    
+    if(is.null(getOption('git')$home)) { 
+    
+    stop('git directory must either be specified or set using teachingApps::setGit()')
+    
+    } else { git <- getOption('git')$home 
+    }
+    }
   
-  libRoot <- paste(c(lib,package), collapse = '/')
+  gitRoot <- paste(c(git, repo, '/inst'), collapse = '')
+  
+  libRoot <- paste(c(lib, pkg), collapse = '/')
 
   if(!is.null(app)) {
     
@@ -38,7 +49,6 @@ updateApp <- function(repo = NULL, pkg = repo, lib = .libPaths()[1], app = NULL,
 }
 }
 }
-
     if(css) {
     
     cssFiles <- list.files(path = paste(c(gitRoot, 'css'), collapse = '/'))
