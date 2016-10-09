@@ -2,9 +2,7 @@
 output: html_document
 ---
 
-# Integrated Circuit Life Test
-
-<hr/>
+### Integrated Circuit Life Test
 
 - Motivation for the study
 

@@ -2,9 +2,7 @@
 output: html_document
 ---
 
-# Feature of the SMRD package
-
-<hr/>
+### Features of the SMRD package
 
 - The SMRD package was created to estimate various reliability measures for failure data with:
 

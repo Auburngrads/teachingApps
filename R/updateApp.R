@@ -2,13 +2,14 @@
 #'
 #' @param package Name of the package in which the app is stored
 #' @param app Name of the app
+#' @param open.folder If \code{TRUE}, \code{browseURL()} is called to open view the files in the app directory
 #' @param css Logical variable indicating if the css files should be updated
 #' 
 #' @details This function assumes that the raw app code is in the \code{inst/} directory   
 #' 
 #' @export
 
-updateApp <- function(package = NULL, app = NULL, css = FALSE) {
+updateApp <- function(package = NULL, app = NULL, open.folder = FALSE, css = FALSE) {
   
   gitRoot <- paste(c('C:/Users/Jason/OneDrive/Work-Stuff/Computer Systems/GitHub/',
                    package,
@@ -19,13 +20,20 @@ updateApp <- function(package = NULL, app = NULL, css = FALSE) {
 
   if(!is.null(app)) {
     
-    appFiles <- list.files(path = paste(c(gitRoot, 'apps',app), collapse = '/'))
+    appRoot <- paste(c(gitRoot, 'apps',app), collapse = '/')
+    
+    appFiles <- list.files(path = appRoot)
+    
+    if(open.folder) { browseURL(appRoot)
+      
+    } else {
     
     for(i in 1:length(appFiles)) {
       
     file.copy(from = paste(c(gitRoot, 'apps', app, appFiles[i]), collapse = '/'), 
               to   = paste(c(libRoot, 'apps', app, appFiles[i]), collapse = '/'),
               overwrite = T) 
+}
 }
 }
 

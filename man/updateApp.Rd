@@ -4,12 +4,14 @@
 \alias{updateApp}
 \title{Quickly update the code for a shiny app}
 \usage{
-updateApp(package = NULL, app = NULL, css = FALSE)
+updateApp(package = NULL, app = NULL, open.folder = FALSE, css = FALSE)
 }
 \arguments{
 \item{package}{Name of the package in which the app is stored}
 
 \item{app}{Name of the app}
+
+\item{open.folder}{If \code{TRUE}, \code{browseURL()} is called to open view the files in the app directory}
 
 \item{css}{Logical variable indicating if the css files should be updated}
 }

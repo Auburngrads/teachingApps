@@ -2,9 +2,7 @@
 output: html_document
 ---
 
-# Heat Exchanger Tube Crack Data
-
-<hr/>
+### Heat Exchanger Tube Crack Data
 
 - Motivation for the study
 

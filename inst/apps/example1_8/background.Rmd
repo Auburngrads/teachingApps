@@ -2,9 +2,7 @@
 output: html_document
 ---
 
-# Printed Circuit Board ALT Data
-
-<hr/>
+### Printed Circuit Board ALT Data
 
 - Motivation for the study
 
