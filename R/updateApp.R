@@ -1,7 +1,9 @@
 #' Quickly update the code for a shiny app
 #'
-#' @param package Name of the package in which the app is stored
-#' @param app Name of the app
+#' @param repo Name of the directory in which the raw app code is stored
+#' @param pkg Name of the package in which the updates are to be made.  Defaults to \code{repo}.
+#' @param lib Package library directory where \code{pkg} is stored. Defaults to \code{.libPaths()[1]}
+#' @param app Name of the app to be updated
 #' @param open.folder If \code{TRUE}, \code{browseURL()} is called to open view the files in the app directory
 #' @param css Logical variable indicating if the css files should be updated
 #' 
@@ -9,14 +11,14 @@
 #' 
 #' @export
 
-updateApp <- function(package = NULL, app = NULL, open.folder = FALSE, css = FALSE) {
+updateApp <- function(repo = NULL, pkg = repo, lib = .libPaths()[1], app = NULL, open.folder = FALSE, css = FALSE) {
   
   gitRoot <- paste(c('C:/Users/Jason/OneDrive/Work-Stuff/Computer Systems/GitHub/',
                    package,
                    '/inst'), 
                  collapse = '')
   
-  libRoot <- paste(c(.libPaths()[1],package), collapse = '/')
+  libRoot <- paste(c(lib,package), collapse = '/')
 
   if(!is.null(app)) {
     
