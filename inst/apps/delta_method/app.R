@@ -12,7 +12,8 @@ library(package = 'SMRD')
   
 load('args.Rdata')
 shinyApp(options = list(width = "100%", height = "800px"), 
-ui = navbarPage(collapsible = T, 
+ui = navbarPage(position = 'fixed-top',
+                collapsible = T, 
                 title = 'The Delta Method',
                 theme = shinythemes::shinytheme(theme = arg2$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),

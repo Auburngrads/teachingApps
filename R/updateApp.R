@@ -26,9 +26,8 @@ updateApp <- function(package = NULL, app = NULL, css = FALSE) {
     file.copy(from = paste(c(gitRoot, 'apps', app, appFiles[i]), collapse = '/'), 
               to   = paste(c(libRoot, 'apps', app, appFiles[i]), collapse = '/'),
               overwrite = T) 
-      
-    }
-  }
+}
+}
 
     if(css) {
     
@@ -39,8 +38,6 @@ updateApp <- function(package = NULL, app = NULL, css = FALSE) {
     file.copy(from = paste(c(gitRoot, 'css', cssFiles[i]), collapse = '/'), 
               to   = paste(c(libRoot, 'css', cssFiles[i]), collapse = '/'),
               overwrite = T) 
-      
-    }    
-    
+}    
 }  
 }

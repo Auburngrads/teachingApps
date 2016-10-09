@@ -1,62 +1,67 @@
 .navbar-static-top {
-
-border-radius: 100px;
-width: 99%;
-margin: 15px 0.5% 15px 0.5%;
-
+  border-radius: 100px;
+  width: 99%;
+  margin: 15px 0.5% 15px 0.5%;
 }
 
-.navbar-static-top .container {
+.navbar-static-top .container { width: 95%; }
 
-width: 95%;
-
+.navbar-fixed-top {
+  border-radius: 100px;
+  width: 99%;
+  margin: 0 0.5% 30px 0.5%;
 }
+
+.navbar-fixed-top .container { width: 95%; }
+
+.container-fluid { margin-top: 90px; }
 
 .navbar-brand {
-  
   margin-left: auto !important;
   margin-right: 2em;
   font-size: 20pt;
   font-weight: normal;
   font-style: italic;
   display: inline !important;
-  
 }
 
-body {
-
-margin: 0 0 0 0;
-}
+body { margin: 0 0 0 0; }
 
 hr {
-  border-color: #149C82;
+  display: block;
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: 2px;
+  border: none;
+  background-color: #149C82;
 }
 
 h4 {
-
   font-size: 20pt;
   font-weight: bold;
   display: inline !important;
-
 }
 
 h3 {
-  padding: 0 0.5em 10px 0.5em;
-  margin:  0;
-  width: 100%;
-  display: block;
+  padding: 0 0.5em 5px 10px;
+  margin: 0 auto 0.75em auto;
+  width: 99%;
+  display: block; 
   font-size: 32pt;
   line-height: 1.3em;
-  border-color: #149C82;
-  border-style: solid;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  border-bottom-width: thin;
   font-weight: bold;
   font-style: italic;
+  text-transform: capitalize;
 }
 
+h3:after {
+    content:' ';
+    display: block;
+    border: 1pt solid #149C82;
+}
 
 red    {  color: red;     font-weight: bold; }
 blue   {  color: blue;    font-weight: bold; }
@@ -99,11 +104,9 @@ pre {
 }
 
 .shiny-text-output {
-
   font-weight: bold;
   font-size: 20pt;
   color: #2C3E50;
-
 }
 
 focus  {  background-color: #F39C12;
@@ -451,3 +454,98 @@ iframe{
 	-o-transition-delay: 100ms;
 	z-index: 100;
 }
+
+/*
+ul { list-style-type: square; margin: 0.5em 1.5em 0.5em 1.5em;}
+ul ul { list-style-type: disc; margin: 0.25em 1.0em 0.25em 1.0em;}
+ul ul ul { list-style-type: circle; }
+ul ul ul ul { list-style-type: disc; }
+li { margin-left: 1.5em; margin-top: 50px; font-size:28pt;}
+li li { font-size: 24pt; margin-top: .5em; }
+li li li { font-size: 20pt; font-style: normal }
+
+
+ol { list-style-type: decimal; margin: 0.5em 1.5em 0.5em 1.5em;}
+ol ol { list-style-type: decimal; margin: 0.25em 1.0em 0.25em 1.0em;}
+ol ul ol { list-style-type: decimal; }
+ol ol ol ol { list-style-type: decimal; }
+li { margin-left: 1.5em; margin-top: 50px; font-size:28pt;}
+li li { font-size: 24pt; margin-top: .5em; }
+li li li { font-size: 20pt; font-style: normal; }
+
+ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
+
+ul {
+  margin: 0.5em 1.5em 0.5em 1.75em;
+  padding: 0 0 0 0;
+  font-weight: normal;
+  color: #2C3E50;
+  text-shadow: none;
+  font-size: 20pt;
+}
+
+ol {
+  margin: 0.5em 1.5em 0.5em 1.75em;
+  padding: 0;
+  font-weight: normal;
+  color: #2C3E50;
+  text-shadow: none;
+  font-size: 20pt;
+}
+
+ul { list-style-type: square; }
+ul ul { list-style-type: disc; }
+ul ul ul { list-style-type: circle; }
+ul ul ul ul { list-style-type: disc; }
+
+
+ul li { 
+  list-style: square;
+  margin: 1em 0 1.5em 1em;
+  padding: 0 0 0 1em;
+  line-height: 140%;
+}
+
+ol li { 
+  margin: 1em 0 1.5em 1em;
+  padding: 0 0 0 1em;
+  line-height: 140%;
+  list-style-type: decimal;
+}
+
+li ul li { 
+  font-size: 24pt;
+  font-style: normal;
+  list-style-type: disc;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+}
+
+li li li ul li {
+  list-style-type: disc;
+  background: transparent;
+  padding: 0 0 0 0;
+}
+
+li ol li {
+  list-style-type: decimal;
+  font-size: 24pt;
+  font-style: normal;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+}
+
+ol li ul li { margin-left: -0.4em; }
+ul li ol li { margin-left: -0.4em; }
+li li ol li { list-style-type: decimal; }
+*/
+
+small    { font-size: 90% }
+smaller  { font-size: 80% }
+smallest { font-size: 70% }
+
+big     { font-size: 110% }
+bigger  { font-size: 120% }
+biggest { font-size: 130% }

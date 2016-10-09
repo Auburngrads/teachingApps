@@ -2,9 +2,7 @@
 output: html_document
 ---
 
-# Liebling & Zelen - Ball Bearing Fatigue Test
-
-<hr/>
+### Liebling & Zelen - Ball Bearing Fatigue Test
 
 - Motivation for the study
 

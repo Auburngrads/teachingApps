@@ -2,23 +2,23 @@
 output: html_document
 ---
 
-## Understanding the Delta Method
-
-<hr/>
+### Understanding the Delta Method
 
 - Suppose we know the variance of some estimator  $\mathbf{\hat{\theta}}=\hat{\theta}_{1},...,\hat{\theta}_{r}$
 
 - But, we want to find the variance of some other estimator which is a function of $\mathbf{\theta}$, say $g(\mathbf{\hat{\theta}})$
 
-- Examples 
+- Example functions 
 
     + $g(\mathbf{\hat{\theta}})=\log[\theta]$
 
     + $g(\mathbf{\hat{\theta}})=\theta^2$
 
-- If we can find $\frac{dg(\theta)}{d\theta}$, the Delta Method can help us estimate $\widehat{Var}[g(\mathbf{\hat{\theta}})]$ from $\widehat{Var}[\mathbf{\hat{\theta}}]$ 
+- The Delta Method can help us estimate $\widehat{Var}[g(\mathbf{\hat{\theta}})]$ from $\widehat{Var}[\mathbf{\hat{\theta}}]$ if we can find
 
-## The Delta Method Requires Us To Find/Compute 4 Things
+$$\frac{dg(\theta)}{d\theta}$$
+
+### The Delta Method Requires Us To Find/Compute 4 Things
 
 <hr/>
 

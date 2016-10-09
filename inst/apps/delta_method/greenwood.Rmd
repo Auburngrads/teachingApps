@@ -2,9 +2,7 @@
 output: html_document
 ---
 
-## Derivation of Greenwood's Formula
-
-<hr/>
+### Derivation of Greenwood's Formula
 
 - Greenwood's formula is 
 
