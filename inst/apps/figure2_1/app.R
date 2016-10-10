@@ -1,4 +1,4 @@
-library(pos = -1,  package = 'SMRD')
+library(package = 'SMRD')
 
 
 
@@ -18,27 +18,26 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
-    sidebarPanel(
+    sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "fig1plot", 
+                          wordWrap = T,
+                          outputId = "fig1plot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px",
-                         value = 
-"par(family='serif',font=2)
+                          value = 
+"par(family = 'serif',font = 2)
 
-library(pos = -1,  package = SMRD)
+library(package = SMRD)
 
 distribution.plot('Weibull',
-shape=c(1.7), ## Change this value or add more
-scale=c(1),   ## Change this value or add more
-prob.range=c(.000001,.99),
-my.title='')"),
+                  shape = c(1.7), 
+                  scale = 1,
+                  prob.range=c(.000001,.99))"),
 
         actionButton("evalfig1", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotfig1", height = "600px"))),
+        mainPanel(plotOutput("plotfig1", height = "600px"), width = 7)),
 
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
@@ -46,8 +45,6 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
-
-
 output$plotfig1 <- renderPlot({
       input$evalfig1
       return(isolate(eval(parse(text=input$fig1plot))))
