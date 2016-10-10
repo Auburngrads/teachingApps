@@ -1,6 +1,6 @@
 .onLoad <- function(libname, pkgname) {
   
-options('appURL' = 'https://afit.shinyapps.io/')
+# options('appURL' = 'https://afit.shinyapps.io/')
   
 }
 

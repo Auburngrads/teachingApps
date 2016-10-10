@@ -6,7 +6,7 @@
 
 setGit <- function(home) {
   
-  options <- getOption('git')
+  options <- getOption('gitHome')
   
   if (missing(home)) { stop('Required variable "home" missing')
     

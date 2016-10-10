@@ -20,15 +20,15 @@ updateApp <- function(repo = NULL, pkg = repo, lib = .libPaths()[1],
   
   if(is.null(git)) {
     
-    if(is.null(getOption('git')$home)) { 
+    if(is.null(getOption('gitHome'))) { 
     
     stop('git directory must either be specified or set using teachingApps::setGit()')
     
-    } else { git <- getOption('git')$home 
+    } else { git <- getOption('gitHome') 
     }
     }
   
-  gitRoot <- paste(c(git, repo, '/inst'), collapse = '')
+  gitRoot <- paste(c(git, repo, 'inst'), collapse = '/')
   
   libRoot <- paste(c(lib, pkg), collapse = '/')
 

@@ -9,12 +9,12 @@
 .navbar-fixed-top {
   border-radius: 100px;
   width: 99%;
-  margin: 0 0.5% 30px 0.5%;
+  margin: 2em 0.5% 30px 0.5% !important;
 }
 
 .navbar-fixed-top .container { width: 95%; }
 
-.container-fluid { margin-top: 90px; }
+.container-fluid { margin-top: 120px; }
 
 .navbar-brand {
   margin-left: auto !important;
@@ -339,6 +339,7 @@ table.dataTable thead .sorting {
 
 iframe{ 
   border-width: 0;
+  padding-top: 80px;
 }
 
 .photo-grid {
