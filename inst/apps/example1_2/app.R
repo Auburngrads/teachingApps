@@ -22,7 +22,9 @@ ui = navbarPage(position = 'fixed-top',
 tabPanel(h4('Background'),
          mainPanel(uiOutput('example1.2'), class = 'shiny-text-output', width = 12)),
                 
-tabPanel(h4("Data Set"), DT::dataTableOutput("lfp1370", height = "575px")),
+tabPanel(h4("Data Set"),
+         titlePanel(HTML('SMRD data object: <code>lfp1370</code>')),
+         DT::dataTableOutput("lfp1370", height = "575px")),
                 
 tabPanel(h4('Figure 1.3'),
   sidebarLayout( 

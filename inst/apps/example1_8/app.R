@@ -23,7 +23,9 @@ ui = navbarPage(position = 'fixed-top',
 tabPanel(h4('Background'),
          mainPanel(uiOutput('example1.8'), class = 'shiny-text-output', width = 12)),
                 
-tabPanel(h4("Data Set"), DT::dataTableOutput("printedcircuitboard", height = "600px")),
+tabPanel(h4("Data Set"), 
+         titlePanel(HTML('SMRD data object: <code>printedcircuitboard</code>')),
+         DT::dataTableOutput("printedcircuitboard", height = "600px")),
                 
 tabPanel(h4("Figure 1.9"),
   sidebarLayout( 

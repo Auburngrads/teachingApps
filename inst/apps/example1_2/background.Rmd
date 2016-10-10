@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-### Integrated Circuit Life Test
+### Example 1.2 - Integrated Circuit Life Test (Meeker, 1987)
 
 - Motivation for the study
 

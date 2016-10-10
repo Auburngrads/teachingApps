@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-### Heat Exchanger Tube Crack Data
+### Example 1.5 - Heat Exchanger Tube Crack Data (Meeker & Escobar, 1996)
 
 - Motivation for the study
 

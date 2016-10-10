@@ -14,7 +14,7 @@ load('args.Rdata')
 shinyApp(options = list(width = "100%", height = "800px"), 
 ui = navbarPage(position = 'fixed-top',
                 collapsible = T, 
-                title = 'The SMRD Package',
+                title = 'R Package SMRD',
                 theme = shinythemes::shinytheme(theme = arg2$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
                 footer = HTML(teachingApps::teachingApp(basename(getwd()))),

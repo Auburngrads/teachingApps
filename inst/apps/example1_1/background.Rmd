@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-### Liebling & Zelen - Ball Bearing Fatigue Test
+### Example 1.1 - Ball Bearing Fatigue Test (Liebling & Zelen, 1956)
 
 - Motivation for the study
 
@@ -10,7 +10,7 @@ output: html_document
 
     - Applying higher levels of stress further reduces the fatigue life of the ball bearings    
 
-    - There is disagreement within the industry on the appropriate parameter values to use to model the affect of applied stress on fatigue life 
+    - There was disagreement within the industry on the appropriate parameter values to use to model the affect of applied stress on fatigue life 
 
 - Study objectives
 

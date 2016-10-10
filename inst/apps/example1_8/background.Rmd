@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-### Printed Circuit Board ALT Data
+### Example 1.8 - Printed Circuit Board ALT Data (Meeker & LuValle, 1995)
 
 - Motivation for the study
 

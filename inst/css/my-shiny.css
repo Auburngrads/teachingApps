@@ -9,12 +9,12 @@
 .navbar-fixed-top {
   border-radius: 100px;
   width: 99%;
-  margin: 2em 0.5% 30px 0.5% !important;
+  margin: 0 0.5% 30px 0.5% !important;
 }
 
 .navbar-fixed-top .container { width: 95%; }
 
-.container-fluid { margin-top: 120px; }
+.container-fluid { margin-top: 90px; }
 
 .navbar-brand {
   margin-left: auto !important;
@@ -54,12 +54,14 @@ h3 {
   line-height: 1.3em;
   font-weight: bold;
   font-style: italic;
+  font-family: "lucida","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 h3:after {
     content:' ';
     display: block;
     border: 1pt solid #149C82;
+    margin-top: 10px;
 }
 
 red    {  color: red;     font-weight: bold; }
@@ -106,6 +108,7 @@ pre {
   font-weight: bold;
   font-size: 20pt;
   color: #2C3E50;
+  font-family: "lucida","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 
 focus  {  background-color: #F39C12;

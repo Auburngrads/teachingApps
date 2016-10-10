@@ -22,7 +22,9 @@ ui = navbarPage(position = 'fixed-top',
 tabPanel(h4('Background'),
          mainPanel(uiOutput('example1.1'), class = 'shiny-text-output', width = 12)),
                 
-tabPanel(h4("Table 1.1"), DT::dataTableOutput("lzbearing", height = "600px")),
+tabPanel(h4("Table 1.1"), 
+         titlePanel(HTML('SMRD data object: <code>lzbearing</code>')),
+         DT::dataTableOutput("lzbearing", height = "600px")),
 
 navbarMenu(h4('Figures'), icon = icon('bar-chart-o'),       
 tabPanel(h4("Figure 1.1"),

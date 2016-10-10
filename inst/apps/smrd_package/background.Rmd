@@ -2,31 +2,35 @@
 output: html_document
 ---
 
-### Background of the SMRD package
+### Package Background
 
-- _SMRD_ derived from a software package called _SPLIDA_ (<u>S</u>-<u>P</u>lus <u>LI</u>fe <u>D</u>ata <u>A</u>nalysis)
+- _SMRD_ was derived from an <a target=' ' href='http://stat.ethz.ch/~www/SandR.html'>S-Plus</a> software package called <a target=' ' href='http://www.public.iastate.edu/~splida/'>SPLIDA</a> (<u>S</u>-<u>P</u>lus <u>LI</u>fe <u>D</u>ata <u>A</u>nalysis) by [Dr. Bill Meeker](http://www.public.iastate.edu/~wqmeeker/homepage.html)
 
-    + _SPLIDA_ was written in S-Plus by [Dr. Bill Meeker](http://www.public.iastate.edu/~wqmeeker/homepage.html) during his career at Bell Labs and Iowa State University
+    + Dr Meeker wrote a large collection of FORTRAN subroutines to during his career at Bell Labs and Iowa State University 
 
-    + Companion software to text 'Statistical Methods for Reliability Data' by Meeker & Escobar
+    + With the help of Dr. Luis Escobar, Dr. Meeker created the _SPLIDA_ package by porting the FORTRAN code to S-Plus
+
+    + The _SPLIDA_ package serves as the companion software for <a target=' 'href='https://www.amazon.com/Statistical-Methods-Reliability-William-Meeker/dp/0471143286'>Statistical Methods for Reliability Data</a> 1^st ed.
 
     + GUI interface - plots and results were difficult to customize
 
-    + The S/S-Plus language is the precursor to R
+- Meeker later translated _SPLIDA_ into R and renamed the package _RSplida_
 
-- Meeker later re-wrote _SPLIDA_ into R and renamed the package _RSplida_
+    + R is an updated implementation of S/S-Plus language
 
-    + Translation was rushed and incomplete
+    + Translation was rushed and incomplete - couldn't be installed as a traditional R package 
 
     + Retained many of the 'GUI' limitations of _SPLIDA_
 
-    + Couldn't be used with RStudio
+    + Couldn't be used any IDE (i.e. RStudio, Eclipse, etc.)
     
     + Not user-friendly
 
-- In 2014, _RSplida_ was completely re-built and updated by Freels and renamed _SMRD_
+- In 2014, Freels began updating _RSplida_ as an R package
 
-    + _SMRD_ will be published to the CRAN in 2017 along with the 2^nd edition of the Meeker and Escobar text. 
+    + Initially named _meekR_, then renamed _SMRD_
+
+    + _SMRD_ will be published to the CRAN in 2017 along with the 2^nd edition of Statistical Methods for Reliability Data 
 
     + Installing _SMRD_ requires the installation of two dependencies `plot3D` and `FSA`
 

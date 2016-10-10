@@ -22,7 +22,9 @@ ui = navbarPage(position = 'fixed-top',
 tabPanel(h4('Background'),
          mainPanel(uiOutput('example1.5'), class = 'shiny-text-output', width = 12)),
                 
-tabPanel(h4("Data Set"), DT::dataTableOutput("heatexchanger", height = "575px")),
+tabPanel(h4("Data Set"), 
+         titlePanel(HTML('SMRD data object: <code>heatexchanger</code>')),
+         DT::dataTableOutput("heatexchanger", height = "575px")),
 
 navbarMenu(h4('Figures'), icon = icon('bar-chart-o'),           
 tabPanel(h4("Figure 1.6"),
