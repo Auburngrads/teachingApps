@@ -4,7 +4,7 @@ output: html_document
 
 ### Features of the SMRD package
 
-- The SMRD package was created to estimate various reliability measures for failure data with:
+- _SMRD_ was created to estimate various reliability measures for failure data with:
 
     + Failure times with multiple failure modes
 
@@ -32,8 +32,8 @@ output: html_document
     
     + The package can be used to create high-quality plots with a single line of code 
 
-    + Turn results into $\LaTeX$ tables instantly {with the xtable, stargazer, and pander packages}
+    + Turn results into $\LaTeX$ tables instantly (with the <a target=' ' href='https://cran.r-project.org/web/packages/xtable/index.html'>xtable</a>, <a target=' ' href='https://cran.r-project.org/web/packages/stargazer/index.html'>stargazer</a>, and <a target=' ' href='https://cran.r-project.org/web/packages/pander/index.html'>pander</a> packages)
 
-    + Easily create interactive content {with the shiny, htmlwidgets, and ggvis packages} 
+    + Easily create interactive content (with the <a target=' ' href='https://cran.r-project.org/web/packages/shiny/index.html'>shiny</a>, <a target=' ' href='https://cran.r-project.org/web/packages/htmlwidgets/index.html'>htmlwidgets<a/>, and <a target=' ' href='https://cran.r-project.org/web/packages/ggvis/index.html'>ggvis<a/> packages)
 
-    + Over 120 data sets have been built into the package, see list `data(package = "SMRD")`
+    + Over 120 data sets have been built into the package, see list using `data(package = "SMRD")`

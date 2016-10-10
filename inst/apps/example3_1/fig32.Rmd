@@ -2,9 +2,7 @@
 output: html_document
 ---
 
-## Figure 3.2
-
-<hr/>
+### Figure 3.2
 
 - Figure 3.2 shows a nonparametric plot of $F(t)$ for the Plant 1 Heat Exchanger Data
 

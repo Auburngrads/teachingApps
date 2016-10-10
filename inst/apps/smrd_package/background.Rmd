@@ -4,9 +4,9 @@ output: html_document
 
 ### Background of the SMRD package
 
-- SMRD was originally called SPLIDA (<u>S</u>-<u>P</u>lus <u>LI</u>fe <u>D</u>ata <u>A</u>nalysis)
+- _SMRD_ derived from a software package called _SPLIDA_ (<u>S</u>-<u>P</u>lus <u>LI</u>fe <u>D</u>ata <u>A</u>nalysis)
 
-    + SPLIDA was written in S-Plus by [Dr. Bill Meeker](http://www.public.iastate.edu/~wqmeeker/homepage.html) during his career at Bell Labs and Iowa State University
+    + _SPLIDA_ was written in S-Plus by [Dr. Bill Meeker](http://www.public.iastate.edu/~wqmeeker/homepage.html) during his career at Bell Labs and Iowa State University
 
     + Companion software to text 'Statistical Methods for Reliability Data' by Meeker & Escobar
 
@@ -18,10 +18,16 @@ output: html_document
 
     + Translation was rushed and incomplete
 
-    + Retained many of the 'GUI' limitations of SPLIDA
+    + Retained many of the 'GUI' limitations of _SPLIDA_
 
     + Couldn't be used with RStudio
     
     + Not user-friendly
 
 - In 2014, _RSplida_ was completely re-built and updated by Freels and renamed _SMRD_
+
+    + _SMRD_ will be published to the CRAN in 2017 along with the 2^nd edition of the Meeker and Escobar text. 
+
+    + Installing _SMRD_ requires the installation of two dependencies `plot3D` and `FSA`
+
+    + In the R console, run `install.packages(c('plot3D','FSA'))`

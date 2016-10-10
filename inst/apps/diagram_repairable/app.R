@@ -19,12 +19,11 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "repairplot", 
+                          wordWrap = T,
+                          outputId = "repairplot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px", 
-                          
                           value = 
 "Mat2 <- matrix(NA, nrow = 3, ncol = 3)
 
@@ -45,7 +44,8 @@ diagram::plotmat(A = AA, pos = 3, curve = .575,
          arr.width = 0.25, my = .05, box.size = 0.08, 
          arr.type = 'triangle', dtext = -1,
          relsize=.99,box.cex=1.5,cex=1.25)"),
-              actionButton("evalrepair", h4("Evaluate"), width = '100%')),
+
+        actionButton("evalrepair", h4("Evaluate"), width = '100%')),
         
         mainPanel(plotOutput("plotrepair", height = "600px"), width = 7)),
 

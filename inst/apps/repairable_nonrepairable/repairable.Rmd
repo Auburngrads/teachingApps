@@ -1,0 +1,17 @@
+---
+output: html_document
+---
+
+### Repairable systems
+
+- Repairable systems may be represented graphically by a transition diagram with one or more transient states
+
+    + The transient states represent failure modes for which the cost of repair is far below the cost of replacement
+
+    + As result of the repair, the system can transition back to the operating state
+
+- Repairable systems also have one or more absrbing states 
+
+    + The absorbing states represent failure modes for which the cost of repair is equal to or greater than the cost of replacement
+
+    + When these nonrepairable failure modes occur the system does not transition back to the operating state

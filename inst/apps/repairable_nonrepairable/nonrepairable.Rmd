@@ -1,0 +1,25 @@
+---
+output: html_document
+---
+
+### Non-repairable systems are replaced - not repaired - upon failure
+
+- <blue>Non safety critical & inexpensive</blue> items are often non-repairable since replacement is far cheaper than repair  
+
+    + Light bulbs
+    
+    + Small appliances
+    
+    + Consumable items (filters, belts, hoses)
+
+- <green>Safety critical & expensive</green> items may also be non-repairable if they must be replaced prior to failure when some degradation level is reached
+
+    + Tires (tread depth)
+    
+    + Computers (processing speed, obsolescence)
+
+- Non-repairable systems may be represented by a transition diagram with one working state and one or more absorbing failure states
+
+    + State 0: Initial working state
+
+    + States 1, 2,...: Absorbing failed states
