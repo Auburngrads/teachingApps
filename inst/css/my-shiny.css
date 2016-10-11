@@ -348,6 +348,8 @@ iframe{
 #sign {
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    bottom: 100%;
 }
 
 .photo-grid {
