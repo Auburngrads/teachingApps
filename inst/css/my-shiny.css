@@ -345,6 +345,11 @@ iframe{
   padding-top: 80px;
 }
 
+#sign {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .photo-grid {
 	margin: 1em auto;
 	max-width: 289px;
