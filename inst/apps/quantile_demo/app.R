@@ -29,7 +29,7 @@ navbarMenu(h4('Plots'), icon = icon('bar-chart-o'),
                 
 tabPanel(h4("Quantile Function Plot"),
   sidebarLayout( 
-    sidebarPanel(
+    sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
                           wordWrap = T,
                           outputId = "quantplot", 
@@ -40,8 +40,8 @@ tabPanel(h4("Quantile Function Plot"),
 "par(family = 'serif',mar = c(4,6,2,1))
 
 curve(qweibull(x,shape = 1.7, scale = 1),
-      xlab = 'Time, t',
-      ylab = expression(F**-1*(t)[Weibull]),
+      xlab = expression(F**-1*(t)[Weibull]),
+      ylab = 'Time, t',
       ylim = c(0,3),
       xlim = c(0,1),
       lwd = 3,
@@ -53,11 +53,11 @@ curve(qweibull(x,shape = 1.7, scale = 1),
 
         actionButton("evalquant", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotquant", height = "600px")))),
+        mainPanel(plotOutput("plotquant", height = "600px"), width = 7))),
                 
 tabPanel(h4("Figure 2.3"),
   sidebarLayout( 
-    sidebarPanel(
+    sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
                           wordWrap = T,
                           outputId = "fig3plot", 
@@ -103,7 +103,7 @@ mtext(side = 1,
 
         actionButton("evalfig3", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotfig3", height = "600px")))))),
+        mainPanel(plotOutput("plotfig3", height = "600px"), width = 7))))),
 
 server = function(input, output, session) {
   
@@ -114,13 +114,20 @@ output$quandemo <- renderUI({
 output$quanr <- renderUI({ 
   withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
 })
+
+observeEvent(input$evalquant, { 
   
 output$plotquant <- renderPlot({
-      input$evalquant
+      
       return(isolate(eval(parse(text=input$quantplot))))
-})  
+})
+})
+
+observeEvent(input$evalfig3, { 
+  
 output$plotfig3 <- renderPlot({
-      input$evalfig3
+      
       return(isolate(eval(parse(text=input$fig3plot))))
+})
 })
 })

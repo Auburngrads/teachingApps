@@ -26,6 +26,8 @@ censored_eventplots <- function(pub = FALSE, theme = 'flatly') {
 
     file <- system.file("apps", "censored_eventplots", "app.R", package = "teachingApps")
 
+    getPackage('SMRD', repo = 'Auburngrads')
+    
     arg2 <- data.frame(theme = as.character(theme))
     
     save(list = 'arg2', 

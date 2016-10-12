@@ -64,8 +64,11 @@ output$cdfr <- renderUI({
   withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
 })  
 
+observeEvent(input$evalcdf, { 
+
 output$plotcdf <- renderPlot({
-      input$evalcdf
+      
       return(isolate(eval(parse(text=input$cdfplot))))
+})
 })
 })

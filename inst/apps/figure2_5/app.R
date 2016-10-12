@@ -19,24 +19,32 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "fig5plot", 
+                          wordWrap = T,
+                          outputId = "fig5plot", 
                           mode = "r", 
                           theme = "github", 
                           height = "450px",
                           value = 
-"x<-seq(0,2.4,by=.01)\npar(family='serif', font=2,bg=NA)\ny<-function(t) {pweibull(t,shape=1.7,scale=1)}\n\n
-plot(x, y(x), type = 'l',lwd = 2,\nxlab = 't',ylab = 'f(t)', las = 1)\n
+"par(family = 'serif', font = 2)
+
+y <- function(t) { pweibull(t,shape = 1.7,scale = 1) }
+
+curve(pweibull(x,shape=1.7,scale=1),lwd = 2,
+      xlab = 't', ylab = 'f(t)', 
+      from = 0, to = 3,
+      las = 1)
+
 segments(c(0,.5,1,1.5,2,rep(0,5)),
          c(rep(0,5),y(c(0.01,.5,1,1.5,2))),
          c(0,.5,1,1.5,2,rep(2.2,5)),
          rep(y(c(0.01,.5,1,1.5,2)),2),
-         lty=rep(2,10),col=rep(1,10))\n\n
+         lty=rep(2,10),col=rep(1,10))
+
 text(2.3,(y(0.5)+y(.01))/2,expression(pi[1]),cex=1.25)
 text(2.3,(y(1.0)+y(0.5))/2,expression(pi[2]),cex=1.25)
 text(2.3,(y(1.5)+y(1.0))/2,expression(pi[3]),cex=1.25)
 text(2.3,(y(2.0)+y(1.5))/2,expression(pi[4]),cex=1.25)
-box(lwd=1.25)\n\n
+
 mtext(side = 3,
       expression('Figure 2.5 - Graphical interpretation of the relationship between the '*pi[i]*' values and F('*t[i]*')'),
       font = 2,line = 2)"),
@@ -50,10 +58,11 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
-
+observeEvent(input$evalfig5, { 
   
   output$plotfig5 <- renderPlot({
-      input$evalfig5
+      
       return(isolate(eval(parse(text=input$fig5plot))))
+})
 })
 })

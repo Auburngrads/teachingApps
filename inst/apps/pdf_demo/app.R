@@ -62,8 +62,11 @@ output$pdfr <- renderUI({
   withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
 })
 
+observeEvent(input$evalpdf, { 
+
 output$plotpdf <- renderPlot({
-      input$evalpdf
+      
       return(isolate(eval(parse(text=input$pdfplot))))
+})
 })
 })

@@ -17,14 +17,13 @@ shinyApp(options = list(height = '600px', width = '99%'),
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
        sidebarLayout(
-        sidebarPanel(
+        sidebarPanel(width = 5,
         shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "pdflikeplot", 
+                            wordWrap = T,
+                            outputId = "pdflikeplot", 
                             mode = "r", 
                             theme = "github", 
                             height = "450px", 
-                            
                             value =
 "par(mfrow = c(1,2), mar = c(4,4,2,0))
 
@@ -42,6 +41,7 @@ curve(dweibull(x, scale = 120, shape = 5.5),
       add = TRUE, lwd = 2, col = 2)
 curve(dexp(x, rate = 1/40), add = T, 
       lwd = 2, col = 'green')
+
 points(x = x.weib, 
        y = dweibull(x.weib, shape = 5.5, scale = 120), 
        col = 2, pch = 16, cex = 1.5)
@@ -58,6 +58,7 @@ plot(x = x.lnor, y = rep(1,n),
      ylim = c(0,6), xlim = c(0,200), 
      yaxt = 'n', ylab = '', 
      bty = 'n', cex = 1.5)
+
 points(x = x.weib,
        y = rep(3,n), 
        col = 2, pch = 16, cex = 1.5)
@@ -72,7 +73,7 @@ par(mfrow = c(1,1))"),
 
    actionButton("evalpdflike", h4("Evaluate"), width = '100%')),
 
-   mainPanel(plotOutput('plotpdflike', height = '600px'))),
+   mainPanel(plotOutput('plotpdflike', height = '600px'), width = 7)),
 
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
@@ -80,10 +81,11 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
-
-
+observeEvent(input$evalpdflike, { 
+  
 output$plotpdflike <- renderPlot({
-      input$evalpdflike
+      
       return(isolate(eval(parse(text=input$pdflikeplot))))
+})
 })
 })

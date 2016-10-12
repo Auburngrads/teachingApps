@@ -44,9 +44,12 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
-  
+
+  observeEvent(input$evalfig1, { 
+    
 output$plotfig1 <- renderPlot({
-      input$evalfig1
+      
       return(isolate(eval(parse(text=input$fig1plot))))
+})
 })
 })

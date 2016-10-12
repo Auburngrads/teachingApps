@@ -57,11 +57,12 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
+observeEvent(input$evalreal, { 
 
-
-    output$plotreal <- renderPlot({
-      par(oma = c(0,0,0,0), mar = c(4,4,2,2))
-      input$evalreal
-      return(isolate(eval(parse(text=input$realplot))))
+  output$plotreal <- renderPlot({
+    par(oma = c(0,0,0,0), mar = c(4,4,2,2))
+    
+    return(isolate(eval(parse(text=input$realplot))))
+})
 })
 })

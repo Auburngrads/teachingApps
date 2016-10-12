@@ -14,8 +14,8 @@ load('args.Rdata')
 shinyApp(options = list(width = "100%", height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
               try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+                                         'my-shiny.css', 
+                                         package = 'teachingApps')), silent = TRUE),
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
@@ -53,11 +53,12 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
+observeEvent(input$evalreplace, { 
 
-
-    output$plotreplace <- renderPlot({
-      par(mar = c(0,0,0,0))
-      input$evalreplace
-      return(isolate(eval(parse(text=input$replaceplot))))
+  output$plotreplace <- renderPlot({
+    par(mar = c(0,0,0,0))
+      
+    return(isolate(eval(parse(text=input$replaceplot))))
+})
 })
 })

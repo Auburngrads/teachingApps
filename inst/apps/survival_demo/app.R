@@ -64,8 +64,11 @@ output$survr <- renderUI({
   withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
 }) 
 
+observeEvent(input$evalrel, { 
+
 output$plotrel <- renderPlot({
-      input$evalrel
+      
       return(isolate(eval(parse(text=input$relplot))))
+})
 })
 })

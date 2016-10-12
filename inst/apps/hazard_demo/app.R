@@ -107,12 +107,17 @@ output$hazr <- renderUI({
   withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
 })
 
+observeEvent(input$evalhaz, { 
 output$plothaz <- renderPlot({
-      input$evalhaz
+      
       return(isolate(eval(parse(text=input$hazplot))))
 })
+})
+
+observeEvent(input$evalfigbt, { 
 output$plotfigbt <- renderPlot({
-      input$evalfigbt
+      
       return(isolate(eval(parse(text=input$figbtplot))))
+})
 })
 })

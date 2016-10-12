@@ -19,12 +19,11 @@ shinyApp(options = list(height = '600px', width = '99%'),
        sidebarLayout(
          sidebarPanel(width = 5,
           shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "censorplot", 
+                              wordWrap = T,
+                              outputId = "censorplot", 
                               mode = "r", 
                               theme = "github", 
                               height = "450px", 
-                              
                               value = "
 par(family = 'serif', font = 2)
 
@@ -62,10 +61,11 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
-
-
+observeEvent(input$evalcensor, { 
+  
 output$plotcensor <- renderPlot({
-      input$evalcensor
+      
       return(isolate(eval(parse(text=input$censorplot))))
+})
 })
 })
