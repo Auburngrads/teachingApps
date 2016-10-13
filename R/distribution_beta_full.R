@@ -24,7 +24,7 @@
 #'
 #' @export
 
-distribution_beta_full <- function(pub = FALSE, theme = 'flatly') {
+distribution_beta_full <- function(pub = FALSE, theme = 'flatly', rmd = FALSE) {
 
     file <- system.file("apps", "distribution_beta_full", "app.R", package = "teachingApps")
 
