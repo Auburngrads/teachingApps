@@ -49,6 +49,4 @@ distribution_beta_full <- function(pub = FALSE, theme = 'flatly', rmd = FALSE) {
       
     }
     
-    shiny::runApp(file)
-  
 }

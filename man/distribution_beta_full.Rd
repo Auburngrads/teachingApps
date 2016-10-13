@@ -4,7 +4,7 @@
 \alias{distribution_beta_full}
 \title{Function Title}
 \usage{
-distribution_beta_full(pub = FALSE, theme = "flatly")
+distribution_beta_full(pub = FALSE, theme = "flatly", rmd = FALSE)
 }
 \arguments{
 \item{pub}{Will this app be published? (see details)}
