@@ -28,7 +28,8 @@ distribution_beta <- function(pub = FALSE, theme = 'flatly') {
     file <- system.file("apps", "distribution_beta", "app.R", package = "teachingApps")
 
     teachingApps::getPackage(pub = pub, pkg  = "metricsgraphics")
-arg2 <- data.frame(theme = as.character(theme))
+    
+    arg2 <- data.frame(theme = as.character(theme))
     
     save(list = 'arg2', 
          file = paste(c(dirname(file),'/args','.Rdata'), collapse = ''))

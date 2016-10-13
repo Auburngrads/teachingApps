@@ -1,5 +1,7 @@
 library(pos = -1,  package = 'plotly')
 
+get('arg2', envir = .GlobalEnv, inherits = T)
+
 ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 
@@ -368,5 +370,5 @@ p5 <-
 })
 }
 
-shinyApp(ui = ui, server = server, options = list(height = '100%', width = '70%'))
+shinyApp(ui = ui, server = server, options = list(height = '800px', width = '100%'))
 
