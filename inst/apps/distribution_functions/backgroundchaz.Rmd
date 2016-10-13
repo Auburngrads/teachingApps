@@ -1,0 +1,17 @@
+---
+output: html_document
+---
+
+### Properties of The Hazard Function $h(t)$
+
+- The cumulative hazard function relates the "accumulated" hazard rate over time
+
+$$H(t)=\displaystyle \int_{0}^{t} h(t)dx$$
+
+- The cumulative hazard function may also be used to compute the average hazard rate $T \in (t_1,t_2]$ 
+
+$$
+\begin{aligned}
+AHR(t_1,t_2)&=\frac{\int_{t_{1}}^{t_{2}}h(u)du}{t_2-t_1}=\frac{H(t_2)-H(t_1)}{t_2-t_1}\\\\\\\\ AHR(0,t)&=\frac{\int_{0}^{t}h(u)du}{t}=\frac{H(t)}{t}\approx\frac{F(t)}{t}\;\;\text{ for }\; F(t) < 0.10 
+\end{aligned}
+$$

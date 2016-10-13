@@ -55,11 +55,11 @@ curve(dexp(x,rate = 1.7),
 server = function(input, output, session) {
   
 output$pdfdemo <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('background.Rmd')))
+  withMathJax(HTML(includeMarkdown('backgroundpdf.Rmd')))
 })
 
 output$pdfr <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
+  withMathJax(HTML(includeMarkdown('rfuncspdf.Rmd')))
 })
 
 observeEvent(input$evalpdf, { 

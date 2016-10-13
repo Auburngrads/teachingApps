@@ -22,7 +22,7 @@
 #'
 #' @export
 
-ace_very_normal <- function(pub = FALSE, theme = 'flatly') {
+ace_very_normal <- function(pub = FALSE, theme = 'flatly',...) {
 
     file <- system.file("apps", "ace_very_normal", "app.R", package = "teachingApps")
 
@@ -31,6 +31,6 @@ ace_very_normal <- function(pub = FALSE, theme = 'flatly') {
     save(list = 'arg2', 
          file = paste(c(dirname(file),'/args','.Rdata'), collapse = ''))
     
-    shiny::runApp(file)
+    shiny::runApp(appDir =  dirname(file),...)
   
 }

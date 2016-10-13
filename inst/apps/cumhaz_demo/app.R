@@ -57,11 +57,11 @@ las = 1)"),
 server = function(input, output, session) {
 
 output$HAZdemo <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('background.Rmd')))
+  withMathJax(HTML(includeMarkdown('backgroundchaz.Rmd')))
 })
 
 output$HAZr <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
+  withMathJax(HTML(includeMarkdown('rfuncschaz.Rmd')))
 })
 
 observeEvent(input$evalHAZ, { 

@@ -1,0 +1,19 @@
+---
+output: html_document
+---
+
+### Computing Values For the Hazard Function in R
+
+- No predefined R function exists for $h(t)$, but we can take advantage of the fact that 
+$$h(t)=\frac{f(t)}{S(t)}$$
+
+    + For $\;T \sim Weibull(\beta,\theta)$<br>$h(t)=$ `dweibull(q, shape, scale)/(1 - pweibull(q, shape, scale))`
+
+    + For $\;T \sim Exponential(\lambda)$<br>$h(t)=$ `dexp(q, rate)/(1 - pexp(q, rate))`
+
+    + For $\;T \sim Normal(\mu,\sigma)$<br>$h(t)=$ `dnorm(q, mean, sd)/(1 - pnorm(q, mean, sd))`
+
+    + For $\;T \sim Lognormal(\mu,\sigma)$<br>$h(t)=$ `dlnorm(q, meanlog,sdlog)/(1 - plnorm(q, meanlog, sdlog))`
+
+    + For $T \sim Gamma(\kappa,\beta)$<br>$h(t)=$ `dgamma(q, shape, scale)/(1-pgamma(q, shape, scale))`
+

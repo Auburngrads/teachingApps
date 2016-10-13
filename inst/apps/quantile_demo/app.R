@@ -108,11 +108,11 @@ mtext(side = 1,
 server = function(input, output, session) {
   
 output$quandemo <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('background.Rmd')))
+  withMathJax(HTML(includeMarkdown('backgroundquan.Rmd')))
 })
 
 output$quanr <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
+  withMathJax(HTML(includeMarkdown('rfuncsquan.Rmd')))
 })
 
 observeEvent(input$evalquant, { 

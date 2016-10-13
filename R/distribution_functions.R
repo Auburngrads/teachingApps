@@ -23,12 +23,10 @@
 #'
 #' @export
 
-acceptance_mtbf <- function(pub = FALSE, theme = 'flatly') {
+distribution_functions <- function(pub = FALSE, theme = 'flatly') {
 
-    file <- system.file("apps", "acceptance_mtbf", "app.R", package = "teachingApps")
+    file <- system.file("apps", "distribution_functions", "app.R", package = "teachingApps")
 
-    teachingApps::getPackage(pub = pub, pkg  = 'plotly')
-    
     arg2 <- data.frame(theme = as.character(theme))
     
     save(list = 'arg2', 

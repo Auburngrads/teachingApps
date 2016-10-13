@@ -1,0 +1,26 @@
+---
+output: html_document
+---
+
+### Properties of The Hazard Function $h(t)$
+
+- The hazard function relates the instantaneous, conditional probability of failure in $t+\Delta t$ given $T>t$ 
+
+$$h(t)=\lim_{\Delta t \to 0} \frac{Pr(t < T \le t+\Delta t|T \ge t)}{\Delta t}$$
+
+- Alternate names for the hazard function
+
+    + The hazard rate function
+
+    + The failure rate function
+
+    + Force of mortality (common in actuarial science)
+
+- The bathtub-shaped hazard curve (Figure 2.2) is often used to described the lifetimes of systems or people
+
+    + Infant Mortality: Systems (people) can have a relatively high probability of failure in early life
+
+    + Useful Life: Systems (people) that survive the early stages of life typically experience a long period in which the probability of failure is relatively low
+
+    + Wearout: As systems (people) age the probability of failure begins to increase
+

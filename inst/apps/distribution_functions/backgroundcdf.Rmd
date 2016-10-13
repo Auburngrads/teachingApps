@@ -1,0 +1,24 @@
+---
+output: html_document
+---
+
+### Properties of the Cumulative Distribution Function
+
+- The CDF relates the probability that the true (but unknown) value of the random variable $T$ is less than or equal to some observed value $t$ 
+
+$$F(t)=Pr(T\le t), \quad t\in (0,\infty)$$
+
+- The CDF is strictly positive 
+
+$$F(t) \ge 0, \forall t \in \mathbb{R}^{+}$$
+
+- The CDF is non-decreasing 
+
+$$\begin{aligned}F(0)&=0\\\\\\\\
+\displaystyle \lim_{t \to \infty} F(t)&=1\end{aligned}$$
+
+- Alternate names for the CDF
+
+    + The distribution function
+    
+    + The probability function

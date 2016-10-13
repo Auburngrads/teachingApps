@@ -100,11 +100,11 @@ text(x = c(7.5, 40, 75),
 server = function(input, output, session) {
   
 output$hazdemo <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('background.Rmd')))
+  withMathJax(HTML(includeMarkdown('backgroundhaz.Rmd')))
 })
 
 output$hazr <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
+  withMathJax(HTML(includeMarkdown('rfuncshaz.Rmd')))
 })
 
 observeEvent(input$evalhaz, { 

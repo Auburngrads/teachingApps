@@ -53,11 +53,12 @@ server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
   
-
+observeEvent(input$evalplots, { 
   
   output$exp <- renderPlot({
       par(mar = c(4,4,2,2))
-      input$evalplots
+      
       return(isolate(eval(parse(text=input$plots))))
+})
 })
 })

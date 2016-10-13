@@ -57,11 +57,11 @@ las = 1)"),
 server = function(input, output, session) {
   
 output$survdemo <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('background.Rmd')))
+  withMathJax(HTML(includeMarkdown('backgroundsurv.Rmd')))
 })
 
 output$survr <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
+  withMathJax(HTML(includeMarkdown('rfuncssurv.Rmd')))
 }) 
 
 observeEvent(input$evalrel, { 

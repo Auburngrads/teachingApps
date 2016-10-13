@@ -25,6 +25,11 @@
   display: inline !important;
 }
 
+.nav.nav-pills {
+  padding-left: 1%;
+  margin-bottom: 12pt;
+}
+
 body { margin: 0 0 0 0; }
 
 hr {
@@ -239,14 +244,14 @@ code.sourceCode{
 }
 
 table {
-  width: 100% !important;
   border-collapse: -moz-initial;
   border-collapse: initial;
   border-spacing: 2px;
   border-bottom: 1px solid #797979;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 60px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+  margin-top: 60px; 
   margin-bottom: 60px;
 }
 

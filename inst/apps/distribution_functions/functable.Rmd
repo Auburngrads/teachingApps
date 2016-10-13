@@ -1,0 +1,39 @@
+---
+output: html_document
+---
+
+### Distribution Function Relationship Table
+
+- The table below shows expressions that can be used to move between the probability functions 
+
+- <focus>This table WILL be helpful in completing the course</focus>
+
+|      |$F(t)$                   |$f(t)$                              |$S(t)$                 |$h(t)$                               | $H(t)$|
+|------|-------------------------|------------------------------------|---------------------- |-------------------------------------|-------|
+|$F(t)$|  |$\displaystyle\int_0^uf(u)du$  |$1-S(t)$     |$\displaystyle1-\exp\left[-\int_0^u h(u)du\right]$|$\displaystyle1-\exp\left[-H(t)\right]$|
+|$f(t)$|$\displaystyle\frac{d}{dt}F(t)$ | |$\displaystyle-\frac{d}{dt}S(t)$|$\displaystyle h(t)\cdot\exp\left[-\int_0^u h(u)du\right]$ |$\displaystyle-\frac{dH(t)/dt}{\exp[H(t)]}$ |
+|$S(t)$|$1-F(t)$  |$\displaystyle\int_t^{\infty}f(u)du$ |  |$\displaystyle\exp\left[-\int_0^u h(u)du\right]$  |$\displaystyle\exp[-H(t)]$|
+|$h(t)$|$\displaystyle\frac{dF(t)/dt}{1-F(t)}$|$\displaystyle\frac{f(t)}{\int_t^{\infty}f(u)du}$|$\displaystyle-\frac{d}{dt}\ln S(t)$|                              |$\displaystyle\frac{d}{dt}H(t)$|
+|$H(t)$|$\displaystyle-\ln[1-F(t)]$           | $\displaystyle-\ln\left[\int_t^{\infty}f(u)du\right]$      |$\displaystyle-\ln[S(t)]$           |$\displaystyle\int_0^t h(u)du$                    |       |
+- Steps to use the table
+
+    1) Identify the function that you know and locate the column in the table corresponding to that function
+
+    2) Move down the column you identified in step 1) until you intercept the row corresponding to the function that you want to find
+
+    3) The expression found in that cell represents the transofromation that should be applied to arrive at the desired result 
+
+- Example 
+
+    + The exponential distribution has a constant hazard function, often expressed as $h(t) = \lambda$
+
+    + Suppose we want to find the form of the exponential survival function $S(t)$ 
+
+    + To find the transformation we would locate the $h(t)$ column (column 5) and trace down that column to locate the cell in the $S(t)$ row (row 4)
+
+    + This cell contains the expression
+$$\displaystyle\exp\left[-\int_0^u h(u)du\right]$$
+
+    + Applying this transformation reveals that for $T \sim EXP(\lambda)$
+$$S(t)=e^{-\lambda t}$$
+

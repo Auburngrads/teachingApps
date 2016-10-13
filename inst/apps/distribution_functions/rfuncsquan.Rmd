@@ -1,0 +1,18 @@
+---
+output: html_document
+---
+
+### Computing Values For the Quantile Function in R
+
+- To compute values of $F^{-1}(p)$ in R <focus>remember 'q' for quantile function</focus>
+
+    + For $\;T \sim Weibull(\beta,\theta)$<br>$F^{-1}(p)=$ `qweibull(p = probability, shape = shape param, scale = scale param)`
+
+    + For $\;T \sim Exponential(\lambda)$<br>$F^{-1}(p)=$ `qexp(p = probability, rate = rate parameter)`
+
+    + For $\;T \sim Normal(\mu,\sigma)$<br>$F^{-1}(p)=$ `qnorm(p = probability, mean = mean, sd = standard deviation)`
+
+    + For $\;T \sim Lognormal(\mu,\sigma)$<br>$F^{-1}(p)=$ `qlnorm(p = probability, meanlog = log(mean), sdlog = log(stdev))`
+
+    + For $T \sim Gamma(\kappa,\beta)$<br>$F^{-1}(p)=$ `qgamma(p = probability, shape = shape param, scale = scale param)`
+
