@@ -9,8 +9,8 @@ library(pos = -1,  package = 'metricsgraphics')
 
 
 
-  
-load('args.Rdata')
+get('arg2', envir = .GlobalEnv, inherits = T) 
+#load('args.Rdata')
 shinyApp(options = list(height = "700px"),
          
 ui = navbarPage(windowTitle = 'Beta Distribution', 

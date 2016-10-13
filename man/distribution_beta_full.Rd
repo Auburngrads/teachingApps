@@ -10,6 +10,8 @@ distribution_beta_full(pub = FALSE, theme = "flatly")
 \item{pub}{Will this app be published? (see details)}
 
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
+
+\item{rmd}{Will this be included in a Rmarkdown document or presentation?}
 }
 \description{
 Description
