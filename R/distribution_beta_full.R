@@ -30,7 +30,8 @@ distribution_beta_full <- function(pub = FALSE, theme = 'flatly', rmd = FALSE) {
 
     teachingApps::getPackage(pub = pub, pkg  = "metricsgraphics")
     
-    arg2 <- data.frame(theme = as.character(theme))
+    arg2 <- list(theme = as.character(theme),
+                   app = as.character(dirname(file)))
     
     assign('arg2', value = arg2, envir = .GlobalEnv, inherits = T)
     

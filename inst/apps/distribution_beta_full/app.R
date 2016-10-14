@@ -133,8 +133,9 @@ server = function(input, output, session) {
 
   
 output$betafunc <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('beta-func.Rmd')))
+  withMathJax(HTML(includeMarkdown(paste(c(arg2$app,'beta-func.Rmd'),collapse = '/'))))
 })
-output$betaprops <- renderUI({HTML(includeMarkdown('beta-props.Rmd'))
+output$betaprops <- renderUI({
+  HTML(includeMarkdown(paste(c(arg2$app,'beta-props.Rmd'), collapse = '/')))
 }) 
 })
