@@ -29,13 +29,16 @@ bent_probplot <- function(pub = FALSE, theme = 'flatly', rmd = FALSE,...) {
     file <- system.file("apps", "bent_probplot", "app.R", package = "teachingApps")
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
-arg2 <- list(theme  = as.character(theme),
-                 appDir = as.character(dirname(file)),
+    
+    arg2 <- list(theme  = as.character(theme),
+                 appDir = normalizePath(dirname(file)),
                  appName = as.character(basename(dirname(file))))
     
-    taEnv <<- new.env(parent = emptyenv())
+    dump('arg2', paste(c(dirname(file),'args.R'), collapse = '/'))
     
-    assign('arg2', value = arg2, envir = taEnv, inherits = T, pos = 1L)
+    # taEnv <<- new.env(parent = emptyenv())
+    # 
+    # assign('arg2', value = arg2, envir = taEnv, inherits = T, pos = 1L)
     
     if(rmd) {
 

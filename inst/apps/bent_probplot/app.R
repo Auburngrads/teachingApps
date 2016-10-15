@@ -10,7 +10,7 @@ library(pos = -1,  package = 'SMRD')
 
 
   
-get('arg2', envir = .GlobalEnv, inherits = T, pos = 1L)
+source('args.R')
 
 shinyApp(options = list(height = '600px', width = '100%'),
          
@@ -22,13 +22,13 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
 sidebarLayout(
   sidebarPanel(width = 5,
     shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "bleedplot", 
+                        wordWrap = T,
+                        outputId = "bleedplot", 
                         mode = "r", 
                         theme = "github", 
                         height = "450px",
                         value = 
-"par(family='serif',font=2, cex=1.75)
+"par(family = 'serif',font = 2, cex = 1.75)
 
 Bleed.ld <- frame.to.ld(bleed,
                         response.column = 1, 
