@@ -31,7 +31,7 @@ arg2 <- list(theme  = as.character(theme),
                  appDir = as.character(dirname(file)),
                  appName = as.character(basename(dirname(file))))
     
-    assign('arg2', value = arg2, envir = globalenv(), inherits = T)
+    assign('arg2', value = arg2, envir = .GlobalEnv, inherits = T)
     
     if(rmd) {
 
