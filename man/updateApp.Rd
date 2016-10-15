@@ -4,8 +4,9 @@
 \alias{updateApp}
 \title{Quickly update the code for a shiny app}
 \usage{
-updateApp(repo = NULL, pkg = repo, lib = .libPaths()[1], app = NULL,
-  open.folder = FALSE, css = FALSE, create = FALSE, git = NULL)
+updateApp(repo = "teachingApps", pkg = repo, lib = .libPaths()[1],
+  app = NULL, open.folder = FALSE, css = FALSE, create = FALSE,
+  git = NULL)
 }
 \arguments{
 \item{repo}{Name of the directory in which the raw app code is stored}

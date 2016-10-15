@@ -7,11 +7,11 @@ library(pos = -1,  package = 'SMRD')
 
 
 
-
+source(system.file('apps','bent_probplot','global.R', package = 'teachingApps'),
+       chdir = T)
 
   
 shinyApp(options = list(height = '600px', width = '100%'),
-         onStart = function() {source(system.file('apps','bent_probplot','global.R', package = 'teachingApps'))},
          
 ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
                try(includeCSS(system.file('css',

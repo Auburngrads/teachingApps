@@ -1,10 +1,10 @@
-source(system.file('apps', 'ace_very_normal', 'global.R', package = 'teachingApps'))
+
 
 
 
 shinyApp(options = list(height = '600px', width = '99%'),
-  
-ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
+         onStart = function() {eval(parse(system.file('apps', 'ace_very_normal', 'global.R', package = 'teachingApps')))}, 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = onStart()$theme), 
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
@@ -53,7 +53,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(onStart()$appName))})
   
 observeEvent(input$evalplots, { 
   

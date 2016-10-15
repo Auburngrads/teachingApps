@@ -4,7 +4,8 @@
 \alias{bent_probplot}
 \title{Function Title}
 \usage{
-bent_probplot(pub = FALSE, theme = "flatly", rmd = FALSE, ...)
+bent_probplot(pub = FALSE, theme = "flatly", rmd = FALSE,
+  width = "100\%", height = "800px", ...)
 }
 \arguments{
 \item{pub}{Will this app be published? (see details)}
