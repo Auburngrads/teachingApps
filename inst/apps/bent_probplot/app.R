@@ -10,7 +10,7 @@ library(pos = -1,  package = 'SMRD')
 
 
   
-get('arg2', envir = .GlobalEnv, inherits = T)
+get('arg2', envir = .GlobalEnv, inherits = T, pos = 1L)
 
 shinyApp(options = list(height = '600px', width = '100%'),
          

@@ -35,7 +35,7 @@ arg2 <- list(theme  = as.character(theme),
     
     taEnv <- new.env(parent = emptyenv())
     
-    assign('arg2', value = arg2, envir = taEnv, inherits = T)
+    assign('arg2', value = arg2, envir = taEnv, inherits = T, pos = 1L)
     
     if(rmd) {
 
