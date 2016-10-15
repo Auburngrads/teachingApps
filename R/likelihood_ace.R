@@ -32,7 +32,9 @@ likelihood_ace <- function(pub = FALSE, theme = 'flatly', rmd = FALSE,...) {
                  appDir = as.character(dirname(file)),
                  appName = as.character(basename(dirname(file))))
     
-    assign('arg2', value = arg2, envir = .GlobalEnv, inherits = T)
+    taEnv <- new.env(parent = emptyenv())
+    
+    assign('arg2', value = arg2, envir = taEnv, inherits = T)
     
     if(rmd) {
 
