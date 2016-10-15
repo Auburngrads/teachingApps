@@ -32,11 +32,7 @@ central_limit <- function(pub = FALSE, theme = 'flatly', rmd = FALSE,width = '10
                   appDir = as.character(dirname(file)),
                   appName = as.character(basename(dirname(file))))
     
-    # taEnv <- new.env(parent = emptyenv())
-    
-    dput(arg2, paste(c(dirname(file),'global.R'), collapse = '/'))
-    
-    # assign('.arg2', value = arg2, envir = .GlobalEnv, inherits = T)
+    assign('arg2', value = arg2, envir = globalenv(), inherits = T)
     
     if(rmd) {
 

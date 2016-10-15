@@ -6,11 +6,11 @@
 
 
 
+get('arg2', envir = .GlobalEnv, inherits = T)
 
 
 
-
-arg2 <- dget(system.file('apps', 'central_limit', 'global.R', package = "teachingApps"))
+#arg2 <- dget(system.file('apps', 'central_limit', 'global.R', package = "teachingApps"))
 
 shinyApp(options = list(height = "600px"),
          

@@ -34,11 +34,7 @@ bent_probplot <- function(pub = FALSE, theme = 'flatly', rmd = FALSE, width = '1
                  appDir = normalizePath(dirname(file)),
                  appName = as.character(basename(dirname(file))))
     
-    dput(arg2, paste(c(dirname(file),'global.R'), collapse = '/'))
-    
-    # taEnv <<- new.env(parent = emptyenv())
-    # 
-    # assign('arg2', value = arg2, envir = taEnv, inherits = T, pos = 1L)
+    assign('arg2', value = arg2, envir = globalenv(), inherits = T)
     
     if(rmd) {
 

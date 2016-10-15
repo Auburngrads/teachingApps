@@ -2,14 +2,12 @@ library(package = 'SMRD')
 
 
 
-
-
-arg2 <- eval(parse(text = gsub('\r\n',' ', shiny::includeText(system.file('apps', 'central_limit', 'global.R', package = "teachingApps")))))
-
+#arg2 <- eval(parse(text = gsub('\r\n',' ', shiny::includeText(system.file('apps', 'central_limit', 'global.R', package = "teachingApps")))))
+get('arg2', envir = .GlobalEnv, inherits = T)
 
 shinyApp(options = list(height = '600px', width = '100%'),
          
-ui = fluidPage(theme = shinythemes::shinytheme(theme = as.character(arg2$theme)), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
                try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = T),
