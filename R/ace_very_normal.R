@@ -32,9 +32,11 @@ ace_very_normal <- function(pub = FALSE, theme = 'flatly',rmd = FALSE,...) {
                  appDir = as.character(dirname(file)),
                  appName = as.character(basename(dirname(file))))
     
-    taEnv <- new.env(parent = emptyenv())
+    dump('arg2', paste(c(dirname(file),'global.R'), collapse = '/'))
     
-    assign('arg2', value = arg2, envir = taEnv, inherits = T)
+    # taEnv <- new.env(parent = emptyenv())
+    # 
+    # assign('arg2', value = arg2, envir = taEnv, inherits = T)
     
     if(rmd) {
 

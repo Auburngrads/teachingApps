@@ -1,4 +1,4 @@
-get('arg2', envir = .GlobalEnv, inherits = T)
+source('global.R', local = F)
 
 
 
