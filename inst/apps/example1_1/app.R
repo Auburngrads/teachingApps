@@ -1,4 +1,4 @@
-library(pos = -1,  package = 'SMRD')
+library( package = 'SMRD')
 
 
 
@@ -38,7 +38,7 @@ tabPanel(h4("Figure 1.1"),
                           theme = "github", 
                           height = "450px", 
                           value = "
-library(pos = -1,  package = SMRD)
+library( package = SMRD)
 
 par(family = 'serif', font = 2)
 
@@ -64,7 +64,7 @@ tabPanel(h4("Figure 1.2"),
                           theme = "github", 
                           height = "450px", 
                           value = 
-"library(pos = -1,  package = SMRD)
+"library( package = SMRD)
 
 par(family='serif', font=2)
 

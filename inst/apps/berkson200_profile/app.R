@@ -1,4 +1,4 @@
-library(pos = -1,  package = 'SMRD')
+library( package = 'SMRD')
 
 
 
@@ -31,7 +31,7 @@ shinyApp(options = list(height = '600px'),
                                           value = 
 "par(family  = 'serif')
 
-library(pos = -1,  package = SMRD)
+library( package = SMRD)
 
 berkson200.ld <- 
 frame.to.ld(SMRD::berkson200,

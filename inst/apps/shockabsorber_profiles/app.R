@@ -1,4 +1,4 @@
-library(pos = -1,  package = 'SMRD')
+library( package = 'SMRD')
 
 
 
@@ -30,7 +30,7 @@ shinyApp(options = list(height = '600px', width = '99%'),
                                  value = "
 par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
 
-library(pos = -1,  package = SMRD)
+library( package = SMRD)
 
 ShockAbsorber.ld <- 
 frame.to.ld(SMRD::shockabsorber,

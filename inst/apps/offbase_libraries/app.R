@@ -1,6 +1,6 @@
-library(pos = -1,  package = 'leaflet')
-library(pos = -1,  package = 'publicLibs')
-library(pos = -1,  package = 'data.table')
+library( package = 'leaflet')
+library( package = 'publicLibs')
+library( package = 'data.table')
 
 
 

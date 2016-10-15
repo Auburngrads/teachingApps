@@ -1,4 +1,4 @@
-library(pos = -1,  package = 'plotly')
+library( package = 'plotly')
 
 get('arg2', envir = .GlobalEnv, inherits = T)
 

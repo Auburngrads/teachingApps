@@ -1,5 +1,5 @@
-library(pos = -1,  package = 'SMRD')
-library(pos = -1,  package = 'metricsgraphics')
+library( package = 'SMRD')
+library( package = 'metricsgraphics')
 
 
 

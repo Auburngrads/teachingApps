@@ -27,7 +27,7 @@ shinyApp(options = list(width = '100%', height = '600px'),
                           theme = "github", 
                           height = "450px",
                           value = 
-"library(pos = -1,  package = SMRD)
+"library( package = SMRD)
 
 lfp1370.ld <- frame.to.ld(SMRD::lfp1370,
               response.column = 1, 

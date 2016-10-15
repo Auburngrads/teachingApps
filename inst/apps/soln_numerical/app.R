@@ -72,7 +72,7 @@ tabPanel(h4('Graphical Solution'),
 
 obs <- c(4.2564, 0.5319)
 
-library(pos = -1,  package = SMRD)
+library( package = SMRD)
 
 model <- 'weibull'
 

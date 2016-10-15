@@ -29,12 +29,14 @@ central_limit <- function(pub = FALSE, theme = 'flatly', rmd = FALSE,...) {
     file <- system.file("apps", "central_limit", "app.R", package = "teachingApps")
 
     arg2 <- list(theme  = as.character(theme),
-                 appDir = as.character(dirname(file)),
-                 appName = as.character(basename(dirname(file))))
+                  appDir = as.character(dirname(file)),
+                  appName = as.character(basename(dirname(file))))
     
-    taEnv <- new.env(parent = emptyenv())
+    # taEnv <- new.env(parent = emptyenv())
     
-    assign('arg2', value = arg2, envir = taEnv, inherits = T)
+    dput(arg2, paste(c(dirname(file),'global.R'), collapse = '/'))
+    
+    # assign('.arg2', value = arg2, envir = .GlobalEnv, inherits = T)
     
     if(rmd) {
 

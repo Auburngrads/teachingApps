@@ -1,4 +1,4 @@
-library(pos = -1,  package = 'shinydashboard')
+library( package = 'shinydashboard')
 
 
 

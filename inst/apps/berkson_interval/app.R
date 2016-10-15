@@ -1,4 +1,4 @@
-library(pos = -1,  package = 'SMRD')
+library( package = 'SMRD')
 
 
 
@@ -29,7 +29,7 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
                                value = "
 par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
 
-library(pos = -1,  package = SMRD)
+library( package = SMRD)
 
 zoom <- 1.5
 
