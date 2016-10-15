@@ -1,4 +1,4 @@
-source('global.R', local = F)
+source(system.file('apps', 'ace_very_normal', 'global.R', package = 'teachingApps'))
 
 
 

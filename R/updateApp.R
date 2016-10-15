@@ -16,7 +16,7 @@
 #' 
 #' @export
 
-updateApp <- function(repo = NULL, pkg = repo, lib = .libPaths()[1], 
+updateApp <- function(repo = 'teachingApps', pkg = repo, lib = .libPaths()[1], 
                       app = NULL, open.folder = FALSE, css = FALSE, 
                       create = FALSE, git = NULL) {
   
