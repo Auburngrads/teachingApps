@@ -7,7 +7,7 @@
 
 
 
-load(system.file('apps', 'basic_histogram','args.rdata', package = 'teachingApps'), envir = .GlobalEnv)
+load('args.rdata')
 
 #get('arg2', envir = .GlobalEnv, inherits = T)
 
