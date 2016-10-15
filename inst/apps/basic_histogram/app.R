@@ -7,8 +7,7 @@
 
 
 
-
-readRDS(file = paste(c(dirname(file),'args.rds'),collapse = '/'))
+load(system.file('apps', 'basic_histogram','args.rdata', package = 'teachingApps'), envir = .GlobalEnv)
 
 #get('arg2', envir = .GlobalEnv, inherits = T)
 

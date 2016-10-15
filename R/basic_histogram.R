@@ -28,11 +28,13 @@ basic_histogram <- function(pub = FALSE, theme = 'flatly', rmd = FALSE,...) {
 
     file <- system.file("apps", "basic_histogram", "app.R", package = "teachingApps")
     
-    arg2 <- list(theme  = as.character(theme),
-                 appDir = as.character(dirname(file)),
-                 appName = as.character(basename(dirname(file))))
+    arg2 <- data.frame(theme  = as.character(theme),
+                       appDir = as.character(dirname(file)),
+                      appName = as.character(basename(dirname(file))),
+                      stringsAsFactors = F)
     
-    saveRDS(arg2, file = paste(c(dirname(file),'args.rds'),collapse = '/'))
+    save(arg2, 
+         file = paste(c(dirname(file),'args.rdata'),collapse = '/'))
     #assign('arg2', value = arg2, envir = .GlobalEnv, inherits = T)
     
     if(rmd) {
