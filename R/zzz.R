@@ -2,6 +2,7 @@
   
 # options('appURL' = 'https://afit.shinyapps.io/')
   
+  taEnv <<- new.env(parent = emptyenv())
   
 }
 
