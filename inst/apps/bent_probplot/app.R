@@ -4,7 +4,7 @@ library(package = 'SMRD')
 
 
 
-arg2 <- dget(system.file('apps', 'bent_probplot', 'global.R', package = "teachingApps"))
+arg2 <- eval(parse(text = gsub('\r\n',' ', shiny::includeText(system.file('apps', 'central_limit', 'global.R', package = "teachingApps")))))
 
 
 shinyApp(options = list(height = '600px', width = '100%'),
