@@ -10,7 +10,7 @@ library(pos = -1,  package = 'SMRD')
 
 
   
-source('args.R')
+source('global.R', local = F)
 
 shinyApp(options = list(height = '600px', width = '100%'),
          
