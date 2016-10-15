@@ -4,14 +4,12 @@ library(package = 'SMRD')
 
 
 
+arg2 <- dget(system.file('apps', 'bent_probplot', 'global.R', package = "teachingApps"))
 
 
-
-
-  
 shinyApp(options = list(height = '600px', width = '100%'),
-         onStart = function() {assign('arg2', eval(parse(system.file('apps','bent_probplot','global.R', package = 'teachingApps'))), envir = .GlobalEnv)},
-ui = fluidPage(theme = shinythemes::shinytheme(theme = get('arg2', envir = .GlobalEnv)$theme), 
+         
+ui = fluidPage(theme = shinythemes::shinytheme(theme = as.character(arg2$theme)), 
                try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = T),

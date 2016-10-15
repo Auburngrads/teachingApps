@@ -40,9 +40,11 @@ central_limit <- function(pub = FALSE, theme = 'flatly', rmd = FALSE,...) {
     
     if(rmd) {
 
-      do.call(library, list(package = 'shiny', character.only = T))
-
-      eval(parse(file = file))
+      # do.call(library, list(package = 'shiny', character.only = T))
+      # 
+      # eval(parse(file = file))
+      
+      shinyAppFile(appFile = file, options = list(height = height, width = width))
 
     } else {
       
