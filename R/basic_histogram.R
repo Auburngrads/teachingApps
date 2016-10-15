@@ -32,7 +32,7 @@ basic_histogram <- function(pub = FALSE, theme = 'flatly', rmd = FALSE,...) {
                  appDir = as.character(dirname(file)),
                  appName = as.character(basename(dirname(file))))
     
-    saveRDS(arg2, file = paste(c(dirname(file),'args.rds'),collapse = '/')))
+    saveRDS(arg2, file = paste(c(dirname(file),'args.rds'),collapse = '/'))
     #assign('arg2', value = arg2, envir = .GlobalEnv, inherits = T)
     
     if(rmd) {
