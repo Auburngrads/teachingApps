@@ -1,4 +1,6 @@
-load('args.Rdata')
+get('arg2', envir = .GlobalEnv, inherits = T)
+
+
 
 shinyApp(options = list(height = "800px"),
          
@@ -116,7 +118,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
   
   output$barplot <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(4.5,4,2,2))

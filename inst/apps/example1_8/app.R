@@ -10,7 +10,8 @@ library(pos = -1,  package = 'SMRD')
 
 
   
-load('args.Rdata')
+get('arg2', envir = .GlobalEnv, inherits = T)
+
 shinyApp(options = list(width = "100%", height = "800px"),
          
 ui = navbarPage(position = 'fixed-top',
@@ -18,7 +19,7 @@ ui = navbarPage(position = 'fixed-top',
                 title = 'Example 1.8',
                 theme = shinythemes::shinytheme(theme = arg2$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(basename(getwd()))),
+                footer = HTML(teachingApps::teachingApp(arg2$appName)),
 
 tabPanel(h4('Background'),
          mainPanel(uiOutput('example1.8'), class = 'shiny-text-output', width = 12)),

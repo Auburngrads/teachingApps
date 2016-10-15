@@ -10,14 +10,15 @@
 
 
 
-load('args.Rdata')
+get('arg2', envir = .GlobalEnv, inherits = T)
+
 shinyApp(options = list(width = "100%", height = "800px"),
          
 ui = navbarPage(collapsible = T, 
                 title = 'Survival Function',
                 theme = shinythemes::shinytheme(theme = arg2$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(basename(getwd()))),
+                footer = HTML(teachingApps::teachingApp(arg2$appName)),
                 
 tabPanel(h4('Properties'),
          mainPanel(uiOutput('survdemo'), class = 'shiny-text-output', width = 12)),

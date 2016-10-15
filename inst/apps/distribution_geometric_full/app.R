@@ -10,7 +10,8 @@ library(pos = -1,  package = 'metricsgraphics')
 
 
   
-load('args.Rdata')
+get('arg2', envir = .GlobalEnv, inherits = T)
+
 shinyApp(options = list(height = "700px"),
          
 ui = navbarPage(windowTitle = 'Geometric Distribution', 
@@ -62,7 +63,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
 
 t <- reactive({ min(input$range.geom):max(input$range.geom) })
   p <- reactive({ signif(seq(0, 1, length = length(max(t()):min(t()))), digits = 4) })

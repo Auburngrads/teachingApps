@@ -10,7 +10,8 @@ library(pos = -1,  package = 'DT')
 
 
 
-load('args.Rdata')
+get('arg2', envir = .GlobalEnv, inherits = T)
+
 shinyApp(options = list(height = '650px', width = '100%'),
     ui =fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
                  try(includeCSS(system.file('css',
@@ -49,7 +50,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
 
 dice   <- reactive({ as.numeric(input$no.dice) })
 sides  <- reactive({ as.numeric(input$no.sides) })

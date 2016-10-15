@@ -10,7 +10,7 @@ library(pos = -1,  package = 'metricsgraphics')
 
 
 get('arg2', envir = .GlobalEnv, inherits = T) 
-#load('args.Rdata')
+
 shinyApp(options = list(height = "700px"),
          
 ui = navbarPage(windowTitle = 'Beta Distribution', 
@@ -74,7 +74,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
 
   t <- reactive({ signif(seq(0,1, length.out = 500), digits = 4) + input$loc.beta })
   p <- reactive({ signif(seq(0, 1, length = 500), digits = 4) })
@@ -133,9 +133,9 @@ server = function(input, output, session) {
 
   
 output$betafunc <- renderUI({ 
-  withMathJax(HTML(includeMarkdown(paste(c(arg2$app,'beta-func.Rmd'),collapse = '/'))))
+  withMathJax(HTML(includeMarkdown(paste(c(arg2$appDir,'beta-func.Rmd'),collapse = '/'))))
 })
 output$betaprops <- renderUI({
-  HTML(includeMarkdown(paste(c(arg2$app,'beta-props.Rmd'), collapse = '/')))
+  HTML(includeMarkdown(paste(c(arg2$appDir,'beta-props.Rmd'), collapse = '/')))
 }) 
 })

@@ -4,12 +4,17 @@
 \alias{shockabsorber_probabilities}
 \title{Function Title}
 \usage{
-shockabsorber_probabilities(pub = FALSE, theme = "flatly")
+shockabsorber_probabilities(pub = FALSE, theme = "flatly", rmd = FALSE,
+  ...)
 }
 \arguments{
 \item{pub}{Will this app be published? (see details)}
 
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
+
+\item{rmd}{Will this be included in a Rmarkdown document or presentation?}
+
+\item{...}{Additional arguments for code{shiny::runApp()}}
 }
 \description{
 Description

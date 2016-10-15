@@ -16,7 +16,8 @@ set.seed(42)   ; set3 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
 set.seed(42)   ; set4 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
 
 
-load('args.Rdata')
+get('arg2', envir = .GlobalEnv, inherits = T)
+
 shinyApp(options = list(height = '800px', width = '100%'),
   ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
                   try(includeCSS(system.file('css','my-shiny.css', 
@@ -28,7 +29,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
     
     output$prn <- DT::renderDataTable({
       

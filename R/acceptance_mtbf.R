@@ -30,12 +30,11 @@ acceptance_mtbf <- function(pub = FALSE, theme = 'flatly', rmd = FALSE) {
 
     teachingApps::getPackage(pub = pub, pkg  = 'plotly')
     
-    arg2 <- data.frame(theme = as.character(theme))
+    arg2 <- list(theme  = as.character(theme),
+                 appDir = as.character(dirname(file)),
+                 appName = as.character(basename(dirname(file))))
     
     assign('arg2', value = arg2, envir = .GlobalEnv, inherits = T)
-    
-    # save(list = 'arg2', 
-    #      file = paste(c(dirname(file),'/args','.Rdata'), collapse = ''))
     
     if(rmd) {
 
@@ -45,7 +44,7 @@ acceptance_mtbf <- function(pub = FALSE, theme = 'flatly', rmd = FALSE) {
 
     } else {
       
-    shiny::runApp(file)
+    shiny::runApp(file,...)
       
     }
 }

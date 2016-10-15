@@ -10,7 +10,8 @@ library(pos = -1,  package = 'shinydashboard')
 
 
 
-load('args.Rdata')
+get('arg2', envir = .GlobalEnv, inherits = T)
+
 shinyApp(options = list(height = '800px'),
          
 ui <- dashboardPage(

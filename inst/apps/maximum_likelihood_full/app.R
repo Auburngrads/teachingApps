@@ -10,7 +10,8 @@ library(pos = -1,  package = 'scales')
 
 
   
-load('args.Rdata')
+get('arg2', envir = .GlobalEnv, inherits = T)
+
 shinyApp(options = list(height = "800px"),
          
 ui = navbarPage(windowTitle = 'Maximum Likelihood',
@@ -50,7 +51,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
   
 mle <- reactiveValues(dats = NULL, 
                       params = NULL, 

@@ -10,7 +10,8 @@ library(pos = -1,  package = 'plotly')
 
 
 
-load('args.Rdata')
+get('arg2', envir = .GlobalEnv, inherits = T)
+
 shinyApp(options = list(height = '800px', width = '100%'),
          
     ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
@@ -54,7 +55,7 @@ server = function(input, output, session) {
   
   library(pos = -1,  package = 'plotly')
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
   
   output$prop <- renderPlotly({
 

@@ -30,7 +30,8 @@ colnames(Table.3.4) <- c("km",
                          "S(t)",
                          "F(t)")
 
-load('args.Rdata')
+get('arg2', envir = .GlobalEnv, inherits = T)
+
 shinyApp(options = list(height = '800px', width = '99%'),
          
  ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
@@ -45,7 +46,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
   
 
   

@@ -17,6 +17,8 @@
 #'
 #' @param pub Will this app be published? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
+#' @param rmd Will this be included in a Rmarkdown document or presentation?
+#' @param ... Additional arguments for code{shiny::runApp()} 
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, set code{pub = TRUE} to prevent calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 #'
@@ -26,10 +28,11 @@ ace_very_normal <- function(pub = FALSE, theme = 'flatly',...) {
 
     file <- system.file("apps", "ace_very_normal", "app.R", package = "teachingApps")
 
-    arg2 <- data.frame(theme = as.character(theme))
+    arg2 <- list(theme  = as.character(theme),
+                 appDir = as.character(dirname(file)),
+                 appName = as.character(basename(dirname(file))))
     
-    save(list = 'arg2', 
-         file = paste(c(dirname(file),'/args','.Rdata'), collapse = ''))
+    assign('arg2', value = arg2, envir = .GlobalEnv, inherits = T)
     
     shiny::runApp(appDir =  dirname(file),...)
   

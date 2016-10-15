@@ -2,12 +2,13 @@ library(pos = -1,  package = 'plotly')
 
 get('arg2', envir = .GlobalEnv, inherits = T)
 
-ui = navbarPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = T),
+ui = navbarPage(collapsible = T, 
+                title = 'MTBF Acceptance Test',
+                theme = shinythemes::shinytheme(theme = arg2$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(arg2$appName)),
           
-tabPanel(h4('MTBF Test Planning Tool'),
+tabPanel(h4('Planning Tool'),
          sidebarLayout(
            sidebarPanel(width = 3,
              sliderInput('ttt', h4('Available Test Time'), 
