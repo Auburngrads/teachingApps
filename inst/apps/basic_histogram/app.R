@@ -8,9 +8,9 @@
 
 
 
+readRDS(file = paste(c(dirname(file),'args.rds'),collapse = '/'))
 
-
-get('arg2', envir = .GlobalEnv, inherits = T)
+#get('arg2', envir = .GlobalEnv, inherits = T)
 
 shinyApp(options = list(height = '650px'),
          
@@ -21,23 +21,22 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
      sidebarLayout( 
         sidebarPanel(width = 5,
            shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "code", 
+                               wordWrap = T,
+                               outputId = "code", 
                                mode = "r", 
                                theme = "github", 
-                                
                                height = '500px',
                                value = 
 "set.seed(NULL)
 
-x<-rbinom(500,size = 15,p = .25)
+x <- rbinom(500,size = 15,p = .25)
 
 hist(x, col = 1,
      border = 'orange',
      breaks = c(0,1,2,3,4,5,6,7,8,9,10,11),
      main = '')"),
 
-     actionButton("eval", h3("Evaluate"), width = '100%')),
+     actionButton("eval", h4("Evaluate"), width = '100%')),
         
      mainPanel(plotOutput("output", height = '600px'), width = 7)),
   
