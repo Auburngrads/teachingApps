@@ -24,7 +24,7 @@
 #'
 #' @export
 
-central_limit <- function(pub = FALSE, theme = 'flatly', rmd = FALSE,...) {
+central_limit <- function(pub = FALSE, theme = 'flatly', rmd = FALSE,width = '100%', height = '800px',...) {
 
     file <- system.file("apps", "central_limit", "app.R", package = "teachingApps")
 

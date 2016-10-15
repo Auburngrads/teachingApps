@@ -4,7 +4,8 @@
 \alias{central_limit}
 \title{Function Title}
 \usage{
-central_limit(pub = FALSE, theme = "flatly", rmd = FALSE, ...)
+central_limit(pub = FALSE, theme = "flatly", rmd = FALSE,
+  width = "100\%", height = "800px", ...)
 }
 \arguments{
 \item{pub}{Will this app be published? (see details)}
