@@ -4,3 +4,5 @@
 ^\.travis\.yml$
 jssArticle/
 Rpaper/
+rsconnect/
+keytest.Rmd

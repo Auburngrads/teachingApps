@@ -31,7 +31,9 @@ diagrammer_network <- function(pub = FALSE, theme = 'flatly', rmd = FALSE,...) {
 
     teachingApps::getPackage(pub = pub, pkg  = 'DiagrammeR')
 
-    assign('theme', theme, inherits = T)
+    arg2 <- list(theme  = as.character(theme),
+                 appDir = as.character(dirname(file)),
+                 appName = as.character(basename(dirname(file))))
     
     assign('arg2', value = arg2, envir = .GlobalEnv, inherits = T)
     

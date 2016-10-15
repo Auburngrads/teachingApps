@@ -24,7 +24,7 @@
 #'
 #' @export
 
-ace_very_normal <- function(pub = FALSE, theme = 'flatly',...) {
+ace_very_normal <- function(pub = FALSE, theme = 'flatly',rmd = FALSE,...) {
 
     file <- system.file("apps", "ace_very_normal", "app.R", package = "teachingApps")
 
@@ -34,6 +34,16 @@ ace_very_normal <- function(pub = FALSE, theme = 'flatly',...) {
     
     assign('arg2', value = arg2, envir = .GlobalEnv, inherits = T)
     
-    shiny::runApp(appDir =  dirname(file),...)
+    if(rmd) {
+
+      do.call(library, list(package = 'shiny', character.only = T))
+
+      eval(parse(file = file))
+
+    } else {
+      
+    shiny::runApp(file,...)
+      
+    }
   
 }

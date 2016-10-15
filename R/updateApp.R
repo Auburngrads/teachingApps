@@ -1,5 +1,7 @@
 #' Quickly update the code for a shiny app
 #'
+#' @importFrom utils browseURL
+#'
 #' @param repo Name of the directory in which the raw app code is stored
 #' @param pkg Name of the package in which the updates are to be made.  Defaults to \code{repo}.
 #' @param lib Package library directory where \code{pkg} is stored. Defaults to \code{.libPaths()[1]}
@@ -38,7 +40,7 @@ updateApp <- function(repo = NULL, pkg = repo, lib = .libPaths()[1],
 
       appRoot <- paste(c(gitRoot, 'apps',app), collapse = '/') 
       
-    if(open.folder) { browseURL(appRoot)
+    if(open.folder) { utils::browseURL(appRoot)
       
     } else {
     
