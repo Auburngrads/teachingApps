@@ -2,8 +2,11 @@ library(package = 'SMRD')
 
 
 #teachingApps::includeR(system.file('apps','bent_probplot','global.R', package = 'teachingApps'))[[1]]
-arg2 <- eval(parse(text = gsub('\r\n',' ', shiny::includeText(system.file('apps', 'bent_probplot', 'global.R', package = "teachingApps")))))
+#arg2 <- eval(parse(text = gsub('\r\n',' ', shiny::includeText(system.file('apps', 'bent_probplot', 'global.R', package = "teachingApps")))))
 #get('arg2', envir = .GlobalEnv, inherits = T)
+arg2 <- read.table(system.file('apps', 'bent_probplot', 'args.txt', package = 'teachingApps'), 
+                   header = T, 
+                   stringsAsFactors = F)
 
 shinyApp(options = list(height = '600px', width = '100%'),
          
@@ -40,7 +43,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(teachingApps::includeR(system.file('apps','bent_probplot','global.R', package = 'teachingApps'))[[3]]))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
   
   output$bleedplot <- renderPlot({
       par(mar = c(4,4,2,2))

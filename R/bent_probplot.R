@@ -30,12 +30,17 @@ bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '1
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
     
-    arg2 <- list(theme  = as.character(theme),
-                 appDir = normalizePath(dirname(file)),
-                 appName = as.character(basename(dirname(file))))
+    arg2 <- data.frame(theme  = as.character(theme),
+                       appDir = dirname(file),
+                      appName = as.character(basename(dirname(file))),
+                      stringsAsFactors = F)
+    
+    write.table(arg2, 
+                file = paste(c(dirname(file),'args.txt'), collapse = '/'), 
+                row.names = F)
     
     #assign('arg2', value = arg2, envir = globalenv(), inherits = T)
-    dput(arg2, file = paste(c(dirname(file),'global.R'), collapse = '/'))
+    #dput(arg2, file = paste(c(dirname(file),'global.R'), collapse = '/'))
     
     if(rmd) {
 
