@@ -26,18 +26,16 @@
 
 bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    file <- system.file("apps", "bent_probplot", "app.R", package = "teachingApps")
+    dir <- dirname(system.file("apps", "bent_probplot", "app.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
     
-    arg2 <- data.frame(theme  = as.character(theme),
-                       appDir = dirname(file),
-                      appName = as.character(basename(dirname(file))),
+    arg2 <- data.frame(theme  = theme,
+                       appDir = dir,
+                      appName = basename(dir),
                       stringsAsFactors = F)
     
-    write.table(arg2, 
-                file = paste(c(dirname(file),'args.txt'), collapse = '/'), 
-                row.names = F)
+    dump('arg2', file = paste(c(dir,'www/args.R'), collapse = '/')) 
     
     #assign('arg2', value = arg2, envir = globalenv(), inherits = T)
     #dput(arg2, file = paste(c(dirname(file),'global.R'), collapse = '/'))
@@ -52,7 +50,7 @@ bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '1
 
     } else {
       
-    shiny::runApp(file,...)
+    shiny::runApp(dir,...)
       
     }
   
