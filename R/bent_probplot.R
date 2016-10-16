@@ -35,6 +35,9 @@ bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '1
                       appName = basename(dir),
                       stringsAsFactors = F)
     
+    dir.create(paste(c(dir,'www'), collapse = '/'))
+    file.create(paste(c(dir,'www/args.R'), collapse = '/'))
+    
     dump('arg2', file = paste(c(dir,'www/args.R'), collapse = '/')) 
     
     #assign('arg2', value = arg2, envir = globalenv(), inherits = T)
