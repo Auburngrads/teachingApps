@@ -24,7 +24,7 @@
 #'
 #' @export
 
-bent_probplot <- function(pub = FALSE, theme = 'flatly', rmd = FALSE, width = '100%', height = '800px',...) {
+bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
     file <- system.file("apps", "bent_probplot", "app.R", package = "teachingApps")
 
