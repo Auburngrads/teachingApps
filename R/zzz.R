@@ -2,9 +2,6 @@
   
 # options('appURL' = 'https://afit.shinyapps.io/')
   
-  taEnv <<- new.env(parent = emptyenv())
-  .arg2 <- {}
-  
 }
 
 #' Custom \code{par} function
