@@ -30,7 +30,8 @@
 
 bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "bent_probplot", "app.R", package = "teachingApps"))
+    file <- system.file("apps", "bent_probplot", "app.R", package = "teachingApps")
+    dir <- dirname(file)
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
     
@@ -48,7 +49,7 @@ bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '1
     
     if(rmd) {
 
-    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
+    shiny::shinyAppFile(appFile = file, options = list(height = height, width = width))
 
     } else {
       
