@@ -15,6 +15,7 @@ library( package = 'data.table')
 shinyApp(options = list(height = '800px', width = '100%'),
 
 ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
                 title = 'Offbase Libraries',
                 theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),

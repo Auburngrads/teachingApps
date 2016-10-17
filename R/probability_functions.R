@@ -29,7 +29,7 @@
 #'
 #' @export
 
-distribution_functions <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
+probability_functions <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
     dir <- dirname(system.file("apps", "distribution_functions", "app.R", package = "teachingApps"))
 

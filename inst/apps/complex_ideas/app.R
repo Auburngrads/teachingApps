@@ -14,6 +14,7 @@ library( package = DT)
 
 shinyApp(options = list( height = "800px"),
 ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
                 title = 'Complex Ideas',
                 theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),

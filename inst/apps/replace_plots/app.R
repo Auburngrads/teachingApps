@@ -23,6 +23,7 @@ ZelenCap.ld <- frame.to.ld(SMRD::zelencap,
 shinyApp(options = list(width = "100%", height = "800px"),
 
 ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
                 title = 'Replace Plots',
                 theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
