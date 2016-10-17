@@ -11,11 +11,11 @@ library( package = 'd3Network')
 
 
   
-get('arg2', envir = .GlobalEnv, inherits = T)
+
 
 shinyApp(options = list(height = '600px'),
 
-ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
                try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = T),
@@ -26,7 +26,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
          
  output$sankey1 <- networkD3::renderSankeyNetwork({
    

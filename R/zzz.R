@@ -83,7 +83,7 @@ createFun <- function() {
                     "#' @export\n\n",apps[i],
                     ' <- function(pub = FALSE) {
 
-    file <- system.file("apps", "', apps[i],'", "app.R", package = "teachingApps")
+    dir <- dirname(system.file("apps", "', apps[i],'", "app.R", package = "teachingApps"))
 
     ',paste(c(pkgs), collapse = '\n'),'
 

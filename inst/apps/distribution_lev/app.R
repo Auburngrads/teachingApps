@@ -10,10 +10,10 @@ library( package = 'SMRD')
 
 
   
-get('arg2', envir = .GlobalEnv, inherits = T)
+
 
 shinyApp(options = list(height = "700px"),
-ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
                try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = TRUE),
@@ -55,7 +55,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
 
 t = reactive({ signif(seq(min(input$range.lev), max(input$range.lev), length = 500), digits = 4)})
 p <- signif(seq(0, 1, length = 500), digits = 4) 

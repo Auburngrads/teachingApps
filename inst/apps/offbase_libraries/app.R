@@ -10,15 +10,15 @@ library( package = 'data.table')
 
 
 
-get('arg2', envir = .GlobalEnv, inherits = T)
+
 
 shinyApp(options = list(height = '800px', width = '100%'),
 
 ui = navbarPage(collapsible = T, 
                 title = 'Offbase Libraries',
-                theme = shinythemes::shinytheme(theme = arg2$theme),
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(arg2$appName)),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
 
 tabPanel(h4('Off-Base Libraries'),
          sidebarLayout(

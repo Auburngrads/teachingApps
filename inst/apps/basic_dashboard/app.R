@@ -10,7 +10,7 @@ library( package = 'shinydashboard')
 
 
 
-get('arg2', envir = .GlobalEnv, inherits = T)
+
 
 shinyApp(options = list(height = '800px'),
          

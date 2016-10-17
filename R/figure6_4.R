@@ -9,41 +9,49 @@
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout 
 #' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel
 #' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput
-#' @importFrom shiny updateNumericInput strong stopApp browserViewer
+#' @importFrom shiny updateNumericInput strong stopApp browserViewer shinyAppDir
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText
 #'
 #'
-#' @param pub Will this app be published? (see details)
+#' @param pub Will the app be published (deployed)? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
-#' @param rmd Will this be included in a Rmarkdown document or presentation?
-#' @param ... Additional arguments for code{shiny::runApp()} 
+#' @param rmd Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)
+#' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
+#' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
+#' @param ... Additional arguments passed to code{shiny::runApp()} 
 #'  
-#' @details When publishing apps using shinyapps.io or shinyServer, set code{pub = TRUE} to prevent calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
+#' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
+#' 
+#' When code{rmd = FALSE} the app is run using code{shiny::runApp}, addition arguments can be passed via the code{...} argument.  When code{rmd = TRUE}, code{shiny::shinyAppDir} is used the code{width} and code{height} arguments must be specified.
 #'
 #' @export
 
-figure6_4 <- function(pub = FALSE, theme = 'flatly', rmd = FALSE,...) {
+figure6_4 <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    file <- system.file("apps", "figure6_4", "app.R", package = "teachingApps")
+    dir <- dirname(system.file("apps", "figure6_4", "app.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
-arg2 <- list(theme  = as.character(theme),
-                 appDir = as.character(dirname(file)),
-                 appName = as.character(basename(dirname(file))))
+arg2 <- data.frame(theme  = theme,
+                       appDir = dir,
+                      appName = basename(dir),
+                      stringsAsFactors = F)
     
-    assign('arg2', value = arg2, envir = globalenv(), inherits = T)
+    www <- paste(c(dir,'www'), collapse = '/')
+    if(!dir.exists(www)) dir.create(www)
+    
+    file.create(paste(c(dir,'www/args.R'), collapse = '/'))
+    
+    dump('arg2', file = paste(c(dir,'www/args.R'), collapse = '/'))
     
     if(rmd) {
 
-      do.call(library, list(package = 'shiny', character.only = T))
-
-      eval(parse(file = file))
+    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
 
     } else {
       
-    shiny::runApp(file,...)
+    shiny::runApp(dir,...)
       
     }
   

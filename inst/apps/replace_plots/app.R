@@ -18,15 +18,15 @@ ZelenCap.ld <- frame.to.ld(SMRD::zelencap,
                            time.units = "Hours", 
                            xlabel = c(expression(C^o), expression("Volts")))
 
-get('arg2', envir = .GlobalEnv, inherits = T)
+
 
 shinyApp(options = list(width = "100%", height = "800px"),
 
 ui = navbarPage(collapsible = T, 
                 title = 'Replace Plots',
-                theme = shinythemes::shinytheme(theme = arg2$theme),
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(arg2$appName)),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table2", height = "650px") ),  
 tabPanel(h4("Data Summary"), verbatimTextOutput("summary2") ), 

@@ -65,7 +65,7 @@ miniTabstripPanel(
 
 server = function(input, output, session) {
 
-#  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
+#  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
   
   output$mtbf <- renderPlotly({
 

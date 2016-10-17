@@ -10,7 +10,7 @@ library( package = 'DiagrammeR')
 
 
 
-get('arg2', envir = .GlobalEnv, inherits = T)
+
 
 shinyApp(options = list(width = '100%'),
  
@@ -27,7 +27,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
 
     output$grtest <- renderGrViz({
     

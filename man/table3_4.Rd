@@ -4,21 +4,28 @@
 \alias{table3_4}
 \title{Function Title}
 \usage{
-table3_4(pub = FALSE, theme = "flatly", rmd = FALSE, ...)
+table3_4(pub = FALSE, theme = "flatly", rmd = FALSE, width = "100\%",
+  height = "800px", ...)
 }
 \arguments{
-\item{pub}{Will this app be published? (see details)}
+\item{pub}{Will the app be published (deployed)? (see details)}
 
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
 
-\item{rmd}{Will this be included in a Rmarkdown document or presentation?}
+\item{rmd}{Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)}
 
-\item{...}{Additional arguments for code{shiny::runApp()}}
+\item{width}{Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored}
+
+\item{height}{Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored}
+
+\item{...}{Additional arguments passed to code{shiny::runApp()}}
 }
 \description{
 Description
 }
 \details{
-When publishing apps using shinyapps.io or shinyServer, set code{pub = TRUE} to prevent calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
+When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
+
+When code{rmd = FALSE} the app is run using code{shiny::runApp}, addition arguments can be passed via the code{...} argument.  When code{rmd = TRUE}, code{shiny::shinyAppDir} is used the code{width} and code{height} arguments must be specified.
 }
 
