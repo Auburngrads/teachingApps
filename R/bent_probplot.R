@@ -39,17 +39,15 @@ bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '1
                       appName = basename(dir),
                       stringsAsFactors = F)
     
-    # www <- paste(c(dir,'www'), collapse = '/')
-    # if(!dir.exists(www)) dir.create(www)
+    www <- paste(c(dir,'www'), collapse = '/')
+    if(!dir.exists(www)) dir.create(www)
     
-    file.create(paste(c(dir,'args.R'), collapse = '/'))
+    file.create(paste(c(dir,'www/args.R'), collapse = '/'))
     
-    dump('arg2', file = paste(c(dir,'args.R'), collapse = '/')) 
+    dump('arg2', file = paste(c(dir,'www/args.R'), collapse = '/')) 
     
     if(rmd) {
 
-    # addResourcePath("www", dirname(system.file('apps','bent_probplot','www','args.R', package = 'teachingApps')))
-      
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
 
     } else {
