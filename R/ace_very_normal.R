@@ -32,15 +32,17 @@ ace_very_normal <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = 
 
     dir <- dirname(system.file("apps", "ace_very_normal", "app.R", package = "teachingApps"))
 
-    arg2 <- list(theme  = as.character(theme),
-                 appDir = as.character(dirname(file)),
-                 appName = as.character(basename(dirname(file))))
+    arg2 <- data.frame(theme  = theme,
+                       appDir = dir,
+                      appName = basename(dir),
+                      stringsAsFactors = F)
     
-    dump('arg2', paste(c(dirname(file),'global.R'), collapse = '/'))
+    www <- paste(c(dir,'www'), collapse = '/')
+    if(!dir.exists(www)) dir.create(www)
     
-    # taEnv <- new.env(parent = emptyenv())
-    # 
-    # assign('arg2', value = arg2, envir = taEnv, inherits = T)
+    file.create(paste(c(dir,'www/args.R'), collapse = '/'))
+    
+    dump('arg2', file = paste(c(dir,'www/args.R'), collapse = '/'))
     
     if(rmd) {
 

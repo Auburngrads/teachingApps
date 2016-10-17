@@ -46,7 +46,7 @@ central_limit <- function(pub = FALSE, theme = 'flatly', rmd = FALSE, width = '1
     
     if(rmd) {
       
-    shiny::shinyAppDir(appDir = dirname(file), options = list(height = height, width = width))
+    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
 
     } else {
       

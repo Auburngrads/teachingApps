@@ -3,7 +3,7 @@
 
 
 shinyApp(options = list(height = '600px', width = '99%'),
-         #onStart = function() {eval(parse(system.file('apps', 'ace_very_normal', 'global.R', package = 'teachingApps')))}, 
+         
 ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
                 try(includeCSS(system.file('css',
                                            'my-shiny.css', 

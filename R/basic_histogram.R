@@ -32,14 +32,17 @@ basic_histogram <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = 
 
     dir <- dirname(system.file("apps", "basic_histogram", "app.R", package = "teachingApps"))
     
-    arg2 <- data.frame(theme  = as.character(theme),
-                       appDir = as.character(dirname(file)),
-                      appName = as.character(basename(dirname(file))),
+    arg2 <- data.frame(theme  = theme,
+                       appDir = dir,
+                      appName = basename(dir),
                       stringsAsFactors = F)
     
-    save(arg2, 
-         file = paste(c(dirname(file),'args.rdata'),collapse = '/'))
-    #assign('arg2', value = arg2, envir = .GlobalEnv, inherits = T)
+    www <- paste(c(dir,'www'), collapse = '/')
+    if(!dir.exists(www)) dir.create(www)
+    
+    file.create(paste(c(dir,'www/args.R'), collapse = '/'))
+    
+    dump('arg2', file = paste(c(dir,'www/args.R'), collapse = '/'))
     
     if(rmd) {
 
