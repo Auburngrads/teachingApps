@@ -8,10 +8,10 @@
 #'
 #' @export
 
-includeR <- function (path) {
+includeArgs <- function (path) {
   
     lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
     lines <- gsub('\r\n','', lines)
-    return(eval(parse(text = lines)))
+    return(as.character(eval(parse(text = lines))))
     
 }
