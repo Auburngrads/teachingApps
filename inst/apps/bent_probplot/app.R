@@ -1,4 +1,5 @@
-library(package = 'SMRD')
+library(teachingApps)
+library(SMRD)
 
 www <- system.file('apps','bent_probplot','www','args.R', package = 'teachingApps')
 

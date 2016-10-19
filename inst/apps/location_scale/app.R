@@ -1,3 +1,4 @@
+library(teachingApps)
 library(metricsgraphics)
 library(SMRD)
 
@@ -14,15 +15,13 @@ tabPanel(h4('Overview'),
          mainPanel(uiOutput('overview'), 
                    class = 'shiny-text-output', 
                    width = 12)),
-
+############################################
 tabPanel(h4('Location-Scale Distributions'),
-           
+############################################
 tabsetPanel(type = 'pills',
-###
-# Exponential Distribution
-###
+#############################
   tabPanel(h4('Exponential'),
-
+#############################
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('expfunc'), 
@@ -65,11 +64,10 @@ fluidRow(
 
 column(width = 9,
     mainPanel(width = '100%', metricsgraphicsOutput("expfuncs",height = "600px"))))),
-###
-# Normal Distribution
-###
-tabPanel(h4('Normal'),
 
+#######################
+tabPanel(h4('Normal'),
+#######################
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('norfunc'), 
@@ -112,11 +110,10 @@ fluidRow(
 
 column(width = 9,
     mainPanel(width = '100%', metricsgraphicsOutput("norfuncs",height = "600px"))))),
-###
-# Smallest Extreme Value Distribution
-###
-tabPanel(h4('Smallest Extreme Value'),
 
+#######################################
+tabPanel(h4('Smallest Extreme Value'),
+#######################################
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('sevfunc'), 
@@ -160,11 +157,9 @@ fluidRow(
 column(width = 9,
     mainPanel(width = '100%', metricsgraphicsOutput("sevfuncs",height = "600px"))))),
 
-###
-# Largest Extreme Value Distribution
-###
+######################################
 tabPanel(h4('Largest Extreme Value'),
-
+######################################
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('levfunc'), 
@@ -206,23 +201,166 @@ fluidRow(
   actionButton('levqua', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
 
 column(width = 9,
-    mainPanel(width = '100%', metricsgraphicsOutput("levfuncs",height = "600px")))))
+    mainPanel(width = '100%', metricsgraphicsOutput("levfuncs",height = "600px"))))),
 
-))),
+######################################
+tabPanel(h4('Logistic'),
+######################################
+fluidRow(
+  column(width = 12,
+     mainPanel(uiOutput('logisfunc'), 
+                     class = 'shiny-text-output', width = '100%'))),
+
+fluidRow(
+  column(width = 12,
+     mainPanel(uiOutput('logisprops'), 
+                     class = 'shiny-text-output', width = '100%'))),
+
+fluidRow(
+  column(width = 12, h3('Interactive Shiny App')),
+  column(width = 3,
+  sidebarPanel(width = '100%', 
+  hr(),
+  sliderInput("range.l", 
+              label = h2("Range"),
+              min = -20, 
+              max = 20, 
+              value = c(-4,4)),
+  sliderInput("mu.l", 
+              label = h2(HTML("Mean (&mu;)")),
+              min = -3, 
+              max = 3, 
+              step = 0.5, 
+              value = 0), 
+  sliderInput("sig.l", 
+              label = h2(HTML("Std Dev (&sigma;)")),
+              min = 0.5, 
+              max = 5, 
+              step = 0.5, 
+              value = 1), 
+  withMathJax(),
+  actionButton('logiscdf', HTML('<script type="math/tex">F(t)</script>'),width = '31%'),
+  actionButton('logispdf', HTML('<script type="math/tex">f(t)</script>'),width = '31%'),
+  actionButton('logissur', HTML('<script type="math/tex">S(t)</script>'),width = '31%'),
+  hr(),
+  actionButton('logishaz', HTML('<script type="math/tex">h(t)</script>'),width = '31%'),
+  actionButton('logisHAZ', HTML('<script type="math/tex">H(t)</script>'),width = '31%'),
+  actionButton('logisqua', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
+
+column(width = 9,
+    mainPanel(width = '100%', metricsgraphicsOutput("logisfuncs",height = "600px")))))))),
+
+# ################################################
+# tabPanel(h4('Log-Location-Scale Distributions'),
+# ################################################
+# tabsetPanel(type = 'pills',
+#             
+# #######################
+# tabPanel(h4('Lognormal'),
+# #######################
+# fluidRow(
+#   column(width = 12,
+#      mainPanel(uiOutput('lnorfunc'), 
+#                      class = 'shiny-text-output', width = '100%'))),
+# 
+# fluidRow(
+#   column(width = 12,
+#      mainPanel(uiOutput('lnorprops'), 
+#                      class = 'shiny-text-output', width = '100%'))),
+# 
+# fluidRow(
+#   column(width = 12, h3('Interactive Shiny App')),
+#   column(width = 3,
+#   sidebarPanel(width = '100%', 
+#   sliderInput("range.n", 
+#               label = h2("Range"),
+#               min = -20, 
+#               max = 20, 
+#               value = c(-4,4)),
+#   sliderInput("mu.n", 
+#               label = h2(HTML("Mean (&mu;)")),
+#               min = -3, 
+#               max = 3, 
+#               step = 0.5, 
+#               value = 0),
+#   sliderInput("sig.n", 
+#               label = h2(HTML("Std Dev (&sigma;)")),
+#               min = 0.5, 
+#               max = 5, 
+#               step = 0.5, 
+#               value = 1),
+#   withMathJax(),
+#   actionButton('ncdf', HTML('<script type="math/tex">F(t)</script>'),width = '31%'),
+#   actionButton('npdf', HTML('<script type="math/tex">f(t)</script>'),width = '31%'),
+#   actionButton('nsur', HTML('<script type="math/tex">S(t)</script>'),width = '31%'),
+#   hr(),
+#   actionButton('nhaz', HTML('<script type="math/tex">h(t)</script>'),width = '31%'),
+#   actionButton('nHAZ', HTML('<script type="math/tex">H(t)</script>'),width = '31%'),
+#   actionButton('nqua', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
+# 
+# column(width = 9,
+#     mainPanel(width = '100%', metricsgraphicsOutput("norfuncs",height = "600px"))))),
+# 
+# #######################################
+# tabPanel(h4('Weibull'),
+# #######################################
+# fluidRow(
+#   column(width = 12,
+#      mainPanel(uiOutput('sevfunc'), 
+#                      class = 'shiny-text-output', width = '100%'))),
+# 
+# fluidRow(
+#   column(width = 12,
+#      mainPanel(uiOutput('sevprops'), 
+#                      class = 'shiny-text-output', width = '100%'))),
+# 
+# fluidRow(
+#   column(width = 12, h3('Interactive Shiny App')),
+#   column(width = 3,
+#   sidebarPanel(width = '100%', 
+#   sliderInput("range.s", 
+#               label = h2("Range"),
+#               min = -20, 
+#               max = 20, 
+#               value = c(-6,6)),
+#   sliderInput("mu.sev", 
+#               label = h2(HTML("Mean (&mu;)")),
+#               min = -3, 
+#               max = 3, 
+#               step = 0.5, 
+#               value = 0), 
+#   sliderInput("sig.sev", 
+#               label = h2(HTML("Std Dev (&sigma;)")),
+#               min = 1, 
+#               max = 10, 
+#               step = 0.5, 
+#               value = 1), 
+#   withMathJax(),
+#   actionButton('sevcdf', HTML('<script type="math/tex">F(t)</script>'),width = '31%'),
+#   actionButton('sevpdf', HTML('<script type="math/tex">f(t)</script>'),width = '31%'),
+#   actionButton('sevsur', HTML('<script type="math/tex">S(t)</script>'),width = '31%'),
+#   hr(),
+#   actionButton('sevhaz', HTML('<script type="math/tex">h(t)</script>'),width = '31%'),
+#   actionButton('sevHAZ', HTML('<script type="math/tex">H(t)</script>'),width = '31%'),
+#   actionButton('sevqua', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
+# 
+# column(width = 9,
+#     mainPanel(width = '100%', metricsgraphicsOutput("sevfuncs",height = "600px")))))))),
 
 server = function(input, output, session) {
 
 output$overview <- renderUI({ 
   withMathJax(HTML(includeMarkdown('background.Rmd')))
 })
-####
-# Exponential Server
-####
+
+######################
+# Exponential Server #
+######################
 output$expfunc <- renderUI({ 
-  withMathJax(HTML(includeMarkdown(appFile('distribution_exponential_full','exp-func.Rmd'))))
+  withMathJax(HTML(includeMarkdown(system.file('apps','distribution_exponential_full','exp-func.Rmd', package = 'teachingApps'))))
 })
 output$expprops <- renderUI({
-  HTML(includeMarkdown(appFile('distribution_exponential_full','exp-props.Rmd')))
+  HTML(includeMarkdown(system.file('apps','distribution_exponential_full','exp-props.Rmd', package = 'teachingApps')))
 })
 
 exp.t = reactive({ signif(seq(min(input$rangee), max(input$rangee), length = 500), digits = 4)})
@@ -283,15 +421,16 @@ observeEvent(input$equa, {
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
 })
-####
-# Normal Server
-####
+#################
+# Normal Server #
+#################
 output$norfunc <- renderUI({
-  withMathJax(HTML(includeMarkdown(appFile('distribution_normal_full','nor-func.Rmd'))))
+  withMathJax(HTML(includeMarkdown(system.file('apps','distribution_normal_full','nor-func.Rmd', package = 'teachingApps'))))
 })
 output$norprops <- renderUI({
-  HTML(includeMarkdown(appFile('distribution_normal_full','nor-props.Rmd')))
+  HTML(includeMarkdown(system.file('apps','distribution_normal_full','nor-props.Rmd', package = 'teachingApps')))
 })
+
 nor.t <- reactive({ signif(seq(min(input$range.n), max(input$range.n), length = 500), digits = 4)})
 nor.p <- signif(seq(0, 1, length = 500), digits = 4)
 nor.C <- reactive({ pnorm(nor.t(), input$mu.n, input$sig.n)})
@@ -350,15 +489,16 @@ observeEvent(input$nqua, {
   mjs_labs(x_label = 'Probability', y_label = 'q(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
 })
-####
-# SEV Server
-####
+##############
+# SEV Server #
+##############
 output$sevfunc <- renderUI({
-  withMathJax(HTML(includeMarkdown(appFile('distribution_sev_full','sev-func.Rmd'))))
+  withMathJax(HTML(includeMarkdown(system.file('apps','distribution_sev_full','sev-func.Rmd', package = 'teachingApps'))))
 })
 output$sevprops <- renderUI({
-  HTML(includeMarkdown(appFile('distribution_sev_full','sev-props.Rmd')))
+  HTML(includeMarkdown(system.file('apps','distribution_sev_full','sev-props.Rmd', package = 'teachingApps')))
 })
+
 sev.t = reactive({ signif(seq(min(input$range.s), max(input$range.s), length = 500), digits = 4)})
 sev.p <- signif(seq(0, 1, length = 500), digits = 4)
 sev.C <- reactive({ psev(sev.t(), input$mu.sev, input$sig.sev)})
@@ -417,15 +557,16 @@ observeEvent(input$sevqua, {
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
 })
-####
-# LEV Server
-####
+##############
+# LEV Server #
+##############
 output$levfunc <- renderUI({
-  withMathJax(HTML(includeMarkdown(appFile('distribution_lev_full','lev-func.Rmd'))))
+  withMathJax(HTML(includeMarkdown(system.file('apps','distribution_lev_full','lev-func.Rmd', package = 'teachingApps'))))
 })
 output$levprops <- renderUI({
-  HTML(includeMarkdown(appFile('distribution_lev_full','lev-props.Rmd')))
+  HTML(includeMarkdown(system.file('apps','distribution_lev_full','lev-props.Rmd', package = 'teachingApps')))
 })
+
 lev.t = reactive({ signif(seq(min(input$range.lev), max(input$range.lev), length = 500), digits = 4)})
 lev.p <- signif(seq(0, 1, length = 500), digits = 4)
 lev.C <- reactive({ plev(lev.t(), input$mu.lev, input$sig.lev)})
@@ -480,6 +621,74 @@ observeEvent(input$levHAZ, {
 observeEvent(input$levqua, {
   output$levfuncs <- renderMetricsgraphics({
   mjs_plot(lev.df(), x = PROB, y = QUANT, decimals = 4) %>%
+  mjs_line(area = TRUE) %>%
+  mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
+})
+##############
+# LEV Server #
+##############
+output$logisfunc <- renderUI({
+  withMathJax(HTML(includeMarkdown(system.file('apps','distribution_logistic_full','log-func.Rmd', package = 'teachingApps'))))
+})
+output$logisprops <- renderUI({
+  HTML(includeMarkdown(system.file('apps','distribution_logistic_full','log-props.Rmd', package = 'teachingApps')))
+})
+
+logis.t = reactive({ signif(seq(min(input$range.l), max(input$range.l), length = 500), digits = 4)})
+logis.p <- signif(seq(0, 1, length = 500), digits = 4) 
+logis.C <- reactive({ plogis(logis.t(), input$mu.l, input$sig.l)})
+logis.P <- reactive({ dlogis(logis.t(), input$mu.l, input$sig.l)})
+logis.R <- reactive({ 1-logis.C()})
+logis.h <- reactive({ exp(log(logis.P())-log(logis.R()))})
+logis.H <- reactive({ -1*log(1-plogis(logis.t(), input$mu.l, input$sig.l))})
+logis.Q <- reactive({ qlogis(logis.p, input$mu.l, input$sig.l)})
+logis.df <- reactive({data.frame(Time = logis.t(),PROB = logis.p, CDF = logis.C(),PDF = logis.P(),REL = logis.R(),haz = logis.h(),HAZ = logis.H(), QUANT = logis.Q())})
+
+output$logisfuncs <- renderMetricsgraphics({
+  mjs_plot(logis.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
+  mjs_line(area = TRUE) %>%
+  mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
+
+observeEvent(input$logiscdf, {
+  output$logisfuncs <- renderMetricsgraphics({
+  mjs_plot(logis.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
+  mjs_line(area = TRUE) %>%
+  mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
+})
+observeEvent(input$logispdf, {
+  output$logisfuncs <- renderMetricsgraphics({
+  mjs_plot(logis.df(), x = Time, y = PDF, decimals = 4) %>%
+  mjs_line(area = TRUE) %>%
+  mjs_labs(x_label = 'Time (t)', y_label = 'f(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
+})
+observeEvent(input$logissur, {
+  output$logisfuncs <- renderMetricsgraphics({
+  mjs_plot(logis.df(), x = Time, y = REL, decimals = 4) %>%
+  mjs_line(area = TRUE) %>%
+  mjs_labs(x_label = 'Time (t)', y_label = 'S(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
+})
+observeEvent(input$logishaz, {
+  output$logisfuncs <- renderMetricsgraphics({
+  mjs_plot(logis.df(), x = Time, y = haz, decimals = 4) %>%
+  mjs_line(area = TRUE) %>%
+  mjs_labs(x_label = 'Time (t)', y_label = 'h(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
+})
+observeEvent(input$logisHAZ, {
+  output$logisfuncs <- renderMetricsgraphics({
+  mjs_plot(logis.df(), x = Time, y = HAZ, decimals = 4) %>%
+  mjs_line(area = TRUE) %>%
+  mjs_labs(x_label = 'Time (t)', y_label = 'H(t)') %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
+})
+observeEvent(input$logisqua, {
+  output$logisfuncs <- renderMetricsgraphics({
+  mjs_plot(logis.df(), x = PROB, y = QUANT, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
