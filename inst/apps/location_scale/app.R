@@ -1,4 +1,5 @@
 library(metricsgraphics)
+library(SMRD)
 
 shinyApp(options = list(width = "100%", height = "800px"),
          
@@ -218,10 +219,10 @@ output$overview <- renderUI({
 # Exponential Server
 ####
 output$expfunc <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('exp-func.Rmd')))
+  withMathJax(HTML(includeMarkdown(appFile('distribution_exponential_full','exp-func.Rmd'))))
 })
 output$expprops <- renderUI({
-  HTML(includeMarkdown('exp-props.Rmd'))
+  HTML(includeMarkdown(appFile('distribution_exponential_full','exp-props.Rmd')))
 })
 
 exp.t = reactive({ signif(seq(min(input$rangee), max(input$rangee), length = 500), digits = 4)})
@@ -286,10 +287,10 @@ observeEvent(input$equa, {
 # Normal Server
 ####
 output$norfunc <- renderUI({
-  withMathJax(HTML(includeMarkdown('nor-func.Rmd')))
+  withMathJax(HTML(includeMarkdown(appFile('distribution_normal_full','nor-func.Rmd'))))
 })
 output$norprops <- renderUI({
-  HTML(includeMarkdown('nor-props.Rmd'))
+  HTML(includeMarkdown(appFile('distribution_normal_full','nor-props.Rmd')))
 })
 nor.t <- reactive({ signif(seq(min(input$range.n), max(input$range.n), length = 500), digits = 4)})
 nor.p <- signif(seq(0, 1, length = 500), digits = 4)
@@ -353,10 +354,10 @@ observeEvent(input$nqua, {
 # SEV Server
 ####
 output$sevfunc <- renderUI({
-  withMathJax(HTML(includeMarkdown('sev-func.Rmd')))
+  withMathJax(HTML(includeMarkdown(appFile('distribution_sev_full','sev-func.Rmd'))))
 })
 output$sevprops <- renderUI({
-  HTML(includeMarkdown(system.file('apps','distribution_weibull_full','weib-props.Rmd', package = 'teachingApps')))
+  HTML(includeMarkdown(appFile('distribution_sev_full','sev-props.Rmd')))
 })
 sev.t = reactive({ signif(seq(min(input$range.s), max(input$range.s), length = 500), digits = 4)})
 sev.p <- signif(seq(0, 1, length = 500), digits = 4)
@@ -420,10 +421,10 @@ observeEvent(input$sevqua, {
 # LEV Server
 ####
 output$levfunc <- renderUI({
-  withMathJax(HTML(includeMarkdown('lev-func.Rmd')))
+  withMathJax(HTML(includeMarkdown(appFile('distribution_lev_full','lev-func.Rmd'))))
 })
 output$levprops <- renderUI({
-  HTML(includeMarkdown('lev-props.Rmd'))
+  HTML(includeMarkdown(appFile('distribution_lev_full','lev-props.Rmd')))
 })
 lev.t = reactive({ signif(seq(min(input$range.lev), max(input$range.lev), length = 500), digits = 4)})
 lev.p <- signif(seq(0, 1, length = 500), digits = 4)
