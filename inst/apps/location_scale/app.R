@@ -425,7 +425,7 @@ observeEvent(input$equa, {
 # Normal Server #
 #################
 output$norfunc <- renderUI({
-  withMathJax(HTML(includeMarkdown(system.file('apps','distribution_normal_full','nor-func.Rmd', package = 'teachingApps'))))
+  withMathJax(HTML(includeMarkdown(try(appFile('distribution_normal_full','nor-func.Rmd'), silent = T))))
 })
 output$norprops <- renderUI({
   HTML(includeMarkdown(system.file('apps','distribution_normal_full','nor-props.Rmd', package = 'teachingApps')))

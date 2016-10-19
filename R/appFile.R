@@ -10,6 +10,6 @@
 
 appFile <- function(app, file, pkg = 'teachingApps') {
   
-  system.file('apps',app,file, package = pkg)
+  return(system.file('apps',app,file, package = pkg))
   
 }
