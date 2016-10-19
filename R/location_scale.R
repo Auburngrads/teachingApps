@@ -13,6 +13,7 @@
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText
+#' @import metricsgraphics
 #'
 #'
 #' @param pub Will the app be published (deployed)? (see details)
@@ -28,11 +29,11 @@
 #'
 #' @export
 
-probability_plotting <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
+location_scale <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "probability_plotting", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "location_scale", "app.R", package = "teachingApps"))
 
-    teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
+    teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
     
     arg2 <- data.frame(theme  = theme,
                        appDir = dir,
@@ -55,4 +56,5 @@ probability_plotting <- function(pub = FALSE, theme = "flatly", rmd = FALSE, wid
     shiny::runApp(dir,...)
       
     }
+      
 }

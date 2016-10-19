@@ -1,17 +1,5 @@
 library( package = 'metricsgraphics')
 
-
-
-
-
-
-
-
-
-
-  
-
-
 shinyApp(options = list(height = "700px"),
          
 ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),

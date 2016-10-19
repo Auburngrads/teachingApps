@@ -1,0 +1,16 @@
+---
+output: html_document
+---
+
+### Functional relationships for <script type='math/tex'>Y \sim LEV(\mu,\sigma),\;\;Y\in(-\infty,\infty)</script>
+
+$$
+\begin{aligned}
+f(t|\mu,\sigma)&=\frac{1}{\sigma}\phi_{lev}\left(\frac{y-\mu}{\sigma}\right)=\frac{1}{\sigma}e^{\left(-\frac{y-\mu}{\sigma}\right)}e^{-e^{\left(-\frac{y-\mu}{\sigma}\right)}}\\\\\\\\
+F(t|\mu,\sigma)&=\Phi_{lev}\left(\frac{y-\mu}{\sigma}\right)=e^{-e^{\left(-\frac{y-\mu}{\sigma}\right)}}\\\\\\\\
+h(t|\mu,\sigma)&=\frac{\exp\left(-\frac{y-\mu}{\sigma}\right)}{\sigma \left(\exp\left[\exp\left(-\frac{y-\mu}{\sigma}\right)\right]-1\right)}\\\\\\\\
+t_{p}&=\exp\left[\mu+\Phi^{-1}_{sev}(p)\sigma\right]\\\\\\\\
+E[T]&=\mu+\sigma\gamma\\\\\\\\
+Var[T]&=\sigma^2\pi^2/6
+\end{aligned}
+$$

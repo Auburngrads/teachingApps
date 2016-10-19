@@ -31,7 +31,7 @@
 
 probability_functions <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "distribution_functions", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "probability_functions", "app.R", package = "teachingApps"))
 
     arg2 <- data.frame(theme  = theme,
                        appDir = dir,
@@ -45,14 +45,6 @@ probability_functions <- function(pub = FALSE, theme = "flatly", rmd = FALSE, wi
     
     dump('arg2', file = paste(c(dir,'www/args.R'), collapse = '/'))
     
-    # if(rmd) { 
-    #   
-    #   do.call(library, list(package = 'shiny', character.only = T))
-    #   
-    #   eval(parse(file = file))
-    #   
-    # } else {
-      
     if(rmd) {
 
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
@@ -63,5 +55,4 @@ probability_functions <- function(pub = FALSE, theme = "flatly", rmd = FALSE, wi
       
     }
       
-    #}
 }

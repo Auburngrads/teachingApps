@@ -1,15 +1,5 @@
 library( package = 'SMRD')
 
-
-
-
-
-
-
-
-
-
-
 ZelenCap.ld <- frame.to.ld(SMRD::zelencap, 
                            response.column = 1, 
                            censor.column = 2, 
@@ -17,8 +7,6 @@ ZelenCap.ld <- frame.to.ld(SMRD::zelencap,
                            x.columns = c(4, 5),
                            time.units = "Hours", 
                            xlabel = c(expression(C^o), expression("Volts")))
-
-
 
 shinyApp(options = list(width = "100%", height = "625px"),
 
