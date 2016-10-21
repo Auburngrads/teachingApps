@@ -13,7 +13,7 @@
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText
-#' @importFrom actuar pllogis dllogis qllogis
+#' @importFrom actuar pllogis qllogis dllogis
 #' @import metricsgraphics
 #'
 #'
@@ -30,13 +30,13 @@
 #'
 #' @export
 
-log_location_scale <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
+distribution_loglogistic_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "log_location_scale", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "distribution_loglogistic_full", "app.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
     teachingApps::getPackage(pub = pub, pkg  = 'actuar')
-    
+
     arg2 <- data.frame(theme  = theme,
                        appDir = dir,
                       appName = basename(dir),
@@ -58,5 +58,5 @@ log_location_scale <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width
     shiny::runApp(dir,...)
       
     }
-      
+  
 }

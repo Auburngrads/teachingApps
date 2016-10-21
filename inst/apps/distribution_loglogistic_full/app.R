@@ -1,25 +1,16 @@
 library(teachingApps)
-library( package = 'metricsgraphics')
-
-
-
-
-
-
-
-
-
-
-  
-
+library(metricsgraphics)
+library(actuar)
 
 shinyApp(options = list(height = "700px"),
          
-ui = navbarPage(windowTitle = 'Loglogistic Distribution', 
-              theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-              try(includeCSS(system.file('css',
-                                          'my-shiny.css', 
-                                          package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Loglogistic Distribution',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                
 tabPanel(h4('Shiny App'),
 sidebarLayout(
 sidebarPanel(width = 3, 
@@ -59,14 +50,10 @@ tabPanel(h4('Distribution Functions'),
          mainPanel(uiOutput('llogfunc'), class = 'shiny-text-output', width = 12)),
 
 tabPanel(h4('Distribution Properties'),
-         mainPanel(uiOutput('llogprops', class = 'shiny-text-output'), width = 12)),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+         mainPanel(uiOutput('llogprops', class = 'shiny-text-output'), width = 12))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-
 t = reactive({ signif(seq(min(input$range.ll), max(input$range.ll), length = 500), digits = 4)})
 p <- signif(seq(0, 1, length = 500), digits = 4) 
 C <- reactive({ pllogis(t(), input$mu.ll, input$sig.ll)})

@@ -1,18 +1,6 @@
 library(teachingApps)
 library( package = 'metricsgraphics')
 
-
-
-
-
-
-
-
-
-
-  
-
-
 shinyApp(options = list(height = "850px"),
          
 ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),

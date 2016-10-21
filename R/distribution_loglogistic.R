@@ -13,6 +13,8 @@
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText
+#' @importFrom actuar pllogis qllogis dllogis
+#' @import metricsgraphics
 #'
 #'
 #' @param pub Will the app be published (deployed)? (see details)
@@ -33,8 +35,9 @@ distribution_loglogistic <- function(pub = FALSE, theme = "flatly", rmd = FALSE,
     dir <- dirname(system.file("apps", "distribution_loglogistic", "app.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
-teachingApps::getPackage(pub = pub, pkg  = 'actuar')
-arg2 <- data.frame(theme  = theme,
+    teachingApps::getPackage(pub = pub, pkg  = 'actuar')
+
+    arg2 <- data.frame(theme  = theme,
                        appDir = dir,
                       appName = basename(dir),
                       stringsAsFactors = F)

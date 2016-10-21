@@ -37,29 +37,32 @@ fluidRow(
               min = 0, 
               max = 50, 
               value = c(0,20)),
+  hr(),
   sliderInput("theta", 
               label = h2(HTML("Scale (&theta;)")),
               min = .5, 
               max = 10, 
               step = .5, 
-              value = 1), 
+              value = 1,
+              animate = T),
+  hr(),
   sliderInput("gamma", 
               label = h2(HTML("Location (&gamma;)")),
               min = 0, 
               max = 15, 
               step = 1, 
-              value = 0),
-  withMathJax(),
-  actionButton('ecdf', HTML('<script type="math/tex">F(t)</script>'),width = '31%'),
-  actionButton('epdf', HTML('<script type="math/tex">f(t)</script>'),width = '31%'),
-  actionButton('esur', HTML('<script type="math/tex">S(t)</script>'),width = '31%'),
-  hr(),
-  actionButton('ehaz', HTML('<script type="math/tex">h(t)</script>'),width = '31%'),
-  actionButton('eHAZ', HTML('<script type="math/tex">H(t)</script>'),width = '31%'),
-  actionButton('equa', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
+              value = 0,
+              animate = T))),
 
 column(width = 9,
-    mainPanel(width = '100%', metricsgraphicsOutput("expfuncs",height = "600px"))))),
+    mainPanel(width = '100%', 
+tabsetPanel(type = 'pills',
+  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("expC",height = "600px")),
+  tabPanel(h4('Density'),                metricsgraphicsOutput("expP",height = "600px")),
+  tabPanel(h4('Survival'),               metricsgraphicsOutput("expR",height = "600px")),
+  tabPanel(h4('Hazard'),                 metricsgraphicsOutput("exph",height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("expH",height = "600px")),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("expQ",height = "600px"))))))),
 
 #######################
 tabPanel(h4('Normal'),
@@ -83,29 +86,32 @@ fluidRow(
               min = -20, 
               max = 20, 
               value = c(-4,4)),
+  hr(),
   sliderInput("mu.n", 
               label = h2(HTML("Mean (&mu;)")),
               min = -3, 
               max = 3, 
               step = 0.5, 
-              value = 0),
+              value = 0,
+              animate = T),
+  hr(),
   sliderInput("sig.n", 
               label = h2(HTML("Std Dev (&sigma;)")),
               min = 0.5, 
               max = 5, 
               step = 0.5, 
-              value = 1),
-  withMathJax(),
-  actionButton('ncdf', HTML('<script type="math/tex">F(t)</script>'),width = '31%'),
-  actionButton('npdf', HTML('<script type="math/tex">f(t)</script>'),width = '31%'),
-  actionButton('nsur', HTML('<script type="math/tex">S(t)</script>'),width = '31%'),
-  hr(),
-  actionButton('nhaz', HTML('<script type="math/tex">h(t)</script>'),width = '31%'),
-  actionButton('nHAZ', HTML('<script type="math/tex">H(t)</script>'),width = '31%'),
-  actionButton('nqua', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
+              value = 1,
+              animate = T))),
 
 column(width = 9,
-    mainPanel(width = '100%', metricsgraphicsOutput("norfuncs",height = "600px"))))),
+    mainPanel(width = '100%', 
+tabsetPanel(type = 'pills',
+  tabPanel(h4('Distribution Function'),metricsgraphicsOutput("norC",height = "600px")),
+  tabPanel(h4('Density'),              metricsgraphicsOutput("norP",height = "600px")),
+  tabPanel(h4('Survival'),             metricsgraphicsOutput("norR",height = "600px")),
+  tabPanel(h4('Hazard'),               metricsgraphicsOutput("norh",height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),    metricsgraphicsOutput("norH",height = "600px")),
+  tabPanel(h4('Quantile'),             metricsgraphicsOutput("norQ",height = "600px"))))))),
 
 #######################################
 tabPanel(h4('SEV'),
@@ -129,29 +135,32 @@ fluidRow(
               min = -20, 
               max = 20, 
               value = c(-6,6)),
+  hr(),
   sliderInput("mu.sev", 
               label = h2(HTML("Mean (&mu;)")),
               min = -3, 
               max = 3, 
               step = 0.5, 
-              value = 0), 
+              value = 0,
+              animate = T),
+  hr(),
   sliderInput("sig.sev", 
               label = h2(HTML("Std Dev (&sigma;)")),
               min = 1, 
               max = 10, 
               step = 0.5, 
-              value = 1), 
-  withMathJax(),
-  actionButton('sevcdf', HTML('<script type="math/tex">F(t)</script>'),width = '31%'),
-  actionButton('sevpdf', HTML('<script type="math/tex">f(t)</script>'),width = '31%'),
-  actionButton('sevsur', HTML('<script type="math/tex">S(t)</script>'),width = '31%'),
-  hr(),
-  actionButton('sevhaz', HTML('<script type="math/tex">h(t)</script>'),width = '31%'),
-  actionButton('sevHAZ', HTML('<script type="math/tex">H(t)</script>'),width = '31%'),
-  actionButton('sevqua', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
+              value = 1,
+              animate = T))),
 
 column(width = 9,
-    mainPanel(width = '100%', metricsgraphicsOutput("sevfuncs",height = "600px"))))),
+    mainPanel(width = '100%', 
+tabsetPanel(type = 'pills',
+  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("sevC",height = "600px")),
+  tabPanel(h4('Density'),                metricsgraphicsOutput("sevP",height = "600px")),
+  tabPanel(h4('Survival'),               metricsgraphicsOutput("sevR",height = "600px")),
+  tabPanel(h4('Hazard'),                 metricsgraphicsOutput("sevh",height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("sevH",height = "600px")),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("sevQ",height = "600px"))))))),
 
 ######################################
 tabPanel(h4('LEV'),
@@ -175,29 +184,32 @@ fluidRow(
               min = -20, 
               max = 20, 
               value = c(-6,6)),
+  hr(),
   sliderInput("mu.lev", 
               label = h2(HTML("Mean (&mu;)")),
               min = -3, 
               max = 3, 
               step = 0.5, 
-              value = 0), 
+              value = 0,
+              animate = T),
+  hr(),
   sliderInput("sig.lev", 
               label = h2(HTML("Std Dev (&sigma;)")),
               min = 1, 
               max = 10, 
               step = 0.5, 
-              value = 1), 
-  withMathJax(),
-  actionButton('levcdf', HTML('<script type="math/tex">F(t)</script>'),width = '31%'),
-  actionButton('levpdf', HTML('<script type="math/tex">f(t)</script>'),width = '31%'),
-  actionButton('levsur', HTML('<script type="math/tex">S(t)</script>'),width = '31%'),
-  hr(),
-  actionButton('levhaz', HTML('<script type="math/tex">h(t)</script>'),width = '31%'),
-  actionButton('levHAZ', HTML('<script type="math/tex">H(t)</script>'),width = '31%'),
-  actionButton('levqua', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
+              value = 1,
+              animate = T))),
 
 column(width = 9,
-    mainPanel(width = '100%', metricsgraphicsOutput("levfuncs",height = "600px"))))),
+    mainPanel(width = '100%', 
+tabsetPanel(type = 'pills',
+  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput('levC',height = "600px")),
+  tabPanel(h4('Density'),                metricsgraphicsOutput('levP',height = "600px")),
+  tabPanel(h4('Survival'),               metricsgraphicsOutput('levR',height = "600px")),
+  tabPanel(h4('Hazard'),                 metricsgraphicsOutput('levh',height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput('levH',height = "600px")),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput('levQ',height = "600px"))))))),
 
 ######################################
 tabPanel(h4('Logistic'),
@@ -216,139 +228,43 @@ fluidRow(
   column(width = 12, h3('Interactive Shiny App')),
   column(width = 3,
   sidebarPanel(width = '100%', 
-  hr(),
   sliderInput("range.l", 
               label = h2("Range"),
               min = -20, 
               max = 20, 
               value = c(-4,4)),
+  hr(),
   sliderInput("mu.l", 
               label = h2(HTML("Mean (&mu;)")),
               min = -3, 
               max = 3, 
               step = 0.5, 
-              value = 0), 
+              value = 0,
+              animate = T),
+  hr(),
   sliderInput("sig.l", 
               label = h2(HTML("Std Dev (&sigma;)")),
               min = 0.5, 
               max = 5, 
               step = 0.5, 
-              value = 1), 
-  withMathJax(),
-  actionButton('logiscdf', HTML('<script type="math/tex">F(t)</script>'),width = '31%'),
-  actionButton('logispdf', HTML('<script type="math/tex">f(t)</script>'),width = '31%'),
-  actionButton('logissur', HTML('<script type="math/tex">S(t)</script>'),width = '31%'),
-  hr(),
-  actionButton('logishaz', HTML('<script type="math/tex">h(t)</script>'),width = '31%'),
-  actionButton('logisHAZ', HTML('<script type="math/tex">H(t)</script>'),width = '31%'),
-  actionButton('logisqua', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
+              value = 1,
+              animate = T))),
 
 column(width = 9,
-    mainPanel(width = '100%', metricsgraphicsOutput("logisfuncs",height = "600px")))))),
-
-# ################################################
-# tabPanel(h4('Log-Location-Scale Distributions'),
-# ################################################
-# tabsetPanel(type = 'pills',
-#             
-# #######################
-# tabPanel(h4('Lognormal'),
-# #######################
-# fluidRow(
-#   column(width = 12,
-#      mainPanel(uiOutput('lnorfunc'), 
-#                      class = 'shiny-text-output', width = '100%'))),
-# 
-# fluidRow(
-#   column(width = 12,
-#      mainPanel(uiOutput('lnorprops'), 
-#                      class = 'shiny-text-output', width = '100%'))),
-# 
-# fluidRow(
-#   column(width = 12, h3('Interactive Shiny App')),
-#   column(width = 3,
-#   sidebarPanel(width = '100%', 
-#   sliderInput("range.n", 
-#               label = h2("Range"),
-#               min = -20, 
-#               max = 20, 
-#               value = c(-4,4)),
-#   sliderInput("mu.n", 
-#               label = h2(HTML("Mean (&mu;)")),
-#               min = -3, 
-#               max = 3, 
-#               step = 0.5, 
-#               value = 0),
-#   sliderInput("sig.n", 
-#               label = h2(HTML("Std Dev (&sigma;)")),
-#               min = 0.5, 
-#               max = 5, 
-#               step = 0.5, 
-#               value = 1),
-#   withMathJax(),
-#   actionButton('ncdf', HTML('<script type="math/tex">F(t)</script>'),width = '31%'),
-#   actionButton('npdf', HTML('<script type="math/tex">f(t)</script>'),width = '31%'),
-#   actionButton('nsur', HTML('<script type="math/tex">S(t)</script>'),width = '31%'),
-#   hr(),
-#   actionButton('nhaz', HTML('<script type="math/tex">h(t)</script>'),width = '31%'),
-#   actionButton('nHAZ', HTML('<script type="math/tex">H(t)</script>'),width = '31%'),
-#   actionButton('nqua', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
-# 
-# column(width = 9,
-#     mainPanel(width = '100%', metricsgraphicsOutput("norfuncs",height = "600px"))))),
-# 
-# #######################################
-# tabPanel(h4('Weibull'),
-# #######################################
-# fluidRow(
-#   column(width = 12,
-#      mainPanel(uiOutput('sevfunc'), 
-#                      class = 'shiny-text-output', width = '100%'))),
-# 
-# fluidRow(
-#   column(width = 12,
-#      mainPanel(uiOutput('sevprops'), 
-#                      class = 'shiny-text-output', width = '100%'))),
-# 
-# fluidRow(
-#   column(width = 12, h3('Interactive Shiny App')),
-#   column(width = 3,
-#   sidebarPanel(width = '100%', 
-#   sliderInput("range.s", 
-#               label = h2("Range"),
-#               min = -20, 
-#               max = 20, 
-#               value = c(-6,6)),
-#   sliderInput("mu.sev", 
-#               label = h2(HTML("Mean (&mu;)")),
-#               min = -3, 
-#               max = 3, 
-#               step = 0.5, 
-#               value = 0), 
-#   sliderInput("sig.sev", 
-#               label = h2(HTML("Std Dev (&sigma;)")),
-#               min = 1, 
-#               max = 10, 
-#               step = 0.5, 
-#               value = 1), 
-#   withMathJax(),
-#   actionButton('sevcdf', HTML('<script type="math/tex">F(t)</script>'),width = '31%'),
-#   actionButton('sevpdf', HTML('<script type="math/tex">f(t)</script>'),width = '31%'),
-#   actionButton('sevsur', HTML('<script type="math/tex">S(t)</script>'),width = '31%'),
-#   hr(),
-#   actionButton('sevhaz', HTML('<script type="math/tex">h(t)</script>'),width = '31%'),
-#   actionButton('sevHAZ', HTML('<script type="math/tex">H(t)</script>'),width = '31%'),
-#   actionButton('sevqua', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
-# 
-# column(width = 9,
-#     mainPanel(width = '100%', metricsgraphicsOutput("sevfuncs",height = "600px")))))))),
+    mainPanel(width = '100%', 
+tabsetPanel(type = 'pills',
+  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("logC",height = "550px")),
+  tabPanel(h4('Density'),                metricsgraphicsOutput("logP",height = "600px")),
+  tabPanel(h4('Survival'),               metricsgraphicsOutput("logR",height = "600px")),
+  tabPanel(h4('Hazard'),                 metricsgraphicsOutput("logh",height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("logH",height = "600px")),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("logQ",height = "600px")))))))),
 
 server = function(input, output, session) {
 
 output$overview <- renderUI({ 
   withMathJax(HTML(includeMarkdown('background.Rmd')))
 })
-
 ######################
 # Exponential Server #
 ######################
@@ -369,54 +285,41 @@ exp.H <- reactive({ -1*log(1-pexp(exp.t() - input$gamma, 1/input$theta))})
 exp.Q <- reactive({ input$gamma-log(1-exp.p)*input$theta})
 exp.df <- reactive({data.frame(Time = exp.t(),PROB = exp.p, CDF = exp.C(),PDF = exp.P(),REL = exp.R(),haz = exp.h(),HAZ = exp.H(), QUANT = exp.Q())})
 
-output$expfuncs <- renderMetricsgraphics({
+output$expC <- renderMetricsgraphics({
   mjs_plot(exp.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-
-observeEvent(input$ecdf, {  
-  output$expfuncs <- renderMetricsgraphics({
-  mjs_plot(exp.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
-  mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$epdf, {  
-  output$expfuncs <- renderMetricsgraphics({
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
+  
+  output$expP <- renderMetricsgraphics({
   mjs_plot(exp.df(), x = Time, y = PDF, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'f(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$esur, {  
-  output$expfuncs <- renderMetricsgraphics({
+  
+  output$expR <- renderMetricsgraphics({
   mjs_plot(exp.df(), x = Time, y = REL, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'S(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$ehaz, {  
-  output$expfuncs <- renderMetricsgraphics({
+  
+  output$exph <- renderMetricsgraphics({
   mjs_plot(exp.df(), x = Time, y = haz, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'h(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$eHAZ, {  
-  output$expfuncs <- renderMetricsgraphics({
+  
+  output$expH <- renderMetricsgraphics({
   mjs_plot(exp.df(), x = Time, y = HAZ, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'H(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$equa, {  
-  output$expfuncs <- renderMetricsgraphics({
+  
+  output$expQ <- renderMetricsgraphics({
   mjs_plot(exp.df(), x = PROB, y = QUANT, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
 #################
 # Normal Server #
 #################
@@ -437,54 +340,41 @@ nor.H <- reactive({ -1*log(1-pnorm(nor.t(), input$mu.n, input$sig.n))})
 nor.Q <- reactive({ qnorm(nor.p, input$mu.n, input$sig.n)})
 nor.df <- reactive({data.frame(Time = nor.t(),PROB = nor.p, CDF = nor.C(),PDF = nor.P(),REL = nor.R(),haz = nor.h(),HAZ = nor.H(), QUANT = nor.Q())})
 
-output$norfuncs <- renderMetricsgraphics({
+output$norC <- renderMetricsgraphics({
   mjs_plot(nor.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-
-observeEvent(input$ncdf, {
-  output$norfuncs <- renderMetricsgraphics({
-  mjs_plot(nor.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
-  mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$npdf, {
-  output$norfuncs <- renderMetricsgraphics({
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
+  
+  output$norP <- renderMetricsgraphics({
   mjs_plot(nor.df(), x = Time, y = PDF, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'f(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$nsur, {
-  output$norfuncs <- renderMetricsgraphics({
+  
+  output$norR <- renderMetricsgraphics({
   mjs_plot(nor.df(), x = Time, y = REL, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'S(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$nhaz, {
-  output$norfuncs <- renderMetricsgraphics({
+  
+  output$norh <- renderMetricsgraphics({
   mjs_plot(nor.df(), x = Time, y = haz, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'h(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$nHAZ, {
-  output$norfuncs <- renderMetricsgraphics({
+  
+  output$norH <- renderMetricsgraphics({
   mjs_plot(nor.df(), x = Time, y = HAZ, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'H(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$nqua, {
-  output$norfuncs <- renderMetricsgraphics({
+  
+  output$norQ <- renderMetricsgraphics({
   mjs_plot(nor.df(), x = PROB, y = QUANT, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability', y_label = 'q(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
 ##############
 # SEV Server #
 ##############
@@ -505,54 +395,41 @@ sev.H <- reactive({ -1*log(1-psev(sev.t(), input$mu.sev, input$sig.sev))})
 sev.Q <- reactive({ qsev(sev.p, input$mu.sev, input$sig.sev)})
 sev.df <- reactive({data.frame(Time = sev.t(),PROB = sev.p, CDF = sev.C(),PDF = sev.P(),REL = sev.R(),haz = sev.h(),HAZ = sev.H(),QUANT = sev.Q())})
 
-output$sevfuncs <- renderMetricsgraphics({
+output$sevC <- renderMetricsgraphics({
   mjs_plot(sev.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-
-observeEvent(input$sevcdf, {
-  output$sevfuncs <- renderMetricsgraphics({
-  mjs_plot(sev.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
-  mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$sevpdf, {
-  output$sevfuncs <- renderMetricsgraphics({
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
+  
+  output$sevP <- renderMetricsgraphics({
   mjs_plot(sev.df(), x = Time, y = PDF, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'f(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$sevsur, {
-  output$sevfuncs <- renderMetricsgraphics({
+  
+  output$sevR <- renderMetricsgraphics({
   mjs_plot(sev.df(), x = Time, y = REL, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'S(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$sevhaz, {
-  output$sevfuncs <- renderMetricsgraphics({
+  
+  output$sevh <- renderMetricsgraphics({
   mjs_plot(sev.df(), x = Time, y = haz, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'h(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$sevHAZ, {
-  output$sevfuncs <- renderMetricsgraphics({
+  
+  output$sevH <- renderMetricsgraphics({
   mjs_plot(sev.df(), x = Time, y = HAZ, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'H(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$sevqua, {
-  output$sevfuncs <- renderMetricsgraphics({
+  
+  output$sevQ <- renderMetricsgraphics({
   mjs_plot(sev.df(), x = PROB, y = QUANT, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
 ##############
 # LEV Server #
 ##############
@@ -573,57 +450,44 @@ lev.H <- reactive({ -1*log(1-plev(lev.t(), input$mu.lev, input$sig.lev))})
 lev.Q <- reactive({ qlev(lev.p, input$mu.lev, input$sig.lev)})
 lev.df <- reactive({data.frame(Time = lev.t(),PROB = lev.p, CDF = lev.C(),PDF = lev.P(),REL = lev.R(),haz = lev.h(),HAZ = lev.H(),QUANT = lev.Q())})
 
-output$levfuncs <- renderMetricsgraphics({
+output$levC <- renderMetricsgraphics({
   mjs_plot(lev.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-
-observeEvent(input$levcdf, {
-  output$levfuncs <- renderMetricsgraphics({
-  mjs_plot(lev.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
-  mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$levpdf, {
-  output$levfuncs <- renderMetricsgraphics({
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
+  
+  output$levP <- renderMetricsgraphics({
   mjs_plot(lev.df(), x = Time, y = PDF, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'f(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$levsur, {
-  output$levfuncs <- renderMetricsgraphics({
+  
+  output$levR <- renderMetricsgraphics({
   mjs_plot(lev.df(), x = Time, y = REL, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'S(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$levhaz, {
-  output$levfuncs <- renderMetricsgraphics({
+  
+  output$levh <- renderMetricsgraphics({
   mjs_plot(lev.df(), x = Time, y = haz, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'h(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$levHAZ, {
-  output$levfuncs <- renderMetricsgraphics({
+  
+  output$levH <- renderMetricsgraphics({
   mjs_plot(lev.df(), x = Time, y = HAZ, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'H(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$levqua, {
-  output$levfuncs <- renderMetricsgraphics({
+  
+  output$levQ <- renderMetricsgraphics({
   mjs_plot(lev.df(), x = PROB, y = QUANT, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-##############
-# LEV Server #
-##############
+###################
+# Logistic Server #
+###################
 output$logisfunc <- renderUI({
   withMathJax(HTML(includeMarkdown(system.file('apps','distribution_logistic_full','log-func.Rmd', package = 'teachingApps'))))
 })
@@ -641,52 +505,39 @@ logis.H <- reactive({ -1*log(1-plogis(logis.t(), input$mu.l, input$sig.l))})
 logis.Q <- reactive({ qlogis(logis.p, input$mu.l, input$sig.l)})
 logis.df <- reactive({data.frame(Time = logis.t(),PROB = logis.p, CDF = logis.C(),PDF = logis.P(),REL = logis.R(),haz = logis.h(),HAZ = logis.H(), QUANT = logis.Q())})
 
-output$logisfuncs <- renderMetricsgraphics({
+  output$logC <- renderMetricsgraphics({
   mjs_plot(logis.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
-
-observeEvent(input$logiscdf, {
-  output$logisfuncs <- renderMetricsgraphics({
-  mjs_plot(logis.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
-  mjs_line(area = TRUE) %>%
-  mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
-})
-observeEvent(input$logispdf, {
-  output$logisfuncs <- renderMetricsgraphics({
+  
+  output$logP <- renderMetricsgraphics({
   mjs_plot(logis.df(), x = Time, y = PDF, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'f(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$logissur, {
-  output$logisfuncs <- renderMetricsgraphics({
+  
+  output$logR <- renderMetricsgraphics({
   mjs_plot(logis.df(), x = Time, y = REL, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'S(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$logishaz, {
-  output$logisfuncs <- renderMetricsgraphics({
+  
+  output$logh <- renderMetricsgraphics({
   mjs_plot(logis.df(), x = Time, y = haz, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'h(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$logisHAZ, {
-  output$logisfuncs <- renderMetricsgraphics({
+  
+  output$logH <- renderMetricsgraphics({
   mjs_plot(logis.df(), x = Time, y = HAZ, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'H(t)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
-observeEvent(input$logisqua, {
-  output$logisfuncs <- renderMetricsgraphics({
+  
+  output$logQ <- renderMetricsgraphics({
   mjs_plot(logis.df(), x = PROB, y = QUANT, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
 })
