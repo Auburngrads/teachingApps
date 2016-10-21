@@ -1,3 +1,4 @@
+library(teachingApps)
 library(pos = 2,  package = 'metricsgraphics')
 library(pos = 2,  package = 'dygraphs')
 library(pos = 2,  package = 'leaflet')

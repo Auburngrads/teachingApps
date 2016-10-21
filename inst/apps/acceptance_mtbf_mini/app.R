@@ -1,3 +1,4 @@
+library(teachingApps)
 library( package = 'plotly')
 library( package = 'miniUI')
 

@@ -1,3 +1,4 @@
+library(teachingApps)
 library( package = 'metricsgraphics')
 
 shinyApp(options = list(height = "800px"),

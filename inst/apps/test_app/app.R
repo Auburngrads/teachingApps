@@ -1,3 +1,4 @@
+library(teachingApps)
 shinyServer(function(input, output, session) {
 
  output$mychart <- renderLineChart({

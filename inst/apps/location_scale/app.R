@@ -15,10 +15,6 @@ tabPanel(h4('Overview'),
          mainPanel(uiOutput('overview'), 
                    class = 'shiny-text-output', 
                    width = 12)),
-############################################
-tabPanel(h4('Location-Scale Distributions'),
-############################################
-tabsetPanel(type = 'pills',
 #############################
   tabPanel(h4('Exponential'),
 #############################
@@ -112,7 +108,7 @@ column(width = 9,
     mainPanel(width = '100%', metricsgraphicsOutput("norfuncs",height = "600px"))))),
 
 #######################################
-tabPanel(h4('Smallest Extreme Value'),
+tabPanel(h4('SEV'),
 #######################################
 fluidRow(
   column(width = 12,
@@ -158,7 +154,7 @@ column(width = 9,
     mainPanel(width = '100%', metricsgraphicsOutput("sevfuncs",height = "600px"))))),
 
 ######################################
-tabPanel(h4('Largest Extreme Value'),
+tabPanel(h4('LEV'),
 ######################################
 fluidRow(
   column(width = 12,
@@ -248,7 +244,7 @@ fluidRow(
   actionButton('logisqua', HTML('<script type="math/tex">t(p)</script>'),width = '31%'))),
 
 column(width = 9,
-    mainPanel(width = '100%', metricsgraphicsOutput("logisfuncs",height = "600px")))))))),
+    mainPanel(width = '100%', metricsgraphicsOutput("logisfuncs",height = "600px")))))),
 
 # ################################################
 # tabPanel(h4('Log-Location-Scale Distributions'),

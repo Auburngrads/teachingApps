@@ -1,3 +1,4 @@
+library(teachingApps)
 library( package = 'networkD3')
 library( package = 'd3Network')
 

@@ -1,3 +1,4 @@
+library(teachingApps)
 gadget_lm <- function(data, xvar, yvar) {
   
   library(miniUI)

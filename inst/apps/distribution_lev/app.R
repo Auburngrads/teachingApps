@@ -1,3 +1,4 @@
+library(teachingApps)
 library( package = 'metricsgraphics')
 library( package = 'SMRD')
 

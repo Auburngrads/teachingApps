@@ -1,3 +1,4 @@
+library(teachingApps)
 
 
 shinyApp(options = list(height = "800px"),
