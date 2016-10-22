@@ -1,17 +1,5 @@
 library(teachingApps)
-library( package = 'SMRD')
-
-
-
-
-
-
-
-
-
-
-  
-
+library('SMRD')
 
 shinyApp(options = list(height = '600px', width = '100%'),
     
@@ -30,7 +18,7 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]
                                value = "
 par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
 
-library( package = SMRD)
+library(SMRD)
 
 zoom <- 1.5
 

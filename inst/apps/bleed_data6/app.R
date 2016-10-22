@@ -1,16 +1,7 @@
 library(teachingApps)
-library( package = 'SMRD')
+library('SMRD')
 
 
-
-
-
-
-
-
-
-
-  
 Bleed.ld <- frame.to.ld(SMRD::bleed,
                         response.column = 1, 
                         censor.column = 2, 
@@ -24,10 +15,12 @@ Bleed.Otherbase.ld <- ld.split(Bleed.ld, stress.var.list = "Other")
 
 
 shinyApp(options = list(width = '99%', height = '800px'),
-ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-               try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Bleed Data Set',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
                 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.bleed", height = "80%") ), 
 
@@ -81,16 +74,10 @@ tabPanel(h4("Bases: Other"), plotOutput("cdfplot.bleed.o", height = '600px'))
 tabPanel(h4('Code Mirror'), 
 
 mainPanel(codemirrorR::codemirrorOutput('figures.bleed', height = '600px'), 
-          width = 12)),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+          width = 12))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-  
-
-
 output$table.bleed <- DT::renderDataTable({ DT::datatable(Bleed.ld,
                                                           options = list(pageLength = 10)) })
 

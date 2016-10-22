@@ -1,6 +1,6 @@
 library(teachingApps)
-library( package = 'metricsgraphics')
-library( package = 'actuar')
+library('metricsgraphics')
+library('actuar')
 
 shinyApp(options = list(height = "700px"),
 ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 

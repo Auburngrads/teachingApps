@@ -1,17 +1,5 @@
 library(teachingApps)
-library( package = 'visNetwork')
-
-
-
-
-
-
-
-
-
-
-
-
+library('visNetwork')
 
 shinyApp(options = list(height = '600px'),
          

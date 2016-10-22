@@ -1,19 +1,7 @@
 library(teachingApps)
-library( package = 'diagram')
+library(diagram)
 
-
-
-
-
-
-
-
-
-
-  
-
-
-shinyApp(options = list(width = "100%", height = "600px"),
+shinyApp(options = list(height = "600px"),
 ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
               try(includeCSS(system.file('css',
                                          'my-shiny.css', 

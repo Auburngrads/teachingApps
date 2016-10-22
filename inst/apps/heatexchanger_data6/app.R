@@ -1,16 +1,6 @@
 library(teachingApps)
-library( package = 'SMRD')
+library('SMRD')
 
-
-
-
-
-
-
-
-
-
-  
 HeatExchanger.ld <- frame.to.ld(SMRD::heatexchanger,
                                 response.column = c(1,2),
                                 censor.column = 3,
@@ -18,14 +8,14 @@ HeatExchanger.ld <- frame.to.ld(SMRD::heatexchanger,
                                 data.title = "Heat Exchanger Crack Data",
                                 time.units = "Years")
 
-
-
 shinyApp(options = list(width = "99%", height = "800px"),
 
-ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-               try(includeCSS(system.file('css',
-                                         'my-shiny.css', 
-                                         package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Heat Exchanger Example',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
                 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.heat", height = "80%") ),
 
@@ -65,16 +55,10 @@ selectInput("BT_4",
             choices = c("Pointwise", "Simultaneous", "none"), 
             selected = "Pointwise")),  
 
-mainPanel( plotOutput("cdfplot.heat", height = '650px'), width = 9))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+mainPanel( plotOutput("cdfplot.heat", height = '650px'), width = 9)))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-  
-
-           
 output$table.heat <- DT::renderDataTable({ 
   
   DT::datatable(HeatExchanger.ld, options = list(pageLength = 10)) })

@@ -1,17 +1,5 @@
 library(teachingApps)
-library( package = 'DiagrammeR')
-
-
-
-
-
-
-
-
-
-
-
-
+library(DiagrammeR)
 
 shinyApp(options = list(width = '100%'),
  

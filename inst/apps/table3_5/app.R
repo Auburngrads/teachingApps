@@ -1,33 +1,19 @@
 library(teachingApps)
-library( package = 'DT')
-
-
-
-
-
-
-
-
-
-
-
-
+library('DT')
 
 shinyApp(options = list(height = '800px', width = '99%'),
 
-ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Table 3.5',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
                 
-    tabPanel(h4('Table 3.5'), DT::dataTableOutput('table5')),
+    tabPanel(h4('Table 3.5'), DT::dataTableOutput('table5'))),
   
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
-
 server = function(input, output, session) {
 
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-   
     output$table5 <- DT::renderDataTable({
       
 a<-rep(c(.005,.01,.05,.1), 4)

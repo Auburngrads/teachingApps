@@ -1,5 +1,5 @@
 library(teachingApps)
-library( package = 'SMRD')
+library('SMRD')
 
 
 
@@ -30,7 +30,7 @@ shinyApp(options = list(height = '600px', width = '100%'),
                             value = 
 "par(family = 'serif', font = 2, cex = 1.15)
 
-library( package = SMRD)
+library(SMRD)
 
 HE.ld <- frame.to.ld(SMRD::heatexchanger,
                      response.column = c(1,2), 

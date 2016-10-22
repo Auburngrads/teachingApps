@@ -1,18 +1,6 @@
 library(teachingApps)
 library(SMRD)
 
-
-
-
-
-
-
-
-
-
-
-
-
 shinyApp(options = list(width = '100%', height = '600px'),
          
   ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
@@ -28,7 +16,7 @@ shinyApp(options = list(width = '100%', height = '600px'),
                           theme = "github", 
                           height = "450px",
                           value = 
-"library( package = SMRD)
+"library(SMRD)
 
 lfp1370.ld <- frame.to.ld(SMRD::lfp1370,
               response.column = 1, 

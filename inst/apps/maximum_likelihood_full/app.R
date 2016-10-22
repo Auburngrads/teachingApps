@@ -1,25 +1,13 @@
 library(teachingApps)
-library( package = 'scales')
-
-
-
-
-
-
-
-
-
-
-  
-
-
+library('scales')
 shinyApp(options = list(height = "800px"),
          
-ui = navbarPage(windowTitle = 'Maximum Likelihood',
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Maximum Likelihood',
                 theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')),silent = TRUE),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
 
 tabPanel(h4("ML Estimation"), 
 sidebarLayout(
@@ -46,13 +34,9 @@ tabPanel(h4('MLE Properties'),
 mainPanel(width = 12, uiOutput('mleprops', class = 'shiny-text-output'))),
 
 tabPanel(h4('Video'),
-mainPanel(width = 12, uiOutput('mlevideo', class = 'shiny-text-output'))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+mainPanel(width = 12, uiOutput('mlevideo', class = 'shiny-text-output')))),
 
 server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
   
 mle <- reactiveValues(dats = NULL, 
                       params = NULL, 

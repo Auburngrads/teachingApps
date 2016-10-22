@@ -1,5 +1,5 @@
 library(teachingApps)
-library( package = 'SMRD')
+library('SMRD')
 
 
 

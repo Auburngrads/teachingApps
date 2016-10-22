@@ -1,17 +1,9 @@
 library(teachingApps)
-library( package = 'plotly')
-library( package = 'miniUI')
-
-
-
-
-
-
-
-
-
+library('plotly')
+library('miniUI')
 
 shinyApp(
+  
 ui = miniPage(gadgetTitleBar('MTBF Test Planning Tool'),
 miniTabstripPanel(
   miniTabPanel('Visualize', icon = icon('area-chart'),

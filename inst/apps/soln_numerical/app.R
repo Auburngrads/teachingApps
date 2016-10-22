@@ -1,30 +1,20 @@
 library(teachingApps)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 shinyApp(options = list(height = '800px'),
     
-  ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
-                  try(includeCSS(system.file('css',
-                                             'my-shiny.css', 
-                                             package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Numerical MLE Solution',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                
        tabPanel(h4('Numerical Solution'),
         sidebarLayout(
           sidebarPanel(width = 6,
             shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "solnum", 
+                                wordWrap = T,
+                                outputId = "solnum", 
                                 mode = "r", 
                                 theme = "github", 
                                 height = "530px", 
@@ -73,7 +63,7 @@ tabPanel(h4('Graphical Solution'),
 
 obs <- c(4.2564, 0.5319)
 
-library( package = SMRD)
+library(SMRD)
 
 model <- 'weibull'
 
@@ -91,13 +81,9 @@ actionButton("mlsolplot", h4("Evaluate"), width = '100%')),
 
 tabPanel(h4('How To Use This App'),
 
-        mainPanel(uiOutput("howto1", class = 'shiny-text-output'), width = 12)),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+        mainPanel(uiOutput("howto1", class = 'shiny-text-output'), width = 12))),
 
 server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
   
   output$mlsolns <- renderPrint({
       input$mlsolnum

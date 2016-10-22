@@ -1,24 +1,15 @@
 library(teachingApps)
-library( package = 'metricsgraphics')
-
-
-
-
-
-
-
-
-
-
-  
-
+library('metricsgraphics')
 
 shinyApp(options = list(height = "700px"),
            
-ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-               try(includeCSS(system.file('css',
-                                          'my-shiny.css', 
-                                          package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Lognormal Distribution',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                
 tabPanel(h4('Shiny App'),
 sidebarLayout(
 sidebarPanel(width = 3,
@@ -52,9 +43,7 @@ mainPanel(width = 9,
   tabPanel(h4('Survival'),               metricsgraphicsOutput("lnorR",height = "600px")),
   tabPanel(h4('Hazard'),                 metricsgraphicsOutput("lnorh",height = "600px")),
   tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("lnorH",height = "600px")),
-  tabPanel(h4('Quantile'),               metricsgraphicsOutput("lnorQ",height = "600px"))))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("lnorQ",height = "600px")))))),
 
 tabPanel(h4('Distribution Functions'),
          mainPanel(uiOutput('lognfunc'), width = 12)),
@@ -64,53 +53,52 @@ tabPanel(h4('Distribution Properties'),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-  
-t = reactive({ signif(seq(min(input$range.ln), max(input$range.ln), length = 500), digits = 4)})
-p <- signif(seq(0, 1, length = 500), digits = 4) 
-C <- reactive({ plnorm(t(), log(input$mu.ln), input$sig.ln)})
-P <- reactive({ dlnorm(t(), log(input$mu.ln), input$sig.ln)})
-R <- reactive({ 1-C()})
-h <- reactive({ exp(log(P())-log(R()))})
-H <- reactive({ -1*log(1-plnorm(t(), log(input$mu.ln), input$sig.ln))})
-Q <- reactive({ qlnorm(p, log(input$mu.ln), input$sig.ln)})
-df <- reactive({data.frame(Time = t(),PROB = p, CDF = C(),PDF = P(),REL = R(),haz = h(),HAZ = H(), QUANT = Q())})
+ln.t = reactive({ signif(seq(min(input$range.ln), max(input$range.ln), length = 500), digits = 4)})
+ln.p <- signif(seq(0, 1, length = 500), digits = 4) 
+ln.C <- reactive({ plnorm(ln.t(), log(input$mu.ln), input$sig.ln)})
+ln.P <- reactive({ dlnorm(ln.t(), log(input$mu.ln), input$sig.ln)})
+ln.R <- reactive({ 1-ln.C()})
+ln.h <- reactive({ exp(log(ln.P())-log(ln.R()))})
+ln.H <- reactive({ -1*log(1-plnorm(ln.t(), log(input$mu.ln), input$sig.ln))})
+ln.Q <- reactive({ qlnorm(ln.p, log(input$mu.ln), input$sig.ln)})
+ln.df <- reactive({data.frame(Time = ln.t(),PROB = ln.p, CDF = ln.C(),PDF = ln.P(),REL = ln.R(),haz = ln.h(),HAZ = ln.H(), QUANT = ln.Q())})
 
-  output$lnorC <- renderMetricsgraphics({
-  mjs_plot(df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
+output$lnorC <- renderMetricsgraphics({
+  mjs_plot(ln.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
-  
-  output$lnorP <- renderMetricsgraphics({
-  mjs_plot(df(), x = Time, y = PDF, decimals = 4) %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+}) 
+output$lnorP <- renderMetricsgraphics({
+  mjs_plot(ln.df(), x = Time, y = PDF, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'f(t)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-  
-  output$lnorR <- renderMetricsgraphics({
-  mjs_plot(df(), x = Time, y = REL, decimals = 4) %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+})
+output$lnorR <- renderMetricsgraphics({
+  mjs_plot(ln.df(), x = Time, y = REL, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'S(t)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-  
-  output$lnorh <- renderMetricsgraphics({
-  mjs_plot(df(), x = Time, y = haz, decimals = 4) %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+})
+output$lnorh <- renderMetricsgraphics({
+  mjs_plot(ln.df(), x = Time, y = haz, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'h(t)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-  
-  output$lnorH <- renderMetricsgraphics({
-  mjs_plot(df(), x = Time, y = HAZ, decimals = 4) %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+})
+output$lnorH <- renderMetricsgraphics({
+  mjs_plot(ln.df(), x = Time, y = HAZ, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'H(t)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-  
-  output$lnorQ <- renderMetricsgraphics({
-  mjs_plot(df(), x = PROB, y = QUANT, decimals = 4) %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+})
+output$lnorQ <- renderMetricsgraphics({
+  mjs_plot(ln.df(), x = PROB, y = QUANT, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+})
 
 output$lognfunc <- renderUI({ 
   withMathJax(HTML('<h3>Functional relationships for 

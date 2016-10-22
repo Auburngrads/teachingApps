@@ -1,5 +1,5 @@
 library(teachingApps)
-library( package = 'SMRD')
+library('SMRD')
 
 ZelenCap.ld <- frame.to.ld(SMRD::zelencap, 
                            response.column = 1, 

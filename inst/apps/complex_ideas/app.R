@@ -1,17 +1,8 @@
 library(teachingApps)
-library( package = scales)
-library( package = metricsgraphics)
-library( package = SMRD)
-library( package = DT)
-
-
-
-
-
-
-
-
-
+library(scales)
+library(metricsgraphics)
+library(SMRD)
+library(DT)
 
 shinyApp(options = list( height = "800px"),
 ui = navbarPage(collapsible = T, 

@@ -1,6 +1,6 @@
 library(teachingApps)
-library( package = 'metricsgraphics')
-library( package = 'SMRD')
+library('metricsgraphics')
+library('SMRD')
 
 
 

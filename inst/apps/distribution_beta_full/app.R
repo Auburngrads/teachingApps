@@ -1,24 +1,15 @@
 library(teachingApps)
-library( package = 'metricsgraphics')
-
-
-
-
-
-
-
-
-
-
- 
+library('metricsgraphics')
 
 shinyApp(options = list(height = "700px"),
          
-ui = navbarPage(windowTitle = 'Beta Distribution', 
-              theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-              try(includeCSS(system.file('css',
-                                          'my-shiny.css', 
-                                          package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Beta Distribution',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                
 tabPanel(h4('Shiny App'),
 sidebarLayout(
   sidebarPanel(width = 3, 
@@ -69,70 +60,64 @@ tabPanel(h4('Distribution Functions'),
          mainPanel(uiOutput('betafunc'), class = 'shiny-text-output', width = 12)),
 
 tabPanel(h4('Distribution Properties'),
-         mainPanel(uiOutput('betaprops', class = 'shiny-text-output'), width = 12)),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+         mainPanel(uiOutput('betaprops', class = 'shiny-text-output'), width = 12))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-
-  t <- reactive({ signif(seq(0,1, length.out = 500), digits = 4) + input$loc.beta })
-  p <- reactive({ signif(seq(0, 1, length = 500), digits = 4) })
-  C <- reactive({ pbeta(t(), input$shape1, input$shape2)})
-  P <- reactive({ dbeta(t(), input$shape1, input$shape2)})
-  R <- reactive({ 1 - C()})
-  h <- reactive({ exp(log(P())-log(R()))})
-  H <- reactive({ -1 * log(1 - pbeta(t(),input$shape1, input$shape2))})
-  Q <- reactive({ qbeta(p(),input$shape1, input$shape2)})
- df <- reactive({ data.frame(Time = t(), 
-                             PROB = p(), 
-                             CDF = C(), 
-                             PMF = P(), 
-                             REL = R(), 
-                             haz = h(), 
-                             HAZ = H(),
-                             QUANT = Q()
+beta.t <- reactive({ signif(seq(0,1, length.out = 500), digits = 4) + input$loc.beta })
+beta.p <- reactive({ signif(seq(0, 1, length = 500), digits = 4) })
+beta.C <- reactive({ pbeta(beta.t(), input$shape1, input$shape2)})
+beta.P <- reactive({ dbeta(beta.t(), input$shape1, input$shape2)})
+beta.R <- reactive({ 1 - beta.C()})
+beta.h <- reactive({ exp(log(beta.P())-log(beta.R()))})
+beta.H <- reactive({ -1 * log(1 - pbeta(beta.t(),input$shape1, input$shape2))})
+beta.Q <- reactive({ qbeta(beta.p(),input$shape1, input$shape2)})
+beta.df <- reactive({ data.frame(Time = beta.t(), 
+                             PROB = beta.p(), 
+                             CDF = beta.C(), 
+                             PMF = beta.P(), 
+                             REL = beta.R(), 
+                             haz = beta.h(), 
+                             HAZ = beta.H(),
+                             QUANT = beta.Q()
                              )})
  
-      output$betaC <- renderMetricsgraphics({
-        mjs_plot(df(), x = Time, y = CDF, decimals = 4, top = 0) %>% 
-          mjs_line(area = TRUE)                              %>% 
-          mjs_labs(x_label = "X = x", y_label = "F(x)")       %>% 
-          mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+output$betaC <- renderMetricsgraphics({
+  mjs_plot(beta.df(), x = Time, y = CDF, decimals = 4, top = 0) %>% 
+  mjs_line(area = TRUE)                              %>% 
+  mjs_labs(x_label = "X = x", y_label = "F(x)")       %>% 
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
 })
-      output$betaP <- renderMetricsgraphics({
-        mjs_plot(df(), x = Time, y = PMF, decimals = 4)         %>% 
-          mjs_line(area = TRUE)                             %>%
-          mjs_labs(x_label = "X = x", y_label = "f(x)")      %>% 
-          mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+output$betaP <- renderMetricsgraphics({
+  mjs_plot(beta.df(), x = Time, y = PMF, decimals = 4)         %>% 
+  mjs_line(area = TRUE)                             %>%
+  mjs_labs(x_label = "X = x", y_label = "f(x)")      %>% 
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
 })
-      output$betaR <- renderMetricsgraphics({
-        mjs_plot(df(), x = Time, y = REL, decimals = 4)         %>% 
-          mjs_line(area = TRUE)                             %>% 
-          mjs_labs(x_label = "X = x", y_label = "S(x)")      %>% 
-          mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+output$betaR <- renderMetricsgraphics({
+  mjs_plot(beta.df(), x = Time, y = REL, decimals = 4)         %>% 
+  mjs_line(area = TRUE)                             %>% 
+  mjs_labs(x_label = "X = x", y_label = "S(x)")      %>% 
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
 })
-      output$betah <- renderMetricsgraphics({
-        mjs_plot(df(), x = Time, y = haz, decimals = 4) %>%
-          mjs_line(area = TRUE)  %>%
-          mjs_labs(x_label = "X = x", y_label = "h(x)") %>%
-          mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+output$betah <- renderMetricsgraphics({
+  mjs_plot(beta.df(), x = Time, y = haz, decimals = 4) %>%
+  mjs_line(area = TRUE)  %>%
+  mjs_labs(x_label = "X = x", y_label = "h(x)") %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
 })
-      output$betaH <- renderMetricsgraphics({
-        mjs_plot(df(), x = Time, y = HAZ, decimals = 4) %>% 
-          mjs_line(area = TRUE)  %>% 
-          mjs_labs(x_label = "X = x", y_label = "H(x)") %>% 
-          mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+output$betaH <- renderMetricsgraphics({
+  mjs_plot(beta.df(), x = Time, y = HAZ, decimals = 4) %>% 
+  mjs_line(area = TRUE)  %>% 
+  mjs_labs(x_label = "X = x", y_label = "H(x)") %>% 
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
 })
-      output$betaQ <- renderMetricsgraphics({
-        mjs_plot(df(), x = PROB, y = QUANT, decimals = 4) %>%
-          mjs_line(area = TRUE)  %>%
-          mjs_labs(x_label = "Probability (p)", y_label = "x(p)") %>%
-          mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+output$betaQ <- renderMetricsgraphics({
+  mjs_plot(beta.df(), x = PROB, y = QUANT, decimals = 4) %>%
+  mjs_line(area = TRUE)  %>%
+  mjs_labs(x_label = "Probability (p)", y_label = "x(p)") %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
 })
-
-  
 output$betafunc <- renderUI({ 
   withMathJax(HTML(includeMarkdown(paste(c(arg2$appDir,'beta-func.Rmd'),collapse = '/'))))
 })

@@ -1,23 +1,14 @@
 library(teachingApps)
-library( package = 'SMRD')
-
-
-
-
-
-
-
-
-
-
-  
-
+library('SMRD')
 
 shinyApp(options = list(height = '800px', width = '99%'),
-  ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
-                  try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+         
+  ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'lfp1370 Example',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
                   
         tabPanel(h4('Data Set'), DT::dataTableOutput('lfp1370')),
         tabPanel(h4('Event Plot'),
@@ -32,7 +23,7 @@ shinyApp(options = list(height = '800px', width = '99%'),
                                 value = 
 "par(family = 'serif', font = 2, cex = 1.15)
 
-library( package = SMRD)
+library(SMRD)
 
 lfp.ld<- frame.to.ld(SMRD::lfp1370,
                      response.column = 1,
@@ -58,7 +49,7 @@ event.plot(lfp.ld)"),
                                 value = 
 "par(family = 'serif', font = 2, cex = 1.15)
 
-library( package = SMRD)
+library(SMRD)
 lfp.ld<- frame.to.ld(SMRD::lfp1370,
                      response.column = 1,
                      censor.column = 2,
@@ -69,16 +60,10 @@ plot(lfp.ld)"),
 
         actionButton('evallfpcdf', h4('Evaluate'), width = '100%')),
 
-        mainPanel(plotOutput('plotlfpcdf', height = '600px')))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+        mainPanel(plotOutput('plotlfpcdf', height = '600px'))))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-  
-
-
   output$lfp1370 <- DT::renderDataTable({DT::datatable(SMRD::lfp1370,
                                                        options = list(pageLength = 10))})
 

@@ -1,24 +1,13 @@
 library(teachingApps)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 shinyApp(options = list(height = '750px'),
     
-  ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
-                  try(includeCSS(system.file('css',
-                                             'my-shiny.css', 
-                                             package = 'teachingApps')), silent = TRUE),
+  ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Exponential MLE (Numerical)',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                
        tabPanel(h4('Numerical Solution'),
         sidebarLayout(
           sidebarPanel(width = 6,
@@ -58,13 +47,9 @@ nlminb(start = 4,
 
   tabPanel(h4('Overview of nlminb()'),
 
-        mainPanel(uiOutput("nlminb", class = 'shiny-text-output'), width = 12)),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+        mainPanel(uiOutput("nlminb", class = 'shiny-text-output'), width = 12))),
 
 server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
   
   output$mlexp2 <- renderPrint({
       input$mlexpnums

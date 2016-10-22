@@ -1,17 +1,5 @@
 library(teachingApps)
-library( package = 'scales')
-
-
-
-
-
-
-
-
-
-
-
-
+library(scales)
 
 shinyApp(options = list(height = '600px'),
 ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 

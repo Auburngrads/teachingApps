@@ -1,30 +1,20 @@
 library(teachingApps)
-library( package = 'SMRD')
+library('SMRD')
 
-
-
-
-
-
-
-
-
-
-  
 superalloy.ld <- frame.to.ld(SMRD::superalloy,
                              response.column = 1, 
                              censor.column = 2,
                              x.columns = c(4,5,6),
                              time.units = "Kilocycles")
 
-
-
 shinyApp(options = list(height = '800px'),
          
-ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = T),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Superalloy Example',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
 
 tabPanel("Data Set",   DT::dataTableOutput("table2", height = "80%") ),    
 
@@ -93,14 +83,10 @@ tabPanel("MLE Plot",
                           "bottomright"), 
               selected = "bottomright")),  
   
-  mainPanel( plotOutput("mleplot")))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+  mainPanel( plotOutput("mleplot"))))),
 
 server = function(input, output, session) {
 
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-  
     par(family = "serif", font = 2)
            
   output$summary2 <- renderPrint({ summary(superalloy.ld)                        

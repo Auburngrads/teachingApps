@@ -29,7 +29,7 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]
                                  
                                 height = '450px',
                                 value = 
-"library( package = scales)
+"library(scales)
 
 beta <- 2
 theta <- 15

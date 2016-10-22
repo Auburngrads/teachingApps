@@ -1,18 +1,5 @@
 library(teachingApps)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 shinyApp(options = list(width = "100%", height = "800px"),
          
 ui = navbarPage(collapsible = T, 

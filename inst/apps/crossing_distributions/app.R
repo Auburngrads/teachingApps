@@ -1,24 +1,15 @@
 library(teachingApps)
-library( package = 'scales')
-
-
-
-
-
-
-
-
-
-
-
-
+library(scales)
 
 shinyApp(options = list(height = '700px', width = '100%'),
          
-ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = T),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Crossing Distributions',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                
 tabPanel(h4('Normal-Normal'),
    sidebarLayout(
    sidebarPanel(width = 3,
@@ -77,14 +68,10 @@ tabPanel(h4('Weibull-Weibull'),
                   step = 1,
                   value = 25 )),
                
-      mainPanel(plotOutput('weib.weib', height = '625px'), width = 9))),
+      mainPanel(plotOutput('weib.weib', height = '625px'), width = 9)))),
          
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
-
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-           
 output$nor.nor <- renderPlot({
   
  param1 <- c(input$norm1.1,input$norm1.2)

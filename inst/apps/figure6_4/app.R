@@ -1,5 +1,5 @@
 library(teachingApps)
-library( package = 'SMRD')
+library('SMRD')
 
 
 
@@ -29,7 +29,7 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]
                           value = 
 "par(family='serif', font=2, cex=1.75)
 
-library( package = SMRD)
+library(SMRD)
 
 p<- seq(.01,.99,.01)
 mean1 <- 40

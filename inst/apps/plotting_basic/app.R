@@ -1,14 +1,14 @@
 library(teachingApps)
 
-
-
-
 shinyApp(options = list(height = "800px"),
          
-ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = T),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Plotting Basics',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                
 tabPanel(h4("shinyAce"),
   sidebarLayout( 
     sidebarPanel(width = 5,
@@ -150,15 +150,9 @@ tabPanel(h4("Plot Annotations"),
                    choices = c("Show 's'", "No Show 'n'"), 
                    selected = "Show 's'")),
     
-    mainPanel(plotOutput("axis", height = "550px")))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+    mainPanel(plotOutput("axis", height = "550px"))))),
 
 server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-  
-
   
   output$plots <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(4,4,2,2))

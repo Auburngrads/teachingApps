@@ -1,7 +1,7 @@
 library(teachingApps)
-library( package = 'leaflet')
-library( package = 'publicLibs')
-library( package = 'data.table')
+library('leaflet')
+library('publicLibs')
+library('data.table')
 
 
 

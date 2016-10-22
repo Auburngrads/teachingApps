@@ -1,24 +1,13 @@
 library(teachingApps)
-library( package = 'plotly')
-
-
-
-
-
-
-
-
-
-
-
-
-
+library('plotly')
 shinyApp(options = list(height = '800px', width = '100%'),
          
-    ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
-                    try(includeCSS(system.file('css',
-                                               'my-shiny.css', 
-                                               package = 'teachingApps')), silent = T),
+    ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Acceptance Testing (Proportions)',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
           
 tabPanel(h4('Test For Proportions'),
          sidebarLayout(
@@ -48,15 +37,11 @@ tabPanel(h4('Test For Proportions'),
                           max = 1, 
                           step = .05, 
                           value = .5)),
-           mainPanel(plotlyOutput('prop', height = '650px'),width = 9))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+           mainPanel(plotlyOutput('prop', height = '650px'),width = 9)))),
 
 server = function(input, output, session) {
   
-  library( package = 'plotly')
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
+  library('plotly')
   
   output$prop <- renderPlotly({
 

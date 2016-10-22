@@ -1,5 +1,5 @@
 library(teachingApps)
-library( package = 'SMRD')
+library('SMRD')
 
 
 
@@ -39,7 +39,7 @@ tabPanel(h4("Figure 1.1"),
                           theme = "github", 
                           height = "450px", 
                           value = "
-library( package = SMRD)
+library(SMRD)
 
 par(family = 'serif', font = 2)
 
@@ -65,7 +65,7 @@ tabPanel(h4("Figure 1.2"),
                           theme = "github", 
                           height = "450px", 
                           value = 
-"library( package = SMRD)
+"library(SMRD)
 
 par(family='serif', font=2)
 

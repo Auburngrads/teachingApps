@@ -1,5 +1,5 @@
 library(teachingApps)
-library( package = 'shinydashboard')
+library('shinydashboard')
 
 
 

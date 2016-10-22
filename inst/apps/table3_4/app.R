@@ -1,16 +1,6 @@
 library(teachingApps)
-library( package = 'SMRD')
+library('SMRD')
 
-
-
-
-
-
-
-
-
-
-  
 t<-c(6700,6950,7820,8790,9120,9660,9820,11310,11690,11850,11880,12140,12200)
 d<-c(1   ,0   ,0   ,0   ,1   ,0   ,0   ,0    ,0    ,0    ,0    ,0    ,1)
 r<-c(0   ,1   ,1   ,1   ,0   ,1   ,1   ,1    ,1    ,1    ,1    ,1    ,0)
@@ -31,25 +21,19 @@ colnames(Table.3.4) <- c("km",
                          "S(t)",
                          "F(t)")
 
-
-
 shinyApp(options = list(height = '800px', width = '99%'),
          
- ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
-                 try(includeCSS(system.file('css',
-                                            'my-shiny.css', 
-                                            package = 'teachingApps')), silent = TRUE),
+ ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Table 3.4',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
         
       tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock1", height = "80%")),
-      tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock2", height = "80%") ),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+      tabPanel(h4('Data Set'),DT::dataTableOutput("table.shock2", height = "80%"))),
 
 server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-  
-
   
   output$table.shock1 <- DT::renderDataTable({DT::datatable(SMRD::shockabsorber, rownames = F,
                                                             options = list(pageLength = 13))})

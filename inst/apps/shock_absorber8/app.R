@@ -1,15 +1,5 @@
 library(teachingApps)
-library( package = 'SMRD')
-
-
-
-
-
-
-
-
-
-
+library('SMRD')
 
 par(family = "serif", font = 2)
 
@@ -18,13 +8,14 @@ ShockAbsorber.ld <- frame.to.ld(SMRD::shockabsorber,
                                 censor.column = 3, 
                                 time.units = "Kilometers")
 
-
-
 shinyApp(options = list(height = '800px', width = '99%'),
          
-     ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
-                     try(includeCSS(system.file('css','my-shiny.css', 
-                                                package = 'teachingApps')), silent = TRUE),
+     ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Shock Absorber',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
                      
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.shock", height = "80%") ),    
 tabPanel(h4("Summary"), verbatimTextOutput("summary.shock")), 
@@ -110,16 +101,10 @@ mainPanel( plotOutput("mleplot", height = '600px'), width = 9))),
 
 tabPanel(h4('Code Mirror'),
          
-mainPanel(codemirrorR::codemirrorOutput('mlemirror', height = '600px'), width = 12)),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+mainPanel(codemirrorR::codemirrorOutput('mlemirror', height = '600px'), width = 12))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-  
-
-          
 output$summary.shock <- 
   renderPrint({ summary(ShockAbsorber.ld) 
 })

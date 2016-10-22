@@ -1,5 +1,5 @@
 library(teachingApps)
-library( package = 'plotly')
+library('plotly')
 
 
 

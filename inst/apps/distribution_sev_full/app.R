@@ -1,5 +1,5 @@
 library(teachingApps)
-library( package = 'metricsgraphics')
+library('metricsgraphics')
 
 shinyApp(options = list(height = "700px"),
          

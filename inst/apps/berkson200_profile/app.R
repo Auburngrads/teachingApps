@@ -1,17 +1,5 @@
 library(teachingApps)
-library( package = 'SMRD')
-
-
-
-
-
-
-
-
-
-
-  
-
+library('SMRD')
 
 shinyApp(options = list(height = '600px'),
       
@@ -25,14 +13,13 @@ shinyApp(options = list(height = '600px'),
                       shinyAce::aceEditor(fontSize = 16, 
                                      wordWrap = T,
                                      outputId = "berkprofile200", 
-                                          mode = "r", 
-                                          theme = "github", 
-                                          height = "450px", 
-                                          
-                                          value = 
+                                     mode = "r", 
+                                     theme = "github", 
+                                     height = "450px", 
+                                     value = 
 "par(family  = 'serif')
 
-library( package = SMRD)
+library(SMRD)
 
 berkson200.ld <- 
 frame.to.ld(SMRD::berkson200,

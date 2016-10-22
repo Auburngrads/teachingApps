@@ -1,15 +1,5 @@
 library(teachingApps)
-library( package = 'SMRD')
-
-
-
-
-
-
-
-
-
-
+library('SMRD')
 
 par(family="serif",font=2)
 at7987.ld <- frame.to.ld(SMRD::at7987,
@@ -22,10 +12,12 @@ at7987.ld <- frame.to.ld(SMRD::at7987,
 
 shinyApp(options = list(width = "99%", height = "800px"),
 
-ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
-               try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'at7987',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
 
 tabPanel(h4("Data Set"),DT::dataTableOutput("table.at7987", height = "80%") ), 
 
@@ -67,16 +59,10 @@ selectInput("bt_2",
 mainPanel( plotOutput("cdfplot.at7987", height = '650px'), width = 9))),
 
 tabPanel(h4('Code Mirror'), 
-         mainPanel(codemirrorR::codemirrorOutput('figures', height = '650px'), width = 12)),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+         mainPanel(codemirrorR::codemirrorOutput('figures', height = '650px'), width = 12))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-  
-
-
 output$table.at7987 <- DT::renderDataTable({ DT::datatable(at7987.ld,
                                                            options = list(pageLength = 10)) })
   

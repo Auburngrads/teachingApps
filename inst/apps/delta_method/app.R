@@ -1,17 +1,5 @@
 library(teachingApps)
-library(package = 'SMRD')
-
-
-
-
-
-
-
-
-
-
-  
-
+library(SMRD)
 
 shinyApp(options = list(width = "100%", height = "800px"), 
 ui = navbarPage(position = 'fixed-top',

@@ -1,18 +1,5 @@
 library(teachingApps)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 shinyApp(options = list(height = '300px', width = '100%'), 
          
   ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
@@ -34,7 +21,6 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 server = function(input, output, session) {
   
   output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-  
 
   
   output$plotcens <- renderPlot({

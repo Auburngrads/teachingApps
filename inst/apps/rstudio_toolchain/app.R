@@ -1,25 +1,15 @@
 library(teachingApps)
-library( package = 'codemirrorR', repo = 'timelyportfolio')
-
-
-
-
-
-
-
-
-
-
-
-
+library('codemirrorR', repo = 'timelyportfolio')
 
 shinyApp(options = list(height = '800px', width = '100%'),
          
-    ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
-                    try(includeCSS(system.file('css',
-                                               'my-shiny.css', 
-                                               package = 'teachingApps')), silent = T),
-                    
+    ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'RStudio Toolchain',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                 
 tabPanel(h4('Windows (Personal)'),
          
    mainPanel(width = 12,
@@ -73,13 +63,9 @@ tabPanel(h4('Unix'),
   tabPanel(h4(HTML('<green>3) Install Rtools</green>')),  uiOutput("rt_unix",class = 'shiny-text-output')),
   tabPanel(h4(HTML('<red>4) Install LaTeX</red>')),   uiOutput("l_unix", class = 'shiny-text-output')),
   tabPanel(h4(HTML('<blue>5) Install/Configure Git</blue>')),     uiOutput("g_unix", class = 'shiny-text-output')),
-  tabPanel(h4(HTML('<brown>6) Create/Link an R-Project</brown>')),   uiOutput("rp_unix", class = 'shiny-text-output'))))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+  tabPanel(h4(HTML('<brown>6) Create/Link an R-Project</brown>')),   uiOutput("rp_unix", class = 'shiny-text-output')))))),
 
 server = function(input, output, session) {
-
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
 
   install_rw <- HTML({
 "<h1>Procedure for Installing and Setting Up R</h1>

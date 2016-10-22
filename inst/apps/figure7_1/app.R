@@ -1,23 +1,14 @@
 library(teachingApps)
-library( package = 'SMRD')
-
-
-
-
-
-
-
-
-
-
-  
-
+library('SMRD')
 
 shinyApp(options = list(height = '725px'),
-  ui =navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
-               try(includeCSS(system.file('css',
-                                          'my-shiny.css', 
-                                          package = 'teachingApps')), silent = TRUE),
+  ui =navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Figure 7.1',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                
 tabPanel(h4('Figure 7.1'),
     sidebarLayout(
     sidebarPanel(width = 3,
@@ -30,14 +21,10 @@ tabPanel(h4('Figure 7.1'),
     
     tabPanel(h4('Table 7.1'), DT::dataTableOutput('table.1', height = '80%')),
     tabPanel(h4('Code Mirror'), codemirrorR::codemirrorOutput('cm.table.1', 
-                                                              height = '600px')),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+                                                              height = '600px'))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-
 output$berkson <- renderPlot({
 
   par(family="serif",font=2)

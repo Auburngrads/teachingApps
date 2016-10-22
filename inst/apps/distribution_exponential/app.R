@@ -1,12 +1,14 @@
 library(teachingApps)
-library( package = 'metricsgraphics')
+library('metricsgraphics')
 
 shinyApp(options = list(height = "850px"),
          
-ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-              try(includeCSS(system.file('css',
-                                         'my-shiny.css', 
-                                         package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Exponential Distribution',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
 
 tabPanel(h4('Shiny App'),
 sidebarLayout(
@@ -47,60 +49,56 @@ tabPanel(h4('Distribution Functions'),
          mainPanel(uiOutput('expfunc'), width = 12)),
 
 tabPanel(h4('Distribution Properties'),
-         mainPanel(uiOutput('expprops', class = 'shiny-text-output'), width = 12)),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+         mainPanel(uiOutput('expprops', class = 'shiny-text-output'), width = 12))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-  
-t = reactive({ signif(seq(min(input$rangee), max(input$rangee), length = 500), digits = 4)})
-p <- signif(seq(0, 1, length = 500), digits = 4) 
-C <- reactive({ pexp(t() - input$gamma, 1/input$theta)})
-P <- reactive({ dexp(t() - input$gamma, 1/input$theta)})
-R <- reactive({ 1-C()})
-h <- reactive({ 1/input$theta })
-H <- reactive({ -1*log(1-pexp(t() - input$gamma, 1/input$theta))})
-Q <- reactive({ input$gamma-log(1-p)*input$theta})
-df <- reactive({data.frame(Time = t(),PROB = p, CDF = C(),PDF = P(),REL = R(),haz = h(),HAZ = H(), QUANT = Q())})
+exp.t = reactive({ signif(seq(min(input$rangee), max(input$rangee), length = 500), digits = 4)})
+exp.p <- signif(seq(0, 1, length = 500), digits = 4) 
+exp.C <- reactive({ pexp(exp.t() - input$gamma, 1/input$theta)})
+exp.P <- reactive({ dexp(exp.t() - input$gamma, 1/input$theta)})
+exp.R <- reactive({ 1-exp.C()})
+exp.h <- reactive({ 1/input$theta })
+exp.H <- reactive({ -1*log(1-pexp(exp.t() - input$gamma, 1/input$theta))})
+exp.Q <- reactive({ input$gamma-log(1-exp.p)*input$theta})
+exp.df <- reactive({data.frame(Time = exp.t(),PROB = exp.p, CDF = exp.C(),PDF = exp.P(),REL = exp.R(),haz = exp.h(),HAZ = exp.H(), QUANT = exp.Q())})
 
-  output$expC <- renderMetricsgraphics({
-  mjs_plot(df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
+output$expC <- renderMetricsgraphics({
+  mjs_plot(exp.df(), x = Time, y = CDF, decimals = 4, top = 0) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'F(t)')%>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")}) 
-  
-  output$expP <- renderMetricsgraphics({
-  mjs_plot(df(), x = Time, y = PDF, decimals = 4) %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+}) 
+output$expP <- renderMetricsgraphics({
+  mjs_plot(exp.df(), x = Time, y = PDF, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'f(t)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-  
-  output$expR <- renderMetricsgraphics({
-  mjs_plot(df(), x = Time, y = REL, decimals = 4) %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+})
+output$expR <- renderMetricsgraphics({
+  mjs_plot(exp.df(), x = Time, y = REL, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'S(t)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-  
-  output$exph <- renderMetricsgraphics({
-  mjs_plot(df(), x = Time, y = haz, decimals = 4) %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+})
+output$exph <- renderMetricsgraphics({
+  mjs_plot(exp.df(), x = Time, y = haz, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'h(t)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-  
-  output$expH <- renderMetricsgraphics({
-  mjs_plot(df(), x = Time, y = HAZ, decimals = 4) %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+})
+output$expH <- renderMetricsgraphics({
+  mjs_plot(exp.df(), x = Time, y = HAZ, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Time (t)', y_label = 'H(t)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-  
-  output$expQ <- renderMetricsgraphics({
-  mjs_plot(df(), x = PROB, y = QUANT, decimals = 4) %>%
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+})
+output$expQ <- renderMetricsgraphics({
+  mjs_plot(exp.df(), x = PROB, y = QUANT, decimals = 4) %>%
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
-  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-
+  mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
+})
 output$expfunc <- renderUI({ 
   withMathJax(HTML('<h3>Functional relationships for 
 <script id="MathJax-Element-31" type="math/tex">\\;T \\sim EXP(\\theta,\\gamma),\\;\\;T \\in [0,\\infty)</script>

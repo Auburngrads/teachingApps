@@ -1,5 +1,5 @@
 library(teachingApps)
-library( package = 'SMRD')
+library('SMRD')
 
 ZelenCap.ld <- frame.to.ld(SMRD::zelencap, 
                            response.column = 1, 
@@ -9,12 +9,14 @@ ZelenCap.ld <- frame.to.ld(SMRD::zelencap,
                            time.units = "Hours", 
                            xlabel = c(expression(C^o), expression("Volts")))
 
-shinyApp(options = list(width = "100%", height = "625px"),
+shinyApp(options = list(width = "100%", height = "750px"),
 
-ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-                try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = TRUE),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Zelen Cap',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
 
     tabPanel(h2("Data Set"), DT::dataTableOutput("table2", height = "565px") ),    
     tabPanel(h2("Summary"),  verbatimTextOutput("summary2") ), 
@@ -110,14 +112,10 @@ ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]
                               "Frechet"), 
                   selected = "Weibull")),
     
-    mainPanel( plotOutput("altplot",height = "565px")))), 
+    mainPanel( plotOutput("altplot",height = "565px"))))),
   
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
-
 server = function(input, output, session) {
 
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
-         
   output$summary2 <- renderPrint({ summary(ZelenCap.ld)})
 
   output$table2 <- DT::renderDataTable({ DT::datatable(ZelenCap.ld,

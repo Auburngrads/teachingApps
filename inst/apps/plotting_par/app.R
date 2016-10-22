@@ -5,10 +5,12 @@ library(teachingApps)
 
 shinyApp(options = list(height = "800px"),
          
-  ui = navbarPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-                  try(includeCSS(system.file('css',
-                                             'my-shiny.css', 
-                                             package = 'teachingApps')), silent = T),
+ui = navbarPage(collapsible = T, 
+                position = 'fixed-top',
+                title = 'Global Plot Parameters',
+                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
 
 tabPanel(h4("Plot Device Margins"), 
          titlePanel("Changing the inner margin requires four terms - mar = c(5,4,4,2)"),
@@ -131,13 +133,9 @@ par(mfrow = c(1,1))"),
 
   actionButton("plotseval", h2("Evaluate"), width = '100%')),
         
-  mainPanel(plotOutput("plots", height = "550px"), width = 7))),
+  mainPanel(plotOutput("plots", height = "550px"), width = 7)))),
   
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
-
 server = function(input, output, session) {
-
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
 
 output$marplot <- renderPlot({
       par(mar = c(input$mar1, input$mar2, input$mar3, input$mar4), xpd = TRUE)

@@ -1,17 +1,5 @@
 library(teachingApps)
-library( package = 'DT')
-
-
-
-
-
-
-
-
-
-
-
-
+library(DT)
 
 shinyApp(options = list(height = '650px', width = '100%'),
     ui =fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
@@ -25,7 +13,6 @@ shinyApp(options = list(height = '650px', width = '100%'),
                         choices = c('Sum of Rolls', 
                                     'Product of Rolls', 
                                     'Difference of Rolls'), 
-
                         selected = 'Sum of Rolls'),
             sliderInput('no.dice', 
                          label = h2('Number Of Rolls'), 
