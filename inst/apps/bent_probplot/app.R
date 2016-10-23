@@ -5,7 +5,7 @@ www <- system.file('apps','bent_probplot','www','args.R', package = 'teachingApp
 
 shinyApp(options = list(height = '600px', width = '100%'),
          
-ui = fluidPage(theme = shinythemes::shinytheme(theme = eval(parse(text = gsub('\r\n', '', includeText(www))))$theme), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = eval(parse(text = gsub('\r\n', '', includeText(www))))[1]$theme), 
                try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = T),
@@ -38,7 +38,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(eval(parse(text = gsub('\r\n', '', includeText(www))))$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(eval(parse(text = gsub('\r\n', '', includeText(www))))[3]$appName))})
   
   output$bleedplot <- renderPlot({
       par(mar = c(4,4,2,2))

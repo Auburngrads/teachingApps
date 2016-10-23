@@ -43,9 +43,9 @@ bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '1
     www <- paste(c(dir,'www'), collapse = '/')
     if(!dir.exists(www)) dir.create(www)
     
-    file.create(paste(c(dir,'www/args.R'), collapse = '/'))
+    file.create(paste(c(dir,'args.R'), collapse = '/'))
     
-    dump('arg2', file = paste(c(dir,'www/args.R'), collapse = '/')) 
+    dump('arg2', file = paste(c(dir,'args.R'), collapse = '/')) 
     
     if(rmd) {
 

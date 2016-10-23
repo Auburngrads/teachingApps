@@ -1,18 +1,6 @@
 library(teachingApps)
 library('SMRD')
 
-
-
-
-
-
-
-
-
-
-
-
-
 shinyApp(options = list(width = "99%", height = "600px"), 
 ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
                try(includeCSS(system.file('css',
