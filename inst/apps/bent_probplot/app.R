@@ -1,11 +1,13 @@
 library(teachingApps)
 library(SMRD)
 
-www <- system.file('apps','bent_probplot','args.R', package = 'teachingApps')
+www <- system.file('apps','bent_probplot','global.R', package = 'teachingApps')
 
 shinyApp(options = list(height = '600px', width = '100%'),
+         #onStart = function() { appText <<- includeText()
+          #                      return(appText)},
          
-ui = fluidPage(theme = shinythemes::shinytheme(theme = arg2$theme), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = source(www)[[1]]$theme),# eval(parse(text = gsub('\r\n', '', appText)))[1]$theme), 
                try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = T),
@@ -38,7 +40,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(arg2$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(eval(parse(text = gsub('\r\n', '', includeText(www))))[3]$appName))})
   
   output$bleedplot <- renderPlot({
       par(mar = c(4,4,2,2))

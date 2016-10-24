@@ -45,23 +45,20 @@ server = function(input, output, session) {
   
 
   
-  output$compare <- renderPlot({
+output$compare <- renderPlot({
 
 CDF<-seq(.01,.99,.03)
-par(mfrow = c(1,2),family = "serif",cex = 1.2, mar = c(3.5,4.1,1.5,2.1), las = 1)
+par(mfrow = c(1,2),family = "serif",cex = 1.2, mar = c(3.5,4.1,1.5,2.1))
 
 switch(input$dist1,"SEV" = { 
 WEIB<-(log(log(1/(1-CDF))))
 plot(NA,
      xlim = range(1,100),
      ylim = range(WEIB),
-     ylab = "",
-     xlab = "",
-     axes = FALSE)
-box(lwd=1.25)
-abline(h=WEIB, lty=2,col="steelblue")
+     ylab = "",xlab = "",axes = F)
+abline(h = WEIB, lty = 2,col = "steelblue")
 axis(side = 1, tck = -.015, labels = NA) ; axis(side = 1, lwd = 0, line = -.6)
-mtext(side = 1, expression(t[p]), line = 2.25,cex = 1.3)
+mtext(side = 1, expression(t[p]),line = 2.25,cex = 1.3)
 mtext(side = 2, expression(Phi[SEV](t[p])),line = 2,cex = 1.3)
 
 switch(input$axis1, "True Axis" = {
@@ -78,7 +75,9 @@ mtext(side=2, at=qsev(c(.01,.05,.1,.2,.5,.9,.97)),
 })
 }, "Normal" = {
 LOGN<-(qnorm(CDF))
-plot(NA,xlim=range(1,100),ylim=range(LOGN),ylab="",xlab="",axes=FALSE)
+plot(NA,
+     xlim=range(1,100),ylim=range(LOGN),
+     ylab="",xlab="",axes = F)
 abline(h=LOGN, lty=2,col="steelblue")
 box(lwd=1.25)
 axis(side = 1, tck = -.015, labels = NA) ; axis(side = 1, lwd = 0, line = -.6)

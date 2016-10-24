@@ -1,0 +1,32 @@
+---
+output: html_document
+---
+
+### Figure 3.1
+
+- Figure 3.1 shows censoring events occuring at the end of years 1, 2, and 3
+
+- The nonparametric estimates for $F(t_{i})$ computed using the simple binomial method assume that the number of items at risk does not change after each inspection
+
+- The binomial method treats each inspection as a separate analysis with singly censored data
+
+    + Analysis 1 $\rightarrow n=100, t_{0}=0, t_{c}=Year 1 \rightarrow$ 1 failure observed
+
+    + Analysis 2 $\rightarrow n=100, t_{0}=0, t_{c}=Year 2 \rightarrow$ 3 failures observed
+
+    + Analysis 3 $\rightarrow n=100, t_{0}=0, t_{c}=Year 3 \rightarrow$ 5 failures observed
+
+- The nonparametric estimate of $F(t_{i})$ based on the binomial distribution is
+
+$$\hat{F}(t_{i})=\frac{\#\text{ of failures up to time }t_i}{n}=\frac{\sum_{j=1}^{i}d_j}{n}$$
+- where
+
+    + The sample size $n=100$ 
+
+    + The number of failures $d_{j}=1\;\text{(Year 1)},\;3\;\text{(Year 2)},\;5\;\text{(Year 3)}$
+
+- Thus, for the Plant 1 data
+$$\begin{aligned}\hat{F}(1)=1/100\\\\
+\hat{F}(2)=3/100\\\\
+\hat{F}(3)=5/100\\\\
+\end{aligned}$$

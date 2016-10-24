@@ -1,4 +1,4 @@
-#' SMRD non-linear probability plot app
+#' Function Title
 #'
 #' @description Description
 #'
@@ -17,23 +17,23 @@
 #'
 #' @param pub Will the app be published (deployed)? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
-#' @param rmd Will the app code be included in an interactive Rmarkdown document or presentation with \code{runtime: shiny}? (see details)
-#' @param width Width of the printed app. Used for \code{rmd = TRUE}, otherwise ignored
-#' @param height Height of the printed app. Used for \code{rmd = TRUE}, otherwise ignored
-#' @param ... Additional arguments passed to \code{shiny::runApp()} 
+#' @param rmd Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)
+#' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
+#' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
+#' @param ... Additional arguments passed to code{shiny::runApp()} 
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 #' 
-#' When \code{rmd = FALSE} the app is run using \code{shiny::runApp}, addition arguments can be passed via the \code{...} argument.  When \code{rmd = TRUE}, \code{shiny::shinyAppDir} is used the \code{width} and \code{height} arguments must be specified.
+#' When code{rmd = FALSE} the app is run using code{shiny::runApp}, addition arguments can be passed via the code{...} argument.  When code{rmd = TRUE}, code{shiny::shinyAppDir} is used the code{width} and code{height} arguments must be specified.
 #'
 #' @export
 
-bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
+example7_1 <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    file <- system.file("apps", "bent_probplot", "app.R", package = "teachingApps")
-    dir <- dirname(file)
+    dir <- dirname(system.file("apps", "example7_1", "app.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
+    teachingApps::getPackage(pub = pub, pkg  = 'DT')
     
     arg2 <- data.frame(theme  = theme,
                        appDir = dir,
@@ -43,13 +43,13 @@ bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '1
     www <- paste(c(dir,'www'), collapse = '/')
     if(!dir.exists(www)) dir.create(www)
     
-    file.create(paste(c(dir,'global.R'), collapse = '/'))
+    file.create(paste(c(dir,'www/args.R'), collapse = '/'))
     
-    dump('arg2', file = paste(c(dir,'global.R'), collapse = '/')) 
+    dump('arg2', file = paste(c(dir,'www/args.R'), collapse = '/'))
     
     if(rmd) {
 
-    shiny::shinyAppFile(appFile = file, options = list(height = height, width = width))
+    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
 
     } else {
       

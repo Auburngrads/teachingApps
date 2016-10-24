@@ -43,3 +43,4 @@ $$f(x;p,n) = \left( \begin{array}{c} n \\ x \end{array} \right)(p)^{x}(1 - p)^{(
 <div class="notes">As discussed in Chapter 2, $\pi_{i}$ represents the multinomial probability that a failure will occur in interval $i$.</div>
 
 $$\hat{p}_{_{MLE}}=\frac{x}{n}$$
+
