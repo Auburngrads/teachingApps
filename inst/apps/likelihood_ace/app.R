@@ -1,18 +1,6 @@
 library(teachingApps)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 shinyApp(options = list(height = '600px', width = '99%'),
   ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
                  try(includeCSS(system.file('css',
@@ -46,6 +34,14 @@ points(x = c(0.5,0.5),
        cex = 1.5, 
        pch = 16, 
        col = 2)
+
+text(x = c(0.5,0.5),
+     y = c(dweibull(0.5, shape = 1.5)+.005,
+           dexp(0.5, rate = 1)+.005),
+     labels = c(parse(text = paste('NA%<-%~',dweibull(0.5, shape = 1.5))),
+                parse(text = paste('NA%<-%~',dexp(0.5, rate = 1)))),
+     adj = -0.15,
+     cex = 1.5)
 
 abline(v = 0.5, col = 2)
 

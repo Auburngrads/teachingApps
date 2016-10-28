@@ -124,8 +124,16 @@ focus  {  background-color: #F39C12;
 }
 
 .shiny-text-output li {
-
   margin: 30px 0 30px 0;
+  line-height: 1.0em;
+}
+
+.shiny-text-output ul li {
+  line-height: 1.75em;
+}
+
+.shiny-text-output ol li {
+  line-height: 1.75em;
 }
 
 code {

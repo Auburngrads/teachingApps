@@ -1,0 +1,73 @@
+---
+output: html_document
+---
+
+- Now, let's suppose that this same system produced a second observation at 0.2
+
+<!-- 
+Each observation contributes to the total likelihood function\n
+In this figure a single observation of t = 0.5 results in a greater 
+likelihood contribution for the Weibull distributon 
+than for the exponential distribution
+
+produced a single observation of 0.5 and we were interested in whether  
+
+### Maximum Likelihood Regularity Conditions
+
+1) The support region for a selected model does not depend on $\theta$
+
+2) The parameters are identifiable (i.e., for $\theta_1\ne\theta_2,\; f(t|\theta_1)\ne f(t|\theta_2), \;\forall t$)
+
+3) The value of $\hat{\theta}_{_{MLE}}$ is on the interior of the parameter space $\Theta$
+
+4) $f(t|\underline{\theta})$ has a $3^{rd}$ mixed partial derivative
+
+5) $E\left[\frac{\partial^{2}\log(f(t|\theta))}{\partial\theta(\partial\theta)^T}\right]=\frac{\partial^2 E\left[\log(f(t|\theta))\right]}{\partial\theta(\partial\theta)^T}$
+
+6) Elements of $\mathscr{I}_{\theta}$ are finite and $\mathscr{I}_{\theta}$ is a positive-definite matrix
+
+### Properties of the Likelihood Function $\mathscr{L}$
+
+1) $\mathscr{L}(\theta|\underline{x})\ge 0$
+
+2) $\mathscr{L}(\theta|\underline{x})$ is not a pdf i.e. $\int \mathscr{L}(\theta|\underline{x})\;d\theta \ne 1$
+
+3) Suggests (relatively) which values of $\theta$ are more likely to have generated the observed data $\underline{x}$ (assuming the chosen parametric model is correct)
+
+4) If it exists, we say that the value of $\underline{\theta}$ that maximizes $\mathscr{L}(\underline{\theta}|\underline{x})$ is the maximum likelihood estimator (denoted $\hat{\theta}_{_{MLE}}$)
+
+5) We often try to find $\hat{\theta}_{_{MLE}}$ by maximizing the log-likelihood function 
+$$\mathcal{L}(\underline{\theta}|\underline{x})=\log\left[\mathscr{L}(\underline{\theta}|\underline{x})\right]$$
+
+### ## The likelihood is equal to the joint probability of the data
+
+- Mathematically this is expressed as
+
+$$\mathscr{L}(\underline{\theta}|\underline{x})=\sum_{i=1}^{n}\mathscr{L}_{i}(\underline{\theta}|x_i)=f(\underline{x}|\underline{\theta})=\prod_{i=1}^{n}f(x_{i}|\underline{\theta}),\;\;\text{if}\;x_{i}\; iid$$
+
+- Both $f(t|\underline{\theta})$ and $\mathscr(\underline{\theta})$ start with a distributional assumption
+
+- $f(\underline{x}|\underline{\theta})$ relates 
+
+    + The probability (likelihood) of observing data $\underline{x}=x_1,...,x_n, \;\;n\in[1,\infty)$ from a specified distribution of the form $f(x|\theta)$ 
+
+- Is a function of $\underline{x}$ assuming $\underline{\theta}=\theta_{1},\theta_{2},...$ are <focus>known</focus>
+
+- What data $\underline{x}$ are most likely to be produced by a distribution with parameters $\underline{\theta}$?
+
+
+- $f(x_i|\underline{\theta})$ is the probability density associated with observation $x_i$
+
+- But, this statement comes with the following assumptions
+
+    1) We know (or at least have specified) a functional form values for $\theta$
+    
+    2) We know (or at least have specified) values for $\theta$
+
+$\mathscr{L}(\underline{\theta}|\underline{x})$ 
+
+- Is a function of $\underline{\theta}$ assuming $\underline{x}=x_{1},...,x_{n}$ has already been observed
+
+- What values of $\underline{\theta}$ are most likely to have produced $\underline{x}$?
+
+-->

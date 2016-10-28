@@ -11,7 +11,7 @@ ui = navbarPage(collapsible = T,
                 
        tabPanel(h4('Numerical Solution'),
         sidebarLayout(
-          sidebarPanel(width = 6,
+          sidebarPanel(width = 5,
             shinyAce::aceEditor(fontSize = 16, 
                                 wordWrap = T,
                                 outputId = "solnum", 
@@ -46,14 +46,14 @@ nlminb(start = runif(2, 1.5, 4.2),
 
         actionButton("mlsolnum", h4("Evaluate"), width = '100%')),
         
-        mainPanel(verbatimTextOutput("mlsolns"), width = 6))),
+        mainPanel(verbatimTextOutput("mlsolns"), width = 7))),
 
 tabPanel(h4('Graphical Solution'),
         sidebarLayout(
-          sidebarPanel(width = 6,
+          sidebarPanel(width = 5,
             shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "solplot", 
+                                wordWrap = T,
+                                outputId = "solplot", 
                                 mode = "r", 
                                 theme = "github", 
                                 height = "450px", 
@@ -77,7 +77,7 @@ simple.contour(obs.ld,
 
 actionButton("mlsolplot", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("mlplots", height = '600px'), width = 6))),
+        mainPanel(plotOutput("mlplots", height = '600px'), width = 7))),
 
 tabPanel(h4('How To Use This App'),
 

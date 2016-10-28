@@ -1,0 +1,12 @@
+---
+output: html_document
+---
+
+### A Simple Example of How ML Estimation Works
+
+- Suppose we observed some data-producing system and disagreed on what distribution should be used to model the data produced by the process
+
+    + You argue that a $WEIB(1.5,1)$ distribution should be used
+
+    + I argue that an $EXP(1)$ distribution should be used
+

@@ -1,0 +1,15 @@
+---
+output: html_document
+---
+
+- <focus>Finding $\hat{\theta_{_{MLE}}}$ Numerically</focus>
+
+    + <focus>Remember</focus> the goal of maximum likelihood estimation is to <u>maximize the likelihood function</u>
+
+    + The most straight-forward way to do this is through numerical optimization
+
+    + Numerical optimization can be as fast as graphical methods and as accurate as analytical methods
+    
+    + R has [several functions](https://afit.shinyapps.io/r-intro-stats) for optimizing/maximizing functions
+
+    + Here, we'll use my favorite - `nlminb( )`

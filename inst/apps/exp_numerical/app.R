@@ -1,7 +1,7 @@
 library(teachingApps)
 shinyApp(options = list(height = '750px'),
     
-  ui = navbarPage(collapsible = T, 
+ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Exponential MLE (Numerical)',
                 theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
@@ -10,14 +10,13 @@ shinyApp(options = list(height = '750px'),
                 
        tabPanel(h4('Numerical Solution'),
         sidebarLayout(
-          sidebarPanel(width = 6,
+          sidebarPanel(width = 5,
                        shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "mlexpnum", 
+                                           wordWrap = T,
+                                           outputId = "mlexpnum", 
                                            mode = "r", 
                                            theme = "github", 
                                            height = "500px", 
-                                           
                                            value = 
 "obs <- c(4.2564, 0.5319)
 
@@ -31,7 +30,7 @@ nlminb(start = 4,
        objective = joint.exp, 
        x = obs)[1:5]
 
-## $par shows that the value of theta at which
+# $par shows that the value of theta at which
 ##  the likelihood function is maximized is 2.3941
 
 ## $objective shows that the value of the 
@@ -42,7 +41,7 @@ nlminb(start = 4,
 
         actionButton("mlexpnums", h4("Evaluate"), width = '100%')),
         
-        mainPanel(verbatimTextOutput("mlexp2"), width = 6))),
+        mainPanel(verbatimTextOutput("mlexp2"), width = 7))),
 
 
   tabPanel(h4('Overview of nlminb()'),

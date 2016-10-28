@@ -1,0 +1,14 @@
+---
+output: html_document
+---
+
+- Further suppose that the system produces a single observation at 0.5
+
+    + <focus>If the $WEIB(1.5,1)$ distribution is correct</focus> the Weibull probability density function gives $P(X=0.5)=f(x=0.5|\beta = 1.5, \eta = 1)\approx 0.745$
+
+    + <focus>If the $EXP(1)$ distribution is correct</focus> the exponential probability density function gives $P(X=0.5)=f(x=0.5|\theta)\approx 0.607$
+
+    + We can see that the probability (likelihood) of observing 0.5 is higher for the $WEIB(1.5,1)$ distribution than for the $EXP(1)$ distribution
+
+    + However, a single observation is insufficient to characterize the data produced by the system
+

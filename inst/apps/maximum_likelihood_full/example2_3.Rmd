@@ -1,0 +1,15 @@
+---
+output: html_document
+---
+
+## The <green>normal</green>, <red>lognormal</red>, and <blue>Weibull</blue> distributions
+
+- Each of these distributions have two parameters
+
+- Analytic solutions for find MLE's <focus>do not</focus> exist for all two-parameter distributions 
+
+- Graphical approaches for two-parameter distributions result in three dimensional likelihood surfaces - can be difficult to interpret 
+
+- Numerical techniques are preferred <focus>and are often required</focus> to find the MLE's for distributions with 2 or more unknown parameters 
+
+- The shiny app below shows the likelihood surfaces and the numerical solutions for each of these three distributions

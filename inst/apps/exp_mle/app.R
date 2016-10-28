@@ -1,18 +1,5 @@
 library(teachingApps)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 shinyApp(options = list(height = '600px'),
   
   ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
@@ -22,12 +9,11 @@ shinyApp(options = list(height = '600px'),
     sidebarLayout(
       sidebarPanel(width = 5,
         shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = "mlexpplot", 
+                            wordWrap = T,
+                            outputId = "mlexpplot", 
                             mode = "r", 
                             theme = "github",
                             height = "450px", 
-                            
                             value = 
 "par(font = 2, mar = c(4,5.5,1,1), family = 'serif', cex = 1.5)
 

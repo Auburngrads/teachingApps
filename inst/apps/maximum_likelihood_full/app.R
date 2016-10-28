@@ -8,8 +8,269 @@ ui = navbarPage(collapsible = T,
                 theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
                 footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                
 
-tabPanel(h4("ML Estimation"), 
+tabPanel(h4('Background'), 
+  fluidRow(
+    column(width = 12,
+           mainPanel(uiOutput('mleback1'), class = 'shiny-text-output', width = '100%')))),
+
+navbarMenu(h4('Examples'),
+tabPanel(h4('A Simple Example'),  
+fluidRow(
+    column(width = 12,
+           mainPanel(uiOutput('example1_1'), class = 'shiny-text-output', width = '100%'))),
+fluidRow(
+  column(width = 12, titlePanel('To change the plot update the code and click "Evaluate" '))),
+fluidRow(
+  column(width = 5,
+         sidebarPanel(width = '100%',
+         shinyAce::aceEditor(fontSize = 16, 
+                              wordWrap = T,
+                              outputId = "likeplot", 
+                              mode = "r", 
+                              theme = "github", 
+                              height = "450px", 
+                              value ="
+par(family = 'serif', mar = c(4,4,1,2))
+
+curve(dexp(x, rate = 1), 
+      lwd = 2, col = 1, 
+      xlim = c(0,5), 
+      ylim = range(0,.9), 
+      xlab = 'Time (t)', 
+      ylab = 'f(t)',
+      las = 1, 
+      cex.lab = 1.5,
+      cex.axis = 1.5)
+
+curve(dweibull(x, shape = 1.5), lwd = 2, col = 4, lty = 2, add = T)
+
+points(x = c(0.5,0.5),
+       y = c(dexp(0.5, rate = 1), dweibull(0.5,shape = 1.5)), 
+       cex = 1.5, 
+       pch = 16, 
+       col = 2)
+
+text(x = c(0.5,0.5),
+     y = c(dweibull(0.5, shape = 1.5)+.005,
+           dexp(0.5, rate = 1)+.005),
+     labels = c(parse(text = paste('NA%<-%~',dweibull(0.5, shape = 1.5))),
+                parse(text = paste('NA%<-%~',dexp(0.5, rate = 1)))),
+     adj = -0.15,
+     cex = 1.5)
+
+abline(v = 0.5, col = 2)
+
+legend('topright',
+       c(parse(text = 'exp(theta==1)'),
+         parse(text = 'Weib(beta,theta==1.5,1)')), 
+       lwd = 2, 
+       col = c(1,4), 
+       bty = 'n', 
+       lty = c(1,2),
+       y.intersp = 1.5,
+       cex = 1.4)"),
+
+   actionButton("evallike", h4("Evaluate"), width = '100%'))),
+   
+ column(width = 7,
+        mainPanel(plotOutput('plotlike', height = '600px'), width = '100%'))),
+ 
+fluidRow(
+ column(width = 12,
+           mainPanel(uiOutput('example1_2'), class = 'shiny-text-output', width = '100%'))),
+ 
+fluidRow( 
+ column(width = 12, titlePanel('To change the plot update the code and click "Evaluate" ')),
+ column(width = 5,
+        sidebarPanel(width = '100%',
+        shinyAce::aceEditor(fontSize = 16, 
+                              wordWrap = T,
+                              outputId = "likeplot2", 
+                              mode = "r", 
+                              theme = "github", 
+                              height = "450px", 
+                              value ="
+par(family = 'serif', mar = c(4,4,1,2))
+
+curve(dexp(x, rate = 1), 
+      lwd = 2, col = 1, 
+      xlim = c(0,5), 
+      ylim = range(0,.9), 
+      xlab = 'Time (t)', 
+      ylab = 'f(t)',
+      las = 1, 
+      cex.lab = 1.5,
+      cex.axis = 1.5)
+
+curve(dweibull(x, shape = 1.5), lwd = 2, col = 4, lty = 2, add = T)
+
+points(x = c(0.2,0.2),
+       y = c(dexp(0.2, rate = 1), dweibull(0.2,shape = 1.5)), 
+       cex = 1.5, 
+       pch = 16, 
+       col = 3)
+
+text(x = c(0.1,0.1),
+     y = c(dweibull(0.2, shape = 1.5)+.005,
+           dexp(0.2, rate = 1)+.005),
+     labels = c(parse(text = paste('NA%<-%~',dweibull(0.2, shape = 1.5))),
+                parse(text = paste('NA%<-%~',dexp(0.2, rate = 1)))),
+     adj = -0.15,
+     cex = 1.5)
+
+abline(v = 0.2, col = 3)
+
+legend('topright',
+       c(parse(text = 'exp(theta==1)'),
+         parse(text = 'Weib(beta,theta==1.5,1)')), 
+       lwd = 2, 
+       col = c(1,4), 
+       bty = 'n', 
+       lty = c(1,2),
+       y.intersp = 1.5,
+       cex = 1.4)"),
+
+   actionButton("evallike2", h4("Evaluate"), width = '100%'))),
+ 
+ column(width = 7,
+        mainPanel(plotOutput('plotlike2', height = '600px'), width = '100%'))),
+
+fluidRow( 
+ column(width = 12,
+           mainPanel(uiOutput('example1_3'), class = 'shiny-text-output', width = '100%')))),
+
+tabPanel(h4('A Funny Example'),
+fluidRow( 
+ column(width = 12,
+        mainPanel(uiOutput('example2_1'), class = 'shiny-text-output', width = '100%'))),
+
+fluidRow(
+ column(width = 5,
+   sidebarPanel(width = '100%',
+                shinyAce::aceEditor(fontSize = 16, 
+                            wordWrap = T,
+                            outputId = "mlexpplot", 
+                            mode = "r", 
+                            theme = "github",
+                            height = "450px", 
+                            value = 
+"par(font = 2, mar = c(4,5.5,1,1), family = 'serif', cex = 1.5)
+
+obs <- c(4.2564, 0.5319)
+
+theta <- seq(0.25, 10, .05)
+
+joint.prob.exp <- dexp(obs[1], rate = 1/theta)*
+                  dexp(obs[2], rate = 1/theta)
+
+plot(theta, joint.prob.exp, 
+     xlab = expression(widehat(theta)),
+     ylab = expression(prod(t[i],i=1,2)),
+     type = 'l', 
+     las = 1, 
+     lwd = 3, 
+     col = 2)
+
+abline(v = sum(obs)/2, lwd = 2, lty = 2)
+
+text(x = sum(obs)/2, 
+     y = .005,
+     labels = parse(text = paste(c(expression('' %<-% ''), 
+                                   sum(obs)/2), 
+                                 collapse = '~')),
+     adj = 0)"),
+
+        actionButton("mlexpplots", h4("Evaluate"), width = '100%'))),
+
+ column(width = 7,
+    mainPanel(plotOutput("mlexp", height = "600px"), width = '100%'))),
+
+fluidRow( 
+ column(width = 12,
+           mainPanel(uiOutput('example2_2'), class = 'shiny-text-output', width = '100%'))),
+
+fluidRow(
+ column(width = 5,
+   sidebarPanel(width = '100%',
+                shinyAce::aceEditor(fontSize = 16, 
+                                           wordWrap = T,
+                                           outputId = "mlexpnum", 
+                                           mode = "r", 
+                                           theme = "github", 
+                                           height = "500px", 
+                                           value = 
+"obs <- c(4.2564, 0.5319)
+
+joint.exp <- function(x, param) { 
+  
+  Fun <- prod(dexp(x[1:length(x)],1/param))
+  
+  return(-Fun)   }
+
+nlminb(start = 4, 
+       objective = joint.exp, 
+       x = obs)[1:5]
+
+# $par shows that the value of theta at which
+##  the likelihood function is maximized is 2.3941
+
+## $objective shows that the value of the 
+## likelihood function when theta = $par is
+##  0.023611
+
+## Why is $objective negative?"),
+
+        actionButton("mlexpnums", h4("Evaluate"), width = '100%'))),
+
+ column(width = 7,
+    mainPanel(verbatimTextOutput("mlexp2"), width = '100%'))),
+
+fluidRow( 
+ column(width = 12,
+           mainPanel(uiOutput('example2_3'), class = 'shiny-text-output', width = '100%'))),
+
+fluidRow(
+ column(width = 5,
+   sidebarPanel(width = '100%',
+                shinyAce::aceEditor(fontSize = 16, 
+                                    wordWrap = T,
+                                    outputId = "solnum", 
+                                    mode = "r", 
+                                    theme = "github", 
+                                    height = "530px", 
+                                    value = 
+"obs <- c(4.2564, 0.5319)
+
+model <- 'normal'
+
+distro <- 
+switch(tolower(model), 
+'norm'  =, 'nor'  =, 'normal'    = 'dnorm',
+'lnorm' =, 'lnor' =, 'lognormal' = 'dlnorm',
+           'weib' =, 'weibull'   = 'dweibull')
+
+joint.prob <- function(x,param) { 
+
+Fun <- 
+paste(c('prod(',
+        distro,
+        '(x[1:length(x)], param[1], param[2]))'), 
+      collapse = '')
+  
+  return(-eval(parse(text = Fun)))  }
+
+nlminb(start = runif(2, 1.5, 4.2), 
+       objective = joint.prob, 
+       x = obs)[1:5]"),
+
+        actionButton("mlsolnum", h4("Evaluate"), width = '100%'))),
+
+ column(width = 7,
+    mainPanel(verbatimTextOutput("mlsolns"), width = '100%')))
+),
+tabPanel(h4("A Better Example"),
 sidebarLayout(
   sidebarPanel(width = 4,
     selectInput('correct', 
@@ -25,19 +286,69 @@ sidebarLayout(
     HTML('<h2>Or Start Over</h2>'),
     actionButton('clear',h4('clear'), width = '100%')),
   
-  mainPanel(plotOutput('plotmle', height = '650px'), width = 8))),
+  mainPanel(plotOutput('plotmle', height = '650px'), width = 8)))),
 
-tabPanel(h4('Background'),
-mainPanel(width = 12, uiOutput('mleback', class = 'shiny-text-output'))),
-
-tabPanel(h4('MLE Properties'),
-mainPanel(width = 12, uiOutput('mleprops', class = 'shiny-text-output'))),
-
-tabPanel(h4('Video'),
-mainPanel(width = 12, uiOutput('mlevideo', class = 'shiny-text-output')))),
+tabPanel(h4('Details'),
+fluidRow( 
+ column(width = 12,
+        mainPanel(uiOutput('details'), class = 'shiny-text-output', width = '100%'))))),
 
 server = function(input, output, session) {
-  
+
+output$mleback1 <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('background1.Rmd')))
+})
+
+output$example1_1 <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('example1_1.Rmd')))
+})
+
+output$plotlike <- renderPlot({
+      input$evallike      
+      return(isolate(eval(parse(text=input$likeplot))))
+})
+
+output$example1_2 <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('example1_2.Rmd')))
+})
+
+output$plotlike2 <- renderPlot({
+
+      input$evallike2      
+      return(isolate(eval(parse(text=input$likeplot2))))
+})
+
+output$example1_3 <- renderUI({ 
+  withMathJax(HTML(includeMarkdown('example1_3.Rmd')))
+})
+
+output$example2_1 <- renderUI({
+  withMathJax(HTML(includeMarkdown('example2_1.Rmd')))
+})
+
+output$mlexp <- renderPlot({
+      input$mlexpplots
+      return(isolate(eval(parse(text=input$mlexpplot))))
+})
+
+output$example2_2 <- renderUI({
+  withMathJax(HTML(includeMarkdown('example2_2.Rmd')))
+})
+
+output$mlexp2 <- renderPrint({
+      input$mlexpnums
+      return(isolate(eval(parse(text=input$mlexpnum))))
+})
+
+output$example2_3 <- renderUI({
+  withMathJax(HTML(includeMarkdown('example2_3.Rmd')))
+})
+
+output$mlsolns <- renderPrint({
+      input$mlsolnum
+      return(isolate(eval(parse(text=input$solnum))))
+})
+
 mle <- reactiveValues(dats = NULL, 
                       params = NULL, 
                       sims = 0, 
@@ -52,12 +363,12 @@ observeEvent(input$clear, {
                    'Blue' = c(2.5,50), 
                    'Red' = c(2,50))
                
-  mle$sims <- 1 ; mle$dats <- NULL ; mle$dat1 <- NULL ; mle$dat2 <- NULL ; mle$dat3 <- NULL
+  mle$sims <- 0 ; mle$dats <- NULL ; mle$dat1 <- NULL ; mle$dat2 <- NULL ; mle$dat3 <- NULL
   
-  mle$dats[mle$sims] <- rweibull(1,params[1], params[2])
-  mle$dat1[mle$sims] <- dweibull(mle$dats[mle$sims], 2.5,50)
-  mle$dat2[mle$sims] <- dweibull(mle$dats[mle$sims], 2.5,40)
-  mle$dat3[mle$sims] <- dweibull(mle$dats[mle$sims], 2.0,50)
+   mle$dats[mle$sims] <- NULL #rweibull(1,params[1], params[2])
+   mle$dat1[mle$sims] <- NULL #dweibull(mle$dats[mle$sims], 2.5,50)
+   mle$dat2[mle$sims] <- NULL #dweibull(mle$dats[mle$sims], 2.5,40)
+   mle$dat3[mle$sims] <- NULL #dweibull(mle$dats[mle$sims], 2.0,50)
 })
 
 observeEvent(input$mlesample10, {
@@ -154,7 +465,8 @@ text(x = 60,
      cex = 1.8)
 
   if(input$mlesample) { 
-
+    if(!mle$sims==0) {
+    
 dat4 <- max(mle$dat1[mle$sims], mle$dat2[mle$sims], mle$dat3[mle$sims])
 
 segments(x0 <- c(0,0,0,mle$dats[mle$sims]), 
@@ -200,10 +512,11 @@ axis(side = 2,
      labels = round(mle$dat3[mle$sims], digits = 4), 
      line = -.9, 
      at = mle$dat3[mle$sims], las = 1, cex.axis = 2, col.axis = 'red', tck = 0)
-} 
+    } 
+  }
   
   if(input$mlesample10) { 
-    
+    if(!mle$sims==0) {
 points(mle$dats[1:mle$sims],mle$dat1[1:mle$sims], pch = 16, cex = 2, col = alpha('blue', 1))
 points(mle$dats[1:mle$sims],mle$dat2[1:mle$sims], pch = 16, cex = 2, col = alpha('darkgreen', 1))
 points(mle$dats[1:mle$sims],mle$dat3[1:mle$sims], pch = 16, cex = 2, col = alpha('red', 1))
@@ -215,49 +528,11 @@ text(x = rep(74,3), y = c(0.025,0.0225, 0.02),
      col = c('blue', 'darkgreen', 'red'), cex = 2, adj = 0)
 axis(side = 1, labels = FALSE, at = mle$dats[mle$sims], padj = -.75, cex.axis = 2, tck = 0)
 axis(side = 2, labels = FALSE, tck = 0, las = 1, cex.axis = 2)
-}
+    }
+  }
 })
-output$mleback <- renderUI({withMathJax(HTML('
-<h3>Maximum Likelihood Estimation</h3>
-<ul>
-<li>
-<p>Is a versitile method of fitting statistical models to data</p>
-</li>
-<li>
-<p>Can be applied to a wide variety of statistical models and data structures</p>
-</li>
-<li>
-<p>Produces efficient and consistent estimator under certain <focus>regularity conditions</focus></p>
-<ul>
-<li>
-<p>Efficient - estimates <script type="math/tex">\\mathbf{\\underline{\\theta}}=\\theta_{1},\\theta_{2},...</script></p>
-</li>
-<li>
-<p>Consistent - <script type="math/tex">\\text{as}\\;n\\rightarrow\\infty, \\;\\;f(\\hat{\\theta}_{_{MLE}}\\xrightarrow{L}\\theta)</script></p>
-</li>
-</ul>
-</ul>
 
-<h3>Maximum Likelihood Regularity Conditions</h3>
-<ol style="list-style-type: decimal">
-<li><p>The support does not depend on <script type="math/tex">\\theta</script></p></li>
-<li><p>Parameters are identifiable <script type="math/tex">\\theta_1\\ne\\theta_2,\\; f(t|\\theta_1)\\ne f(t|\\theta_2), \\;\\forall t</script></p></li>
-<li><p>The true value of <script type="math/tex">\\Theta</script></p></li>
-<li><p><script type="math/tex">3^{rd}</script></span> mixed partial derivative</p></li>
-<li><p><script type="math/tex">E\\left[\\frac{\\partial^{2}\\log(f(t|\\theta))}{\\partial\\theta(\\partial\\theta)^T}\\right]=\\frac{\\partial^2 E\\left[\\log(f(t|\\theta))\\right]}{\\partial\\theta(\\partial\\theta)^T}</script></p></li>
-<li><p>Elements of <script type="math/tex">\\mathscr{I}_{\\theta}</script> is a positive-definite matrix</p></li>
-</ol>'))
-})
-output$mleprops <- renderUI({withMathJax(HTML('
-<h3>Properties of the Likelihood Function<script type="math/tex">\\mathscr{L}</script></h3>'
-))
-})
-output$mlevideo <- renderUI({withMathJax(HTML('
-<h3>A Random Video</h3>
-<br>
-<center>
-<iframe width="672" height="378" src="https://www.youtube.com/embed/3X9mmgknvXw" frameborder="0" allowfullscreen></iframe>
-</center>'
-))
+output$details <- renderUI({
+  withMathJax(HTML(includeMarkdown('details.Rmd')))
 })
 })
