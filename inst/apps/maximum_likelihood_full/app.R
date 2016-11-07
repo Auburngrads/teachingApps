@@ -296,11 +296,11 @@ fluidRow(
 server = function(input, output, session) {
 
 output$mleback1 <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('background1.Rmd')))
+  withMathJax(HTML(includeHTML('background1.html')))
 })
 
 output$example1_1 <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('example1_1.Rmd')))
+  withMathJax(HTML(includeHTML('example1_1.html')))
 })
 
 output$plotlike <- renderPlot({
