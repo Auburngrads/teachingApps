@@ -5,9 +5,9 @@ shinyApp(options = list(width = "100%", height = "800px"),
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Distribution Function',
-                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                footer = HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName)),
 
 tabPanel(h4('Properties'),
          mainPanel(uiOutput('cdfdemo'), class = 'shiny-text-output', width = 12)),
@@ -17,7 +17,7 @@ tabPanel(h4('Computing Values in R'),
                                 
  tabPanel(h4('Shiny App'),
   sidebarLayout( 
-    sidebarPanel(width = 4,
+    sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
                           wordWrap = T,
                           outputId = "cdfplot", 
@@ -42,7 +42,7 @@ las = 1)"),
 
         actionButton("evalcdf", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotcdf", height = "600px"), width = 8)))),
+        mainPanel(plotOutput("plotcdf", height = "600px"), width = 7)))),
 
 server = function(input, output, session) {
   
@@ -54,11 +54,8 @@ output$cdfr <- renderUI({
   withMathJax(HTML(includeMarkdown('rfuncs.Rmd')))
 })  
 
-observeEvent(input$evalcdf, { 
-
 output$plotcdf <- renderPlot({
-      
+      input$evalcdf
       return(isolate(eval(parse(text=input$cdfplot))))
-})
 })
 })

@@ -1,12 +1,11 @@
 library(teachingApps)
 library('SMRD')
 
-par(family="serif",font=2)
+par(family = "serif",font = 2)
 at7987.ld <- frame.to.ld(SMRD::at7987,
                          response.column = 1,
                          censor.column = 2,
                          case.weight.column = 3,
-                         data.title = "Alloy t7987 Data",
                          time.units = "Kilocycles")
 
 
@@ -15,9 +14,9 @@ shinyApp(options = list(width = "99%", height = "800px"),
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'at7987',
-                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                footer = HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName)),
 
 tabPanel(h4("Data Set"),DT::dataTableOutput("table.at7987", height = "80%") ), 
 
@@ -45,7 +44,7 @@ selectInput("dist_2",
                         "Largest Extreme Value","Frechet"), 
             selected = "Weibull"),
 
-selectInput("ci_2",   label = h2("Confidence Level:"),
+selectInput("ci_2", label = h2("Confidence Level:"),
                     choices = c(0.99, 0.95, 0.90, 0.85, 0.80, 0.50), 
                     selected = 0.95),
                    

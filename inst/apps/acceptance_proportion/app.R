@@ -2,12 +2,12 @@ library(teachingApps)
 library('plotly')
 shinyApp(options = list(height = '800px', width = '100%'),
          
-    ui = navbarPage(collapsible = T, 
+ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Acceptance Testing (Proportions)',
-                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                footer = HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName)),
           
 tabPanel(h4('Test For Proportions'),
          sidebarLayout(
@@ -61,25 +61,33 @@ if(input$objective2>=input$contract2) {
   
 })
 
-p1 <- plot_ly(datas2, x = props, y = accept2, showlegend = T, name = 'Pr(accept)')
-p2 <- add_trace(p1, 
-                x = rep(input$thresh2,2), 
-                y = c(0,pbinom(input$fails2, input$sss,input$thresh2)),
-                showlegend = T,
-                name = 'Threshold',
-                hoverinfo = 'text')
-p3 <- add_trace(p2, 
-                x = rep(input$objective2,2), 
-                y = c(0,pbinom(input$fails2, input$sss, input$objective2)),
-                showlegend = T,
-                name = 'Objective',
-                hoverinfo = 'text')
-p4 <- add_trace(p3, 
-                x = rep(input$contract2,2), 
-                y = c(0,pbinom(input$fails2, input$sss, input$contract2)),
-                showlegend = T,
-                name = 'Contract',
-                hoverinfo = 'text')
+p1 <- plot_ly(datas2,
+              type = 'scatter',
+              mode = 'lines',
+              x = props, 
+              y = accept2, 
+              showlegend = F)
+p2 <- add_segments(p1, 
+                   x = input$thresh2,
+                   y = 0,
+                   xend = input$thresh2,
+                   yend = pbinom(input$fails2, input$sss,input$thresh2),
+                   showlegend = F,
+                  hoverinfo = 'none')
+p3 <- add_segments(p2, 
+                   x = input$objective2,
+                   y = 0,
+                   xend = input$objective2,
+                   yend = pbinom(input$fails2, input$sss, input$objective2),
+                   showlegend = F,
+                   hoverinfo = 'none')
+p4 <- add_segments(p3, 
+                   x = input$contract2,
+                   xend = input$contract2,
+                   y = 0,
+                   yend = pbinom(input$fails2, input$sss, input$contract2),
+                   showlegend = F,
+                   hoverinfo = 'none')
 p5 <- layout(p4, 
              yaxis = list(title = "Probability of Acceptance"), 
              xaxis = list(title = 'Proportion Conforming'),

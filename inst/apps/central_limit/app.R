@@ -2,10 +2,10 @@ library(teachingApps)
 
 shinyApp(options = list(height = "600px"),
          
-ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
-                 try(includeCSS(system.file('css',
-                                            'my-shiny.css', 
-                                            package = 'teachingApps')), silent = TRUE),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
+               try(includeCSS(system.file('css',
+                                          'my-shiny.css', 
+                                          package = 'teachingApps')), silent = TRUE),
     sidebarLayout(
     sidebarPanel(
     selectInput("distribution", 
@@ -24,7 +24,7 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]
   
   sliderInput("S", 
               label = h4("Sample Size:"),
-              min = 3, max = 30, value = 3, step = 3,animate=TRUE)), 
+              min = 3, max = 30, value = 3, step = 3,animate = T)), 
   
   mainPanel(plotOutput("CLT", height = "600px"  ))),
 
@@ -32,7 +32,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
 
   output$CLT <- renderPlot({
     

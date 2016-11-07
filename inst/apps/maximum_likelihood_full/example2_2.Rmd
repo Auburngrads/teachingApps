@@ -1,5 +1,6 @@
 ---
 output: html_document
+css: "`r system.file('css', 'my-shiny.css', package = 'teachingApps')`"
 ---
 
 - <focus>Finding $\hat{\theta_{_{MLE}}}$ Numerically</focus>

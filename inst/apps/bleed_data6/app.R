@@ -7,20 +7,19 @@ Bleed.ld <- frame.to.ld(SMRD::bleed,
                         censor.column = 2, 
                         case.weight.column = 3,
                         x.columns = c(4),
-                        data.title = "Bleed Failure Data",
                         time.units = "Hours")
+
 Bleed.Dbase.ld <-     ld.split(Bleed.ld, stress.var.list = "D")
 Bleed.Otherbase.ld <- ld.split(Bleed.ld, stress.var.list = "Other")
-  
 
 
-shinyApp(options = list(width = '99%', height = '800px'),
+shinyApp(options = list(height = '800px'),
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Bleed Data Set',
-                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                footer = HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName)),
                 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.bleed", height = "80%") ), 
 
@@ -56,11 +55,11 @@ selectInput("DIST_6", label = h2("Distribution:"),
                                 "Largest Extreme Value","Frechet"), 
                     selected = "Weibull"),
 
-selectInput("CI_6",   label = h2("Confidence Level:"),
+selectInput("CI_6", label = h2("Confidence Level:"),
                     choices = c(0.99, 0.95, 0.90, 0.85, 0.80, 0.50), 
                     selected = 0.95),
                    
-selectInput("BT_6",   label = h2("Band Type:"),
+selectInput("BT_6", label = h2("Band Type:"),
                     choices = c("Pointwise", "Simultaneous", "none"), 
                     selected = "Pointwise")),  
 

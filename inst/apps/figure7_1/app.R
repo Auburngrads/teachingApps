@@ -5,9 +5,9 @@ shinyApp(options = list(height = '725px'),
   ui =navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Figure 7.1',
-                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                footer = HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName)),
                 
 tabPanel(h4('Figure 7.1'),
     sidebarLayout(

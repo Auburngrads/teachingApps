@@ -1,14 +1,14 @@
 library(teachingApps)
 library('plotly')
 
-
-
+shinyApp(options = list(height = '800px'),
+         
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'MTBF Acceptance Test',
-                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                footer = HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName)),
           
 tabPanel(h4('Planning Tool'),
          sidebarLayout(
@@ -54,14 +54,10 @@ tabPanel(h4('Background'),
 
 tabPanel(h4('About'),
 
-        mainPanel(uiOutput("aboutmtbf", class = 'shiny-text-output'), width = 12)),
-
-fixedPanel(htmlOutput('sign'),bottom = '9%', right = '50%', height = '30px'))
+        mainPanel(uiOutput("aboutmtbf", class = 'shiny-text-output'), width = 12))),
 
 server = function(input, output, session) {
 
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(basename(getwd())))})
-  
   output$mtbf <- renderPlotly({
 
 mtbf <- seq(1,500,1)
@@ -81,37 +77,38 @@ if(input$objective>=input$contract) {
 })
 
 p1 <- plot_ly(datas, 
+              type = 'scatter',
+              mode = 'lines',
               x = mtbf, 
               y = accept, 
-              showlegend = T, 
-              name = 'Pr(accept)', 
+              showlegend = F, 
               text = paste(
 'Pr(accept) = ', round(accept, digits = 5),'<br>',
 'True MTBF = ', mtbf,'<br>',
 'Allowed Failures = ', input$fails,'<br>',
 'Total Test Time = ', input$ttt),
-              hoverinfo = 'markers+text')
-p2 <- add_trace(p1,
-                x = rep(input$thresh,2), 
-                y = c(0,ppois(input$fails, input$ttt/input$thresh)),
-                showlegend = T,
-                name = 'Threshold',
-                hoverinfo = 'text',
-                marker = list(size = 10, color = 'orange'))
-p3 <- add_trace(p2,
-                x = rep(input$objective,2), 
-                y = c(0,ppois(input$fails, input$ttt/input$objective)),
-                showlegend = T,
-                name = 'Objective',
-                hoverinfo = 'text',
-                marker = list(size = 10, color = 'green'))
-p4 <- add_trace(p3,
-                x = rep(input$contract,2), 
-                y = c(0,ppois(input$fails, input$ttt/input$contract)),
-                showlegend = T,
-                name = 'Contract',
-                hoverinfo = 'text',
-                marker = list(size = 10, color = 'red'))
+              hoverinfo = 'text')
+p2 <- add_segments(p1,
+                   x = input$thresh,
+                   y = 0,
+                   xend = input$thresh, 
+                   yend = ppois(input$fails, input$ttt/input$thresh),
+                   showlegend = F,
+                   hoverinfo = 'none')
+p3 <- add_segments(p2,
+                   x = input$objective,
+                   y = 0,
+                   xend = input$objective, 
+                   yend = ppois(input$fails, input$ttt/input$objective),
+                   showlegend = F,
+                   hoverinfo = 'none')
+p4 <- add_segments(p3,
+                   x = input$contract,
+                   y = 0,
+                   xend = input$contract, 
+                   yend = ppois(input$fails, input$ttt/input$contract),
+                   showlegend = F,
+                   hoverinfo = 'none')
 p5 <- 
   layout(p4,
          yaxis = list(title = "Probability of Acceptance - Pr(accept)",
@@ -371,7 +368,5 @@ p5 <-
 </ul>
 </ul>")
 })
-}
-
-shinyApp(ui = ui, server = server, options = list(height = '800px', width = '100%'))
+})
 

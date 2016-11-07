@@ -2,7 +2,7 @@ library(teachingApps)
 library(DT)
 
 shinyApp(options = list(height = '650px', width = '100%'),
-    ui =fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
+    ui =fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
                  try(includeCSS(system.file('css',
                                            'my-shiny.css', 
                                            package = 'teachingApps')), silent = TRUE),
@@ -38,7 +38,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
 
 dice   <- reactive({ as.numeric(input$no.dice) })
 sides  <- reactive({ as.numeric(input$no.sides) })
@@ -54,7 +54,7 @@ output$results <- DT::renderDataTable({
 
 if(dice()==1 & as.character(fun())=='diff') { 
   
-  cat('\nHow do you expect to find the difference with only one number?\n')
+  stop('\nHow do you expect to find the difference with only one number?\n')
   
 } else {
   
@@ -78,7 +78,7 @@ output$diceresults <- renderPlot({
 
 if(dice()==1 & as.character(fun())=='diff') { 
   
-  cat('\nHow do you expect to find the difference with only one number?\n')
+  stop('\nHow do you expect to find the difference with only one number?\n')
   
 } else {
   
@@ -93,7 +93,7 @@ hist(data(),
 
 axis(side = 1, labels = omega(), at = omega())
 
-if (sides() <= 8 & as.character(fun())=='sum') {
+if (sides() <= 8 & as.character(fun())%in%c('sum','diff')) {
 
 for (i in 1:length(omega())) {
   
@@ -109,7 +109,7 @@ output$diceprobs <- renderPlot({
 
 if(dice()==1 & as.character(fun())=='diff') { 
   
-  cat('\nHow do you expect to find the difference with only one number?\n')
+  stop('\nHow do you expect to find the difference with only one number?\n')
   
 } else {
 

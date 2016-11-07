@@ -3,12 +3,12 @@ library('SMRD')
 
 shinyApp(options = list(height = '600px', width = '100%'),
     
-ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
                try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = TRUE),
      sidebarLayout(
-        sidebarPanel(width = 4,
+        sidebarPanel(width = 5,
            shinyAce::aceEditor(fontSize = 16, 
                                wordWrap = T,
                                outputId = "berkint", 
@@ -43,19 +43,16 @@ par(mfrow = c(1,1))"),
 
         actionButton("berks", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("berkint", height = "600px"), width = 8)),
+        mainPanel(plotOutput("berkint", height = "600px"), width = 7)),
 
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
   
-observeEvent(input$berks, {
-     
   output$berkint <- renderPlot({
-      
+      input$berks      
       return(isolate(eval(parse(text=input$berkint))))
-})
 })
 })

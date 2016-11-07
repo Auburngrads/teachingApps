@@ -42,12 +42,9 @@ arg2 <- data.frame(theme  = theme,
                       appName = basename(dir),
                       stringsAsFactors = F)
     
-    www <- paste(c(dir,'www'), collapse = '/')
-    if(!dir.exists(www)) dir.create(www)
+        file.create(paste(c(dir,'args.R'), collapse = '/'))
     
-    file.create(paste(c(dir,'www/args.R'), collapse = '/'))
-    
-    dump('arg2', file = paste(c(dir,'www/args.R'), collapse = '/'))
+    dump('arg2', file = paste(c(dir,'args.R'), collapse = '/'))
     
     if(rmd) {
 

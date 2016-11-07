@@ -4,8 +4,6 @@ library(SMRD)
 www <- system.file('apps','bent_probplot','global.R', package = 'teachingApps')
 
 shinyApp(options = list(height = '600px', width = '100%'),
-         #onStart = function() { appText <<- includeText()
-          #                      return(appText)},
          
 ui = fluidPage(theme = shinythemes::shinytheme(theme = source(www, chdir = T, local = T)[[1]]$theme),# eval(parse(text = gsub('\r\n', '', appText)))[1]$theme), 
                try(includeCSS(system.file('css',

@@ -5,9 +5,9 @@ shinyApp(options = list(height = "800px"),
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Maximum Likelihood',
-                theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+                theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName)),
+                footer = HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName)),
                 
 
 tabPanel(h4('Background'), 
@@ -309,7 +309,7 @@ output$plotlike <- renderPlot({
 })
 
 output$example1_2 <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('example1_2.Rmd')))
+  withMathJax(HTML(includeHTML('example1_2.html')))
 })
 
 output$plotlike2 <- renderPlot({
@@ -319,11 +319,11 @@ output$plotlike2 <- renderPlot({
 })
 
 output$example1_3 <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('example1_3.Rmd')))
+  withMathJax(HTML(includeHTML('example1_3.html')))
 })
 
 output$example2_1 <- renderUI({
-  withMathJax(HTML(includeMarkdown('example2_1.Rmd')))
+  withMathJax(HTML(includeHTML('example2_1.html')))
 })
 
 output$mlexp <- renderPlot({
@@ -332,7 +332,7 @@ output$mlexp <- renderPlot({
 })
 
 output$example2_2 <- renderUI({
-  withMathJax(HTML(includeMarkdown('example2_2.Rmd')))
+  withMathJax(includeHTML('example2_2.html'))
 })
 
 output$mlexp2 <- renderPrint({

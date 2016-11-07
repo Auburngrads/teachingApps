@@ -34,17 +34,22 @@ maximum_likelihood_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
     dir <- dirname(system.file("apps", "maximum_likelihood_full", "app.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'scales')
-arg2 <- data.frame(theme  = theme,
+    arg2 <- data.frame(theme  = theme,
                        appDir = dir,
                       appName = basename(dir),
                       stringsAsFactors = F)
     
-    www <- paste(c(dir,'www'), collapse = '/')
-    if(!dir.exists(www)) dir.create(www)
+    app.files <- list.files(dir)
     
-    file.create(paste(c(dir,'www/args.R'), collapse = '/'))
+    mat <- matrix(unlist(strsplit(app.files, split = '\\.')), ncol = 2, byrow = T)
     
-    dump('arg2', file = paste(c(dir,'www/args.R'), collapse = '/'))
+    Rmd <- which(mat[,2]=='Rmd')
+    
+    rmarkdown::render(app.files[Rmd])
+    
+        file.create(paste(c(dir,'args.R'), collapse = '/'))
+    
+    dump('arg2', file = paste(c(dir,'args.R'), collapse = '/'))
     
     if(rmd) {
 

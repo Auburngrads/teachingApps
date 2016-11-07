@@ -58,7 +58,7 @@ miniTabstripPanel(
 
 server = function(input, output, session) {
 
-#  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
+#  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
   
   output$mtbf <- renderPlotly({
 
@@ -79,37 +79,38 @@ if(input$objective>=input$contract) {
 })
 
 p1 <- plot_ly(datas, 
+              type = 'scatter',
+              mode = 'lines',
               x = mtbf, 
               y = accept, 
               showlegend = F, 
-              name = 'Pr(accept)', 
               text = paste(
 'Pr(accept) = ', round(accept, digits = 5),'<br>',
 'True MTBF = ', mtbf,'<br>',
 'Allowed Failures = ', input$fails,'<br>',
 'Total Test Time = ', input$ttt),
               hoverinfo = 'markers+text')
-p2 <- add_trace(p1,
-                x = rep(input$thresh,2), 
-                y = c(0,ppois(input$fails, input$ttt/input$thresh)),
-                showlegend = F,
-                name = 'Threshold',
-                hoverinfo = 'text',
-                marker = list(size = 10, color = 'orange'))
-p3 <- add_trace(p2,
-                x = rep(input$objective,2), 
-                y = c(0,ppois(input$fails, input$ttt/input$objective)),
-                showlegend = F,
-                name = 'Objective',
-                hoverinfo = 'text',
-                marker = list(size = 10, color = 'green'))
-p4 <- add_trace(p3,
-                x = rep(input$contract,2), 
-                y = c(0,ppois(input$fails, input$ttt/input$contract)),
-                showlegend = F,
-                name = 'Contract',
-                hoverinfo = 'text',
-                marker = list(size = 10, color = 'red'))
+p2 <- add_segments(p1,
+                   x = input$thresh,
+                   y = 0,
+                   xend = input$thresh, 
+                   yend = ppois(input$fails, input$ttt/input$thresh),
+                   showlegend = F,
+                   hoverinfo = 'none')
+p3 <- add_segments(p2,
+                   x = input$objective,
+                   y = 0,
+                   xend = input$objective, 
+                   yend = ppois(input$fails, input$ttt/input$objective),
+                   showlegend = F,
+                   hoverinfo = 'none')
+p4 <- add_segments(p3,
+                   x = input$contract,
+                   y = 0,
+                   xend = input$contract, 
+                   yend = ppois(input$fails, input$ttt/input$contract),
+                   showlegend = F,
+                   hoverinfo = 'none')
 p5 <- 
   layout(p4,
          yaxis = list(title = "Probability of Acceptance - Pr(accept)",

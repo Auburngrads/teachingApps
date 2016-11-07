@@ -2,7 +2,7 @@ library(teachingApps)
 library(scales)
 
 shinyApp(options = list(height = '700px'),
-ui = fluidPage(theme = shinythemes::shinytheme(theme = source('www/args.R')[[1]]$theme),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
                try(includeCSS(system.file('css',
                                           'my-shiny.css', 
                                           package = 'teachingApps')), silent = T),
@@ -45,7 +45,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('www/args.R')[[1]]$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
   
 output$cross <- renderPlot({
 param1 <- c(input$normal1.1,input$normal1.2)
