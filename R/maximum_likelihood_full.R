@@ -45,8 +45,13 @@ maximum_likelihood_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
     
     Rmd <- which(mat[,2]=='Rmd')
     
-    rmarkdown::render(app.files[Rmd])
-    
+    if(!is.null(Rmd)) {
+      
+    for(i in 1:length(Rmd)) {
+      
+    rmarkdown::render(paste(c(dir, app.files[Rmd[i]]), collapse = '/'))
+      
+    }}
         file.create(paste(c(dir,'args.R'), collapse = '/'))
     
     dump('arg2', file = paste(c(dir,'args.R'), collapse = '/'))
