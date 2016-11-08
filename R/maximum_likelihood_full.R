@@ -49,7 +49,7 @@ maximum_likelihood_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
       
     for(i in 1:length(Rmd)) {
       
-    rmarkdown::render(paste(c(dir, app.files[Rmd[i]]), collapse = '/'))
+    rmarkdown::render(paste(c(dir, app.files[Rmd[i]]), collapse = '/'), runtime = 'shiny')
       
     }}
         file.create(paste(c(dir,'args.R'), collapse = '/'))

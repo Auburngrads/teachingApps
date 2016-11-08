@@ -1,6 +1,11 @@
 ---
 output: html_document
+css: "`r system.file('css', 'my-shiny.css', package = 'teachingApps')`"
 ---
+
+```{r, echo=FALSE}
+obs <- c(4.2564, 0.5319)
+```
 
 ### Ok, Tell Me If You've Heard This One Before...
 

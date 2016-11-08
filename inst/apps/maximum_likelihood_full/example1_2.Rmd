@@ -1,5 +1,6 @@
 ---
 output: html_document
+css: "`r system.file('css', 'my-shiny.css', package = 'teachingApps')`"
 ---
 
 - Further suppose that the system produces a single observation at 0.5
