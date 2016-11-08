@@ -39,19 +39,19 @@ maximum_likelihood_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
                       appName = basename(dir),
                       stringsAsFactors = F)
     
-    app.files <- list.files(dir)
-    
-    mat <- matrix(unlist(strsplit(app.files, split = '\\.')), ncol = 2, byrow = T)
-    
-    Rmd <- which(mat[,2]=='Rmd')
-    
-    if(!is.null(Rmd)) {
-      
-    for(i in 1:length(Rmd)) {
-      
-    rmarkdown::render(paste(c(dir, app.files[Rmd[i]]), collapse = '/'), runtime = 'shiny')
-      
-    }}
+    # app.files <- list.files(dir)
+    # 
+    # mat <- matrix(unlist(strsplit(app.files, split = '\\.')), ncol = 2, byrow = T)
+    # 
+    # Rmd <- which(mat[,2]=='Rmd')
+    # 
+    # if(!is.null(Rmd)) {
+    #   
+    # for(i in 1:length(Rmd)) {
+    #   
+    # rmarkdown::render(paste(c(dir, app.files[Rmd[i]]), collapse = '/'), runtime = 'shiny')
+    #   
+    # }}
         file.create(paste(c(dir,'args.R'), collapse = '/'))
     
     dump('arg2', file = paste(c(dir,'args.R'), collapse = '/'))

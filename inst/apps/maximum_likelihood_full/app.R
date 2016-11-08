@@ -295,10 +295,10 @@ fluidRow(
 
 server = function(input, output, session) {
 
-output$mleback1 <- renderUI({ includeHTML('background1.html')
+output$mleback1 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('background1.Rmd')))
 })
 
-output$example1_1 <- renderUI({ withMathJax(includeHTML('example1_1.html'))
+output$example1_1 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example1_1.Rmd')))
 })
 
 output$plotlike <- renderPlot({
@@ -306,7 +306,7 @@ output$plotlike <- renderPlot({
       return(isolate(eval(parse(text=input$likeplot))))
 })
 
-output$example1_2 <- renderUI({ includeHTML('example1_2.html')
+output$example1_2 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example1_2.Rmd')))
 })
 
 output$plotlike2 <- renderPlot({
@@ -315,10 +315,10 @@ output$plotlike2 <- renderPlot({
       return(isolate(eval(parse(text=input$likeplot2))))
 })
 
-output$example1_3 <- renderUI({ includeHTML('example1_3.html')
+output$example1_3 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example1_3.Rmd')))
 })
 
-output$example2_1 <- renderUI({ includeHTML('example2_1.html')
+output$example2_1 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example2_1.Rmd')))
 })
 
 output$mlexp <- renderPlot({
@@ -326,7 +326,7 @@ output$mlexp <- renderPlot({
       return(isolate(eval(parse(text=input$mlexpplot))))
 })
 
-output$example2_2 <- renderUI({ includeHTML('example2_2.html')
+output$example2_2 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example2_2.Rmd')))
 })
 
 output$mlexp2 <- renderPrint({
@@ -334,7 +334,7 @@ output$mlexp2 <- renderPrint({
       return(isolate(eval(parse(text=input$mlexpnum))))
 })
 
-output$example2_3 <- renderUI({ includeHTML('example2_3.html')
+output$example2_3 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example2_3.Rmd')))
 })
 
 output$mlsolns <- renderPrint({
@@ -525,6 +525,6 @@ axis(side = 2, labels = FALSE, tck = 0, las = 1, cex.axis = 2)
   }
 })
 
-output$details <- renderUI({ includeHTML('details.html')
+output$details <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('details.Rmd')))
 })
 })
