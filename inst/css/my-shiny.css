@@ -30,7 +30,11 @@
   margin-bottom: 12pt;
 }
 
-body { margin: 0 0 0 0; }
+body { 
+  margin: 0 0 0 0;
+  max-width: 1500px !important;      
+  
+}
 
 hr {
   display: block;
@@ -45,8 +49,8 @@ hr {
 }
 
 h4 {
-  font-size: 20pt;
-  font-weight: bold;
+  font-size: 20pt !important; 
+  font-weight: bold !important;
   display: inline !important;
 }
 
@@ -99,14 +103,18 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 }
 
 pre {
+  background-color: #FFF !important;
+  font-family: monospace !important;
+  border-style: solid !important;
+  border-radius: 8px !important;
+  color: #2c3e50 !important;
+  border-color: #2c3e50 !important;
+  font-size: 16pt !important;
+}
 
-  background-color: #FFF;
-  font-family: monospace;
-  border-style: solid ;
-  border-radius: 8px;
-  color: #2c3e50;
-  border-color: #2c3e50;
-  font-size: 16pt;
+pre code {
+  border-width: 0;
+  
 }
 
 .shiny-text-output {
@@ -142,10 +150,14 @@ code {
   color: red;
   font-weight: normal;
   background-color: #e6e6e6;
-  padding: .1em .3em .1em .3em;
+  padding: .2em .3em .1em .3em;
   border-radius: 8px;
   white-space: nowrap;
   vertical-align: 10%;
+}
+
+code[class] {
+  background: #ccc;
 }
 
 .plot-container-plotly g.infolayer {
@@ -237,12 +249,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 /* allow R chunks to render in a large font */
 pre.sourceCode {
-   font-size: 70%;
-   background-color: #e6e6e6;
-   margin: 0 0 10.5px;
-   line-height: 100%;
-   padding: 15px 0 15px 75px;
-   border-color: #e6e6e6;
+   font-size: 70% !important;
+   background-color: #e6e6e6 !important;
+   margin: 0 0 10.5px !important;
+   line-height: 100% !important;
+   padding: 15px 0 15px 75px !important;
+   border-color: #e6e6e6 !important;
 }
 
 code.sourceCode{

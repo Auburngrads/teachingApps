@@ -1,10 +1,12 @@
 ---
 output: html_document
-css: "`r system.file('css', 'my-shiny.css', package = 'teachingApps')`"
 ---
 
 ```{r, echo=FALSE}
-obs <- c(4.2564, 0.5319)
+set.seed(as.numeric(Sys.Date()))
+obs <- runif(2,0.5,4.5)
+theta <- sum(obs)/2
+log.like <- dexp(obs[1], rate = 1/theta)*dexp(obs[2], rate = 1/theta)
 ```
 
 ### Ok, Tell Me If You've Heard This One Before...
@@ -19,7 +21,7 @@ obs <- c(4.2564, 0.5319)
 
     + <blue>A Weibull</blue>
 
-- Once inside, they observe $4.2564$ and $0.5319$ laying on the floor
+- Once inside, they observe $`r obs[1]`$ and $`r obs[2]`$ laying on the floor
 
     + The <purple>exponential</purple> says: 'Those are mine, they came from an exponential distribution'
 
@@ -59,13 +61,13 @@ obs <- c(4.2564, 0.5319)
 
 $$f(t|\theta)=\frac{1}{\theta}\exp\left[-\frac{t}{\theta}\right]$$
 
-- The joint probability/likelihood of observing $(4.2564,0.5319)$ (assuming the <purple>exponential</purple> distribution is correct) would be expressed as
+- The joint probability/likelihood of observing $(`r obs`)$ (assuming the <purple>exponential</purple> distribution is correct) would be expressed as
 
 <small>
 $$
 \begin{aligned}
 \mathscr{L}(\underline{\theta}=\theta|\underline{t}=t_1,t_2)&=\prod_{i=1}^2 f(t_i|\theta)\\\\
-&=\left(\frac{1}{\theta}\right)\exp\left[-\frac{4.2564}{\theta}\right]\times \left(\frac{1}{\theta}\right)\exp\left[-\frac{0.5319}{\theta}\right]
+&=\left(\frac{1}{\theta}\right)\exp\left[-\frac{`r obs[1]`}{\theta}\right]\times \left(\frac{1}{\theta}\right)\exp\left[-\frac{`r obs[2]`}{\theta}\right]
 \end{aligned}
 $$
 </small>
@@ -106,24 +108,24 @@ $$\hat{\theta}_{_{MLE}}=\frac{\sum_{i=1}^n t_i}{n}$$
     + <focus>NOTE:</focus> For completeness, we should have also found the second derivative to ensure that the critical value is in fact a maximum and not a minimum.
 
     + Substituting the two observations results in the following value
-$$\hat{\theta}_{_{MLE}}=\frac{4.2564+0.5319}{2}=2.3942$$
-    + Finally, (<red>whew!</red>) we can compute the maximum joint probability/likelihood of observating $(4.2564, 0.5319)$ - assuming the exponential distribution is correct)
+$$\hat{\theta}_{_{MLE}}=\frac{`r obs[1]`+`r obs[2]`}{2}=`r theta`$$
+    + Finally, (<red>whew!</red>) we can compute the maximum joint probability/likelihood of observating $(`r obs`)$ - assuming the exponential distribution is correct)
 
 <small>
 $$\begin{aligned}
-\prod_{i=1}^2 f(t_i|\theta=2.3942)&=\left(\frac{1}{2.3942}\right)\exp\left[-\frac{4.2564}{2.3942}\right]\times\left(\frac{1}{2.3942}\right)\exp\left[-\frac{0.5319}{2.3942}\right]\\\\
-&=\mathbf{0.0236}
+\prod_{i=1}^2 f(t_i|\theta=`r theta`)&=\left(\frac{1}{`r theta`}\right)\exp\left[-\frac{`r obs[1]`}{`r theta`}\right]\times\left(\frac{1}{`r theta`}\right)\exp\left[-\frac{`r obs[2]`}{`r theta`}\right]\\\\
+&=\mathbf{`r log.like`}
 \end{aligned}
 $$
 </small>
 
 - To summarize - we determined (<red>analytically</red>) that...
 
-    + The member of the exponential distribution family that best-fits the data $(`r obs[1:2]`)$ was the member for which $\theta=2.3942$
+    + The member of the exponential distribution family that best-fits the data $(`r obs[1:2]`)$ was the member for which $\theta=`r theta`$
 
-    + The joint probability/likelihood of this model is $0.0236$ 
+    + The joint probability/likelihood of this model is $`r log.like`$ 
 
-    + The value $0.0236$ represents the best that the exponential distribution can do to model this data and will be used to compare with the other distributions
+    + The value $`r log.like`$ represents the best that the exponential distribution can do to model this data and will be used to compare with the other distributions
 
 - <focus>Finding $\hat{\theta_{_{MLE}}}$ Graphically</focus>
 

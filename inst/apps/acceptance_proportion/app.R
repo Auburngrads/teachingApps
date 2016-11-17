@@ -1,5 +1,6 @@
 library(teachingApps)
 library('plotly')
+
 shinyApp(options = list(height = '800px', width = '100%'),
          
 ui = navbarPage(collapsible = T, 
@@ -66,7 +67,13 @@ p1 <- plot_ly(datas2,
               mode = 'lines',
               x = props, 
               y = accept2, 
-              showlegend = F)
+              showlegend = F,
+              text = paste(
+'Pr(accept) = ', round(accept2, digits = 5),'<br>',
+'True Proportion Failing = ', props,'<br>',
+'Allowed Failures = ', input$fails2,'<br>',
+'Sample Size = ', input$sss),
+              hoverinfo = 'text')
 p2 <- add_segments(p1, 
                    x = input$thresh2,
                    y = 0,

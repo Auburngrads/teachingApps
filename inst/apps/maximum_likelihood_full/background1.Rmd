@@ -1,14 +1,8 @@
 ---
 output: html_document
-css: "`r system.file('css', 'my-shiny.css', package = 'teachingApps')`"
 ---
 
 ### Maximum Likelihood (ML) Estimation
-
-```{r, }
-obs <- 4 + 5
-obs
-```
 
 - Is a versitile method used to fit statistical models to data
 

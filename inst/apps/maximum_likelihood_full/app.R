@@ -1,12 +1,16 @@
 library(teachingApps)
 library('scales')
+library(markdown) 
+  options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))
+library(knitr)
+
 shinyApp(options = list(height = "800px"),
          
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Maximum Likelihood',
                 theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
-                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                header = tags$head(tags$style(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps')))),
                 footer = HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName)),
                 
 
@@ -15,8 +19,7 @@ tabPanel(h4('Background'),
     column(width = 12,
            mainPanel(uiOutput('mleback1'), class = 'shiny-text-output', width = '100%')))),
 
-navbarMenu(h4('Examples'),
-tabPanel(h4('A Simple Example'),  
+tabPanel(h4('Simple Example'),  
 fluidRow(
     column(width = 12,
            mainPanel(uiOutput('example1_1'), class = 'shiny-text-output', width = '100%'))),
@@ -32,8 +35,6 @@ fluidRow(
                               theme = "github", 
                               height = "450px", 
                               value ="
-par(family = 'serif', mar = c(4,4,1,2))
-
 curve(dexp(x, rate = 1), 
       lwd = 2, col = 1, 
       xlim = c(0,5), 
@@ -92,8 +93,6 @@ fluidRow(
                               theme = "github", 
                               height = "450px", 
                               value ="
-par(family = 'serif', mar = c(4,4,1,2))
-
 curve(dexp(x, rate = 1), 
       lwd = 2, col = 1, 
       xlim = c(0,5), 
@@ -141,7 +140,7 @@ fluidRow(
  column(width = 12,
            mainPanel(uiOutput('example1_3'), class = 'shiny-text-output', width = '100%')))),
 
-tabPanel(h4('A Funny Example'),
+tabPanel(h4('Silly Example'),
 fluidRow( 
  column(width = 12,
         mainPanel(uiOutput('example2_1'), class = 'shiny-text-output', width = '100%'))),
@@ -156,9 +155,10 @@ fluidRow(
                             theme = "github",
                             height = "450px", 
                             value = 
-"par(font = 2, mar = c(4,5.5,1,1), family = 'serif', cex = 1.5)
+"
+set.seed(as.numeric(Sys.Date()))
 
-obs <- c(4.2564, 0.5319)
+obs <- runif(2,0.5,4.5)
 
 theta <- seq(0.25, 10, .05)
 
@@ -195,13 +195,15 @@ fluidRow(
  column(width = 5,
    sidebarPanel(width = '100%',
                 shinyAce::aceEditor(fontSize = 16, 
-                                           wordWrap = T,
-                                           outputId = "mlexpnum", 
-                                           mode = "r", 
-                                           theme = "github", 
-                                           height = "500px", 
-                                           value = 
-"obs <- c(4.2564, 0.5319)
+                                    wordWrap = T,
+                                    outputId = "mlexpnum", 
+                                    mode = "r", 
+                                    theme = "github", 
+                                    height = "500px", 
+                                    value = 
+"set.seed(as.numeric(Sys.Date()))
+
+obs <- runif(2,0.5,4.5)
 
 joint.exp <- function(x, param) { 
   
@@ -214,11 +216,10 @@ nlminb(start = 4,
        x = obs)[1:5]
 
 # $par shows that the value of theta at which
-##  the likelihood function is maximized is 2.3941
+##  the likelihood function is maximized
 
-## $objective shows that the value of the 
-## likelihood function when theta = $par is
-##  0.023611
+## $objective shows the value of the 
+## likelihood function when theta = $par 
 
 ## Why is $objective negative?"),
 
@@ -241,7 +242,9 @@ fluidRow(
                                     theme = "github", 
                                     height = "530px", 
                                     value = 
-"obs <- c(4.2564, 0.5319)
+"set.seed(as.numeric(Sys.Date()))
+
+obs <- runif(2,0.5,4.5)
 
 model <- 'normal'
 
@@ -270,7 +273,7 @@ nlminb(start = runif(2, 1.5, 4.2),
  column(width = 7,
     mainPanel(verbatimTextOutput("mlsolns"), width = '100%')))
 ),
-tabPanel(h4("A Better Example"),
+tabPanel(h4("A Simulation"),
 sidebarLayout(
   sidebarPanel(width = 4,
     selectInput('correct', 
@@ -286,7 +289,7 @@ sidebarLayout(
     HTML('<h2>Or Start Over</h2>'),
     actionButton('clear',h4('clear'), width = '100%')),
   
-  mainPanel(plotOutput('plotmle', height = '650px'), width = 8)))),
+  mainPanel(plotOutput('plotmle', height = '650px'), width = 8))),
 
 tabPanel(h4('Details'),
 fluidRow( 
@@ -295,38 +298,46 @@ fluidRow(
 
 server = function(input, output, session) {
 
-output$mleback1 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('background1.Rmd')))
+output$mleback1 <- renderUI({ 
+  withMathJax(HTML(markdown::markdownToHTML(knitr::knit('background1.Rmd'))))
 })
 
-output$example1_1 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example1_1.Rmd')))
+output$example1_1 <- renderUI({ 
+  withMathJax(HTML(markdown::markdownToHTML(knitr::knit('example1_1.Rmd'))))
 })
 
 output$plotlike <- renderPlot({
+      par(family = 'serif', mar = c(4,4,1,2))
       input$evallike      
       return(isolate(eval(parse(text=input$likeplot))))
 })
 
-output$example1_2 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example1_2.Rmd')))
+output$example1_2 <- renderUI({ 
+  withMathJax(HTML(markdown::markdownToHTML(knitr::knit('example1_2.Rmd'))))
 })
 
 output$plotlike2 <- renderPlot({
-
+      par(family = 'serif', mar = c(4,4,1,2))
       input$evallike2      
       return(isolate(eval(parse(text=input$likeplot2))))
 })
 
-output$example1_3 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example1_3.Rmd')))
+output$example1_3 <- renderUI({ 
+  withMathJax(HTML(markdown::markdownToHTML(knitr::knit('example1_3.Rmd'))))
 })
 
-output$example2_1 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example2_1.Rmd')))
+output$example2_1 <- renderUI({ 
+  withMathJax(HTML(markdown::markdownToHTML(knitr::knit('example2_1.Rmd'))))
 })
 
 output$mlexp <- renderPlot({
+      par(family = 'serif', mar = c(4,4,1,2))
       input$mlexpplots
       return(isolate(eval(parse(text=input$mlexpplot))))
 })
 
-output$example2_2 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example2_2.Rmd')))
+output$example2_2 <- renderUI({ 
+  withMathJax(HTML(markdown::markdownToHTML(knitr::knit('example2_2.Rmd'))))
 })
 
 output$mlexp2 <- renderPrint({
@@ -334,7 +345,8 @@ output$mlexp2 <- renderPrint({
       return(isolate(eval(parse(text=input$mlexpnum))))
 })
 
-output$example2_3 <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('example2_3.Rmd')))
+output$example2_3 <- renderUI({ 
+  withMathJax(HTML(markdown::markdownToHTML(knitr::knit('example2_3.Rmd'))))
 })
 
 output$mlsolns <- renderPrint({
@@ -525,6 +537,7 @@ axis(side = 2, labels = FALSE, tck = 0, las = 1, cex.axis = 2)
   }
 })
 
-output$details <- renderUI({ HTML(markdown::markdownToHTML(knitr::knit('details.Rmd')))
+output$details <- renderUI({ withMathJax()
+  withMathJax(HTML(markdown::markdownToHTML(knitr::knit('details.Rmd'))))
 })
 })

@@ -1,6 +1,5 @@
 ---
 output: html_document
-css: "`r system.file('css', 'my-shiny.css', package = 'teachingApps')`"
 ---
 
 ### Maximum Likelihood Regularity Conditions

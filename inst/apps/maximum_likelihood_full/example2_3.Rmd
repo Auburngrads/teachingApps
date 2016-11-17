@@ -1,6 +1,5 @@
 ---
 output: html_document
-css: "`r system.file('css', 'my-shiny.css', package = 'teachingApps')`"
 ---
 
 ## The <green>normal</green>, <red>lognormal</red>, and <blue>Weibull</blue> distributions

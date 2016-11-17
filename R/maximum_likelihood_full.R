@@ -56,6 +56,9 @@ maximum_likelihood_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
     
     dump('arg2', file = paste(c(dir,'args.R'), collapse = '/'))
     
+    # file.copy(from = system.file('css', 'my-shiny.css', package = 'teachingApps'),
+    #           to = paste(c(dir,'my-shiny.css'), collapse = '/'))
+    
     if(rmd) {
 
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
