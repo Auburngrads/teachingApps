@@ -6,7 +6,8 @@ set.seed(NULL) ; set2 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
 set.seed(42)   ; set3 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
 set.seed(42)   ; set4 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
 
-shinyApp(options = list(height = '800px', width = '100%'),
+shinyApp(options = list(height = "800px"),
+         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
          
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',

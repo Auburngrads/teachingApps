@@ -1,7 +1,8 @@
 library(teachingApps)
 library('codemirrorR', repo = 'timelyportfolio')
 
-shinyApp(options = list(height = '800px', width = '100%'),
+shinyApp(options = list(height = "800px"),
+         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
          
     ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',

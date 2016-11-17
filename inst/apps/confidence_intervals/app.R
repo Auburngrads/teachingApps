@@ -1,7 +1,8 @@
 library(teachingApps)
 library(scales)
 
-shinyApp(options = list(height = '600px'),
+shinyApp(options = list(height = "600px"),
+         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
 ui = fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
                try(includeCSS(system.file('css',
                                            'my-shiny.css', 

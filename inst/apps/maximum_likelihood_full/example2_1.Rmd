@@ -33,15 +33,15 @@ log.like <- dexp(obs[1], rate = 1/theta)*dexp(obs[2], rate = 1/theta)
 
 - What steps are required to show which distribution is correct?
 
-    1) Determine which member of the <purple>Exponential</purple> distribution family best fits the data
+    + Determine which member of the <purple>Exponential</purple> distribution family best fits the data
 
-    2) Determine which member of the <green>Normal</green> distribution family best fits the data
+    + Determine which member of the <green>Normal</green> distribution family best fits the data
 
-    3) Determine which member of the <red>Lognormal</red> distribution family best fits the data
+    + Determine which member of the <red>Lognormal</red> distribution family best fits the data
 
-    4) Determine which member of the <blue>Weibull</blue> distribution family best fits the data
+    + Determine which member of the <blue>Weibull</blue> distribution family best fits the data
 
-    5) Determine which of these best-fit distributions best fits the data   
+    + Determine which of these best-fit distributions best fits the data   
 
 - We could perform each of these steps analytically, but...
 

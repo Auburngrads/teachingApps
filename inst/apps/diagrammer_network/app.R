@@ -1,7 +1,8 @@
 library(teachingApps)
 library(DiagrammeR)
 
-shinyApp(options = list(width = '100%'),
+shinyApp(options = list(height = "600px"),
+         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
  
 ui = fluidPage(theme = shinythemes::shinytheme(theme = get('theme')),
                try(includeCSS(system.file('css',

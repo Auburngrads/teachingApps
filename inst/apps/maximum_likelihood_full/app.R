@@ -1,16 +1,15 @@
 library(teachingApps)
 library('scales')
-library(markdown) 
-  options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))
 library(knitr)
 
 shinyApp(options = list(height = "800px"),
+         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
          
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Maximum Likelihood',
                 theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
-                header = tags$head(tags$style(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps')))),
+                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
                 footer = HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName)),
                 
 

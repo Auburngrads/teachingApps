@@ -3,7 +3,8 @@ library(SMRD)
 
 www <- system.file('apps','bent_probplot','global.R', package = 'teachingApps')
 
-shinyApp(options = list(height = '600px', width = '100%'),
+shinyApp(options = list(height = "600px"),
+         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
          
 ui = fluidPage(theme = shinythemes::shinytheme(theme = source(www, chdir = T, local = T)[[1]]$theme),# eval(parse(text = gsub('\r\n', '', appText)))[1]$theme), 
                try(includeCSS(system.file('css',

@@ -2,6 +2,7 @@ library(teachingApps)
 library('metricsgraphics')
 
 shinyApp(options = list(height = "700px"),
+         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
            
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',

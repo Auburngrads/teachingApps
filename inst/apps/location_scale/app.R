@@ -2,7 +2,8 @@ library(teachingApps)
 library(metricsgraphics)
 library(SMRD)
 
-shinyApp(options = list(width = "100%", height = "800px"),
+shinyApp(options = list(height = "800px"),
+         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
          
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',

@@ -9,7 +9,8 @@ at7987.ld <- frame.to.ld(SMRD::at7987,
                          time.units = "Kilocycles")
 
 
-shinyApp(options = list(width = "99%", height = "800px"),
+shinyApp(options = list(height = "800px"),
+         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
 
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
