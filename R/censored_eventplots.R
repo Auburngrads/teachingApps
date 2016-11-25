@@ -30,7 +30,7 @@
 
 censored_eventplots <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "censored_eventplots", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "censored_eventplots", "args.R", package = "teachingApps"))
 
     getPackage('SMRD', repo = 'Auburngrads')
     

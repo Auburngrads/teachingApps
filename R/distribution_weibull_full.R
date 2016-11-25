@@ -30,7 +30,7 @@
 
 distribution_weibull_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "distribution_weibull_full", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "distribution_weibull_full", "args.R", package = "teachingApps"))
 
     getPackage(pub = pub, pkg  = 'metricsgraphics')
 arg2 <- data.frame(theme  = theme,

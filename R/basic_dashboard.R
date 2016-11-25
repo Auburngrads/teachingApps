@@ -31,7 +31,7 @@
 
 basic_dashboard <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "basic_dashboard", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "basic_dashboard", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'shinydashboard')
 arg2 <- data.frame(theme  = theme,

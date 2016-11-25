@@ -19,7 +19,6 @@ ui = navbarPage(collapsible = T,
                                 mode = "r", 
                                 theme = "github", 
                                 height = "530px", 
-                                fontSize = 20,
                                 value = 
 "obs <- c(4.2564, 0.5319)
 
@@ -58,7 +57,6 @@ tabPanel(h4('Graphical Solution'),
                                 mode = "r", 
                                 theme = "github", 
                                 height = "450px", 
-                                fontSize = 20,
                                 value = 
 "par(mar = c(1,0,0.5,2), cex = 1.25)
 

@@ -32,7 +32,7 @@
 
 distribution_loglogistic <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "distribution_loglogistic", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "distribution_loglogistic", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
     teachingApps::getPackage(pub = pub, pkg  = 'actuar')

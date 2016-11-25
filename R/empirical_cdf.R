@@ -30,7 +30,7 @@
 
 empirical_cdf <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "empirical_cdf", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "empirical_cdf", "args.R", package = "teachingApps"))
 
     arg2 <- data.frame(theme  = theme,
                        appDir = dir,

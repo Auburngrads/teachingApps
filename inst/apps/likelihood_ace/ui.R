@@ -1,21 +1,19 @@
 library(teachingApps)
 
 
-shinyApp(options = list(height = "600px"),
-         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
-  ui = fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
-                 try(includeCSS(system.file('css',
-                                            'my-shiny.css', 
-                                            package = 'teachingApps')), silent = TRUE),
-       sidebarLayout(
-         sidebarPanel(width = 5,
-          shinyAce::aceEditor(fontSize = 16, 
-                              wordWrap = T,
-                              outputId = "likeplot", 
-                              mode = "r", 
-                              theme = "github", 
-                              height = "450px", 
-                              value ="
+ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
+               theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
+               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                 
+sidebarLayout(
+   sidebarPanel(width = 5,
+      shinyAce::aceEditor(fontSize = 16, 
+                          wordWrap = T,
+                          outputId = "likeplot", 
+                          mode = "r", 
+                          theme = "github", 
+                          height = "450px", 
+                          value ="
 par(family = 'serif', mar = c(4,4,1,2))
 
 curve(dexp(x, rate = 1), 
@@ -46,7 +44,7 @@ text(x = c(0.5,0.5),
 
 abline(v = 0.5, col = 2)
 
-legend('top',
+legend('topright',
        c(parse(text = 'exp(theta==1)'),
          parse(text = 'Weib(beta,theta==1.5,1)')), 
        lwd = 2, 
@@ -69,17 +67,8 @@ than for the exponential distribution',
 
    mainPanel(plotOutput('plotlike', height = '600px'), width = 7)),
 
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+if(!source('args.R')[[1]]$story) 
+     fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
 
-server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
-  
-observeEvent(input$evallike, { 
 
-output$plotlike <- renderPlot({
-      
-      return(isolate(eval(parse(text=input$likeplot))))
-})
-})
-})
+

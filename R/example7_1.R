@@ -30,7 +30,7 @@
 
 example7_1 <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "example7_1", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "example7_1", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
     teachingApps::getPackage(pub = pub, pkg  = 'DT')

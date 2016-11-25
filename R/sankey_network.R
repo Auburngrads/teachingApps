@@ -32,7 +32,7 @@
 
 sankey_network <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "sankey_network", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "sankey_network", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'networkD3')
 arg2 <- data.frame(theme  = theme,

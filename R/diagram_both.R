@@ -31,7 +31,7 @@
 
 diagram_both <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "diagram_both", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "diagram_both", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'diagram')
 arg2 <- data.frame(theme  = theme,

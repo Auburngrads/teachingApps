@@ -5,7 +5,7 @@
 \title{Function Title}
 \usage{
 exp_mle(pub = FALSE, theme = "flatly", rmd = FALSE, width = "100\%",
-  height = "800px", ...)
+  height = "800px", storyteller = F, ...)
 }
 \arguments{
 \item{pub}{Will the app be published (deployed)? (see details)}
@@ -17,6 +17,8 @@ exp_mle(pub = FALSE, theme = "flatly", rmd = FALSE, width = "100\%",
 \item{width}{Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored}
 
 \item{height}{Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored}
+
+\item{storyteller}{Is this a storyteller app?}
 
 \item{...}{Additional arguments passed to code{shiny::runApp()}}
 }

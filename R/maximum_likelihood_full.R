@@ -21,6 +21,7 @@
 #' @param rmd Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)
 #' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
+#' @param storyteller Is this a storyteller app?
 #' @param ... Additional arguments passed to code{shiny::runApp()} 
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
@@ -29,15 +30,17 @@
 #'
 #' @export
 
-maximum_likelihood_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
+maximum_likelihood_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',storyteller = T,...) {
 
-    dir <- dirname(system.file("apps", "maximum_likelihood_full", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "maximum_likelihood_full", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'scales')
+    
     arg2 <- data.frame(theme  = theme,
                        appDir = dir,
-                      appName = basename(dir),
-                      stringsAsFactors = F)
+                       appName = basename(dir),
+                       story = storyteller,
+                       stringsAsFactors = F)
     
     # app.files <- list.files(dir)
     # 
@@ -52,12 +55,8 @@ maximum_likelihood_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
     # rmarkdown::render(paste(c(dir, app.files[Rmd[i]]), collapse = '/'), runtime = 'shiny')
     #   
     # }}
-        file.create(paste(c(dir,'args.R'), collapse = '/'))
     
     dump('arg2', file = paste(c(dir,'args.R'), collapse = '/'))
-    
-    # file.copy(from = system.file('css', 'my-shiny.css', package = 'teachingApps'),
-    #           to = paste(c(dir,'my-shiny.css'), collapse = '/'))
     
     if(rmd) {
 

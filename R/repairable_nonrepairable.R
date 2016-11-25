@@ -31,7 +31,7 @@
 
 repairable_nonrepairable <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "repairable_nonrepairable", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "repairable_nonrepairable", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'diagram')
     

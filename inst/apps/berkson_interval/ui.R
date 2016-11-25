@@ -1,0 +1,47 @@
+library(teachingApps)
+library('SMRD')
+
+ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
+               theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
+               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+               
+sidebarLayout(
+  sidebarPanel(width = 5,
+  shinyAce::aceEditor(fontSize = 16, 
+                      wordWrap = T,
+                      outputId = "berkint", 
+                      mode = "r", 
+                      theme = "github", 
+                      height = "450px", 
+                      value = "
+par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
+
+library(SMRD)
+
+zoom <- 1.5
+
+Berkson200.ld <- 
+frame.to.ld(SMRD::berkson200,
+            response.column = c(1,2), 
+            censor.column = 3,
+            case.weight.column = 4,
+            time.units = 'Kilometers')
+
+simple.contour(Berkson200.ld, 
+               distribution = 'exponential', 
+               xlim = c(400,800),
+               original.par = F)
+
+simple.contour(Berkson200.ld, 
+               distribution = 'weibull', 
+               show.confidence = F, 
+               zoom.level = zoom)
+
+par(mfrow = c(1,1))"),
+
+        actionButton("berks", h4("Evaluate"), width = '100%')),
+        
+        mainPanel(plotOutput("berkint", height = "600px"), width = 7)),
+
+fixedPanel(htmlOutput('sign'), bottom = '3%', right = '40%', height = '30px'))
+

@@ -30,7 +30,7 @@
 
 example_table <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "example_table", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "example_table", "args.R", package = "teachingApps"))
 arg2 <- data.frame(theme  = theme,
                        appDir = dir,
                       appName = basename(dir),

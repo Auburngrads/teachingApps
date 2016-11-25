@@ -31,7 +31,7 @@
 
 crossing_distributions <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "crossing_distributions", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "crossing_distributions", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'scales')
 arg2 <- data.frame(theme  = theme,

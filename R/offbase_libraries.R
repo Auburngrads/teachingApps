@@ -32,7 +32,7 @@
 
 offbase_libraries <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "offbase_libraries", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "offbase_libraries", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'leaflet')
 teachingApps::getPackage(pub = pub, pkg  = 'publicLibs', repo = 'Auburngrads')

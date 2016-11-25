@@ -15,9 +15,7 @@ library(teachingApps)
 shinyApp(options = list(height = '550px'),
          
   ui = fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
-                 try(includeCSS(system.file('css',
-                                           'my-shiny.css', 
-                                           package = 'teachingApps')), silent = T),
+                  tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
         mainPanel(width = 12, DT::dataTableOutput('amt')),
         
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),

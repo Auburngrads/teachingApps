@@ -4,18 +4,18 @@
 \alias{updateApp}
 \title{Quickly update the code for a shiny app}
 \usage{
-updateApp(repo = "teachingApps", pkg = repo, lib = .libPaths()[1],
-  app = NULL, open.folder = FALSE, css = FALSE, create = FALSE,
-  git = NULL)
+updateApp(app = NULL, repo = "teachingApps", pkg = repo,
+  lib = .libPaths()[1], open.folder = FALSE, css = FALSE,
+  create = FALSE, git = NULL)
 }
 \arguments{
+\item{app}{Name of the app to be updated}
+
 \item{repo}{Name of the directory in which the raw app code is stored}
 
 \item{pkg}{Name of the package in which the updates are to be made.  Defaults to \code{repo}.}
 
 \item{lib}{Package library directory where \code{pkg} is stored. Defaults to \code{.libPaths()[1]}}
-
-\item{app}{Name of the app to be updated}
 
 \item{open.folder}{If \code{TRUE}, \code{browseURL()} is called to open view the files in the app directory}
 

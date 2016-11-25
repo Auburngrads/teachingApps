@@ -31,7 +31,7 @@
 
 probability_functions <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "probability_functions", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "probability_functions", "args.R", package = "teachingApps"))
 
     arg2 <- data.frame(theme  = theme,
                        appDir = dir,

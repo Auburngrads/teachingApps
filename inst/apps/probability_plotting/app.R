@@ -4,9 +4,7 @@ library('SMRD')
 shinyApp(options = list(height = "600px"),
          onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))}, 
 ui = fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
-               try(includeCSS(system.file('css',
-                                          'my-shiny.css', 
-                                          package = 'teachingApps')), silent = TRUE),
+               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
 sidebarLayout(
 sidebarPanel(width = 3,
   selectInput("dist1", 

@@ -30,7 +30,7 @@
 
 basic_histogram <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "basic_histogram", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "basic_histogram", "args.R", package = "teachingApps"))
     
     arg2 <- data.frame(theme  = theme,
                        appDir = dir,

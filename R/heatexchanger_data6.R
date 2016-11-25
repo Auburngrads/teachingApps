@@ -30,7 +30,7 @@
 
 heatexchanger_data6 <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "heatexchanger_data6", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "heatexchanger_data6", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
 arg2 <- data.frame(theme  = theme,

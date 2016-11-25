@@ -1,4 +1,4 @@
-#'
+#' Making & Sharing apps
 #'
 #'
 #'
@@ -38,8 +38,7 @@
 #' open-source R & Python
 #' interactive, crowd-source math/stat
 #' 
-#' #' teachingApps brings several packages together to make it possible provide best 
-
+#' teachingApps brings several packages together to make it possible provide best 
 #' and teach
 #'  collection of interactive applications designed to help instructors explain
 #' several math/stat conceptscan include in their existing teaching 
@@ -48,4 +47,3 @@
 #' their content to improve the quality of each app.
 #' 
 #' merge content, javascript applications, available anywhere, consistent explanations
-'teachingApps'

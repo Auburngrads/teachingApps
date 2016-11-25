@@ -30,7 +30,7 @@
 
 zelen_cap <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "zelen_cap", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "zelen_cap", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
 arg2 <- data.frame(theme  = theme,

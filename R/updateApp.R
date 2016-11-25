@@ -16,9 +16,9 @@
 #' 
 #' @export
 
-updateApp <- function(repo = 'teachingApps', pkg = repo, lib = .libPaths()[1], 
-                      app = NULL, open.folder = FALSE, css = FALSE, 
-                      create = FALSE, git = NULL) {
+updateApp <- function(app = NULL, repo = 'teachingApps', pkg = repo,
+                      lib = .libPaths()[1], open.folder = FALSE, 
+                      css = FALSE, create = FALSE, git = NULL) {
   
   if(is.null(git)) {
     
@@ -36,9 +36,9 @@ updateApp <- function(repo = 'teachingApps', pkg = repo, lib = .libPaths()[1],
 
   if(!is.null(app)) {
     
-    if(dir.exists(paste(c(gitRoot, 'apps',app), collapse = '/'))) {
+    if(dir.exists(paste(c(gitRoot, 'apps', app), collapse = '/'))) {
 
-      appRoot <- paste(c(gitRoot, 'apps',app), collapse = '/') 
+      appRoot <- paste(c(gitRoot, 'apps', app), collapse = '/') 
       
     if(open.folder) { utils::browseURL(appRoot)
       

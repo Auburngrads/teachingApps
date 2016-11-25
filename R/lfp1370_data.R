@@ -30,7 +30,7 @@
 
 lfp1370_data <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "lfp1370_data", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "lfp1370_data", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
 arg2 <- data.frame(theme  = theme,

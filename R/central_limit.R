@@ -30,7 +30,7 @@
 
 central_limit <- function(pub = FALSE, theme = 'flatly', rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "central_limit", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "central_limit", "args.R", package = "teachingApps"))
 
     arg2 <- data.frame(theme  = theme,
                        appDir = dir,

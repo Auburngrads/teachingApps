@@ -1,15 +1,12 @@
 library(teachingApps)
 
-shinyApp(options = list(height = "600px"),
-         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
-  
-  ui = fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
-                 try(includeCSS(system.file('css',
-                                            'my-shiny.css', 
-                                            package = 'teachingApps')), silent = TRUE),
-    sidebarLayout(
-      sidebarPanel(width = 5,
-        shinyAce::aceEditor(fontSize = 16, 
+ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
+               theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
+               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                 
+sidebarLayout(
+   sidebarPanel(width = 5,
+      shinyAce::aceEditor(fontSize = 16, 
                             wordWrap = T,
                             outputId = "mlexpplot", 
                             mode = "r", 
@@ -46,14 +43,8 @@ text(x = sum(obs)/2,
         
         mainPanel(plotOutput("mlexp", height = "600px"), width = 7)),
 
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+if(!source('args.R')[[1]]$story) 
+     fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
 
-server = function(input, output, session) {
-  
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
-  
-  output$mlexp <- renderPlot({
-      input$mlexpplots
-      return(isolate(eval(parse(text=input$mlexpplot))))
-})
-})
+
+

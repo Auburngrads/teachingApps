@@ -31,7 +31,7 @@
 
 dice_roll <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "dice_roll", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "dice_roll", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'DT')
 arg2 <- data.frame(theme  = theme,

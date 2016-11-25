@@ -30,7 +30,7 @@
 
 smrd_package <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "smrd_package", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "smrd_package", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
     

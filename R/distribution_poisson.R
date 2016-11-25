@@ -30,7 +30,7 @@
 
 distribution_poisson <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "distribution_poisson", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "distribution_poisson", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = "metricsgraphics")
 arg2 <- data.frame(theme  = theme,

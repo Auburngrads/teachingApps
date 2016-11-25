@@ -20,6 +20,7 @@
 #' @param rmd Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)
 #' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
+#' @param storyteller Is this a storyteller app?
 #' @param ... Additional arguments passed to code{shiny::runApp()} 
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
@@ -28,13 +29,14 @@
 #'
 #' @export
 
-exp_mle <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
+exp_mle <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',storyteller = F,...) {
 
-    dir <- dirname(system.file("apps", "exp_mle", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "exp_mle", "args.R", package = "teachingApps"))
 
     arg2 <- data.frame(theme  = theme,
                        appDir = dir,
                       appName = basename(dir),
+                        story = storyteller,
                       stringsAsFactors = F)
     
         file.create(paste(c(dir,'args.R'), collapse = '/'))

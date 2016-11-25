@@ -30,7 +30,7 @@
 
 rstudio_toolchain <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "rstudio_toolchain", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "rstudio_toolchain", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'codemirrorR', repo = 'timelyportfolio')
 arg2 <- data.frame(theme  = theme,

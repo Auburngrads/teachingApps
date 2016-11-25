@@ -32,7 +32,7 @@
 
 gadget_lm <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
 
-    dir <- dirname(system.file("apps", "gadget_lm", "app.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "gadget_lm", "args.R", package = "teachingApps"))
 
     teachingApps::getPackage(pub = pub, pkg  = 'miniUI')
     teachingApps::getPackage(pub = pub, pkg  = 'ggplot2')
