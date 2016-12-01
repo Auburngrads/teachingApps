@@ -3,7 +3,7 @@ library(scales)
 
 shinyApp(options = list(height = "700px"),
 onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
-ui = fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = global$theme),
               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
       inputPanel(
       selectInput('dist1', h2('Distro 1'), choices = c('Normal'), selected = 'Normal'),
@@ -44,7 +44,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(global$appName))})
   
 output$cross <- renderPlot({
 param1 <- c(input$normal1.1,input$normal1.2)

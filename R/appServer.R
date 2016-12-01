@@ -1,6 +1,7 @@
 #' Insert an app server into a storyteller app
 #'
 #' @param appName The app from which the UI is pulled
+#' @param envir The environment in which the call is made typically \code{environment()}
 #' @param pkg The package in which the \code{appName} exists
 #'
 #' @export
@@ -45,6 +46,8 @@ insertUI <- function(appName, pkg = 'teachingApps') {
 #' @export
 
 insertRmd <- function(rmd) {
+  
+  #rmd <- paste(c(dir,rmd), collapse = '/')
   
   withMathJax(HTML(markdown::markdownToHTML(knitr::knit(rmd))))
   

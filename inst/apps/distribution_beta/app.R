@@ -4,7 +4,7 @@ library(metricsgraphics)
 shinyApp(options = list(height = "700px"),
          onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))}, 
          
-ui = fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = global$theme), 
                try(includeCSS(system.file("css", 
                                           "my-shiny.css", 
                                           package = "teachingApps")), silent = TRUE), 
@@ -57,7 +57,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(global$appName))})
   
   t <- reactive({ signif(seq(0,1, length.out = 500), digits = 4) + input$loc.beta })
   p <- reactive({ signif(seq(0, 1, length = 500), digits = 4) })

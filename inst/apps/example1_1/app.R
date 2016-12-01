@@ -1,26 +1,15 @@
 library(teachingApps)
 library('SMRD')
-
-
-
-
-
-
-
-
-
-
-  
-
+options('markdown.HTML.stylesheet' = global$css)
 
 shinyApp(options = list(height = "800px"),
-         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))}, 
+         
 ui = navbarPage(position = 'fixed-top',
                 collapsible = T, 
                 title = 'Example 1.1',
-                theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
-                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName)),
+                theme = shinythemes::shinytheme(global$theme),
+                header = tags$head(includeCSS(global$css)),
+                footer = HTML(teachingApps::teachingApp(global$appName)),
                 
 tabPanel(h4('Background'),
          mainPanel(uiOutput('example1.1'), class = 'shiny-text-output', width = 12)),
@@ -82,9 +71,7 @@ event.plot(lzbearing.ld)"),
 
 server = function(input, output, session) {
   
-output$example1.1 <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('background.Rmd')))
-})
+output$example1.1 <- renderUI({ insertRmd('background.Rmd') })
   
 output$lzbearing <- DT::renderDataTable({ DT::datatable(SMRD::lzbearing,
                                                        options = list(pageLength = 10)) })

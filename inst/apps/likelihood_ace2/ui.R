@@ -2,8 +2,8 @@ library(teachingApps)
 
 
 ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
-               theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
-               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+               theme = shinythemes::shinytheme(theme = global$theme), 
+               tags$head(includeCSS(global$css)),
                  
 sidebarLayout(
    sidebarPanel(width = 5,
@@ -13,7 +13,8 @@ sidebarLayout(
                               mode = "r", 
                               theme = "github", 
                               height = "450px", 
-                              value ="
+                              value = "
+par(mar = c(4,4,1,1))
 curve(dexp(x, rate = 1), 
       lwd = 2, col = 1, 
       xlim = c(0,5), 
@@ -56,8 +57,8 @@ legend('topright',
 
    mainPanel(plotOutput('plotlike2', height = '600px'), width = 7)),
 
-if(!source('args.R')[[1]]$story) 
-     fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
+if(!global$story) 
+     fixedPanel(htmlOutput('sign'),bottom = '3%', width = '100%',height = '30px'))
 
 
 

@@ -3,7 +3,7 @@ library(DT)
 
 shinyApp(options = list(height = "650px"),
          onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
-    ui =fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
+    ui =fluidPage(theme = shinythemes::shinytheme(theme = global$theme), 
                  tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
           sidebarLayout(
             sidebarPanel(width = 3,
@@ -37,7 +37,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
 
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(global$appName))})
 
 dice   <- reactive({ as.numeric(input$no.dice) })
 sides  <- reactive({ as.numeric(input$no.sides) })

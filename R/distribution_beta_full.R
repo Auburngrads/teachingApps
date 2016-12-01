@@ -18,10 +18,12 @@
 #'
 #' @param pub Will the app be published (deployed)? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
-#' @param rmd Will the app code be included in an interactive Rmarkdown document or presentation with \code{runtime: shiny}? (see details)
-#' @param width Width of the printed app. Used for \code{rmd = TRUE}, otherwise ignored
-#' @param height Height of the printed app. Used for \code{rmd = TRUE}, otherwise ignored
-#' @param ... Additional arguments passed to \code{shiny::runApp()} 
+#' @param rmd Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)
+#' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
+#' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
+#' @param storyteller Is this a storyteller app?
+#' @param css Path to a custom css file. If code{NULL} the default css file is used 
+#' @param ... Additional arguments passed to code{shiny::runApp()} 
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 #' 
@@ -29,20 +31,27 @@
 #'
 #' @export
 
-distribution_beta_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',...) {
+distribution_beta_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
+                            width = '100%', height = '800px',storyteller = F,
+                            css = NULL,...) {
 
-    dir <- dirname(system.file("apps", "distribution_beta_full", "args.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "distribution_beta_full", "global.R", package = "teachingApps"))
+    css <- ifelse(is.null(css),
+                  system.file('css', 'my-shiny.css', package = 'teachingApps'),
+                  css)
 
     teachingApps::getPackage(pub = pub, pkg  = "metricsgraphics")
     
-    arg2 <- data.frame(theme  = theme,
-                       appDir = dir,
-                      appName = basename(dir),
-                      stringsAsFactors = F)
+    global <- data.frame(theme  = theme,
+                         appDir = dir,
+                        appName = basename(dir),
+                          story = storyteller,
+                            css = css,
+                         stringsAsFactors = F)
     
-        file.create(paste(c(dir,'args.R'), collapse = '/'))
+        file.create(paste(c(dir,'global.R'), collapse = '/'))
     
-    dump('arg2', file = paste(c(dir,'args.R'), collapse = '/'))
+    dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
     
     if(rmd) {
 

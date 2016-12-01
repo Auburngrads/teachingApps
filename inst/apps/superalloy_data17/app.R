@@ -13,9 +13,9 @@ shinyApp(options = list(height = "800px"),
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Superalloy Example',
-                theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme),
+                theme = shinythemes::shinytheme(theme = global$theme),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName)),
+                footer = HTML(teachingApps::teachingApp(global$appName)),
 
 tabPanel("Data Set",   DT::dataTableOutput("table2", height = "80%") ),    
 

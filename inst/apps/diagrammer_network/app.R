@@ -15,7 +15,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(global$appName))})
 
     output$grtest <- renderGrViz({
     

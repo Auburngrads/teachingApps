@@ -16,7 +16,7 @@ library(teachingApps)
 shinyApp(options = list(height = "600px"),
          onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
          
-ui = fluidPage(theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = global$theme), 
                 tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
   title = 'MathJax Examples',
   withMathJax(),
@@ -37,7 +37,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(global$appName))})
   
   output$ex1 <- renderUI({
     withMathJax(helpText('Dynamic output 1:  $$\\alpha^2$$'))

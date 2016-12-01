@@ -22,6 +22,7 @@
 #' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param storyteller Is this a storyteller app?
+#' @param css Path to a custom css file. If code{NULL} the default css file is used 
 #' @param ... Additional arguments passed to code{shiny::runApp()} 
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
@@ -30,16 +31,23 @@
 #'
 #' @export
 
-maximum_likelihood_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, width = '100%', height = '800px',storyteller = T,...) {
+maximum_likelihood_full <- 
+function(pub = FALSE, theme = "flatly", rmd = FALSE, 
+         width = '100%', height = '800px',
+         storyteller = T, css = NULL,...) {
 
-    dir <- dirname(system.file("apps", "maximum_likelihood_full", "args.R", package = "teachingApps"))
+    dir <- dirname(system.file("apps", "maximum_likelihood_full", "global.R", package = "teachingApps"))
+    css <- ifelse(is.null(css),
+                  system.file('css', 'my-shiny.css', package = 'teachingApps'),
+                  css)
 
     teachingApps::getPackage(pub = pub, pkg  = 'scales')
     
-    arg2 <- data.frame(theme  = theme,
+    global <- data.frame(theme  = theme,
                        appDir = dir,
                        appName = basename(dir),
                        story = storyteller,
+                       css = css,
                        stringsAsFactors = F)
     
     # app.files <- list.files(dir)
@@ -56,7 +64,7 @@ maximum_likelihood_full <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
     #   
     # }}
     
-    dump('arg2', file = paste(c(dir,'args.R'), collapse = '/'))
+    dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
     
     if(rmd) {
 

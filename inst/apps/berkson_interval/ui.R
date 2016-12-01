@@ -2,7 +2,7 @@ library(teachingApps)
 library('SMRD')
 
 ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
-               theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
+               theme = shinythemes::shinytheme(theme = global$theme), 
                tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
                
 sidebarLayout(
