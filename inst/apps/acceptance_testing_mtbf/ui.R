@@ -1,7 +1,7 @@
 library(teachingApps)
 library(plotly)
 
-ui <- fluidPage(theme = shinythemes::shinytheme(theme = global$theme), 
+ui <- fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption('theme')), 
                 tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
 
 sidebarLayout(
@@ -31,4 +31,8 @@ sidebarLayout(
                     max = 500, 
                     step = 5, 
                     value = 90)),
-  mainPanel(plotlyOutput('mtbf', height = '650px'),width = 9)))
+  mainPanel(plotlyOutput('mtbf', height = '650px'),width = 9)),
+
+if(!getShinyOption('story')) 
+     fixedPanel(htmlOutput('sign'),bottom = '3%', width = '100%',height = '30px'))
+

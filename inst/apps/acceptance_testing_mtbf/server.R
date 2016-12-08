@@ -1,5 +1,9 @@
 server = function(input, output, session) {
   
+if(!getShinyOption('story'))    
+output$sign <- renderUI({HTML(teachingApp(getShinyOption('appName')))})
+
+  
   output$mtbf <- renderPlotly({
 
 mtbf <- seq(1,500,1)

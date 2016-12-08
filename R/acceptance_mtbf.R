@@ -33,7 +33,7 @@
 #' @export
 
 acceptance_mtbf <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
-                            width = '100%', height = '800px',storyteller = F,
+                            width = '100%', height = '800px',storyteller = T,
                             css = NULL,...) {
 
     dir <- dirname(system.file("apps", "acceptance_mtbf", "global.R", package = "teachingApps"))
@@ -43,17 +43,23 @@ acceptance_mtbf <- function(pub = FALSE, theme = "flatly", rmd = FALSE,
 
     teachingApps::getPackage(pub = pub, pkg  = 'plotly')
     
-    global <- data.frame(theme  = theme,
-                         appDir = dir,
-                        appName = basename(dir),
-                          story = storyteller,
-                            css = css,
-                         stringsAsFactors = F)
-    
-        file.create(paste(c(dir,'global.R'), collapse = '/'))
-    
-    dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
-    
+    # global <- data.frame(theme  = theme,
+    #                      appDir = dir,
+    #                     appName = basename(dir),
+    #                       story = storyteller,
+    #                         css = css,
+    #                      stringsAsFactors = F)
+    # 
+    #     file.create(paste(c(dir,'global.R'), collapse = '/'))
+    # 
+    # dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
+
+    shinyOptions('theme'   = theme)
+    shinyOptions('appDir'  = dir)
+    shinyOptions('appName' = theme)
+    shinyOptions('story'   = storyteller)
+    shinyOptions('css'     = css)
+        
     if(rmd) {
 
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))

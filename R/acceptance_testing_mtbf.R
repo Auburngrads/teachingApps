@@ -45,16 +45,22 @@ function(pub = FALSE, theme = "flatly", rmd = FALSE,
 
     teachingApps::getPackage(pub = pub, pkg  = 'plotly')
     
-    global <- data.frame(theme  = theme,
-                         appDir = dir,
-                        appName = basename(dir),
-                          story = storyteller,
-                            css = css,
-                         stringsAsFactors = F)
-    
-        file.create(paste(c(dir,'global.R'), collapse = '/'))
-    
-    dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
+    # global <- data.frame(theme  = theme,
+    #                      appDir = dir,
+    #                     appName = basename(dir),
+    #                       story = storyteller,
+    #                         css = css,
+    #                      stringsAsFactors = F)
+    # 
+    #     file.create(paste(c(dir,'global.R'), collapse = '/'))
+    # 
+    # dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
+
+    shinyOptions('theme'   = theme)
+    shinyOptions('appDir'  = dir)
+    shinyOptions('appName' = theme)
+    shinyOptions('story'   = storyteller)
+    shinyOptions('css'     = css)
     
     if(rmd) {
 
