@@ -34,7 +34,8 @@
 maximum_likelihood_full <- 
 function(pub = FALSE, theme = "flatly", rmd = FALSE, 
          width = '100%', height = '800px',
-         storyteller = T, css = NULL,...) {
+         storyteller = T, css = NULL,
+         more.obs = list(time = Sys.time()),...) {
 
     dir <- dirname(system.file("apps", "maximum_likelihood_full", "global.R", package = "teachingApps"))
     css <- ifelse(is.null(css),
@@ -43,12 +44,17 @@ function(pub = FALSE, theme = "flatly", rmd = FALSE,
 
     teachingApps::getPackage(pub = pub, pkg  = 'scales')
     
+    `if`(is.null(more.obs),
+         more.obs = NA,
+         more.obs = more.obs)
+    
     global <- data.frame(theme  = theme,
-                       appDir = dir,
-                       appName = basename(dir),
-                       story = storyteller,
-                       css = css,
-                       stringsAsFactors = F)
+                         appDir = dir,
+                        appName = basename(dir),
+                          story = storyteller,
+                            css = css,
+                            more.obs,
+                            stringsAsFactors = F)
     
     # app.files <- list.files(dir)
     # 

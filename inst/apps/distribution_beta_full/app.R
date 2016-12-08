@@ -7,9 +7,9 @@ shinyApp(options = list(height = "700px"),
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Beta Distribution',
-                theme = shinythemes::shinytheme(theme = global$theme),
+                theme = shinythemes::shinytheme(theme = 'flatly'),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(global$appName)),
+                footer = HTML(teachingApps::teachingApp('global')),
                 
 tabPanel(h4('Shiny App'),
 sidebarLayout(

@@ -1,10 +1,10 @@
 server = function(input, output, session) {
-  
+
 if(!global$story)  
 output$sign <- renderUI({HTML(teachingApps::teachingApp(global$appName))})
   
-  output$berkint <- renderPlot({
-      input$berks      
-      return(isolate(eval(parse(text=input$berkint))))
+output$ploteventplots <- renderPlot({
+      input$evaleventplots      
+      return(isolate(eval(parse(text=input$eventplots))))
 })
 }

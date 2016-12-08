@@ -35,7 +35,7 @@
 #' @export
 
 complex_ideas <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
-                            width = '100%', height = '800px',storyteller = F,
+                            width = '100%', height = '800px',storyteller = T,
                             css = NULL,...) {
 
     dir <- dirname(system.file("apps", "complex_ideas", "global.R", package = "teachingApps"))
@@ -47,7 +47,8 @@ complex_ideas <- function(pub = FALSE, theme = "flatly", rmd = FALSE,
  teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
  teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
  teachingApps::getPackage(pub = pub, pkg  = 'DT')
-global <- data.frame(theme  = theme,
+ 
+    global <- data.frame(theme  = theme,
                          appDir = dir,
                         appName = basename(dir),
                           story = storyteller,

@@ -41,7 +41,8 @@ distribution_weibull <- function(pub = FALSE, theme = "flatly", rmd = FALSE,
                   css)
 
     getPackage(pub = pub, pkg  = 'metricsgraphics')
-global <- data.frame(theme  = theme,
+    
+    global <- data.frame(theme  = theme,
                          appDir = dir,
                         appName = basename(dir),
                           story = storyteller,

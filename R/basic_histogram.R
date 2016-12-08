@@ -47,6 +47,12 @@ basic_histogram <- function(pub = FALSE, theme = "flatly", rmd = FALSE,
                             css = css,
                          stringsAsFactors = F)
     
+    shinyOptions('theme'   = theme)
+    shinyOptions('appDir'  = dir)
+    shinyOptions('appName' = theme)
+    shinyOptions('story'   = storyteller)
+    shinyOptions('css'     = css)
+    
         file.create(paste(c(dir,'global.R'), collapse = '/'))
     
     dump('global', file = paste(c(dir,'global.R'), collapse = '/'))

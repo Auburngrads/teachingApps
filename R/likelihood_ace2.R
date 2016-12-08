@@ -32,18 +32,23 @@
 
 likelihood_ace2 <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
                             width = '100%', height = '800px',storyteller = F,
-                            css = NULL,...) {
+                            css = NULL,more.obs = list(time = Sys.time()),...) {
 
     dir <- dirname(system.file("apps", "likelihood_ace2", "global.R", package = "teachingApps"))
     css <- ifelse(is.null(css),
                   system.file('css', 'my-shiny.css', package = 'teachingApps'),
                   css)
     
+    `if`(is.null(more.obs),
+         more.obs = NA,
+         more.obs = more.obs)
+    
     global <- data.frame(theme  = theme,
                          appDir = dir,
                         appName = basename(dir),
                           story = storyteller,
                             css = css,
+                          more.obs,
                          stringsAsFactors = F)
     
     file.create(paste(c(dir,'global.R'), collapse = '/'))

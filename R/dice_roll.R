@@ -42,7 +42,8 @@ dice_roll <- function(pub = FALSE, theme = "flatly", rmd = FALSE,
                   css)
 
     teachingApps::getPackage(pub = pub, pkg  = 'DT')
-global <- data.frame(theme  = theme,
+    
+    global <- data.frame(theme  = theme,
                          appDir = dir,
                         appName = basename(dir),
                           story = storyteller,

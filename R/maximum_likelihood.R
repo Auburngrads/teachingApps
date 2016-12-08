@@ -44,14 +44,21 @@ function(pub = FALSE, theme = "flatly", rmd = FALSE,
     teachingApps::getPackage(pub = pub, pkg  = 'scales')
 
     global <- data.frame(theme  = theme,
-                       appDir = dir,
-                       appName = basename(dir),
-                       story = storyteller,
-                       css = css,
+                         appDir = dir,
+                        appName = basename(dir),
+                          story = storyteller,
+                            css = css,
                        stringsAsFactors = F)
     
     dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
     
+    if(rmd) {
+
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
 
+    } else {
+      
+    shiny::runApp(dir,...)
+      
+    }
 }

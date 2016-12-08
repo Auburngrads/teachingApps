@@ -14,18 +14,20 @@ sidebarLayout(
                       theme = "github", 
                       height = "450px", 
                       value = "
-par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
+par(family = 'serif', 
+    mfrow = c(1,2), 
+    las = 1, 
+    cex = 1.25)
 
 library(SMRD)
 
 zoom <- 1.5
 
 Berkson200.ld <- 
-frame.to.ld(SMRD::berkson200,
+frame.to.ld(SMRD::berkson200a,
             response.column = c(1,2), 
             censor.column = 3,
-            case.weight.column = 4,
-            time.units = 'Kilometers')
+            case.weight.column = 4)
 
 simple.contour(Berkson200.ld, 
                distribution = 'exponential', 
@@ -43,5 +45,6 @@ par(mfrow = c(1,1))"),
         
         mainPanel(plotOutput("berkint", height = "600px"), width = 7)),
 
-fixedPanel(htmlOutput('sign'), bottom = '3%', right = '40%', height = '30px'))
+if(!global$story) 
+     fixedPanel(htmlOutput('sign'),bottom = '3%', width = '100%',height = '30px'))
 
