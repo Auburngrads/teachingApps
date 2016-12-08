@@ -47,7 +47,7 @@ insertUI <- function(appName, pkg = 'teachingApps') {
 
 insertRmd <- function(rmd) {
   
-  #rmd <- paste(c(dir,rmd), collapse = '/')
+  rmd <- paste(c(getShinyOption('appDir'),rmd), collapse = '/')
   
   withMathJax(HTML(markdown::markdownToHTML(knitr::knit(rmd))))
   

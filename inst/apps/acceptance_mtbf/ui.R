@@ -1,4 +1,5 @@
 library(teachingApps)
+library(shiny)
 library('plotly')
 options('markdown.HTML.stylesheet' = getShinyOption('css'))
 
