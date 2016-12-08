@@ -53,9 +53,9 @@ basic_histogram <- function(pub = FALSE, theme = "flatly", rmd = FALSE,
     shinyOptions('story'   = storyteller)
     shinyOptions('css'     = css)
     
-        file.create(paste(c(dir,'global.R'), collapse = '/'))
-    
-    dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
+    #     file.create(paste(c(dir,'global.R'), collapse = '/'))
+    # 
+    # dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
     
     if(rmd) {
 
