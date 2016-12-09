@@ -1,14 +1,14 @@
 library(teachingApps)
 library('SMRD')
-options('markdown.HTML.stylesheet' = global$css)
+options('markdown.HTML.stylesheet' = getShinyOptions("css"))
 
 
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'at7987',
-                theme = shinythemes::shinytheme(theme = global$theme),
+                theme = shinythemes::shinytheme(theme = getShinyOptions("theme")),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(global$appName)),
+                footer = HTML(teachingApps::teachingApp(getShinyOptions("appName"))),
 
 tabPanel(h4("Data Set"),DT::dataTableOutput("table.at7987", height = "80%") ), 
 

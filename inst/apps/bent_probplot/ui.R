@@ -1,8 +1,8 @@
 library(teachingApps)
 library(SMRD)
 
-ui = fluidPage(theme = shinythemes::shinytheme(theme = global$theme), 
-               tags$head(includeCSS(global$css)),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
+               tags$head(includeCSS(getShinyOptions("css"))),
                  
 sidebarLayout(
   sidebarPanel(width = 5,
@@ -31,7 +31,7 @@ plot(Bleed.ld,
         
         mainPanel(plotOutput("bleedplot", height = "600px"), width = 7)),
 
-if(!global$story) 
+if(!getShinyOptions("story")) 
      fixedPanel(htmlOutput('sign'),bottom = '3%', width = '100%',height = '30px'))
 
 

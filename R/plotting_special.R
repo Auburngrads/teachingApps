@@ -22,7 +22,9 @@
 #' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param storyteller Is this a storyteller app?
 #' @param css Path to a custom css file. If code{NULL} the default css file is used 
+#' @param more.opts Additional options to be passed to the app (see Details)
 #' @param ... Additional arguments passed to code{shiny::runApp()} 
+
 
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
@@ -32,33 +34,20 @@
 #' @export
 
 plotting_special <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
-                            width = '100%', height = '800px',storyteller = F,
-                            css = NULL,...) {
+                            width = '100%', storyteller = F, css = NULL,
+                            height = `if`(storyteller,'800px','600px'),
+                            more.opts = list(NA),...) {
 
     dir <- dirname(system.file("apps", "plotting_special", "global.R", package = "teachingApps"))
-    css <- ifelse(is.null(css),
-                  system.file('css', 'my-shiny.css', package = 'teachingApps'),
-                  css)
-
-    global <- data.frame(theme  = theme,
-                         appDir = dir,
-                        appName = basename(dir),
-                          story = storyteller,
-                            css = css,
-                         stringsAsFactors = F)
     
-        file.create(paste(c(dir,'global.R'), collapse = '/'))
+    assign.shiny.opts(opts = more.opts,
+                      dir = dir,
+                      theme = theme,
+                      appDir = appDir,
+                      css = css,
+                      story = storyteller)
     
-    dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
-    
-    if(rmd) {
-
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
 
-    } else {
-      
-    shiny::runApp(dir,...)
-      
-    }
-  
 }
+

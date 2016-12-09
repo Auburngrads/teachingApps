@@ -4,7 +4,7 @@ library('actuar')
 
 shinyApp(options = list(height = "700px"),
          onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
-ui = fluidPage(theme = shinythemes::shinytheme(theme = global$theme), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
                tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
 sidebarLayout(
 sidebarPanel(width = 3, 
@@ -44,7 +44,7 @@ fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(global$appName))})
+  output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOptions("appName")))})
   
 t = reactive({ signif(seq(min(input$range.ll), max(input$range.ll), length = 500), digits = 4)})
 p <- signif(seq(0, 1, length = 500), digits = 4) 

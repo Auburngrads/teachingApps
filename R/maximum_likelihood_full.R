@@ -23,7 +23,9 @@
 #' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param storyteller Is this a storyteller app?
 #' @param css Path to a custom css file. If code{NULL} the default css file is used 
+#' @param more.opts Additional options to be passed to the app (see Details)
 #' @param ... Additional arguments passed to code{shiny::runApp()} 
+
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 #' 
@@ -38,48 +40,16 @@ function(pub = FALSE, theme = "flatly", rmd = FALSE,
          more.obs = list(time = Sys.time()),...) {
 
     dir <- dirname(system.file("apps", "maximum_likelihood_full", "global.R", package = "teachingApps"))
-    css <- ifelse(is.null(css),
-                  system.file('css', 'my-shiny.css', package = 'teachingApps'),
-                  css)
-
+    
     teachingApps::getPackage(pub = pub, pkg  = 'scales')
     
-    `if`(is.null(more.obs),
-         more.obs = NA,
-         more.obs = more.obs)
+    assign.shiny.opts(opts = more.opts,
+                      dir = dir,
+                      theme = theme,
+                      appDir = appDir,
+                      css = css,
+                      story = storyteller)
     
-    global <- data.frame(theme  = theme,
-                         appDir = dir,
-                        appName = basename(dir),
-                          story = storyteller,
-                            css = css,
-                            more.obs,
-                            stringsAsFactors = F)
-    
-    # app.files <- list.files(dir)
-    # 
-    # mat <- matrix(unlist(strsplit(app.files, split = '\\.')), ncol = 2, byrow = T)
-    # 
-    # Rmd <- which(mat[,2]=='Rmd')
-    # 
-    # if(!is.null(Rmd)) {
-    #   
-    # for(i in 1:length(Rmd)) {
-    #   
-    # rmarkdown::render(paste(c(dir, app.files[Rmd[i]]), collapse = '/'), runtime = 'shiny')
-    #   
-    # }}
-    
-    dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
-    
-    if(rmd) {
-
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
 
-    } else {
-      
-    shiny::runApp(dir,...)
-      
-    }
-  
 }

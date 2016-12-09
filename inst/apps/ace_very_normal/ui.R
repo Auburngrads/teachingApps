@@ -1,7 +1,7 @@
 library(teachingApps)
 
-ui = fluidPage(theme = shinythemes::shinytheme(theme = global$theme), 
-               tags$head(includeCSS(global$css)),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
+               tags$head(includeCSS(getShinyOptions("css"))),
                
 sidebarLayout(
   sidebarPanel(width = 5,
@@ -44,6 +44,6 @@ legend(x = 7, y = 1.5,
         
         mainPanel(plotOutput("exp", height = "600px"), width = 7)),
 
-if(!global$story) 
+if(!getShinyOptions("story")) 
      fixedPanel(htmlOutput('sign'),bottom = '3%', width = '100%',height = '30px'))
 

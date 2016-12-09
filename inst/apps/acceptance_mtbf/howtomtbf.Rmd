@@ -6,13 +6,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Mathematical Background for this Tool
+### Mathematical Background for this Tool
 
 1. Details regarding the mathematics and use of OC curves can be found in many texts and references including:
 
-    - Kensler (2014)
+    a. Kensler (2014)
     
-    + Truett (2013)
+    b. Truett (2013)
 
 2. This tool should be used in place of the paper binomial nomograph for correct test planning (Harman 2013)
 

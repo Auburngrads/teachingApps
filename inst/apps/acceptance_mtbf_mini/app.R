@@ -58,7 +58,7 @@ miniTabstripPanel(
 
 server = function(input, output, session) {
 
-#  output$sign <- renderUI({HTML(teachingApps::teachingApp(global$appName))})
+#  output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOptions("appName")))})
   
   output$mtbf <- renderPlotly({
 

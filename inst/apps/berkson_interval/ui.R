@@ -2,7 +2,7 @@ library(teachingApps)
 library('SMRD')
 
 ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
-               theme = shinythemes::shinytheme(theme = global$theme), 
+               theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
                tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
                
 sidebarLayout(
@@ -45,6 +45,6 @@ par(mfrow = c(1,1))"),
         
         mainPanel(plotOutput("berkint", height = "600px"), width = 7)),
 
-if(!global$story) 
+if(!getShinyOptions("story")) 
      fixedPanel(htmlOutput('sign'),bottom = '3%', width = '100%',height = '30px'))
 

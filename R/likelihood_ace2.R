@@ -35,34 +35,14 @@ likelihood_ace2 <- function(pub = FALSE, theme = "flatly", rmd = FALSE,
                             css = NULL,more.obs = list(time = Sys.time()),...) {
 
     dir <- dirname(system.file("apps", "likelihood_ace2", "global.R", package = "teachingApps"))
-    css <- ifelse(is.null(css),
-                  system.file('css', 'my-shiny.css', package = 'teachingApps'),
-                  css)
     
-    `if`(is.null(more.obs),
-         more.obs = NA,
-         more.obs = more.obs)
+    assign.shiny.opts(opts = more.opts,
+                      dir = dir,
+                      theme = theme,
+                      appDir = appDir,
+                      css = css,
+                      story = storyteller)
     
-    global <- data.frame(theme  = theme,
-                         appDir = dir,
-                        appName = basename(dir),
-                          story = storyteller,
-                            css = css,
-                          more.obs,
-                         stringsAsFactors = F)
-    
-    file.create(paste(c(dir,'global.R'), collapse = '/'))
-    
-    dump('global', file = paste(c(dir,'global.R'), collapse = '/'))
-    
-    if(rmd) {
-
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
 
-    } else {
-      
-    shiny::runApp(dir,...)
-      
-    }
-  
 }

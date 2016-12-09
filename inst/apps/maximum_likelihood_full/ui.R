@@ -1,14 +1,14 @@
 library(teachingApps)
 library('scales')
 library(knitr)
-options('markdown.HTML.stylesheet' = global$css)
+options('markdown.HTML.stylesheet' = getShinyOptions("css"))
          
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Maximum Likelihood',
-                theme = shinythemes::shinytheme(theme = global$theme),
-                header = tags$head(includeCSS(global$css)),
-                footer = HTML(teachingApps::teachingApp(global$appName)),
+                theme = shinythemes::shinytheme(theme = getShinyOptions("theme")),
+                header = tags$head(includeCSS(getShinyOptions("css"))),
+                footer = HTML(teachingApps::teachingApp(getShinyOptions("appName"))),
 
 tabPanel(h4('Background'),
          fluidRow(uiOutput('mleback1'), class = 'shiny-text-output')),

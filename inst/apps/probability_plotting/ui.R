@@ -1,7 +1,7 @@
 library(teachingApps)
 library('SMRD')
 
-ui = fluidPage(theme = shinythemes::shinytheme(theme = global$theme), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
                tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
 sidebarLayout(
 sidebarPanel(width = 3,
@@ -34,5 +34,5 @@ sidebarPanel(width = 3,
 
 mainPanel(plotOutput("compare", height = "600px"), width = 9)),
 
-if(!global$story)
+if(!getShinyOptions("story"))
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))

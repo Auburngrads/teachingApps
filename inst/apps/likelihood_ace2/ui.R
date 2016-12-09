@@ -2,8 +2,8 @@ library(teachingApps)
 
 
 ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
-               theme = shinythemes::shinytheme(theme = global$theme), 
-               tags$head(includeCSS(global$css)),
+               theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
+               tags$head(includeCSS(getShinyOptions("css"))),
                  
 sidebarLayout(
    sidebarPanel(width = 5,
@@ -57,7 +57,7 @@ legend('topright',
 
    mainPanel(plotOutput('plotlike2', height = '600px'), width = 7)),
 
-if(!global$story) 
+if(!getShinyOptions("story")) 
      fixedPanel(htmlOutput('sign'),bottom = '3%', width = '100%',height = '30px'))
 
 

@@ -1,7 +1,7 @@
 library(teachingApps)
 library(DT)
 
-ui =fluidPage(theme = shinythemes::shinytheme(theme = global$theme), 
+ui =fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
               
 sidebarLayout(
@@ -32,5 +32,5 @@ mainPanel(width = 9,
           tabPanel(h4('Probabilities'),
                    plotOutput('diceprobs', height = '550px'))))),
 
-if(!global$story)    
+if(!getShinyOptions("story"))    
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))

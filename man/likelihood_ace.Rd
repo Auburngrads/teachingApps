@@ -5,7 +5,8 @@
 \title{Function Title}
 \usage{
 likelihood_ace(pub = FALSE, theme = "flatly", rmd = FALSE,
-  width = "100\%", height = "800px", storyteller = F, css = NULL, ...)
+  width = "100\%", height = "800px", storyteller = F, css = NULL,
+  more.obs = list(time = Sys.time()), ...)
 }
 \arguments{
 \item{pub}{Will the app be published (deployed)? (see details)}
@@ -23,6 +24,8 @@ likelihood_ace(pub = FALSE, theme = "flatly", rmd = FALSE,
 \item{css}{Path to a custom css file. If code{NULL} the default css file is used}
 
 \item{...}{Additional arguments passed to code{shiny::runApp()}}
+
+\item{more.opts}{Additional options to be passed to the app (see Details)}
 }
 \description{
 Description

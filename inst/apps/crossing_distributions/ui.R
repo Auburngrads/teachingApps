@@ -5,9 +5,9 @@ options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package =
 ui = navbarPage(collapsible = T, 
                 position = 'fixed-top',
                 title = 'Crossing Distributions',
-                theme = shinythemes::shinytheme(theme = global$theme),
+                theme = shinythemes::shinytheme(theme = getShinyOptions("theme")),
                 header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(global$appName)),
+                footer = HTML(teachingApps::teachingApp(getShinyOptions("appName"))),
                 
 tabPanel(h4('Normal-Normal'),
    sidebarLayout(

@@ -5,7 +5,8 @@
 \title{Reliability acceptance test planning app}
 \usage{
 acceptance_testing_mtbf(pub = FALSE, theme = "flatly", rmd = FALSE,
-  width = "100\%", height = "800px", storyteller = F, css = NULL, ...)
+  width = "100\%", height = "800px", storyteller = F, css = NULL,
+  more.opts = list(NA), ...)
 }
 \arguments{
 \item{pub}{Will the app be published (deployed)? (see details)}
@@ -21,6 +22,8 @@ acceptance_testing_mtbf(pub = FALSE, theme = "flatly", rmd = FALSE,
 \item{storyteller}{Is this a storyteller app?}
 
 \item{css}{Path to a custom css file. If code{NULL} the default css file is used}
+
+\item{more.opts}{Additional options to be passed to the app (see Details)}
 
 \item{...}{Additional arguments passed to code{shiny::runApp()}}
 }

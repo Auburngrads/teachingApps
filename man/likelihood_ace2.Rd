@@ -5,7 +5,8 @@
 \title{Function Title}
 \usage{
 likelihood_ace2(pub = FALSE, theme = "flatly", rmd = FALSE,
-  width = "100\%", height = "800px", storyteller = F, css = NULL, ...)
+  width = "100\%", height = "800px", storyteller = F, css = NULL,
+  more.obs = list(time = Sys.time()), ...)
 }
 \arguments{
 \item{pub}{Will the app be published (deployed)? (see details)}

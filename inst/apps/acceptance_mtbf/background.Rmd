@@ -2,11 +2,7 @@
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-# Mathematical Background for this Tool
+### Mathematical Background for this Tool
 
 1. Details regarding the mathematics and use of OC curves can be found in many texts and references including:
 
