@@ -1,14 +1,14 @@
 library(teachingApps)
 
 shinyApp(options = list(height = "800px"),
-         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
+
     
-ui = navbarPage(collapsible = T, 
+ui = navbarPage(title = 'Numerical MLE Solution',
+                collapsible = T, 
                 position = 'fixed-top',
-                title = 'Numerical MLE Solution',
-                theme = shinythemes::shinytheme(theme = getShinyOptions("theme")),
-                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(getShinyOptions("appName"))),
+                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+                header = tags$head(includeCSS(getShinyOption("css"))),
+                footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
                 
        tabPanel(h4('Numerical Solution'),
         sidebarLayout(

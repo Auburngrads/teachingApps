@@ -68,7 +68,7 @@ updateApp <- function(app = NULL, repo = 'teachingApps', pkg = repo,
   
     if(css) {
     
-    cssFiles <- list.files(path = paste(c(gitRoot, 'css'), collapse = '/'))
+    cssFiles <- list.files(path = paste(c(gitRoot, 'resources','css'), collapse = '/'))
     
     for(i in 1:length(cssFiles)) {
       

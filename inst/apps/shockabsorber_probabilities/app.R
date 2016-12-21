@@ -14,10 +14,10 @@ library('SMRD')
 
 
 shinyApp(options = list(height = "600px"),
-         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
+
     
-    ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
-                tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+    ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
+                tags$head(includeCSS(getShinyOption("css"))),
          sidebarLayout(
            sidebarPanel(width = 4,
              shinyAce::aceEditor(fontSize = 16, 
@@ -56,13 +56,11 @@ par(mfrow = c(1,1))"),
              
         actionButton("shockprobs", h4("Evaluate"),width = '100%')),
         
-        mainPanel(plotOutput("sprob", height = "600px"), width = 8)),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+        mainPanel(plotOutput("sprob", height = "600px"), width = 8))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOptions("appName")))})
+
   
 
 

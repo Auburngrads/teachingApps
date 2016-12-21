@@ -2,9 +2,9 @@ library(teachingApps)
 library(scales)
 
 shinyApp(options = list(height = "700px"),
-onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")),
-              tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+onStart = function() { },
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+              tags$head(includeCSS(getShinyOption("css"))),
       inputPanel(
       selectInput('dist1', h2('Distro 1'), choices = c('Normal'), selected = 'Normal'),
       selectInput('dist2', h2('Distro 2'), choices = c('Normal'), selected = 'Normal')),
@@ -38,13 +38,11 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme"))
                   step = .5,
                   value = 5 )),
     
-        column(width = 8, plotOutput('cross', height = '550px'))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+        column(width = 8, plotOutput('cross', height = '550px')))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOptions("appName")))})
+
   
 output$cross <- renderPlot({
 param1 <- c(input$normal1.1,input$normal1.2)

@@ -22,9 +22,7 @@
 #' @import threejs
 #'
 #'
-#' @param pub Will the app be published (deployed)? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
-#' @param rmd Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)
 #' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param storyteller Is this a storyteller app?
@@ -40,27 +38,25 @@
 #'
 #' @export
 
-htmlwidgets_shiny <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
-                            width = '100%', storyteller = F, css = NULL,
+htmlwidgets_shiny <- function(theme = "flatly",  width = '100%', storyteller = F, css = NULL,
                             height = `if`(storyteller,'800px','600px'),
                             more.opts = list(NA),...) {
 
     dir <- dirname(system.file("apps", "htmlwidgets_shiny", "global.R", package = "teachingApps"))
     
 
- teachingApps::getPackage(pub = pub, pkg  = 'metricsgraphics')
- teachingApps::getPackage(pub = pub, pkg  = 'dygraphs')
- teachingApps::getPackage(pub = pub, pkg  = 'leaflet')
- teachingApps::getPackage(pub = pub, pkg  = 'threejs')
- teachingApps::getPackage(pub = pub, pkg  = 'd3heatmap')
- teachingApps::getPackage(pub = pub, pkg  = 'parcoords', repo = 'timelyportfolio')
- teachingApps::getPackage(pub = pub, pkg  = 'taucharts', repo = 'hrbrmstr')
- teachingApps::getPackage(pub = pub, pkg  = 'htmlwidgets')
- teachingApps::getPackage(pub = pub, pkg  = 'plotly')
+ teachingApps::getPackage(pkg = 'metricsgraphics')
+ teachingApps::getPackage(pkg = 'dygraphs')
+ teachingApps::getPackage(pkg = 'leaflet')
+ teachingApps::getPackage(pkg = 'threejs')
+ teachingApps::getPackage(pkg = 'd3heatmap')
+ teachingApps::getPackage(pkg = 'parcoords', repo = 'timelyportfolio')
+ teachingApps::getPackage(pkg = 'taucharts', repo = 'hrbrmstr')
+ teachingApps::getPackage(pkg = 'htmlwidgets')
+ teachingApps::getPackage(pkg = 'plotly')
 assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
-                      appDir = appDir,
                       css = css,
                       story = storyteller)
     

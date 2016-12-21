@@ -2,10 +2,10 @@ library(teachingApps)
 library('visNetwork')
 
 shinyApp(options = list(height = "600px"),
-         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
+
          
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")),
-               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+               tags$head(includeCSS(getShinyOption("css"))),
                
       mainPanel(width = 12,
         tabsetPanel(type = 'pills',
@@ -14,13 +14,11 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme"))
   tabPanel(h4('Data Munging'),            visNetworkOutput("munging",height = "600px")),
   tabPanel(h4('Reproducible Research'),   visNetworkOutput("reproduce",height = "600px")),
   tabPanel(h4('Web Development'),         visNetworkOutput("webdev",height = "600px")),
-  tabPanel(h4('This Course'),             visNetworkOutput("stat687",height = "600px")))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+  tabPanel(h4('This Course'),             visNetworkOutput("stat687",height = "600px"))))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOptions("appName")))})
+
   
   output$stats <- visNetwork::renderVisNetwork({
            

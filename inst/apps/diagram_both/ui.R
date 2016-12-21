@@ -2,7 +2,7 @@ library(teachingApps)
 library(diagram)
 
 ui = fluidPage(theme = shinythemes::shinytheme(theme = 'flatly'),
-               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+               tags$head(includeCSS(getShinyOption("css"))),
                
 sidebarLayout( 
    sidebarPanel(width = 5,
@@ -48,5 +48,5 @@ diagram::plotmat(A = AA,
         
         mainPanel(plotOutput("plotreal", height = "600px"), width = 7)),
 
-if(!getShinyOptions("story"))
+if(!getShinyOption("story"))
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))

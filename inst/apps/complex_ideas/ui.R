@@ -3,14 +3,14 @@ library(scales)
 library(metricsgraphics)
 library(SMRD)
 library(DT)
-options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))
 
-ui = navbarPage(collapsible = T, 
+
+ui = navbarPage(title = 'Complex Ideas',
+                collapsible = T, 
                 position = 'fixed-top',
-                title = 'Complex Ideas',
-                theme = shinythemes::shinytheme(theme = getShinyOptions("theme")),
-                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(getShinyOptions("appName"))),
+                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+                header = tags$head(includeCSS(getShinyOption("css"))),
+                footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
                 
 tabPanel(h4("Conf. Intervals"),
          fluidRow(teachingApps::insertUI('confidence_intervals'))),

@@ -1,8 +1,8 @@
 library(teachingApps)
 
 ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
-               theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
-               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+               theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
+               tags$head(includeCSS(getShinyOption("css"))),
                  
 sidebarLayout(
    sidebarPanel(width = 6,
@@ -43,5 +43,5 @@ nlminb(start = runif(2, 1.5, 4.2),
         
         mainPanel(verbatimTextOutput("mlsolns"), width = 6)),
 
-if(!getShinyOptions("story")) 
+if(!getShinyOption("story")) 
      fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))

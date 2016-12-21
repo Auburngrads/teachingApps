@@ -9,11 +9,7 @@ likelihood_ace2(pub = FALSE, theme = "flatly", rmd = FALSE,
   more.obs = list(time = Sys.time()), ...)
 }
 \arguments{
-\item{pub}{Will the app be published (deployed)? (see details)}
-
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
-
-\item{rmd}{Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)}
 
 \item{width}{Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored}
 

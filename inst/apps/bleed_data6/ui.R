@@ -1,6 +1,6 @@
 library(teachingApps)
 library('SMRD')
-options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))
+
 
 Bleed.ld <- frame.to.ld(SMRD::bleed,
                         response.column = 1, 
@@ -13,12 +13,12 @@ Bleed.Dbase.ld <-     ld.split(Bleed.ld, stress.var.list = "D")
 Bleed.Otherbase.ld <- ld.split(Bleed.ld, stress.var.list = "Other")
 
 
-ui = navbarPage(collapsible = T, 
+ui = navbarPage(title = 'Bleed Data Set',
+                collapsible = T, 
                 position = 'fixed-top',
-                title = 'Bleed Data Set',
-                theme = shinythemes::shinytheme(theme = getShinyOptions("theme")),
-                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(getShinyOptions("appName"))),
+                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+                header = tags$head(includeCSS(getShinyOption("css"))),
+                footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
                 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.bleed", height = "80%") ), 
 

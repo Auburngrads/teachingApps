@@ -1,6 +1,7 @@
 .onLoad <- function(libname, pkgname) {
   
-# options('appURL' = 'https://afit.shinyapps.io/')
+shiny::shinyOptions('theme'   = 'flatly')
+shiny::shinyOptions('css'     = system.file('resources','css','teachingApps.css', package = 'teachingApps'))
   
 }
 
@@ -35,7 +36,6 @@ teachingApp <- function(name) {
   
   if(!is.character(name)) stop('name must be a character string')
   
-  gitFile <- paste(c(name,'app.R'), collapse = '/')
   gitURL  <- 'https://github.com/Auburngrads/teachingApps/blob/master/inst/apps'
   
     return(paste(c("<ul class='photo-grid'>
@@ -43,7 +43,7 @@ teachingApp <- function(name) {
 <figure>
 <img src='http://i.imgur.com/5DusfUM.gif'> 
 <figcaption><p>Get the <a target=' ' href='",
-                paste(c(gitURL, gitFile), collapse = '/'),"'>CODE</a> for this app</p></figcaption>
+                paste(c(gitURL, name), collapse = '/'),"'>CODE</a> for this app</p></figcaption>
 </figure>
 </li>
 </ul>"), collapse = ''))

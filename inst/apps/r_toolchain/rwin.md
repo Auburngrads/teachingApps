@@ -1,0 +1,74 @@
+---
+output: html_document
+---
+
+### Steps to install R on personally-owned Windows machines
+
+1. Go to <a target=' ' href='https://cloud.r-project.org/'>https://cloud.r-project.org/</a> and download latest version of R
+
+2. During the installation process, accept all of the defaults 
+
+3. Once the install is complete, open R - admittedly it's not very exciting to look at, RStudio will help with that
+
+4. At the command prompt type `.libPaths()`
+
+    \+ This function returns the directories where R can store your downloaded packages
+
+    \+ As you're installing R for the first time, there may be only one directory listed now - as you use R the number of directories is likely to increase
+
+    \+ The order of the directories indicates the order R will use in trying to store the package
+
+    \+ A custom library may be specified by creating an environment variable called `R_LIBS` and assigning it the path of the desired folder
+
+    \+ If you don't know how to set environment variables don't worry about this right now
+
+5. Now type `names(installed.packages()[,1])`
+  - This returns a list of the packages that installs with R
+  - These packages should be stored in the first directory returned by `.libPaths()`
+
+
+## Installing R Packages
+
+1. The real power of R is experienced by using AND creating packages
+
+2. R packages can be downloaded and used like apps on your smartphone
+
+3. Packages allow researchers to share their work with the world, very quickly  
+
+4. Packages allow users to use the latest methods, almost immediately after they are developed
+
+5. In many cases <focus>there's <s>an app</s> a package for that!</focus>
+
+6. There are also several 'stores' or repositories from which packages can be installed
+
+    a. The Comprehensive R Archive Network (CRAN) - the official repository for R packages  
+
+    b. <a target=' ' href='http://github.com'>GitHub</a> - many packages are stored here prior to being accepted for publication to the CRAN
+
+    c. <a target=' ' href='http://bioconductor.org/'>Bioconductor</a> - a repository of bioinformatics-related R packages
+
+    d. The Microsoft R Archive Network (<a target=' ' href='https://mran.revolutionanalytics.com/'>MRAN</a>)
+
+7. Ok, let's install a package to make sure everything is working
+
+    a. Run `install.packages('data.table')` to install the `data.table` package from the CRAN
+
+    b. As this is your first package, you will likely be asked to choose a 'CRAN mirror' - select `0 - Cloud` 
+
+    c. You may then be asked if you would like to create a personal library - select Yes and accept the default folder location 
+
+    d. If the package (and it's dependencies) downloaded you're all set to continue 
+
+    e. If the package failed to download, skip ahead to <purple>2) Installing RStudio</purple> and try to install the `data.table` package again once RStudio is installed
+
+8. In addition to the `data.table` package there are several packages every R user needs 
+
+9. To install these packages paste the following lines into R
+
+    a. `install.packages(c('installr','devtools','rmarkdown'))`
+
+    b. `install.packages(c('DT','knitcitations','RefManageR'))`
+
+    c. `install.packages(c('shiny','RJSONIO','xtable'))`
+
+10. If these packages (and their dependencies) install - you're all set!

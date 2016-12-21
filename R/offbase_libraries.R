@@ -17,9 +17,7 @@
 #' @import data.table
 #'
 #'
-#' @param pub Will the app be published (deployed)? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
-#' @param rmd Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)
 #' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param storyteller Is this a storyteller app?
@@ -35,21 +33,19 @@
 #'
 #' @export
 
-offbase_libraries <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
-                            width = '100%', storyteller = F, css = NULL,
+offbase_libraries <- function(theme = "flatly",  width = '100%', storyteller = F, css = NULL,
                             height = `if`(storyteller,'800px','600px'),
                             more.opts = list(NA),...) {
 
     dir <- dirname(system.file("apps", "offbase_libraries", "global.R", package = "teachingApps"))
     
 
-    teachingApps::getPackage(pub = pub, pkg  = 'leaflet')
-teachingApps::getPackage(pub = pub, pkg  = 'publicLibs', repo = 'Auburngrads')
-teachingApps::getPackage(pub = pub, pkg  = 'data.table')
+    teachingApps::getPackage(pkg = 'leaflet')
+teachingApps::getPackage(pkg = 'publicLibs', repo = 'Auburngrads')
+teachingApps::getPackage(pkg = 'data.table')
 assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
-                      appDir = appDir,
                       css = css,
                       story = storyteller)
     

@@ -1,7 +1,7 @@
 server = function(input, output, session) {
 
-if(!getShinyOptions("story"))
-output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOptions("appName")))})
+if(!getShinyOption("story"))
+output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOption("appName")))})
   
   t <- reactive({ min(input$range.bin):max(input$range.bin) })
   p <- reactive({ signif(seq(0, 1, length = length(max(t()):min(t()))), digits = 4) })

@@ -1,6 +1,6 @@
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOptions("appName")))})
+
 
     output$grtest <- renderGrViz({
     

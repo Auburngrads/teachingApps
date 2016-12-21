@@ -1,8 +1,8 @@
 Package: teachingApps
 Type: Package
 Title: Collection of Shiny apps I use for teaching
-Version: 0.4
-Date: 2016-10-14
+Version: 0.5
+Date: 2016-12-21
 Author: Jason K. Freels
 Maintainer: Jason K. Freels <auburngrads@live.com>
 Description: This package does stuff.  The stuff it does is really cool.  You should really use this package.

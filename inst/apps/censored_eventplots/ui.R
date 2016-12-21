@@ -1,8 +1,11 @@
 library(teachingApps)
 library(SMRD)
 
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
-               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
+               tags$head(includeCSS(getShinyOption("css"))),
+               tags$footer(getShinyOption("sign")),
+
+               tags$footer(getShinyOption("sign")),
                
 sidebarLayout(
   sidebarPanel(width = 5,
@@ -40,5 +43,5 @@ par(mfrow = c(1,1))"),
         
         mainPanel(plotOutput("ploteventplots", height = "600px"), width = 7)),
 
-if(!getShinyOptions("story")) 
+if(!getShinyOption("story")) 
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))

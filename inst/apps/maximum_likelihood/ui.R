@@ -1,27 +1,34 @@
 library(teachingApps)
 library('scales')
+library(knitr)
+         
+ui = navbarPage(title = 'Maximum Likelihood',
+                collapsible = T, 
+                position = 'fixed-top',
+                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+                header = tags$head(includeCSS(getShinyOption("css"))),
+                footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
 
+tabPanel(h4('Background'),
+         fluidRow(uiOutput('mleback1'), class = 'shiny-text-output')),
 
-ui <- fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
-                tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-               
-sidebarLayout(
-  sidebarPanel(width = 4,
-    selectInput('correct', 
-                label = h2('True Distribution'), 
-                choices = c('Green', 
-                            'Blue', 
-                            'Red'), 
-                selected = 'Blue'),
-    
-    actionButton('mlesample',h4('sample 1'), width = '100%'),
-    hr(),
-    actionButton('mlesample10',h4('sample 10'), width = '100%'),
-    hr(),
-    actionButton('clear',h4('clear'), width = '100%')),
-  
-  mainPanel(plotOutput('plotmle', height = '650px'), width = 8)),
+tabPanel(h4('Simple Example'),  
+         fluidRow(uiOutput('example1_1'), class = 'shiny-text-output'),
+         fluidRow(teachingApps::insertUI('likelihood_ace')),
+         fluidRow(uiOutput('example1_2'), class = 'shiny-text-output'),
+         fluidRow(teachingApps::insertUI('likelihood_ace2')),
+         fluidRow(uiOutput('example1_3'), class = 'shiny-text-output')),
 
-if(!getShinyOptions("story")) 
-     fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
+tabPanel(h4('Silly Example'),
+         fluidRow(uiOutput('example2_1'), class = 'shiny-text-output'),
+         fluidRow(teachingApps::insertUI('exp_mle')),
+         fluidRow(uiOutput('example2_2'), class = 'shiny-text-output'),
+         fluidRow(teachingApps::insertUI('exp_numerical')),
+         fluidRow(uiOutput('example2_3'), class = 'shiny-text-output'),
+         fluidRow(teachingApps::insertUI('soln_numerical2'))),
 
+tabPanel(h4("A Simulation"),
+         fluidRow(teachingApps:::insertUI('maximum_likelihood'))),
+
+tabPanel(h4('Details'),
+         fluidRow(uiOutput('details'), class = 'shiny-text-output')))

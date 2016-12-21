@@ -1,0 +1,25 @@
+---
+output: html_document
+---
+
+### Steps to install R Tools on personally-owned Windows machines
+
+1) With the `installr` package, Rtools may be installed from within R by running `installr::install_rtools()` 
+
+2) Without the `installr` package Rtools can be installed from <a target=" " href="https://cran.r-project.org/bin/windows/Rtools">HERE</a>
+
+3) After the install completes, run `devtools::find_rtools()` to ensure R can find Rtools
+
+    a) If this function returns `TRUE` go on to $\LaTeX$
+
+    b) If this function returns `FALSE` follow the steps below to edit the system path
+
+        + Perform a search for 'Environment Variables'
+
+        + If you have admin rights, choose `Edit the System Environment Variables` otherwise choose `Edit Environment Variables For Your Account`
+
+        + Find the variable `Path` $\rightarrow$ click Edit $\rightarrow$ add `c:\Rtools\bin;c:\Rtools\gcc-4.6.3\bin`
+        
+        + If the `Path` variable doesn't exist or isn't editable click `New` $\rightarrow$ create the variable `Path` $\rightarrow$ assign the value `c:\Rtools\bin;c:\Rtools\gcc-4.6.3\bin`
+
+        + Once again, run `devtools::find_rtools()` if this still returns `FALSE` check the directory in which Rtools is located

@@ -3,11 +3,11 @@ library(shiny)
 library('plotly')
 options('markdown.HTML.stylesheet' = getShinyOption('css'))
 
-ui = navbarPage(collapsible = T, 
+ui = navbarPage(title = 'MTBF Acceptance Test',
+                collapsible = T, 
                 position = 'fixed-top',
-                title = 'MTBF Acceptance Test',
                 theme = shinythemes::shinytheme(theme = getShinyOption('theme')),
-                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                header = tags$head(includeCSS(getShinyOption("css"))),
                 footer = HTML(teachingApps::teachingApp(getShinyOption('appName'))),
           
 tabPanel(h4('Planning Tool'),

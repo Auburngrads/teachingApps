@@ -1,8 +1,11 @@
 library(teachingApps)
 library("metricsgraphics")
 
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
-               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
+               tags$head(includeCSS(getShinyOption("css"))),
+               tags$footer(getShinyOption("sign")),
+
+               tags$footer(getShinyOption("sign")), 
                
 sidebarLayout(
   sidebarPanel(width = 3, 
@@ -44,5 +47,5 @@ sidebarLayout(
              tabPanel(h4("Quantile"), 
                       metricsgraphicsOutput("binQ", height = "600px"))))), 
 
-if(!getShinyOptions("story"))
+if(!getShinyOption("story"))
 fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))

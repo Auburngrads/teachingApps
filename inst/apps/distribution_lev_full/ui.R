@@ -1,0 +1,50 @@
+library(teachingApps)
+library('metricsgraphics')
+
+ui = navbarPage(title = 'Largest Extreme Value Distribution',
+                collapsible = T, 
+                position = 'fixed-top',
+                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+                header = tags$head(includeCSS(getShinyOption("css"))),
+                footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
+                
+tabPanel(h4('Shiny App'),
+sidebarLayout(
+sidebarPanel(width = 3, 
+  hr(),
+  sliderInput("range.lev", 
+              label = h2("Range"),
+              min = -20, 
+              max = 20, 
+              value = c(-6,6)),
+  hr(),
+  sliderInput("mu.lev", 
+              label = h2(HTML("Mean (&mu;)")),
+              min = -3, 
+              max = 3, 
+              step = 0.5, 
+              value = 0, 
+              animate = T),
+  hr(),
+  sliderInput("sig.lev", 
+              label = h2(HTML("Std Dev (&sigma;)")),
+              min = 1, 
+              max = 10, 
+              step = 0.5, 
+              value = 1, 
+              animate = T)),
+
+mainPanel(width = 9,
+ tabsetPanel(type = 'pills',
+  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput('levC',height = "600px")),
+  tabPanel(h4('Density'),                metricsgraphicsOutput('levP',height = "600px")),
+  tabPanel(h4('Survival'),               metricsgraphicsOutput('levR',height = "600px")),
+  tabPanel(h4('Hazard'),                 metricsgraphicsOutput('levh',height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput('levH',height = "600px")),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput('levQ',height = "600px")))))),
+
+tabPanel(h4('Distribution Functions'),
+         mainPanel(uiOutput('levfunc'), class = 'shiny-text-output', width = 12)),
+
+tabPanel(h4('Distribution Properties'),
+         mainPanel(uiOutput('levprops', class = 'shiny-text-output'), width = 12)))

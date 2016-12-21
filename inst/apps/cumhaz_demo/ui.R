@@ -1,12 +1,12 @@
 library(teachingApps)
-options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))
 
-ui = navbarPage(collapsible = T, 
+
+ui = navbarPage(title = 'Cumulative Hazard Function',
+                collapsible = T, 
                 position = 'fixed-top',
-                title = 'Cumulative Hazard Function',
-                theme = shinythemes::shinytheme(theme = getShinyOptions("theme")),
-                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
-                footer = HTML(teachingApps::teachingApp(getShinyOptions("appName"))),
+                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+                header = tags$head(includeCSS(getShinyOption("css"))),
+                footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
                   
 tabPanel(h4('Properties'),
          mainPanel(uiOutput('HAZdemo'), class = 'shiny-text-output', width = 12)),

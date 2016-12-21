@@ -2,6 +2,7 @@ library(teachingApps)
 
 ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption('theme')),
                tags$head(includeCSS(getShinyOption('css'))),
+               tags$footer(getShinyOption('sign')),
                
 sidebarLayout( 
   sidebarPanel(width = 5,
@@ -27,7 +28,4 @@ hist(x,
 
      actionButton("eval", h4("Evaluate"), width = '100%')),
         
-     mainPanel(plotOutput("output", height = '600px'), width = 7)),
-  
-if(!getShinyOption('story')) 
-     fixedPanel(htmlOutput('sign'),bottom = '3%', width = '100%',height = '30px'))
+     mainPanel(plotOutput("output", height = '600px'), width = 7)))

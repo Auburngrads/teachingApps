@@ -1,3 +1,4 @@
-arg2 <-
-structure(list(theme = "flatly", appDir = "myAppDir", appName = "myApp"), .Names = c("theme", 
-"appDir", "appName"), row.names = c(NA, -1L), class = "data.frame")
+set.seed(NULL) ; set1 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
+set.seed(NULL) ; set2 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
+set.seed(42)   ; set3 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))
+set.seed(42)   ; set4 <- sort(round(rlnorm(8, 0.75, 1.5), digits = 4))

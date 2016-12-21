@@ -2,13 +2,11 @@ library(teachingApps)
 library('metricsgraphics')
 
 shinyApp(options = list(height = "700px"),
-         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
+
          
-ui = navbarPage(collapsible = T, 
-                position = 'fixed-top',
-                title = 'Beta Distribution',
+ui = navbarPage(title = 'Beta Distribution',
                 theme = shinythemes::shinytheme(theme = 'flatly'),
-                header = tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+                header = tags$head(includeCSS(getShinyOption("css"))),
                 footer = HTML(teachingApps::teachingApp('global')),
                 
 tabPanel(h4('Shiny App'),

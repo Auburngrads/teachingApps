@@ -1,7 +1,7 @@
 server = function(input, output, session) {
 
-if(!getShinyOptions("story"))
-output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOptions("appName")))})
+if(!getShinyOption("story"))
+output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOption("appName")))})
 
 weibhaz <-function(x,sc, sh) {sh/sc*(x/sc)^(sh-1)}
   

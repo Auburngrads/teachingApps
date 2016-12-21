@@ -1,0 +1,25 @@
+---
+output: html_document
+---
+
+### Steps to install $\LaTeX$ on personally-owned Windows machines
+
+1) With the `installr` package, MiKTeX may be installed from within R by running `installr::install_miktex()` 
+
+2) Without the `installr` package MiKTeX can be installed from <a target=" " href="http://miktex.org/download/">HERE</a>
+
+    a) Choose to `Install Packages on the Fly`
+
+    b) Otherwise accept all the defaults
+
+3) Once installed, open RStudio and click <img src='media/images/newfile.png' style='vertical-align: top; width: 40px;'> to create a new file
+
+    a) Choose `R Markdown` to create a new Rmarkdown file `filename.Rmd`
+
+    b) In the 'Document' dialog choose 'PDF Document'
+
+    c) Once the demo file opens, click <img src='media/images/knit.png' style='vertical-align: top; height: 30px;'> to knit the rmarkdown file into a PDF document
+
+    d) If a pop-up window appears, asking permission to install a $\LaTeX$ package, check the default location of the package repository and allow the package to install
+
+    e) The first time a document knits into a PDF it can take a minute to install the packages

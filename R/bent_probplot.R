@@ -15,9 +15,7 @@
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText
 #'
 #'
-#' @param pub Will the app be published (deployed)? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
-#' @param rmd Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)
 #' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param storyteller Is this a storyteller app?
@@ -32,20 +30,17 @@
 #'
 #' @export
 
-bent_probplot <- function(pub = FALSE, theme = "flatly", rmd = FALSE, 
-                            width = '100%', storyteller = F, css = NULL,
-                            height = `if`(storyteller,'800px','600px'),
-                            more.opts = list(NA),...) {
+bent_probplot <- function(theme = "flatly",  width = '100%', storyteller = F, css = NULL,
+                          height = `if`(storyteller,'800px','600px'),
+                          more.opts = list(NA),...) {
 
-    file <- system.file("apps", "bent_probplot", "global.R", package = "teachingApps")
-    dir <- dirname(file)
+    dir <- dirname(system.file("apps", "bent_probplot", "global.R", package = "teachingApps"))
     
-    teachingApps::getPackage(pub = pub, pkg  = 'SMRD')
+    teachingApps::getPackage(pkg = 'SMRD')
     
     assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
-                      appDir = appDir,
                       css = css,
                       story = storyteller)
     

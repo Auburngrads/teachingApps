@@ -16,9 +16,7 @@
 #' @import plotly
 #'
 #'
-#' @param pub Will the app be published (deployed)? (see details)
 #' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
-#' @param rmd Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)
 #' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
 #' @param storyteller Is this a storyteller app?
@@ -42,12 +40,11 @@ function(pub = FALSE, theme = "flatly", rmd = FALSE,
 
     dir <- dirname(system.file("apps", "acceptance_testing_mtbf", "global.R", package = "teachingApps"))
 
-    teachingApps::getPackage(pub = pub, pkg  = 'plotly')
+    teachingApps::getPackage(pkg = 'plotly')
     
     assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
-                      appDir = appDir,
                       css = css,
                       story = storyteller)
     

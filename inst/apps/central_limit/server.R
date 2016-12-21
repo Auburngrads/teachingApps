@@ -1,8 +1,5 @@
 server = function(input, output, session) {
 
-if(!getShinyOptions("story"))  
-output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOptions("appName")))})
-
   output$CLT <- renderPlot({
     
    dist <- switch(input$distribution, 

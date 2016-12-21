@@ -14,9 +14,9 @@ library('metricsgraphics')
 
 
 shinyApp(options = list(height = "700px"),
-         onStart = function() { options('markdown.HTML.stylesheet' = system.file('css','my-shiny.css', package = 'teachingApps'))},
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")),
-                tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+                tags$head(includeCSS(getShinyOption("css"))),
 sidebarLayout(
 sidebarPanel(width = 3,
   
@@ -55,13 +55,11 @@ sidebarPanel(width = 3,
   tabPanel(h4('Hazard'),               metricsgraphicsOutput("gomah",height = "600px")),
   tabPanel(h4('Cumulative Hazard'),    metricsgraphicsOutput("gomaH",height = "600px")),
   tabPanel(h4('Quantile'),             metricsgraphicsOutput("gomaQ",height = "600px"))
-  ))),
-
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px')),
+  )))),
 
 server = function(input, output, session) {
   
-  output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOptions("appName")))})
+
   
 t <-  reactive({ signif(seq(input$rangegoma[1], input$rangegoma[2],length = 500),digits = 4)})
 p <-  reactive({ signif(seq(0.001, .999, length = 500), digits = 4) })

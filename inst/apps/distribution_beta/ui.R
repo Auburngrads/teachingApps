@@ -1,8 +1,11 @@
 library(teachingApps)
 library(metricsgraphics)
 
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOptions("theme")), 
-               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))), 
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
+               tags$head(includeCSS(getShinyOption("css"))),
+               tags$footer(getShinyOption("sign")),
+ 
+               tags$footer(getShinyOption('sign')),
                
 sidebarLayout(
    sidebarPanel(width = 3, 
@@ -47,7 +50,4 @@ sidebarLayout(
              tabPanel(h4("Cumulative Hazard"), 
                       metricsgraphicsOutput("betaH", height = "600px")),
              tabPanel(h4("Quantile"), 
-                      metricsgraphicsOutput("betaQ", height = "600px"))))),
-
-if(!getShinyOptions("story"))
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
+                      metricsgraphicsOutput("betaQ", height = "600px"))))))

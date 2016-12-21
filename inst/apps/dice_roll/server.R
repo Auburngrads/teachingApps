@@ -1,7 +1,7 @@
 server = function(input, output, session) {
 
-if(!getShinyOptions("story"))
-output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOptions("appName")))})
+if(!getShinyOption("story"))
+output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOption("appName")))})
 
 dice   <- reactive({ as.numeric(input$no.dice) })
 sides  <- reactive({ as.numeric(input$no.sides) })

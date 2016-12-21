@@ -1,3 +1,6 @@
-arg2 <-
-structure(list(theme = "flatly", appDir = "myAppDir", appName = "myApp"), .Names = c("theme", 
-"appDir", "appName"), row.names = c(NA, -1L), class = "data.frame")
+HeatExchanger.ld <- frame.to.ld(SMRD::heatexchanger,
+                                response.column = c(1,2),
+                                censor.column = 3,
+                                case.weight.column=4,
+                                data.title = "Heat Exchanger Crack Data",
+                                time.units = "Years")
