@@ -12,7 +12,7 @@ Depends:  R (>= 3.1.0)
 Imports:  shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
           utils,knitr,leaflet,threejs,d3heatmap,plotly,htmlwidgets,dygraphs,
           networkD3,diagram,DiagrammeR,visNetwork,scales,data.table,miniUI,
-          shinydashboard,d3Network,ggplot2,actuar,markdown
+          shinydashboard,d3Network,ggplot2,actuar,markdown,stats
 NeedsCompilation: no
 Archs: i386, x64
 Suggests:

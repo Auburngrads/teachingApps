@@ -4,8 +4,8 @@
 \alias{maximum_likelihood}
 \title{Function Title}
 \usage{
-maximum_likelihood(pub = FALSE, theme = "flatly", rmd = FALSE,
-  width = "100\%", height = "800px", storyteller = T, css = NULL,
+maximum_likelihood(theme = "flatly", width = "100\%", height = if
+  (storyteller) "800px" else "600px", storyteller = T, css = NULL,
   more.opts = list(time = Sys.time()), ...)
 }
 \arguments{

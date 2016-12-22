@@ -40,7 +40,11 @@ insertUI <- function(appName, pkg = 'teachingApps') {
 }
 
 #' Insert an rmarkdown file within a storyteller app
-#'
+#' 
+#' @importFrom shiny getShinyOption withMathJax HTML
+#' @importFrom knitr knit
+#' @importFrom markdown markdownToHTML 
+#' 
 #' @param rmd An rmarkdown file saved in the app directory
 #'
 #' @export

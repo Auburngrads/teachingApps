@@ -4,15 +4,16 @@
 #'
 #' @import shinythemes
 #' @import shinyAce
-#' @importFrom shiny shinyApp renderPrint renderPlot actionButton h2 h3 h4
+#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
 #' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div runGadget
-#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout 
-#' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel
+#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
+#' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel h2 h4
 #' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput
 #' @importFrom shiny updateNumericInput strong stopApp browserViewer shinyAppDir
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
-#' @importFrom shiny observe observeEvent reactiveValues reactive renderText
+#' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
+#' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
 #' @import scales
 #'
 #'
@@ -23,17 +24,15 @@
 #' @param css Path to a custom css file. If code{NULL} the default css file is used 
 #' @param more.opts Additional options to be passed to the app (see Details)
 #' @param ... Additional arguments passed to code{shiny::runApp()} 
-
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 #' 
 #' When code{rmd = FALSE} the app is run using code{shiny::runApp}, addition arguments can be passed via the code{...} argument.  When code{rmd = TRUE}, code{shiny::shinyAppDir} is used the code{width} and code{height} arguments must be specified.
 #'
 #' @export
-
 maximum_likelihood <- 
-function(pub = FALSE, theme = "flatly", rmd = FALSE, 
-         width = '100%', height = '800px',
+function(theme = "flatly", width = '100%', 
+         height = `if`(storyteller,'800px','600px'),
          storyteller = T, css = NULL,
          more.opts = list(time = Sys.time()),...) {
 

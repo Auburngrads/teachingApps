@@ -4,15 +4,18 @@
 #'
 #' @import shinythemes
 #' @import shinyAce
-#' @importFrom shiny shinyApp renderPrint renderPlot actionButton h2 h3 h4
+#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
 #' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div runGadget
-#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout 
-#' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel
+#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
+#' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel h2 h4
 #' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput
 #' @importFrom shiny updateNumericInput strong stopApp browserViewer shinyAppDir
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
-#' @importFrom shiny observe observeEvent reactiveValues reactive renderText
+#' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
+#' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
+
+
 #' @importFrom  networkD3 sankeyNetworkOutput renderSankeyNetwork
 #' @importFrom d3Network d3Sankey
 #'

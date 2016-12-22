@@ -4,9 +4,9 @@
 \alias{likelihood_ace2}
 \title{Function Title}
 \usage{
-likelihood_ace2(pub = FALSE, theme = "flatly", rmd = FALSE,
-  width = "100\%", height = "800px", storyteller = F, css = NULL,
-  more.obs = list(time = Sys.time()), ...)
+likelihood_ace2(theme = "flatly", width = "100\%", height = if
+  (storyteller) "800px" else "600px", storyteller = F, css = NULL,
+  more.opts = list(time = Sys.time()), ...)
 }
 \arguments{
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
@@ -18,6 +18,8 @@ likelihood_ace2(pub = FALSE, theme = "flatly", rmd = FALSE,
 \item{storyteller}{Is this a storyteller app?}
 
 \item{css}{Path to a custom css file. If \code{NULL} the default css file is used}
+
+\item{more.opts}{Additional options to be passed to the app (see Details)}
 
 \item{...}{Additional arguments passed to code{shiny::runApp()}}
 }

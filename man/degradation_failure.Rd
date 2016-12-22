@@ -4,9 +4,9 @@
 \alias{degradation_failure}
 \title{Function Title}
 \usage{
-degradation_failure(pub = FALSE, theme = "flatly", rmd = FALSE,
-  width = "100\%", storyteller = F, css = NULL, height = if
-  (storyteller) "800px" else "600px", more.opts = list(NA), ...)
+degradation_failure(theme = "flatly", width = "100\%", storyteller = F,
+  css = NULL, height = if (storyteller) "800px" else "600px",
+  more.opts = list(NA), ...)
 }
 \arguments{
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
