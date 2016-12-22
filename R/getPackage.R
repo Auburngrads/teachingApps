@@ -14,7 +14,8 @@
 #' 
 #'   When publishing apps on shinyapps.io or shinyServer, attempting to \code{install.packages} will result in an error.  Calls to \code{install.packages} should not be included within an app.
 
-getPackage <- function(pkg = NULL, repo = NULL, pub = FALSE ) {
+getPackage <- 
+function(pkg = NULL, repo = NULL, pub = FALSE ) {
 
   if(!pub) {
     

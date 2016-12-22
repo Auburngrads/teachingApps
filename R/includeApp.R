@@ -12,7 +12,8 @@
 #' @export
 #'
 
-includeApp <- function(appName, appUrl = NULL,...) {
+includeApp <- 
+function(appName, appUrl = NULL,...) {
   
   if(is.null(appUrl)) appUrl <- getOption('appURL')
   

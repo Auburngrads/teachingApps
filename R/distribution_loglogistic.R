@@ -14,35 +14,29 @@
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
 #' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
-
-
 #' @importFrom actuar pllogis qllogis dllogis
 #' @import metricsgraphics
 #'
 #'
-#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
-#' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
-#' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
+#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}
+#' @param width Width of the printed app
+#' @param height Height of the printed app
 #' @param storyteller Is this a storyteller app?
-#' @param css Path to a custom css file. If code{NULL} the default css file is used 
-#' @param more.opts Additional options to be passed to the app (see Details)
-#' @param ... Additional arguments passed to code{shiny::runApp()} 
-
-
+#' @param css Path to a custom css file. If \code{NULL} the default css file is used 
+#' @param more.opts A list of additional options/objects to be passed to the app (see Details)
+#' @param ... Additional options passed to \code{shiny::shinyAppDir()} 
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 #' 
-#' When code{rmd = FALSE} the app is run using code{shiny::runApp}, addition arguments can be passed via the code{...} argument.  When code{rmd = TRUE}, code{shiny::shinyAppDir} is used the code{width} and code{height} arguments must be specified.
-#'
 #' @export
 
-distribution_loglogistic <- function(theme = "flatly",  width = '100%', storyteller = F, css = NULL,
-                            height = `if`(storyteller,'800px','600px'),
-                            more.opts = list(NA),...) {
+distribution_loglogistic <- 
+function(theme = "flatly",  width = '100%', storyteller = F,
+         height = `if`(storyteller,'800px','600px'),
+         css = NULL, more.opts = list(NA),...) {
 
     dir <- dirname(system.file("apps", "distribution_loglogistic", "global.R", package = "teachingApps"))
-    
-
+  
     teachingApps::getPackage(pkg = 'metricsgraphics')
     teachingApps::getPackage(pkg = 'actuar')
 
@@ -52,7 +46,7 @@ distribution_loglogistic <- function(theme = "flatly",  width = '100%', storytel
                       css = css,
                       story = storyteller)
     
-    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
+    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
 
 }
 

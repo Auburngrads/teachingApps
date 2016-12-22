@@ -6,7 +6,8 @@
 #'
 #' @export
 
-insertServer <- function(appName, envir = NULL, pkg = 'teachingApps') {
+insertServer <- 
+function(appName, envir = NULL, pkg = 'teachingApps') {
   
   file  <- system.file('apps', appName, 'server.R', package = pkg)
   serve <- source(file = file)
@@ -23,7 +24,8 @@ insertServer <- function(appName, envir = NULL, pkg = 'teachingApps') {
 #'
 #' @export
 
-insertUI <- function(appName, pkg = 'teachingApps') {
+insertUI <- 
+function(appName, pkg = 'teachingApps') {
   
   file  <- system.file('apps', appName, 'ui.R', package = pkg)
   serve <- source(file = file)
@@ -49,7 +51,8 @@ insertUI <- function(appName, pkg = 'teachingApps') {
 #'
 #' @export
 
-insertRmd <- function(rmd) {
+insertRmd <- 
+function(rmd) {
   
   rmd <- paste(c(getShinyOption('appDir'),rmd), collapse = '/')
   

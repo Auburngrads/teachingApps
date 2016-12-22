@@ -5,8 +5,6 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
                tags$head(includeCSS(getShinyOption("css"))),
                tags$footer(getShinyOption("sign")),
 
-               tags$footer(getShinyOption("sign")),
-               
 tabPanel(h4('Shiny App'),
 sidebarLayout(
 sidebarPanel(width = 3, 

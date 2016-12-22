@@ -14,15 +14,15 @@ gadget_lm(data, xvar, yvar, theme = "flatly", width = "100\%", css = NULL,
 
 \item{yvar}{Column from \code{data} to display on the y-axis}
 
-\item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
+\item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}}
 
 \item{width}{Width of the printed app.}
 
-\item{css}{Path to a custom css file. If code{NULL} the default css file is used}
+\item{css}{Path to a custom css file. If \code{NULL} the default css file is used}
 
 \item{height}{Height of the printed app.}
 
-\item{...}{Additional arguments passed to code{shiny::runApp()}}
+\item{...}{Additional options passed to \code{shiny::shinyAppDir()}}
 }
 \description{
 Description

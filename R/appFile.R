@@ -8,7 +8,8 @@
 #'
 #' @export
 
-appFile <- function(app, file, pkg = 'teachingApps') {
+appFile <- 
+function(app, file, pkg = 'teachingApps') {
   
   return(system.file('apps',app,file, package = pkg))
   

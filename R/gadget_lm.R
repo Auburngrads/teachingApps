@@ -19,16 +19,17 @@
 #' @param data A \code{data.frame} object
 #' @param xvar Column from \code{data} to display on the x-axis
 #' @param yvar Column from \code{data} to display on the y-axis
-#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
+#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}
 #' @param height Height of the printed app.
 #' @param width Width of the printed app.
-#' @param css Path to a custom css file. If code{NULL} the default css file is used 
-#' @param ... Additional arguments passed to code{shiny::runApp()} 
+#' @param css Path to a custom css file. If \code{NULL} the default css file is used 
+#' @param ... Additional options passed to \code{shiny::shinyAppDir()} 
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 #' 
 #' @export 
-gadget_lm <- function(data,xvar, yvar, theme = "flatly", 
+gadget_lm <- 
+function(data,xvar, yvar, theme = "flatly", 
                       width = '100%', css = NULL, height = '600px',...) {
 
   do.call('library', args = list('miniUI'))
@@ -53,7 +54,8 @@ ui <- miniPage(
       actionButton("exclude_toggle", "Toggle points"),
       actionButton("exclude_reset", "Reset")))
 
-server <- function(input, output) {
+server <- 
+function(input, output) {
     # For storing which rows have been excluded
     vals <- reactiveValues( keeprows = rep(TRUE, nrow(data)) )
 

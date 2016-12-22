@@ -4,7 +4,8 @@
 #' 
 #' @export
 
-setGit <- function(home) {
+setGit <- 
+function(home) {
   
   options <- getOption('gitHome')
   

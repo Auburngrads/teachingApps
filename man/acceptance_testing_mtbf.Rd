@@ -9,19 +9,19 @@ acceptance_testing_mtbf(theme = "flatly", width = "100\%",
   css = NULL, more.opts = list(NA), ...)
 }
 \arguments{
-\item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
+\item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}}
 
-\item{width}{Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored}
+\item{width}{Width of the printed app}
 
 \item{storyteller}{Is this a storyteller app?}
 
-\item{height}{Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored}
+\item{height}{Height of the printed app}
 
-\item{css}{Path to a custom css file. If code{NULL} the default css file is used}
+\item{css}{Path to a custom css file. If \code{NULL} the default css file is used}
 
-\item{more.opts}{Additional options to be passed to the app (see Details)}
+\item{more.opts}{A list of additional options/objects to be passed to the app (see Details)}
 
-\item{...}{Additional arguments passed to code{shiny::runApp()}}
+\item{...}{Additional options passed to \code{shiny::shinyAppDir()}}
 }
 \description{
 Description

@@ -109,7 +109,8 @@ function(appName, pkg = 'teachingApps',pkg.path = NULL)
 
 
 
-new_fluid_UI <- function(dir, name) {
+new_fluid_UI <- 
+function(dir, name) {
   
   if(!file.exists(paste(c(dir, 'ui.R'), collapse = '/'))) {
     
@@ -131,7 +132,8 @@ if(file.copy(from = system.file('resources','templates','fluidUI.R', package = '
 
 
 
-new_fluid_Server <- function(dir, name) {
+new_fluid_Server <- 
+function(dir, name) {
   
   if(!file.exists(paste(c(dir, 'server.R'), collapse = '/'))) {
   

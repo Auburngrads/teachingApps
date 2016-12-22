@@ -17,13 +17,13 @@
 #' @import plotly
 #'
 #'
-#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
-#' @param width Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored
-#' @param height Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored
+#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}
+#' @param width Width of the printed app
+#' @param height Height of the printed app
 #' @param storyteller Is this a storyteller app?
-#' @param css Path to a custom css file. If code{NULL} the default css file is used 
-#' @param more.opts Additional options to be passed to the app (see Details)
-#' @param ... Additional arguments passed to code{shiny::runApp()} 
+#' @param css Path to a custom css file. If \code{NULL} the default css file is used 
+#' @param more.opts A list of additional options/objects to be passed to the app (see Details)
+#' @param ... Additional options passed to \code{shiny::shinyAppDir()} 
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 #'
@@ -44,6 +44,6 @@ function(theme = "flatly", width = '100%',storyteller = F,
                       css = css,
                       story = storyteller)
     
-    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width))
+    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
 
 }

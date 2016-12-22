@@ -1,4 +1,5 @@
-.onLoad <- function(libname, pkgname) {
+.onLoad <- 
+function(libname, pkgname) {
   
 shiny::shinyOptions('theme'   = 'flatly')
 shiny::shinyOptions('css'     = system.file('resources','css','teachingApps.css', package = 'teachingApps'))
@@ -12,7 +13,8 @@ shiny::shinyOptions('css'     = system.file('resources','css','teachingApps.css'
 #' @importFrom graphics par
 #' 
 #' @export
-jkf.par <- function(...) {
+jkf.par <- 
+function(...) {
     
     par(cex.lab=1.05,
         cex.axis=1.05,
@@ -29,7 +31,8 @@ jkf.par <- function(...) {
 
 
 
-createFun <- function() {
+createFun <- 
+function() {
   
   dir = "C:\\Users\\Jason\\OneDrive\\Work-Stuff\\Computer Systems\\GitHub\\teachingApps\\inst\\apps"
   
@@ -60,7 +63,8 @@ createFun <- function() {
                     "#' @details When publishing apps using shinyapps.io or shinyServer, set \\code{pub = TRUE} to prevent calls to \\code{install.packages}. Calls to \\code{install.packages} should not be included within an app and will result in an error.\n",
                     "#'\n",
                     "#' @export\n\n",apps[i],
-                    ' <- function(pub = FALSE) {
+                    ' <- 
+function(pub = FALSE) {
 
     dir <- dirname(system.file("apps", "', apps[i],'", "app.R", package = "teachingApps"))
 

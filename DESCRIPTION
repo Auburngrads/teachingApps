@@ -8,8 +8,8 @@ Maintainer: Jason K. Freels <auburngrads@live.com>
 Description: This package does stuff.  The stuff it does is really cool.  You should really use this package.
 License: GPL-2
 LazyData: true
-Depends:  R (>= 3.1.0)
-Imports:  shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
+Depends: R (>= 3.1.0)
+Imports: shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
           utils,knitr,leaflet,threejs,d3heatmap,plotly,htmlwidgets,dygraphs,
           networkD3,diagram,DiagrammeR,visNetwork,scales,data.table,miniUI,
           shinydashboard,d3Network,ggplot2,actuar,markdown,stats
@@ -24,3 +24,4 @@ Remotes:
     github::hrbrmstr/taucharts,
     github::timelyportfolio/codemirrorR
 RoxygenNote: 5.0.1
+VignetteBuilder: knitr

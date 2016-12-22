@@ -17,16 +17,17 @@
 #' @importFrom shiny runGadget dialogViewer browserViewer
 #'
 #' @param data A data.frame from which columns will be removed 
-#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}
+#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}
 #' @param width Width of the printed app.
 #' @param height Height of the printed app.
-#' @param css Path to a custom css file. If code{NULL} the default css file is used 
-#' @param ... Additional arguments passed to code{shiny::runApp()} 
+#' @param css Path to a custom css file. If \code{NULL} the default css file is used 
+#' @param ... Additional options passed to \code{shiny::shinyAppDir()} 
 #'  
 #' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 #' 
 #' @export 
-clean_columns <- function(data,theme = "flatly", width = '100%', 
+clean_columns <- 
+function(data,theme = "flatly", width = '100%', 
                           css = NULL, height = '600px',...) {
 
 do.call('library',args = list('DT'))

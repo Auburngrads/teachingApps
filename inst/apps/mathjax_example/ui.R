@@ -4,8 +4,6 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
                tags$head(includeCSS(getShinyOption("css"))),
                tags$footer(getShinyOption("sign")),
 
-               tags$footer(getShinyOption("sign")),
-               
   title = 'MathJax Examples',
   withMathJax(),
   helpText('An irrational number \\(\\sqrt{2}\\)
