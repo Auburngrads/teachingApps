@@ -1,52 +1,3 @@
-library(teachingApps)
-library('metricsgraphics')
-
-shinyApp(options = list(height = "700px"),
-
-         
-ui = navbarPage(title = 'Logistic Distribution',
-                collapsible = T, 
-                position = 'fixed-top',
-                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
-                header = tags$head(includeCSS(getShinyOption("css"))),
-                footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
-                
-tabPanel(h4('Shiny App'),
-sidebarLayout(
-sidebarPanel(width = 3, 
-  hr(),
-  sliderInput("range.l", 
-              label = h2("Range"),
-              min = -20, 
-              max = 20, 
-              value = c(-4,4)),
-  hr(),
-  sliderInput("mu.l", 
-              label = h2(HTML("Mean (&mu;)")),
-              min = -3, 
-              max = 3, 
-              step = 0.5, 
-              value = 0, 
-              animate = T),
-  hr(),
-  sliderInput("sig.l", label = h2(HTML("Std Dev (&sigma;)")),
-              min = 0.5, max = 5, step = 0.5, value = 1, animate = T)),
-
-mainPanel(width = 9,
- tabsetPanel(type = 'pills',
-  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("logC",height = "550px")),
-  tabPanel(h4('Density'),                metricsgraphicsOutput("logP",height = "600px")),
-  tabPanel(h4('Survival'),               metricsgraphicsOutput("logR",height = "600px")),
-  tabPanel(h4('Hazard'),                 metricsgraphicsOutput("logh",height = "600px")),
-  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("logH",height = "600px")),
-  tabPanel(h4('Quantile'),               metricsgraphicsOutput("logQ",height = "600px")))))),
-
-tabPanel(h4('Distribution Functions'),
-         mainPanel(uiOutput('logfunc'), class = 'shiny-text-output', width = 12)),
-
-tabPanel(h4('Distribution Properties'),
-         mainPanel(uiOutput('logprops', class = 'shiny-text-output'), width = 12))),
-
 server = function(input, output, session) {
   
 t = reactive({ signif(seq(min(input$range.l), max(input$range.l), length = 500), digits = 4)})
@@ -100,4 +51,4 @@ output$logfunc <- renderUI({
 })
 output$logprops <- renderUI({HTML(includeMarkdown('log-props.Rmd'))
 }) 
-})
+}

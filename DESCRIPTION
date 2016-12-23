@@ -5,7 +5,13 @@ Version: 0.5
 Date: 2016-12-21
 Author: Jason K. Freels
 Maintainer: Jason K. Freels <auburngrads@live.com>
-Description: This package does stuff.  The stuff it does is really cool.  You should really use this package.
+Description: The teachingApps package is a collection of functions aimed at 
+    making it fast and easy for anyone to build, use, and share shiny apps.
+    The initial purpose behind creating the package was to provide a single
+    repository from which I could publish and present the shiny apps I use 
+    during my lectures.  Before creating this package I found that I was using
+    the same apps in multiple presentations, which forced me to keep the app 
+    updated in multiple places.
 License: GPL-2
 LazyData: true
 Depends: R (>= 3.1.0)

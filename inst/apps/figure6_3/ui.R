@@ -1,7 +1,8 @@
 library(teachingApps)
 
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
-                tags$head(includeCSS(getShinyOption("css"))),
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption('theme')),
+               tags$head(includeCSS(getShinyOption('css'))),
+               tags$footer(getShinyOption('sign')),
                
 sidebarLayout( 
   sidebarPanel(

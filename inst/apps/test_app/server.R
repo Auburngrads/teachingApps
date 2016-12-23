@@ -1,5 +1,4 @@
-library(teachingApps)
-shinyServer(function(input, output, session) {
+server <- function(input, output, session) {
 
  output$mychart <- renderLineChart({
  # Return a data frame. Each column will be a series in the line chart.
@@ -9,7 +8,7 @@ shinyServer(function(input, output, session) {
    "Sine 2" = sin(1:100/10) * 0.25 + 0.5
    )
    })
- })
+ }
 
 lineChartOutput <- function(inputId, width="100%", height="400px") {
    style <- sprintf("width: %s; height: %s;",
@@ -78,58 +77,3 @@ lineChartOutput <- function(inputId, width="100%", height="400px") {
 
 
 }
-
-shinyUI(fluidPage(
-  fluidRow(
-     column(width=9,
-       lineChartOutput("mychart")
-     ),
-     column(width=3,
-       sliderInput("sinePhase", "Sine phase", -180, 180, 0, step=10,
-         animate=animationOptions(interval=100, loop=TRUE)),
-       sliderInput("sineAmplitude", "Sine amplitude", -2, 2, 1, step=0.1,
-         animate=animationOptions(interval=100, loop=TRUE))
-     )
-   )
- ))
-```
-
-
-```{r, echo=FALSE, results='asis', fig.align='center', eval=FALSE}
-library(explodingboxplotR)
-
-# use this to replicate
-#   from ?boxplot
-#boxplot(count ~ spray, data = InsectSprays, col = "lightgray")
-
-exploding_boxplot(width = '1400px', height = '650px',
-  data.frame(
-    rowname = rownames(InsectSprays),
-    InsectSprays,
-    stringsAsFactors = FALSE
-  ),
-  y = "count",
-  margin = list(bottom = 50, left = 30, top = 20, right = 20),
-  group = "spray",
-  color = "spray",
-  label = "rowname"
-)
-
-# demonstrate all of the options
-#  xlab does not work
-#  filed issue on source repo
-# exploding_boxplot(
-#   data.frame(
-#     rowname = rownames(InsectSprays),
-#     InsectSprays,
-#     stringsAsFactors = FALSE
-#   ),
-#   y = "count",
-#   group = "spray",
-#   color = "spray",
-#   label = "rowname",
-#   iqr = 2,
-#   margin = list(bottom = 50, left = 30, top = 20, right = 20),
-#   xlab = "Spray Type",
-#   ylab = "Count Provided"
-# )

@@ -1,66 +1,5 @@
-library(teachingApps)
-library('SMRD')
-library('metricsgraphics')
-
-
-
-
-
-
-
-
-
-  
-
-
-shinyApp(options = list(height = "700px"),
-
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
-                tags$head(includeCSS(getShinyOption("css"))),
-sidebarLayout(
-sidebarPanel(width = 3,
-  
-  sliderInput("rangegoma", 
-              label = h2("Range"),
-              min = 0, 
-              max = 50, 
-              value = c(0,20)),
-  sliderInput("th.goma", 
-              label = h2(HTML("Scale (&theta;)")),
-              min = 0.5, 
-              max = 10, 
-              step = 0.5, 
-              value = 1, 
-              animate = TRUE),
-  sliderInput("ze.goma", 
-              label = h2(HTML("Shape 1 (&zeta;)")),
-              min = 0.5, 
-              max = 10, 
-              step = 0.5, 
-              value = 1, 
-              animate = TRUE),
-  sliderInput("et.goma", 
-              label = h2(HTML("Shape 2 (&eta;)")),
-              min = 0.5, 
-              max = 10, 
-              step = 0.5, 
-              value = 1,
-              animate = TRUE)),
-
-  mainPanel(width = 9,
- tabsetPanel(type = 'pills',
-  tabPanel(h4('Distribution Function'),metricsgraphicsOutput("gomaC",height = "600px")),
-  tabPanel(h4('Density'),              metricsgraphicsOutput("gomaP",height = "600px")),
-  tabPanel(h4('Survival'),             metricsgraphicsOutput("gomaR",height = "600px")),
-  tabPanel(h4('Hazard'),               metricsgraphicsOutput("gomah",height = "600px")),
-  tabPanel(h4('Cumulative Hazard'),    metricsgraphicsOutput("gomaH",height = "600px")),
-  tabPanel(h4('Quantile'),             metricsgraphicsOutput("gomaQ",height = "600px"))
-  )))),
-
 server = function(input, output, session) {
-  
 
-  
 t <-  reactive({ signif(seq(input$rangegoma[1], input$rangegoma[2],length = 500),digits = 4)})
 p <-  reactive({ signif(seq(0.001, .999, length = 500), digits = 4) })
 C <-  reactive({ pgoma(t(), input$th.goma, input$ze.goma, input$et.goma)})
@@ -106,4 +45,4 @@ df <- reactive({data.frame(Time = t(),PROB = p(), CDF = C(),PDF = P(),REL = R(),
   mjs_line(area = TRUE) %>%
   mjs_labs(x_label = 'Probability (p)', y_label = 't(p)') %>%
   mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")})
-})
+}

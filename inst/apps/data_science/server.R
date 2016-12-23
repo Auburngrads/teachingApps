@@ -1,25 +1,5 @@
-library(teachingApps)
-library('visNetwork')
-
-shinyApp(options = list(height = "600px"),
-
-         
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
-               tags$head(includeCSS(getShinyOption("css"))),
-               
-      mainPanel(width = 12,
-        tabsetPanel(type = 'pills',
-  tabPanel(h4('Data Analysis'),           visNetworkOutput("stats",height = "600px")),
-  tabPanel(h4('Programming'),             visNetworkOutput("coding",height = "600px")),
-  tabPanel(h4('Data Munging'),            visNetworkOutput("munging",height = "600px")),
-  tabPanel(h4('Reproducible Research'),   visNetworkOutput("reproduce",height = "600px")),
-  tabPanel(h4('Web Development'),         visNetworkOutput("webdev",height = "600px")),
-  tabPanel(h4('This Course'),             visNetworkOutput("stat687",height = "600px"))))),
-
 server = function(input, output, session) {
-  
 
-  
   output$stats <- visNetwork::renderVisNetwork({
            
 n.names <- list(
@@ -267,4 +247,4 @@ addFontAwesome() %>%
 visOptions(highlightNearest = list(enabled =TRUE, degree = 0)) %>% 
 visInteraction(navigationButtons = TRUE)
 })
-})
+}

@@ -1,8 +1,4 @@
 server = function(input, output, session) {
-  
-
-  
-
 
 t <- reactive({ signif(seq(min(input$range.n), max(input$range.n), length = 500), digits = 4)})
 p <- signif(seq(0, 1, length = 500), digits = 4) 

@@ -1,7 +1,5 @@
 server = function(input, output, session) {
 
-
-  
   t <- reactive({ input$N.hyp })
   p <- reactive({ signif(seq(0, 1, length = length(max(t()):min(t()))), digits = 4) })
   C <- reactive({ pgeom(t(), input$prob.geom)})

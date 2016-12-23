@@ -1,66 +1,3 @@
-library(teachingApps)
-library('metricsgraphics')
-
-shinyApp(options = list(height = "700px"),
-
-         
-ui = navbarPage(title = 'Beta Distribution',
-                theme = shinythemes::shinytheme(theme = 'flatly'),
-                header = tags$head(includeCSS(getShinyOption("css"))),
-                footer = HTML(teachingApps::teachingApp('global')),
-                
-tabPanel(h4('Shiny App'),
-sidebarLayout(
-  sidebarPanel(width = 3, 
-sliderInput("shape1", 
-            label = h2(HTML("Shape Parameter (&alpha;)")),
-            min = .5, 
-            max = 10, 
-            step=.5, 
-            value = 2,
-            animate=TRUE),
-sliderInput("shape2", 
-            label = h2(HTML("Shape Parameter (&beta;)")),
-            min = .5, 
-            max = 10, 
-            step = .5,
-            value = .5),
-sliderInput("scale.beta", 
-            label = h2("Scale Parameter (d)"),
-            min = 1, 
-            max = 20, 
-            step = 1, 
-            value = 1,
-            animate=TRUE),
-sliderInput("loc.beta", 
-            label = h2("Location Parameter (c)"),
-            min = 0, 
-            max = 10, 
-            step = .5, 
-            value = 0,
-            animate=TRUE)), 
-
-mainPanel(width = 9, 
-          tabsetPanel(type = "pills", 
-          tabPanel(h4("Distribution Function"), 
-                   metricsgraphicsOutput("betaC", height = "600px")), 
-          tabPanel(h4("Mass"),
-                   metricsgraphicsOutput("betaP", height = "600px")), 
-          tabPanel(h4("Survival"), 
-                   metricsgraphicsOutput("betaR", height = "600px")), 
-          tabPanel(h4("Hazard"), 
-                   metricsgraphicsOutput("betah", height = "600px")), 
-          tabPanel(h4("Cumulative Hazard"), 
-                   metricsgraphicsOutput("betaH", height = "600px")),
-          tabPanel(h4("Quantile"), 
-                   metricsgraphicsOutput("betaQ", height = "600px")))))),
-
-tabPanel(h4('Distribution Functions'),
-         mainPanel(uiOutput('betafunc'), class = 'shiny-text-output', width = 12)),
-
-tabPanel(h4('Distribution Properties'),
-         mainPanel(uiOutput('betaprops', class = 'shiny-text-output'), width = 12))),
-
 server = function(input, output, session) {
   
 beta.t <- reactive({ signif(seq(0,1, length.out = 500), digits = 4) + input$loc.beta })
@@ -123,4 +60,4 @@ output$betafunc <- renderUI({
 output$betaprops <- renderUI({
   HTML(includeMarkdown(paste(c(arg2$appDir,'beta-props.Rmd'), collapse = '/')))
 }) 
-})
+}

@@ -1,12 +1,6 @@
 library(teachingApps)
 library('SMRD')
 
-superalloy.ld <- frame.to.ld(SMRD::superalloy,
-                             response.column = 1, 
-                             censor.column = 2,
-                             x.columns = c(4,5,6),
-                             time.units = "Kilocycles")
-
 ui = navbarPage(title = 'Superalloy Example',
                 collapsible = T, 
                 position = 'fixed-top',

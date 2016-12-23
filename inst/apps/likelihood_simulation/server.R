@@ -1,8 +1,5 @@
 server = function(input, output, session) {
 
-if(!getShinyOption("story"))    
-output$sign <- renderUI({HTML(teachingApps::teachingApp(getShinyOption("appName")))})
-  
 mle <- reactiveValues(dats = NULL,
                       params = NULL,
                       sims = 0,

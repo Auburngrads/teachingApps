@@ -1,3 +1,5 @@
-arg2 <-
-structure(list(theme = "flatly", appDir = "myAppDir", appName = "myApp"), .Names = c("theme", 
-"appDir", "appName"), row.names = c(NA, -1L), class = "data.frame")
+superalloy.ld <- frame.to.ld(SMRD::superalloy,
+                             response.column = 1, 
+                             censor.column = 2,
+                             x.columns = c(4,5,6),
+                             time.units = "Kilocycles")

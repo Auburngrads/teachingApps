@@ -1,3 +1,7 @@
-arg2 <-
-structure(list(theme = "flatly", appDir = "myAppDir", appName = "myApp"), .Names = c("theme", 
-"appDir", "appName"), row.names = c(NA, -1L), class = "data.frame")
+ZelenCap.ld <- frame.to.ld(SMRD::zelencap, 
+                           response.column = 1, 
+                           censor.column = 2, 
+                           case.weight.column = 3,
+                           x.columns = c(4, 5),
+                           time.units = "Hours", 
+                           xlabel = c(expression(C^o), expression("Volts")))
