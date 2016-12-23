@@ -1,0 +1,43 @@
+library(teachingApps)
+library('metricsgraphics')
+
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
+               tags$head(includeCSS(getShinyOption("css"))),
+               tags$footer(getShinyOption("sign")),
+
+sidebarLayout(
+sidebarPanel(width = 3, 
+  hr(),
+  sliderInput("range.w", 
+              label = h2("Range"),  
+              min = 0, 
+              max = 50, 
+              value = c(0,25)),
+  hr(),
+  sliderInput("scale.w", 
+              label = h2(HTML("Scale (&eta;)")),  
+              min = 5, 
+              max = 30, 
+              step = 1, 
+              value = 10, 
+              animate = T),
+  hr(),
+  sliderInput("shape.w", 
+              label = h2(HTML("Shape (&beta;)")),  
+              min = .5, 
+              max = 10, 
+              step = .5, 
+              value = .5, 
+              animate = T)),
+
+mainPanel(width = 9,
+ tabsetPanel(type = 'pills',
+  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("weibC",height = "600px")),
+  tabPanel(h4('Density'),                metricsgraphicsOutput("weibP",height = "600px")),
+  tabPanel(h4('Survival'),               metricsgraphicsOutput("weibR",height = "600px")),
+  tabPanel(h4('Hazard'),                 metricsgraphicsOutput("weibh",height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("weibH",height = "600px")),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("weibQ",height = "600px"))))),
+
+if(!getShinyOption("story"))
+fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))

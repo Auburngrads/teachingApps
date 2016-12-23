@@ -1,6 +1,8 @@
-.onLoad <- function(libname, pkgname) {
+.onLoad <- 
+function(libname, pkgname) {
   
-# options('appURL' = 'https://afit.shinyapps.io/')
+shiny::shinyOptions('theme'   = 'flatly')
+shiny::shinyOptions('css'     = system.file('resources','css','teachingApps.css', package = 'teachingApps'))
   
 }
 
@@ -11,7 +13,8 @@
 #' @importFrom graphics par
 #' 
 #' @export
-jkf.par <- function(...) {
+jkf.par <- 
+function(...) {
     
     par(cex.lab=1.05,
         cex.axis=1.05,
@@ -26,31 +29,10 @@ jkf.par <- function(...) {
 }
 
 
-#' Leave signature for teachingApps 
-#'
-#' @param name The name of the app \code{character}
-#'
-#' @export
-teachingApp <- function(name) {
-  
-  if(!is.character(name)) stop('name must be a character string')
-  
-  gitFile <- paste(c(name,'app.R'), collapse = '/')
-  gitURL  <- 'https://github.com/Auburngrads/teachingApps/blob/master/inst/apps'
-  
-    return(paste(c("<ul class='photo-grid'>
-<li>
-<figure>
-<img src='http://i.imgur.com/5DusfUM.gif'> 
-<figcaption><p>Get the <a target=' ' href='",
-                paste(c(gitURL, gitFile), collapse = '/'),"'>CODE</a> for this app</p></figcaption>
-</figure>
-</li>
-</ul>"), collapse = ''))
-    
-}
 
-createFun <- function() {
+
+createFun <- 
+function() {
   
   dir = "C:\\Users\\Jason\\OneDrive\\Work-Stuff\\Computer Systems\\GitHub\\teachingApps\\inst\\apps"
   
@@ -81,7 +63,8 @@ createFun <- function() {
                     "#' @details When publishing apps using shinyapps.io or shinyServer, set \\code{pub = TRUE} to prevent calls to \\code{install.packages}. Calls to \\code{install.packages} should not be included within an app and will result in an error.\n",
                     "#'\n",
                     "#' @export\n\n",apps[i],
-                    ' <- function(pub = FALSE) {
+                    ' <- 
+function(pub = FALSE) {
 
     dir <- dirname(system.file("apps", "', apps[i],'", "app.R", package = "teachingApps"))
 

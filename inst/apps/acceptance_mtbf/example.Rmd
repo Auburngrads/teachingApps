@@ -1,0 +1,18 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+- R, like most languages, does not maximize functions - but <red>minimizes</red> them
+
+- Therefore, to find `maximum` values we minimize the <u>negative</u> of a function
+
+- <focus>This is why `joint.exp()` returns a negative<focus>
+
+- This does not change the value of the point at which the maximum value occurs (returned by `$par`)
+
+- But, we must remember that the value of the likelihood function (returned by `$objective`) must be multiplied by -1
+

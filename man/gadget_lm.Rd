@@ -4,28 +4,30 @@
 \alias{gadget_lm}
 \title{Function Title}
 \usage{
-gadget_lm(pub = FALSE, theme = "flatly", rmd = FALSE, width = "100\%",
-  height = "800px", ...)
+gadget_lm(data, xvar, yvar, theme = "flatly", width = "100\%", css = NULL,
+  height = "600px", ...)
 }
 \arguments{
-\item{pub}{Will the app be published (deployed)? (see details)}
+\item{data}{A \code{data.frame} object}
 
-\item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
+\item{xvar}{Column from \code{data} to display on the x-axis}
 
-\item{rmd}{Will the app code be included in an interactive Rmarkdown document or presentation with code{runtime: shiny}? (see details)}
+\item{yvar}{Column from \code{data} to display on the y-axis}
 
-\item{width}{Width of the printed app. Used for code{rmd = TRUE}, otherwise ignored}
+\item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}}
 
-\item{height}{Height of the printed app. Used for code{rmd = TRUE}, otherwise ignored}
+\item{width}{Width of the printed app.}
 
-\item{...}{Additional arguments passed to code{shiny::runApp()}}
+\item{css}{Path to a custom css file. If \code{NULL} the default css file is used}
+
+\item{height}{Height of the printed app.}
+
+\item{...}{Additional options passed to \code{shiny::shinyAppDir()}}
 }
 \description{
 Description
 }
 \details{
 When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
-
-When code{rmd = FALSE} the app is run using code{shiny::runApp}, addition arguments can be passed via the code{...} argument.  When code{rmd = TRUE}, code{shiny::shinyAppDir} is used the code{width} and code{height} arguments must be specified.
 }
 

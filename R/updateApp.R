@@ -16,7 +16,8 @@
 #' 
 #' @export
 
-updateApp <- function(app = NULL, repo = 'teachingApps', pkg = repo,
+updateApp <- 
+function(app = NULL, repo = 'teachingApps', pkg = repo,
                       lib = .libPaths()[1], open.folder = FALSE, 
                       css = FALSE, create = FALSE, git = NULL) {
   
@@ -68,7 +69,7 @@ updateApp <- function(app = NULL, repo = 'teachingApps', pkg = repo,
   
     if(css) {
     
-    cssFiles <- list.files(path = paste(c(gitRoot, 'css'), collapse = '/'))
+    cssFiles <- list.files(path = paste(c(gitRoot, 'resources','css'), collapse = '/'))
     
     for(i in 1:length(cssFiles)) {
       

@@ -1,0 +1,25 @@
+---
+output: html_document
+---
+
+### Steps to install RStudio on personally-owned Windows machines
+
+1) In the previous step you attempted to install the `installr` package from the CRAN 
+
+2) You can verify that the package installed by running `"installr"%in%installed.packages()`
+
+    a) If the returned value is `TRUE` your all set, skip down to 3)
+
+    b) If the returned value is `FALSE` run `install.packages("installr")`
+
+    c) If this attempt also fails to install the package skip down to 4)
+
+3) With the `installr` package RStudio may be installed from within R by running `installr::install_rstudio()` 
+
+4) Without the `installr` package RStudio can be installed from <a target=" " href="http://rstudio.com">HERE</a>
+
+5) Once installed, open RStudio to ensure it's linked with the your installed version of R
+
+    a) If your R installation is found, RStudio will open - <u>no news is good news</u>
+
+    b) If your R installation is not found, RStudio will fail to open properly

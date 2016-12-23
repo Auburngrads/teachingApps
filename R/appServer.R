@@ -2,6 +2,7 @@
 #'
 #' @param appName The name of the "smaller" app from which the server will be pulled
 #' @param pkg The package in which \code{appName} exists
+#' @param envir The environment in which the call is made typically \code{environment()}
 #'
 #' @export
 
@@ -39,14 +40,19 @@ nestUI <- function(appName, pkg = 'teachingApps') {
 }
 
 #' Nest an rmarkdown file within an app
-#'
+#' 
+#' @importFrom shiny getShinyOption withMathJax HTML
+#' @importFrom knitr knit
+#' @importFrom markdown markdownToHTML 
+#' 
 #' @param rmd An rmarkdown file saved in the app directory
 #'
 #' @export
 
 nestRmd <- function(rmd) {
   
-  withMathJax(HTML(markdown::markdownToHTML(knitr::knit(rmd))))
+  rmd <- paste(c(getShinyOption('appDir'),rmd), collapse = '/')
+   withMathJax(HTML(markdown::markdownToHTML(knitr::knit(rmd))))
   
 }
 

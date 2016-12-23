@@ -1,0 +1,137 @@
+---
+output: html_document
+---
+
+```{r, echo=FALSE}
+set.seed(as.numeric(Sys.Date()))
+obs <- runif(2,0.5,4.5)
+theta <- sum(obs)/2
+log.like <- dexp(obs[1], rate = 1/theta)*dexp(obs[2], rate = 1/theta)
+```
+
+### Ok, Tell Me If You've Heard This One Before...
+
+- Four distributions walk into a bar
+
+    + <purple>An exponential</purple>
+
+    + <green>A normal</green>
+
+    + <red>A lognormal</red>
+
+    + <blue>A Weibull</blue>
+
+- Once inside, they observe $`r obs[1]`$ and $`r obs[2]`$ laying on the floor
+
+    + The <purple>exponential</purple> says: 'Those are mine, they came from an exponential distribution'
+
+    + The <green>normal</green> says: 'Those are mine, they came from a normal distribution'
+
+    + The <red>lognormal</red> says: 'Those are mine, they came from a lognormal distribution'
+
+    + The <blue>Weibull</blue> says: 'Those are mine, they came from a Weibull distribution'
+
+- What steps are required to show which distribution is correct?
+
+    + Determine which member of the <purple>Exponential</purple> distribution family best fits the data
+
+    + Determine which member of the <green>Normal</green> distribution family best fits the data
+
+    + Determine which member of the <red>Lognormal</red> distribution family best fits the data
+
+    + Determine which member of the <blue>Weibull</blue> distribution family best fits the data
+
+    + Determine which of these best-fit distributions best fits the data   
+
+- We could perform each of these steps analytically, but...
+
+    + That would be painful and time-consuming
+
+    + It would be of little benefit, since few real problems can be solved analytically 
+
+    + <focus>I really don't want to</focus>
+
+    + For the <purple>exponential</purple> distribution we'll find the MLE's  analytically, graphically and numerically 
+
+    + For the <green>normal</green>, <red>lognormal</red>, and <blue>Weibull</blue> we'll just find them numerically 
+
+### The <purple>Exponential</purple> distribution
+
+- The <purple>Exponential</purple> distribution has a single parameter $\theta$ and the pdf expressed as
+
+$$f(t|\theta)=\frac{1}{\theta}\exp\left[-\frac{t}{\theta}\right]$$
+
+- The joint probability/likelihood of observing $(`r obs`)$ (assuming the <purple>exponential</purple> distribution is correct) would be expressed as
+
+<small>
+$$
+\begin{aligned}
+\mathscr{L}(\underline{\theta}=\theta|\underline{t}=t_1,t_2)&=\prod_{i=1}^2 f(t_i|\theta)\\\\
+&=\left(\frac{1}{\theta}\right)\exp\left[-\frac{`r obs[1]`}{\theta}\right]\times \left(\frac{1}{\theta}\right)\exp\left[-\frac{`r obs[2]`}{\theta}\right]
+\end{aligned}
+$$
+</small>
+    
+- <focus>Our challenge</focus> is to find the value of $\theta$ that maximizes this joint probability/likelihood
+
+- This can be accomplished in three ways (we'll walk through each one for the <purple>exponential</purple> distribution)
+
+    + Analytically
+
+    + Graphically 
+
+    + Numerically
+
+- <focus>The analytical solution</focus>
+
+    + Calculus says that a function $f(t)$ attains a maximum (or minimum) value at $t$ if
+$$\frac{df(t)}{dt}=0$$
+    + In this case, $f(t)$ is the joint probability/likelihood of the data, assuming the <purple>exponential</purple> distribution is correct, e.g.
+    
+$$
+\begin{aligned}
+\mathscr{L}(\theta|t_i)=\prod_{i=1}^n f(t_i|\theta)&=\prod_{i=1}^n\left(\frac{1}{\theta}\right)\exp\left[-\frac{t_i}{\theta}\right]\\
+&=\left(\frac{1}{\theta}\right)^n\exp\left[-\sum_{i=1}^n\frac{t_i}{\theta}\right]\\
+&=\left(\frac{1}{\theta}\right)^n\exp\left[-\frac{\sum_{i=1}^n t_i}{\theta}\right]
+\end{aligned}
+$$
+    + Usually it's easier to find the derivative of the log-likelihoood function $\mathcal{L}=\log[\mathscr{L}]$
+
+    + In the equations below we find the log-likelihood function AND take the derivative<br><focus>I'm combining steps here - Don't freak out</focus>
+$$
+\begin{aligned}
+\frac{\partial\mathcal{L}}{\partial\theta}&=\frac{\partial\left[ n\left(\log[1]-\log[\theta]\right)-\frac{\sum_{i=1}^n t_i}{\theta}\right]}{\partial\theta}\\
+&=-\frac{n}{\theta}+\frac{\sum_{i=1}^n t_i}{\theta^2}
+\end{aligned}
+$$
+    + Setting this derivative equal to zero and solving for $\theta$ reveals that
+$$\hat{\theta}_{_{MLE}}=\frac{\sum_{i=1}^n t_i}{n}$$
+    + <focus>NOTE:</focus> For completeness, we should have also found the second derivative to ensure that the critical value is in fact a maximum and not a minimum.
+
+    + Substituting the two observations results in the following value
+$$\hat{\theta}_{_{MLE}}=\frac{`r obs[1]`+`r obs[2]`}{2}=`r theta`$$
+    + Finally, (<red>whew!</red>) we can compute the maximum joint probability/likelihood of observating $(`r obs`)$ - assuming the exponential distribution is correct)
+
+<small>
+$$\begin{aligned}
+\prod_{i=1}^2 f(t_i|\theta=`r theta`)&=\left(\frac{1}{`r theta`}\right)\exp\left[-\frac{`r obs[1]`}{`r theta`}\right]\times\left(\frac{1}{`r theta`}\right)\exp\left[-\frac{`r obs[2]`}{`r theta`}\right]\\\\
+&=\mathbf{`r log.like`}
+\end{aligned}
+$$
+</small>
+
+- To summarize - we determined (<red>analytically</red>) that...
+
+    + The member of the exponential distribution family that best-fits the data $(`r obs[1:2]`)$ was the member for which $\theta=`r theta`$
+
+    + The joint probability/likelihood of this model is $`r log.like`$ 
+
+    + The value $`r log.like`$ represents the best that the exponential distribution can do to model this data and will be used to compare with the other distributions
+
+- <focus>Finding $\hat{\theta_{_{MLE}}}$ Graphically</focus>
+
+    + The plot below shows the joint prabability/likelihood of the <purple>exponential</purple> distribution to model the observations $(`r obs`)$ for various values of $\hat{\theta}$
+
+    + The vertical line shows the value of $\hat{\theta}_{_{MLE}}$ that we computed analytically correndonds to the value of $\theta$ that maximizes the joint probability on the plot
+
+    + It should be clear that graphical solutions can be faster and easier than analytical solutions, but they can also be less accurate

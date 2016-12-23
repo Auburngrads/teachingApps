@@ -9,6 +9,8 @@ insertServer(appName, envir = NULL, pkg = "teachingApps")
 \arguments{
 \item{appName}{The app from which the UI is pulled}
 
+\item{envir}{The environment in which the call is made typically \code{environment()}}
+
 \item{pkg}{The package in which the \code{appName} exists}
 }
 \description{

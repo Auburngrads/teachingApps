@@ -1,0 +1,42 @@
+library(teachingApps)
+library(scales)
+library(triangle)
+library(metricsgraphics)
+
+ui = navbarPage(title = 'SMC Risk Calculator',
+                collapsible = T, 
+                position = 'fixed-top',
+                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+                header = tags$head(includeCSS(getShinyOption("css"))),
+                footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
+                
+tabPanel(h4('Calculator Tool'),
+   sidebarLayout(
+   sidebarPanel(width = 3,
+      sliderInput('weib1.1', 
+                  label = h2(HTML('Shape - &beta;<sub>1</sub>')), 
+                  min = 0.5,
+                  max = 6,
+                  step = .5,
+                  value = 1),
+      sliderInput('weib1.2', 
+                  label = h2(HTML('Scale - &eta;')), 
+                  min = 5,
+                  max = 40,
+                  step = 1,
+                  value = 12 ),
+      sliderInput('tri2.1', 
+                  label = h2(HTML('<red>Mean - &mu;</red>')), 
+                  min = 40,
+                  max = 80,
+                  step = 1,
+                  value = 50),
+      sliderInput('tri2.2', 
+                  label = h2(HTML('<red>Variance - &sigma;</red>')), 
+                  min = 5,
+                  max = 15,
+                  step = 1,
+                  value = 5 )),
+               
+      mainPanel(metricsgraphicsOutput('weibtri', height = '625px'), width = 9))))
+

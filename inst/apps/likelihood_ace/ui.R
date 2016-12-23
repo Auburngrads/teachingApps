@@ -2,8 +2,8 @@ library(teachingApps)
 
 
 ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
-               theme = shinythemes::shinytheme(theme = source('args.R')[[1]]$theme), 
-               tags$head(includeCSS(system.file('css', 'my-shiny.css', package = 'teachingApps'))),
+               theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
+               tags$head(includeCSS(getShinyOption("css"))),
                  
 sidebarLayout(
    sidebarPanel(width = 5,
@@ -67,7 +67,7 @@ than for the exponential distribution',
 
    mainPanel(plotOutput('plotlike', height = '600px'), width = 7)),
 
-if(!source('args.R')[[1]]$story) 
+if(!getShinyOption("story")) 
      fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
 
 

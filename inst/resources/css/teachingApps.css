@@ -1,0 +1,624 @@
+/*                                       */
+/*              CSS FOR R CODE           */
+/*                                       */
+
+
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+   margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  border: none;
+
+}
+table.sourceCode {
+  width: 100%;
+  line-height: 100%;
+}
+td.lineNumbers {
+  text-align: right;
+  padding-right: 4px;
+  padding-left: 4px;
+  color: #aaaaaa;
+  border-right: 1px solid #aaaaaa; }
+
+td.sourceCode { padding-left: 5px; }
+
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+
+
+/* allow R chunks to render in a large font */
+pre.sourceCode {
+   font-size: 70% !important;
+   background-color: #e6e6e6 !important;
+   margin: 0 0 10.5px !important;
+   line-height: 100% !important;
+   padding: 15px 0 15px 75px !important;
+   border-color: #e6e6e6 !important;
+}
+
+code.sourceCode{
+  font-size: 18pt;
+   border: none;
+   font-weight: 500;
+}
+
+pre code { border-width: 0; }
+
+code {
+  font-size: .8em;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  color: red;
+  font-weight: normal;
+  background-color: #e6e6e6;
+  padding: .2em .3em .1em .3em;
+  border-radius: 8px;
+  white-space: nowrap;
+  vertical-align: 10%;
+}
+
+pre {
+  background-color: #FFF !important;
+  font-family: monospace !important;
+  border-style: solid !important;
+  border-radius: 8px !important;
+  color: #2c3e50 !important;
+  border-color: #2c3e50 !important;
+  font-size: 16pt !important;
+}
+
+code[class] { background: #ccc; }
+
+div.sourceCode { overflow-x: auto; }
+
+/*                                       */
+/*              CSS FOR TABLES           */
+/*                                       */
+
+table.dataTable th.dt-right, table.dataTable td.dt-right {
+
+  font-size: 130%;
+}
+
+table.dataTable th, table.dataTable td {
+
+  font-size: 110%;
+}
+
+table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+
+  font-size: 110%;
+}
+
+table.dataTable th.dt-right, table.dataTable td.dt-right {
+
+  font-size: 12pt;
+}
+
+table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+
+  font-size: 12pt;
+}
+
+table.dataTable thead .sorting {
+  
+background: -webkit-gradient(linear, 50% 0%, 50% 100%, 
+              color-stop(40%, #4387fd), 
+              color-stop(80%, #2a7cdf)) no-repeat !important;
+background: -webkit-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
+background: -moz-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
+background: -o-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
+  background: linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
+  color: #FFF;
+  padding: 0.25em 0.25em;
+  font-weight: bold;
+  font-size: 18pt;
+}
+
+
+/* Data Table CSS Settings */
+
+table {
+  border-collapse: -moz-initial;
+  border-collapse: initial;
+  border-spacing: 2px;
+  border-bottom: 1px solid #797979;
+  margin: 60px auto 60px auto;
+  width: 90%;
+}
+
+/* line 479, scss/default.scss */
+table tr > td:first-child, table th {
+  font-weight: bold;
+  font-size: 22;
+}
+/* line 484, scss/default.scss */
+table tr:nth-child(odd) {
+  background-color: #e6e6e6;
+}
+/* line 488, scss/default.scss */
+table th {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #4387fd), color-stop(80%, #2a7cdf)) no-repeat;
+  background: -webkit-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+  background: -moz-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+  background: -o-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+  background: linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+  color: #FFF;
+  padding: 0.25em 0.25em;
+  font-weight: bold;
+  font-size: 18pt;
+}
+/* line 494, scss/default.scss */
+table td {
+  font-size: 22px;
+  font-weight: bold;
+  padding: 0.25em 0.25em;
+}
+/* line 499, scss/default.scss */
+table td.highlight {
+  color: #515151;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #ffd14d), color-stop(80%, #f6c000)) no-repeat;
+  background: -webkit-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: -moz-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: -o-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+}
+/* line 504, scss/default.scss */
+table.rows {
+  border-bottom: none;
+  border-right: 1px solid #797979;
+}
+
+table.example {
+  width: 80%;
+}
+
+
+/*                                       */
+/*          CSS FOR THE NAVBAR           */
+/*                                       */
+
+
+.navbar-static-top {
+  border-radius: 100px;
+  width: 99%;
+  margin: 15px 0.5% 15px 0.5%;
+}
+
+.navbar-static-top .container { width: 95%; }
+
+.navbar-fixed-top {
+  border-radius: 100px;
+  width: 99%;
+  margin: 0 0.5% 30px 0.5% !important;
+}
+
+.navbar-fixed-top .container { width: 95%; }
+
+.navbar-fixed-top + .container-fluid { margin-top: 100px; }
+
+.navbar-brand {
+  margin-left: auto !important;
+  margin-right: 2em;
+  font-size: 20pt;
+  font-weight: normal;
+  font-style: italic;
+  display: inline !important;
+}
+
+.nav.nav-pills {
+  padding-left: 1%;
+  margin-bottom: 12pt;
+}
+/*                                       */
+/*              CSS FOR LISTS            */
+/*                                       */
+
+
+
+ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
+
+.shiny-text-output ul li { 
+  list-style-type: square;
+  margin-left: -0.4em;
+  font-weight: bold;
+  line-height: 140%;
+  font-size: 24pt;
+  margin: 1em 0 1.5em 1em;
+  padding: 0 0 0 1em;
+}
+.shiny-text-output ul li ul li { 
+  list-style-type: disc; 
+  font-size: 20pt;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+  font-weight: normal;
+}
+.shiny-text-output ul li ol li { 
+  list-style-type: decimal; 
+  font-size: 20pt;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+  font-weight: normal;
+}
+.shiny-text-output ul li ul li ul li { 
+  list-style-type: circle; 
+  font-size: 16pt;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+  font-weight: normal;
+}
+.shiny-text-output ul li ol li ul li { 
+  list-style-type: circle; 
+  font-size: 16pt;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+  font-weight: normal;
+}
+.shiny-text-output ul li ul li ol li { 
+  list-style-type: decimal; 
+  font-size: 16pt;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+  font-weight: normal;
+}
+
+.shiny-text-output ol li    { 
+  list-style-type: decimal; 
+  margin-left: -0.4em;
+  font-weight: bold;
+  line-height: 140%;
+  font-size: 24pt;
+  margin: 1em 0 1.5em 1em;
+  padding: 0 0 0 1em;
+}
+.shiny-text-output ol li ul li { 
+  list-style-type: disc; 
+  font-size: 20pt;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+  font-weight: normal;
+}
+.shiny-text-output ol li ol li { 
+  list-style-type: decimal; 
+  font-size: 20pt;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+  font-weight: normal;
+}
+.shiny-text-output ol li ul li ul li { 
+  list-style-type: circle; 
+  font-size: 16pt;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+  font-weight: normal;
+}
+.shiny-text-output ol li ol li ul li { 
+  list-style-type: circle; 
+  font-size: 16pt;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+  font-weight: normal;
+}
+.shiny-text-output ol li ul li ol li { 
+  list-style-type: decimal; 
+  font-size: 16pt;
+  background: transparent;
+  padding: 0 0 0 1em;
+  margin: 1em 0 1em 0.25em;
+  font-weight: normal;
+}
+
+
+/*                                        */
+/*    STYLE RULES FOR THE APP SIGNATURE   */
+/*                                        */
+
+#sign {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    bottom: 100%;
+}
+
+footer {
+  bottom: 5% !important;
+  position: fixed;
+  width: 100%;
+  height: 30px;
+}
+
+.photo-grid {
+	margin: 1em auto;
+	max-width: 100%;
+	text-align: center;
+	
+}
+
+ul.photo-grid { 
+  padding-left: 0 !important; 
+  margin-left: -1em !important;
+}
+
+.photo-grid li {
+	border: 0;
+	display: inline-block;
+	margin: 0;
+	width: 289px;
+	padding-bottom: 0;
+}
+
+.photo-grid img {
+	display: block;
+	height: 40px;
+	max-width: 100%;
+	 position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.photo-grid figure {
+	height: 40px;
+	overflow: hidden;
+	position: relative;
+	width: 289px;
+}
+
+.photo-grid figcaption {
+	background: rgba(0,0,0,0.8);
+	color: white;
+	display: table;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 100;
+	border-radius: 30px;
+}
+
+.photo-grid figcaption p {
+	display: table-cell;
+	font-size: 1.5em;
+	position: relative;
+	top: -40px;
+	width: 289px;
+	vertical-align: middle;
+}
+
+.photo-grid li:hover figcaption {
+	opacity: 1;
+	border-radius: 30px;
+}
+.photo-grid img {
+	display: block;
+	height: 40px;
+	-webkit-transition: all 300ms;
+	-moz-transition: all 300ms;
+	-o-transition: all 300ms;
+	max-width: 289px;
+}
+
+.photo-grid li:hover img {
+	-webkit-transform: scale(2);
+	-o-transform: scale(2);
+	-moz-transform: scale(2);
+	-ms-transform: scale(2);
+	transform: scale(2);
+}
+.photo-grid figcaption p {
+	display: table-cell;
+	font-size: 1.5em;
+	position: relative;
+	top: -40px;
+	width: 289px;
+	-webkit-transition: all 300ms ease-out;
+	-moz-transition: all 300ms ease-out;
+	-o-transition: all 300ms ease-out;
+	vertical-align: middle;
+}
+
+.photo-grid li:hover figcaption p {
+	-moz-transform: translateY(40px);
+	-webkit-transform: translateY(40px);
+	-o-transform: translateY(40px);
+	-ms-transform: translateY(40px);
+	transform: translateY(40px);
+}
+.photo-grid figcaption {
+	background: rgba(0,0,0,0.8);
+	color: white;
+	display: table;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	-webkit-transition: all 300ms;
+	-moz-transition: all 300ms;
+	-o-transition: all 300ms;
+	-webkit-transition-delay: 100ms;
+	-moz-transition-delay: 100ms;
+	-o-transition-delay: 100ms;
+	z-index: 100;
+}
+/*                                       */
+/*             CSS FOR WIDGETS           */
+/*                                       */
+
+
+
+.CodeMirror {
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+.plot-container-plotly g.infolayer {
+  font-size: 20px;
+}
+
+.plot-container-plotly .svg-container svg.main-svg g.infolayer {
+  font-size: 20px;
+}
+
+plotlybox {
+  display: block;
+  width: 30px;
+  text-align: left;
+}
+
+.leaflet-popup-content {
+
+  font-size: 15pt;
+}
+
+/*                                       */
+/*    BASIC STYLE RULES FOR THE TEXT     */
+/*                                       */
+
+body { 
+  margin: 0 0 0 0;
+  max-width: 1800px !important;      
+}
+
+p {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+hr {
+  display: block;
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: 2px;
+  border: none;
+  background-color: #149C82;
+}
+
+h4 {
+  font-size: 20pt !important; 
+  font-weight: bold !important;
+  display: inline !important;
+}
+
+h3 {
+  padding: 0 0.5em 5px 10px;
+  margin: 0 auto 0.75em auto;
+  width: 99%;
+  display: block; 
+  font-size: 32pt;
+  line-height: 1.3em;
+  font-weight: bold;
+  font-style: italic;
+  font-family: "lucida","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h3:after {
+    content:' ';
+    display: block;
+    border: 1pt solid #149C82;
+    margin-top: 10px;
+}
+
+red    {  color: red;     font-weight: bold; }
+blue   {  color: blue;    font-weight: bold; }
+green  {  color: green;   font-weight: bold; }
+purple {  color: purple;  font-weight: bold; }
+orange {  color: orange;  font-weight: bold; }
+brown  {  color: brown;   font-weight: bold; }
+
+small    { font-size: 90% }
+smaller  { font-size: 80% }
+smallest { font-size: 70% }
+
+big     { font-size: 110% }
+bigger  { font-size: 120% }
+biggest { font-size: 130% }
+
+
+.shiny-text-output {
+  font-weight: bold;
+  font-size: 20pt;
+  color: #2C3E50;
+  font-family: "lucida","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
+
+focus  {  background-color: #F39C12;
+          border-color: orange;
+          border-radius: 10px;
+          padding: 4.5px 8px 6.5px 8px;
+          white-space: nowrap;
+}
+
+.MathJax_SVG_Display  { font-size: inherit; }
+
+.MathJax_Display { font-size: inherit; }
+
+.MathJax { font-size: inherit; }
+
+.example {
+  border-style: solid;
+  border-width: 0 15px 1px 15px;
+  border-color: #2C3E50;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  margin-bottom: 30px;
+  padding-bottom:30px;
+}
+
+iframe{ 
+  border-width: 0;
+  padding-top: 80px;
+}
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+}
+

@@ -1,0 +1,36 @@
+library(shiny)
+
+ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption('theme')),
+               tags$head(includeCSS(getShinyOption('css'))),
+               tags$footer(getShinyOption("sign")),
+               
+sidebarLayout(
+   sidebarPanel(width = 3,
+      sliderInput(inputId = "sample",
+                  label = h2("Sample size"),
+                  value = 50, 
+                  min = 10, 
+                  max = 100),
+      hr(),
+      sliderInput(inputId = "slope",
+                  label = h2("Regression slope"),
+                  value = .25, 
+                  min = -2, 
+                  max = 2,
+                  step = .25),
+      hr(),
+      sliderInput(inputId = "SD",
+                  label = h2("Standard deviation"),
+                  value = 3, 
+                  min = 0, 
+                  max = 50),
+      hr(),
+      actionButton(width = '100%',
+                   inputId = "refresh", 
+                   label = h4("Simulate New Data"))),
+      
+   mainPanel(width = 9,
+      tabsetPanel(type = "pills",
+                  tabPanel(h4("Total"),      plotOutput("total",  height = '550px')),
+                  tabPanel(h4("Regression"), plotOutput("regress",height = '550px')),
+                  tabPanel(h4("Error"),      plotOutput("error",  height = '550px'))))))

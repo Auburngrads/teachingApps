@@ -1,7 +1,7 @@
 server = function(input, output, session) {
 
-if(!source('args.R')[[1]]$story)    
-output$sign <- renderUI({HTML(teachingApps::teachingApp(source('args.R')[[1]]$appName))})
+if(!getShinyOption("story"))    
+output$sign <- renderUI({HTML(teachingApp(getShinyOption("appName")))})
   
 output$plotlike2 <- renderPlot({
       par(family = 'serif', mar = c(4,4,1,2))

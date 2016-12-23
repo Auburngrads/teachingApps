@@ -1,0 +1,50 @@
+library(teachingApps)
+library('metricsgraphics')
+
+ui = navbarPage(title = 'Smallest Extreme Value Distribution',
+                collapsible = T, 
+                position = 'fixed-top',
+                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+                header = tags$head(includeCSS(getShinyOption("css"))),
+                footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
+                
+tabPanel(h4('Shiny App'),
+sidebarLayout(
+sidebarPanel(width = 3, 
+  hr(),
+  sliderInput("range.s", 
+              label = h2("Range"),
+              min = -20, 
+              max = 20, 
+              value = c(-6,6)),
+  hr(),
+  sliderInput("mu.sev", 
+              label = h2(HTML("Mean (&mu;)")),
+              min = -3, 
+              max = 3, 
+              step = 0.5, 
+              value = 0, 
+              animate = T),
+  hr(),
+  sliderInput("sig.sev", 
+              label = h2(HTML("Std Dev (&sigma;)")),
+              min = 1, 
+              max = 10, 
+              step = 0.5, 
+              value = 1, 
+              animate = T)),
+
+mainPanel(width = 9,
+ tabsetPanel(type = 'pills',
+  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("sevC",height = "600px")),
+  tabPanel(h4('Density'),                metricsgraphicsOutput("sevP",height = "600px")),
+  tabPanel(h4('Survival'),               metricsgraphicsOutput("sevR",height = "600px")),
+  tabPanel(h4('Hazard'),                 metricsgraphicsOutput("sevh",height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("sevH",height = "600px")),
+  tabPanel(h4('Quantile'),               metricsgraphicsOutput("sevQ",height = "600px")))))),
+
+tabPanel(h4('Distribution Functions'),
+         mainPanel(uiOutput('sevfunc'), class = 'shiny-text-output', width = 12)),
+
+tabPanel(h4('Distribution Properties'),
+         mainPanel(uiOutput('sevprops', class = 'shiny-text-output'), width = 12)))

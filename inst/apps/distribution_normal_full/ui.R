@@ -1,0 +1,50 @@
+library(teachingApps)
+library('metricsgraphics')
+
+ui = navbarPage(title = 'Normal Distribution',
+                collapsible = T, 
+                position = 'fixed-top',
+                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
+                header = tags$head(includeCSS(getShinyOption("css"))),
+                footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
+                
+tabPanel(h4('Shiny App'),
+sidebarLayout(
+sidebarPanel(width = 3, 
+  hr(),
+  sliderInput("range.n", 
+              label = h2("Range"),
+              min = -20, 
+              max = 20, 
+              value = c(-4,4)),
+  hr(),
+  sliderInput("mu.n", 
+              label = h2(HTML("Mean (&mu;)")),
+              min = -3, 
+              max = 3, 
+              step = 0.5, 
+              value = 0, 
+              animate = T),
+  hr(),
+  sliderInput("sig.n", 
+              label = h2(HTML("Std Dev (&sigma;)")),
+              min = 0.5, 
+              max = 5, 
+              step = 0.5, 
+              value = 1, 
+              animate = T)),
+
+mainPanel(width = 9,
+ tabsetPanel(type = 'pills',
+  tabPanel(h4('Distribution Function'),metricsgraphicsOutput("norC",height = "600px")),
+  tabPanel(h4('Density'),              metricsgraphicsOutput("norP",height = "600px")),
+  tabPanel(h4('Survival'),             metricsgraphicsOutput("norR",height = "600px")),
+  tabPanel(h4('Hazard'),               metricsgraphicsOutput("norh",height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),    metricsgraphicsOutput("norH",height = "600px")),
+  tabPanel(h4('Quantile'),             metricsgraphicsOutput("norQ",height = "600px")))))),
+
+tabPanel(h4('Distribution Functions'),
+         mainPanel(uiOutput('norfunc'), class = 'shiny-text-output', width = 12)),
+
+tabPanel(h4('Distribution Properties'),
+         mainPanel(uiOutput('norprops', class = 'shiny-text-output'), width = 12)))

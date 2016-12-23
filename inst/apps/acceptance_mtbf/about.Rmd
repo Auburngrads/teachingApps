@@ -1,0 +1,20 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+- Some key points are worth restating outside of the details available in these references
+
+    + OC calculations assume the sampling is done from a single population, meaning the test time should be applied to a single configuration. However, configurations usually change during developmental testing (DT). So, the test time planning that OC curves provide is a baseline for initial resource planning
+
+    + OC curves are a simple way to plan reliability testing and are based on a single hypothesis test.  The calculations in this tool assume a null hypothesis that the system does not perform to threshold and the alternate (what we aim to prove) is that it does at least meet threshold.  We will reject the null (system passes) if the specified test time results in the allowed number of failures or less. Whereas, the null is not rejected (system fails) if requisite number of failures is exceeded
+
+    + A 'point estimate' is the simple calculation of the proportion (number of successes divided by total number of trials) or mean-time (total time divided by number of failures). Uncertainty in our estimate results in a parameter estimate (confidence) interval whose width is determined by the sampling plan parameters. The tool described herein is set up with the lower bound of the point estimate set at the threshold
+
+    + The inherently stochastic behavior of real-world systems admits the possibility that an acceptable system may fail during the limited test period.  Similarly, a truly unacceptable system may pass. For this reason it is critical that the sampling plan be properly scoped to address these risks. Sizing an OC plan requires two risk variables, alpha and beta (numbers between 0 and 1). Alpha is also called consumer's risk and indicates the probability that the consumer observes the requisite number of failures (or less) and accepts a system that is actually below threshold (1-alpha is called confidence). Beta is also called producer's risk and indicates the probability that the producer's truly acceptable system results in too many failures and is rejected (1-beta is called power). Balancing these risks on an OC curve requires both lower bound (acquisition system threshold) and goal (acquisition system objective) values to properly determine a sampling plan. DoD acquisition policy defines the threshold (T) as 'the minimum acceptable operational value??? and objective (O) values as ?the desired operational goal.'  In some cases the objective value may be the same as the threshold.  The contracted performance value can be used in lieu of an objective value.  These details will be demonstrated later graphically
+
+    + For a given alpha and beta, test time increases as T and O get closer together.  Realistic values with a meaningful difference between them will reduce the test time required to make an accurate assessment
+
