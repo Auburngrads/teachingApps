@@ -1,13 +1,12 @@
-#' Insert an app server into a storyteller app
+#' Nest the server of a smaller app within the server of larger app
 #'
-#' @param appName The app from which the UI is pulled
+#' @param appName The name of the "smaller" app from which the server will be pulled
+#' @param pkg The package in which \code{appName} exists
 #' @param envir The environment in which the call is made typically \code{environment()}
-#' @param pkg The package in which the \code{appName} exists
 #'
 #' @export
 
-insertServer <- 
-function(appName, envir = NULL, pkg = 'teachingApps') {
+nestServer <- function(appName, envir = NULL, pkg = 'teachingApps') {
   
   file  <- system.file('apps', appName, 'server.R', package = pkg)
   serve <- source(file = file)
@@ -17,15 +16,14 @@ function(appName, envir = NULL, pkg = 'teachingApps') {
 }
 
 
-#' Insert an app UI into a storyteller app
+#' Nest the UI of smaller app within the UI of a larger app
 #'
-#' @param appName The app from which the UI is pulled
-#' @param pkg The package in which the \code{appName} exists
+#' @param appName The name of "smaller" app from which the UI will be pulled
+#' @param pkg The package in which \code{appName} exists
 #'
 #' @export
 
-insertUI <- 
-function(appName, pkg = 'teachingApps') {
+nestUI <- function(appName, pkg = 'teachingApps') {
   
   file  <- system.file('apps', appName, 'ui.R', package = pkg)
   serve <- source(file = file)
@@ -41,7 +39,7 @@ function(appName, pkg = 'teachingApps') {
   
 }
 
-#' Insert an rmarkdown file within a storyteller app
+#' Nest an rmarkdown file within an app
 #' 
 #' @importFrom shiny getShinyOption withMathJax HTML
 #' @importFrom knitr knit
@@ -51,12 +49,10 @@ function(appName, pkg = 'teachingApps') {
 #'
 #' @export
 
-insertRmd <- 
-function(rmd) {
+nestRmd <- function(rmd) {
   
   rmd <- paste(c(getShinyOption('appDir'),rmd), collapse = '/')
-  
-  withMathJax(HTML(markdown::markdownToHTML(knitr::knit(rmd))))
+   withMathJax(HTML(markdown::markdownToHTML(knitr::knit(rmd))))
   
 }
 
