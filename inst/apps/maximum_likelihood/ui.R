@@ -14,21 +14,21 @@ tabPanel(h4('Background'),
 
 tabPanel(h4('Simple Example'),  
          fluidRow(uiOutput('example1_1'), class = 'shiny-text-output'),
-         fluidRow(teachingApps::insertUI('likelihood_ace')),
+         fluidRow(teachingApps::nestUI('likelihood_ace')),
          fluidRow(uiOutput('example1_2'), class = 'shiny-text-output'),
-         fluidRow(teachingApps::insertUI('likelihood_ace2')),
+         fluidRow(teachingApps::nestUI('likelihood_ace2')),
          fluidRow(uiOutput('example1_3'), class = 'shiny-text-output')),
 
 tabPanel(h4('Silly Example'),
          fluidRow(uiOutput('example2_1'), class = 'shiny-text-output'),
-         fluidRow(teachingApps::insertUI('exp_mle')),
+         fluidRow(teachingApps::nestUI('exp_mle')),
          fluidRow(uiOutput('example2_2'), class = 'shiny-text-output'),
-         fluidRow(teachingApps::insertUI('exp_numerical')),
+         fluidRow(teachingApps::nestUI('exp_numerical')),
          fluidRow(uiOutput('example2_3'), class = 'shiny-text-output'),
-         fluidRow(teachingApps::insertUI('soln_numerical2'))),
+         fluidRow(teachingApps::nestUI('soln_numerical2'))),
 
 tabPanel(h4("A Simulation"),
-         fluidRow(teachingApps:::insertUI('maximum_likelihood'))),
+         fluidRow(teachingApps:::nestUI('maximum_likelihood'))),
 
 tabPanel(h4('Details'),
          fluidRow(uiOutput('details'), class = 'shiny-text-output')))

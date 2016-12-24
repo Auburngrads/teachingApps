@@ -1,6 +1,6 @@
 server = function(input, output, session) {
   
-output$example1.1 <- renderUI({ insertRmd('background.Rmd') })
+output$example1.1 <- renderUI({ nestRmd('background.Rmd') })
   
 output$lzbearing <- DT::renderDataTable({ DT::datatable(SMRD::lzbearing,
                                                        options = list(pageLength = 10)) })

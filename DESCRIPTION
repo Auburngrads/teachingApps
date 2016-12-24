@@ -1,11 +1,11 @@
 Package: teachingApps
 Type: Package
-Title: Collection of Shiny apps I use for teaching
+Title: Functions to make building, using, and sharing shiny apps fast and easy
 Version: 0.5
 Date: 2016-12-21
 Author: Jason K. Freels
 Maintainer: Jason K. Freels <auburngrads@live.com>
-Description: The teachingApps package is a collection of functions aimed at 
+Description: The teachingApps package includes functions aimed at 
     making it fast and easy for anyone to build, use, and share shiny apps.
     The initial purpose behind creating the package was to provide a single
     repository from which I could publish and present the shiny apps I use 

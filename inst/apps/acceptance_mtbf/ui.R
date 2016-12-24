@@ -11,7 +11,7 @@ ui = navbarPage(title = 'MTBF Acceptance Test',
                 footer = HTML(teachingApps::teachingApp(getShinyOption('appName'))),
           
 tabPanel(h4('Planning Tool'),
-         fluidRow(teachingApps::insertUI('acceptance_testing_mtbf'))),
+         fluidRow(teachingApps::nestUI('acceptance_testing_mtbf'))),
 
 tabPanel(h4('How To Use The Tool'),
          fluidRow(uiOutput("howtomtbf", 

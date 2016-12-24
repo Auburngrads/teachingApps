@@ -28,4 +28,21 @@ Description
 \details{
 When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 }
+\seealso{
+Other shinyAce apps: \code{\link{ace_very_normal}},
+  \code{\link{basic_histogram}}
+
+Other storyteller apps: \code{\link{acceptance_mtbf}},
+  \code{\link{acceptance_proportion}},
+  \code{\link{complex_ideas}},
+  \code{\link{distribution_beta_full}},
+  \code{\link{distribution_exponential_full}},
+  \code{\link{distribution_logistic_full}},
+  \code{\link{distribution_loglogistic_full}},
+  \code{\link{distribution_lognormal_full}},
+  \code{\link{distribution_normal_full}},
+  \code{\link{distribution_poisson_full}},
+  \code{\link{distribution_sev_full}},
+  \code{\link{distribution_weibull_full}}
+}
 
