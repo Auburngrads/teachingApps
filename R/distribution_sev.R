@@ -36,10 +36,13 @@ function(theme = "flatly",  width = '100%', storyteller = F,
          height = `if`(storyteller,'800px','600px'),
          css = NULL, more.opts = list(NA),...) {
 
-    dir <- dirname(system.file("apps", "distribution_sev", "global.R", package = "teachingApps"))
+    
+    `if`(storyteller,
+         dir <- dirname(system.file("apps", "distribution_sev_full", "global.R", package = "teachingApps")),
+         dir <- dirname(system.file("apps", "distribution_sev",      "global.R", package = "teachingApps")))
   
     teachingApps::getPackage(pkg = 'metricsgraphics')
-teachingApps::getPackage(pkg = 'SMRD')
+    teachingApps::getPackage(pkg = 'SMRD')
 
     assign.shiny.opts(opts = more.opts,
                       dir = dir,

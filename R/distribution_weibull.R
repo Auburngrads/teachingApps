@@ -36,8 +36,10 @@ function(theme = "flatly",  width = '100%', storyteller = F,
          height = `if`(storyteller,'800px','600px'),
          css = NULL, more.opts = list(NA),...) {
 
-    dir <- dirname(system.file("apps", "distribution_weibull", "global.R", package = "teachingApps"))
-    
+
+    `if`(storyteller,
+         dir <- dirname(system.file("apps", "distribution_weibull_full", "global.R", package = "teachingApps")),
+         dir <- dirname(system.file("apps", "distribution_weibull",      "global.R", package = "teachingApps")))
 
     getPackage(pkg = 'metricsgraphics')
     

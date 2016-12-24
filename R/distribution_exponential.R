@@ -36,7 +36,9 @@ function(theme = "flatly",  width = '100%', storyteller = F,
          height = `if`(storyteller,'800px','600px'),
          css = NULL, more.opts = list(NA),...) {
 
-    dir <- dirname(system.file("apps", "distribution_exponential", "global.R", package = "teachingApps"))
+    `if`(storyteller,
+         dir <- dirname(system.file("apps", "distribution_exponential_full", "global.R", package = "teachingApps")),
+         dir <- dirname(system.file("apps", "distribution_exponential",      "global.R", package = "teachingApps")))
 
     teachingApps::getPackage(pkg = 'metricsgraphics')
     
