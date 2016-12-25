@@ -34,13 +34,6 @@ Other shinyAce apps: \code{\link{ace_very_normal}},
 
 Other storyteller apps: \code{\link{acceptance_mtbf}},
   \code{\link{acceptance_proportion}},
-  \code{\link{complex_ideas}},
-  \code{\link{distribution_logistic_full}},
-  \code{\link{distribution_loglogistic_full}},
-  \code{\link{distribution_lognormal_full}},
-  \code{\link{distribution_normal_full}},
-  \code{\link{distribution_poisson_full}},
-  \code{\link{distribution_sev_full}},
-  \code{\link{distribution_weibull_full}}
+  \code{\link{complex_ideas}}
 }
 
