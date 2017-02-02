@@ -28,7 +28,7 @@ tabPanel(h4('Silly Example'),
          fluidRow(teachingApps::nestUI('soln_numerical2'))),
 
 tabPanel(h4("A Simulation"),
-         fluidRow(teachingApps:::nestUI('maximum_likelihood'))),
+         fluidRow(teachingApps:::nestUI('likelihood_simulation'))),
 
 tabPanel(h4('Details'),
          fluidRow(uiOutput('details'), class = 'shiny-text-output')))

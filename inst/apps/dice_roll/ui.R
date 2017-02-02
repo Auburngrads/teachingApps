@@ -31,7 +31,4 @@ mainPanel(width = 9,
           tabPanel(h4('Borel Algegra'),
                    plotOutput('diceresults', height = '550px')),
           tabPanel(h4('Probabilities'),
-                   plotOutput('diceprobs', height = '550px'))))),
-
-if(!getShinyOption("story"))    
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
+                   plotOutput('diceprobs', height = '550px'))))))

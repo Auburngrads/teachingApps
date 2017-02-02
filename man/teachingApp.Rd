@@ -2,14 +2,18 @@
 % Please edit documentation in R/teachingApp.R
 \name{teachingApp}
 \alias{teachingApp}
-\title{Leave signature for teachingApps}
+\title{Leave signature for a teachingApp}
 \usage{
-teachingApp(name)
+teachingApp(app.name, git.username = NULL, appPackage = NULL)
 }
 \arguments{
-\item{name}{The name of the app \code{character}}
+\item{app.name}{Name of the app \code{character}}
+
+\item{git.username}{GitHub username (typically created using teachingApps::setOptions())}
+
+\item{appPackage}{Name of package in which \code{app.name} exists}
 }
 \description{
-Leave signature for teachingApps
+Leave signature for a teachingApp
 }
 

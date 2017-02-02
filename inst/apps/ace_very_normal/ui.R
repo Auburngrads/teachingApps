@@ -43,8 +43,5 @@ legend(x = 7, y = 1.5,
 
         actionButton("evalplots", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("exp", height = "600px"), width = 7)),
-
-if(!getShinyOption("story")) 
-     fixedPanel(htmlOutput('sign'),bottom = '3%', width = '100%',height = '30px'))
+        mainPanel(plotOutput("exp", height = "600px"), width = 7)))
 

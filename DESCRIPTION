@@ -1,13 +1,12 @@
 Package: teachingApps
 Type: Package
-Title: Functions to make building, using, and sharing shiny apps fast and easy
+Title: Build, Use, And Share Shiny Apps - Faster And Easier
 Version: 0.5
 Date: 2016-12-21
 Author: Jason K. Freels
 Maintainer: Jason K. Freels <auburngrads@live.com>
-Description: The teachingApps package includes functions aimed at 
-    making it fast and easy for anyone to build, use, and share shiny apps.
-    The initial purpose behind creating the package was to provide a single
+Description: The teachingApps package aims to make it easy for anyone the process of building
+    and sharing shiny apps fast and easy. The initial purpose behind creating the package was to provide a single
     repository from which I could publish and present the shiny apps I use 
     during my lectures.  Before creating this package I found that I was using
     the same apps in multiple presentations, which forced me to keep the app 

@@ -18,7 +18,7 @@ output$example2_3 <- renderUI({ teachingApps::nestRmd('example2_3.Rmd') })
 
   
 ## SERVER FOR SIMULATION
-teachingApps:::nestServer('maximum_likelihood', envir = environment())
+teachingApps:::nestServer('likelihood_simulation', envir = environment())
 
 
 output$details <- renderUI({ teachingApps::nestRmd('details.Rmd') })

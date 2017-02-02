@@ -6,7 +6,7 @@ if(!is.na(opts)) {
 aso <- lapply(X = 1:length(opts), 
        FUN = function(x) {
              eval(parse(text = paste(collapse = '',
-                                     c('shinyOptions(',
+                                     c('shiny::shinyOptions(',
                                        names(opts[x]),
                                        '=',
                                        opts[x],

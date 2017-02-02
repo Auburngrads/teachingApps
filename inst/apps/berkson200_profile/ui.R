@@ -31,7 +31,4 @@ simple.contour(berkson200.ld,
 
         actionButton("berk200profiles", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("berk200prof", height = "600px"), width = 7)),
-
-if(!getShinyOption("story")) 
-     fixedPanel(htmlOutput('sign'),bottom = '3%', width = '100%',height = '30px'))
+        mainPanel(plotOutput("berk200prof", height = "600px"), width = 7)))

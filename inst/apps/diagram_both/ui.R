@@ -47,7 +47,4 @@ diagram::plotmat(A = AA,
 
         actionButton("evalreal", h4("Evaluate"), width = '100%')),
         
-        mainPanel(plotOutput("plotreal", height = "600px"), width = 7)),
-
-if(!getShinyOption("story"))
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
+        mainPanel(plotOutput("plotreal", height = "600px"), width = 7)))

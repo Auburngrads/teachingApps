@@ -1,7 +1,8 @@
 library(teachingApps)
 
 ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
-                 tags$head(includeCSS(getShinyOption("css"))),
+               tags$head(includeCSS(getShinyOption("css"))),
+               tags$footer(getShinyOption("sign")),
                
   sidebarLayout(
      sidebarPanel(width = 5,
@@ -75,7 +76,4 @@ par(mfrow = c(1,1))"),
 
    actionButton("evalpdflike", h4("Evaluate"), width = '100%')),
 
-   mainPanel(plotOutput('plotpdflike', height = '600px'), width = 7)),
-
-if(!getShinyOption("story"))
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
+   mainPanel(plotOutput('plotpdflike', height = '600px'), width = 7)))

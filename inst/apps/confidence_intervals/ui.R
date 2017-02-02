@@ -23,7 +23,4 @@ sidebarLayout(
     hr(),
     actionButton("reset",h4("Start Over"), width = '100%')),
  
- mainPanel(plotOutput('ciplot', height = '600px'))),
-
-if(!getShinyOption("story"))
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
+ mainPanel(plotOutput('ciplot', height = '600px'))))

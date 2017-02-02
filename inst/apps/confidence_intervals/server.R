@@ -1,7 +1,5 @@
 server = function(input, output, session) {
 
-
-
 shapeGamma <- 2
 scaleGamma <- 50
 xSkew <- seq(0,shapeGamma*scaleGamma+7.5*sqrt(shapeGamma)*scaleGamma,
