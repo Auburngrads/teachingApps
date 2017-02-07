@@ -385,7 +385,7 @@ ul.photo-grid {
 }
 
 .photo-grid img {
-	display: block;
+	display: none;
 	height: 40px;
 	max-width: 100%;
 	 position: absolute;

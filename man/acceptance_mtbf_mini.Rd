@@ -55,4 +55,3 @@ Other htmlwidget apps: \code{\link{acceptance_mtbf}},
   \code{\link{distribution_sev}},
   \code{\link{distribution_weibull}}
 }
-

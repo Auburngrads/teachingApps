@@ -4,6 +4,7 @@ library(teachingApps)
 ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
                theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
                tags$head(includeCSS(getShinyOption("css"))),
+               tags$footer(getShinyOption("sign")),
                  
 sidebarLayout(
    sidebarPanel(width = 5,
@@ -55,10 +56,7 @@ legend('topright',
 
    actionButton("evallike2", h4("Evaluate"), width = '100%')),
 
-   mainPanel(plotOutput('plotlike2', height = '600px'), width = 7)),
-
-if(!getShinyOption("story")) 
-     fixedPanel(htmlOutput('sign'),bottom = '3%', width = '100%',height = '30px'))
+   mainPanel(plotOutput('plotlike2', height = '600px'), width = 7)))
 
 
 

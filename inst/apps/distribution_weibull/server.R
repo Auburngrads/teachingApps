@@ -1,7 +1,5 @@
 server = function(input, output, session) {
 
-
-
 weibhaz <-function(x,sc, sh) {sh/sc*(x/sc)^(sh-1)}
   
 t = reactive({ signif(seq(min(input$range.w), max(input$range.w), length = 500), digits = 4)})

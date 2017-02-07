@@ -2,7 +2,6 @@
 #'
 #' @importFrom utils browseURL
 #'
-#' @param local.dir Name of the directory in which the raw app code is stored
 #' @param pkg Name of the package in which the updates are to be made.  Defaults to \code{repo}.
 #' @param lib Package library directory where \code{pkg} is stored. Defaults to \code{.libPaths()[1]}
 #' @param app Name of the app to be updated

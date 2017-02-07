@@ -1,7 +1,5 @@
 server = function(input, output, session) {
 
-
-
   t <- reactive({ min(input$range.pois):max(input$range.pois) })
   p <- reactive({ signif(seq(0, 1, length = length(max(t()):min(t()))), digits = 4) })
   C <- reactive({ ppois(t(), input$lamb.pois)})

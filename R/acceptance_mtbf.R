@@ -17,16 +17,14 @@
 #' @import plotly
 #'
 #'
-#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}
-#' @param width Width of the printed app
-#' @param height Height of the printed app
-#' @param storyteller Is this a storyteller app?
-#' @param css Path to a custom css file. If \code{NULL} the default css file is used 
-#' @param more.opts A list of additional options/objects to be passed to the app (see Details)
-#' @param ... Additional options passed to \code{shiny::shinyAppDir()} 
+#' @param theme \code{character} A bootswatch color theme for use in \code{shinythemes::shinytheme}
+#' @param width \code{character} Width of the printed app
+#' @param height \code{character} Height of the printed app
+#' @param storyteller \code{logical} Is this a storyteller app?
+#' @param css \code{character} Path to a custom css file. If \code{NULL} the default css file is used 
+#' @param more.opts \code{list} Additional options/objects passed to the app (see Details)
+#' @param ... \code{list} Additional options passed to \code{shiny::shinyAppDir()} 
 #'  
-#' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
-#' 
 #' @family htmlwidget apps
 #' @family storyteller apps
 #' 

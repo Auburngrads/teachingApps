@@ -75,4 +75,3 @@ Other htmlwidget apps: \code{\link{acceptance_mtbf_mini}},
   \code{\link{distribution_sev}},
   \code{\link{distribution_weibull}}
 }
-

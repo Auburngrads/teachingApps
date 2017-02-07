@@ -19,4 +19,3 @@ Function Title
 \details{
 This function assumes that the apps are stored in a package directory called 'apps'
 }
-

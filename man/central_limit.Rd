@@ -32,4 +32,3 @@ When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE}
 \seealso{
 Other statistics apps: \code{\link{complex_ideas}}
 }
-

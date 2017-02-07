@@ -33,4 +33,3 @@ When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE}
 Other shinyAce apps: \code{\link{basic_histogram}},
   \code{\link{cdf_demo}}
 }
-

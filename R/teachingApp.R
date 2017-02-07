@@ -6,7 +6,7 @@
 #' 
 #' @export
 teachingApp <- 
-function(app.name,git.username = NULL, appPackage = NULL) {
+function(app.name, git.username = NULL, appPackage = NULL) {
   
   if(!is.character(app.name)) stop('name must be a character string')
   
@@ -29,10 +29,12 @@ function(app.name,git.username = NULL, appPackage = NULL) {
   gitURL  <- paste(c('https://github.com',git.username,appPackage,'blob/master/inst/apps'),
                    collapse = '/')
   
-    return(paste(c("<ul class='photo-grid'>
+    return(paste(c("<script src='https://use.fontawesome.com/6819c76733.js'></script>
+<ul class='photo-grid'>
 <li>
 <figure>
-<img src='http://i.imgur.com/5DusfUM.gif'> 
+<i class='fa fa-github fa-3x'></i>
+<img src='...'> 
 <figcaption><p>Get the <a target=' ' href='",
                 paste(c(gitURL, app.name), collapse = '/'),"'>CODE</a> for this app</p></figcaption>
 </figure>

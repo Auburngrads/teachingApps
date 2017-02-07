@@ -44,7 +44,4 @@ sidebarLayout(
       tabPanel(h4('Cumulative Hazard'),
                metricsgraphicsOutput("bisaH",height = "600px")),
       tabPanel(h4('Quantile'),
-               metricsgraphicsOutput("bisaQ",height = "600px"))))),
-
-if(!getShinyOption("story"))
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
+               metricsgraphicsOutput("bisaQ",height = "600px"))))))

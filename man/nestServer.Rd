@@ -16,4 +16,3 @@ nestServer(appName, envir = NULL, pkg = "teachingApps")
 \description{
 Nest the server of a smaller app within the server of larger app
 }
-

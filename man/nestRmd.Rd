@@ -12,4 +12,3 @@ nestRmd(rmd)
 \description{
 Nest an rmarkdown file within an app
 }
-

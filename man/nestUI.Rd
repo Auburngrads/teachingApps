@@ -14,4 +14,3 @@ nestUI(appName, pkg = "teachingApps")
 \description{
 Nest the UI of smaller app within the UI of a larger app
 }
-

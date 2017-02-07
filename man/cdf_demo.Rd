@@ -36,4 +36,3 @@ Other storyteller apps: \code{\link{acceptance_mtbf}},
   \code{\link{acceptance_proportion}},
   \code{\link{complex_ideas}}
 }
-

@@ -1,16 +1,17 @@
 Package: teachingApps
 Type: Package
-Title: Build, Use, And Share Shiny Apps - Faster And Easier
-Version: 0.5
-Date: 2016-12-21
+Title: Build, Update, and Share Shiny Apps - Quickly And Easily
+Version: 0.6
+Date: 2017-2-7
 Author: Jason K. Freels
 Maintainer: Jason K. Freels <auburngrads@live.com>
-Description: The teachingApps package aims to make it easy for anyone the process of building
-    and sharing shiny apps fast and easy. The initial purpose behind creating the package was to provide a single
-    repository from which I could publish and present the shiny apps I use 
-    during my lectures.  Before creating this package I found that I was using
-    the same apps in multiple presentations, which forced me to keep the app 
-    updated in multiple places.
+Description: Instantly create shiny app templates and app calling functions 
+    for use in R packages.  Manage large collections of shiny apps from one 
+    location.  Update the structure or appearance of apps on the fly.  Nest 
+    small apps together to create complex 'storyteller' apps. Publish stand-
+    alone apps or embed in rmarkdown documents with app calling functions.
+    Includes over 100 shiny apps and shiny gadgets for analyzing data and   
+    teaching various concepts (statistics and R programming). 
 License: GPL-2
 LazyData: true
 Depends: R (>= 3.1.0)
@@ -28,5 +29,5 @@ Remotes:
     github::timelyportfolio/parcoords,
     github::hrbrmstr/taucharts,
     github::timelyportfolio/codemirrorR
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.0
 VignetteBuilder: knitr

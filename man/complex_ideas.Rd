@@ -30,6 +30,12 @@ Description
 When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 }
 \seealso{
+Other statistics apps: \code{\link{central_limit}}
+
+Other storyteller apps: \code{\link{acceptance_mtbf}},
+  \code{\link{acceptance_proportion}},
+  \code{\link{cdf_demo}}
+
 Other htmlwidget apps: \code{\link{acceptance_mtbf_mini}},
   \code{\link{acceptance_mtbf}},
   \code{\link{acceptance_proportion}},
@@ -54,11 +60,4 @@ Other htmlwidget apps: \code{\link{acceptance_mtbf_mini}},
   \code{\link{distribution_sevgets}},
   \code{\link{distribution_sev}},
   \code{\link{distribution_weibull}}
-
-Other statistics apps: \code{\link{central_limit}}
-
-Other storyteller apps: \code{\link{acceptance_mtbf}},
-  \code{\link{acceptance_proportion}},
-  \code{\link{cdf_demo}}
 }
-

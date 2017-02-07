@@ -58,4 +58,3 @@ Other htmlwidget apps: \code{\link{acceptance_mtbf_mini}},
 Other storyteller apps: \code{\link{acceptance_mtbf}},
   \code{\link{cdf_demo}}, \code{\link{complex_ideas}}
 }
-

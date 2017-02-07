@@ -32,12 +32,15 @@ sidebarPanel(width = 3,
 
 mainPanel(width = 9,
  tabsetPanel(type = 'pills',
-  tabPanel(h4('Distribution Function'),  metricsgraphicsOutput("weibC",height = "600px")),
-  tabPanel(h4('Density'),                metricsgraphicsOutput("weibP",height = "600px")),
-  tabPanel(h4('Survival'),               metricsgraphicsOutput("weibR",height = "600px")),
-  tabPanel(h4('Hazard'),                 metricsgraphicsOutput("weibh",height = "600px")),
-  tabPanel(h4('Cumulative Hazard'),      metricsgraphicsOutput("weibH",height = "600px")),
-  tabPanel(h4('Quantile'),               metricsgraphicsOutput("weibQ",height = "600px"))))),
-
-if(!getShinyOption("story"))
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
+  tabPanel(h4('Distribution Function'),  
+              metricsgraphicsOutput("weibC",height = "600px")),
+  tabPanel(h4('Density'),                
+              metricsgraphicsOutput("weibP",height = "600px")),
+  tabPanel(h4('Survival'),               
+              metricsgraphicsOutput("weibR",height = "600px")),
+  tabPanel(h4('Hazard'),                 
+              metricsgraphicsOutput("weibh",height = "600px")),
+  tabPanel(h4('Cumulative Hazard'),      
+              metricsgraphicsOutput("weibH",height = "600px")),
+  tabPanel(h4('Quantile'),               
+              metricsgraphicsOutput("weibQ",height = "600px"))))))
