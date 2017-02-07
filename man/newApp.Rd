@@ -18,4 +18,3 @@ newApp(appName, pkg = "teachingApps", pkg.path = NULL, storyteller = F)
 \description{
 Wrapper function to create a new teachingApp
 }
-

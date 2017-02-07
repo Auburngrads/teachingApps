@@ -7,9 +7,9 @@
 getPackage(pkg = NULL, repo = NULL, pub = FALSE)
 }
 \arguments{
-\item{pkg}{Name of a package to be installed/loaded (as a character string)}
+\item{pkg}{\code{character} Name of a package to be installed/loaded}
 
-\item{repo}{The repository from which the package should be installed.}
+\item{repo}{\code{character} Name of the repository from which the package should be installed.}
 
 \item{pub}{\code{logical} variable indicating whether the app be published (see details)}
 }
@@ -21,4 +21,3 @@ If \code{repo = NULL} the package will be installed from the CRAN.  Otherwise, \
 
   When publishing apps on shinyapps.io or shinyServer, attempting to \code{install.packages} will result in an error.  Calls to \code{install.packages} should not be included within an app.
 }
-

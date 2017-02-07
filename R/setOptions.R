@@ -7,7 +7,7 @@
 #' @export
 
 setOptions <- 
-function(local.dir = NULL, pkg = NULL, git.username = NULL) {
+function(local.dir = NULL, pkg = NULL, git.user = NULL) {
   
   #if (missing(pkg)) stop('Required variable "pkg" missing')
   
@@ -17,7 +17,7 @@ function(local.dir = NULL, pkg = NULL, git.username = NULL) {
     pkg <- basename(local.dir)
   }
   
-  args = list(local.dir,pkg,git.username)
+  args = list(local.dir,pkg,git.user)
   
   names(args) = c(pkg,'appPackage','git.username')
   

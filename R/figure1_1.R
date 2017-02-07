@@ -1,60 +1,46 @@
-figure1_1 <-
-function(...) {
-  
-  library(shiny)
-  
-shinyApp(options = list(width = "100%", height = "800px"), 
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
+#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div
+#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
+#' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel h2 h4
+#' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput
+#' @importFrom shiny updateNumericInput strong stopApp shinyAppDir
+#' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
+#' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
+#' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
+#' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
+#'
+#'
+#' @param theme code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
+#' @param storyteller code{logical} Is this a storyteller app?
+#' @param width code{character} Width of the printed app
+#' @param height code{character} Height of the printed app
+#' @param css code{character} Path to a custom css file. If code{NULL} the default css file is used 
+#' @param more.opts code{list} Additional options/objects passed to the app (see Details)
+#' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
+#' 
+#' @export
 
-tabPanel(h4("Data Set"), DT::dataTableOutput("lzbearing", height = "600px")),
-                
-tabPanel(h4("Figure 1.1"),titlePanel("Edit this code and press 'Evaluate' to change the figure"),
-  sidebarLayout( 
-    sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig1plot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "library(SMRD)
-par(family='serif', font=2)
-hist(lzbearing$megacycles,
-     breaks=seq(0,200,20),
-     col='black',
-     border='white',
-     prob=TRUE,
-     main='Figure 1.1 - Histogram of the ball bearing failure data',
-     las = 1)"),
-              actionButton("evalfig1", h4("Evaluate"), width = '100%')),
-        
-        mainPanel(plotOutput("plotfig1", height = "600px"), width = 7))),
+figure1_1 <- 
+function(theme = "flatly", storyteller = F, width = '100%',
+         height = `if`(storyteller,'800px','600px'),
+         css = NULL, more.opts = list(NA),...) {
 
-tabPanel(h4("Figure 1.2"),titlePanel("Edit this code and press 'Evaluate' to change the figure"),
-  sidebarLayout( 
-    sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig2plot", mode = "r", theme = "github", height = "450px", fontSize = 15,
-                      value = "library(SMRD)
-par(family='serif', font=2)
+    dir <- dirname(system.file("apps", "figure1_1", "global.R", package = "teachingApps"))
+    
+    teachingApps::getPackage(pkg = 'SMRD')
+    
+    assign.shiny.opts(opts = more.opts,
+                      dir = dir,
+                      theme = theme,
+                      css = css,
+                      story = storyteller)
+    
+    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
 
-lzbearing.ld <- frame.to.ld(lzbearing, 
-                            response.column = 1, 
-                            time.units = 'Megacycles')
-
-event.plot(lzbearing.ld)"),
-              actionButton("evalfig2", h4("Evaluate"), width = '100%')),
-        
-        mainPanel(plotOutput("plotfig2", height = "600px"), width = 7)))),
-
-server = function(input, output, session) {
-  library(SMRD)
-  output$lzbearing <- DT::renderDataTable({ DT::datatable(lzbearing,
-                                                       options = list(pageLength = 12)) })
-  
-output$plotfig1 <- renderPlot({
-      par(oma = c(0,0,0,0), mar = c(4,4,2,2))
-      input$evalfig1
-      return(isolate(eval(parse(text=input$fig1plot))))
-})
-output$plotfig2 <- renderPlot({
-      par(oma = c(0,0,0,0), mar = c(4,4,2,2))
-      input$evalfig2
-      return(isolate(eval(parse(text=input$fig2plot))))
-})
-})
 }

@@ -431,7 +431,7 @@ ul.photo-grid {
 	border-radius: 30px;
 }
 .photo-grid img {
-	display: block;
+	display: none;
 	height: 40px;
 	-webkit-transition: all 300ms;
 	-moz-transition: all 300ms;

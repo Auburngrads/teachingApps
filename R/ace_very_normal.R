@@ -5,11 +5,11 @@
 #' @import shinythemes
 #' @import shinyAce
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
-#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div runGadget
+#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
 #' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel h2 h4
 #' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput
-#' @importFrom shiny updateNumericInput strong stopApp browserViewer shinyAppDir
+#' @importFrom shiny updateNumericInput strong stopApp shinyAppDir
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
@@ -30,7 +30,7 @@
 #' 
 #' @export
 ace_very_normal <- 
-function(theme = "flatly",  width = '100%', storyteller = F,
+function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),
          css = NULL, more.opts = list(NA),...) {
 

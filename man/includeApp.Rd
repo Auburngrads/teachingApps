@@ -19,4 +19,3 @@ This function is a wrapper for \code{knitr::include_app} adding the app's URL pr
 \details{
 The app prefix is often of the form 'https://accountname.shinyapps.io'
 }
-

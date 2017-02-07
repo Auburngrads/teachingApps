@@ -5,15 +5,15 @@
 #' @import shinythemes
 #' @import miniUI
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
-#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div runGadget
+#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI tags
 #' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel
 #' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput
-#' @importFrom shiny updateNumericInput strong stopApp browserViewer shinyAppDir
+#' @importFrom shiny updateNumericInput strong stopApp shinyAppDir req
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText
-#' @importFrom shiny runGadget dialogViewer browserViewer req
+#' @importFrom shinygadgets runGadget dialogViewer browserViewer
 #' @importFrom stats as.formula lm
 #'
 #' @param data A \code{data.frame} object
@@ -29,8 +29,8 @@
 #' 
 #' @export 
 gadget_lm <- 
-function(data,xvar, yvar, theme = "flatly", 
-                      width = '100%', css = NULL, height = '600px',...) {
+function(data, xvar, yvar, theme = "flatly", 
+         width = '100%', css = NULL, height = '600px',...) {
 
   do.call('library', args = list('miniUI'))
   do.call('library', args = list('ggplot2'))

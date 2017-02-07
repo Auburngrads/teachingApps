@@ -1,11 +1,11 @@
-#' Leave signature for a teachingApp
+#' Place a signature on a teachingApp
 #'
-#' @param app.name Name of the app \code{character}
-#' @param git.username GitHub username (typically created using teachingApps::setOptions()) 
-#' @param appPackage Name of package in which \code{app.name} exists
-#' 
+#' @param app.name \code{character} Name of the app in which the signature will be placed
+#' @param git.username \code{character} GitHub account username (typically created using teachingApps::setOptions()) 
+#' @param appPackage \code{character} Name of package in which \code{app.name} exists
+#'
 #' @export
-teachingApp <- 
+signature <- 
 function(app.name, git.username = NULL, appPackage = NULL) {
   
   if(!is.character(app.name)) stop('name must be a character string')

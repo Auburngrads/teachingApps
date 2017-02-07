@@ -4,29 +4,25 @@
 \alias{log_location_scale}
 \title{Function Title}
 \usage{
-log_location_scale(theme = "flatly", width = "100\%", storyteller = F,
+log_location_scale(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", css = NULL,
   more.opts = list(NA), ...)
 }
 \arguments{
-\item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}}
+\item{theme}{code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}}
 
-\item{width}{Width of the printed app}
+\item{storyteller}{code{logical} Is this a storyteller app?}
 
-\item{storyteller}{Is this a storyteller app?}
+\item{width}{code{character} Width of the printed app}
 
-\item{height}{Height of the printed app}
+\item{height}{code{character} Height of the printed app}
 
-\item{css}{Path to a custom css file. If \code{NULL} the default css file is used}
+\item{css}{code{character} Path to a custom css file. If code{NULL} the default css file is used}
 
-\item{more.opts}{A list of additional options/objects to be passed to the app (see Details)}
+\item{more.opts}{code{list} Additional options/objects passed to the app (see Details)}
 
-\item{...}{Additional options passed to \code{shiny::shinyAppDir()}}
+\item{...}{code{list} Additional options passed to code{shiny::shinyAppDir()}}
 }
 \description{
 Description
 }
-\details{
-When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
-}
-

@@ -4,7 +4,7 @@
 \alias{setOptions}
 \title{Save a local package directory as an environment variable}
 \usage{
-setOptions(local.dir = NULL, pkg = NULL, git.username = NULL)
+setOptions(local.dir = NULL, pkg = NULL, git.user = NULL)
 }
 \arguments{
 \item{local.dir}{Path to the local directory at which \code{pkg} is located}
@@ -16,4 +16,3 @@ setOptions(local.dir = NULL, pkg = NULL, git.username = NULL)
 \description{
 Save a local package directory as an environment variable
 }
-

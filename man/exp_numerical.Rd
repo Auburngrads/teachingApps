@@ -4,16 +4,16 @@
 \alias{exp_numerical}
 \title{Function Title}
 \usage{
-exp_numerical(theme = "flatly", width = "100\%", storyteller = F,
+exp_numerical(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", css = NULL,
   more.opts = list(NA), ...)
 }
 \arguments{
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
 
-\item{width}{Width of the printed app}
-
 \item{storyteller}{Is this a storyteller app?}
+
+\item{width}{Width of the printed app}
 
 \item{height}{Height of the printed app}
 
@@ -29,4 +29,3 @@ Description
 \details{
 When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
 }
-

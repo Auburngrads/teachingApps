@@ -1,31 +1,46 @@
-figure1_3 <-
-function(...) {
-  
-  library(shiny)
-  
-shinyApp(options = list(width = "100%", height = "800px"),
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
+#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div
+#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
+#' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel h2 h4
+#' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput
+#' @importFrom shiny updateNumericInput strong stopApp shinyAppDir
+#' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
+#' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
+#' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
+#' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
+#'
+#'
+#' @param theme code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
+#' @param storyteller code{logical} Is this a storyteller app?
+#' @param width code{character} Width of the printed app
+#' @param height code{character} Height of the printed app
+#' @param css code{character} Path to a custom css file. If code{NULL} the default css file is used 
+#' @param more.opts code{list} Additional options/objects passed to the app (see Details)
+#' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
+#' 
+#' @export
 
-tabPanel(h4("Data Set"), DT::dataTableOutput("lfp1370", height = "575px")),
-                
-tabPanel(h4('Figure 1.3'), titlePanel("Edit this code and press 'Evaluate' to change the figure"),
-  sidebarLayout( 
-    sidebarPanel(
-      shinyAce::aceEditor("fig3plot", mode = "r", theme = "github", height = "450px", fontSize = 14,
-                      value = "IC.ld<-frame.to.ld(frame = lfp1370,\nresponse.column = 1,\ncensor.column = 2,\ncase.weight.column = 3,\ndata.title = 'IC Failure Data',\ntime.units = 'Hours')\n\npar(family='serif',font=2,bg=NA)\n\nevent.plot(IC.ld)\n\n\n\n# event.plot( ) is part of the SMRD package\n\n# SMRD commands can only be performed on\n# 'life.data' objects\n\n# frame.to.ld( ) converts a 'data.frame'\n# to a 'life.data' object"),
-              actionButton("evalfig3", h4('Evaluate'))),
-        
-        mainPanel(plotOutput("plotfig3", height = "600px"))))),
+figure1_3 <- 
+function(theme = "flatly", storyteller = F, width = '100%',
+         height = `if`(storyteller,'800px','600px'),
+         css = NULL, more.opts = list(NA),...) {
 
-server = function(input, output, session) {
-  library(SMRD)
-  output$lfp1370 <- DT::renderDataTable({ DT::datatable(lfp1370,
-                                                       options = list(pageLength = 12)) })
-  
-  output$plotfig3 <- renderPlot({
-      par(oma = c(0,0,0,0), mar = c(4,4,2,2))
-      input$evalfig3
-      return(isolate(eval(parse(text=input$fig3plot))))
-})
-})
+    dir <- dirname(system.file("apps", "figure1_3", "global.R", package = "teachingApps"))
+    
+    teachingApps::getPackage(pkg = 'SMRD')
+    
+    assign.shiny.opts(opts = more.opts,
+                      dir = dir,
+                      theme = theme,
+                      css = css,
+                      story = storyteller)
+    
+    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
+
 }

@@ -1,13 +1,41 @@
-clean_columns <- function(data, rownames = TRUE, theme = "flatly",
-                          width = '100%', height = '600px',...) {
+#' Remove columns from data set
+#'
+#' @description Shiny gadget used to visually inspect columns in a data set and select columns to remove
+#'
+#' @param data A data set
+#' @param rownames \code{logical} Should rownames be included?
+#' @param theme \code{character} A bootswatch theme provided to \code{shinythemes::shinytheme}
+#' @param width \code{character} Width of the gadget (in valid css units)
+#' @param height \code{character} Height of the gadget (in valid css units)
+#' @param css \code{character} Path to a custom css file
+#' 
+#' @importFrom shinythemes shinytheme
+#' @importFrom shinygadgets runGadget browserViewer
+#' @importFrom shiny fluidPage tags includeCSS sidebarLayout sidebarPanel
+#' @importFrom shiny uiOutput selectizeInput actionButton reactive h4
+#' @importFrom shiny stopApp observeEvent mainPanel
+#' @importFrom data.table as.data.table
+#' @importFrom DT renderDataTable dataTableOutput datatable
+#' 
+#' @return A \code{list} of length 2
+#'   \item{data}{A \code{data.frame} containing the columns that were not removed}
+#'   \item{script}{A line of code that can be used to replicate cleaning performed in the gadget}
+#' 
+#' @examples \dontrun{clean_columns(mtcars)}
+#' 
+#' @family shinygadgets
+#'
+#' @export
 
-do.call('library',args = list('DT'))
-do.call('library',args = list('data.table'))
-do.call('library',args = list('shiny'))
-do.call('library',args = list('shinygadgets'))
+clean_columns <- 
+function(data, rownames = TRUE, theme = "flatly",
+         width = '100%', height = '600px', css = NULL) {
+
+if(is.null(css)) css <- system.file('resources','css','teachingApps.css',
+                                    package = 'teachingApps')
 
 ui = fluidPage(theme = shinythemes::shinytheme(theme = theme),
-               #tags$head(try(includeCSS(css), silent = T)),
+               tags$head(try(includeCSS(css), silent = T)),
                
 sidebarLayout(
   sidebarPanel(width = 3,

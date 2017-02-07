@@ -28,13 +28,6 @@ nestUI <- function(appName, pkg = 'teachingApps') {
   file  <- system.file('apps', appName, 'ui.R', package = pkg)
   serve <- source(file = file)
   
-  # serve2 <- gsub('<div style="right:40%;bottom:3%;height:30px;position:fixed;cursor:inherit;">
-  #   <div id="sign" class="shiny-html-output"></div>
-  # </div>','',serve[[1]])
-  # 
-  # serve3 <- gsub('<div class=\"container-fluid\">','',serve2)
-  # serve4 <- gsub('<', '\\\\<', serve3)
-  
   return(serve[[1]])
   
 }

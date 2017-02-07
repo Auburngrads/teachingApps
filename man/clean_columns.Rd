@@ -2,28 +2,33 @@
 % Please edit documentation in R/clean_columns.R
 \name{clean_columns}
 \alias{clean_columns}
-\title{Function Title}
+\title{Remove columns from data set}
 \usage{
-clean_columns(data, theme = "flatly", width = "100\%", css = NULL,
-  height = "600px", ...)
+clean_columns(data, rownames = TRUE, theme = "flatly", width = "100\%",
+  height = "600px", css = NULL)
 }
 \arguments{
-\item{data}{A data.frame from which columns will be removed}
+\item{data}{A data set}
 
-\item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}}
+\item{rownames}{\code{logical} Should rownames be included?}
 
-\item{width}{Width of the printed app.}
+\item{theme}{\code{character} A bootswatch theme provided to \code{shinythemes::shinytheme}}
 
-\item{css}{Path to a custom css file. If \code{NULL} the default css file is used}
+\item{width}{\code{character} Width of the gadget (in valid css units)}
 
-\item{height}{Height of the printed app.}
+\item{height}{\code{character} Height of the gadget (in valid css units)}
 
-\item{...}{Additional options passed to \code{shiny::shinyAppDir()}}
+\item{css}{\code{character} Path to a custom css file}
+}
+\value{
+A \code{list} of length 2
+  \item{data}{A \code{data.frame} containing the columns that were not removed}
+  \item{script}{A line of code that can be used to replicate cleaning performed in the gadget}
 }
 \description{
-Description
+Shiny gadget used to visually inspect columns in a data set and select columns to remove
 }
-\details{
-When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
-}
+\examples{
+\dontrun{clean_columns(mtcars)}
 
+}

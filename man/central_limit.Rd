@@ -4,16 +4,16 @@
 \alias{central_limit}
 \title{Function Title}
 \usage{
-central_limit(theme = "flatly", width = "100\%", storyteller = F,
+central_limit(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", css = NULL,
   more.opts = list(NA), ...)
 }
 \arguments{
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in code{shinythemes::shinytheme()}}
 
-\item{width}{Width of the printed app}
-
 \item{storyteller}{Is this a storyteller app?}
+
+\item{width}{Width of the printed app}
 
 \item{height}{Height of the printed app}
 

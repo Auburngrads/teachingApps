@@ -12,4 +12,3 @@ jkf.par(...)
 \description{
 Custom \code{par} function
 }
-

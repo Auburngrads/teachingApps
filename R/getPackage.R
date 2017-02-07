@@ -2,8 +2,8 @@
 #'
 #' @export
 #' 
-#' @param pkg Name of a package to be installed/loaded (as a character string)
-#' @param repo The repository from which the package should be installed.
+#' @param pkg \code{character} Name of a package to be installed/loaded
+#' @param repo \code{character} Name of the repository from which the package should be installed.
 #' @param pub \code{logical} variable indicating whether the app be published (see details) 
 #' 
 #' @importFrom devtools install_github
@@ -21,13 +21,13 @@ function(pkg = NULL, repo = NULL, pub = FALSE ) {
     
   if(is.null(repo)) {
 
-if(!pkg%in%installed.packages()) install.packages(pkg, repos = 'http://cran.rstudio.com') 
+if(!pkg%in%installed.packages()) do.call('install.packages', args = list(pkg = pkg, repos = 'http://cran.rstudio.com'))
   
   } else {
 
-if(!pkg%in%installed.packages()) devtools::install_github(paste(c(repo,pkg), collapse = '/')) 
+if(!pkg%in%installed.packages()) do.call('install_github', args = list(repo = paste(c(repo,pkg), collapse = '/'))) 
   
   }
   }
-  do.call(library, list(package = pkg, pos = 2, character.only = T), envir = globalenv())
+  do.call('library', list(package = pkg, pos = 2, character.only = T))
   }

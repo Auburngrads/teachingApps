@@ -5,31 +5,29 @@
 #' @import shinythemes
 #' @import shinyAce
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
-#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div runGadget
+#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
 #' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel h2 h4
 #' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput
-#' @importFrom shiny updateNumericInput strong stopApp browserViewer shinyAppDir
+#' @importFrom shiny updateNumericInput strong stopApp shinyAppDir
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
 #' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
 #'
 #'
-#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}
-#' @param width Width of the printed app
-#' @param height Height of the printed app
-#' @param storyteller Is this a storyteller app?
-#' @param css Path to a custom css file. If \code{NULL} the default css file is used 
-#' @param more.opts A list of additional options/objects to be passed to the app (see Details)
-#' @param ... Additional options passed to \code{shiny::shinyAppDir()} 
-#'  
-#' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
+#' @param theme code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
+#' @param storyteller code{logical} Is this a storyteller app?
+#' @param width code{character} Width of the printed app
+#' @param height code{character} Height of the printed app
+#' @param css code{character} Path to a custom css file. If code{NULL} the default css file is used 
+#' @param more.opts code{list} Additional options/objects passed to the app (see Details)
+#' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
 #' 
 #' @export
 
 quantile_demo <- 
-function(theme = "flatly",  width = '100%', storyteller = F,
+function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),
          css = NULL, more.opts = list(NA),...) {
 

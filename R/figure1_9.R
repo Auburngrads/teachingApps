@@ -1,41 +1,46 @@
-figure1_9 <-
-function(...) {
-  
-  library(shiny)
-  
-shinyApp(options = list(width = "100%", height = "800px"),
-ui = navbarPage(theme = shinythemes::shinytheme("flatly"), includeCSS('css/my-shiny.css'),
+#' Function Title
+#'
+#' @description Description
+#'
+#' @import shinythemes
+#' @import shinyAce
+#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
+#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div
+#' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
+#' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel h2 h4
+#' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput
+#' @importFrom shiny updateNumericInput strong stopApp shinyAppDir
+#' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
+#' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
+#' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
+#' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
+#'
+#'
+#' @param theme code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
+#' @param storyteller code{logical} Is this a storyteller app?
+#' @param width code{character} Width of the printed app
+#' @param height code{character} Height of the printed app
+#' @param css code{character} Path to a custom css file. If code{NULL} the default css file is used 
+#' @param more.opts code{list} Additional options/objects passed to the app (see Details)
+#' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
+#' 
+#' @export
 
-tabPanel(h4("Data Set"), DT::dataTableOutput("printedcircuitboard", height = "600px")),
-                
-tabPanel(h4("Figure 1.9"), titlePanel("Edit this code and press 'Evaluate' to change the figure"),
-  sidebarLayout( 
-    sidebarPanel(width = 5,
-      shinyAce::aceEditor("fig9plot", mode = "r", theme = "github", height = "450px",
-                      value = "par(family= 'serif', font=2)
-plot(hoursl~rh, data = printedcircuitboard,
-     pch = 'X', cex = .85, log = 'y',
-     ylim = c(10,10000),xlim = c(45,85))
+figure1_9 <- 
+function(theme = "flatly", storyteller = F, width = '100%',
+         height = `if`(storyteller,'800px','600px'),
+         css = NULL, more.opts = list(NA),...) {
 
-text(x = c(50,63,75,82), 
-     y = c(7000,6000,1000,350), 
-     c('48/70 censored',
-       '11/68 censored',
-       '0/70 censored',
-       '0/70 censored'))"),
-              actionButton("evalfig9", h4("Evaluate"), width = '100%')),
-        
-        mainPanel(plotOutput("plotfig9", height = "600px"), width = 7)))),
+    dir <- dirname(system.file("apps", "figure1_9", "global.R", package = "teachingApps"))
+    
+    teachingApps::getPackage(pkg = 'SMRD')
+    
+    assign.shiny.opts(opts = more.opts,
+                      dir = dir,
+                      theme = theme,
+                      css = css,
+                      story = storyteller)
+    
+    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
 
-server = function(input, output, session) {
-  library(SMRD)
-  output$printedcircuitboard <- DT::renderDataTable({ DT::datatable(printedcircuitboard,
-                                                       options = list(pageLength = 12)) })
-  
-  output$plotfig9 <- renderPlot({
-      par(oma = c(0,0,0,0), mar = c(4,4,2,2))
-      input$evalfig9
-      return(isolate(eval(parse(text=input$fig9plot))))
-})
-})
 }
