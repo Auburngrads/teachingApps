@@ -28,9 +28,9 @@
 #' @export
 
 location_scale <- 
-function(theme = "flatly",  width = '100%', storyteller = F, css = NULL,
-                           height = `if`(storyteller,'800px','600px'),
-                           more.opts = list(NA),...) {
+function(theme = "flatly", storyteller = F, width = '100%',
+         height = `if`(storyteller,'800px','600px'),
+         css = NULL, more.opts = list(NA),...) {
 
     dir <- dirname(system.file("apps", "location_scale", "global.R", package = "teachingApps"))
     

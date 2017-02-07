@@ -21,13 +21,6 @@ Imports: shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
           shinydashboard,d3Network,ggplot2,actuar,markdown,stats,shinygadgets
 NeedsCompilation: no
 Archs: i386, x64
-Suggests:
-    testthat,
-    rmarkdown,
-    SMRD
-Remotes:
-    github::timelyportfolio/parcoords,
-    github::hrbrmstr/taucharts,
-    github::timelyportfolio/codemirrorR
+Suggests: testthat, rmarkdown
 RoxygenNote: 6.0.0
 VignetteBuilder: knitr

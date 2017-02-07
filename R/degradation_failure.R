@@ -26,10 +26,9 @@
 #' 
 #' @export 
 degradation_failure <- 
-function(theme = "flatly", width = '100%', 
-         storyteller = F, css = NULL,
+function(theme = "flatly", storyteller = F, width = '100%', 
          height = `if`(storyteller,'800px','600px'),
-         more.opts = list(NA),...) {
+         css = NULL, more.opts = list(NA),...) {
 
     dir <- dirname(system.file("apps",
                                "degradation_failure", 

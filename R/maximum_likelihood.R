@@ -27,10 +27,9 @@
 #' 
 #' @export
 maximum_likelihood <- 
-function(theme = "flatly", width = '100%', 
+function(theme = "flatly", storyteller = T, width = '100%', 
          height = `if`(storyteller,'800px','600px'),
-         storyteller = T, css = NULL,
-         more.opts = list(time = Sys.time()),...) {
+         css = NULL, more.opts = list(time = Sys.time()),...) {
 
     dir <- dirname(system.file("apps", "maximum_likelihood", "global.R", package = "teachingApps"))
     

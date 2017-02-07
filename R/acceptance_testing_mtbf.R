@@ -29,9 +29,9 @@
 #'
 #' @export
 acceptance_testing_mtbf <- 
-function(theme = "flatly", width = '100%',storyteller = F,
+function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),
-         css = NULL,more.opts = list(NA),...) 
+         css = NULL, more.opts = list(NA),...) 
 {
 
     dir <- dirname(system.file("apps", "acceptance_testing_mtbf", "global.R", package = "teachingApps"))
