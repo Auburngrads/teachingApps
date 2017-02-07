@@ -2,7 +2,7 @@
 % Please edit documentation in R/acceptance_mtbf_mini.R
 \name{acceptance_mtbf_mini}
 \alias{acceptance_mtbf_mini}
-\title{Function Title}
+\title{Reliability acceptance test planning app (miniUI)}
 \usage{
 acceptance_mtbf_mini(theme = "flatly", width = "100\%", storyteller = F,
   height = if (storyteller) "800px" else "600px", css = NULL,

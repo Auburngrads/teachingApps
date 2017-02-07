@@ -2,7 +2,7 @@
 % Please edit documentation in R/acceptance_proportion.R
 \name{acceptance_proportion}
 \alias{acceptance_proportion}
-\title{Function Title}
+\title{Reliability acceptance test planning app (proportions)}
 \usage{
 acceptance_proportion(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", css = NULL,

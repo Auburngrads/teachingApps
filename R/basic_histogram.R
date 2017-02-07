@@ -1,4 +1,4 @@
-#' Function Title
+#' Simple histogram using base R
 #'
 #' @description Description
 #'

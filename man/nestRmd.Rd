@@ -10,5 +10,12 @@ nestRmd(rmd)
 \item{rmd}{An rmarkdown file saved in the app directory}
 }
 \description{
-Nest an rmarkdown file within an app
+Run inline and stand-alone code chunks and include results
+as part of a shiny app. Include \code{LaTeX}-typeset equations with MathJax
+}
+\examples{
+\dontrun{# see examples in nestServer and nestUI documentation}
+}
+\seealso{
+\code{\link{nestServer} \link{nestUI}}
 }

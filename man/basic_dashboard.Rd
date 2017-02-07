@@ -2,7 +2,7 @@
 % Please edit documentation in R/basic_dashboard.R
 \name{basic_dashboard}
 \alias{basic_dashboard}
-\title{Function Title}
+\title{Simple shinydashboard example}
 \usage{
 basic_dashboard(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", css = NULL,

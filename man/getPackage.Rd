@@ -2,7 +2,7 @@
 % Please edit documentation in R/getPackage.R
 \name{getPackage}
 \alias{getPackage}
-\title{Installs and/or loads an R package}
+\title{Install and load an R package}
 \usage{
 getPackage(pkg = NULL, repo = NULL, pub = FALSE)
 }
@@ -14,7 +14,7 @@ getPackage(pkg = NULL, repo = NULL, pub = FALSE)
 \item{pub}{\code{logical} variable indicating whether the app be published (see details)}
 }
 \description{
-Installs and/or loads an R package
+Install and load an R package
 }
 \details{
 If \code{repo = NULL} the package will be installed from the CRAN.  Otherwise, \code{repo} is a character string that referring to the GitHub account in which the package is located.

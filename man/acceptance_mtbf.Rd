@@ -2,7 +2,7 @@
 % Please edit documentation in R/acceptance_mtbf.R
 \name{acceptance_mtbf}
 \alias{acceptance_mtbf}
-\title{Reliability acceptance test planning app}
+\title{Reliability acceptance test planning app (MTBF)}
 \usage{
 acceptance_mtbf(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", css = NULL,

@@ -1,4 +1,4 @@
-#' Installs and/or loads an R package
+#' Install and load an R package
 #'
 #' @export
 #' 

@@ -1,4 +1,4 @@
-#' Function Title
+#' Simple shinydashboard example
 #'
 #' @description Description
 #'

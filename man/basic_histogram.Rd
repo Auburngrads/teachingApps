@@ -2,7 +2,7 @@
 % Please edit documentation in R/basic_histogram.R
 \name{basic_histogram}
 \alias{basic_histogram}
-\title{Function Title}
+\title{Simple histogram using base R}
 \usage{
 basic_histogram(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", css = NULL,
