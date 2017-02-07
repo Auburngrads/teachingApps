@@ -31,7 +31,13 @@
 #' @family storyteller apps
 #' @family htmlwidget apps
 #' 
+#' @return A printed shiny app
 #' @export
+#'
+#' @examples 
+#' \dontrun{
+#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' }
 
 complex_ideas <- 
 function(theme = "flatly", storyteller = F, width = '100%',

@@ -26,7 +26,13 @@
 #' 
 #' @family shinyAce apps
 #' 
+#' @return A printed shiny app
 #' @export
+#'
+#' @examples 
+#' \dontrun{
+#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' }
 basic_histogram <- 
 function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),

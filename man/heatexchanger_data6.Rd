@@ -23,6 +23,14 @@ heatexchanger_data6(theme = "flatly", storyteller = F, width = "100\%",
 
 \item{...}{code{list} Additional options passed to code{shiny::shinyAppDir()}}
 }
+\value{
+A printed shiny app
+}
 \description{
 Description
+}
+\examples{
+\dontrun{
+appy(theme = 'spacelab', storyteller = T, pub = F)
+}
 }

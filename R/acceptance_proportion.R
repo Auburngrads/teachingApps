@@ -1,4 +1,4 @@
-#' Function Title
+#' Reliability acceptance test planning app (proportions)
 #'
 #' @description Description
 #'
@@ -28,7 +28,13 @@
 #' @family htmlwidget apps
 #' @family storyteller apps
 #' 
+#' @return A printed shiny app
 #' @export
+#'
+#' @examples 
+#' \dontrun{
+#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' }
 
 acceptance_proportion <- 
 function(theme = "flatly", storyteller = F, width = '100%',

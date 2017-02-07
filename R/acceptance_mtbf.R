@@ -1,4 +1,4 @@
-#' Reliability acceptance test planning app
+#' Reliability acceptance test planning app (MTBF)
 #'
 #' @description Description
 #'
@@ -28,7 +28,13 @@
 #' @family htmlwidget apps
 #' @family storyteller apps
 #' 
+#' @return A printed shiny app
 #' @export
+#'
+#' @examples 
+#' \dontrun{
+#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' }
 acceptance_mtbf <- 
 function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),

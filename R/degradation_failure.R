@@ -24,7 +24,13 @@
 #' @param more.opts code{list} Additional options/objects passed to the app (see Details)
 #' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
 #' 
-#' @export 
+#' @return A printed shiny app
+#' @export
+#'
+#' @examples 
+#' \dontrun{
+#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' } 
 degradation_failure <- 
 function(theme = "flatly", storyteller = F, width = '100%', 
          height = `if`(storyteller,'800px','600px'),

@@ -27,7 +27,13 @@
 #' 
 #' @family shinyAce apps
 #' 
+#' @return A printed shiny app
 #' @export
+#'
+#' @examples 
+#' \dontrun{
+#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' }
 ace_very_normal <- 
 function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),

@@ -4,16 +4,16 @@
 \alias{acceptance_testing_mtbf}
 \title{Reliability acceptance test planning app}
 \usage{
-acceptance_testing_mtbf(theme = "flatly", width = "100\%",
-  storyteller = F, height = if (storyteller) "800px" else "600px",
+acceptance_testing_mtbf(theme = "flatly", storyteller = F,
+  width = "100\%", height = if (storyteller) "800px" else "600px",
   css = NULL, more.opts = list(NA), ...)
 }
 \arguments{
 \item{theme}{code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}}
 
-\item{width}{code{character} Width of the printed app}
-
 \item{storyteller}{code{logical} Is this a storyteller app?}
+
+\item{width}{code{character} Width of the printed app}
 
 \item{height}{code{character} Height of the printed app}
 

@@ -4,18 +4,18 @@
 \alias{maximum_likelihood}
 \title{Function Title}
 \usage{
-maximum_likelihood(theme = "flatly", width = "100\%", height = if
-  (storyteller) "800px" else "600px", storyteller = T, css = NULL,
+maximum_likelihood(theme = "flatly", storyteller = T, width = "100\%",
+  height = if (storyteller) "800px" else "600px", css = NULL,
   more.opts = list(time = Sys.time()), ...)
 }
 \arguments{
 \item{theme}{code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}}
 
+\item{storyteller}{code{logical} Is this a storyteller app?}
+
 \item{width}{code{character} Width of the printed app}
 
 \item{height}{code{character} Height of the printed app}
-
-\item{storyteller}{code{logical} Is this a storyteller app?}
 
 \item{css}{code{character} Path to a custom css file. If code{NULL} the default css file is used}
 
@@ -23,6 +23,14 @@ maximum_likelihood(theme = "flatly", width = "100\%", height = if
 
 \item{...}{code{list} Additional options passed to code{shiny::shinyAppDir()}}
 }
+\value{
+A printed shiny app
+}
 \description{
 Description
+}
+\examples{
+\dontrun{
+appy(theme = 'spacelab', storyteller = T, pub = F)
+}
 }

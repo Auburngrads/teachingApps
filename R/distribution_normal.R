@@ -27,7 +27,13 @@
 #' @family distribution apps
 #' @family htmlwidget apps
 #' 
+#' @return A printed shiny app
 #' @export
+#'
+#' @examples 
+#' \dontrun{
+#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' }
 
 distribution_normal <- 
 function(theme = "flatly", storyteller = F, width = '100%',

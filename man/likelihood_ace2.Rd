@@ -4,18 +4,18 @@
 \alias{likelihood_ace2}
 \title{Function Title}
 \usage{
-likelihood_ace2(theme = "flatly", width = "100\%", height = if
-  (storyteller) "800px" else "600px", storyteller = F, css = NULL,
+likelihood_ace2(theme = "flatly", storyteller = F, width = "100\%",
+  height = if (storyteller) "800px" else "600px", css = NULL,
   more.opts = list(time = Sys.time()), ...)
 }
 \arguments{
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}}
 
+\item{storyteller}{Is this a storyteller app?}
+
 \item{width}{Width of the printed app}
 
 \item{height}{Height of the printed app}
-
-\item{storyteller}{Is this a storyteller app?}
 
 \item{css}{Path to a custom css file. If \code{NULL} the default css file is used}
 
@@ -23,9 +23,17 @@ likelihood_ace2(theme = "flatly", width = "100\%", height = if
 
 \item{...}{Additional arguments passed to \code{shiny::shinyAppDir()}}
 }
+\value{
+A printed shiny app
+}
 \description{
 Description
 }
 \details{
 When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
+}
+\examples{
+\dontrun{
+appy(theme = 'spacelab', storyteller = T, pub = F)
+}
 }

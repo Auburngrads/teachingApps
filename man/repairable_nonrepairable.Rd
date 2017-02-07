@@ -23,6 +23,14 @@ repairable_nonrepairable(theme = "flatly", storyteller = F,
 
 \item{...}{code{list} Additional options passed to code{shiny::shinyAppDir()}}
 }
+\value{
+A printed shiny app
+}
 \description{
 Description
+}
+\examples{
+\dontrun{
+appy(theme = 'spacelab', storyteller = T, pub = F)
+}
 }

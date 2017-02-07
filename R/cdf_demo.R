@@ -28,7 +28,13 @@
 #' @family storyteller apps
 #' @family probability function apps
 #' 
+#' @return A printed shiny app
 #' @export
+#'
+#' @examples 
+#' \dontrun{
+#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' }
 
 cdf_demo <- 
 function(theme = "flatly", storyteller = F, width = '100%',

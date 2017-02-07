@@ -1,4 +1,4 @@
-#' Function Title
+#' Reliability acceptance test planning app (miniUI)
 #'
 #' @description Description
 #'
@@ -29,7 +29,13 @@
 #' @family htmlwidget apps
 #' @family miniUI apps
 #' 
+#' @return A printed shiny app
 #' @export
+#'
+#' @examples 
+#' \dontrun{
+#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' }
 
 acceptance_mtbf_mini <- 
 function(theme = "flatly", width = '100%', storyteller = F,
