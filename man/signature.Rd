@@ -4,7 +4,8 @@
 \alias{signature}
 \title{Place a signature on a teachingApp}
 \usage{
-signature(app.name, git.username = NULL, appPackage = NULL)
+signature(app.name, git.username = NULL, appPackage = NULL, icon = NULL,
+  img = NULL)
 }
 \arguments{
 \item{app.name}{\code{character} Name of the app in which the signature will be placed}

@@ -20,9 +20,9 @@
 #' @param storyteller code{logical} Is this a storyteller app?
 #' @param width code{character} Width of the printed app
 #' @param height code{character} Height of the printed app
-#' @param css code{character} Path to a custom css file. If code{NULL} the default css file is used 
 #' @param more.opts code{list} Additional options/objects passed to the app (see Details)
 #' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
+
 #' 
 #' @return A printed shiny app
 #' @export
@@ -35,7 +35,7 @@
 shockabsorber_data6 <- 
 function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),
-         css = NULL, more.opts = list(NA),...) {
+         more.opts = list(NA),...) {
 
     dir <- dirname(system.file("apps", "shockabsorber_data6", "global.R", package = "teachingApps"))
   
@@ -44,7 +44,6 @@ function(theme = "flatly", storyteller = F, width = '100%',
     assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
-                      css = css,
                       story = storyteller)
     
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))

@@ -6,7 +6,20 @@
 #'
 #' @export
 signature <- 
-function(app.name, git.username = NULL, appPackage = NULL) {
+function(app.name, git.username = NULL, appPackage = NULL,
+         icon = NULL, img = NULL) {
+  
+  if(is.null(icon) & is.null(img)) {
+    
+    logo <- paste("<i class=","'","fa fa-github fa-3x","'","></i>", sep = '')
+    
+  } else {
+    
+    `if`(is.null(img),
+         logo = paste("<i class=","'",icon,"'","></i>", sep = ''),
+         logo = paste("<img src='", img, "'>", sep = ''))
+    
+  }
   
   if(!is.character(app.name)) stop('name must be a character string')
   
@@ -32,10 +45,9 @@ function(app.name, git.username = NULL, appPackage = NULL) {
     return(paste(c("<script src='https://use.fontawesome.com/6819c76733.js'></script>
 <ul class='photo-grid'>
 <li>
-<figure>
-<i class='fa fa-github fa-3x'></i>
-<img src='...'> 
-<figcaption><p>Get the <a target=' ' href='",
+<figure>",
+logo, 
+"<figcaption><p>Get the <a target=' ' href='",
                 paste(c(gitURL, app.name), collapse = '/'),"'>CODE</a> for this app</p></figcaption>
 </figure>
 </li>

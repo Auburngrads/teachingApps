@@ -5,8 +5,8 @@
 \title{Function Title}
 \usage{
 likelihood_ace2(theme = "flatly", storyteller = F, width = "100\%",
-  height = if (storyteller) "800px" else "600px", css = NULL,
-  more.opts = list(time = Sys.time()), ...)
+  height = if (storyteller) "800px" else "600px", more.opts = list(time =
+  Sys.time()), ...)
 }
 \arguments{
 \item{theme}{Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}}
@@ -17,11 +17,11 @@ likelihood_ace2(theme = "flatly", storyteller = F, width = "100\%",
 
 \item{height}{Height of the printed app}
 
-\item{css}{Path to a custom css file. If \code{NULL} the default css file is used}
-
 \item{more.opts}{A list of additional options/objects to be passed to the app (see Details)}
 
 \item{...}{Additional arguments passed to \code{shiny::shinyAppDir()}}
+
+\item{css}{Path to a custom css file. If \code{NULL} the default css file is used}
 }
 \value{
 A printed shiny app

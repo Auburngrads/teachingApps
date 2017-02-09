@@ -5,8 +5,8 @@
 \title{Function Title}
 \usage{
 maximum_likelihood(theme = "flatly", storyteller = T, width = "100\%",
-  height = if (storyteller) "800px" else "600px", css = NULL,
-  more.opts = list(time = Sys.time()), ...)
+  height = if (storyteller) "800px" else "600px", more.opts = list(time =
+  Sys.time()), ...)
 }
 \arguments{
 \item{theme}{code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}}
@@ -16,8 +16,6 @@ maximum_likelihood(theme = "flatly", storyteller = T, width = "100\%",
 \item{width}{code{character} Width of the printed app}
 
 \item{height}{code{character} Height of the printed app}
-
-\item{css}{code{character} Path to a custom css file. If code{NULL} the default css file is used}
 
 \item{more.opts}{code{list} Additional options/objects passed to the app (see Details)}
 

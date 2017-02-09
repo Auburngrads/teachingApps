@@ -36,14 +36,13 @@
 likelihood_ace2 <- 
 function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),
-         css = NULL, more.opts = list(time = Sys.time()),...) {
+         more.opts = list(time = Sys.time()),...) {
 
     dir <- dirname(system.file("apps", "likelihood_ace2", "global.R", package = "teachingApps"))
     
     assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
-                      css = css,
                       story = storyteller)
     
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))

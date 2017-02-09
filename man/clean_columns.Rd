@@ -32,3 +32,6 @@ Shiny gadget used to visually inspect columns in a data set and select columns t
 \dontrun{clean_columns(mtcars)}
 
 }
+\seealso{
+Other shinygadgets: \code{\link{clean_rows}}
+}

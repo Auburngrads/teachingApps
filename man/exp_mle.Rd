@@ -5,7 +5,7 @@
 \title{Function Title}
 \usage{
 exp_mle(theme = "flatly", storyteller = F, width = "100\%", height = if
-  (storyteller) "800px" else "600px", css = NULL, more.opts = list(NA), ...)
+  (storyteller) "800px" else "600px", more.opts = list(NA), ...)
 }
 \arguments{
 \item{theme}{code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}}
@@ -15,8 +15,6 @@ exp_mle(theme = "flatly", storyteller = F, width = "100\%", height = if
 \item{width}{code{character} Width of the printed app}
 
 \item{height}{code{character} Height of the printed app}
-
-\item{css}{code{character} Path to a custom css file. If code{NULL} the default css file is used}
 
 \item{more.opts}{code{list} Additional options/objects passed to the app (see Details)}
 

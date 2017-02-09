@@ -22,9 +22,9 @@
 #' @param storyteller code{logical} Is this a storyteller app?
 #' @param width code{character} Width of the printed app
 #' @param height code{character} Height of the printed app
-#' @param css code{character} Path to a custom css file. If code{NULL} the default css file is used 
 #' @param more.opts code{list} Additional options/objects passed to the app (see Details)
 #' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
+
 #' 
 #' @family htmlwidget apps
 #' @family miniUI apps
@@ -40,7 +40,7 @@
 acceptance_mtbf_mini <- 
 function(theme = "flatly", width = '100%', storyteller = F,
          height = `if`(storyteller,'800px','600px'),
-         css = NULL, more.opts = list(NA),...) {
+         more.opts = list(NA),...) {
 
     dir <- dirname(system.file("apps", "acceptance_mtbf_mini", "global.R", package = "teachingApps"))
   
@@ -50,7 +50,6 @@ function(theme = "flatly", width = '100%', storyteller = F,
     assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
-                      css = css,
                       story = storyteller)
     
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))

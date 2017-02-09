@@ -2,21 +2,24 @@ library(teachingApps)
 
 ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
                theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
-               tags$head(includeCSS(getShinyOption("css"))),
+               tags$head(includeCSS(getShinyOption("CSS"))),
+               tags$head(includeCSS("www/custom.css")),
                tags$footer(getShinyOption("sign")),
                  
 sidebarLayout(
    sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
-                            wordWrap = T,
-                            outputId = "mlexpplot", 
-                            mode = "r", 
-                            theme = "github",
-                            height = "450px", 
-                            value = 
+                          wordWrap = T,
+                          outputId = "mlexpplot", 
+                          mode = "r", 
+                          theme = "github",
+                          height = "450px", 
+                          value = 
 "par(font = 2, mar = c(4,5.5,1,1), family = 'serif', cex = 1.5)
 
-obs <- c(4.2564, 0.5319)
+set.seed(as.numeric(Sys.Date()))
+
+obs <- runif(2,0.5,4.5)
 
 theta <- seq(0.25, 10, .05)
 

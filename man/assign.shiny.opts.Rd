@@ -4,7 +4,7 @@
 \alias{assign.shiny.opts}
 \title{Pass objects and customization options to apps}
 \usage{
-assign.shiny.opts(opts, dir, theme = "flatly", story = F, css = NULL)
+assign.shiny.opts(opts, dir, theme = "flatly", story = F)
 }
 \arguments{
 \item{opts}{\code{list} Additional options or objects to pass to a shiny app}

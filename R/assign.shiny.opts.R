@@ -24,7 +24,7 @@
 
 assign.shiny.opts <- 
 function(opts, dir, theme = 'flatly', 
-         story = F, css = NULL) {
+         story = F) {
 
 if(!is.na(opts)) { 
 aso <- lapply(X = 1:length(opts), 
@@ -38,9 +38,8 @@ aso <- lapply(X = 1:length(opts),
        })
 }
 
-    css <- `if`(is.null(css),
-                system.file('resources','css','teachingApps.css', package = 'teachingApps'),
-                css)
+    CSS <- system.file('resources','css','teachingApps.css', package = 'teachingApps')
+                
     
     sign <- `if`(story,
                  NULL,
@@ -50,7 +49,7 @@ aso <- lapply(X = 1:length(opts),
     shiny::shinyOptions('appDir'  = dir)
     shiny::shinyOptions('appName' = basename(dir))
     shiny::shinyOptions('story'   = story)
-    shiny::shinyOptions('css'     = css)
+    shiny::shinyOptions('CSS'     = CSS)
     shiny::shinyOptions('sign'    = sign)
     
     if(!story)

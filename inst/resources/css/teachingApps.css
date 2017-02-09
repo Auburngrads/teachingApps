@@ -110,6 +110,7 @@ table.dataTable th.dt-right, table.dataTable td.dt-right {
 table.dataTable th, table.dataTable td {
 
   font-size: 110%;
+  background: #FFF;
 }
 
 table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
@@ -119,7 +120,8 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 
 table.dataTable th.dt-right, table.dataTable td.dt-right {
 
-  font-size: 12pt;
+  font-size: 18pt;
+  color: #2c3e50;
 }
 
 table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
@@ -129,14 +131,8 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 
 table.dataTable thead .sorting {
   
-background: -webkit-gradient(linear, 50% 0%, 50% 100%, 
-              color-stop(40%, #4387fd), 
-              color-stop(80%, #2a7cdf)) no-repeat !important;
-background: -webkit-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
-background: -moz-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
-background: -o-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
-  background: linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat !important;
-  color: #FFF;
+  background: #FFF no-repeat !important;
+  color: #2c3e50;
   padding: 0.25em 0.25em;
   font-weight: bold;
   font-size: 18pt;
@@ -622,3 +618,14 @@ iframe{
   margin-right: auto;
 }
 
+svg .dimension .tick  text {
+  
+  font-size: 90% !important;
+  font-weight: bold;
+}
+
+svg g g g text.label {
+  
+  font-size: 100% !important;
+  transform: translate(0,-10px);
+}

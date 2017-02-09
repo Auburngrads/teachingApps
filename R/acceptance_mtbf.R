@@ -38,7 +38,7 @@
 acceptance_mtbf <- 
 function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),
-         css = NULL, more.opts = list(NA),...) {
+         more.opts = list(NA),...) {
 
     dir <- dirname(system.file("apps", "acceptance_mtbf", "global.R", package = "teachingApps"))
   
@@ -47,7 +47,6 @@ function(theme = "flatly", storyteller = F, width = '100%',
     assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
-                      css = css,
                       story = storyteller)
     
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
