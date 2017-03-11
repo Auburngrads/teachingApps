@@ -40,7 +40,7 @@ function(theme = "flatly", storyteller = F, width = '100%',
 
     dir <- dirname(system.file("apps", "soln_numerical2", "global.R", package = "teachingApps"))
     
-    assign.shiny.opts(opts = more.opts,
+   teachingApps::assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
                       story = storyteller)

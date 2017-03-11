@@ -42,7 +42,7 @@ aso <- lapply(X = 1:length(opts),
                 
     
     sign <- `if`(story,
-                 NULL,
+                 HTML(teachingApps::signature(basename(dir))),
                  HTML(teachingApps::signature(basename(dir))))
 
     shiny::shinyOptions('theme'   = theme)
@@ -53,6 +53,6 @@ aso <- lapply(X = 1:length(opts),
     shiny::shinyOptions('sign'    = sign)
     
     if(!story)
-       options('markdown.HTML.stylesheet' = shiny::getShinyOption("css"))
+       options('markdown.HTML.stylesheet' = shiny::getShinyOption("CSS"))
 
 } 

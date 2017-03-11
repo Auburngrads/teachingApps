@@ -47,7 +47,7 @@ function(theme = "flatly", width = '100%', storyteller = F,
     teachingApps::getPackage(pkg = 'plotly')
     teachingApps::getPackage(pkg = 'miniUI')
     
-    assign.shiny.opts(opts = more.opts,
+   teachingApps::assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
                       story = storyteller)

@@ -47,7 +47,7 @@ function(theme = "flatly", storyteller = F, width = '100%',
     teachingApps::getPackage(pkg = 'metricsgraphics')
     teachingApps::getPackage(pkg = 'SMRD')
     
-    assign.shiny.opts(opts = more.opts,
+   teachingApps::assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
                       story = storyteller)

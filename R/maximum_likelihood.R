@@ -41,7 +41,7 @@ function(theme = "flatly", storyteller = T, width = '100%',
     
     teachingApps::getPackage(pkg  = 'scales')
     
-    assign.shiny.opts(opts = more.opts,
+   teachingApps::assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
                       story = storyteller)

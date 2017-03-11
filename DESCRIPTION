@@ -1,10 +1,12 @@
 Package: teachingApps
 Type: Package
-Title: Build, Update, and Share Shiny Apps - Quickly And Easily
-Version: 0.6
-Date: 2017-2-7
-Author: Jason K. Freels
-Maintainer: Jason K. Freels <auburngrads@live.com>
+Title: Build, Update, and Share Shiny Apps - Quickly and Easily
+Version: 0.7
+Date: 2017-03-07
+Authors@R: c(
+    person("Bradley", "Boehmke", email = "bradleyboehmke@gmail.com", role = c("aut")),
+    person("Jason", "Freels", email = "auburngrads@live.com", role = c("aut","cre"))
+    )
 Description: Instantly create shiny app templates and app calling functions 
     for use in R packages.  Manage large collections of shiny apps from one 
     location.  Update the structure or appearance of apps on the fly.  Nest 
@@ -12,15 +14,19 @@ Description: Instantly create shiny app templates and app calling functions
     alone apps or embed in rmarkdown documents with app calling functions.
     Includes over 100 shiny apps and shiny gadgets for analyzing data and   
     teaching various concepts (statistics and R programming). 
+URL: https://github.com/Auburngrads/teachingApps
+BugReports: https://github.com/Auburngrads/teachingApps/issues
+Encoding: UTF-8
 License: GPL-2
 LazyData: true
 Depends: R (>= 3.1.0)
 Imports: shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
           utils,knitr,leaflet,threejs,d3heatmap,plotly,htmlwidgets,dygraphs,
           networkD3,diagram,DiagrammeR,visNetwork,scales,data.table,miniUI,
-          shinydashboard,d3Network,ggplot2,actuar,markdown,stats,shinygadgets
+          shinydashboard,d3Network,ggplot2,actuar,markdown,stats,shinygadgets,
+          rprojroot, R.utils
 NeedsCompilation: no
 Archs: i386, x64
 Suggests: testthat, rmarkdown
-RoxygenNote: 6.0.0
+RoxygenNote: 6.0.1
 VignetteBuilder: knitr

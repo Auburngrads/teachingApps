@@ -46,7 +46,7 @@ function(app = NULL, pkg = 'teachingApps',
       
     } else {
     
-    appFiles <- list.files(path = appRoot)
+    appFiles <- list.files(path = appRoot, recursive = T)
       
     for(i in 1:length(appFiles)) {
       

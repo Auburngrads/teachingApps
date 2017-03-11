@@ -629,3 +629,23 @@ svg g g g text.label {
   font-size: 100% !important;
   transform: translate(0,-10px);
 }
+
+.btn {
+  
+  width: 100%;
+}
+
+/* CSS Rules for tutor output */
+
+.tutor-exercise-input .btn-xs {
+  font-size: 22px;
+  width: auto;
+}
+
+.tutor-panel-heading {
+  font-size: 25px;
+}
+
+.ace_editor {
+font: 18px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
