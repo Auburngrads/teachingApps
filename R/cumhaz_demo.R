@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization of cumulative hazard function
 #'
 #' @description Description
 #'

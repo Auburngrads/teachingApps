@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization app for the largest extreme value distribution
 #'
 #' @description Description
 #'

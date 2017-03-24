@@ -1,4 +1,4 @@
-#' Function Title
+#' Likelihood profile plot for Berkson Americurium Data set
 #'
 #' @description Description
 #'

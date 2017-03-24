@@ -1,4 +1,4 @@
-#' Simple histogram using base R
+#' Simple base R histogram app
 #'
 #' @description Description
 #'
@@ -22,7 +22,6 @@
 #' @param height code{character} Height of the printed app
 #' @param more.opts code{list} Additional options/objects passed to the app (see Details)
 #' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
-
 #' 
 #' @family shinyAce apps
 #' 

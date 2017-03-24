@@ -1,4 +1,4 @@
-#' Function Title
+#' Interval plot for Berkson Americurium Data set
 #'
 #' @description Description
 #'

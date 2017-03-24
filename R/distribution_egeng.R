@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization app for the extended generalized gamma distribution
 #'
 #' @description Description
 #'

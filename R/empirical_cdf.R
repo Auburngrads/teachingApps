@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization app for an empirical cumulative distribution function
 #'
 #' @description Description
 #'

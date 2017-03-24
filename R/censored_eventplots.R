@@ -1,4 +1,4 @@
-#' Function Title
+#' Life-data eventplot app for censored data
 #'
 #' @description Description
 #'

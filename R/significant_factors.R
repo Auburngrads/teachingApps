@@ -1,4 +1,4 @@
-#' Shiny app graphibeta distribution
+#' Visualize effect of significant and non-significant factors on a linear regression model
 #'
 #' @description Description
 #'
@@ -14,7 +14,7 @@
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
 #' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
-#'
+#' @import scales
 #'
 #' @param theme code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
 #' @param storyteller code{logical} Is this a storyteller app?
@@ -22,7 +22,6 @@
 #' @param height code{character} Height of the printed app
 #' @param more.opts code{list} Additional options/objects passed to the app (see Details)
 #' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
-
 #' 
 #' @return A printed shiny app
 #' @export
@@ -31,16 +30,16 @@
 #' \dontrun{
 #' appy(theme = 'spacelab', storyteller = T, pub = F)
 #' }
-
-exp_mle <- 
+significant_factors <- 
 function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),
          more.opts = list(NA),...) {
 
-    dir <- dirname(system.file("apps", "exp_mle", "global.R", package = "teachingApps"))
-    
+    dir <- dirname(system.file("apps", "significant_factors", "global.R", package = "teachingApps"))
+  
+    teachingApps::getPackage(pkg = 'scales')
 
-    teachingApps::assign.shiny.opts(opts = more.opts,
+   teachingApps::assign.shiny.opts(opts = more.opts,
                       dir = dir,
                       theme = theme,
                       story = storyteller)

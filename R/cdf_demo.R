@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization of Cumulative Distribution Function
 #'
 #' @description Description
 #'

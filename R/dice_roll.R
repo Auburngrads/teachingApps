@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization of probabilities associated with rolling dice
 #'
 #' @description Description
 #'

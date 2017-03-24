@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization app for the Poisson distribution
 #'
 #' @description Description
 #'

@@ -40,11 +40,10 @@ function(theme = "flatly", storyteller = F, width = '100%',
     dir <- dirname(system.file("apps", "exp_numerical", "global.R", package = "teachingApps"))
     
 
-    global <- data.frame(theme  = theme,
-                       appDir = dir,
-                      appName = basename(dir),
-                        story = storyteller,
-                      stringsAsFactors = F)
+    teachingApps::assign.shiny.opts(opts = more.opts,
+                      dir = dir,
+                      theme = theme,
+                      story = storyteller)
     
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
 

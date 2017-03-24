@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization app for the gamma distribution
 #'
 #' @description Description
 #'

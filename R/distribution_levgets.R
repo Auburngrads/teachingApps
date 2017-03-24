@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization app for the largest extreme value generalized threshhold distribution
 #'
 #' @description Description
 #'

@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization app for the normal generalized threshhold distribution
 #'
 #' @description Description
 #'

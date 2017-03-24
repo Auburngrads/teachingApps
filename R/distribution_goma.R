@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization app for the Gompertz-Makeham distribution
 #'
 #' @description Description
 #'

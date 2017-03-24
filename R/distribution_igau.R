@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization app for the inverse gaussian distribution
 #'
 #' @description Description
 #'

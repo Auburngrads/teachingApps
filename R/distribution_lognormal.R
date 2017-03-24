@@ -1,4 +1,4 @@
-#' Function Title
+#' Visualization app for the lognormal distribution
 #'
 #' @description Description
 #'
