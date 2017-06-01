@@ -2,7 +2,7 @@
 % Please edit documentation in R/exp_mle.R
 \name{exp_mle}
 \alias{exp_mle}
-\title{Function Title}
+\title{Shiny app graphibeta distribution}
 \usage{
 exp_mle(theme = "flatly", storyteller = F, width = "100\%", height = if
   (storyteller) "800px" else "600px", more.opts = list(NA), ...)

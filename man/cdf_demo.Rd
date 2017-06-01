@@ -2,7 +2,7 @@
 % Please edit documentation in R/cdf_demo.R
 \name{cdf_demo}
 \alias{cdf_demo}
-\title{Function Title}
+\title{Visualization of Cumulative Distribution Function}
 \usage{
 cdf_demo(theme = "flatly", storyteller = F, width = "100\%", height = if
   (storyteller) "800px" else "600px", more.opts = list(NA), ...)

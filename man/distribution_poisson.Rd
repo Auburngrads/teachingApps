@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_poisson.R
 \name{distribution_poisson}
 \alias{distribution_poisson}
-\title{Function Title}
+\title{Visualization app for the Poisson distribution}
 \usage{
 distribution_poisson(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_loglogistic.R
 \name{distribution_loglogistic}
 \alias{distribution_loglogistic}
-\title{Function Title}
+\title{Visualization app for the loglogistic distribution}
 \usage{
 distribution_loglogistic(theme = "flatly", storyteller = F,
   width = "100\%", height = if (storyteller) "800px" else "600px",

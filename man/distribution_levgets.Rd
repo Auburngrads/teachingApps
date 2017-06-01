@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_levgets.R
 \name{distribution_levgets}
 \alias{distribution_levgets}
-\title{Function Title}
+\title{Visualization app for the largest extreme value generalized threshhold distribution}
 \usage{
 distribution_levgets(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

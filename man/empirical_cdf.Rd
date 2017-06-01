@@ -2,7 +2,7 @@
 % Please edit documentation in R/empirical_cdf.R
 \name{empirical_cdf}
 \alias{empirical_cdf}
-\title{Function Title}
+\title{Visualization app for an empirical cumulative distribution function}
 \usage{
 empirical_cdf(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

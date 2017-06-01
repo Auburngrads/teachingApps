@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_exponential.R
 \name{distribution_exponential}
 \alias{distribution_exponential}
-\title{Function Title}
+\title{Visualization app for the exponential distribution}
 \usage{
 distribution_exponential(theme = "flatly", storyteller = F,
   width = "100\%", height = if (storyteller) "800px" else "600px",

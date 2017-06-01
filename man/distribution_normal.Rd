@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_normal.R
 \name{distribution_normal}
 \alias{distribution_normal}
-\title{Function Title}
+\title{Visualization app for the normal distribution}
 \usage{
 distribution_normal(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

@@ -32,5 +32,6 @@ appy(theme = 'spacelab', storyteller = T, pub = F)
 }
 }
 \seealso{
-Other statistics apps: \code{\link{complex_ideas}}
+Other statistics apps: \code{\link{bathtub_hazard}},
+  \code{\link{bayesian_basic}}, \code{\link{complex_ideas}}
 }

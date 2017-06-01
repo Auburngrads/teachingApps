@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_gamma.R
 \name{distribution_gamma}
 \alias{distribution_gamma}
-\title{Function Title}
+\title{Visualization app for the gamma distribution}
 \usage{
 distribution_gamma(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

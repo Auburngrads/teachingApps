@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_lognormal.R
 \name{distribution_lognormal}
 \alias{distribution_lognormal}
-\title{Function Title}
+\title{Visualization app for the lognormal distribution}
 \usage{
 distribution_lognormal(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

@@ -32,7 +32,8 @@ appy(theme = 'spacelab', storyteller = T, pub = F)
 }
 }
 \seealso{
-Other statistics apps: \code{\link{central_limit}}
+Other statistics apps: \code{\link{bathtub_hazard}},
+  \code{\link{bayesian_basic}}, \code{\link{central_limit}}
 
 Other storyteller apps: \code{\link{acceptance_mtbf}},
   \code{\link{acceptance_proportion}},

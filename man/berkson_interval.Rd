@@ -2,7 +2,7 @@
 % Please edit documentation in R/berkson_interval.R
 \name{berkson_interval}
 \alias{berkson_interval}
-\title{Function Title}
+\title{Interval plot for Berkson Americurium Data set}
 \usage{
 berkson_interval(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_sev.R
 \name{distribution_sev}
 \alias{distribution_sev}
-\title{Function Title}
+\title{Visualization app for the smallest extreme value distribution}
 \usage{
 distribution_sev(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

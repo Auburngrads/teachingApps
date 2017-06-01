@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_geng.R
 \name{distribution_geng}
 \alias{distribution_geng}
-\title{Function Title}
+\title{Visualization app for the genralized gamma distribution}
 \usage{
 distribution_geng(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

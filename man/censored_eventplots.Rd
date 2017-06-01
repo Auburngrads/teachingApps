@@ -2,7 +2,7 @@
 % Please edit documentation in R/censored_eventplots.R
 \name{censored_eventplots}
 \alias{censored_eventplots}
-\title{Function Title}
+\title{Life-data eventplot app for censored data}
 \usage{
 censored_eventplots(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

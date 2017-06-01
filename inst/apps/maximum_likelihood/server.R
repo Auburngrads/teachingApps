@@ -1,5 +1,7 @@
 server = function(input, output, session) {
 
+    session$onFlush(function() objs() )
+  
 output$mleback1 <- renderUI({ teachingApps::nestRmd('background1.Rmd') })
 
 output$example1_1 <- renderUI({ teachingApps::nestRmd('example1_1.Rmd') })

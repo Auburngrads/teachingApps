@@ -1,11 +1,11 @@
 Package: teachingApps
 Type: Package
 Title: Build, Update, and Share Shiny Apps - Quickly and Easily
-Version: 0.7
-Date: 2017-03-07
+Version: 0.8
+Date: 2017-05-26
 Authors@R: c(
-    person("Bradley", "Boehmke", email = "bradleyboehmke@gmail.com", role = c("aut")),
-    person("Jason", "Freels", email = "auburngrads@live.com", role = c("aut","cre"))
+    person("Jason", "Freels", email = "auburngrads@live.com", role = c("aut","cre")),
+    person("Bradley", "Boehmke", email = "bradleyboehmke@gmail.com", role = c("aut"))
     )
 Description: Instantly create shiny app templates and app calling functions 
     for use in R packages.  Manage large collections of shiny apps from one 
@@ -17,7 +17,7 @@ Description: Instantly create shiny app templates and app calling functions
 URL: https://github.com/Auburngrads/teachingApps
 BugReports: https://github.com/Auburngrads/teachingApps/issues
 Encoding: UTF-8
-License: GPL-2
+License: GPL (>= 2)
 LazyData: true
 Depends: R (>= 3.1.0)
 Imports: shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
@@ -25,8 +25,10 @@ Imports: shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
           networkD3,diagram,DiagrammeR,visNetwork,scales,data.table,miniUI,
           shinydashboard,d3Network,ggplot2,actuar,markdown,stats,shinygadgets,
           rprojroot, R.utils
-NeedsCompilation: no
+NeedsCompilation: yes
 Archs: i386, x64
 Suggests: testthat, rmarkdown
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
+Imports: Rcpp (>= 0.12.11)
+LinkingTo: Rcpp

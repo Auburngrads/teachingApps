@@ -15,14 +15,12 @@
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
 #' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
 #'
-#'
 #' @param theme code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
 #' @param storyteller code{logical} Is this a storyteller app?
 #' @param width code{character} Width of the printed app
 #' @param height code{character} Height of the printed app
 #' @param more.opts code{list} Additional options/objects passed to the app (see Details)
 #' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
-
 #' 
 #' @return A printed shiny app
 #' @export
@@ -31,7 +29,6 @@
 #' \dontrun{
 #' appy(theme = 'spacelab', storyteller = T, pub = F)
 #' }
-
 replace_plots <- 
 function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),

@@ -1,7 +1,7 @@
 #' Transfer an app between packages and/or directories
 #' 
-#' Moves (or 'trades') a directory containing a shiny app along with
-#' the app's calling function.
+#' @description Moves (or 'trades') a directory containing a shiny app along with
+#'    the app's calling function.
 #'  
 #' @param app_name \code{character} The name of a directory containing a shiny app. 
 #' @param from \code{character} The name of an installed package, a file path, or a directory indicating the location from which the app and calling function will be traded. (see details)
@@ -23,7 +23,8 @@
 #' arguments \code{from} and \code{to}. See the sections "The Argument 
 #' \code{from}" and "The Argument \code{to}" below for more details. 
 #'
-#' @section The \code{from} Argument
+#' @section The \code{from} Argument:
+#' 
 #' The \code{from} argument may be specified in one of the following three ways:
 #' \describe{
 #' \item{An installed package}{If \code{from} is the name of an installed package, 
@@ -46,7 +47,8 @@
 #' the argument \code{to} using \code{R.utils::copyDirectory()}.}
 #' }
 #' 
-#' @section The \code{to} Argument
+#' @section The \code{to} Argument:
+#' 
 #' The \code{to} argument may be specified in one of the following two ways:
 #' \describe{
 #' \item{A file}{If \code{to} is the full path to a file in a local package, 

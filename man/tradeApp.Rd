@@ -4,58 +4,80 @@
 \alias{tradeApp}
 \title{Transfer an app between packages and/or directories}
 \usage{
-tradeApp(app, from = "teachingApps", to = NULL, remove = F)
+tradeApp(app_name, from = "teachingApps", to = NULL, remove = F)
 }
 \arguments{
-\item{app}{\code{character} The \code{basename} of a directory containing a shiny app.}
+\item{app_name}{\code{character} The name of a directory containing a shiny app.}
 
-\item{from}{\code{character} Location from which the app and calling function will be traded. (see details)}
+\item{from}{\code{character} The name of an installed package, a file path, or a directory indicating the location from which the app and calling function will be traded. (see details)}
 
-\item{to}{\code{character} Location to which the app and calling function will be traded. (see details)}
+\item{to}{\code{character} A file path or a directory indicating the location to which the app and calling function will be traded. (see details)}
 
 \item{remove}{\code{logical} If \code{TRUE}, the app and calling function files will be removed from \code{from}.}
 }
 \description{
-Moves ('trades') a directory containing a shiny app along with
-the app's calling function file.  \code{tradeApp} is a wrapper
-function for performing three types of app 'trades': package-to-package, 
-package-to-directory, and directory-to-package.  These trade 
-types should cover most use-cases.
+Moves (or 'trades') a directory containing a shiny app along with
+   the app's calling function.
 }
-
-\section{The \code{from} Agrument}{
-
-The \code{from} argument
-
-\describe{
-\item{thing 1}{stuff}
-\item{thing 2}{stuff}
-}
-}
-
 \details{
-The \code{from} argument may be specified in the four ways: (1) as
+\code{tradeApp} is a wrapper function for performing three types 
+of app 'trades': 
 
 \itemize{
-\item thing 1 - stuff
+ \item package-to-package - trade an app and calling function from one package to another
+ \item package-to-directory - trade an app and calling function from a package to a local directory
+ \item directory-to-package - trade an app and calling function from a local directory to a package
+ }
+  
+These three trade types should cover most use-cases.  The type 
+of trade that is performed depends on what is provided to the 
+arguments \code{from} and \code{to}. See the sections "The Argument 
+\code{from}" and "The Argument \code{to}" below for more details.
 }
+\section{The \code{from} Argument}{
 
 
-\tabular{rll}{
- package name \tab \tab The name of a package in \code{installed.packages} \cr
- package file \tab \tab The full path to any file in a local package. Calls \code{rprojroot::find_root} to determine if the file is in a package. \cr
- file path \tab \tab The full path to a local file in a directory containing a shiny app.
- }     
-     
-   \code{from} and \code{to}
-   
-   If \code{from} is the name of an installed package, the function
-   looks for the subdirectory \code{from/apps/app}.  If this 
-   subdirectory existsif it exists. package's directory
-   is search for a subdirectory  between directories, from a pacakge to a directory, or 
-   from a directory to a package. Can be the name of an installed package or a directory
-   
- 1. package-to-package - trade an app and calling function from one package to another
- 2. package-to-directory - trade an app and calling function from a package to a local directory
- 3. directory-to-package - trade an app and calling function from a local directory to a package
+The \code{from} argument may be specified in one of the following three ways:
+\describe{
+\item{An installed package}{If \code{from} is the name of an installed package, 
+\code{installed.packages()} is called to verify that the package
+exists in the user's library.  If the package is found, the function 
+locates the subdirectory \code{from/apps/app_name} and copies
+the files to location provided by the argument \code{to} 
+using \code{R.utils::copyDirectory()}.}
+
+\item{A file}{If \code{from} is the full path to a file, \code{rprojroot::find_root()} 
+is called to determine if the file is part of an installed package, a local package,
+or a standalone shiny app, and then locates the \code{app_name/} directory. If
+the \code{app_name/} directory exists, the files are copied to the location provided by 
+the argument \code{to} using \code{R.utils::copyDirectory()}.}
+
+\item{A directory}{If \code{from} is the full path to a directory,\code{rprojroot::find_root()} 
+is called to determine if the directory is part of an installed package, a local package,
+or a standalone shiny app, and then locates the \code{app_name/} directory. If
+the \code{app_name/} directory exists, the files are copied to the location provided by 
+the argument \code{to} using \code{R.utils::copyDirectory()}.}
 }
+}
+
+\section{The \code{to} Argument}{
+
+
+The \code{to} argument may be specified in one of the following two ways:
+\describe{
+\item{A file}{If \code{to} is the full path to a file in a local package, 
+the function searches for the \code{inst/apps/app_name/} directory. If not found
+the directory will created and the files will be copied.  
+is called to determine if the file is part of a local package,
+or a standalone shiny app, and then locates the \code{app_name/} directory. If
+the \code{app_name/} directory exists, the files are copied to the location provided by 
+the argument \code{to} using \code{R.utils::copyDirectory()}.}
+
+\item{A directory}{If \code{to} is the full path to a directory,\code{rprojroot::find_root()} 
+is called to determine if the directory is part of an installed package, a local package,
+or a standalone shiny app, and then locates the \code{app_name/} directory. If
+the \code{app_name/} directory exists, the files are copied to the location provided by 
+the argument \code{to} using \code{R.utils::copyDirectory()}.}
+}
+}
+

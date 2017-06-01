@@ -2,7 +2,7 @@
 % Please edit documentation in R/berkson200_profile.R
 \name{berkson200_profile}
 \alias{berkson200_profile}
-\title{Function Title}
+\title{Likelihood profile plot for Berkson Americurium Data set}
 \usage{
 berkson200_profile(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

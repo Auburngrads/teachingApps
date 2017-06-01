@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_egeng.R
 \name{distribution_egeng}
 \alias{distribution_egeng}
-\title{Function Title}
+\title{Visualization app for the extended generalized gamma distribution}
 \usage{
 distribution_egeng(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

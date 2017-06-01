@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_weibull.R
 \name{distribution_weibull}
 \alias{distribution_weibull}
-\title{Function Title}
+\title{Visualization app for the Weibull distribution}
 \usage{
 distribution_weibull(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

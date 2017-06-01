@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_hypergeometric.R
 \name{distribution_hypergeometric}
 \alias{distribution_hypergeometric}
-\title{Function Title}
+\title{Visualization app for the hypergeometric distribution}
 \usage{
 distribution_hypergeometric(theme = "flatly", storyteller = F,
   width = "100\%", height = if (storyteller) "800px" else "600px",

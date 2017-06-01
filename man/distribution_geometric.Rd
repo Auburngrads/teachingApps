@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_geometric.R
 \name{distribution_geometric}
 \alias{distribution_geometric}
-\title{Function Title}
+\title{Visualization app for the geometric distribution}
 \usage{
 distribution_geometric(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

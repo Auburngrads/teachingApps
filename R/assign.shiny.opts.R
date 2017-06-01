@@ -44,7 +44,7 @@ aso <- lapply(X = 1:length(opts),
     sign <- `if`(story,
                  HTML(teachingApps::signature(basename(dir))),
                  HTML(teachingApps::signature(basename(dir))))
-
+    
     shiny::shinyOptions('theme'   = theme)
     shiny::shinyOptions('appDir'  = dir)
     shiny::shinyOptions('appName' = basename(dir))

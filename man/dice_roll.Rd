@@ -2,7 +2,7 @@
 % Please edit documentation in R/dice_roll.R
 \name{dice_roll}
 \alias{dice_roll}
-\title{Function Title}
+\title{Visualization of probabilities associated with rolling dice}
 \usage{
 dice_roll(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

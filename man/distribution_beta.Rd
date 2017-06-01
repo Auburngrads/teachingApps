@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_beta.R
 \name{distribution_beta}
 \alias{distribution_beta}
-\title{Function Title}
+\title{Visualization app for the beta distribution}
 \usage{
 distribution_beta(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

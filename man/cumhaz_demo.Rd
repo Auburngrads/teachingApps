@@ -2,7 +2,7 @@
 % Please edit documentation in R/cumhaz_demo.R
 \name{cumhaz_demo}
 \alias{cumhaz_demo}
-\title{Function Title}
+\title{Visualization of cumulative hazard function}
 \usage{
 cumhaz_demo(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

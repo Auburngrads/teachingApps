@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution_goma.R
 \name{distribution_goma}
 \alias{distribution_goma}
-\title{Function Title}
+\title{Visualization app for the Gompertz-Makeham distribution}
 \usage{
 distribution_goma(theme = "flatly", storyteller = F, width = "100\%",
   height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)

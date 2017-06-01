@@ -6,8 +6,11 @@
 #'
 #' @export
 signature <- 
-function(app.name, git.username = NULL, appPackage = NULL,
-         icon = NULL, img = NULL) {
+function(app.name, 
+         git.username = NULL, 
+         appPackage = NULL,
+         icon = NULL, 
+         img = NULL) {
   
   if(is.null(icon) & is.null(img)) {
     
@@ -16,8 +19,8 @@ function(app.name, git.username = NULL, appPackage = NULL,
   } else {
     
     `if`(is.null(img),
-         logo = paste("<i class=","'",icon,"'","></i>", sep = ''),
-         logo = paste("<img src='", img, "'>", sep = ''))
+         logo <- paste("<i class=","'",icon,"'","></i>", sep = ''),
+         logo <- paste("<img src='", img, "'>", sep = ''))
     
   }
   
@@ -43,6 +46,7 @@ function(app.name, git.username = NULL, appPackage = NULL,
                    collapse = '/')
   
     return(paste(c("<script src='https://use.fontawesome.com/6819c76733.js'></script>
+                    <link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet'>
 <ul class='photo-grid'>
 <li>
 <figure>",
