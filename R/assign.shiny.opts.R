@@ -50,6 +50,7 @@ aso <- lapply(X = 1:length(opts),
     shiny::shinyOptions('appName' = basename(dir))
     shiny::shinyOptions('story'   = story)
     shiny::shinyOptions('CSS'     = CSS)
+    shiny::shinyOptions('css'     = file.path(dir, 'www','custom.css'))
     shiny::shinyOptions('sign'    = sign)
     
     if(!story)

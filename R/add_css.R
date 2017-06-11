@@ -19,3 +19,29 @@ add_css <-
                    #tags$footer(HTML(teachingApps::signature(name)))
                    )))
 }
+
+
+#' Dynamically add css rules to an app 
+#'
+#' @param main.css The main CSS file
+#' @param user.css A user specified CSS file 
+#' @param name The name of the app
+#' 
+#' @importFrom shiny includeCSS getShinyOption insertUI tags
+#' 
+#' @export
+add_theme <- 
+  function(theme = NULL)
+{
+
+    if(is.null(theme) && is.null(getShinyOption("theme"))) {
+      
+      return(shinythemes::shinytheme(theme = 'flatly'))
+      
+    } else {
+      
+      return(shinythemes::shinytheme(theme = theme))
+      
+    }
+    
+}
