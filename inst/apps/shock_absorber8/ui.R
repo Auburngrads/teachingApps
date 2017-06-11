@@ -4,10 +4,8 @@ library('SMRD')
 ui = navbarPage(title = 'Shock Absorber',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
-                header = list(tags$head(includeCSS(getShinyOption("CSS"))),
-                              tags$head(includeCSS("www/custom.css"))),
-                footer = HTML(teachingApps::signature(getShinyOption("appName"))),
+                theme = teachingApps::add_theme(theme = getShinyOption("theme")),
+                #footer = HTML(teachingApps::signature(getShinyOption("appName"))),
                      
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.shock", height = "80%") ),    
 tabPanel(h4("Summary"), verbatimTextOutput("summary.shock")), 

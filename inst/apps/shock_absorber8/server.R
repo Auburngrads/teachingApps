@@ -1,5 +1,7 @@
 server = function(input, output, session) {
   
+  session$onFlush(function() teachingApps:::add_css())
+  
 output$summary.shock <- 
   renderPrint({ summary(ShockAbsorber.ld) 
 })
