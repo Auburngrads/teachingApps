@@ -7,7 +7,7 @@ ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
                tags$footer(getShinyOption("sign")),
 
 sidebarLayout(
-   sidebarPanel(width = 4,
+   sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
                           wordWrap = T,
                           outputId = "shockprof", 
@@ -15,23 +15,23 @@ sidebarLayout(
                           theme = "github", 
                           height = "450px", 
                           value = "
-par(family = 'serif', mfrow = c(1,2), las = 1, cex = 1.25)
+par(mfrow = c(1,2), las = 1)
 
 library(SMRD)
 
-ShockAbsorber.ld <- 
-frame.to.ld(SMRD::shockabsorber,
+Shock.ld <- 
+frame.to.ld(shockabsorber,
             response.column = 1, 
             censor.column = 3,
             time.units = 'Kilometers')
 
-simple.contour(ShockAbsorber.ld, 
+simple.contour(Shock.ld, 
                distribution = 'weibull', 
                profile = 'x', 
                size = 300,
                print.ci = F)
 
-simple.contour(ShockAbsorber.ld, 
+simple.contour(Shock.ld, 
                distribution = 'weibull', 
                profile = 'y', 
                size = 300,
