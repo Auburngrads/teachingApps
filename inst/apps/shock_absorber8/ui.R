@@ -1,6 +1,3 @@
-library(teachingApps)
-library('SMRD')
-
 ui = navbarPage(title = 'Shock Absorber',
                 collapsible = T, 
                 position = 'fixed-top',
