@@ -1,6 +1,6 @@
 server = function(input, output, session) {
 
-   session$onFlush(function() teachingApps::add_css())
+   #session$onFlush(function() teachingApps::add_css())
   
  output$bathtub <- renderPlot({ 
   

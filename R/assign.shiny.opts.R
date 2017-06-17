@@ -38,7 +38,8 @@ aso <- lapply(X = 1:length(opts),
        })
 }
 
-    CSS <- system.file('resources','css','teachingApps.css', package = 'teachingApps')
+    # CSS <- system.file('resources','css','teachingApps.css', package = 'teachingApps')
+      CSS <- 'resources/css/teachingApps.css'
                 
     
     sign <- `if`(story,

@@ -4,6 +4,7 @@ ui = navbarPage(title = 'Bathtub-Shaped Hazard',
                 collapsible = T, 
                 position = 'fixed-top',
                 theme = shinythemes::shinytheme(theme = getShinyOption('theme')),
+                tags$head(includeCSS(getShinyOption("CSS"))),
 
 tabPanel(h4('Overview'),
          sidebarLayout(
