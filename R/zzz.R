@@ -3,7 +3,10 @@ function(libname, pkgname) {
   
 shiny::shinyOptions('theme'   = 'flatly')
 shiny::shinyOptions('css'     = system.file('resources','css','teachingApps.css', package = 'teachingApps'))
-  
+
+shiny::addResourcePath("resources", system.file("resources", 
+        package = "teachingApps"))
+
 }
 
 #' Custom \code{par} function
