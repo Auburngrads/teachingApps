@@ -1,7 +1,5 @@
 server = function(input, output, session) {
 
-   #session$onFlush(function() teachingApps::add_css())
-  
  output$bathtub <- renderPlot({ 
   
   x <- seq(min(input$xrange),max(input$xrange), length.out = 150)   

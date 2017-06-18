@@ -39,7 +39,7 @@ aso <- lapply(X = 1:length(opts),
 }
 
     # CSS <- system.file('resources','css','teachingApps.css', package = 'teachingApps')
-      CSS <- 'resources/css/teachingApps.css'
+    #  CSS <- 'resources/css/teachingApps.css'
                 
     
     sign <- `if`(story,
@@ -50,11 +50,11 @@ aso <- lapply(X = 1:length(opts),
     shiny::shinyOptions('appDir'  = dir)
     shiny::shinyOptions('appName' = basename(dir))
     shiny::shinyOptions('story'   = story)
-    shiny::shinyOptions('CSS'     = CSS)
-    shiny::shinyOptions('css'     = file.path(dir, 'www','custom.css'))
+    # shiny::shinyOptions('CSS'     = CSS)
+    # shiny::shinyOptions('css'     = file.path(dir, 'www','custom.css'))
     shiny::shinyOptions('sign'    = sign)
     
-    if(!story)
-       options('markdown.HTML.stylesheet' = shiny::getShinyOption("CSS"))
+    #if(!story)
+    #   options('markdown.HTML.stylesheet' = shiny::getShinyOption("CSS"))
 
 } 

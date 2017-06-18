@@ -1,3 +1,4 @@
+options('markdown.HTML.stylesheet' = teachingApps::add_css())
 library(SMRD)
 library(ggplot2)
 library(teachingApps)

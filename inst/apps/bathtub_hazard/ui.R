@@ -1,10 +1,9 @@
-options('markdown.HTML.stylesheet' = getShinyOption('css'))
-
 ui = navbarPage(title = 'Bathtub-Shaped Hazard',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme = shinythemes::shinytheme(theme = getShinyOption('theme')),
-                header = add_css()[['main']],
+                theme  = teachingApps::add_themes(getShinyOption('theme')),
+                header = teachingApps::add_styles(),
+                footer = teachingApps::add_footer(),
 
 tabPanel(h4('Overview'),
          sidebarLayout(

@@ -7,7 +7,7 @@
 #' @importFrom shiny includeCSS getShinyOption insertUI tags
 #' 
 #' @export
-add_css <- 
+add_styles <- 
   function(main.css = getShinyOption("CSS"),
            user.css = getShinyOption("css"),
            name = getShinyOption("appName"))
@@ -18,11 +18,11 @@ add_css <-
   #                         ui = list(tags$head(includeCSS(main.css)),
   #                                   tags$head(includeCSS(user.css))))
                           #tags$footer(HTML(teachingApps::signature(name)))
-  zout$main <- tags$head(tags$link(rel = 'stylesheet', 
-                                   type = 'text/css',
-                                   href = 'resources/css/teachingApps.css'))
+  main <- tags$head(tags$link(rel = 'stylesheet', 
+                              type = 'text/css',
+                              href = 'resources/css/teachingApps.css'))
                    
-  return(zout)
+  return(main)
 }
 
 
@@ -35,7 +35,7 @@ add_css <-
 #' @importFrom shiny includeCSS getShinyOption insertUI tags
 #' 
 #' @export
-add_theme <- 
+add_themes <- 
   function(theme = NULL)
 {
 
@@ -50,3 +50,27 @@ add_theme <-
     }
     
 }
+
+#' Dynamically add css rules to an app 
+#'
+#' @param main.css The main CSS file
+#' @param user.css A user specified CSS file 
+#' @param name The name of the app
+#' 
+#' @importFrom shiny includeCSS getShinyOption insertUI tags
+#' 
+#' @export
+# add_footer <- 
+#   function(navbar = getShinyOption("navbar"))
+# {
+#     
+#     if(is.null(navbar))
+# 
+#     if(navbar)
+#                           #tags$footer(HTML(teachingApps::signature(name)))
+#   main <- tags$head(tags$link(rel = 'stylesheet', 
+#                               type = 'text/css',
+#                               href = 'resources/css/teachingApps.css'))
+#                    
+#   return(main)
+# }
