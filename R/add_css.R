@@ -13,11 +13,16 @@ add_css <-
            name = getShinyOption("appName"))
 {
 
-  return(insertUI('head', 'afterBegin',
-         ui = list(tags$head(includeCSS(main.css)),
-                   tags$head(includeCSS(user.css))
-                   #tags$footer(HTML(teachingApps::signature(name)))
-                   )))
+  zout <- list()
+  # zout$insert <- insertUI('head', 'afterBegin',
+  #                         ui = list(tags$head(includeCSS(main.css)),
+  #                                   tags$head(includeCSS(user.css))))
+                          #tags$footer(HTML(teachingApps::signature(name)))
+  zout$main <- tags$head(tags$link(rel = 'stylesheet', 
+                                   type = 'text/css',
+                                   href = 'resources/css/teachingApps.css'))
+                   
+  return(zout)
 }
 
 
