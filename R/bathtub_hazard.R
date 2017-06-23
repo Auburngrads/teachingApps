@@ -19,7 +19,7 @@
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
 #' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
-#' @importFrom ggplot2 ggplot geom_density theme_light
+#' @import needs
 #'
 #' @param theme code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
 #' @param storyteller code{logical} Is this a storyteller app?
@@ -44,10 +44,10 @@ function(theme = "flatly", storyteller = F, width = '100%',
 
     dir <- dirname(system.file("apps", "bathtub_hazard", "global.R", package = "teachingApps"))
     
-   teachingApps::assign.shiny.opts(opts = more.opts,
-                      dir = dir,
-                      theme = theme,
-                      story = storyteller)
+    teachingApps::assign.shiny.opts(opts = more.opts,
+                                    dir = dir,
+                                    theme = theme,
+                                    story = storyteller)
     
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
 

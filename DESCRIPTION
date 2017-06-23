@@ -5,7 +5,7 @@ Version: 0.8
 Date: 2017-05-26
 Authors@R: c(
     person("Jason", "Freels", email = "auburngrads@live.com", role = c("aut","cre")),
-    person("Bradley", "Boehmke", email = "bradleyboehmke@gmail.com", role = c("aut"))
+    person("Bradley", "Boehmke", email = "bradleyboehmke@gmail.com", role = c("ctb"))
     )
 Description: Instantly create shiny app templates and app calling functions 
     for use in R packages.  Manage large collections of shiny apps from one 
@@ -23,7 +23,7 @@ Depends: R (>= 3.1.0)
 Imports: shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
           utils,knitr,leaflet,threejs,d3heatmap,plotly,htmlwidgets,dygraphs,
           networkD3,diagram,DiagrammeR,visNetwork,scales,data.table,miniUI,
-          shinydashboard,d3Network,ggplot2,actuar,markdown,stats,shinygadgets,
+          shinydashboard,d3Network,needs,actuar,markdown,stats,shinygadgets,
           rprojroot, R.utils, Rcpp (>= 0.12.11)
 NeedsCompilation: yes
 Archs: i386, x64
