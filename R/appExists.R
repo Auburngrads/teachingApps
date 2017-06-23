@@ -12,8 +12,8 @@ appExists <- function(lib.list, app) {
                    FUN = function(x) grepl(.libPaths()[x], lib.list))
   
   `if`(any(unlist(in_lib)),
-       root <- file.path(lib.list$pkgroot,'apps', app),
-       root <- file.path(lib.list$pkgroot, 'inst','app', app))
+       root <- file.path(lib.list$pkgroot, 'apps', app),
+       root <- file.path(lib.list$pkgroot, 'apps', app))
   
    if(!dir.exists(root)) stop('The named app could not be found in the specified package')
   

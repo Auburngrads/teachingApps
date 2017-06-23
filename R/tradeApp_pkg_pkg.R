@@ -16,7 +16,7 @@ function(app,
          remove = remove) 
 {
   
-  inst.dir <- file.path(pkg_to,'inst')
+      inst.dir <- file.path(pkg_to,'inst')
   all.apps.dir <- file.path(inst.dir,'apps')
   this.app.dir <- file.path(all.apps.dir, app)
   
@@ -27,7 +27,7 @@ function(app,
     
        dir.create(this.app.dir)
     
-       R.utils::copyDirectory(from = file.path(pkg_from,'apps', app),
+       R.utils::copyDirectory(from = file.path(pkg_from,'apps', app,''),
                               to = this.app.dir)
     
   } else {
@@ -53,6 +53,9 @@ function(app,
   }
   
   # Move calling function
+  pkg_from <- rprojroot::find_root(pkg_from, criterion = rprojroot::is_r_package)
+    pkg_to <- rprojroot::find_root(pkg_to, criterion = rprojroot::is_r_package)
+
   calling.function.id <- paste(basename(pkg_from), app, sep = '::')
   
   calling.function.body <- capture.output(eval(parse(text = calling.function.id)))
