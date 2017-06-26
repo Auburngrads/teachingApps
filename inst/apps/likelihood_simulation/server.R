@@ -1,7 +1,5 @@
 server = function(input, output, session) {
 
-  session$onFlush(function() objs() )
-  
 mle <- reactiveValues(dats = NULL,
                       params = NULL,
                       sims = 0,

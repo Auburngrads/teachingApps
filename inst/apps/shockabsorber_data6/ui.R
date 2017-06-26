@@ -1,20 +1,10 @@
-library(teachingApps)
-library('SMRD')
-
-par(family = "serif",font = 2)
-ShockAbsorber.ld <- frame.to.ld(SMRD::shockabsorber,
-                                response.column = 1, 
-                                censor.column = 3, 
-                                data.title = "Shock Absorber Data (Both Failure Modes)",
-                                time.units = "Kilometers")
-
 ui = navbarPage(title = 'Shockabsorber Example6',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
-                header = list(tags$head(includeCSS(getShinyOption("CSS"))),
-                              tags$head(includeCSS("www/custom.css"))),
-                footer = HTML(teachingApps::signature(getShinyOption("appName"))),
+                theme  = teachingApps::add_themes(getShinyOption('theme')),
+                header = teachingApps::add_styles(),
+                footer = teachingApps::add_footer(),
+
                 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.shock", height = "80%") ),    
 tabPanel(h4("Summary"), verbatimTextOutput("summary.shock") ), 

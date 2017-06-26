@@ -1,7 +1,5 @@
 server = function(input, output, session) {
 
-   session$onFlush(function() teachingApps:::add_css())
-  
     output$bayesplot <- renderPlot({ 
       
 prior.N = input$nsims

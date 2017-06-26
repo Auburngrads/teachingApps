@@ -1,8 +1,6 @@
-library(teachingApps)
-
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
-                tags$head(includeCSS("www/custom.css")),
-                
+ui = fluidPage(theme = teachingApps::add_themes(getShinyOption("theme")), 
+               teachingApps::add_styles(),
+               
 sidebarLayout( 
   sidebarPanel(
     shinyAce::aceEditor(fontSize = 16, 

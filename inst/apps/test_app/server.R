@@ -1,4 +1,4 @@
-server <- function(input, output, session) {
+server = function(input, output, session) {
 
  output$mychart <- renderLineChart({
  # Return a data frame. Each column will be a series in the line chart.

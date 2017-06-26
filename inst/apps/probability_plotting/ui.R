@@ -1,12 +1,6 @@
-library(teachingApps)
-library('SMRD')
+ui = fluidPage(theme = teachingApps::add_themes(getShinyOption("theme")), 
+               teachingApps::add_styles(),
 
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
-               tags$head(includeCSS(getShinyOption("CSS"))),
-               tags$head(includeCSS("www/custom.css")),
-               tags$footer(getShinyOption("sign")),
-
-               tags$footer(getShinyOption("sign")),
 sidebarLayout(
 sidebarPanel(width = 3,
   selectInput("dist1", 
@@ -36,7 +30,4 @@ sidebarPanel(width = 3,
                           "Transformed Axis"), 
               selected = "Transformed Axis")),
 
-mainPanel(plotOutput("compare", height = "600px"), width = 9)),
-
-if(!getShinyOption("story"))
-fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
+mainPanel(plotOutput("compare", height = "600px"), width = 9)))

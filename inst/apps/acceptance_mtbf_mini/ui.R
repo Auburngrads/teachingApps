@@ -1,7 +1,3 @@
-library(teachingApps)
-library('plotly')
-library('miniUI')
-
 ui = miniPage(gadgetTitleBar('MTBF Test Planning Tool'),
 miniTabstripPanel(
   miniTabPanel('Visualize', icon = icon('area-chart'),

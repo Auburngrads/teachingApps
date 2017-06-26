@@ -1,8 +1,5 @@
 server = function(input, output, session) {
 
-if(!getShinyOption("story"))  
-output$sign <- renderUI({HTML(teachingApps::signature(getShinyOption("appName")))})
-
 output$compare <- renderPlot({
 
 CDF<-seq(.01,.99,.03)

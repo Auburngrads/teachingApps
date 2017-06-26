@@ -1,13 +1,10 @@
-library(teachingApps)
-
-
 ui = navbarPage(title = 'R Toolchain',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
-                header = list(tags$head(includeCSS(getShinyOption("CSS"))),
-                              tags$head(includeCSS("www/custom.css"))),
-                footer = HTML(teachingApps::signature(getShinyOption("appName"))),
+                theme  = teachingApps::add_themes(getShinyOption('theme')),
+                header = teachingApps::add_styles(),
+                footer = teachingApps::add_footer(),
+
                  
 navbarMenu(h4('Install R'), icon = icon('bar-chart', 'fa-2x'),
    tabPanel(h4('On Windows'), icon = icon('windows', 'fa-2x'),

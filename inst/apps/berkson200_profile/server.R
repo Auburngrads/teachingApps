@@ -1,4 +1,3 @@
-library(teachingApps)
 server = function(input, output, session) {
   
   output$berk200prof <- renderPlot({

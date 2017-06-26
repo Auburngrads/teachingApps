@@ -39,11 +39,13 @@ aso <- lapply(X = 1:length(opts),
 }
 
     sign <- HTML(teachingApps::logo(basename(dir), icon = icon))
+     CSS <- system.file('teachingApps','css','teachingApps.css', package = 'teachingApps')
     
     shiny::shinyOptions('theme'   = theme)
     shiny::shinyOptions('appDir'  = dir)
     shiny::shinyOptions('appName' = basename(dir))
     shiny::shinyOptions('story'   = story)
+    shiny::shinyOptions('CSS'   = CSS)
     shiny::shinyOptions('sign'    = sign)
     
     #if(!story)

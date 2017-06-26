@@ -1,9 +1,11 @@
 ui = navbarPage(title = 'Shock Absorber',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme = teachingApps::add_theme(theme = getShinyOption("theme")),
-                #footer = HTML(teachingApps::signature(getShinyOption("appName"))),
-                     
+                theme  = teachingApps::add_themes(getShinyOption('theme')),
+                header = teachingApps::add_styles(),
+                footer = teachingApps::add_footer(),
+                
+                
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table.shock", height = "80%") ),    
 tabPanel(h4("Summary"), verbatimTextOutput("summary.shock")), 
 tabPanel(h4("Event Plots"),

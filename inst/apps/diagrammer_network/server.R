@@ -1,7 +1,5 @@
 server = function(input, output, session) {
   
-
-
     output$grtest <- renderGrViz({
     
 grViz("

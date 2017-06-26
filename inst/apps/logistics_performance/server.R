@@ -1,4 +1,4 @@
-shinyServer(function(input, output) {
+server = function(input, output) {
 
         # Title for map on first tab
         output$mapTitle <- renderText({
@@ -285,5 +285,4 @@ shinyServer(function(input, output) {
                               options = list(dom = 't'))
         })
 
-
-})
+}

@@ -1,6 +1,4 @@
-library(teachingApps)
-
-ui <- fluidPage(
+ui = fluidPage(
   fluidRow(
      column(width=9,
        lineChartOutput("mychart")

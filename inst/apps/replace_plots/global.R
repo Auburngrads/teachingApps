@@ -1,3 +1,6 @@
+library(teachingApps)
+library('SMRD')
+
 ZelenCap.ld <- frame.to.ld(SMRD::zelencap, 
                            response.column = 1, 
                            censor.column = 2, 

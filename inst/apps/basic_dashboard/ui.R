@@ -1,6 +1,3 @@
-library(teachingApps)
-library('shinydashboard')
-
 ui <- dashboardPage(
   
   dashboardHeader(title = "Info boxes"),

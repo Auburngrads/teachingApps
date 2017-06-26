@@ -1,10 +1,5 @@
-library(teachingApps)
-library(scales)
-
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
-               tags$head(includeCSS(getShinyOption("CSS"))),
-               tags$head(includeCSS("www/custom.css")),
-               tags$footer(getShinyOption("sign")),
+ui = fluidPage(theme = teachingApps::add_themes(getShinyOption("theme")), 
+               teachingApps::add_styles(),
                
 inputPanel(
   selectInput('dist1', h2('Distro 1'), choices = c('Normal'), selected = 'Normal'),

@@ -1,3 +1,4 @@
-arg2 <-
-structure(list(theme = "flatly", appDir = "myAppDir", appName = "myApp"), .Names = c("theme", 
-"appDir", "appName"), row.names = c(NA, -1L), class = "data.frame")
+library(teachingApps)
+needs::needs(metricsgraphics,dygraphs,leaflet,threejs,d3heatmap,plotly, htmlwidgets)
+teachingApps::getPackage('parcoords', 'timelyportfolio')
+teachingApps::getPackage('taucharts', 'hrbrmstr')

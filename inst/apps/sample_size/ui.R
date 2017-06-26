@@ -1,12 +1,6 @@
-library(teachingApps)
-library('SMRD')
+ui = fluidPage(theme = teachingApps::add_themes(getShinyOption("theme")), 
+               teachingApps::add_styles(),
 
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")), 
-               tags$head(includeCSS(getShinyOption("CSS"))),
-               tags$head(includeCSS("www/custom.css")),
-               tags$footer(getShinyOption("sign")),
-
-               tags$footer(getShinyOption("sign")),
 sidebarLayout(
   sidebarPanel(width = 5,
     shinyAce::aceEditor(fontSize = 16, 

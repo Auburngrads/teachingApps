@@ -1,12 +1,10 @@
-library(teachingApps)
-
 ui = navbarPage(title = 'Program Costs',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
-                header = list(tags$head(includeCSS(getShinyOption("CSS"))),
-                              tags$head(includeCSS("www/custom.css"))),
-                footer = HTML(teachingApps::signature(getShinyOption("appName"))),
+                theme  = teachingApps::add_themes(getShinyOption('theme')),
+                header = teachingApps::add_styles(),
+                footer = teachingApps::add_footer(),
+
       
      tabPanel(h4('Visualization'),
       #headerPanel('Visualizing the Distribution of Operating Costs'), 

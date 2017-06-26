@@ -1,4 +1,8 @@
-ZelenCap.ld <- frame.to.ld(SMRD::zelencap, 
+library(teachingApps)
+library('SMRD')
+needs::needs(DT)
+
+ZelenCap.ld <- frame.to.ld(zelencap, 
                            response.column = 1, 
                            censor.column = 2, 
                            case.weight.column = 3,

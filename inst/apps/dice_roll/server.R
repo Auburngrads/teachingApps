@@ -1,7 +1,6 @@
 server = function(input, output, session) {
 
-
-
+  
 dice   <- reactive({ as.numeric(input$no.dice) })
 sides  <- reactive({ as.numeric(input$no.sides) })
 fun    <- reactive({ switch(input$rv.func, 'Sum of Rolls' = 'sum',

@@ -1,11 +1,9 @@
-
 ui = navbarPage(title = 'International Logistics Performance Index',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme = shinythemes::shinytheme(theme = getShinyOption('theme')),
-                header = list(tags$head(includeCSS(getShinyOption("CSS"))),
-                              tags$head(includeCSS("www/custom.css"))),
-                footer = getShinyOption("sign"),
+                theme  = teachingApps::add_themes(getShinyOption('theme')),
+                header = teachingApps::add_styles(),
+                footer = teachingApps::add_footer(),
 
  tabPanel(h4('Global Ranking'),
     sidebarLayout(

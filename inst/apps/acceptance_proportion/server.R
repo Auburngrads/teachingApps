@@ -1,7 +1,5 @@
 server = function(input, output, session) {
   
-  library('plotly')
-  
   output$prop <- renderPlotly({
 
 props <- seq(0,1,.01)

@@ -1,10 +1,11 @@
-options('markdown.HTML.stylesheet' = getShinyOption('css'))
-
 ui = navbarPage(title = 'Bayesian Basic',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme = teachingApps::add_theme(theme = getShinyOption('theme')),
-
+                theme  = teachingApps::add_themes(getShinyOption('theme')),
+                header = teachingApps::add_styles(),
+                footer = teachingApps::add_footer(),
+                
+                
 tabPanel(h4('Overview'),
          sidebarLayout(
            sidebarPanel(

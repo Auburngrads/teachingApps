@@ -1,9 +1,5 @@
-library(teachingApps)
-library('networkD3')
-library('d3Network')
-
-ui = fluidPage(theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
-               tags$head(includeCSS("www/custom.css")),
+ui = fluidPage(theme = teachingApps::add_themes(getShinyOption("theme")), 
+               teachingApps::add_styles(),
                
      mainPanel(networkD3::sankeyNetworkOutput('sankey1')))
 

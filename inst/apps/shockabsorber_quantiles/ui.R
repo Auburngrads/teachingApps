@@ -1,8 +1,5 @@
-library(teachingApps)
-library('SMRD')
-
-ui = fluidPage(theme = teachingApps::add_theme(theme = getShinyOption("theme")), 
-
+ui = fluidPage(theme = teachingApps::add_themes(getShinyOption("theme")), 
+               teachingApps::add_styles(),
 sidebarLayout(
    sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
