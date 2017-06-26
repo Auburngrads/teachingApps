@@ -3,7 +3,7 @@ ui = navbarPage(title = 'Bathtub-Shaped Hazard',
                 position = 'fixed-top',
                 theme  = teachingApps::add_themes(getShinyOption('theme')),
                 header = teachingApps::add_styles(),
-                #footer = teachingApps::add_footer(),
+                footer = teachingApps::add_footer(),
 
 tabPanel(h4('Overview'),
          sidebarLayout(

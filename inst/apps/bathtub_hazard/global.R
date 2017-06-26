@@ -1,2 +1,2 @@
 library(SMRD)
-needs(shiny, ggplot2)
+needs::needs(shiny, ggplot2)
