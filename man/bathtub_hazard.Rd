@@ -5,20 +5,23 @@
 \title{Visualize hazard function plots with various shapes}
 \usage{
 bathtub_hazard(theme = "flatly", storyteller = F, width = "100\%",
-  height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)
+  height = if (storyteller) "800px" else "600px", icon = "fa fa-github",
+  more.opts = list(NA), ...)
 }
 \arguments{
-\item{theme}{code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}}
+\item{theme}{\code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}}
 
-\item{storyteller}{code{logical} Is this a storyteller app?}
+\item{storyteller}{\code{logical} Is this a storyteller app?}
 
-\item{width}{code{character} Width of the printed app}
+\item{width}{\code{character} Width of the printed app}
 
-\item{height}{code{character} Height of the printed app}
+\item{height}{\code{character} Height of the printed app}
 
-\item{more.opts}{code{list} Additional options/objects passed to the app (see Details)}
+\item{icon}{\code{character} Name of fontAwesome icon printed at the bottom of an app}
 
-\item{...}{code{list} Additional options passed to code{shiny::shinyAppDir()}}
+\item{more.opts}{\code{list} Additional options/objects passed to the app (see Details)}
+
+\item{...}{\code{list} Additional options passed to code{shiny::shinyAppDir()}}
 }
 \value{
 A printed shiny app

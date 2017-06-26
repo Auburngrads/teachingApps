@@ -2,17 +2,13 @@
 % Please edit documentation in R/add_css.R
 \name{add_themes}
 \alias{add_themes}
-\title{Dynamically add css rules to an app}
+\title{Dynamically add a theme to an app}
 \usage{
 add_themes(theme = NULL)
 }
 \arguments{
-\item{main.css}{The main CSS file}
-
-\item{user.css}{A user specified CSS file}
-
-\item{name}{The name of the app}
+\item{theme}{\code{character} A bootstrap theme provided by shinythemes::shinytheme}
 }
 \description{
-Dynamically add css rules to an app
+Dynamically add a theme to an app
 }
