@@ -25,9 +25,9 @@ Useful links:
 \author{
 \strong{Maintainer}: Jason Freels \email{auburngrads@live.com}
 
-Authors:
+Other contributors:
 \itemize{
-  \item Bradley Boehmke \email{bradleyboehmke@gmail.com}
+  \item Bradley Boehmke \email{bradleyboehmke@gmail.com} [contributor]
 }
 
 }
