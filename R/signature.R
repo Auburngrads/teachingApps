@@ -3,9 +3,11 @@
 #' @param app.name \code{character} Name of the app in which the signature will be placed
 #' @param git.username \code{character} GitHub account username (typically created using teachingApps::setOptions()) 
 #' @param appPackage \code{character} Name of package in which \code{app.name} exists
+#' @param icon \code{character} Name of a fontAwesome icon printed in the app footer
+#' @param img \code{character} Path to an image printed in the app footer
 #'
 #' @export
-signature <- 
+logo <- 
 function(app.name, 
          git.username = NULL, 
          appPackage = NULL,
@@ -19,7 +21,7 @@ function(app.name,
   } else {
     
     `if`(is.null(img),
-         logo <- paste("<i class=","'",icon,"'","></i>", sep = ''),
+         logo <- paste("<i class=","'",icon," fa-3x'","></i>", sep = ''),
          logo <- paste("<img src='", img, "'>", sep = ''))
     
   }

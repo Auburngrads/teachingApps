@@ -1,11 +1,10 @@
 .onLoad <- 
 function(libname, pkgname) {
 
-shiny::addResourcePath("resources", 
-                       system.file("resources", package = "teachingApps"))  
+shiny::addResourcePath("teachingApps", 
+                       system.file("teachingApps", package = "teachingApps"))  
   
 shiny::shinyOptions('theme' = 'flatly')
-#shiny::shinyOptions('css'     = system.file('resources','css','teachingApps.css', package = 'teachingApps'))
 
 }
 

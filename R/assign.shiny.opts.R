@@ -9,7 +9,7 @@
 #' @param dir \code{character} Path to the directory containing ui.R and server.R
 #' @param theme \code{character} Bootswatch color theme (used by \code{shinythemes::shinytheme})
 #' @param story \code{logical} Is this a storyteller app?
-#' @param css \code{character} Path to a custom css file 
+#' @param icon \code{character} Name of fontAwesome icon printed at the bottom of an app
 #'
 #' @details Shiny apps are not functions, therefore customization options cannot be
 #' passed to a shiny app as simply as argument are passed between functions.  Further,
@@ -24,7 +24,7 @@
 
 assign.shiny.opts <- 
 function(opts, dir, theme = 'flatly', 
-         story = F) {
+         story = F, icon = 'fa fa-github') {
 
 if(!is.na(opts)) { 
 aso <- lapply(X = 1:length(opts), 
@@ -38,20 +38,12 @@ aso <- lapply(X = 1:length(opts),
        })
 }
 
-    # CSS <- system.file('resources','css','teachingApps.css', package = 'teachingApps')
-    #  CSS <- 'resources/css/teachingApps.css'
-                
-    
-    sign <- `if`(story,
-                 HTML(teachingApps::signature(basename(dir))),
-                 HTML(teachingApps::signature(basename(dir))))
+    sign <- HTML(teachingApps::logo(basename(dir), icon = icon))
     
     shiny::shinyOptions('theme'   = theme)
     shiny::shinyOptions('appDir'  = dir)
     shiny::shinyOptions('appName' = basename(dir))
     shiny::shinyOptions('story'   = story)
-    # shiny::shinyOptions('CSS'     = CSS)
-    # shiny::shinyOptions('css'     = file.path(dir, 'www','custom.css'))
     shiny::shinyOptions('sign'    = sign)
     
     #if(!story)
