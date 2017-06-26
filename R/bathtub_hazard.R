@@ -21,12 +21,13 @@
 #' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
 #' @import needs
 #'
-#' @param theme code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
-#' @param storyteller code{logical} Is this a storyteller app?
-#' @param width code{character} Width of the printed app
-#' @param height code{character} Height of the printed app
-#' @param more.opts code{list} Additional options/objects passed to the app (see Details)
-#' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
+#' @param theme \code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
+#' @param storyteller \code{logical} Is this a storyteller app?
+#' @param width \code{character} Width of the printed app
+#' @param height \code{character} Height of the printed app
+#' @param icon \code{character} Name of fontAwesome icon printed at the bottom of an app
+#' @param more.opts \code{list} Additional options/objects passed to the app (see Details)
+#' @param ... \code{list} Additional options passed to code{shiny::shinyAppDir()} 
 #' 
 #' @family statistics apps
 #' 
@@ -40,14 +41,15 @@
 bathtub_hazard <- 
 function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),
-         more.opts = list(NA),...) {
+         icon = 'fa fa-github', more.opts = list(NA),...) {
 
     dir <- dirname(system.file("apps", "bathtub_hazard", "global.R", package = "teachingApps"))
     
     teachingApps::assign.shiny.opts(opts = more.opts,
                                     dir = dir,
                                     theme = theme,
-                                    story = storyteller)
+                                    story = storyteller,
+                                    icon = icon)
     
     shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
 
