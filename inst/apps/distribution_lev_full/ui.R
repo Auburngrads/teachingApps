@@ -1,6 +1,3 @@
-library(teachingApps)
-library('metricsgraphics')
-
 ui = navbarPage(title = 'Largest Extreme Value Distribution',
                 collapsible = T, 
                 position = 'fixed-top',

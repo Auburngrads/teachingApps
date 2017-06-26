@@ -1,7 +1,3 @@
-library(teachingApps)
-library(metricsgraphics)
-library(actuar)
-
 ui = navbarPage(title = 'Loglogistic Distribution',
                 collapsible = T, 
                 position = 'fixed-top',

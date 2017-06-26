@@ -1,6 +1,3 @@
-library(teachingApps)
-library('metricsgraphics')
-
 ui = navbarPage(title = 'Logistic Distribution',
                 collapsible = T, 
                 position = 'fixed-top',

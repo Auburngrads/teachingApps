@@ -1,6 +1,3 @@
-library(teachingApps)
-library(metricsgraphics)
-
 ui = fluidPage(theme = teachingApps::add_themes(getShinyOption("theme")), 
                teachingApps::add_styles(),
  

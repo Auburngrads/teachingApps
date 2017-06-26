@@ -1,6 +1,3 @@
-library(teachingApps)
-library('metricsgraphics')
-
 ui = navbarPage(title = 'Poisson Distribution',
                 collapsible = T, 
                 position = 'fixed-top',

@@ -1,6 +1,3 @@
-library(teachingApps)
-library('metricsgraphics')
-
 ui = navbarPage(title = 'Geometric Distribution',
                 collapsible = T, 
                 position = 'fixed-top',

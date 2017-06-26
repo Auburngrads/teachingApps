@@ -1,6 +1,3 @@
-library(teachingApps)
-library('metricsgraphics')
-
 ui = navbarPage(title = 'Lognormal Distribution',
                 collapsible = T, 
                 position = 'fixed-top',

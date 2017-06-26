@@ -1,6 +1,3 @@
-library(teachingApps)
-library('metricsgraphics')
-
 ui = navbarPage(title = 'Weibull Distribution',
                 collapsible = T, 
                 position = 'fixed-top',

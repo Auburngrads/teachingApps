@@ -1,7 +1,3 @@
-library(teachingApps)
-library('metricsgraphics')
-library('actuar')
-
 ui = fluidPage(theme = teachingApps::add_themes(getShinyOption("theme")), 
                teachingApps::add_styles(),
 

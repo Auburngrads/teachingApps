@@ -1,6 +1,3 @@
-library(teachingApps)
-library('metricsgraphics')
-
 ui = navbarPage(title = 'Beta Distribution',
                 collapsible = T, 
                 position = 'fixed-top',
