@@ -660,3 +660,23 @@ svg g g g text.label {
 .ace_editor {
 font: 18px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 }
+
+ul.nav.navbar-nav > li.active > a {
+  font-size: 1.5em !important;
+  font-weight: bold !important;
+}
+
+label.control-label {
+  
+  font-size: 1.25vw !important;
+  font-weight: bold !important;
+}
+
+body > nav > div.container-fluid {
+  display: flex !important;
+  align-items: center !important; 
+}
+
+span.navbar-brand {
+  height: auto !important;  
+}
