@@ -4,13 +4,11 @@
 \alias{acceptance_proportion}
 \title{Reliability acceptance test planning app (proportions)}
 \usage{
-acceptance_proportion(theme = "flatly", storyteller = F, width = "100\%",
-  height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)
+acceptance_proportion(theme = "flatly", width = "100\%", height = "800px",
+  more.opts = list(NA), ...)
 }
 \arguments{
 \item{theme}{code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}}
-
-\item{storyteller}{code{logical} Is this a storyteller app?}
 
 \item{width}{code{character} Width of the printed app}
 
@@ -28,12 +26,11 @@ Description
 }
 \examples{
 \dontrun{
-appy(theme = 'spacelab', storyteller = T, pub = F)
+appy(theme = 'spacelab', height = '600px')
 }
 }
 \seealso{
 Other htmlwidget apps: \code{\link{acceptance_mtbf_mini}},
-  \code{\link{acceptance_mtbf}},
   \code{\link{acceptance_testing_mtbf}},
   \code{\link{complex_ideas}},
   \code{\link{distribution_beta}},
@@ -57,6 +54,6 @@ Other htmlwidget apps: \code{\link{acceptance_mtbf_mini}},
   \code{\link{distribution_sev}},
   \code{\link{distribution_weibull}}
 
-Other storyteller apps: \code{\link{acceptance_mtbf}},
-  \code{\link{cdf_demo}}, \code{\link{complex_ideas}}
+Other storyteller apps: \code{\link{cdf_demo}},
+  \code{\link{complex_ideas}}
 }

@@ -11,8 +11,6 @@ likelihood_ace(theme = "flatly", storyteller = F, width = "100\%",
 \arguments{
 \item{theme}{code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}}
 
-\item{storyteller}{code{logical} Is this a storyteller app?}
-
 \item{width}{code{character} Width of the printed app}
 
 \item{height}{code{character} Height of the printed app}
@@ -29,6 +27,6 @@ Description
 }
 \examples{
 \dontrun{
-appy(theme = 'spacelab', storyteller = T, pub = F)
+appy(theme = 'spacelab', height = '600px')
 }
 }

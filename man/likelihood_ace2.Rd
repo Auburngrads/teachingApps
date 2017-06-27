@@ -34,6 +34,6 @@ When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE}
 }
 \examples{
 \dontrun{
-appy(theme = 'spacelab', storyteller = T, pub = F)
+appy(theme = 'spacelab', height = '600px')
 }
 }

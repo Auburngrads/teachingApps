@@ -4,13 +4,11 @@
 \alias{figure1_9}
 \title{Function Title}
 \usage{
-figure1_9(theme = "flatly", storyteller = F, width = "100\%",
-  height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)
+figure1_9(theme = "flatly", width = "100\%", height = "800px",
+  more.opts = list(NA), ...)
 }
 \arguments{
 \item{theme}{code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}}
-
-\item{storyteller}{code{logical} Is this a storyteller app?}
 
 \item{width}{code{character} Width of the printed app}
 
@@ -28,6 +26,6 @@ Description
 }
 \examples{
 \dontrun{
-appy(theme = 'spacelab', storyteller = T, pub = F)
+appy(theme = 'spacelab', height = '600px')
 }
 }

@@ -4,15 +4,13 @@
 \alias{acceptance_mtbf_mini}
 \title{Reliability acceptance test planning app (miniUI)}
 \usage{
-acceptance_mtbf_mini(theme = "flatly", width = "100\%", storyteller = F,
-  height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)
+acceptance_mtbf_mini(theme = "flatly", width = "100\%", height = "600px",
+  more.opts = list(NA), ...)
 }
 \arguments{
 \item{theme}{code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}}
 
 \item{width}{code{character} Width of the printed app}
-
-\item{storyteller}{code{logical} Is this a storyteller app?}
 
 \item{height}{code{character} Height of the printed app}
 
@@ -28,12 +26,11 @@ Description
 }
 \examples{
 \dontrun{
-appy(theme = 'spacelab', storyteller = T, pub = F)
+appy(theme = 'spacelab', height = '600px')
 }
 }
 \seealso{
-Other htmlwidget apps: \code{\link{acceptance_mtbf}},
-  \code{\link{acceptance_proportion}},
+Other htmlwidget apps: \code{\link{acceptance_proportion}},
   \code{\link{acceptance_testing_mtbf}},
   \code{\link{complex_ideas}},
   \code{\link{distribution_beta}},

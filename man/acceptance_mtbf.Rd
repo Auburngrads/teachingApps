@@ -4,13 +4,11 @@
 \alias{acceptance_mtbf}
 \title{Reliability acceptance test planning app (MTBF)}
 \usage{
-acceptance_mtbf(theme = "flatly", storyteller = F, width = "100\%",
-  height = if (storyteller) "800px" else "600px", more.opts = list(NA), ...)
+acceptance_mtbf(theme = "flatly", width = "100\%", height = "800px",
+  more.opts = list(NA), ...)
 }
 \arguments{
 \item{theme}{\code{character} A bootswatch color theme for use in \code{shinythemes::shinytheme}}
-
-\item{storyteller}{\code{logical} Is this a storyteller app?}
 
 \item{width}{\code{character} Width of the printed app}
 
@@ -19,8 +17,6 @@ acceptance_mtbf(theme = "flatly", storyteller = F, width = "100\%",
 \item{more.opts}{\code{list} Additional options/objects passed to the app (see Details)}
 
 \item{...}{\code{list} Additional options passed to \code{shiny::shinyAppDir()}}
-
-\item{css}{\code{character} Path to a custom css file. If \code{NULL} the default css file is used}
 }
 \value{
 A printed shiny app
@@ -30,35 +26,9 @@ Description
 }
 \examples{
 \dontrun{
-appy(theme = 'spacelab', storyteller = T, pub = F)
+appy(theme = 'spacelab', height = '800px')
 }
 }
 \seealso{
-Other htmlwidget apps: \code{\link{acceptance_mtbf_mini}},
-  \code{\link{acceptance_proportion}},
-  \code{\link{acceptance_testing_mtbf}},
-  \code{\link{complex_ideas}},
-  \code{\link{distribution_beta}},
-  \code{\link{distribution_binomial}},
-  \code{\link{distribution_bisa}},
-  \code{\link{distribution_egeng}},
-  \code{\link{distribution_exponential}},
-  \code{\link{distribution_gamma}},
-  \code{\link{distribution_geng}},
-  \code{\link{distribution_goma}},
-  \code{\link{distribution_hypergeometric}},
-  \code{\link{distribution_igau}},
-  \code{\link{distribution_levgets}},
-  \code{\link{distribution_lev}},
-  \code{\link{distribution_logistic}},
-  \code{\link{distribution_lognormal}},
-  \code{\link{distribution_norgets}},
-  \code{\link{distribution_normal}},
-  \code{\link{distribution_poisson}},
-  \code{\link{distribution_sevgets}},
-  \code{\link{distribution_sev}},
-  \code{\link{distribution_weibull}}
-
-Other storyteller apps: \code{\link{acceptance_proportion}},
-  \code{\link{cdf_demo}}, \code{\link{complex_ideas}}
+Other plotly apps: \code{\link{logistics_performance}}
 }

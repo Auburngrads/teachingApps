@@ -38,7 +38,7 @@ This app displays the hazard function for a
 }
 \examples{
 \dontrun{
-appy(theme = 'spacelab', storyteller = T, pub = F)
+appy(theme = 'spacelab', height = '600px')
 }
 }
 \seealso{

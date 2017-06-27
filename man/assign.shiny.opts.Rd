@@ -4,8 +4,7 @@
 \alias{assign.shiny.opts}
 \title{Pass objects and customization options to apps}
 \usage{
-assign.shiny.opts(opts, dir, theme = "flatly", story = F,
-  icon = "fa fa-github")
+assign.shiny.opts(opts, dir, theme = "flatly", icon = "fa fa-github")
 }
 \arguments{
 \item{opts}{\code{list} Additional options or objects to pass to a shiny app}
@@ -13,8 +12,6 @@ assign.shiny.opts(opts, dir, theme = "flatly", story = F,
 \item{dir}{\code{character} Path to the directory containing ui.R and server.R}
 
 \item{theme}{\code{character} Bootswatch color theme (used by \code{shinythemes::shinytheme})}
-
-\item{story}{\code{logical} Is this a storyteller app?}
 
 \item{icon}{\code{character} Name of fontAwesome icon printed at the bottom of an app}
 }
