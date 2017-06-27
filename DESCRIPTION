@@ -20,11 +20,11 @@ Encoding: UTF-8
 License: GPL (>= 2)
 LazyData: true
 Depends: R (>= 3.1.0)
-Imports: shiny,shinyAce,shinythemes,DT,devtools,graphics,metricsgraphics,
-          utils,knitr,leaflet,threejs,d3heatmap,plotly,htmlwidgets,dygraphs,
-          networkD3,diagram,DiagrammeR,visNetwork,scales,data.table,miniUI,
-          shinydashboard,d3Network,needs,actuar,markdown,stats,shinygadgets,
-          rprojroot, R.utils, Rcpp (>= 0.12.11)
+Imports: shiny,shinyAce,shinythemes,shinydashboard,shinygadgets,miniUI,
+         htmlwidgets,DT,metricsgraphics,leaflet,threejs,d3heatmap,
+         plotly,dygraphs,networkD3,d3Network,diagram,DiagrammeR,visNetwork,
+         needs,actuar,markdown,stats,knitr,data.table,Rcpp (>= 0.12.11),
+         rprojroot,R.utils,utils,devtools,graphics,scales
 NeedsCompilation: yes
 Archs: i386, x64
 Suggests: testthat, rmarkdown
