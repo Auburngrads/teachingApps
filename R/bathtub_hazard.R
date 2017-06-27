@@ -35,14 +35,13 @@
 #' @export
 #'
 #' @examples 
-#' \dontrun{
+#' dontrun{
 #' appy(theme = 'spacelab', height = '600px')
 #' }
 bathtub_hazard <- 
 function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),
          icon = 'fa fa-github', more.opts = list(NA),...) {
-
     dir <- dirname(system.file("apps", "bathtub_hazard", "global.R", package = "teachingApps"))
     
     teachingApps::assign.shiny.opts(opts = more.opts,
@@ -53,6 +52,4 @@ function(theme = "flatly", storyteller = F, width = '100%',
     
     shiny::shinyAppDir(appDir = dir, 
                        options = list(height = height, width = width,...))
-
 }
-

@@ -3,7 +3,6 @@
 #' Determines whether the package in the library or in a local directory
 #'
 #' @param what A \code{list} returned from \code{teachingApps:::what_are_you} 
-
 appExists <- function(lib.list, app) {
   
   if(!is.list(lib.list)) stop('Argument "lib.list" must be a list returned from teachingApps:::what_are_you')

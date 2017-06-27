@@ -26,27 +26,22 @@
 #' @examples \dontrun{clean_rows(mtcars)}
 #' 
 #' @family shinygadgets
-#'
+#' @return A printed shiny app
 #' @export
 clean_rows <- 
 function(data, theme = "flatly", colorBy = NULL,
          width = '100%', height = '600px', css = NULL) {
-
 if(is.null(css)) css <- system.file('resources','css','teachingApps.css',
                                     package = 'teachingApps')
-
 teachingApps::getPackage('parcoords', repo = 'timelyportfolio')
 teachingApps::getPackage('crosstalk')
-
 ui = navbarPage(title = 'Data Cleaning App',
                 collapsible = T, 
                 position = 'fixed-top',
                 theme = shinythemes::shinytheme(theme = theme),
                 header = tags$head(includeCSS(css)),
-
 tabPanel(h4('Parcoords'),
          fluidRow( parcoordsOutput('DiamondPlot'))),
-
 tabPanel(h4('Selected Data'),
   sidebarLayout(
     sidebarPanel(width = 3,
@@ -54,9 +49,7 @@ tabPanel(h4('Selected Data'),
     
     mainPanel(width = 9,
               DT::dataTableOutput('SelectedData')))))
-
 server = function(input, output) {
-
   output$DiamondPlot <- renderParcoords({
     parcoords(data,
               rownames= T,
@@ -68,7 +61,6 @@ server = function(input, output) {
               height = 800,
               brushMode = "1D")
   })
-
   ###Here we can access the variable input$id_rows to determine which are selected
   ###we display these results in a table
   
@@ -79,14 +71,11 @@ output$SelectedData <- DT::renderDataTable({
     DT::datatable(data[ids(),])
   
 })
-
 observeEvent(input$done, { 
     
     stopApp(list(data = as.data.frame( data[ids(),] )))
-
 })
 }
-
 shinygadgets::runGadget(app = ui,
                         server = server,
                         viewer = shinygadgets::browserViewer(browser = getOption("browser")))

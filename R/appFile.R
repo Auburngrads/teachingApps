@@ -5,9 +5,8 @@
 #' @param pkg The name of the package in which to search
 #' 
 #' @details This function assumes that the apps are stored in a package directory called 'apps'
-#'
+#' @return A printed shiny app
 #' @export
-
 appFile <- 
 function(app, file, pkg = 'teachingApps') {
   

@@ -7,7 +7,6 @@
 #' @param storyteller Will this be a storyteller teachingApp? 
 #' @param pkg Package in which this app will reside (defaults to 'teachingApps') 
 #' @export
-
 newApp <- 
 function(appName, pkg = 'teachingApps',
          pkg.path = NULL, storyteller = F) {
@@ -17,8 +16,6 @@ function(appName, pkg = 'teachingApps',
        fluidApp(appName = appName, pkg = pkg, pkg.path = pkg.path))
   
 }
-
-
 
 
 fluidApp <- 
@@ -35,33 +32,25 @@ function(appName, pkg = 'teachingApps',pkg.path = NULL)
        root <- paste(c(dirname(pkg.path)),      collapse = '/'))
   
    lines <- readLines(template)
-
    new.text <- c()
    
    for(i in 1:length(lines)) {
   
        new.text[i] <- gsub("newAppName",appName, lines[i] )
-
    }
-
   new.file <- paste(c(root,'/R/',appName,'.R'), collapse = '')
   new.dir <- paste(c(root,'/inst/apps/',appName), collapse = '')
   
   if(!file.exists(new.file)) file.create(new.file)
   if(!dir.exists(new.dir)) dir.create(new.dir)
-
   writeLines(new.text, con = new.file)
   
   file.create(paste(c(new.dir,'/global.R'), collapse = ''))
-
       new_fluid_UI(dir = new.dir, name = appName)
   
   new_fluid_Server(dir = new.dir, name = appName)
   
 }
-
-
-
 
 
 navbarApp <- 
@@ -79,17 +68,13 @@ function(appName, pkg = 'teachingApps',pkg.path = NULL)
   
   
    lines <- readLines(template)
-
    for(i in 1:length(lines)) {
   
        new.text[i] <- gsub('newAppName','stuff', lines[i] )
-
    }
-
   new.file <- paste(c(root,'/R/',appName,'.R'), collapse = '')
   
   if(!file.exists(new.file)) file.create(new.file)
-
   writeLines(new.text, new.file)
   
   new.dir <- paste(c(root,'/inst/apps/',appName), collapse = '')
@@ -104,9 +89,6 @@ function(appName, pkg = 'teachingApps',pkg.path = NULL)
             to   = paste(c(new.dir, 'server.R'), collapse = '/'))
   
 }
-
-
-
 
 
 new_fluid_UI <- 
@@ -127,9 +109,6 @@ if(file.copy(from = system.file('resources','templates','fluidUI.R', package = '
   
 }
 }
-
-
-
 
 
 new_fluid_Server <- 

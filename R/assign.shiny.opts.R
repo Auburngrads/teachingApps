@@ -20,11 +20,9 @@
 #'   
 #' @return A list of options set with \code{shinyOptions} 
 #' @export
-
 assign.shiny.opts <- 
 function(opts, dir, theme = 'flatly', 
-         icon = 'fa fa-github') {
-
+         icon = NULL) {
 if(!is.na(opts)) { 
 aso <- lapply(X = 1:length(opts), 
        FUN = function(x) {
@@ -36,7 +34,8 @@ aso <- lapply(X = 1:length(opts),
                                        ')'))))
        })
 }
-
+    if(is.null(icon)) icon = 'fa fa-github'
+         
     sign <- HTML(teachingApps::logo(basename(dir), icon = icon))
      CSS <- system.file('teachingApps','css','teachingApps.css', package = 'teachingApps')
     
@@ -45,5 +44,4 @@ aso <- lapply(X = 1:length(opts),
     shiny::shinyOptions('appName' = basename(dir))
     shiny::shinyOptions('CSS'     = CSS)
     shiny::shinyOptions('sign'    = sign)
-
 } 

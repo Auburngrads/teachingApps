@@ -71,7 +71,6 @@ function(app,
   
   writeLines(c(paste(app, '<- \n'),calling.function.body[-cfb.length]),
              con = file.path(main.app.dir, calling.function.file))
-
   on.exit({ 
     browseURL(main.app.dir)
     if(remove) R.utils::removeDirectory(file.path(pkg_from,'apps', app))

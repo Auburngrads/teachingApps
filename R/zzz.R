@@ -1,13 +1,10 @@
 .onLoad <- 
 function(libname, pkgname) {
-
 shiny::addResourcePath("teachingApps", 
                        system.file("teachingApps", package = "teachingApps"))  
   
 shiny::shinyOptions('theme' = 'flatly')
-
 }
-
 #' Custom \code{par} function
 #' 
 #' @param ... Parameter passed to \code{par} in addition to those defined
@@ -29,8 +26,6 @@ function(...) {
         tck=0.015,
         family='serif',...)
 }
-
-
 
 
 createFun <- 
@@ -67,11 +62,8 @@ function() {
                     "#' @export\n\n",apps[i],
                     ' <- 
 function(pub = FALSE) {
-
     dir <- dirname(system.file("apps", "', apps[i],'", "app.R", package = "teachingApps"))
-
     ',paste(c(pkgs), collapse = '\n'),'
-
     shiny::runApp(file)
   
 }'), collapse = '')

@@ -24,16 +24,13 @@
 #' @examples \dontrun{clean_columns(mtcars)}
 #' 
 #' @family shinygadgets
-#'
+#' @return A printed shiny app
 #' @export
-
 clean_columns <- 
 function(data, rownames = TRUE, theme = "flatly",
          width = '100%', height = '600px', css = NULL) {
-
 if(is.null(css)) css <- system.file('resources','css','teachingApps.css',
                                     package = 'teachingApps')
-
 ui = fluidPage(theme = shinythemes::shinytheme(theme = theme),
                tags$head(try(includeCSS(css), silent = T)),
                
@@ -44,9 +41,7 @@ sidebarLayout(
   
     mainPanel(width = 9,
               DT::dataTableOutput("cleandata", height = "600px"))))
-
 server = function(input, output) {
-
 output$names <- renderUI({
   
   selectizeInput('remove', 
@@ -56,13 +51,11 @@ output$names <- renderUI({
                  multiple = TRUE)
 })
 
-
 clean.data <- reactive({ 
   
        `if`(is.null(input$remove),
             as.data.table(data, keep.rownames = rownames),
             as.data.table(data, keep.rownames = rownames)[,as.character(input$remove):= NULL]) })
-
   output$cleandata <- DT::renderDataTable({
     
       DT::datatable(clean.data(),

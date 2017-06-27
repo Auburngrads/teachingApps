@@ -7,7 +7,6 @@
 #' @importFrom utils installed.packages
 #' 
 what_are_you <- function(thing) {
-
   pkgname <- NULL
   pkgroot <- NULL
   approot <- NULL
@@ -23,7 +22,6 @@ what_are_you <- function(thing) {
   is_pkg1 <- thing%in%installed.packages()
   
   is_pkg2 <- !is.error(rprojroot::find_root(rprojroot::is_r_package, path = thing))
-
   is_package <- is_pkg1 | is_pkg2
   
   if(!is_package) {

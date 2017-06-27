@@ -5,7 +5,6 @@
 #' @param git.user The GitHub username
 #' 
 #' @export
-
 setOptions <- 
 function(local.dir = NULL, pkg = NULL, git.user = NULL) {
   

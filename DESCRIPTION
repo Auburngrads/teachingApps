@@ -1,8 +1,8 @@
 Package: teachingApps
 Type: Package
 Title: Build, Update, and Share Shiny Apps - Quickly and Easily
-Version: 0.8
-Date: 2017-05-26
+Version: 0.9
+Date: 2017-06-27
 Authors@R: c(
     person("Jason", "Freels", email = "auburngrads@live.com", role = c("aut","cre")),
     person("Bradley", "Boehmke", email = "bradleyboehmke@gmail.com", role = c("ctb"))

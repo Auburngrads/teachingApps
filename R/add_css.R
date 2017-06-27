@@ -5,14 +5,12 @@
 #' @export
 add_style <- function()
 {
-
   main <- tags$head(tags$link(rel = 'stylesheet', 
                               type = 'text/css',
                               href = 'teachingApps/css/teachingApps.css'))
                    
   return(main)
 }
-
 
 #' Dynamically add a theme to an app 
 #'
@@ -33,7 +31,6 @@ add_theme <- function(theme = NULL)
       
     }
 }
-
 #' Dynamically add a branding to a navbarPage app 
 #'
 #' @importFrom shiny includeCSS getShinyOption insertUI tags
@@ -43,4 +40,3 @@ add_brand <- function()
 {
    tags$footer(getShinyOption("sign"))
 }
-

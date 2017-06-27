@@ -66,7 +66,7 @@
 #' the argument \code{to} using \code{R.utils::copyDirectory()}.}
 #' }
 #' 
-#'
+#' @return A printed shiny app
 #' @export
 tradeApp <- 
 function(app_name, 
@@ -80,7 +80,6 @@ function(app_name,
     To <- what_are_you(to)
   
   if(From$package & To$package) {
-
     appExists(From,app = app_name)
     
     tradeApp_pkg_pkg(app = app_name,

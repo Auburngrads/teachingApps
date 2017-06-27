@@ -42,7 +42,6 @@
 #' }
 #' }
 #' @export
-
 nestServer <- function(appName, envir = NULL, pkg = 'teachingApps') {
   
   file  <- system.file('apps', appName, 'server.R', package = pkg)
@@ -51,7 +50,6 @@ nestServer <- function(appName, envir = NULL, pkg = 'teachingApps') {
   
   eval(texts, envir = envir)
 }
-
 
 #' Nest the UI of smaller app within the UI of a larger app
 #' 
@@ -110,7 +108,6 @@ nestServer <- function(appName, envir = NULL, pkg = 'teachingApps') {
 #' 
 #' }
 #' @export
-
 nestUI <- function(appName, pkg = 'teachingApps') {
   
   file  <- system.file('apps', appName, 'ui.R', package = pkg)
@@ -119,7 +116,6 @@ nestUI <- function(appName, pkg = 'teachingApps') {
   return(serve[[1]])
   
 }
-
 #' Nest an rmarkdown file within an app
 #' 
 #' @description Run inline and stand-alone code chunks and include results
@@ -135,11 +131,9 @@ nestUI <- function(appName, pkg = 'teachingApps') {
 #' 
 #' @examples \dontrun{# see examples in nestServer and nestUI documentation}
 #' @export
-
 nestRmd <- function(rmd) {
   
   rmd <- paste(c(getShinyOption('appDir'),rmd), collapse = '/')
    withMathJax(HTML(markdown::markdownToHTML(knitr::knit(rmd))))
   
 }
-

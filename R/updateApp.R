@@ -13,7 +13,6 @@
 #' Prior to using this function the default git directory must be established in \code{options} using \code{teachingApps::setGit()} 
 #' 
 #' @export
-
 updateApp <- 
 function(app = NULL, pkg = 'teachingApps', 
          lib = .libPaths()[1], open.folder = FALSE, 
@@ -30,16 +29,13 @@ function(app = NULL, pkg = 'teachingApps',
     local <- normalizePath(local.dir)
     
   }
-
   
   localRoot <- paste(c(local, 'inst'), collapse = '/')
   
     libRoot <- paste(c(lib, pkg), collapse = '/')
-
   if(!is.null(app)) {
     
     if(dir.exists(paste(c(localRoot, 'apps', app), collapse = '/'))) {
-
       appRoot <- paste(c(localRoot, 'apps', app), collapse = '/') 
       
     if(open.folder) { utils::browseURL(appRoot)

@@ -19,6 +19,7 @@
 #' @param theme code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
 #' @param width code{character} Width of the printed app
 #' @param height code{character} Height of the printed app
+#' @param icon fontAwesome icon placed at the bottom of navbarPage apps
 #' @param more.opts code{list} Additional options/objects passed to the app (see Details)
 #' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
 #' 
@@ -26,23 +27,22 @@
 #' @export
 #'
 #' @examples 
-#' \dontrun{
+#' dontrun{
 #' appy(theme = 'spacelab', height = '600px')
 #' }
 maximum_likelihood <- 
 function(theme = "flatly", storyteller = T, width = '100%', 
          height = `if`(storyteller,'800px','600px'),
          more.opts = list(time = Sys.time()),...) {
-
     dir <- dirname(system.file("apps", "maximum_likelihood", "global.R", package = "teachingApps"))
     
     teachingApps::getPackage(pkg  = 'scales')
     
     teachingApps::assign.shiny.opts(opts = more.opts,
                                     dir = dir,
-                                    theme = theme)
+                                    theme = theme,
+                                    icon = icon)
     
     shiny::shinyAppDir(appDir = dir, 
                        options = list(height = height, width = width,...))
-
 }

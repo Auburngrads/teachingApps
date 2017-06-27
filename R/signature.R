@@ -5,7 +5,7 @@
 #' @param appPackage \code{character} Name of package in which \code{app.name} exists
 #' @param icon \code{character} Name of a fontAwesome icon printed in the app footer
 #' @param img \code{character} Path to an image printed in the app footer
-#'
+#' @return A printed shiny app
 #' @export
 logo <- 
 function(app.name, 
@@ -48,7 +48,7 @@ function(app.name,
                    collapse = '/')
   
     return(paste(c("<script src='https://use.fontawesome.com/6819c76733.js'></script>
-                    <link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet'>
+                    <link href='teachingApps/font-awesome-4.5.0/css/font-awesome.min.css' rel='stylesheet'>
 <ul class='photo-grid'>
 <li>
 <figure>",

@@ -10,7 +10,6 @@
 #' 
 #' @details The app prefix is often of the form 'https://accountname.shinyapps.io'
 #' 
-
 includeApp <- 
 function(appName, appUrl = NULL,...) {
   

@@ -30,21 +30,20 @@
 #' @export
 #'
 #' @examples 
-#' \dontrun{
+#' dontrun{
 #' appy(theme = 'spacelab', height = '600px')
 #' }
 likelihood_ace2 <- 
 function(theme = "flatly", storyteller = F, width = '100%',
          height = `if`(storyteller,'800px','600px'),
          more.opts = list(time = Sys.time()),...) {
-
     dir <- dirname(system.file("apps", "likelihood_ace2", "global.R", package = "teachingApps"))
     
     teachingApps::assign.shiny.opts(opts = more.opts,
                                     dir = dir,
-                                    theme = theme)
+                                    theme = theme,
+                                    icon = icon)
     
     shiny::shinyAppDir(appDir = dir, 
                        options = list(height = height, width = width,...))
-
 }

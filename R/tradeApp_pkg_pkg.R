@@ -55,7 +55,6 @@ function(app,
   # Move calling function
   pkg_from <- rprojroot::find_root(pkg_from, criterion = rprojroot::is_r_package)
     pkg_to <- rprojroot::find_root(pkg_to, criterion = rprojroot::is_r_package)
-
   calling.function.id <- paste(basename(pkg_from), app, sep = '::')
   
   calling.function.body <- capture.output(eval(parse(text = calling.function.id)))

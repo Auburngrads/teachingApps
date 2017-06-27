@@ -25,6 +25,7 @@
 #' @param theme code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
 #' @param width code{character} Width of the printed app
 #' @param height code{character} Height of the printed app
+#' @param icon fontAwesome icon placed at the bottom of navbarPage apps
 #' @param more.opts code{list} Additional options/objects passed to the app (see Details)
 #' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
 #' 
@@ -32,19 +33,17 @@
 #' @export
 #'
 #' @examples 
-#' \dontrun{
+#' dontrun{
 #' appy(theme = 'spacelab', height = '600px')
 #' }
-
 htmlwidgets_shiny <- 
 function(theme = "flatly", 
          width = '100%',
          height = '800px',
+         icon = 'fa fa-github',
          more.opts = list(NA),...) {
-
     dir <- dirname(system.file("apps", "htmlwidgets_shiny", "global.R", package = "teachingApps"))
     
-
  teachingApps::getPackage(pkg = 'metricsgraphics')
  teachingApps::getPackage(pkg = 'dygraphs')
  teachingApps::getPackage(pkg = 'leaflet')
@@ -54,13 +53,11 @@ function(theme = "flatly",
  teachingApps::getPackage(pkg = 'taucharts', repo = 'hrbrmstr')
  teachingApps::getPackage(pkg = 'htmlwidgets')
  teachingApps::getPackage(pkg = 'plotly')
-
     teachingApps::assign.shiny.opts(opts = more.opts,
                                     dir = dir,
-                                    theme = theme)
+                                    theme = theme,
+                                    icon = icon)
     
     shiny::shinyAppDir(appDir = dir, 
                        options = list(height = height, width = width,...))
-
 }
-

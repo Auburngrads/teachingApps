@@ -1,5 +1,5 @@
 #' Install and load an R package
-#'
+#' @return A printed shiny app
 #' @export
 #' 
 #' @param pkg \code{character} Name of a package to be installed/loaded
@@ -13,18 +13,14 @@
 #' @details If \code{repo = NULL} the package will be installed from the CRAN.  Otherwise, \code{repo} is a character string that referring to the GitHub account in which the package is located.
 #' 
 #'   When publishing apps on shinyapps.io or shinyServer, attempting to \code{install.packages} will result in an error.  Calls to \code{install.packages} should not be included within an app.
-
 getPackage <- 
 function(pkg = NULL, repo = NULL, pub = FALSE ) {
-
   if(!pub) {
     
   if(is.null(repo)) {
-
 if(!pkg%in%installed.packages()) do.call('install.packages', args = list(pkg = pkg, repos = 'http://cran.rstudio.com'))
   
   } else {
-
 if(!pkg%in%installed.packages()) do.call('install_github', args = list(repo = paste(c(repo,pkg), collapse = '/'))) 
   
   }
