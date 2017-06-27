@@ -36,7 +36,7 @@
 #'
 #' @examples 
 #' \dontrun{
-#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' appy(theme = 'spacelab', height = '600px')
 #' }
 bathtub_hazard <- 
 function(theme = "flatly", storyteller = F, width = '100%',
@@ -51,7 +51,8 @@ function(theme = "flatly", storyteller = F, width = '100%',
                                     story = storyteller,
                                     icon = icon)
     
-    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
+    shiny::shinyAppDir(appDir = dir, 
+                       options = list(height = height, width = width,...))
 
 }
 

@@ -1,23 +1,11 @@
-#' Dynamically add css rules to an app 
+#' Dynamically add css style rules to an app 
 #'
-#' @param main.css The main CSS file
-#' @param user.css A user specified CSS file 
-#' @param name The name of the app
-#' 
 #' @importFrom shiny includeCSS getShinyOption insertUI tags
 #' 
 #' @export
-add_styles <- 
-  function(main.css = getShinyOption("CSS"),
-           user.css = getShinyOption("css"),
-           name = getShinyOption("appName"))
+add_style <- function()
 {
 
-  # zout <- list()
-  # zout$insert <- insertUI('head', 'afterBegin',
-  #                         ui = list(tags$head(includeCSS(main.css)),
-  #                                   tags$head(includeCSS(user.css))))
-                          #tags$footer(HTML(teachingApps::signature(name)))
   main <- tags$head(tags$link(rel = 'stylesheet', 
                               type = 'text/css',
                               href = 'teachingApps/css/teachingApps.css'))
@@ -33,8 +21,7 @@ add_styles <-
 #' @importFrom shinythemes shinytheme
 #' 
 #' @export
-add_themes <- 
-  function(theme = NULL)
+add_theme <- function(theme = NULL)
 {
     if(is.null(theme) && is.null(getShinyOption("theme"))) {
       
@@ -47,18 +34,13 @@ add_themes <-
     }
 }
 
-#' Dynamically add css rules to an app 
+#' Dynamically add a branding to a navbarPage app 
 #'
-#' @param main.css The main CSS file
-#' @param user.css A user specified CSS file 
-#' @param name The name of the app
-#' 
 #' @importFrom shiny includeCSS getShinyOption insertUI tags
 #' 
 #' @export
-add_footer <- 
- function() {
-   
+add_brand <- function() 
+{
    tags$footer(getShinyOption("sign"))
- }
+}
 

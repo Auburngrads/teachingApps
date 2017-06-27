@@ -2,8 +2,8 @@
 #'
 #' @description Description
 #'
-#' @import shinythemes
-#' @import shinyAce
+#' @importFrom shinythemes shinytheme
+#' @importFrom shinyAce aceEditor
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
 #' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
@@ -18,14 +18,11 @@
 #' @import metricsgraphics
 #' @importFrom DT dataTableOutput renderDataTable datatable
 #'
-#'
 #' @param theme code{character} A bootswatch color theme for use in code{shinythemes::shinytheme}
-#' @param storyteller code{logical} Is this a storyteller app?
 #' @param width code{character} Width of the printed app
 #' @param height code{character} Height of the printed app
 #' @param more.opts code{list} Additional options/objects passed to the app (see Details)
 #' @param ... code{list} Additional options passed to code{shiny::shinyAppDir()} 
-
 #' 
 #' @family statistics apps
 #' @family storyteller apps
@@ -36,12 +33,13 @@
 #'
 #' @examples 
 #' \dontrun{
-#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' appy(theme = 'spacelab', height = '600px')
 #' }
 
 complex_ideas <- 
-function(theme = "flatly", storyteller = F, width = '100%',
-         height = `if`(storyteller,'800px','600px'),
+function(theme = "flatly", 
+         width = '100%',
+         height = '800px',
          more.opts = list(NA),...) {
 
     dir <- dirname(system.file("apps", "complex_ideas", "global.R", package = "teachingApps"))
@@ -52,12 +50,12 @@ function(theme = "flatly", storyteller = F, width = '100%',
  teachingApps::getPackage(pkg = 'SMRD')
  teachingApps::getPackage(pkg = 'DT')
  
-   teachingApps::assign.shiny.opts(opts = more.opts,
-                      dir = dir,
-                      theme = theme,
-                      story = storyteller)
+    teachingApps::assign.shiny.opts(opts = more.opts,
+                                    dir = dir,
+                                    theme = theme)
     
-    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
+    shiny::shinyAppDir(appDir = dir, 
+                       options = list(height = height, width = width,...))
 
 }
 

@@ -8,7 +8,6 @@
 #' @param opts \code{list} Additional options or objects to pass to a shiny app
 #' @param dir \code{character} Path to the directory containing ui.R and server.R
 #' @param theme \code{character} Bootswatch color theme (used by \code{shinythemes::shinytheme})
-#' @param story \code{logical} Is this a storyteller app?
 #' @param icon \code{character} Name of fontAwesome icon printed at the bottom of an app
 #'
 #' @details Shiny apps are not functions, therefore customization options cannot be
@@ -24,7 +23,7 @@
 
 assign.shiny.opts <- 
 function(opts, dir, theme = 'flatly', 
-         story = F, icon = 'fa fa-github') {
+         icon = 'fa fa-github') {
 
 if(!is.na(opts)) { 
 aso <- lapply(X = 1:length(opts), 
@@ -44,11 +43,7 @@ aso <- lapply(X = 1:length(opts),
     shiny::shinyOptions('theme'   = theme)
     shiny::shinyOptions('appDir'  = dir)
     shiny::shinyOptions('appName' = basename(dir))
-    shiny::shinyOptions('story'   = story)
-    shiny::shinyOptions('CSS'   = CSS)
+    shiny::shinyOptions('CSS'     = CSS)
     shiny::shinyOptions('sign'    = sign)
-    
-    #if(!story)
-    #   options('markdown.HTML.stylesheet' = shiny::getShinyOption("CSS"))
 
 } 

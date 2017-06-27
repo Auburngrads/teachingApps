@@ -2,8 +2,8 @@
 #'
 #' @description Description
 #'
-#' @import shinythemes
-#' @import shinyAce
+#' @importFrom shinythemes shinytheme
+#' @importFrom shinyAce aceEditor
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
 #' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
@@ -31,7 +31,7 @@
 #'
 #' @examples 
 #' \dontrun{
-#' appy(theme = 'spacelab', storyteller = T, pub = F)
+#' appy(theme = 'spacelab', height = '600px')
 #' }
 likelihood_ace2 <- 
 function(theme = "flatly", storyteller = F, width = '100%',
@@ -40,11 +40,11 @@ function(theme = "flatly", storyteller = F, width = '100%',
 
     dir <- dirname(system.file("apps", "likelihood_ace2", "global.R", package = "teachingApps"))
     
-   teachingApps::assign.shiny.opts(opts = more.opts,
-                      dir = dir,
-                      theme = theme,
-                      story = storyteller)
+    teachingApps::assign.shiny.opts(opts = more.opts,
+                                    dir = dir,
+                                    theme = theme)
     
-    shiny::shinyAppDir(appDir = dir, options = list(height = height, width = width,...))
+    shiny::shinyAppDir(appDir = dir, 
+                       options = list(height = height, width = width,...))
 
 }
