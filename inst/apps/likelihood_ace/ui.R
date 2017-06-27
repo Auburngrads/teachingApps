@@ -1,6 +1,6 @@
 ui = fluidPage(titlePanel('To change the plot update the code and click "Evaluate" '),
-               theme = teachingApps::add_themes(getShinyOption("theme")), 
-               teachingApps::add_styles(),
+               theme = teachingApps::add_theme(getShinyOption("theme")), 
+               teachingApps::add_style(),
 
                  
 sidebarLayout(

@@ -1,5 +1,5 @@
-ui = fluidPage(theme = teachingApps::add_themes(getShinyOption("theme")), 
-               teachingApps::add_styles(),
+ui = fluidPage(theme = teachingApps::add_theme(getShinyOption("theme")), 
+               teachingApps::add_style(),
                
 inputPanel(
   selectInput('dist1', h2('Distro 1'), choices = c('Normal'), selected = 'Normal'),

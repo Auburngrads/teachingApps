@@ -4,9 +4,9 @@ library('SMRD')
 ui = navbarPage(title = 'Figure 7.1',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme  = teachingApps::add_themes(getShinyOption('theme')),
-                header = teachingApps::add_styles(),
-                footer = teachingApps::add_footer(),
+                theme  = teachingApps::add_theme(getShinyOption('theme')),
+                header = teachingApps::add_style(),
+                footer = teachingApps::add_brand(),
 
                 
 tabPanel(h4('Figure 7.1'),

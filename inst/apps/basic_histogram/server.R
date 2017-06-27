@@ -1,5 +1,3 @@
-library(teachingApps)
-
 server = function(input, output, session) {
 
       output$output <- renderPlot({
