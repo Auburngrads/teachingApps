@@ -6,3 +6,4 @@ src/*.so
 src/*.dll
 inst/doc
 inst/functions
+extra/
