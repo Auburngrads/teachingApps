@@ -1,4 +1,4 @@
-#' Dynamically add css style rules to an app 
+#' Add custom css style rules to an app 
 #'
 #' @importFrom shiny includeCSS getShinyOption insertUI tags
 #' 
@@ -12,7 +12,7 @@ add_style <- function()
   return(main)
 }
 
-#' Dynamically add a theme to an app 
+#' Add a bootswatch color theme to an app 
 #'
 #' @param theme \code{character} A bootstrap theme provided by shinythemes::shinytheme
 #' 
@@ -31,12 +31,12 @@ add_theme <- function(theme = NULL)
       
     }
 }
-#' Dynamically add a branding to a navbarPage app 
+#' Add a branding stamp to the footer of a navbarPage app 
 #'
 #' @importFrom shiny includeCSS getShinyOption insertUI tags
 #' 
 #' @export
-add_brand <- function() 
+add_stamp <- function() 
 {
    tags$footer(getShinyOption("sign"))
 }

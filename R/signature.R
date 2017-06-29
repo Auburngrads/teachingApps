@@ -1,4 +1,4 @@
-#' Place a signature on a teachingApp
+#' Add a branding stamp to a teachingApp
 #'
 #' @param app.name \code{character} Name of the app in which the signature will be placed
 #' @param git.username \code{character} GitHub account username (typically created using teachingApps::setOptions()) 
@@ -7,7 +7,7 @@
 #' @param img \code{character} Path to an image printed in the app footer
 #' @return A printed shiny app
 #' @export
-logo <- 
+stamp <- 
 function(app.name, 
          git.username = NULL, 
          appPackage = NULL,

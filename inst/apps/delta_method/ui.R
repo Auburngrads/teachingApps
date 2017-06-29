@@ -3,7 +3,7 @@ ui = navbarPage(title = 'The Delta Method',
                 position = 'fixed-top',
                 theme  = teachingApps::add_theme(getShinyOption('theme')),
                 header = teachingApps::add_style(),
-                footer = teachingApps::add_brand(),
+                footer = teachingApps::add_stamp(),
 
                 
 tabPanel(h4('Background'),

@@ -3,7 +3,7 @@ ui = navbarPage(title = 'Replace Plots',
                 position = 'fixed-top',
                 theme  = teachingApps::add_theme(getShinyOption('theme')),
                 header = teachingApps::add_style(),
-                footer = teachingApps::add_brand(),
+                footer = teachingApps::add_stamp(),
 
 
 tabPanel(h4("Data Set"),   DT::dataTableOutput("table2", height = "650px") ),  

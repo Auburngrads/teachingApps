@@ -2,10 +2,10 @@
 % Please edit documentation in R/add_css.R
 \name{add_style}
 \alias{add_style}
-\title{Dynamically add css style rules to an app}
+\title{Add custom css style rules to an app}
 \usage{
 add_style()
 }
 \description{
-Dynamically add css style rules to an app
+Add custom css style rules to an app
 }

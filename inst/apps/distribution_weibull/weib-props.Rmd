@@ -1,0 +1,11 @@
+---
+output: html_document
+---
+
+### Properties Of The Weibull distribution
+
+- Shown to model data from various mechanical and biological phenomena well
+
+- No closed-form solution for MLE's (must be computed numerically)
+
+- Can approximate many other distributions

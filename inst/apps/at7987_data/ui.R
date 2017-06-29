@@ -3,7 +3,7 @@ ui = navbarPage(title = 'at7987',
                 position = 'fixed-top',
                 theme  = teachingApps::add_theme(getShinyOption('theme')),
                 header = teachingApps::add_style(),
-                footer = teachingApps::add_brand(),
+                footer = teachingApps::add_stamp(),
 
 
 tabPanel(h4("Data Set"),DT::dataTableOutput("table.at7987", height = "80%") ), 

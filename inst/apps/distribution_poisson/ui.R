@@ -1,36 +1,16 @@
-ui = fluidPage(theme = teachingApps::add_theme(getShinyOption("theme")), 
-               teachingApps::add_style(),
-               
-sidebarLayout(
-  sidebarPanel(width = 3, 
-hr(), 
-sliderInput("range.pois", 
-            label = h2("Range"),
-            min = 0, 
-            max = 50, 
-            step = 1,
-            value = c(0,10)),
-hr(), 
-sliderInput("lamb.pois", 
-            label = h2("Lambda"),
-            min = .5, 
-            max = 10, 
-            step=.5, 
-            value = .5,
-            animate=TRUE)), 
+ui = navbarPage(title = 'Poisson Distribution',
+                collapsible = T, 
+                position = 'fixed-top',
+                theme  = teachingApps::add_theme(getShinyOption('theme')),
+                header = teachingApps::add_style(),
+                footer = teachingApps::add_stamp(),
 
-mainPanel(width = 9, 
-          tabsetPanel(type = "pills", 
-          tabPanel(h4("Distribution Function"), 
-                   metricsgraphicsOutput("poisC", height = "600px")), 
-          tabPanel(h4("Mass"),
-                   metricsgraphicsOutput("poisP", height = "600px")), 
-          tabPanel(h4("Survival"), 
-                   metricsgraphicsOutput("poisR", height = "600px")), 
-          tabPanel(h4("Hazard"), 
-                   metricsgraphicsOutput("poish", height = "600px")), 
-          tabPanel(h4("Cumulative Hazard"), 
-                   metricsgraphicsOutput("poisH", height = "600px")),
-          tabPanel(h4("Quantile"), 
-                   metricsgraphicsOutput("poisQ", height = "600px")))
-)))
+                
+tabPanel(h4('Shiny App'),
+         fluidRow(teachingApps::add_ui('distribution_poisson'))),
+
+tabPanel(h4('Distribution Functions'),
+         fluidRow(uiOutput('poifunc'), class = 'shiny-text-output')),
+
+tabPanel(h4('Distribution Properties'),
+         fluidRow(uiOutput('poiprops', class = 'shiny-text-output'))))

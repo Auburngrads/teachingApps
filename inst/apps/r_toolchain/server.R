@@ -1,23 +1,23 @@
 server = function(input, output, session) {
 
-output$rwindows  <- renderUI({ teachingApps::nestRmd('rwin.Rmd' ) })
-output$rmac      <- renderUI({ teachingApps::nestRmd('rmac.Rmd' ) }) 
-output$rlinux    <- renderUI({ teachingApps::nestRmd('rlin.Rmd' ) })
+output$rwindows  <- renderUI({ teachingApps::add_rmd('rwin.Rmd' ) })
+output$rmac      <- renderUI({ teachingApps::add_rmd('rmac.Rmd' ) }) 
+output$rlinux    <- renderUI({ teachingApps::add_rmd('rlin.Rmd' ) })
 
-output$rswindows <- renderUI({ teachingApps::nestRmd('rswin.Rmd') })
-output$rsmac     <- renderUI({ teachingApps::nestRmd('rsmac.Rmd') }) 
-output$rslinux   <- renderUI({ teachingApps::nestRmd('rslin.Rmd') })
+output$rswindows <- renderUI({ teachingApps::add_rmd('rswin.Rmd') })
+output$rsmac     <- renderUI({ teachingApps::add_rmd('rsmac.Rmd') }) 
+output$rslinux   <- renderUI({ teachingApps::add_rmd('rslin.Rmd') })
 
-output$rtwindows <- renderUI({ teachingApps::nestRmd('rtwin.Rmd') })
-output$rtmac     <- renderUI({ teachingApps::nestRmd('rtmac.Rmd') }) 
-output$rtlinux   <- renderUI({ teachingApps::nestRmd('rtlin.Rmd') })
+output$rtwindows <- renderUI({ teachingApps::add_rmd('rtwin.Rmd') })
+output$rtmac     <- renderUI({ teachingApps::add_rmd('rtmac.Rmd') }) 
+output$rtlinux   <- renderUI({ teachingApps::add_rmd('rtlin.Rmd') })
 
-output$rlwindows <- renderUI({ teachingApps::nestRmd('rlwin.Rmd') })
-output$rlmac     <- renderUI({ teachingApps::nestRmd('rlmac.Rmd') }) 
-output$rllinux   <- renderUI({ teachingApps::nestRmd('rllin.Rmd') })
+output$rlwindows <- renderUI({ teachingApps::add_rmd('rlwin.Rmd') })
+output$rlmac     <- renderUI({ teachingApps::add_rmd('rlmac.Rmd') }) 
+output$rllinux   <- renderUI({ teachingApps::add_rmd('rllin.Rmd') })
 
-output$rgwindows <- renderUI({ teachingApps::nestRmd('rgwin.Rmd') })
-output$rgmac     <- renderUI({ teachingApps::nestRmd('rgmac.Rmd') }) 
-output$rglinux   <- renderUI({ teachingApps::nestRmd('rglin.Rmd') })
+output$rgwindows <- renderUI({ teachingApps::add_rmd('rgwin.Rmd') })
+output$rgmac     <- renderUI({ teachingApps::add_rmd('rgmac.Rmd') }) 
+output$rglinux   <- renderUI({ teachingApps::add_rmd('rglin.Rmd') })
 
 }

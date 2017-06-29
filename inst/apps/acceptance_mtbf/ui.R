@@ -3,10 +3,10 @@ ui = navbarPage(title = 'MTBF Acceptance Test',
                 position = 'fixed-top',
                 theme  = teachingApps::add_theme(getShinyOption('theme')),
                 header = teachingApps::add_style(),
-                footer = teachingApps::add_brand(),
+                footer = teachingApps::add_stamp(),
 
 tabPanel(h4('Planning Tool'),
-         fluidRow(teachingApps::nestUI('acceptance_testing_mtbf'))),
+         fluidRow(teachingApps::add_ui('acceptance_testing_mtbf'))),
 
 tabPanel(h4('How To Use The Tool'),
          fluidRow(uiOutput("howtomtbf", 

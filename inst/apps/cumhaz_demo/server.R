@@ -1,8 +1,8 @@
 server = function(input, output, session) {
 
-output$HAZdemo <- renderUI({ nestRmd('backgroundchaz.Rmd') })
+output$HAZdemo <- renderUI({ add_rmd('backgroundchaz.Rmd') })
 
-output$HAZr <- renderUI({ nestRmd('rfuncschaz.Rmd') })
+output$HAZr <- renderUI({ add_rmd('rfuncschaz.Rmd') })
 
 observeEvent(input$evalHAZ, { 
               

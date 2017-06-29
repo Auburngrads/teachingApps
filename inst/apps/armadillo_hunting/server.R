@@ -1,10 +1,10 @@
 
 server = function(input, output, session) {
 
-    output$armadillo_overview <- renderUI({ nestRmd('overview.Rmd')  })
-teachingApps::nestServer('acceptance_testing_mtbf', envir = environment())
+    output$armadillo_overview <- renderUI({ add_rmd('overview.Rmd')  })
+teachingApps::add_server('acceptance_testing_mtbf', envir = environment())
     
-    output$examplemtbf    <- renderUI({ nestRmd('example.Rmd')    })
-    output$backgroundmtbf <- renderUI({ nestRmd('background.Rmd') })
-    output$aboutmtbf      <- renderUI({ nestRmd('about.Rmd')      })
+    output$examplemtbf    <- renderUI({ add_rmd('example.Rmd')    })
+    output$backgroundmtbf <- renderUI({ add_rmd('background.Rmd') })
+    output$aboutmtbf      <- renderUI({ add_rmd('about.Rmd')      })
 }

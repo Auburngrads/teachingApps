@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_css.R
 \name{add_theme}
 \alias{add_theme}
-\title{Dynamically add a theme to an app}
+\title{Add a bootswatch color theme to an app}
 \usage{
 add_theme(theme = NULL)
 }
@@ -10,5 +10,5 @@ add_theme(theme = NULL)
 \item{theme}{\code{character} A bootstrap theme provided by shinythemes::shinytheme}
 }
 \description{
-Dynamically add a theme to an app
+Add a bootswatch color theme to an app
 }

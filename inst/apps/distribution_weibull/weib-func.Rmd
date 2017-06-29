@@ -1,0 +1,17 @@
+---
+output: html_document
+---
+
+### Functional relationships for <script type='math/tex'>T \sim WEIB(\mu,\sigma),\;\;T\in[0,\infty)</script>
+
+$$
+\begin{aligned}
+f(t|\mu,\sigma)&=\frac{1}{\sigma}\phi_{sev}\left(\frac{\log(t)-\mu}{\sigma}\right)=\frac{\beta}{\eta}\left(\frac{t}{\eta}\right)^{\beta-1}\exp\left[-\left(\frac{t}{\eta}\right)^{\beta}\right]\\\\\\\\
+F(t|\mu,\sigma)&=\Phi_{sev}\left(\frac{\log(t)-\mu}{\sigma}\right)=1-\exp\left[-\left(\frac{t}{\eta}\right)^{\beta}\right]\\\\\\\\
+h(t|\mu,\sigma)&=\frac{1}{\sigma \exp(\mu)}\left[\frac{t}{\exp(\mu)}\right]^{1/\sigma-1}=\frac{\beta}{\eta}\left(\frac{t}{\eta}\right)^{\beta-1}\\\\\\\\
+t_{p}&=\exp\left[\mu+\Phi^{-1}_{sev}(p)\sigma\right]=\eta[-log(1-p)]^{1/\beta}\\\\\\\\
+E[T]&=\eta\Gamma(1+1/\beta)\\\\\\\\
+Var[T]&=\eta^2\left[\Gamma(1+2/\beta)-\Gamma^2(1+1/\beta\right]
+\end{aligned}
+$$
+

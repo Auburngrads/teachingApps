@@ -26,6 +26,8 @@ clean_rows(data, theme = "flatly", colorBy = NULL, width = "100\%",
 A \code{list} of length 2
   \item{data}{A \code{data.frame} containing the columns that were not removed}
   \item{script}{A line of code that can be used to replicate cleaning performed in the gadget}
+
+A printed shiny app
 }
 \description{
 Shiny gadget used to visually inspect column values in a data set 

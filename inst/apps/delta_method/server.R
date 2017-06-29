@@ -1,6 +1,6 @@
 server = function(input, output, session) {
   
-output$delta <- renderUI({ nestRmd('background.Rmd') })
+output$delta <- renderUI({ add_rmd('background.Rmd') })
 
-output$greenwood <- renderUI({ nestRmd('greenwood.Rmd') })
+output$greenwood <- renderUI({ add_rmd('greenwood.Rmd') })
 }
