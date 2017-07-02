@@ -6,5 +6,5 @@ src/*.so
 src/*.dll
 inst/doc
 inst/functions
-extra/
-inst/in-work/
+extra/*
+inst/in-work/*
