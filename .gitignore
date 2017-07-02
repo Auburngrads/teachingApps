@@ -7,3 +7,4 @@ src/*.dll
 inst/doc
 inst/functions
 extra/
+inst/in-work/

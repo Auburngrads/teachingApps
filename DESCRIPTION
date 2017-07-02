@@ -1,6 +1,6 @@
 Package: teachingApps
 Type: Package
-Title: Build, Update, and Share Shiny Apps - Quickly and Easily
+Title: Tools to Build, Nest, and Share Shiny Apps - Quickly and Easily
 Version: 0.9
 Date: 2017-06-27
 Authors@R: c(
@@ -24,7 +24,7 @@ Imports: shiny,shinyAce,shinythemes,shinydashboard,shinygadgets,miniUI,
          htmlwidgets,DT,metricsgraphics,leaflet,threejs,d3heatmap,
          plotly,dygraphs,networkD3,d3Network,diagram,DiagrammeR,visNetwork,
          needs,actuar,markdown,stats,knitr,data.table,Rcpp (>= 0.12.11),
-         rprojroot,R.utils,utils,devtools,graphics,scales
+         rprojroot,R.utils,utils,devtools,graphics,scales,yaml,magrittr
 NeedsCompilation: yes
 Archs: i386, x64
 Suggests: testthat, rmarkdown
