@@ -34,8 +34,8 @@
 #'    shiny apps. R users a familiar with writing functions to dynamically alter 
 #'    some output - in this case the output is a app.  Normally, 
 #'
-#' @seealso \link{\code{create_logo}}
-#' @seealso \link{\code{add_logo}}
+#' @seealso code{link{create_logo}}
+#' @seealso code{link{add_logo}}
 #' @examples 
 #' \dontrun{
 #' teachingApps(app_name = 'distribution_goma', 

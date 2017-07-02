@@ -20,8 +20,8 @@
 #'     passed to a shiny app and can be deployed.
 #'   
 #' @return A list of shiny options set with \code{shinyOptions} 
-#' @seealso \link{\code{add_css}}
-#' @seealso \link{\code{add_logo}}
+#' @seealso code{link{add_css}}
+#' @seealso code{link{add_logo}}
 #' @export
 add_shiny_opts <- 
 function(opts, 

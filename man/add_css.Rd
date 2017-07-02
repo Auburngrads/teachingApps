@@ -13,5 +13,5 @@ teachingApps style rules defined to an app
 Add CSS style rules to an teachingApp
 }
 \seealso{
-\link{\code{add_theme}}
+code{link{add_theme}}
 }

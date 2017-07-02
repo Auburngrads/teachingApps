@@ -36,7 +36,7 @@ This function should not be called directly, but is invoked by
          where \code{app_pkg} is created dynamically.
 }
 \seealso{
-\link{\code{add_shiny_opts}}
+code{link{add_shiny_opts}}
 
-\link{\code{add_logo}}
+code{link{add_logo}}
 }

@@ -52,7 +52,7 @@ teachingApps(app_name = 'maximum_likelihood_simulation',
 }
 }
 \seealso{
-\link{\code{create_logo}}
+code{link{create_logo}}
 
-\link{\code{add_logo}}
+code{link{add_logo}}
 }

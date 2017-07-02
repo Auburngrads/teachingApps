@@ -20,8 +20,8 @@
 #'          where \code{app_pkg} is created dynamically. 
 #' 
 #' @return HTML code for inserting a logo (icon or image) in the footer of a navbarPage app
-#' @seealso \link{\code{add_shiny_opts}}
-#' @seealso \link{\code{add_logo}}
+#' @seealso code{link{add_shiny_opts}}
+#' @seealso code{link{add_logo}}
 #' @export
 create_logo <- 
 function(app_dir, 
@@ -73,7 +73,7 @@ logo,
 #' 
 #' @return A fontAwesome icon or an image printed in the footer of a
 #'         navbarPage app 
-#' @seealso \link{\code{create_logo}}
+#' @seealso code{link{create_logo}}
 #' 
 #' @export
 add_logo <- function() 
