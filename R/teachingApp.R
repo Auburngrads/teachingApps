@@ -5,6 +5,7 @@
 #'
 #' @importFrom shinythemes shinytheme
 #' @importFrom shinyAce aceEditor
+#' @importFrom utils View
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
 #' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
@@ -16,11 +17,14 @@
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
 #' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
 #'
+#' @param app_name The name of the app to be run
 #' @param theme A \code{character} string naming a bootswatch color theme allowed by \code{shinythemes::shinytheme}
 #' @param width A \code{character} string specifying the width of the printed app (in pixels)
 #' @param height A \code{character} string specifying the height of the printed app (in pixels)
-#' @param stamp  A \code{character} string of a fontAwesome icon or path to an image file to be placed in the footer of a navbarPage app
-#' @param more.opts A \code{list} of additional options/objects that can be passed to the app (see Details)
+#' @param icon  A \code{character} string naming a fontAwesome icon to be placed in the footer of a navbarPage app
+#' @param img A \code{character} string for the path/url of an image to be placed in the footer of a navbarPage app
+#' @param git_user A \code{character} string for github username used in the branding link
+#' @param more_opts A \code{list} of additional options/objects that can be passed to the app (see Details)
 #' @param ... A \code{list} of additional options passed to \code{shiny::shinyAppDir()} 
 #' 
 #' @return A printed shiny app
@@ -31,7 +35,7 @@
 #'    some output - in this case the output is a app.  Normally, 
 #'
 #' @examples 
-#' dontrun{
+#' \dontrun{
 #' teachingApps(app_name = 'distribution_goma', theme = 'spacelab', height = '600px')
 #' }
 teachingApp <- 
@@ -39,8 +43,10 @@ function(app_name = NULL,
          theme = 'flatly',
          width = '100%',
          height = '800px',
-         stamp = 'fa fa-github',
-         more.opts = list(NA),...)
+         icon = 'fa fa-github',
+         img = NULL,
+         git_user = 'Auburngrads',
+         more_opts = list(NA),...)
 {
  
     valid_apps <- list.files(system.file("apps", package = "teachingApps"))
@@ -52,17 +58,19 @@ function(app_name = NULL,
       
     stop(paste0('Please run `teachingApp()` with a valid app as an argument.\n',
                  "See table for Valid teachingApps"),
-         View(valid_apps_df),
+         utils::View(valid_apps_df),
          call. = FALSE)
     }
     
    
     dir <- dirname(system.file('apps', app_name, 'global.R', package = 'teachingApps'))
   
-    teachingApps::add_shiny_opts(opts = more.opts,
+    teachingApps::add_shiny_opts(opts = more_opts,
                                  dir = dir,
                                  theme = theme,
-                                 stamp = stamp)
+                                 icon = icon,
+                                 img = img,
+                                 git_user = git_user)
     
     shiny::shinyAppDir(appDir = dir, 
                        options = list(height = height, width = width,...))

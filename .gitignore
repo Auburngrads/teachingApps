@@ -4,7 +4,4 @@
 src/*.o
 src/*.so
 src/*.dll
-inst/doc
-inst/functions
-extra/*
-inst/in-work/*
+in-work/*
