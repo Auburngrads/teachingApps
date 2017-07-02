@@ -2,7 +2,7 @@ ui = navbarPage(title = 'Acceptance Testing (Proportions)',
                 collapsible = T, 
                 position = 'fixed-top',
                 theme  = teachingApps::add_theme(getShinyOption('theme')),
-                header = teachingApps::add_style(),
+                header = teachingApps::add_css(),
                 footer = teachingApps::add_stamp(),
 
 tabPanel(h4('Test For Proportions'),
