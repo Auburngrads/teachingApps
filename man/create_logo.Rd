@@ -4,23 +4,39 @@
 \alias{create_logo}
 \title{Create a branding logo for a teachingApp}
 \usage{
-create_logo(app_dir, git_user = NULL, app_pkg = NULL, icon = NULL,
-  img = NULL)
+create_logo(app_dir, git_user = NULL, icon = NULL, img = NULL)
 }
 \arguments{
-\item{app_dir}{\code{character} Name of the app in which the signature will be placed}
+\item{app_dir}{\code{character} Directory in which the app files are located}
 
-\item{git_user}{\code{character} GitHub account username (typically created using teachingApps::setOptions())}
-
-\item{app_pkg}{\code{character} Name of package in which \code{app_name} exists}
+\item{git_user}{\code{character} GitHub account username (see details)}
 
 \item{icon}{\code{character} Name of a fontAwesome icon printed in the app footer}
 
 \item{img}{\code{character} Path to an image printed in the app footer}
 }
 \value{
-HTML code for inserting an icon or image logo in the footer of a navbarPage app
+HTML code for inserting a logo (icon or image) in the footer of a navbarPage app
 }
 \description{
 Create a branding logo for a teachingApp
+}
+\details{
+This function should not be called directly, but is invoked by
+         \code{add_shiny_opts} when an app is rendered.  
+         
+         By default, the branding logo is the GitHub fontAwesome icon 
+         ('fa fa-github'). If \code{img} is specified, it takes precedence
+         oven \code{icon}. 
+         
+         Hovering over the logo will reveal a link to view the code used to 
+         create the app. This is helpful in a teaching environment, where 
+         students often are interested in understanding how an app functions. 
+         The URL for the link is of the form (https://github.com\code{git_user}\code{app_pkg}blob/master/inst/apps)
+         where \code{app_pkg} is created dynamically.
+}
+\seealso{
+\link{\code{add_shiny_opts}}
+
+\link{\code{add_logo}}
 }

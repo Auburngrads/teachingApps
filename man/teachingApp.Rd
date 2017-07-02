@@ -9,19 +9,19 @@ teachingApp(app_name = NULL, theme = "flatly", width = "100\%",
   git_user = "Auburngrads", more_opts = list(NA), ...)
 }
 \arguments{
-\item{app_name}{The name of the app to be run}
+\item{app_name}{\code{character} Name of the app to be rendered}
 
-\item{theme}{A \code{character} string naming a bootswatch color theme allowed by \code{shinythemes::shinytheme}}
+\item{theme}{\code{character} Name of a bootswatch color theme (provided by \code{shinythemes::shinytheme})}
 
-\item{width}{A \code{character} string specifying the width of the printed app (in pixels)}
+\item{width}{\code{character} The width of the printed app (in pixels)}
 
-\item{height}{A \code{character} string specifying the height of the printed app (in pixels)}
+\item{height}{\code{character} The height of the printed app (in pixels)}
 
-\item{icon}{A \code{character} string naming a fontAwesome icon to be placed in the footer of a navbarPage app}
+\item{icon}{\code{character} A fontAwesome icon to be placed in the footer of a navbarPage app}
 
-\item{img}{A \code{character} string for the path/url of an image to be placed in the footer of a navbarPage app}
+\item{img}{\code{character} A path (or URL) to an image to be placed in the footer of a navbarPage app}
 
-\item{git_user}{A \code{character} string for github username used in the branding link}
+\item{git_user}{\code{character} GitHub username used in the branding logo}
 
 \item{more_opts}{A \code{list} of additional options/objects that can be passed to the app (see Details)}
 
@@ -42,6 +42,17 @@ The \code{teachingApps} package provides an infrastructure
 }
 \examples{
 \dontrun{
-teachingApps(app_name = 'distribution_goma', theme = 'spacelab', height = '600px')
+teachingApps(app_name = 'distribution_goma', 
+             theme = 'spacelab', 
+             height = '800px',
+             git_user = 'Auburngrads')
+
+teachingApps(app_name = 'maximum_likelihood_simulation',
+             git_user = 'Auburngrads')
 }
+}
+\seealso{
+\link{\code{create_logo}}
+
+\link{\code{add_logo}}
 }

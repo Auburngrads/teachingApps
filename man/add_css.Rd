@@ -7,8 +7,11 @@
 add_css()
 }
 \value{
-Style rules defined by teachingApps.css
+teachingApps style rules defined to an app
 }
 \description{
 Add CSS style rules to an teachingApp
+}
+\seealso{
+\link{\code{add_theme}}
 }

@@ -2,9 +2,5 @@
 ^\.Rhistory$
 ^\.Rproj\.user$
 ^\.travis\.yml$
-jssArticle/
-Rpaper/
-rsconnect/
 keytest.Rmd
-inst/in-work/
-extra/
+in-work/

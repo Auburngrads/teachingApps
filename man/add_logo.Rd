@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_logo.R
 \name{add_logo}
 \alias{add_logo}
-\title{Add a logo to the footer of a navbarPage app}
+\title{Adds a logo to the footer of a navbarPage app}
 \usage{
 add_logo()
 }
@@ -11,5 +11,8 @@ A fontAwesome icon or an image printed in the footer of a
         navbarPage app
 }
 \description{
-Add a logo to the footer of a navbarPage app
+Adds a logo to the footer of a navbarPage app
+}
+\seealso{
+\link{\code{create_logo}}
 }

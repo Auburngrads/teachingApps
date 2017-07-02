@@ -1,11 +1,8 @@
 #' Pass objects and customization options to a shiny app
 #' 
 #' @description Provides a general method for passing arguments to shiny apps
-#'     each using \code{shiny::shinyOptions}.
+#'     allowing for dynamic customization.
 #'     
-#' @details Passing a customization option as a \code{shiny::shinyOption} 
-#'    ensures the option is carried through to app deployment. 
-#' 
 #' @importFrom shiny getShinyOption shinyOptions HTML
 #'
 #' @param opts A \code{list} of additional options or objects to pass to a shiny app
@@ -15,22 +12,24 @@
 #' @param img A \code{character} string for the path/url of an image to be placed in the footer of a navbarPage app
 #' @param git_user A \code{character} string for github username used in the branding link
 #'
-#' @details Shiny apps are not functions, therefore customization options cannot be
-#'     passed to a shiny app as simply as argument are passed between functions.  Further,
+#' @details Shiny apps are not functions. Thus, customization options cannot be
+#'     passed to a shiny app as simply as arguments are passed between functions.  Further,
 #'     the manner in which objects are loaded prior to deploying an app differ if the app
 #'     will be published as a stand-alone or embedded within an rmarkdown docmuent.
-#'     Assigning objects to shiny options ensures that these values are passed to a shiny
-#'     app much the same way as arguments are passed to functions.
+#'     Assigning objects as \code{shiny::shinyOptions} ensures that these values are 
+#'     passed to a shiny app and can be deployed.
 #'   
-#' @return A list of options set with \code{shinyOptions} 
+#' @return A list of shiny options set with \code{shinyOptions} 
+#' @seealso \link{\code{add_css}}
+#' @seealso \link{\code{add_logo}}
 #' @export
 add_shiny_opts <- 
 function(opts, 
          dir, 
          theme = 'flatly', 
          icon = NULL,
-         img = img,
-         git_user = git_user) 
+         img = NULL,
+         git_user = NULL) 
 {
 
 if(!is.na(opts)) { 

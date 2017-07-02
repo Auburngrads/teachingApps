@@ -17,13 +17,13 @@
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
 #' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
 #'
-#' @param app_name The name of the app to be run
-#' @param theme A \code{character} string naming a bootswatch color theme allowed by \code{shinythemes::shinytheme}
-#' @param width A \code{character} string specifying the width of the printed app (in pixels)
-#' @param height A \code{character} string specifying the height of the printed app (in pixels)
-#' @param icon  A \code{character} string naming a fontAwesome icon to be placed in the footer of a navbarPage app
-#' @param img A \code{character} string for the path/url of an image to be placed in the footer of a navbarPage app
-#' @param git_user A \code{character} string for github username used in the branding link
+#' @param app_name \code{character} Name of the app to be rendered
+#' @param theme \code{character} Name of a bootswatch color theme (provided by \code{shinythemes::shinytheme})
+#' @param width \code{character} The width of the printed app (in pixels)
+#' @param height \code{character} The height of the printed app (in pixels)
+#' @param icon  \code{character} A fontAwesome icon to be placed in the footer of a navbarPage app
+#' @param img \code{character} A path (or URL) to an image to be placed in the footer of a navbarPage app
+#' @param git_user \code{character} GitHub username used in the branding logo
 #' @param more_opts A \code{list} of additional options/objects that can be passed to the app (see Details)
 #' @param ... A \code{list} of additional options passed to \code{shiny::shinyAppDir()} 
 #' 
@@ -34,9 +34,17 @@
 #'    shiny apps. R users a familiar with writing functions to dynamically alter 
 #'    some output - in this case the output is a app.  Normally, 
 #'
+#' @seealso \link{\code{create_logo}}
+#' @seealso \link{\code{add_logo}}
 #' @examples 
 #' \dontrun{
-#' teachingApps(app_name = 'distribution_goma', theme = 'spacelab', height = '600px')
+#' teachingApps(app_name = 'distribution_goma', 
+#'              theme = 'spacelab', 
+#'              height = '800px',
+#'              git_user = 'Auburngrads')
+#' 
+#' teachingApps(app_name = 'maximum_likelihood_simulation',
+#'              git_user = 'Auburngrads')
 #' }
 teachingApp <- 
 function(app_name = NULL, 

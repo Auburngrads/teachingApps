@@ -2,8 +2,8 @@
 #'
 #' @importFrom shiny getShinyOption tags
 #' 
-#' @return Style rules defined by teachingApps.css
-#' 
+#' @return teachingApps style rules defined to an app
+#' @seealso \link{\code{add_theme}}
 #' @export
 add_css <- function()
 {
