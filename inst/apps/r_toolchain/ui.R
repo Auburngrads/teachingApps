@@ -3,7 +3,7 @@ ui = navbarPage(title = 'R Toolchain',
                 position = 'fixed-top',
                 theme  = teachingApps::add_theme(getShinyOption('theme')),
                 header = teachingApps::add_css(),
-                footer = teachingApps::add_stamp(),
+                footer = teachingApps::add_logo(),
 
                  
 navbarMenu(h4('Install R'), icon = icon('bar-chart', 'fa-2x'),

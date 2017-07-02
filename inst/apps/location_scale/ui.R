@@ -3,7 +3,7 @@ ui = navbarPage(title = 'Location-Scale Family',
                 position = 'fixed-top',
                 theme  = teachingApps::add_theme(getShinyOption('theme')),
                 header = teachingApps::add_css(),
-                footer = teachingApps::add_stamp(),
+                footer = teachingApps::add_logo(),
 
 
 tabPanel(h4('Overview'),
