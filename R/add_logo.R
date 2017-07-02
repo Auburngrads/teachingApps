@@ -1,4 +1,4 @@
-#' Add a branding logo to a teachingApp
+#' Create a branding logo for a teachingApp
 #'
 #' @param app_dir \code{character} Name of the app in which the signature will be placed
 #' @param git_user \code{character} GitHub account username (typically created using teachingApps::setOptions()) 
@@ -8,9 +8,9 @@
 #' 
 #' @importFrom rprojroot find_root is_r_package
 #' 
-#' @return An icon or image logo in the footer of a navbarPage app
+#' @return HTML code for inserting an icon or image logo in the footer of a navbarPage app
 #' @export
-add_logo <- 
+create_logo <- 
 function(app_dir, 
          git_user = NULL, 
          app_pkg = NULL,
@@ -51,4 +51,19 @@ logo,
 </li>
 </ul>"), collapse = ''))
     
+}
+
+
+
+#' Add a logo to the footer of a navbarPage app 
+#'
+#' @importFrom shiny includeCSS getShinyOption tags
+#' 
+#' @return A fontAwesome icon or an image printed in the footer of a
+#'         navbarPage app 
+#' 
+#' @export
+add_logo <- function() 
+{
+   tags$footer(getShinyOption("logo"))
 }
