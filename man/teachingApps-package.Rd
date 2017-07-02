@@ -4,7 +4,7 @@
 \name{teachingApps-package}
 \alias{teachingApps}
 \alias{teachingApps-package}
-\title{teachingApps: Build, Update, and Share Shiny Apps - Quickly and Easily}
+\title{teachingApps: Tools to Build, Nest, and Share Shiny Apps - Quickly and Easily}
 \description{
 Instantly create shiny app templates and app calling functions
 for use in R packages.  Manage large collections of shiny apps from one

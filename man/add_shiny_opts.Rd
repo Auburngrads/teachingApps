@@ -4,7 +4,8 @@
 \alias{add_shiny_opts}
 \title{Pass objects and customization options to a shiny app}
 \usage{
-add_shiny_opts(opts, dir, theme = "flatly", stamp = NULL)
+add_shiny_opts(opts, dir, theme = "flatly", icon = NULL, img = img,
+  git_user = git_user)
 }
 \arguments{
 \item{opts}{A \code{list} of additional options or objects to pass to a shiny app}
@@ -13,14 +14,18 @@ add_shiny_opts(opts, dir, theme = "flatly", stamp = NULL)
 
 \item{theme}{A \code{character} string naming a Bootswatch color theme (used by \code{shinythemes::shinytheme})}
 
-\item{stamp}{A \code{character} naming a fontAwesome icon or a path to an image file printed at the bottom of an app}
+\item{icon}{A \code{character} string naming a fontAwesome icon to be placed in the footer of a navbarPage app}
+
+\item{img}{A \code{character} string for the path/url of an image to be placed in the footer of a navbarPage app}
+
+\item{git_user}{A \code{character} string for github username used in the branding link}
 }
 \value{
 A list of options set with \code{shinyOptions}
 }
 \description{
 Provides a general method for passing arguments to shiny apps
-    each as a \code{shiny::shinyOption}.
+    each using \code{shiny::shinyOptions}.
 }
 \details{
 Passing a customization option as a \code{shiny::shinyOption} 

@@ -5,18 +5,25 @@
 \title{Render a teachingApp With Options}
 \usage{
 teachingApp(app_name = NULL, theme = "flatly", width = "100\%",
-  height = "800px", stamp = "fa fa-github", more.opts = list(NA), ...)
+  height = "800px", icon = "fa fa-github", img = NULL,
+  git_user = "Auburngrads", more_opts = list(NA), ...)
 }
 \arguments{
+\item{app_name}{The name of the app to be run}
+
 \item{theme}{A \code{character} string naming a bootswatch color theme allowed by \code{shinythemes::shinytheme}}
 
 \item{width}{A \code{character} string specifying the width of the printed app (in pixels)}
 
 \item{height}{A \code{character} string specifying the height of the printed app (in pixels)}
 
-\item{stamp}{A \code{character} string of a fontAwesome icon or path to an image file to be placed in the footer of a navbarPage app}
+\item{icon}{A \code{character} string naming a fontAwesome icon to be placed in the footer of a navbarPage app}
 
-\item{more.opts}{A \code{list} of additional options/objects that can be passed to the app (see Details)}
+\item{img}{A \code{character} string for the path/url of an image to be placed in the footer of a navbarPage app}
+
+\item{git_user}{A \code{character} string for github username used in the branding link}
+
+\item{more_opts}{A \code{list} of additional options/objects that can be passed to the app (see Details)}
 
 \item{...}{A \code{list} of additional options passed to \code{shiny::shinyAppDir()}}
 }
@@ -34,7 +41,7 @@ The \code{teachingApps} package provides an infrastructure
    some output - in this case the output is a app.  Normally,
 }
 \examples{
-dontrun{
+\dontrun{
 teachingApps(app_name = 'distribution_goma', theme = 'spacelab', height = '600px')
 }
 }

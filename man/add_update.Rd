@@ -2,28 +2,66 @@
 % Please edit documentation in R/add_update.R
 \name{add_update}
 \alias{add_update}
-\title{Quickly update the code for a shiny app}
+\title{Add an update to a shiny app}
 \usage{
-add_update(app = NULL, pkg = "teachingApps", lib = .libPaths()[1],
-  open.folder = FALSE, css = FALSE, local.dir = NULL)
+add_update(local_pkg, ..., app_name, open_dir = FALSE, update_css = FALSE)
 }
 \arguments{
-\item{app}{Name of the app to be updated}
+\item{local_pkg}{\code{character} Path to the local version of the package from which updates will be passed}
 
-\item{pkg}{Name of the package in which the updates are to be made.  Defaults to \code{repo}.}
+\item{...}{Additional directory names passed to \code{file.path()} (see details)}
 
-\item{lib}{Package library directory where \code{pkg} is stored. Defaults to \code{.libPaths()[1]}}
+\item{app_name}{\code{character} Name of the app to be updated}
 
-\item{open.folder}{If \code{TRUE}, \code{browseURL()} is called to open view the files in the app directory}
+\item{open_dir}{\code{logical} If \code{TRUE}, \code{browseURL()} is called to view the files in the app directory}
 
-\item{css}{Logical variable indicating if the css files should be updated}
-
-\item{local.dir}{Path to the package directory in which the raw app code is stored}
+\item{update_css}{\code{logical} If \code{TRUE} the css file is updated}
 }
 \description{
-Quickly update the code for a shiny app
+Pass app updates from a local inst directory to an app in an installed package
 }
 \details{
-This function assumes that the raw app code is in the \code{inst/} directory
-Prior to using this function the default git directory must be established in \code{options} using \code{teachingApps::setGit()}
+This function enables ultra-fast updates to shiny apps without
+         needing to rebuild the package.  It is assumed that two versions 
+         of a package exist on the user's machine.  The first version is 
+         an installed package stored in the user's library, while the second 
+         version is a pre-compiled (in-work) version of the package. This 
+         function allows users to pass updates to an app from the in-work 
+         version of the package to the installed version while ensuring that
+         the app can be deployed/published.  Because files in the \code{inst/}
+         directory aren't compiled when packages are built, updates can 
+         be passed to an installed package.  This is useful for testing 
+         changes made to an app without re-building the package each time.
+         
+         The \code{local_pkg} argument can be specified by providing a full file 
+         path to any file in the uncompiled version of the package.  The root
+         directory of the in-work package is located using \code{rprojroot::find_root}.  
+         The root directory of the installed version of the package is located using 
+         \code{devtools::inst()}. Any changes made to an app in the in-work package are 
+         passed to the app within the installed version of the package stored in the 
+         user's package library.
+         
+         The \code{...} arguments are passed \code{file.path()} and name the directories 
+         between the package root directory and the \code{app_name/} directory. Note: the
+         \code{inst} has already been provided and should not be included.  For \code{update_css=TRUE}
+         the \code{...} argument specifies the directories between the package root and the 
+         directory in which the css files are stored.
+}
+\examples{
+# In the \\code{teachingApps} package, apps are stored in the 
+# \\code{inst/apps/} directory. 
+\dontrun{ 
+teachingApps::add_update(local_pkg = file.choose(),
+                         'apps',
+                         app_name = 'maximum_likelihood')
+}
+
+# Open an app directory to make and push updates
+
+\dontrun{ 
+teachingApps::add_update(local_pkg = file.choose(),
+                         'apps',
+                         app_name = 'maximum_likelihood',
+                         open_dir = TRUE)
+}
 }
