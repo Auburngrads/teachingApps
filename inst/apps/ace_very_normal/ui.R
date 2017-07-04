@@ -7,8 +7,7 @@ sidebarLayout(
                         wordWrap = T,
                         outputId = "plots", 
                         mode = "r", 
-                        theme = "github", 
-                        height = "450px",
+                        theme = "github",
                         value = 
 "par(family = 'serif',font = 2, cex = 1.5)
 
@@ -39,7 +38,7 @@ legend(x = 7,
        bty = 'n', 
        y.intersp = 0.75)"),
 
-        actionButton("evalplots", "Evaluate", width = '100%')),
+        actionButton("evalplots", "Evaluate")),
         
         mainPanel(plotOutput("exp", height = "600px"), width = 7)))
 

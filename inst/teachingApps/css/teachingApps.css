@@ -533,6 +533,9 @@ plotlybox {
   font-size: 15pt;
 }
 
+.shiny-plot-output{
+  height: 575px;
+}
 /*                                       */
 /*    BASIC STYLE RULES FOR THE TEXT     */
 /*                                       */
@@ -674,6 +677,7 @@ svg g g g text.label {
 
 .ace_editor {
 font: 18px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+height: 450px;
 }
 
 ul.nav.navbar-nav > li > a  {
