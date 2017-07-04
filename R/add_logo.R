@@ -69,7 +69,7 @@ logo,
 
 #' Adds a logo to the footer of a navbarPage app 
 #'
-#' @importFrom shiny includeCSS getShinyOption tags
+#' @importFrom shiny includeCSS getShinyOption HTML
 #' 
 #' @return A fontAwesome icon or an image printed in the footer of a
 #'         navbarPage app 
@@ -78,5 +78,5 @@ logo,
 #' @export
 add_logo <- function() 
 {
-   tags$footer(getShinyOption("logo"))
+   HTML(getShinyOption("logo"))
 }
