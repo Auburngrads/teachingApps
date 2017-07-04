@@ -23,7 +23,7 @@
 #' @seealso code{link{add_css}}
 #' @seealso code{link{add_logo}}
 #' @export
-add_shiny_opts <- 
+add_options <- 
 function(opts, 
          dir, 
          theme = 'flatly', 
@@ -51,6 +51,8 @@ aso <- lapply(X = 1:length(opts),
                                            git_user = git_user))
     
      CSS <- system.file('teachingApps','css','teachingApps.css', package = 'teachingApps')
+     
+    options('markdown.HTML.stylesheet' = CSS)
     
     shiny::shinyOptions('theme'   = theme)
     shiny::shinyOptions('appDir'  = dir)
