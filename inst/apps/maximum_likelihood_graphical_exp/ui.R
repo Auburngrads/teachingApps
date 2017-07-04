@@ -40,7 +40,7 @@ text(x = sum(obs)/2,
                                  collapse = '~')),
      adj = 0)"),
 
-        actionButton("mlexpplots", "Evaluate", width = '100%')),
+        actionButton("mlexpplots", "Evaluate")),
         
         mainPanel(plotOutput("mlexp", height = "600px"), width = 7)))
 

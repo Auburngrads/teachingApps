@@ -42,7 +42,7 @@ curve(expr = f(x),
       cex.axis = 1.5,
       las = 1)"),
                               
-        actionButton("evalHAZ", "Evaluate", width = '100%')),
+        actionButton("evalHAZ", "Evaluate")),
                             
         mainPanel(plotOutput("plotHAZ", height = "600px"), width = 7))))
            

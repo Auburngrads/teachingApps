@@ -37,7 +37,7 @@ text(1.3,.65,'Interval Censoring')
 text(2.2,.15,'Right Censoring')
 box(lwd=1.25)"),
 
-        actionButton("evalplots", "Evaluate", width = '100%')),
+        actionButton("evalplots", "Evaluate")),
         
         mainPanel(plotOutput("plots", height = "600px")))),
 

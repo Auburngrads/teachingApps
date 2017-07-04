@@ -61,7 +61,7 @@ than for the exponential distribution',
       cex = 1.5, 
       adj = 0)"),
 
-   actionButton("evallike", "Evaluate", width = '100%')),
+   actionButton("evallike", "Evaluate")),
 
    mainPanel(plotOutput('plotlike', height = '600px'), width = 7)))
 

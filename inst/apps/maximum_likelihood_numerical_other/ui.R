@@ -37,6 +37,6 @@ nlminb(start = runif(2, 1.5, 4.2),
        objective = joint.prob, 
        x = obs)[1:5]"),
 
-        actionButton("mlsolnum", "Evaluate", width = '100%')),
+        actionButton("mlsolnum", "Evaluate")),
         
         mainPanel(verbatimTextOutput("mlsolns"), width = 6)))

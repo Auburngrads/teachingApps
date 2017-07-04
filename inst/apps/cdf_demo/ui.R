@@ -3,7 +3,7 @@ ui = navbarPage(title = 'Distribution Function',
                 position = 'fixed-top',
                 theme  = teachingApps::add_theme(getShinyOption('theme')),
                 header = teachingApps::add_css(),
-                footer = add_logo(),
+                footer = teachingApps::add_logo(),
 
 
 tabPanel('Properties',
@@ -37,6 +37,6 @@ cex.lab = 1.5,
 cex.axis = 1.5,
 las = 1)"),
 
-        actionButton("evalcdf", "Evaluate", width = '100%')),
+        actionButton("evalcdf", "Evaluate")),
         
         mainPanel(plotOutput("plotcdf", height = "600px"), width = 7))))

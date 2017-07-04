@@ -40,7 +40,7 @@ legend('topleft',
        fill = heat.colors(10),
        bty = 'n')"),
        
-  actionButton("bareval", "Evaluate", width = '100%')),
+  actionButton("bareval", "Evaluate")),
         
   mainPanel(plotOutput("barplot", height = "550px"), width = 7))),
 
@@ -76,7 +76,7 @@ mtext(side = 1,
       'hey hey hey hey hey', 
       line = 2.1)"),
               
-   actionButton("pieeval", "Evaluate", width = '100%')),
+   actionButton("pieeval", "Evaluate")),
         
    mainPanel(plotOutput("piechart", height = "550px"), width = 7))),
 
@@ -99,7 +99,7 @@ col = cm.colors(8),
 xlab = 'Sample',
 las = 1)"),
 
-   actionButton("boxeval", "Evaluate", width = '100%')),
+   actionButton("boxeval", "Evaluate")),
         
    mainPanel(plotOutput("boxplot", height = "550px"), width = 7))),
 

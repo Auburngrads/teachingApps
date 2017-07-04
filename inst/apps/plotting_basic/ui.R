@@ -34,7 +34,7 @@ plot(x, y,
      type = 'p',
      las = 0)"),
      
-     actionButton("evalplots", "Evaluate", width = '100%')),
+     actionButton("evalplots", "Evaluate")),
         
   mainPanel(plotOutput("plots", height = "550px"), width = 7))),
 

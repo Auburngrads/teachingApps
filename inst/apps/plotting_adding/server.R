@@ -126,11 +126,11 @@ abline(h = 10, v = 30,
 })
 output$lineact <- renderUI({ switch(input$lines,
                            
-  'lines1' = { actionButton("lineeval", "Evaluate", width = '100%')},
+  'lines1' = { actionButton("lineeval", "Evaluate")},
 
-  'lines2' = { actionButton("abeval1", "Evaluate", width = '100%')},
+  'lines2' = { actionButton("abeval1", "Evaluate")},
   
-  'lines3' = { actionButton("abeval2", "Evaluate", width = '100%')})
+  'lines3' = { actionButton("abeval2", "Evaluate")})
 })
 
   output$grid <- renderPlot({

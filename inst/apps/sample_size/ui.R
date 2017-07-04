@@ -8,7 +8,6 @@ sidebarLayout(
                         outputId = "samp", 
                         mode = "r", 
                         theme = "github", 
-                        height = "450px", 
                         value = "
 N <- 100
 n <- 10
@@ -35,6 +34,6 @@ legend(  x = 'topright',
          paste0('(N = ',N,') Population'),
          paste0('(n = ',n,')   Sample')))"),
 
-        actionButton("sampplot", "Evaluate", width = '100%')),
+        actionButton("sampplot", "Evaluate")),
         
         mainPanel(plotOutput("samps", height = "600px"), width = 6)))

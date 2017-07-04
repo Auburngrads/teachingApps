@@ -36,6 +36,6 @@ polygon(density(w)$x,
         density(w)$y,
         col = alpha('lightblue',0.5))"),
 
-          actionButton("eval", "Evaluate", width = '100%')),
+          actionButton("eval", "Evaluate")),
         
           mainPanel(plotOutput("output", height = '600px'))))

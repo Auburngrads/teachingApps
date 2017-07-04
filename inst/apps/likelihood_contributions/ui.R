@@ -8,7 +8,6 @@ sidebarLayout(
                         outputId = "censorplot", 
                         mode = "r", 
                         theme = "github", 
-                        height = "450px", 
                         value = "
 par(family = 'serif', font = 2)
 
@@ -36,6 +35,6 @@ text(x = c(.16,1.3,2.2),
                 'Interval Censoring',
                 'Right Censoring'))"),
 
-   actionButton("evalcensor", "Evaluate", width = '100%')),
+   actionButton("evalcensor", "Evaluate")),
 
    mainPanel(plotOutput('plotcensor', height = '600px'), width = 7)))

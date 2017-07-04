@@ -34,6 +34,6 @@ nlminb(start = 4,
 
 ## Why is $objective negative?"),
 
-        actionButton("mlexpnums", "Evaluate", width = '100%')),
+        actionButton("mlexpnums", "Evaluate")),
         
         mainPanel(verbatimTextOutput("mlexp2"), width = 7)))

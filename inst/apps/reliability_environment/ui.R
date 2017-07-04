@@ -7,8 +7,7 @@ sidebarLayout(
                         wordWrap = T,
                         outputId = "fig1plot", 
                         mode = "r", 
-                        theme = "github", 
-                        height = "450px",
+                        theme = "github",
                         value = 
 "par(mar = c(0,0,0,0))
 plot(NA, 
@@ -54,7 +53,7 @@ text(x = rep(400, 5),
      cex = rep(2.5,5), 
      family = 'mono')"),
 
-        actionButton("evalenvir", "Evaluate", width = '100%')),
+        actionButton("evalenvir", "Evaluate")),
         
         mainPanel(plotOutput("plotenvir", height = "600px"))))
 

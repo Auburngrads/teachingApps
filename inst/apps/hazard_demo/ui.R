@@ -40,7 +40,7 @@ cex.lab = 1.5,
 cex.axis = 1.5,
 las = 1)"),
 
-        actionButton("evalhaz", "Evaluate", width = '100%')),
+        actionButton("evalhaz", "Evaluate")),
         
         mainPanel(plotOutput("plothaz", height = "600px"), width = 7))),
 
@@ -80,6 +80,6 @@ text(x = c(7.5, 40, 75),
      c('Infant Mortality','Useful Life','Wearout'),
      cex = 1.5)"),
 
-       actionButton("evalfigbt", "Evaluate", width = '100%')),
+       actionButton("evalfigbt", "Evaluate")),
         
         mainPanel(plotOutput("plotfigbt", height = "600px"), width = 7)))))

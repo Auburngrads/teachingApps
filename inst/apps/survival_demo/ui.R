@@ -37,6 +37,6 @@ cex.lab = 1.5,
 cex.axis = 1.5,
 las = 1)"),
 
-        actionButton("evalrel", "Evaluate", width = '100%')),
+        actionButton("evalrel", "Evaluate")),
         
         mainPanel(plotOutput("plotrel", height = "600px")))))

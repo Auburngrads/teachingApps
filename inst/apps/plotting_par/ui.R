@@ -98,7 +98,7 @@ plot(x1,y1,pch = 16, col = 2)
 
 points(x2,y2,pch = 16, col = 4)"),
       
-  actionButton("curveseval", "Evaluate", width = '100%')),
+  actionButton("curveseval", "Evaluate")),
         
   mainPanel(plotOutput("curves", height = "550px"), width = 7))),
     
@@ -125,6 +125,6 @@ plot(x2,y2,pch = 16, col = 4)
 
 par(mfrow = c(1,1))"),
 
-  actionButton("plotseval", "Evaluate", width = '100%')),
+  actionButton("plotseval", "Evaluate")),
         
   mainPanel(plotOutput("plots", height = "550px"), width = 7))))

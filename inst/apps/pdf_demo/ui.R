@@ -35,6 +35,6 @@ curve(dexp(x,rate = 1.7),
       cex.axis = 1.5,
       las = 1)"),
 
-        actionButton("evalpdf", "Evaluate", width = '100%')),
+        actionButton("evalpdf", "Evaluate")),
         
         mainPanel(plotOutput("plotpdf", height = "600px")))))

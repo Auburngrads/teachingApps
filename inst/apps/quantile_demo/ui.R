@@ -38,7 +38,7 @@ curve(qweibull(x,shape = 1.7, scale = 1),
       cex.axis = 1.5,
       las = 1)"),
 
-        actionButton("evalquant", "Evaluate", width = '100%')),
+        actionButton("evalquant", "Evaluate")),
         
         mainPanel(plotOutput("plotquant", height = "600px"), width = 7))),
                 
@@ -88,6 +88,6 @@ par(mfrow = c(1,1))
 mtext(side = 1,
       'Figure 2.3 - Plots showing that the quantile function is the inverse of the cdf',\nline = 4)"),
 
-        actionButton("evalfig3", "Evaluate", width = '100%')),
+        actionButton("evalfig3", "Evaluate")),
         
         mainPanel(plotOutput("plotfig3", height = "600px"), width = 7)))))

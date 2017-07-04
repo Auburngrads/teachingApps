@@ -34,7 +34,7 @@ text(x = 10, y = 5,
 #font = 3 (italic)
 #font = 4 (bold-italic)"),
 
-    actionButton("texteval", "Evaluate", width = '100%')),
+    actionButton("texteval", "Evaluate")),
         
     mainPanel(plotOutput("text", height = "550px"), width = 7))),
 
@@ -63,7 +63,7 @@ expression(pi%~~%frac(22,7)+
      font = 0,
      family = '')"),
 
-   actionButton("eqneval", "Evaluate", width = '100%')),
+   actionButton("eqneval", "Evaluate")),
         
    mainPanel(plotOutput("eqn", height = "550px"), width = 7))),
 
@@ -93,7 +93,7 @@ points(c(10,5), c(14,27),
        pch = '$', 
        col = 'white')"),
        
- actionButton("pteval", "Evaluate", width = '100%')),
+ actionButton("pteval", "Evaluate")),
         
  mainPanel(plotOutput("point", height = "550px"), width = 7))),
 
@@ -140,7 +140,7 @@ points(c(10,5), c(14,27),
 
 grid(10,10)"),
        
-  actionButton("grideval", "Evaluate", width = '100%')),
+  actionButton("grideval", "Evaluate")),
         
   mainPanel(plotOutput("grid", height = "550px"), width = 7))),
 
@@ -171,6 +171,6 @@ legend('topright',
        pch = 16, col = c(2,4),
        bty = 'o')"),
 
-  actionButton("legeval", "Evaluate", width = '100%')),
+  actionButton("legeval", "Evaluate")),
         
   mainPanel(plotOutput("legend", height = "550px"), width = 7))))

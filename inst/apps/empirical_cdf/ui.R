@@ -27,6 +27,6 @@ curve(pweibull(x, shape = beta, scale = theta),
 
 axis(side = 1, at = v, labels = F)"),
 
-          actionButton("eval", "Evaluate", width = '100%')),
+          actionButton("eval", "Evaluate")),
         
           mainPanel(plotOutput("output", height = '600px'), width = 7)))

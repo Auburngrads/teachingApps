@@ -41,7 +41,7 @@ diagram::plotmat(A = AA, pos = 4, curve = .575,
          arr.type = 'triangle', dtext = -1,
          relsize=.99, box.cex=1.5, cex=1.25)"),
 
-        actionButton("evalrep", "Evaluate", width = '100%'))),
+        actionButton("evalrep", "Evaluate"))),
 
         column(width = 7, plotOutput("plotrep", height = "600px")))),
 
@@ -76,6 +76,6 @@ diagram::plotmat(A = AA, pos = 3, curve = .575,
          arr.type = 'triangle', dtext = -1,
          relsize=.99, box.cex=1.5, cex=1.25)"),
 
-        actionButton("evalnorep", "Evaluate", width = '100%'))),
+        actionButton("evalnorep", "Evaluate"))),
 
         column(width = 7, plotOutput("plotnorep", height = "600px")))))

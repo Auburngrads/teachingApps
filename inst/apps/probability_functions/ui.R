@@ -56,7 +56,7 @@ cex.lab = 1.5,
 cex.axis = 1.5,
 las = 1)"),
 
-        actionButton("evalcdf", "Evaluate", width = '100%')),
+        actionButton("evalcdf", "Evaluate")),
         
         mainPanel(plotOutput("plotcdf", height = "600px"), width = 8))))),
 
@@ -96,6 +96,6 @@ curve(dexp(x,rate = 1.7),
       cex.axis = 1.5,
       las = 1)"),
 
-        actionButton("evalpdf", "Evaluate", width = '100%')),
+        actionButton("evalpdf", "Evaluate")),
         
         mainPanel(plotOutput("plotpdf", height = "600px"))))))))
