@@ -31,8 +31,8 @@ teachingApp(app_name = NULL, theme = "flatly", width = "100\%",
 A printed shiny app
 }
 \description{
-Renders a shiny app from the teachingApps package as a stand-alone app
-    or as an element in an rmarkdown document.
+Renders a teachingApp as a stand-alone app
+    or as an element within an rmarkdown document.
 }
 \details{
 The \code{teachingApps} package provides an infrastructure 

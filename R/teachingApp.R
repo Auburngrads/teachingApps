@@ -1,7 +1,7 @@
 #' Render a teachingApp With Options
 #'
-#' @description Renders a shiny app from the teachingApps package as a stand-alone app
-#'     or as an element in an rmarkdown document. 
+#' @description Renders a teachingApp as a stand-alone app
+#'     or as an element within an rmarkdown document. 
 #'
 #' @importFrom shinythemes shinytheme
 #' @importFrom shinyAce aceEditor
