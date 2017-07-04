@@ -8,7 +8,7 @@ ui = navbarPage(title = 'Location-Scale Family',
 
 tabPanel('Overview',
          mainPanel(uiOutput('overview'), 
-                   class = 'shiny-text-output', 
+                   class = 'ta-text', 
                    width = 12)),
 #############################
   tabPanel('Exponential',
@@ -16,12 +16,12 @@ tabPanel('Overview',
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('expfunc'), 
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('expprops'), 
-                     class = 'shiny-text-output', width = '100%'))),
+                     class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12, 'Interactive Shiny App'),
@@ -71,12 +71,12 @@ tabPanel('Normal',
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('norfunc'), 
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('norprops'), 
-                     class = 'shiny-text-output', width = '100%'))),
+                     class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12, 'Interactive Shiny App'),
@@ -126,12 +126,12 @@ tabPanel('SEV',
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('sevfunc'), 
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('sevprops'), 
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12, 'Interactive Shiny App'),
@@ -181,12 +181,12 @@ tabPanel('LEV',
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('levfunc'), 
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('levprops'), 
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12, 'Interactive Shiny App'),
@@ -236,12 +236,12 @@ tabPanel('Logistic',
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('logisfunc'), 
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('logisprops'), 
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12, 'Interactive Shiny App'),

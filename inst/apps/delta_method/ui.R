@@ -7,7 +7,7 @@ ui = navbarPage(title = 'The Delta Method',
 
                 
 tabPanel('Background',
-      fluidRow(uiOutput('delta'), class = 'shiny-text-output')),
+      fluidRow(uiOutput('delta', class = 'ta-text'))),
 
 tabPanel('Example',
-      fluidRow(uiOutput('greenwood'), class = 'shiny-text-output')))
+      fluidRow(uiOutput('greenwood'), class = 'ta-text')))

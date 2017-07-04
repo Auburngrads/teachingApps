@@ -10,7 +10,7 @@ tabPanel('Shiny App',
       fluidRow(teachingApps::add_ui('distribution_geometric_functions'))),
 
 tabPanel('Distribution Functions',
-      fluidRow(uiOutput('geofunc'), class = 'shiny-text-output')),
+      fluidRow(uiOutput('geofunc', class = 'ta-text'))),
 
 tabPanel('Distribution Properties',
-      fluidRow(uiOutput('geoprops', class = 'shiny-text-output'))))
+      fluidRow(uiOutput('geoprops', class = 'ta-text'))))

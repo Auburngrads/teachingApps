@@ -39,17 +39,17 @@ miniTabstripPanel(
 
   miniTabPanel('How To', icon = icon('map-o'),
     miniContentPanel(
-        withMathJax(uiOutput("howtomtbf", class = 'shiny-text-output')))),
+        withMathJax(uiOutput("howtomtbf", class = 'ta-text')))),
 
   miniTabPanel('Examples', icon = icon('map-o'),
     miniContentPanel(
-        uiOutput("examplemtbf", class = 'shiny-text-output'))),
+        uiOutput("examplemtbf", class = 'ta-text'))),
 
   miniTabPanel('Background', icon = icon('map-o'),
     miniContentPanel(
-        uiOutput("backgroundmtbf", class = 'shiny-text-output'))),
+        uiOutput("backgroundmtbf", class = 'ta-text'))),
 
   miniTabPanel('About', icon = icon('map-o'),
     miniContentPanel(
-        uiOutput("aboutmtbf", class = 'shiny-text-output')))))
+        uiOutput("aboutmtbf", class = 'ta-text')))))
 

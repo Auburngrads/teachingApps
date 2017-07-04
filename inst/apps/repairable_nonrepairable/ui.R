@@ -8,7 +8,7 @@ ui = navbarPage(title = 'System Reliability',
                 
 tabPanel("Repairable Systems",
 fluidRow(column(width = 12,
-         uiOutput('reptext', class = 'shiny-text-output', width = '100%'))),
+         uiOutput('reptext', class = 'ta-text', width = '100%'))),
 
 fluidRow(column(width = 5,
     sidebarPanel(width = '100%',
@@ -47,7 +47,7 @@ diagram::plotmat(A = AA, pos = 4, curve = .575,
 
 tabPanel("Nonrepairable Systems",
 fluidRow(column(width = 12,
-      uiOutput('noreptext', class = 'shiny-text-output', width = '100%'))),
+      uiOutput('noreptext', class = 'ta-text', width = '100%'))),
 
 fluidRow(column(width = 5,
     sidebarPanel(width = '100%',

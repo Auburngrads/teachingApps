@@ -10,7 +10,7 @@ tabPanel('Shiny App',
       fluidRow(teachingApps::add_ui('distribution_weibull_functions'))),
 
 tabPanel('Distribution Functions',
-      fluidRow(uiOutput('weibfunc'), class = 'shiny-text-output')),
+      fluidRow(uiOutput('weibfunc', class = 'ta-text'))),
 
 tabPanel('Distribution Properties',
-      fluidRow(uiOutput('weibprops', class = 'shiny-text-output'))))
+      fluidRow(uiOutput('weibprops', class = 'ta-text'))))

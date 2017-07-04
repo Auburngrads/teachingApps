@@ -10,7 +10,7 @@ tabPanel('Shiny App',
       fluidRow(teachingApps::add_ui('distribution_exponential_functions'))),
 
 tabPanel('Distribution Functions',
-      fluidRow(uiOutput('expfunc'), class = 'shiny-text-output')),
+      fluidRow(uiOutput('expfunc', class = 'ta-text'))),
 
 tabPanel('Distribution Properties',
-      fluidRow(uiOutput('expprops', class = 'shiny-text-output'))))
+      fluidRow(uiOutput('expprops', class = 'ta-text'))))

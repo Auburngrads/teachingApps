@@ -10,7 +10,7 @@ tabPanel('Shiny App',
       fluidRow(teachingApps::add_ui('distribution_sev_functions'))),
 
 tabPanel('Distribution Functions',
-      fluidRow(uiOutput('sevfunc'), class = 'shiny-text-output')),
+      fluidRow(uiOutput('sevfunc', class = 'ta-text'))),
 
 tabPanel('Distribution Properties',
-      fluidRow(uiOutput('sevprops', class = 'shiny-text-output'))))
+      fluidRow(uiOutput('sevprops', class = 'ta-text'))))

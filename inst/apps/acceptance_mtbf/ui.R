@@ -10,17 +10,17 @@ tabPanel('Planning Tool',
 
 tabPanel('How To Use The Tool',
       fluidRow(uiOutput("howtomtbf", 
-                        class = 'shiny-text-output'))),
+                        class = 'ta-text'))),
 
 tabPanel('Examples',
       fluidRow(uiOutput("examplemtbf", 
-                        class = 'shiny-text-output'))),
+                        class = 'ta-text'))),
 
 tabPanel('Background',
       fluidRow(uiOutput("backgroundmtbf", 
-                        class = 'shiny-text-output'))),
+                        class = 'ta-text'))),
 
 tabPanel('About',
       fluidRow(uiOutput("aboutmtbf", 
-                        class = 'shiny-text-output'))))
+                        class = 'ta-text'))))
 

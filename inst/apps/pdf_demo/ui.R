@@ -7,10 +7,10 @@ ui = navbarPage(title = 'Density Function',
 
                 
 tabPanel('Properties',
-         mainPanel(uiOutput('pdfdemo'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('pdfdemo', class = 'ta-text'), width = 12)),
 
 tabPanel('Computing Values in R',
-         mainPanel(uiOutput('pdfr'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('pdfr', class = 'ta-text'), width = 12)),
                     
 tabPanel('Shiny App',
   sidebarLayout(

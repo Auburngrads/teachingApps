@@ -8,12 +8,12 @@ ui = navbarPage(title = 'Probability Functions',
 
 tabPanel('Overview',
          mainPanel(uiOutput('overview'), 
-                   class = 'shiny-text-output', 
+                   class = 'ta-text', 
                    width = 12)),
 
 tabPanel('Relationship Table',
          mainPanel(uiOutput('functable'), 
-                   class = 'shiny-text-output', 
+                   class = 'ta-text', 
                    width = 12)),
                 
 navbarMenu('The Functions', icon = icon('folder-open'),
@@ -23,12 +23,12 @@ tabsetPanel(type = 'pills',
                                 
   tabPanel('Properties of the CDF',
            mainPanel(uiOutput('cdfdemo'), 
-                     class = 'shiny-text-output', 
+                     class = 'ta-text', 
                      width = 12)),
 
   tabPanel('Computing CDF Values in R',
            mainPanel(uiOutput('cdfr'), 
-                     class = 'shiny-text-output', 
+                     class = 'ta-text', 
                      width = 12)),
                                 
   tabPanel('Interactive CDF Shiny App',
@@ -65,12 +65,12 @@ tabPanel('Probability Density Function',
 
   tabPanel('Properties',
            mainPanel(uiOutput('pdfdemo'), 
-                     class = 'shiny-text-output', 
+                     class = 'ta-text', 
                      width = 12)),
 
   tabPanel('Computing Values in R',
            mainPanel(uiOutput('pdfr'), 
-                     class = 'shiny-text-output', 
+                     class = 'ta-text', 
                      width = 12)),
                     
   tabPanel('Shiny App',

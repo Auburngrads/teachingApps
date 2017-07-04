@@ -7,10 +7,10 @@ ui = navbarPage(title = 'Distribution Function',
 
 
 tabPanel('Properties',
-         mainPanel(uiOutput('cdfdemo'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('cdfdemo', class = 'ta-text'), width = 12)),
 
 tabPanel('Computing Values in R',
-         mainPanel(uiOutput('cdfr'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('cdfr', class = 'ta-text'), width = 12)),
                                 
  tabPanel('Shiny App',
   sidebarLayout( 

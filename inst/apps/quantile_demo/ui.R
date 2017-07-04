@@ -7,10 +7,10 @@ ui = navbarPage(title = 'Quantile Function',
 
 
 tabPanel('Properties',
-         mainPanel(uiOutput('quandemo'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('quandemo', class = 'ta-text'), width = 12)),
 
 tabPanel('Computing Values in R',
-         mainPanel(uiOutput('quanr'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('quanr', class = 'ta-text'), width = 12)),
                 
 navbarMenu('Plots', icon = icon('bar-chart-o'),                
                 

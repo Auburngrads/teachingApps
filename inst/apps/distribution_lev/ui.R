@@ -10,7 +10,7 @@ tabPanel('Shiny App',
       fluidRow(teachingApps::add_ui('distribution_lev_functions'))),
 
 tabPanel('Distribution Functions',
-      fluidRow(uiOutput('levfunc'), class = 'shiny-text-output')),
+      fluidRow(uiOutput('levfunc', class = 'ta-text'))),
 
 tabPanel('Distribution Properties',
-      fluidRow(uiOutput('levprops', class = 'shiny-text-output'))))
+      fluidRow(uiOutput('levprops', class = 'ta-text'))))

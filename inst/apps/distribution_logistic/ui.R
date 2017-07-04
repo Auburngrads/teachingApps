@@ -10,7 +10,7 @@ tabPanel('Shiny App',
       fluidRow(teachingApps::add_ui('distribution_logistic_functions'))),
 
 tabPanel('Distribution Functions',
-      fluidRow(uiOutput('logfunc'), class = 'shiny-text-output')),
+      fluidRow(uiOutput('logfunc', class = 'ta-text'))),
 
 tabPanel('Distribution Properties',
-      fluidRow(uiOutput('logprops', class = 'shiny-text-output'))))
+      fluidRow(uiOutput('logprops', class = 'ta-text'))))

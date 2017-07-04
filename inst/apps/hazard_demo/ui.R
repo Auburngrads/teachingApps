@@ -7,10 +7,10 @@ ui = navbarPage(title = 'Hazard Function',
 
 
 tabPanel('Properties',
-         mainPanel(uiOutput('hazdemo'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('hazdemo', class = 'ta-text'), width = 12)),
 
 tabPanel('Computing Values in R',
-         mainPanel(uiOutput('hazr'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('hazr', class = 'ta-text'), width = 12)),
 
 navbarMenu('Plots'), icon = icon('bar-chart-o'), 
 

@@ -7,10 +7,10 @@ ui = navbarPage(title = 'Cumulative Hazard Function',
 
                   
 tabPanel('Properties',
-         mainPanel(uiOutput('HAZdemo'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('HAZdemo', class = 'ta-text'), width = 12)),
 
 tabPanel('Computing Values in R',
-         mainPanel(uiOutput('HAZr'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('HAZr', class = 'ta-text'), width = 12)),
 
 tabPanel('Shiny App',                 
    sidebarLayout( 

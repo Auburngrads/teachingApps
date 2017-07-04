@@ -10,7 +10,7 @@ tabPanel('Shiny App',
       fluidRow(teachingApps::add_ui('distribution_beta_functions'))),
 
 tabPanel('Distribution Functions',
-      fluidRow(uiOutput('betafunc'), class = 'shiny-text-output')),
+      fluidRow(uiOutput('betafunc', class = 'ta-text'))),
 
 tabPanel('Distribution Properties',
-      fluidRow(uiOutput('betaprops', class = 'shiny-text-output'))))
+      fluidRow(uiOutput('betaprops', class = 'ta-text'))))

@@ -10,7 +10,7 @@ tabPanel('Shiny App',
       fluidRow(teachingApps::add_ui('distribution_poisson_functions'))),
 
 tabPanel('Distribution Functions',
-      fluidRow(uiOutput('poifunc'), class = 'shiny-text-output')),
+      fluidRow(uiOutput('poifunc', class = 'ta-text'))),
 
 tabPanel('Distribution Properties',
-      fluidRow(uiOutput('poiprops', class = 'shiny-text-output'))))
+      fluidRow(uiOutput('poiprops', class = 'ta-text'))))

@@ -7,10 +7,10 @@ ui = navbarPage(title = 'Survival Function',
 
                 
 tabPanel('Properties',
-         mainPanel(uiOutput('survdemo'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('survdemo', class = 'ta-text'), width = 12)),
 
 tabPanel('Computing Values in R',
-         mainPanel(uiOutput('survr'), class = 'shiny-text-output', width = 12)),
+         mainPanel(uiOutput('survr', class = 'ta-text'), width = 12)),
                 
 tabPanel('ShinyApp',                
   sidebarLayout( 

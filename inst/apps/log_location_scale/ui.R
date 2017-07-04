@@ -8,7 +8,7 @@ ui = navbarPage(title = 'Log-Location-Scale Family',
 
 tabPanel('Overview',
          mainPanel(uiOutput('overview'), 
-         class = 'shiny-text-output', 
+         class = 'ta-text', 
          width = 12)),
 ##########################
 tabPanel('Lognormal',
@@ -16,12 +16,12 @@ tabPanel('Lognormal',
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('lnorfunc'),
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('lnorprops'),
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12, 'Interactive Shiny App')),
@@ -73,12 +73,12 @@ tabPanel('Weibull',
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('weibfunc'),
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('weibprops'),
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12, 'Interactive Shiny App')),
@@ -130,12 +130,12 @@ tabPanel('Loglogistic',
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('llogisfunc'),
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12,
      mainPanel(uiOutput('llogisprops'),
-               class = 'shiny-text-output', width = '100%'))),
+               class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12, 'Interactive Shiny App')),

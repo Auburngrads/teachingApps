@@ -10,7 +10,7 @@ tabPanel('Shiny App',
       fluidRow(teachingApps::add_ui('distribution_lognormal_functions'))),
 
 tabPanel('Distribution Functions',
-      fluidRow(uiOutput('lnorfunc'), class = 'shiny-text-output')),
+      fluidRow(uiOutput('lnorfunc', class = 'ta-text'))),
 
 tabPanel('Distribution Properties',
-      fluidRow(uiOutput('lnorprops', class = 'shiny-text-output'))))
+      fluidRow(uiOutput('lnorprops', class = 'ta-text'))))
