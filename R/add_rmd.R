@@ -15,7 +15,8 @@
 #' @export
 add_rmd <- function(rmd) {
   
-  rmd <- paste(c(getShinyOption('appDir'),rmd), collapse = '/')
+   rmd <- file.path(getShinyOption('appDir'), rmd)
+  
    withMathJax(HTML(markdown::markdownToHTML(knitr::knit(rmd))))
   
 }

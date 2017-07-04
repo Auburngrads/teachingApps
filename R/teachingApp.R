@@ -71,14 +71,14 @@ function(app_name = NULL,
     }
     
    
-    dir <- dirname(system.file('apps', app_name, 'global.R', package = 'teachingApps'))
+    dir <- system.file('apps', app_name, package = 'teachingApps')
   
-    teachingApps::add_shiny_opts(opts = more_opts,
-                                 dir = dir,
-                                 theme = theme,
-                                 icon = icon,
-                                 img = img,
-                                 git_user = git_user)
+    teachingApps::add_options(opts = more_opts,
+                              dir = dir,
+                              theme = theme,
+                              icon = icon,
+                              img = img,
+                              git_user = git_user)
     
     shiny::shinyAppDir(appDir = dir, 
                        options = list(height = height, width = width,...))

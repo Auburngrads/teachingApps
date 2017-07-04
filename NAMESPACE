@@ -2,10 +2,10 @@
 
 export(add_css)
 export(add_logo)
+export(add_options)
 export(add_packages)
 export(add_rmd)
 export(add_server)
-export(add_shiny_opts)
 export(add_theme)
 export(add_ui)
 export(add_update)
