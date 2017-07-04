@@ -10,7 +10,8 @@ using namespace Rcpp;
 //' @export
 //' @rdname sev
 //' @param p Vector of probabilities
-//' @param x, q Vector of quantiles
+//' @param x Vector of quantiles
+//' @param q Vector of quantiles
 //' @param n Number of observations
 //' @param loc Location parameter
 //' @param scale Scale parameter

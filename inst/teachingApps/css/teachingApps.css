@@ -377,7 +377,7 @@ footer {
 	margin: 1em auto;
 	max-width: 100%;
 	text-align: center;
-	
+	height: 60px !important;
 }
 
 ul.photo-grid { 
@@ -701,3 +701,4 @@ span.navbar-brand {
   font-weight: bold !important;
   display: inline !important;
 }
+

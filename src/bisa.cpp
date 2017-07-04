@@ -8,7 +8,8 @@ using namespace Rcpp;
 //' @export
 //' @rdname bisa
 //' @param p Vector of probabilities
-//' @param x, q Vector of quantiles
+//' @param x Vector of quantiles
+//' @param q Vector of quantiles
 //' @param n Number of observations
 //' @param shape Shape parameter
 //' @param scale Scale parameter

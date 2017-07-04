@@ -22,7 +22,9 @@ rbisa(n, shape, scale = 1)
 
 \item{scale}{Scale parameter}
 
-\item{x, }{q Vector of quantiles}
+\item{q}{Vector of quantiles}
+
+\item{x}{Vector of quantiles}
 
 \item{n}{Number of observations}
 }

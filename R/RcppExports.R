@@ -8,7 +8,8 @@
 #' @export
 #' @rdname bisa
 #' @param p Vector of probabilities
-#' @param x, q Vector of quantiles
+#' @param x Vector of quantiles
+#' @param q Vector of quantiles
 #' @param n Number of observations
 #' @param shape Shape parameter
 #' @param scale Scale parameter
@@ -45,7 +46,8 @@ rbisa <- function(n, shape, scale = 1) {
 #' @export
 #' @rdname lev
 #' @param p Vector of probabilities
-#' @param x, q Vector of quantiles
+#' @param x Vector of quantiles
+#' @param q Vector of quantiles
 #' @param n Number of observations
 #' @param loc Location parameter
 #' @param scale Scale parameter
@@ -86,7 +88,8 @@ rcpp_hello_world <- function() {
 #' @export
 #' @rdname sev
 #' @param p Vector of probabilities
-#' @param x, q Vector of quantiles
+#' @param x Vector of quantiles
+#' @param q Vector of quantiles
 #' @param n Number of observations
 #' @param loc Location parameter
 #' @param scale Scale parameter
