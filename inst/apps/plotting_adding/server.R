@@ -15,6 +15,7 @@ server = function(input, output, session) {
       input$pteval
       return(isolate(eval(parse(text=input$ptcode))))
 })
+
 output$abline0 <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(4.5,4,2,2))
       input$lineeval
@@ -30,18 +31,18 @@ output$abline2 <- renderPlot({
       input$abeval2
       return(isolate(eval(parse(text=input$abcode2))))
 })
+  
 output$lineace <- renderUI({ switch(input$lines,
                            
     'lines1' = {
     
     shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = 
-                        "linecode", 
-                         mode = "r", 
-                         theme = "github", 
-                         height = "475px", 
-                         value = 
+                        wordWrap = T,
+                        outputId = "linecode", 
+                        mode = "r", 
+                        theme = "github", 
+                        height = "475px", 
+                        value = 
 "set.seed(NULL)
 
 x<-sort(sample(1:50,size = 10))
@@ -66,9 +67,8 @@ lines(c(10,5), c(14,27),
   'lines2' = { 
     
     shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = 
-                        "abcode1", 
+                        wordWrap = T,
+                        outputId = "abcode1", 
                         mode = "r", 
                         theme = "github", 
                         height = "475px", 
@@ -97,9 +97,8 @@ abline(a = 10, b = 3,
  'lines3' = {
     
     shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = 
-                        "abcode2", 
+                        wordWrap = T,
+                        outputId = "abcode2", 
                         mode = "r", 
                         theme = "github", 
                         height = "475px", 
@@ -127,12 +126,13 @@ abline(h = 10, v = 30,
 })
 output$lineact <- renderUI({ switch(input$lines,
                            
-  'lines1' = { actionButton("lineeval", h2("Evaluate"), width = '100%')},
+  'lines1' = { actionButton("lineeval", "Evaluate", width = '100%')},
 
-  'lines2' = { actionButton("abeval1", h2("Evaluate"), width = '100%')},
+  'lines2' = { actionButton("abeval1", "Evaluate", width = '100%')},
   
-  'lines3' = { actionButton("abeval2", h2("Evaluate"), width = '100%')})
+  'lines3' = { actionButton("abeval2", "Evaluate", width = '100%')})
 })
+
   output$grid <- renderPlot({
       par(oma = c(0,0,0,0), mar = c(4.5,4,2,2))
       input$grideval

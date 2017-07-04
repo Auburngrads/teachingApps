@@ -4,8 +4,8 @@ ui = fluidPage(theme = teachingApps::add_theme(getShinyOption("theme")),
 sidebarLayout( 
   sidebarPanel(width = 5,
      selectInput('response',
-                 h4('Choose Response'),
-                 choices = colnames(mtcars2),
+                 'Choose Response',
+                 choices = colnames(mtcars),
                  selectize = T),
      
      htmlOutput('factors')),

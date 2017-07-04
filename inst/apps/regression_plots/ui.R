@@ -21,6 +21,6 @@ plot(lm(mtcars), which  = 4, las = 1)
 
 par(mfrow = c(1,1)) # Return plot window to a 1x1 array"),
 
-    actionButton("evalreg", h4("Evaluate"), width = '100%')),
+    actionButton("evalreg", "Evaluate", width = '100%')),
         
     mainPanel(plotOutput("plotreg", height = "550px"), width = 7)))

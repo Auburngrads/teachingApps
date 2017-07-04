@@ -14,26 +14,23 @@ exp.rate  <- 1/input$expmle
 
 prior <- rgamma(prior.N, shape = gam.shape, scale = gam.scale)
 
-DATA <- data.frame(hours = rexp(data.N, rate = exp.rate))
+obs <- sort(rexp(data.N, rate = exp.rate))
 
+DATA <- data.frame(right = obs)
+
+DATA[DATA >= t_c] <- NA
+DATA$left <- obs
 DATA[DATA >= t_c] <- t_c
 
-DATA$censor <- sapply(X = seq_along(DATA[,1]),
-                      FUN = function(x) `if`(DATA[x,1]==t_c, 0, 1))
+fdc <- fitdistcens(DATA,distr = 'exp')
 
-DATA.ld <- frame.to.ld(DATA, 
-                       response.column = 1, 
-                       censor.column = 2)
+censor <- sapply(X = seq_along(DATA$left),
+                 FUN = function(x) `if`(DATA$left[x]==t_c, 0, 1))
 
-DATA.mlest <- mlest(DATA.ld, 
-                    distribution = 'exponential')
-
-max.ll <- as.numeric(print(DATA.mlest)$ll.v)
-
-keep <- teachingApps:::likely2(times = DATA$hours, 
-                cens = DATA$censor,
+keep <- teachingApps:::likely2(times = DATA$left, 
+                cens = censor,
                 params = prior,
-                maxll = max.ll)
+                maxll = fdc$loglik)
 
 Prior <- data.frame(vals = prior)
 Prior$type <- 'prior'

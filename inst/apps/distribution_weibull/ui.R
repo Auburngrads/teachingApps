@@ -6,11 +6,11 @@ ui = navbarPage(title = 'Weibull Distribution',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4('Shiny App'),
-         fluidRow(teachingApps::add_ui('distribution_weibull'))),
+tabPanel('Shiny App',
+      fluidRow(teachingApps::add_ui('distribution_weibull_functions'))),
 
-tabPanel(h4('Distribution Functions'),
-         fluidRow(uiOutput('weibfunc'), class = 'shiny-text-output')),
+tabPanel('Distribution Functions',
+      fluidRow(uiOutput('weibfunc'), class = 'shiny-text-output')),
 
-tabPanel(h4('Distribution Properties'),
-         fluidRow(uiOutput('weibprops', class = 'shiny-text-output'))))
+tabPanel('Distribution Properties',
+      fluidRow(uiOutput('weibprops', class = 'shiny-text-output'))))

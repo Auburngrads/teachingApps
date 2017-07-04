@@ -1,2 +1,1 @@
 library(teachingApps)
-library('SMRD')

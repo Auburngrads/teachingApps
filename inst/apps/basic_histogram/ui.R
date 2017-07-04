@@ -23,6 +23,6 @@ hist(x,
      probability = T,
      las = 1)"),
 
-     actionButton("eval", h4("Evaluate"), width = '100%')),
+     actionButton("eval", "Evaluate", width = '100%')),
         
      mainPanel(plotOutput("output", height = '600px'), width = 7)))

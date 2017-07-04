@@ -1,4 +1,4 @@
 options('markdown.HTML.stylesheet' = getShinyOption('CSS'))
-library(SMRD)
+library(fitdistrplus)
 library(teachingApps)
 needs::needs(shiny, ggplot2)

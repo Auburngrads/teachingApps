@@ -6,20 +6,20 @@ ui = navbarPage(title = 'Complex Ideas',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4("Conf. Intervals"),
-         fluidRow(teachingApps::add_ui('confidence_intervals'))),
+tabPanel("Conf. Intervals",
+      fluidRow(teachingApps::add_ui('confidence_intervals'))),
 
-tabPanel(h4("CLT"),
-         fluidRow(teachingApps::add_ui('central_limit'))),
+tabPanel("CLT",
+      fluidRow(teachingApps::add_ui('central_limit'))),
 
-tabPanel(h4("Prob Plots"),
-         fluidRow(teachingApps::add_ui('probability_plotting'))),
+tabPanel("Prob Plots",
+      fluidRow(teachingApps::add_ui('probability_plotting'))),
 
-tabPanel(h4("Weibull Distro"),
-         fluidRow(teachingApps::add_ui('distribution_weibull'))),
+tabPanel("Weibull Distro",
+      fluidRow(teachingApps::add_ui('distribution_weibull'))),
 
-tabPanel(h4("ML Estimation"),
-         fluidRow(teachingApps::add_ui('maximum_likelihood'))),
+tabPanel("ML Estimation",
+      fluidRow(teachingApps::add_ui('maximum_likelihood'))),
 
-tabPanel(h4('Dice Roll'),
-         fluidRow(teachingApps::add_ui('dice_roll'))))
+tabPanel('Dice Roll',
+      fluidRow(teachingApps::add_ui('dice_roll'))))

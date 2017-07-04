@@ -6,7 +6,7 @@ ui = navbarPage(title = 'Bayesian Basic',
                 footer = teachingApps::add_logo(),
                 
                 
-tabPanel(h4('Overview'),
+tabPanel('Overview',
          sidebarLayout(
            sidebarPanel(
             sliderInput('expmle',

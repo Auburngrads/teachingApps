@@ -5,7 +5,7 @@ ui = navbarPage(title = 'Bathtub-Shaped Hazard',
                 header = teachingApps::add_css(),
                 footer = teachingApps::add_logo(),
 
-tabPanel(h4('Overview'),
+tabPanel('Overview',
          sidebarLayout(
            sidebarPanel(
             sliderInput('xrange',

@@ -6,15 +6,15 @@ ui = navbarPage(title = 'Quantile Function',
                 footer = teachingApps::add_logo(),
 
 
-tabPanel(h4('Properties'),
+tabPanel('Properties',
          mainPanel(uiOutput('quandemo'), class = 'shiny-text-output', width = 12)),
 
-tabPanel(h4('Computing Values in R'),
+tabPanel('Computing Values in R',
          mainPanel(uiOutput('quanr'), class = 'shiny-text-output', width = 12)),
                 
-navbarMenu(h4('Plots'), icon = icon('bar-chart-o'),                
+navbarMenu('Plots', icon = icon('bar-chart-o'),                
                 
-tabPanel(h4("Quantile Function Plot"),
+tabPanel("Quantile Function Plot",
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
@@ -38,11 +38,11 @@ curve(qweibull(x,shape = 1.7, scale = 1),
       cex.axis = 1.5,
       las = 1)"),
 
-        actionButton("evalquant", h4("Evaluate"), width = '100%')),
+        actionButton("evalquant", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotquant", height = "600px"), width = 7))),
                 
-tabPanel(h4("Figure 2.3"),
+tabPanel("Figure 2.3",
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
@@ -88,6 +88,6 @@ par(mfrow = c(1,1))
 mtext(side = 1,
       'Figure 2.3 - Plots showing that the quantile function is the inverse of the cdf',\nline = 4)"),
 
-        actionButton("evalfig3", h4("Evaluate"), width = '100%')),
+        actionButton("evalfig3", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotfig3", height = "600px"), width = 7)))))

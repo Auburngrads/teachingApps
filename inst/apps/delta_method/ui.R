@@ -6,8 +6,8 @@ ui = navbarPage(title = 'The Delta Method',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4('Background'),
-         fluidRow(uiOutput('delta'), class = 'shiny-text-output')),
+tabPanel('Background',
+      fluidRow(uiOutput('delta'), class = 'shiny-text-output')),
 
-tabPanel(h4('Example'),
-         fluidRow(uiOutput('greenwood'), class = 'shiny-text-output')))
+tabPanel('Example',
+      fluidRow(uiOutput('greenwood'), class = 'shiny-text-output')))

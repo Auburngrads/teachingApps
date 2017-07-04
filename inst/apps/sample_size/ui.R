@@ -2,34 +2,39 @@ ui = fluidPage(theme = teachingApps::add_theme(getShinyOption("theme")),
                teachingApps::add_css(),
 
 sidebarLayout(
-  sidebarPanel(width = 5,
+  sidebarPanel(width = 6,
     shinyAce::aceEditor(fontSize = 16, 
                         wordWrap = T,
-                        outputId = "samps", 
+                        outputId = "samp", 
                         mode = "r", 
                         theme = "github", 
                         height = "450px", 
                         value = "
 N <- 100
 n <- 10
-pop <- rweibull(N, scale = 10, shape = 2.3)
-plot(density(pop, from = 0, to = 30), 
-     xaxt = 'n', yaxt = 'n', 
-     xlab = '', ylab = '', main = '', 
-     bty = 'n', lwd = 3, col = 4,
-     xaxs = 'i', yaxs = 'i')
-axis(side = 1, labels = F, at = pop, tck = -0.05, col = 4)
-samp <- sample(pop, size = n)
-lines(density(samp, from = 0, to = 30), col = 2, lwd = 3)
-axis(side = 1, labels = F, at = samp, tck = 0.05, col = 2)
-legend('topright', 
-       legend = c(paste(c('Population (N = ',length(pop),')'), collapse = ''),
-                  paste(c('Sample      (n  = ', length(samp), ')'), collapse = '')),
-       col = c(4,2),
-       lwd = 3,
-       bty = 'n',
-       cex = .9)"),
 
-        actionButton("berks", h4("Evaluate"), width = '100%')),
+pop <- rweibull(N, 2.3, 10)
+samp <- sample(pop, size = n)
+
+dens_pop  <- density(pop,  from = 0, to = 30)
+dens_samp <- density(samp, from = 0, to = 30)
+
+par(xaxs = 'i', yaxs = 'i')
+par(ann = F, bty = 'n', lwd = 3)
+
+plot(dens_pop,   col = 4, axes = F)
+lines(dens_samp, col = 2)
+
+axis(1, lab = F, at = pop,  tck = -.05, col = 4)
+axis(1, lab = F, at = samp, tck =  .05, col = 2)
+legend(  x = 'topright', 
+       col = c(4,2),
+       bty = 'n',
+       lwd = 3,
+       legend = c(
+         paste0('(N = ',N,') Population'),
+         paste0('(n = ',n,')   Sample')))"),
+
+        actionButton("sampplot", "Evaluate", width = '100%')),
         
-        mainPanel(plotOutput("samps", height = "600px"), width = 7)))
+        mainPanel(plotOutput("samps", height = "600px"), width = 6)))

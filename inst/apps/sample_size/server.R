@@ -1,10 +1,8 @@
 server = function(input, output, session) {
 
-observeEvent(input$berks, {
-
-  output$berkint <- renderPlot({
-      
-      return(isolate(eval(parse(text=input$berkint))))
-})
+  output$samps <- renderPlot({
+      par(mar = c(4,4,2,2))
+      input$sampplot      
+      return(isolate(eval(parse(text=input$samp))))
 })
 }

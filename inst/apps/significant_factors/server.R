@@ -5,7 +5,7 @@ server = function(input, output, session) {
 output$factors <- renderUI({ 
     
     selectInput('factor2',
-                h4('Choose Factors'),
+                'Choose Factors',
                 choices = colnames(mtcars)[-respCol()],
                 multiple = T)
 })

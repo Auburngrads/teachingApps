@@ -37,6 +37,6 @@ diagram::plotmat(A = AA,
                  box.cex = 1.5, 
                  cex = 1.25)"),
 
-        actionButton("evalreplace", h4("Evaluate"), width = '100%')),
+        actionButton("evalreplace", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotreplace", height = "600px"), width = 7)))

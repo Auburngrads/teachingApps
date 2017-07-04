@@ -6,7 +6,7 @@ ui = navbarPage(title = 'Special Plotting Functions',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4("Bar Plots"),
+tabPanel("Bar Plots",
    sidebarLayout( 
       sidebarPanel(width = 5,
          shinyAce::aceEditor(fontSize = 16, 
@@ -40,11 +40,11 @@ legend('topleft',
        fill = heat.colors(10),
        bty = 'n')"),
        
-  actionButton("bareval", h2("Evaluate"), width = '100%')),
+  actionButton("bareval", "Evaluate", width = '100%')),
         
   mainPanel(plotOutput("barplot", height = "550px"), width = 7))),
 
-tabPanel(h4("Pie Charts"),
+tabPanel("Pie Charts",
    sidebarLayout( 
       sidebarPanel(width = 5,
           shinyAce::aceEditor(fontSize = 16, 
@@ -76,11 +76,11 @@ mtext(side = 1,
       'hey hey hey hey hey', 
       line = 2.1)"),
               
-   actionButton("pieeval", h2("Evaluate"), width = '100%')),
+   actionButton("pieeval", "Evaluate", width = '100%')),
         
    mainPanel(plotOutput("piechart", height = "550px"), width = 7))),
 
-tabPanel(h4("Box Plots"),
+tabPanel("Box Plots",
    sidebarLayout( 
       sidebarPanel(width = 5,
          shinyAce::aceEditor(fontSize = 16, 
@@ -99,15 +99,15 @@ col = cm.colors(8),
 xlab = 'Sample',
 las = 1)"),
 
-   actionButton("boxeval", h2("Evaluate"), width = '100%')),
+   actionButton("boxeval", "Evaluate", width = '100%')),
         
    mainPanel(plotOutput("boxplot", height = "550px"), width = 7))),
 
-tabPanel(h4("Trellis Plots"),
+tabPanel("Trellis Plots",
    sidebarLayout(
       sidebarPanel(
          checkboxGroupInput('mtcars',
-                            label = h4("mtcars Columns Plotted"), 
+                            label = "mtcars Columns Plotted"), 
                             choices = names(datasets::mtcars), 
                             selected = "mpg")),
       mainPanel(plotOutput("trellis", height = "550px")))))

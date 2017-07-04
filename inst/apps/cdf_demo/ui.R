@@ -6,13 +6,13 @@ ui = navbarPage(title = 'Distribution Function',
                 footer = teachingApps::add_logo(),
 
 
-tabPanel(h4('Properties'),
+tabPanel('Properties',
          mainPanel(uiOutput('cdfdemo'), class = 'shiny-text-output', width = 12)),
 
-tabPanel(h4('Computing Values in R'),
+tabPanel('Computing Values in R',
          mainPanel(uiOutput('cdfr'), class = 'shiny-text-output', width = 12)),
                                 
- tabPanel(h4('Shiny App'),
+ tabPanel('Shiny App',
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
@@ -37,6 +37,6 @@ cex.lab = 1.5,
 cex.axis = 1.5,
 las = 1)"),
 
-        actionButton("evalcdf", h4("Evaluate"), width = '100%')),
+        actionButton("evalcdf", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotcdf", height = "600px"), width = 7))))

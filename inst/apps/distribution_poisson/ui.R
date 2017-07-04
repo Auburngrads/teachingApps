@@ -6,11 +6,11 @@ ui = navbarPage(title = 'Poisson Distribution',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4('Shiny App'),
-         fluidRow(teachingApps::add_ui('distribution_poisson'))),
+tabPanel('Shiny App',
+      fluidRow(teachingApps::add_ui('distribution_poisson_functions'))),
 
-tabPanel(h4('Distribution Functions'),
-         fluidRow(uiOutput('poifunc'), class = 'shiny-text-output')),
+tabPanel('Distribution Functions',
+      fluidRow(uiOutput('poifunc'), class = 'shiny-text-output')),
 
-tabPanel(h4('Distribution Properties'),
-         fluidRow(uiOutput('poiprops', class = 'shiny-text-output'))))
+tabPanel('Distribution Properties',
+      fluidRow(uiOutput('poiprops', class = 'shiny-text-output'))))

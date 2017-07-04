@@ -41,6 +41,6 @@ diagram::plotmat(A = AA,
                  box.cex = 1.5, 
                  cex = 1.25)"),
 
-        actionButton("evalreal", h4("Evaluate"), width = '100%')),
+        actionButton("evalreal", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotreal", height = "600px"), width = 7)))

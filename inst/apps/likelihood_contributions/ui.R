@@ -36,6 +36,6 @@ text(x = c(.16,1.3,2.2),
                 'Interval Censoring',
                 'Right Censoring'))"),
 
-   actionButton("evalcensor", h4("Evaluate"), width = '100%')),
+   actionButton("evalcensor", "Evaluate", width = '100%')),
 
    mainPanel(plotOutput('plotcensor', height = '600px'), width = 7)))

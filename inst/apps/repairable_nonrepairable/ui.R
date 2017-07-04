@@ -6,9 +6,9 @@ ui = navbarPage(title = 'System Reliability',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4("Repairable Systems"),
+tabPanel("Repairable Systems",
 fluidRow(column(width = 12,
-      uiOutput('reptext', class = 'shiny-text-output', width = '100%'))),
+         uiOutput('reptext', class = 'shiny-text-output', width = '100%'))),
 
 fluidRow(column(width = 5,
     sidebarPanel(width = '100%',
@@ -41,11 +41,11 @@ diagram::plotmat(A = AA, pos = 4, curve = .575,
          arr.type = 'triangle', dtext = -1,
          relsize=.99, box.cex=1.5, cex=1.25)"),
 
-        actionButton("evalrep", h4("Evaluate"), width = '100%'))),
+        actionButton("evalrep", "Evaluate", width = '100%'))),
 
         column(width = 7, plotOutput("plotrep", height = "600px")))),
 
-tabPanel(h4("Nonrepairable Systems"),
+tabPanel("Nonrepairable Systems",
 fluidRow(column(width = 12,
       uiOutput('noreptext', class = 'shiny-text-output', width = '100%'))),
 
@@ -76,6 +76,6 @@ diagram::plotmat(A = AA, pos = 3, curve = .575,
          arr.type = 'triangle', dtext = -1,
          relsize=.99, box.cex=1.5, cex=1.25)"),
 
-        actionButton("evalnorep", h4("Evaluate"), width = '100%'))),
+        actionButton("evalnorep", "Evaluate", width = '100%'))),
 
         column(width = 7, plotOutput("plotnorep", height = "600px")))))

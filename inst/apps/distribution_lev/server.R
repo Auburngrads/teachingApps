@@ -1,6 +1,6 @@
 server = function(input, output, session) {
   
-teachingApps::add_server('distribution_beta', envir = environment())
+teachingApps::add_server('distribution_beta_functions', envir = environment())
   
 output$levfunc  <- renderUI({teachingApps::add_rmd('lev-func.Rmd') })
 

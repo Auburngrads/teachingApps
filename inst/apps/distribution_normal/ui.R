@@ -6,11 +6,11 @@ ui = navbarPage(title = 'Normal Distribution',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4('Shiny App'),
-         fluidRow(teachingApps::add_ui('distribution_normal'))),
+tabPanel('Shiny App',
+      fluidRow(teachingApps::add_ui('distribution_normal_functions'))),
 
-tabPanel(h4('Distribution Functions'),
-         fluidRow(uiOutput('norfunc'), class = 'shiny-text-output')),
+tabPanel('Distribution Functions',
+      fluidRow(uiOutput('norfunc'), class = 'shiny-text-output')),
 
-tabPanel(h4('Distribution Properties'),
-         fluidRow(uiOutput('norprops', class = 'shiny-text-output'))))
+tabPanel('Distribution Properties',
+      fluidRow(uiOutput('norprops', class = 'shiny-text-output'))))

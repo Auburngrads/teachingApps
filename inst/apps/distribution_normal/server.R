@@ -1,6 +1,6 @@
 server = function(input, output, session) {
   
-teachingApps::add_server('distribution_normal', envir = environment()) 
+teachingApps::add_server('distribution_normal_functions', envir = environment()) 
   
 output$norfunc  <- renderUI({ teachingApps::add_rmd('nor-func.Rmd') })
 

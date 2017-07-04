@@ -6,13 +6,13 @@ ui = navbarPage(title = 'Survival Function',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4('Properties'),
+tabPanel('Properties',
          mainPanel(uiOutput('survdemo'), class = 'shiny-text-output', width = 12)),
 
-tabPanel(h4('Computing Values in R'),
+tabPanel('Computing Values in R',
          mainPanel(uiOutput('survr'), class = 'shiny-text-output', width = 12)),
                 
-tabPanel(h4('ShinyApp'),                
+tabPanel('ShinyApp',                
   sidebarLayout( 
     sidebarPanel(
       shinyAce::aceEditor(fontSize = 16, 
@@ -37,6 +37,6 @@ cex.lab = 1.5,
 cex.axis = 1.5,
 las = 1)"),
 
-        actionButton("evalrel", h4("Evaluate"), width = '100%')),
+        actionButton("evalrel", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotrel", height = "600px")))))

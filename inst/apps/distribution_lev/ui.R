@@ -6,11 +6,11 @@ ui = navbarPage(title = 'Largest Extreme Value Distribution',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4('Shiny App'),
-         fluidRow(teachingApps::add_ui('distribution_lev'))),
+tabPanel('Shiny App',
+      fluidRow(teachingApps::add_ui('distribution_lev_functions'))),
 
-tabPanel(h4('Distribution Functions'),
-         fluidRow(uiOutput('levfunc'), class = 'shiny-text-output')),
+tabPanel('Distribution Functions',
+      fluidRow(uiOutput('levfunc'), class = 'shiny-text-output')),
 
-tabPanel(h4('Distribution Properties'),
-         fluidRow(uiOutput('levprops', class = 'shiny-text-output'))))
+tabPanel('Distribution Properties',
+      fluidRow(uiOutput('levprops', class = 'shiny-text-output'))))

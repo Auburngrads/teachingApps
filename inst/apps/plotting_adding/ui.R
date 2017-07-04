@@ -6,7 +6,7 @@ ui = navbarPage(title = 'Adding Objects To Plots',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4("Add Text"),
+tabPanel("Add Text",
       sidebarLayout( 
         sidebarPanel(width = 5,
             shinyAce::aceEditor(fontSize = 16, 
@@ -34,17 +34,16 @@ text(x = 10, y = 5,
 #font = 3 (italic)
 #font = 4 (bold-italic)"),
 
-    actionButton("texteval", h2("Evaluate"), width = '100%')),
+    actionButton("texteval", "Evaluate", width = '100%')),
         
     mainPanel(plotOutput("text", height = "550px"), width = 7))),
 
-tabPanel(h4("Add Equations"),
+tabPanel("Add Equations",
       sidebarLayout( 
         sidebarPanel(width = 5,
             shinyAce::aceEditor(fontSize = 16, 
-                                     wordWrap = T,
-                                     outputId = 
-                                "eqncode", 
+                                wordWrap = T,
+                                outputId = "eqncode", 
                                 mode = "r", 
                                 theme = "github",
                                 height = "475px", 
@@ -64,11 +63,11 @@ expression(pi%~~%frac(22,7)+
      font = 0,
      family = '')"),
 
-   actionButton("eqneval", h2("Evaluate"), width = '100%')),
+   actionButton("eqneval", "Evaluate", width = '100%')),
         
    mainPanel(plotOutput("eqn", height = "550px"), width = 7))),
 
-tabPanel(h4("Add Points"),
+tabPanel("Add Points",
       sidebarLayout( 
         sidebarPanel(width = 5,
             shinyAce::aceEditor(fontSize = 16, 
@@ -94,25 +93,25 @@ points(c(10,5), c(14,27),
        pch = '$', 
        col = 'white')"),
        
- actionButton("pteval", h2("Evaluate"), width = '100%')),
+ actionButton("pteval", "Evaluate", width = '100%')),
         
  mainPanel(plotOutput("point", height = "550px"), width = 7))),
 
-tabPanel(h4("Add Lines"),
+tabPanel("Add Lines",
    sidebarLayout( 
       sidebarPanel(htmlOutput('lineace'),
                    htmlOutput('lineact')),
         
   mainPanel(
     tabsetPanel(id = 'lines',
-       tabPanel(h4("Add Lines 1"), value = 'lines1',
+       tabPanel("Add Lines 1", value = 'lines1',
           plotOutput('abline0', height = '550px')),
-       tabPanel(h4('Add Lines 2'), value = 'lines2',
+       tabPanel('Add Lines 2', value = 'lines2',
           plotOutput('abline1', height = '550px')),
-       tabPanel(h4('Add Lines 3'), value = 'lines3',
+       tabPanel('Add Lines 3', value = 'lines3',
           plotOutput('abline2', height = '550px')))))),
 
-tabPanel(h4("Add A Grid"),
+tabPanel("Add A Grid",
       sidebarLayout( 
         sidebarPanel(width = 5,
             shinyAce::aceEditor(fontSize = 16, 
@@ -141,11 +140,11 @@ points(c(10,5), c(14,27),
 
 grid(10,10)"),
        
-  actionButton("grideval", h2("Evaluate"), width = '100%')),
+  actionButton("grideval", "Evaluate", width = '100%')),
         
   mainPanel(plotOutput("grid", height = "550px"), width = 7))),
 
-tabPanel(h4("Add A Legend"),
+tabPanel("Add A Legend",
       sidebarLayout( 
         sidebarPanel(width = 5,
             shinyAce::aceEditor(fontSize = 16, 
@@ -172,6 +171,6 @@ legend('topright',
        pch = 16, col = c(2,4),
        bty = 'o')"),
 
-  actionButton("legeval", h2("Evaluate"), width = '100%')),
+  actionButton("legeval", "Evaluate", width = '100%')),
         
   mainPanel(plotOutput("legend", height = "550px"), width = 7))))

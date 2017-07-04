@@ -6,11 +6,11 @@ ui = navbarPage(title = 'Lognormal Distribution',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4('Shiny App'),
-         fluidRow(teachingApps::add_ui('distribution_lognormal'))),
+tabPanel('Shiny App',
+      fluidRow(teachingApps::add_ui('distribution_lognormal_functions'))),
 
-tabPanel(h4('Distribution Functions'),
-         fluidRow(uiOutput('lnorfunc'), class = 'shiny-text-output')),
+tabPanel('Distribution Functions',
+      fluidRow(uiOutput('lnorfunc'), class = 'shiny-text-output')),
 
-tabPanel(h4('Distribution Properties'),
-         fluidRow(uiOutput('lnorprops', class = 'shiny-text-output'))))
+tabPanel('Distribution Properties',
+      fluidRow(uiOutput('lnorprops', class = 'shiny-text-output'))))

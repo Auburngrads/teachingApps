@@ -71,6 +71,6 @@ axis(side = 1, at = x.weib, col = 2, labels = FALSE, tck = .05 )
 axis(side = 1, at = x.exp,  col = 'green', labels = FALSE, tck = .05 )
 par(mfrow = c(1,1))"),
 
-   actionButton("evalpdflike", h4("Evaluate"), width = '100%')),
+   actionButton("evalpdflike", "Evaluate", width = '100%')),
 
    mainPanel(plotOutput('plotpdflike', height = '600px'), width = 7)))

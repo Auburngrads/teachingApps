@@ -6,30 +6,30 @@ ui = navbarPage(title = 'Program Costs',
                 footer = teachingApps::add_logo(),
 
       
-     tabPanel(h4('Visualization'),
+     tabPanel('Visualization',
       #headerPanel('Visualizing the Distribution of Operating Costs'), 
        sidebarLayout(
         sidebarPanel(
          sliderInput('threshold', 
-                     label = h2('Cost Threshold'),
+                     label = 'Cost Threshold',
                      min = 10000,
                      max = 60000,
                      value = 35000,
                      step = 1000),
          sliderInput('nsamples', 
-                     label = h2('Number of Samples'),
+                     label = 'Number of Samples',
                      min = 1000,
                      max = 50000,
                      value = 10000,
                      step = 1000),
          sliderInput('breaks', 
-                     label = h2('Number of Breaks'),
+                     label = 'Number of Breaks',
                      min = 10,
                      max = 100,
                      value = 20,
                      step = 10),
          sliderInput('seed', 
-                     label = h2('Seed Value'),
+                     label = 'Seed Value',
                      min = 10,
                      max = 100,
                      value = 42,
@@ -37,6 +37,6 @@ ui = navbarPage(title = 'Program Costs',
         
          mainPanel(plotOutput('buyer',height = '650px')))),
 
-tabPanel(h4('How To Use This App'),
+tabPanel('How To Use This App',
 
          mainPanel(withMathJax(uiOutput("howtohist", class = 'shiny-text-output'), width = 12))))

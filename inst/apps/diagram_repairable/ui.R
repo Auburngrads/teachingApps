@@ -39,6 +39,6 @@ diagram::plotmat(A = AA,
                 box.cex = 1.5,
                 cex = 1.25)"),
 
-        actionButton("evalrepair", h4("Evaluate"), width = '100%')),
+        actionButton("evalrepair", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotrepair", height = "600px"), width = 7)))

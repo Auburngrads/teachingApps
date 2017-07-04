@@ -6,15 +6,15 @@ ui = navbarPage(title = 'Hazard Function',
                 footer = teachingApps::add_logo(),
 
 
-tabPanel(h4('Properties'),
+tabPanel('Properties',
          mainPanel(uiOutput('hazdemo'), class = 'shiny-text-output', width = 12)),
 
-tabPanel(h4('Computing Values in R'),
+tabPanel('Computing Values in R',
          mainPanel(uiOutput('hazr'), class = 'shiny-text-output', width = 12)),
 
-navbarMenu(h4('Plots'), icon = icon('bar-chart-o'), 
+navbarMenu('Plots'), icon = icon('bar-chart-o'), 
 
-tabPanel(h4("Hazard Function Plot"),
+tabPanel("Hazard Function Plot",
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
@@ -40,11 +40,11 @@ cex.lab = 1.5,
 cex.axis = 1.5,
 las = 1)"),
 
-        actionButton("evalhaz", h4("Evaluate"), width = '100%')),
+        actionButton("evalhaz", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plothaz", height = "600px"), width = 7))),
 
-tabPanel(h4("Bathtub-Shaped Hazard"),
+tabPanel("Bathtub-Shaped Hazard",
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
@@ -80,6 +80,6 @@ text(x = c(7.5, 40, 75),
      c('Infant Mortality','Useful Life','Wearout'),
      cex = 1.5)"),
 
-       actionButton("evalfigbt", h4("Evaluate"), width = '100%')),
+       actionButton("evalfigbt", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotfigbt", height = "600px"), width = 7)))))

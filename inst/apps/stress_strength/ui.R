@@ -4,7 +4,7 @@ ui = fluidPage(theme = teachingApps::add_theme(getShinyOption("theme")),
 sidebarLayout(
    sidebarPanel(
       sliderInput("mean", 
-                  label = h2("Applied Stress:"),
+                  label = "Applied Stress:",
                   min = 5, 
                   max = 16, 
                   value = 5, 

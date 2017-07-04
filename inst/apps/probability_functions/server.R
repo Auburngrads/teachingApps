@@ -16,12 +16,9 @@ output$cdfr <- renderUI({
   withMathJax(HTML(includeMarkdown('rfuncscdf.Rmd')))
 })  
 
-observeEvent(input$evalcdf, { 
-
 output$plotcdf <- renderPlot({
-      
-      return(isolate(eval(parse(text=input$cdfplot))))
-})
+    input$evalcdf      
+    return(isolate(eval(parse(text=input$cdfplot))))
 })
 output$pdfdemo <- renderUI({ 
   withMathJax(HTML(includeMarkdown('backgroundpdf.Rmd')))
@@ -30,11 +27,9 @@ output$pdfdemo <- renderUI({
 output$pdfr <- renderUI({ 
   withMathJax(HTML(includeMarkdown('rfuncspdf.Rmd')))
 })  
-observeEvent(input$evalpdf, { 
 
 output$plotpdf <- renderPlot({
-      
-      return(isolate(eval(parse(text=input$pdfplot))))
-})
+  input$evalpdf
+  return(isolate(eval(parse(text=input$pdfplot))))
 })
 }

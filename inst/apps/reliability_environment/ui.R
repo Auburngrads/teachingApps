@@ -54,7 +54,7 @@ text(x = rep(400, 5),
      cex = rep(2.5,5), 
      family = 'mono')"),
 
-        actionButton("evalenvir", h4("Evaluate"), width = '100%')),
+        actionButton("evalenvir", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotenvir", height = "600px"))))
 

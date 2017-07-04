@@ -6,13 +6,13 @@ ui = navbarPage(title = 'Density Function',
                 footer = teachingApps::add_logo(),
 
                 
-tabPanel(h4('Properties'),
+tabPanel('Properties',
          mainPanel(uiOutput('pdfdemo'), class = 'shiny-text-output', width = 12)),
 
-tabPanel(h4('Computing Values in R'),
+tabPanel('Computing Values in R',
          mainPanel(uiOutput('pdfr'), class = 'shiny-text-output', width = 12)),
                     
-tabPanel(h4('Shiny App'),
+tabPanel('Shiny App',
   sidebarLayout(
     sidebarPanel(
       shinyAce::aceEditor(fontSize = 16, 
@@ -35,6 +35,6 @@ curve(dexp(x,rate = 1.7),
       cex.axis = 1.5,
       las = 1)"),
 
-        actionButton("evalpdf", h4("Evaluate"), width = '100%')),
+        actionButton("evalpdf", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotpdf", height = "600px")))))

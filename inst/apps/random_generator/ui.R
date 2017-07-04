@@ -6,5 +6,5 @@ ui = navbarPage(title = 'Pseudorandom Observations',
                 footer = teachingApps::add_logo(),
 
                   
-    tabPanel(h4('PRN Data'), DT::dataTableOutput('prn')))
+    tabPanel('PRN Data', DT::dataTableOutput('prn')))
 

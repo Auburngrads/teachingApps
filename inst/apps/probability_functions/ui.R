@@ -6,32 +6,32 @@ ui = navbarPage(title = 'Probability Functions',
                 footer = teachingApps::add_logo(),
 
 
-tabPanel(h4('Overview'),
+tabPanel('Overview',
          mainPanel(uiOutput('overview'), 
                    class = 'shiny-text-output', 
                    width = 12)),
 
-tabPanel(h4('Relationship Table'),
+tabPanel('Relationship Table',
          mainPanel(uiOutput('functable'), 
                    class = 'shiny-text-output', 
                    width = 12)),
                 
-navbarMenu(h4('The Functions'), icon = icon('folder-open'),
+navbarMenu('The Functions', icon = icon('folder-open'),
            
-tabPanel(h4('Cumulative Distribution Function'), 
+tabPanel('Cumulative Distribution Function', 
 tabsetPanel(type = 'pills',
                                 
-  tabPanel(h4('Properties of the CDF'),
+  tabPanel('Properties of the CDF',
            mainPanel(uiOutput('cdfdemo'), 
                      class = 'shiny-text-output', 
                      width = 12)),
 
-  tabPanel(h4('Computing CDF Values in R'),
+  tabPanel('Computing CDF Values in R',
            mainPanel(uiOutput('cdfr'), 
                      class = 'shiny-text-output', 
                      width = 12)),
                                 
-  tabPanel(h4('Interactive CDF Shiny App'),
+  tabPanel('Interactive CDF Shiny App',
     sidebarLayout( 
       sidebarPanel(width = 4,
         shinyAce::aceEditor(fontSize = 16, 
@@ -56,24 +56,24 @@ cex.lab = 1.5,
 cex.axis = 1.5,
 las = 1)"),
 
-        actionButton("evalcdf", h4("Evaluate"), width = '100%')),
+        actionButton("evalcdf", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotcdf", height = "600px"), width = 8))))),
 
-tabPanel(h4('Probability Density Function'), 
+tabPanel('Probability Density Function', 
         tabsetPanel(type = 'pills',
 
-  tabPanel(h4('Properties'),
+  tabPanel('Properties',
            mainPanel(uiOutput('pdfdemo'), 
                      class = 'shiny-text-output', 
                      width = 12)),
 
-  tabPanel(h4('Computing Values in R'),
+  tabPanel('Computing Values in R',
            mainPanel(uiOutput('pdfr'), 
                      class = 'shiny-text-output', 
                      width = 12)),
                     
-  tabPanel(h4('Shiny App'),
+  tabPanel('Shiny App',
     sidebarLayout(
       sidebarPanel(
         shinyAce::aceEditor(fontSize = 16, 
@@ -96,6 +96,6 @@ curve(dexp(x,rate = 1.7),
       cex.axis = 1.5,
       las = 1)"),
 
-        actionButton("evalpdf", h4("Evaluate"), width = '100%')),
+        actionButton("evalpdf", "Evaluate", width = '100%')),
         
         mainPanel(plotOutput("plotpdf", height = "600px"))))))))
