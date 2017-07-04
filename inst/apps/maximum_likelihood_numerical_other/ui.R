@@ -37,9 +37,6 @@ nlminb(start = runif(2, 1.5, 4.2),
        objective = joint.prob, 
        x = obs)[1:5]"),
 
-        actionButton("mlsolnum", h4("Evaluate"), width = '100%')),
+        actionButton("mlsolnum", "Evaluate", width = '100%')),
         
-        mainPanel(verbatimTextOutput("mlsolns"), width = 6)),
-
-if(!getShinyOption("story")) 
-     fixedPanel(htmlOutput('sign'),bottom = '3%', right = '40%', height = '30px'))
+        mainPanel(verbatimTextOutput("mlsolns"), width = 6)))

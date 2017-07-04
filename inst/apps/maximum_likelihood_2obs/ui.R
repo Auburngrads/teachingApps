@@ -51,7 +51,7 @@ legend('topright',
        y.intersp = 1.5,
        cex = 1.4)"),
 
-   actionButton("evallike2", h4("Evaluate"), width = '100%')),
+   actionButton("evallike2", "Evaluate", width = '100%')),
 
    mainPanel(plotOutput('plotlike2', height = '600px'), width = 7)))
 
