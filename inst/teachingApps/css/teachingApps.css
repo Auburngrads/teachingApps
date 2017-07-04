@@ -661,15 +661,16 @@ svg g g g text.label {
 font: 18px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 }
 
-ul.nav.navbar-nav > li.active > a {
+ul.nav.navbar-nav > li > a  {
   font-size: 1.5em !important;
   font-weight: bold !important;
 }
 
 label.control-label {
   
-  font-size: 1.25vw !important;
+  font-size: 1.75vw !important;
   font-weight: bold !important;
+  display: inline !important;
 }
 
 body > nav > div.container-fluid {
@@ -679,4 +680,10 @@ body > nav > div.container-fluid {
 
 span.navbar-brand {
   height: auto !important;  
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+  font-size: 20pt !important; 
+  font-weight: bold !important;
+  display: inline !important;
 }
