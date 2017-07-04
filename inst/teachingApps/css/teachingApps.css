@@ -201,6 +201,9 @@ table.example {
 /*          CSS FOR THE NAVBAR           */
 /*                                       */
 
+.navbar {
+  height: 60px !important;
+}
 
 .navbar-static-top {
   border-radius: 100px;
@@ -214,6 +217,7 @@ table.example {
   border-radius: 100px;
   width: 99%;
   margin: 0 0.5% 30px 0.5% !important;
+  height: 60px;
 }
 
 .navbar-fixed-top .container { width: 95%; }
@@ -223,25 +227,34 @@ table.example {
 .navbar-brand {
   margin-left: auto !important;
   margin-right: 2em;
-  font-size: 20pt;
+  font-size: 1.6vw;
   font-weight: normal;
   font-style: italic;
   display: inline !important;
+  line-height: 60px !important;
+  height: 60px;
+  text-align: center;
+  padding: 0 15px !important;
 }
 
 .nav.nav-pills {
   padding-left: 1%;
-  margin-bottom: 12pt;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 1200px) {
+.navbar-toggle {
+display: none !important;
+}
 }
 /*                                       */
 /*              CSS FOR LISTS            */
 /*                                       */
 
 
-
 ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
 
-.shiny-text-output ul li { 
+.ta-text ul li { 
   list-style-type: square;
   margin-left: -0.4em;
   font-weight: bold;
@@ -250,7 +263,7 @@ ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
   margin: 1em 0 1.5em 1em;
   padding: 0 0 0 1em;
 }
-.shiny-text-output ul li ul li { 
+.ta-text ul li ul li { 
   list-style-type: disc; 
   font-size: 20pt;
   background: transparent;
@@ -258,7 +271,7 @@ ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
   margin: 1em 0 1em 0.25em;
   font-weight: normal;
 }
-.shiny-text-output ul li ol li { 
+.ta-text ul li ol li { 
   list-style-type: decimal; 
   font-size: 20pt;
   background: transparent;
@@ -266,7 +279,7 @@ ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
   margin: 1em 0 1em 0.25em;
   font-weight: normal;
 }
-.shiny-text-output ul li ul li ul li { 
+.ta-text ul li ul li ul li { 
   list-style-type: circle; 
   font-size: 16pt;
   background: transparent;
@@ -274,7 +287,7 @@ ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
   margin: 1em 0 1em 0.25em;
   font-weight: normal;
 }
-.shiny-text-output ul li ol li ul li { 
+.ta-text ul li ol li ul li { 
   list-style-type: circle; 
   font-size: 16pt;
   background: transparent;
@@ -282,7 +295,7 @@ ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
   margin: 1em 0 1em 0.25em;
   font-weight: normal;
 }
-.shiny-text-output ul li ul li ol li { 
+.ta-text ul li ul li ol li { 
   list-style-type: decimal; 
   font-size: 16pt;
   background: transparent;
@@ -291,7 +304,7 @@ ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
   font-weight: normal;
 }
 
-.shiny-text-output ol li    { 
+.ta-text ol li    { 
   list-style-type: decimal; 
   margin-left: -0.4em;
   font-weight: bold;
@@ -300,7 +313,7 @@ ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
   margin: 1em 0 1.5em 1em;
   padding: 0 0 0 1em;
 }
-.shiny-text-output ol li ul li { 
+.ta-text ol li ul li { 
   list-style-type: disc; 
   font-size: 20pt;
   background: transparent;
@@ -308,7 +321,7 @@ ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
   margin: 1em 0 1em 0.25em;
   font-weight: normal;
 }
-.shiny-text-output ol li ol li { 
+.ta-text ol li ol li { 
   list-style-type: decimal; 
   font-size: 20pt;
   background: transparent;
@@ -316,7 +329,7 @@ ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
   margin: 1em 0 1em 0.25em;
   font-weight: normal;
 }
-.shiny-text-output ol li ul li ul li { 
+.ta-text ol li ul li ul li { 
   list-style-type: circle; 
   font-size: 16pt;
   background: transparent;
@@ -324,7 +337,7 @@ ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
   margin: 1em 0 1em 0.25em;
   font-weight: normal;
 }
-.shiny-text-output ol li ol li ul li { 
+.ta-text ol li ol li ul li { 
   list-style-type: circle; 
   font-size: 16pt;
   background: transparent;
@@ -332,7 +345,7 @@ ul,ol,h3,h5,h6,dl { margin-left: 0; margin-right: 1em; }
   margin: 1em 0 1em 0.25em;
   font-weight: normal;
 }
-.shiny-text-output ol li ul li ol li { 
+.ta-text ol li ul li ol li { 
   list-style-type: decimal; 
   font-size: 16pt;
   background: transparent;
@@ -587,7 +600,7 @@ bigger  { font-size: 120% }
 biggest { font-size: 130% }
 
 
-.shiny-text-output {
+.ta-text {
   font-weight: bold;
   font-size: 20pt;
   color: #2C3E50;
@@ -662,7 +675,7 @@ font: 18px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro
 }
 
 ul.nav.navbar-nav > li > a  {
-  font-size: 1.5em !important;
+  font-size: 1.5vw !important;
   font-weight: bold !important;
 }
 
@@ -671,6 +684,7 @@ label.control-label {
   font-size: 1.75vw !important;
   font-weight: bold !important;
   display: inline !important;
+  padding: 10px 0;
 }
 
 body > nav > div.container-fluid {
@@ -682,8 +696,8 @@ span.navbar-brand {
   height: auto !important;  
 }
 
-.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
-  font-size: 20pt !important; 
+.nav-pills > li {
+  font-size: 1.5vw !important; 
   font-weight: bold !important;
   display: inline !important;
 }
