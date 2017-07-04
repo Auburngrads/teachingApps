@@ -51,8 +51,7 @@ function(app_dir,
   gitURL  <- paste(c('https://github.com',git_user,app_pkg,'blob/master/inst/apps'),
                    collapse = '/')
   
-    return(paste(c("<script src='https://use.fontawesome.com/6819c76733.js'></script>
-                    <link href='teachingApps/font-awesome-4.5.0/css/font-awesome.min.css' rel='stylesheet'>
+    return(paste(c("<link href='teachingApps/font-awesome-4.5.0/css/font-awesome.min.css' rel='stylesheet'>
 <ul class='photo-grid'>
 <li>
 <figure>",
@@ -69,7 +68,7 @@ logo,
 
 #' Adds a logo to the footer of a navbarPage app 
 #'
-#' @importFrom shiny includeCSS getShinyOption HTML
+#' @importFrom shiny includeCSS getShinyOption tags HTML
 #' 
 #' @return A fontAwesome icon or an image printed in the footer of a
 #'         navbarPage app 
@@ -78,5 +77,5 @@ logo,
 #' @export
 add_logo <- function() 
 {
-   HTML(getShinyOption("logo"))
+   return(HTML(paste0('"',getShinyOption("logo"),'"')))
 }

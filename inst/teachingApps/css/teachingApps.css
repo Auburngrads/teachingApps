@@ -414,11 +414,11 @@ ul.photo-grid {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 12px;
 }
 
 .photo-grid figure {
-	height: 40px;
+	height: 60px;
 	overflow: hidden;
 	position: relative;
 	width: 289px;
@@ -655,7 +655,9 @@ svg g g g text.label {
 }
 
 .btn {
-  
+  font-size: 28px !important;
+  text-transform: uppercase !important;
+  font-weight: bold !important;
   width: 100%;
 }
 
