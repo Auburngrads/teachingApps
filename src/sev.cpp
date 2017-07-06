@@ -7,8 +7,33 @@ using namespace Rcpp;
 //' @description Density, distribution function, quantile function and 
 //'              random generation for the SEV distribution with location
 //'              \code{loc} and scale \code{scale}.
+//'              
+//' @details If \code{loc} is not specified, a default 
+//'          value of 0 is used. If \code{scale} is not 
+//'          specified, a default value of 1 is used.
+//'          
+//'          The smallest extreme value distribution with 
+//'          location parameter \eqn{\mu} and
+//'          scale \eqn{\sigma} has density
+//'          
+//'          \deqn{f(x;\mu,\sigma) = \frac{1}{\sigma}\phi_{_{SEV}}\left(\frac{x-\mu}{\sigma}\right),\quad -\infty < x < \infty }
+//'          
+//'          where \eqn{\phi_{_{SEV}}(z)} exp[z - exp(z)] is the density of the standard LEV distribution.
+//'          
+//' @return \code{dsev} gives the density, 
+//'         \code{psev} gives the distribution function, 
+//'         \code{qsev} gives the quantile function, and 
+//'         \code{rsev} generates random observations.
+//'         
+//'         The length of the result is determined by \code{n} 
+//'         for \code{rsev}, and is the maximum of the lengths 
+//'         of the numerical arguments for the other functions. 
+//'         
+//'         The numerical arguments other than \code{n} are 
+//'         recycled to the length of the result.   
 //' @export
 //' @rdname sev
+//' @name Smallest Extreme Value
 //' @param p Vector of probabilities
 //' @param x Vector of quantiles
 //' @param q Vector of quantiles

@@ -2,11 +2,39 @@
 using namespace Rcpp;
 
 //' The Birmbaum-Saunders Distribution
+//' 
 //' @description Density, distribution function, quantile function and 
 //'              random generation for the BISA distribution with location
 //'              \code{loc} and scale \code{scale}.
+//'              
+//' @details If \code{shape} is not specified, a default 
+//'          value of 1 is used.
+//'          
+//'          The Birmbaum-Saunders distribution with shape \eqn{\beta} and
+//'          scale \eqn{\theta} has density
+//'          
+//'          \deqn{f(x;\theta,\beta) = \frac{\sqrt{\frac{x}{\theta}}+\sqrt{\frac{\theta}{x}}}{2\beta x}\phi_{_{NOR}(z)},\quad x \ge 0 }
+//'          
+//'          where \eqn{\phi_{_{NOR}}(z)} is the density of the standard normal distribution and  
+//'          
+//'          \deqn{z = \frac{1}{\beta}\left(\sqrt{\frac{x}{\theta}}-\sqrt{\frac{\theta}{x} } \right)}.
+//'          
+//' @return \code{dbisa} gives the density, 
+//'         \code{pbisa} gives the distribution function, 
+//'         \code{qbisa} gives the quantile function, and 
+//'         \code{rbisa} generates random observations.
+//'         
+//'         The length of the result is determined by \code{n} 
+//'         for \code{rbisa}, and is the maximum of the lengths 
+//'         of the numerical arguments for the other functions. 
+//'         
+//'         The numerical arguments other than \code{n} are 
+//'         recycled to the length of the result.   
+//'          
+//' @source Birnbaum, Z. W.; Saunders, S. C. (1969), "A new family of life distributions", Journal of Applied Probability, 6 (2): 319–327, JSTOR 3212003, doi:10.2307/3212003
 //' @export
 //' @rdname bisa
+//' @name Birmbaum-Saunders
 //' @param p Vector of probabilities
 //' @param x Vector of quantiles
 //' @param q Vector of quantiles

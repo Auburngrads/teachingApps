@@ -2,11 +2,39 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #' The Birmbaum-Saunders Distribution
+#' 
 #' @description Density, distribution function, quantile function and 
 #'              random generation for the BISA distribution with location
 #'              \code{loc} and scale \code{scale}.
+#'              
+#' @details If \code{shape} is not specified, a default 
+#'          value of 1 is used.
+#'          
+#'          The Birmbaum-Saunders distribution with shape \eqn{\beta} and
+#'          scale \eqn{\theta} has density
+#'          
+#'          \deqn{f(x;\theta,\beta) = \frac{\sqrt{\frac{x}{\theta}}+\sqrt{\frac{\theta}{x}}}{2\beta x}\phi_{_{NOR}(z)},\quad x \ge 0 }
+#'          
+#'          where \eqn{\phi_{_{NOR}}(z)} is the density of the standard normal distribution and  
+#'          
+#'          \deqn{z = \frac{1}{\beta}\left(\sqrt{\frac{x}{\theta}}-\sqrt{\frac{\theta}{x} } \right)}.
+#'          
+#' @return \code{dbisa} gives the density, 
+#'         \code{pbisa} gives the distribution function, 
+#'         \code{qbisa} gives the quantile function, and 
+#'         \code{rbisa} generates random observations.
+#'         
+#'         The length of the result is determined by \code{n} 
+#'         for \code{rbisa}, and is the maximum of the lengths 
+#'         of the numerical arguments for the other functions. 
+#'         
+#'         The numerical arguments other than \code{n} are 
+#'         recycled to the length of the result.   
+#'          
+#' @source Birnbaum, Z. W.; Saunders, S. C. (1969), "A new family of life distributions", Journal of Applied Probability, 6 (2): 319–327, JSTOR 3212003, doi:10.2307/3212003
 #' @export
 #' @rdname bisa
+#' @name Birmbaum-Saunders
 #' @param p Vector of probabilities
 #' @param x Vector of quantiles
 #' @param q Vector of quantiles
@@ -43,8 +71,34 @@ rbisa <- function(n, shape, scale = 1) {
 #' @description Density, distribution function, quantile function and 
 #'              random generation for the LEV distribution with location
 #'              \code{loc} and scale \code{scale}.
+#'              
+#' @details If \code{loc} is not specified, a default 
+#'          value of 0 is used. If \code{scale} is not 
+#'          specified, a default value of 1 is used.
+#'          
+#'          The largest extreme value distribution with 
+#'          location parameter \eqn{\mu} and
+#'          scale \eqn{\sigma} has density
+#'          
+#'          \deqn{f(x;\mu,\sigma) = \frac{1}{\sigma}\phi_{_{LEV}}\left(\frac{x-\mu}{\sigma}\right),\quad -\infty < x < \infty }
+#'          
+#'          where \eqn{\phi_{_{LEV}}(z)} exp[-z - exp(-z)] is the density of the standard LEV distribution.
+#'          
+#' @return \code{dlev} gives the density, 
+#'         \code{plev} gives the distribution function, 
+#'         \code{qlev} gives the quantile function, and 
+#'         \code{rlev} generates random observations.
+#'         
+#'         The length of the result is determined by \code{n} 
+#'         for \code{rlev}, and is the maximum of the lengths 
+#'         of the numerical arguments for the other functions. 
+#'         
+#'         The numerical arguments other than \code{n} are 
+#'         recycled to the length of the result.   
+#'         
 #' @export
 #' @rdname lev
+#' @name Largest Extreme Value
 #' @param p Vector of probabilities
 #' @param x Vector of quantiles
 #' @param q Vector of quantiles
@@ -85,8 +139,33 @@ rcpp_hello_world <- function() {
 #' @description Density, distribution function, quantile function and 
 #'              random generation for the SEV distribution with location
 #'              \code{loc} and scale \code{scale}.
+#'              
+#' @details If \code{loc} is not specified, a default 
+#'          value of 0 is used. If \code{scale} is not 
+#'          specified, a default value of 1 is used.
+#'          
+#'          The smallest extreme value distribution with 
+#'          location parameter \eqn{\mu} and
+#'          scale \eqn{\sigma} has density
+#'          
+#'          \deqn{f(x;\mu,\sigma) = \frac{1}{\sigma}\phi_{_{SEV}}\left(\frac{x-\mu}{\sigma}\right),\quad -\infty < x < \infty }
+#'          
+#'          where \eqn{\phi_{_{SEV}}(z)} exp[z - exp(z)] is the density of the standard LEV distribution.
+#'          
+#' @return \code{dsev} gives the density, 
+#'         \code{psev} gives the distribution function, 
+#'         \code{qsev} gives the quantile function, and 
+#'         \code{rsev} generates random observations.
+#'         
+#'         The length of the result is determined by \code{n} 
+#'         for \code{rsev}, and is the maximum of the lengths 
+#'         of the numerical arguments for the other functions. 
+#'         
+#'         The numerical arguments other than \code{n} are 
+#'         recycled to the length of the result.   
 #' @export
 #' @rdname sev
+#' @name Smallest Extreme Value
 #' @param p Vector of probabilities
 #' @param x Vector of quantiles
 #' @param q Vector of quantiles
