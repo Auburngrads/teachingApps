@@ -507,14 +507,6 @@ ul.photo-grid {
 /*             CSS FOR WIDGETS           */
 /*                                       */
 
-.html-widget-output{
-  height: 550px !important;
-}
-
-.html-widget-output > svg{
-  height: 100%;
-  width: auto !important;
-}
 
 .CodeMirror {
   font-size: 20pt;
