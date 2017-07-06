@@ -4,12 +4,12 @@
 \alias{add_server}
 \title{Nest the server of a smaller app within the server of larger app}
 \usage{
-add_server(appName, envir = NULL, pkg = "teachingApps")
+add_server(app, env = NULL, pkg = "teachingApps")
 }
 \arguments{
-\item{appName}{The name of the "smaller" app from which the server will be pulled}
+\item{app}{The name of the "smaller" app from which the server will be pulled}
 
-\item{envir}{The environment in which the call is made typically \code{environment()}}
+\item{env}{The environment in which the call is made typically \code{environment()}}
 
 \item{pkg}{The package in which \code{appName} exists}
 }
@@ -56,5 +56,5 @@ output$details <- renderUI({ teachingApps::add_rmd('details.Rmd') })
 }
 }
 \seealso{
-\code{\link{add_ui} \link{add_rmd}}
+\code{\link{add_ui}},  \code{\link{add_rmd}}
 }

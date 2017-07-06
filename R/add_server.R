@@ -2,16 +2,16 @@
 #'
 #' @description Sources a \code{server.R} file before parsing and evaluating its contents in a specified environment
 #'
-#' @param appName The name of the "smaller" app from which the server will be pulled
+#' @param app The name of the "smaller" app from which the server will be pulled
 #' @param pkg The package in which \code{appName} exists
-#' @param envir The environment in which the call is made typically \code{environment()}
+#' @param env The environment in which the call is made typically \code{environment()}
 #'
 #' @details This function is only used within a \code{tabPanel} portion of a shiny app.  
 #' \code{add_server} may be used with apps stored in other packages.  However, apps are assumed 
 #' to be stored in the apps/ directory located at top level of the package.
 #'  
 #' @return An \code{Observer}-class object resulting from evaluating a \code{server.R} file
-#' @seealso \code{\link{add_ui} \link{add_rmd}}
+#' @seealso \code{\link{add_ui}},  \code{\link{add_rmd}}
 #' @examples \dontrun{
 #' 
 #' ## server.R from teachingApps::maximum_likelihood
@@ -42,11 +42,11 @@
 #' }
 #' }
 #' @export
-add_server <- function(appName, envir = NULL, pkg = 'teachingApps') {
+add_server <- function(app, env = NULL, pkg = 'teachingApps') {
   
-  file  <- system.file('apps', appName, 'server.R', package = pkg)
+  file  <- system.file('apps', app, 'server.R', package = pkg)
   serve <- source(file = file)
   texts <- parse(text = body(serve[[1]])[-1])
   
-  eval(texts, envir = envir)
+  eval(texts, envir = env)
 }
