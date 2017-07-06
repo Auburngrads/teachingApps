@@ -7,7 +7,7 @@
 #' 
 #' @importFrom rprojroot find_root is_r_package
 #' @details This function should not be called directly, but is invoked by
-#'          \code{add_shiny_opts} when an app is rendered.  
+#'          \code{add_optionss} when an app is rendered.  
 #'          
 #'          By default, the branding logo is the GitHub fontAwesome icon 
 #'          ('fa fa-github'). If \code{img} is specified, it takes precedence
@@ -20,8 +20,8 @@
 #'          where \code{app_pkg} is created dynamically. 
 #' 
 #' @return HTML code for inserting a logo (icon or image) in the footer of a navbarPage app
-#' @seealso code{link{add_shiny_opts}}
-#' @seealso code{link{add_logo}}
+#' @seealso \code{\link{add_options}}
+#' @seealso \code{\link{add_logo}}
 #' @export
 create_logo <- 
 function(app_dir, 
@@ -72,10 +72,10 @@ logo,
 #' 
 #' @return A fontAwesome icon or an image printed in the footer of a
 #'         navbarPage app 
-#' @seealso code{link{create_logo}}
+#' @seealso \code{\link{create_logo}}
 #' 
 #' @export
 add_logo <- function() 
 {
-   return(HTML(paste0('"',getShinyOption("logo"),'"')))
+   cat(paste0('"',getShinyOption("logo"),'"'))
 }

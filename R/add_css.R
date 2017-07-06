@@ -3,7 +3,7 @@
 #' @importFrom shiny getShinyOption tags
 #' 
 #' @return teachingApps style rules defined to an app
-#' @seealso code{link{add_theme}}
+#' @seealso \code{\link{add_theme}}
 #' @export
 add_css <- function()
 {

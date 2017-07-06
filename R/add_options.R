@@ -2,7 +2,7 @@
 #' 
 #' @description Provides a general method for passing arguments to shiny apps
 #'     allowing for dynamic customization.
-#'     
+#' 
 #' @importFrom shiny getShinyOption shinyOptions HTML
 #'
 #' @param opts A \code{list} of additional options or objects to pass to a shiny app
@@ -20,8 +20,8 @@
 #'     passed to a shiny app and can be deployed.
 #'   
 #' @return A list of shiny options set with \code{shinyOptions} 
-#' @seealso code{link{add_css}}
-#' @seealso code{link{add_logo}}
+#' @seealso \code{\link{add_css}}
+#' @seealso \code{\link{add_logo}}
 #' @export
 add_options <- 
 function(opts, 
