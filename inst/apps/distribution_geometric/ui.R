@@ -13,4 +13,4 @@ tabPanel('Distribution Functions',
          uiOutput('geofunc', class = 'ta-text')),
 
 tabPanel('Distribution Properties',
-         uiOutput('geoprops', class = 'ta-text'))))
+         uiOutput('geoprops', class = 'ta-text')))

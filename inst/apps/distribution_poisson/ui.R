@@ -13,4 +13,4 @@ tabPanel('Distribution Functions',
          uiOutput('poifunc', class = 'ta-text')),
 
 tabPanel('Distribution Properties',
-         uiOutput('poiprops', class = 'ta-text'))))
+         uiOutput('poiprops', class = 'ta-text')))

@@ -13,4 +13,4 @@ tabPanel('Distribution Functions',
          uiOutput('levfunc', class = 'ta-text')),
 
 tabPanel('Distribution Properties',
-         uiOutput('levprops', class = 'ta-text'))))
+         uiOutput('levprops', class = 'ta-text')))

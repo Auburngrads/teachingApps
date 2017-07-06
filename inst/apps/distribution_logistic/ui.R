@@ -13,4 +13,4 @@ tabPanel('Distribution Functions',
          uiOutput('logfunc', class = 'ta-text')),
 
 tabPanel('Distribution Properties',
-         uiOutput('logprops', class = 'ta-text'))))
+         uiOutput('logprops', class = 'ta-text')))

@@ -13,4 +13,4 @@ tabPanel('Distribution Functions',
          uiOutput('sevfunc', class = 'ta-text')),
 
 tabPanel('Distribution Properties',
-         uiOutput('sevprops', class = 'ta-text'))))
+         uiOutput('sevprops', class = 'ta-text')))

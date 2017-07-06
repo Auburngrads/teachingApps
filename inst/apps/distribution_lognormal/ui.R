@@ -13,4 +13,4 @@ tabPanel('Distribution Functions',
          uiOutput('lnorfunc', class = 'ta-text')),
 
 tabPanel('Distribution Properties',
-         uiOutput('lnorprops', class = 'ta-text'))))
+         uiOutput('lnorprops', class = 'ta-text')))

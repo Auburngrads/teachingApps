@@ -28,9 +28,15 @@ sidebarLayout(
 
 mainPanel(width = 9,
  tabsetPanel(type = 'pills',
-  tabPanel('Distribution Function'),  metricsgraphicsOutput("llogC")),
-  tabPanel('Density'),                metricsgraphicsOutput("llogP")),
-  tabPanel('Survival'),               metricsgraphicsOutput("llogR")),
-  tabPanel('Hazard'),                 metricsgraphicsOutput("llogh")),
-  tabPanel('Cumulative Hazard'),      metricsgraphicsOutput("llogH")),
-  tabPanel('Quantile'),               metricsgraphicsOutput("llogQ"))))))
+  tabPanel('Distribution Function',  
+           metricsgraphicsOutput(height = "550px","llogC")),
+  tabPanel('Density',
+           metricsgraphicsOutput(height = "550px", "llogP")),
+  tabPanel('Survival',
+           metricsgraphicsOutput(height = "550px", "llogR")),
+  tabPanel('Hazard',
+           metricsgraphicsOutput(height = "550px", "llogh")),
+  tabPanel('Cumulative Hazard',
+           metricsgraphicsOutput(height = "550px", "llogH")),
+  tabPanel('Quantile',
+           metricsgraphicsOutput(height = "550px", "llogQ"))))))

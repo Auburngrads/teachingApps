@@ -13,4 +13,4 @@ tabPanel('Distribution Functions',
          uiOutput('weibfunc', class = 'ta-text')),
 
 tabPanel('Distribution Properties',
-         uiOutput('weibprops', class = 'ta-text'))))
+         uiOutput('weibprops', class = 'ta-text')))
