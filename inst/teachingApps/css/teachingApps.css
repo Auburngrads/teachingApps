@@ -507,7 +507,14 @@ ul.photo-grid {
 /*             CSS FOR WIDGETS           */
 /*                                       */
 
+.html-widget-output{
+  height: 550px !important;
+}
 
+.html-widget-output > svg{
+  height: 100%;
+  width: auto !important;
+}
 
 .CodeMirror {
   font-size: 20pt;
@@ -534,7 +541,13 @@ plotlybox {
 }
 
 .shiny-plot-output{
-  height: 575px;
+  height: 550px !important;
+}
+
+.shiny-plot-output > img{
+  height: 100%;
+  object-fit: contain;
+  width: auto !important;
 }
 /*                                       */
 /*    BASIC STYLE RULES FOR THE TEXT     */
@@ -683,6 +696,7 @@ height: 450px;
 ul.nav.navbar-nav > li > a  {
   font-size: 1.5vw !important;
   font-weight: bold !important;
+  height: 60px !important;
 }
 
 label.control-label {
@@ -706,5 +720,9 @@ span.navbar-brand {
   font-size: 1.5vw !important; 
   font-weight: bold !important;
   display: inline !important;
+}
+
+navbar > ul > li > a > i {
+  font-size: 1em !important;
 }
 
