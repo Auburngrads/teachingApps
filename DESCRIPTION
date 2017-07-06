@@ -1,7 +1,7 @@
 Package: teachingApps
 Type: Package
-Title: Tools to Build, Nest, and Share Shiny Apps - Quickly and Easily
-Version: 0.9
+Title: Build, Nest, and Share Shiny Apps - Quickly and Easily
+Version: 1.0.1
 Date: 2017-06-27
 Authors@R: c(
     person("Jason", "Freels", email = "auburngrads@live.com", role = c("aut","cre")),
