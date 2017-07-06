@@ -1,6 +1,6 @@
 #' Render a teachingApp With Options
 #'
-#' @description Renders a teachingApp as a stand-alone app
+#' @description Renders a teachingApp as a stand-alone shiny app
 #'     or as an element within an rmarkdown document. 
 #'
 #' @importFrom shinythemes shinytheme
@@ -38,13 +38,13 @@
 #' @seealso code{link{add_logo}}
 #' @examples 
 #' \dontrun{
-#' teachingApps(app_name = 'distribution_goma', 
+#' teachingApps(app_name = 'distribution_weibull', 
 #'              theme = 'spacelab', 
-#'              height = '800px',
-#'              git_user = 'Auburngrads')
+#'              height = '800px')
 #' 
 #' teachingApps(app_name = 'maximum_likelihood_simulation',
-#'              git_user = 'Auburngrads')
+#'              theme = 'flatly',
+#'              height = '600px')
 #' }
 teachingApp <- 
 function(app_name = NULL, 
