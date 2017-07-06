@@ -1,5 +1,5 @@
-ui = fluidPage(theme = teachingApps::add_theme(getShinyOption("theme")), 
-               teachingApps::add_css(),
+ui = fluidPage(theme = add_theme(getShinyOption('theme')), 
+               add_css(),
 
 sidebarLayout(
   sidebarPanel(width = 3, 
@@ -28,9 +28,9 @@ sidebarLayout(
 
 mainPanel(width = 9,
  tabsetPanel(type = 'pills',
-  tabPanel('Distribution Function'),  metricsgraphicsOutput("llogC",height = "600px")),
-  tabPanel('Density'),                metricsgraphicsOutput("llogP",height = "600px")),
-  tabPanel('Survival'),               metricsgraphicsOutput("llogR",height = "600px")),
-  tabPanel('Hazard'),                 metricsgraphicsOutput("llogh",height = "600px")),
-  tabPanel('Cumulative Hazard'),      metricsgraphicsOutput("llogH",height = "600px")),
-  tabPanel('Quantile'),               metricsgraphicsOutput("llogQ",height = "600px"))))))
+  tabPanel('Distribution Function'),  metricsgraphicsOutput("llogC")),
+  tabPanel('Density'),                metricsgraphicsOutput("llogP")),
+  tabPanel('Survival'),               metricsgraphicsOutput("llogR")),
+  tabPanel('Hazard'),                 metricsgraphicsOutput("llogh")),
+  tabPanel('Cumulative Hazard'),      metricsgraphicsOutput("llogH")),
+  tabPanel('Quantile'),               metricsgraphicsOutput("llogQ"))))))

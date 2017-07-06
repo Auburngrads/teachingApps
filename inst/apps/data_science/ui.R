@@ -1,5 +1,5 @@
-ui = fluidPage(theme = teachingApps::add_theme(getShinyOption("theme")), 
-               teachingApps::add_css(),
+ui = fluidPage(theme = add_theme(getShinyOption('theme')), 
+               add_css(),
                
 mainPanel(width = 12,
    tabsetPanel(type = 'pills',

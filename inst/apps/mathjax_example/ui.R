@@ -1,7 +1,7 @@
 library(teachingApps)
 
-ui = fluidPage(theme = teachingApps::add_theme(getShinyOption("theme")), 
-               teachingApps::add_css(),
+ui = fluidPage(theme = add_theme(getShinyOption('theme')), 
+               add_css(),
 
   title = 'MathJax Examples',
   withMathJax(),

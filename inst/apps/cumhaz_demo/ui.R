@@ -1,16 +1,16 @@
 ui = navbarPage(title = 'Cumulative Hazard Function',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme  = teachingApps::add_theme(getShinyOption('theme')),
-                header = teachingApps::add_css(),
-                footer = teachingApps::add_logo(),
+                theme  = add_theme(getShinyOption('theme')),
+                header = add_css(),
+                footer = add_logo(),
 
                   
 tabPanel('Properties',
-         mainPanel(uiOutput('HAZdemo', class = 'ta-text'), width = 12)),
+         uiOutput('HAZdemo', class = 'ta-text')),
 
 tabPanel('Computing Values in R',
-         mainPanel(uiOutput('HAZr', class = 'ta-text'), width = 12)),
+         uiOutput('HAZr', class = 'ta-text')),
 
 tabPanel('Shiny App',                 
    sidebarLayout( 

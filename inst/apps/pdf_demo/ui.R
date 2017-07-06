@@ -1,16 +1,16 @@
 ui = navbarPage(title = 'Density Function',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme  = teachingApps::add_theme(getShinyOption('theme')),
-                header = teachingApps::add_css(),
-                footer = teachingApps::add_logo(),
+                theme  = add_theme(getShinyOption('theme')),
+                header = add_css(),
+                footer = add_logo(),
 
                 
 tabPanel('Properties',
-         mainPanel(uiOutput('pdfdemo', class = 'ta-text'), width = 12)),
+         uiOutput('pdfdemo', class = 'ta-text')),
 
 tabPanel('Computing Values in R',
-         mainPanel(uiOutput('pdfr', class = 'ta-text'), width = 12)),
+         uiOutput('pdfr', class = 'ta-text')),
                     
 tabPanel('Shiny App',
   sidebarLayout(

@@ -1,5 +1,5 @@
-ui = fluidPage(theme = teachingApps::add_theme(getShinyOption("theme")), 
-               teachingApps::add_css(),
+ui = fluidPage(theme = add_theme(getShinyOption('theme')), 
+               add_css(),
                
 sidebarLayout(
   sidebarPanel(width = 3, 
@@ -22,14 +22,14 @@ sliderInput("lamb.pois",
 mainPanel(width = 9, 
           tabsetPanel(type = "pills", 
           tabPanel("Distribution Function", 
-                   metricsgraphicsOutput("poisC", height = "600px")), 
+                   metricsgraphicsOutput("poisC")), 
           tabPanel("Mass",
-                   metricsgraphicsOutput("poisP", height = "600px")), 
+                   metricsgraphicsOutput("poisP")), 
           tabPanel("Survival", 
-                   metricsgraphicsOutput("poisR", height = "600px")), 
+                   metricsgraphicsOutput("poisR")), 
           tabPanel("Hazard", 
-                   metricsgraphicsOutput("poish", height = "600px")), 
+                   metricsgraphicsOutput("poish")), 
           tabPanel("Cumulative Hazard", 
-                   metricsgraphicsOutput("poisH", height = "600px")),
+                   metricsgraphicsOutput("poisH")),
           tabPanel("Quantile", 
-                   metricsgraphicsOutput("poisQ", height = "600px"))))))
+                   metricsgraphicsOutput("poisQ"))))))

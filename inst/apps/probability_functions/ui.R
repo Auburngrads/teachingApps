@@ -1,18 +1,18 @@
 ui = navbarPage(title = 'Probability Functions',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme  = teachingApps::add_theme(getShinyOption('theme')),
-                header = teachingApps::add_css(),
-                footer = teachingApps::add_logo(),
+                theme  = add_theme(getShinyOption('theme')),
+                header = add_css(),
+                footer = add_logo(),
 
 
 tabPanel('Overview',
-         mainPanel(uiOutput('overview'), 
+         uiOutput('overview'), 
                    class = 'ta-text', 
                    width = 12)),
 
 tabPanel('Relationship Table',
-         mainPanel(uiOutput('functable'), 
+         uiOutput('functable'), 
                    class = 'ta-text', 
                    width = 12)),
                 
@@ -22,12 +22,12 @@ tabPanel('Cumulative Distribution Function',
 tabsetPanel(type = 'pills',
                                 
   tabPanel('Properties of the CDF',
-           mainPanel(uiOutput('cdfdemo'), 
+           uiOutput('cdfdemo'), 
                      class = 'ta-text', 
                      width = 12)),
 
   tabPanel('Computing CDF Values in R',
-           mainPanel(uiOutput('cdfr'), 
+           uiOutput('cdfr'), 
                      class = 'ta-text', 
                      width = 12)),
                                 
@@ -64,12 +64,12 @@ tabPanel('Probability Density Function',
         tabsetPanel(type = 'pills',
 
   tabPanel('Properties',
-           mainPanel(uiOutput('pdfdemo'), 
+           uiOutput('pdfdemo'), 
                      class = 'ta-text', 
                      width = 12)),
 
   tabPanel('Computing Values in R',
-           mainPanel(uiOutput('pdfr'), 
+           uiOutput('pdfr'), 
                      class = 'ta-text', 
                      width = 12)),
                     

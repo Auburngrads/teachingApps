@@ -1,9 +1,9 @@
 ui = navbarPage(title = 'Offbase Libraries',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme  = teachingApps::add_theme(getShinyOption('theme')),
-                header = teachingApps::add_css(),
-                footer = teachingApps::add_logo(),
+                theme  = add_theme(getShinyOption('theme')),
+                header = add_css(),
+                footer = add_logo(),
 
 
 tabPanel('Off-Base Libraries',
@@ -24,4 +24,4 @@ tabPanel('Off-Base Libraries',
 
 tabPanel('About This Tool'),
          
-         mainPanel(uiOutput('aboutlib', height = '600px'), width = 12)))
+         uiOutput('aboutlib', height = '600px'), width = 12)))

@@ -1,18 +1,17 @@
 ui = navbarPage(title = 'Distribution Function',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme  = teachingApps::add_theme(getShinyOption('theme')),
-                header = teachingApps::add_css(),
-                footer = teachingApps::add_logo(),
-
+                theme  = add_theme(getShinyOption('theme')),
+                header = add_css(),
+                footer = add_logo(),
 
 tabPanel('Properties',
-         mainPanel(uiOutput('cdfdemo', class = 'ta-text'), width = 12)),
+         uiOutput('cdfdemo', class = 'ta-text')),
 
 tabPanel('Computing Values in R',
-         mainPanel(uiOutput('cdfr', class = 'ta-text'), width = 12)),
+         uiOutput('cdfr', class = 'ta-text')),
                                 
- tabPanel('Shiny App',
+tabPanel('Shiny App',
   sidebarLayout( 
     sidebarPanel(width = 5,
       shinyAce::aceEditor(fontSize = 16, 
@@ -20,7 +19,6 @@ tabPanel('Computing Values in R',
                           outputId = "cdfplot", 
                           mode = "r", 
                           theme = "github", 
-                          height = "450px", 
                           value = 
 "par(family = 'serif',mar = c(4,6,2,1))
 
@@ -37,6 +35,6 @@ cex.lab = 1.5,
 cex.axis = 1.5,
 las = 1)"),
 
-        actionButton("evalcdf", "Evaluate")),
+      actionButton("evalcdf", "Evaluate")),
         
-        mainPanel(plotOutput("plotcdf", height = "600px"), width = 7))))
+    mainPanel(plotOutput("plotcdf"), width = 7))))

@@ -1,13 +1,13 @@
 ui = navbarPage(title = 'Log-Location-Scale Family',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme  = teachingApps::add_theme(getShinyOption('theme')),
-                header = teachingApps::add_css(),
-                footer = teachingApps::add_logo(),
+                theme  = add_theme(getShinyOption('theme')),
+                header = add_css(),
+                footer = add_logo(),
 
 
 tabPanel('Overview',
-         mainPanel(uiOutput('overview'), 
+         uiOutput('overview'), 
          class = 'ta-text', 
          width = 12)),
 ##########################
@@ -15,12 +15,12 @@ tabPanel('Lognormal',
 ##########################
 fluidRow(
   column(width = 12,
-     mainPanel(uiOutput('lnorfunc'),
+     uiOutput('lnorfunc'),
                class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12,
-     mainPanel(uiOutput('lnorprops'),
+     uiOutput('lnorprops'),
                class = 'ta-text', width = '100%'))),
 
 fluidRow(
@@ -72,12 +72,12 @@ tabPanel('Weibull',
 ##########################
 fluidRow(
   column(width = 12,
-     mainPanel(uiOutput('weibfunc'),
+     uiOutput('weibfunc'),
                class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12,
-     mainPanel(uiOutput('weibprops'),
+     uiOutput('weibprops'),
                class = 'ta-text', width = '100%'))),
 
 fluidRow(
@@ -129,12 +129,12 @@ tabPanel('Loglogistic',
 ##########################
 fluidRow(
   column(width = 12,
-     mainPanel(uiOutput('llogisfunc'),
+     uiOutput('llogisfunc'),
                class = 'ta-text', width = '100%'))),
 
 fluidRow(
   column(width = 12,
-     mainPanel(uiOutput('llogisprops'),
+     uiOutput('llogisprops'),
                class = 'ta-text', width = '100%'))),
 
 fluidRow(

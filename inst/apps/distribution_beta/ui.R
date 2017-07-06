@@ -1,16 +1,16 @@
 ui = navbarPage(title = 'Beta Distribution',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme  = teachingApps::add_theme(getShinyOption('theme')),
-                header = teachingApps::add_css(),
-                footer = teachingApps::add_logo(),
+                theme  = add_theme(getShinyOption('theme')),
+                header = add_css(),
+                footer = add_logo(),
 
                 
 tabPanel('Shiny App',
-      fluidRow(teachingApps::add_ui('distribution_beta_functions'))),
+      teachingApps::add_ui('distribution_beta_functions')),
 
 tabPanel('Distribution Functions',
-      fluidRow(uiOutput('betafunc', class = 'ta-text'))),
+         uiOutput('betafunc', class = 'ta-text')),
 
 tabPanel('Distribution Properties',
-      fluidRow(uiOutput('betaprops', class = 'ta-text'))))
+         uiOutput('betaprops', class = 'ta-text'))))

@@ -1,16 +1,16 @@
 ui = navbarPage(title = 'Quantile Function',
                 collapsible = T, 
                 position = 'fixed-top',
-                theme  = teachingApps::add_theme(getShinyOption('theme')),
-                header = teachingApps::add_css(),
-                footer = teachingApps::add_logo(),
+                theme  = add_theme(getShinyOption('theme')),
+                header = add_css(),
+                footer = add_logo(),
 
 
 tabPanel('Properties',
-         mainPanel(uiOutput('quandemo', class = 'ta-text'), width = 12)),
+         uiOutput('quandemo', class = 'ta-text')),
 
 tabPanel('Computing Values in R',
-         mainPanel(uiOutput('quanr', class = 'ta-text'), width = 12)),
+         uiOutput('quanr', class = 'ta-text')),
                 
 navbarMenu('Plots', icon = icon('bar-chart-o'),                
                 
