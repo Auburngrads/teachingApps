@@ -36,7 +36,7 @@ Shiny apps are not functions. Thus, customization options cannot be
     passed to a shiny app and can be deployed.
 }
 \seealso{
-code{link{add_css}}
+\code{\link{add_css}}
 
-code{link{add_logo}}
+\code{\link{add_logo}}
 }

@@ -23,7 +23,7 @@ Create a branding logo for a teachingApp
 }
 \details{
 This function should not be called directly, but is invoked by
-         \code{add_shiny_opts} when an app is rendered.  
+         \code{add_optionss} when an app is rendered.  
          
          By default, the branding logo is the GitHub fontAwesome icon 
          ('fa fa-github'). If \code{img} is specified, it takes precedence
@@ -36,7 +36,7 @@ This function should not be called directly, but is invoked by
          where \code{app_pkg} is created dynamically.
 }
 \seealso{
-code{link{add_shiny_opts}}
+\code{\link{add_options}}
 
-code{link{add_logo}}
+\code{\link{add_logo}}
 }

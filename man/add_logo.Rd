@@ -14,5 +14,5 @@ A fontAwesome icon or an image printed in the footer of a
 Adds a logo to the footer of a navbarPage app
 }
 \seealso{
-code{link{create_logo}}
+\code{\link{create_logo}}
 }
