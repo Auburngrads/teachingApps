@@ -1,8 +1,8 @@
 server = function(input, output, session) {
   
-teachingApps::add_server('distribution_lognormal_functions', envir = environment())  
+     add_server('distribution_lognormal_functions', env = environment())  
 
-output$lnorfunc  <- renderUI({ teachingApps::add_rmd('lnor-func.Rmd') })
+output$lnorfunc  <- renderUI({ add_rmd('lnor-func.Rmd') })
 
-output$lnorprops <- renderUI({ teachingApps::add_rmd('lnor-props.Rmd') }) 
+output$lnorprops <- renderUI({ add_rmd('lnor-props.Rmd') }) 
 }

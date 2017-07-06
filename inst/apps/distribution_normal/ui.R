@@ -7,7 +7,7 @@ ui = navbarPage(title = 'Normal Distribution',
 
                 
 tabPanel('Shiny App',
-      teachingApps::add_ui('distribution_normal_functions')),
+      add_ui('distribution_normal_functions')),
 
 tabPanel('Distribution Functions',
          uiOutput('norfunc', class = 'ta-text')),

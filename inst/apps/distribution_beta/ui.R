@@ -7,10 +7,10 @@ ui = navbarPage(title = 'Beta Distribution',
 
                 
 tabPanel('Shiny App',
-      teachingApps::add_ui('distribution_beta_functions')),
+      add_ui('distribution_beta_functions')),
 
 tabPanel('Distribution Functions',
          uiOutput('betafunc', class = 'ta-text')),
 
 tabPanel('Distribution Properties',
-         uiOutput('betaprops', class = 'ta-text'))))
+         uiOutput('betaprops', class = 'ta-text')))

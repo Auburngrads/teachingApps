@@ -7,7 +7,7 @@ ui = navbarPage(title = 'Lognormal Distribution',
 
                 
 tabPanel('Shiny App',
-      teachingApps::add_ui('distribution_lognormal_functions')),
+      add_ui('distribution_lognormal_functions')),
 
 tabPanel('Distribution Functions',
          uiOutput('lnorfunc', class = 'ta-text')),

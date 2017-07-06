@@ -1,8 +1,8 @@
 server = function(input, output, session) {
   
-teachingApps::add_server('distribution_beta_functions', envir = environment()) 
+     add_server('distribution_beta_functions', env = environment()) 
   
-output$geofunc  <- renderUI({ teachingApps::add_rmd('geo-func.Rmd') })
+output$geofunc  <- renderUI({ add_rmd('geo-func.Rmd') })
 
-output$geoprops <- renderUI({ teachingApps::add_rmd('geo-props.Rmd') }) 
+output$geoprops <- renderUI({ add_rmd('geo-props.Rmd') }) 
 }

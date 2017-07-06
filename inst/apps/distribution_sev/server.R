@@ -1,8 +1,8 @@
 server = function(input, output, session) {
 
-teachingApps::add_server('distribution_sev_functions', envir = environment())  
+     add_server('distribution_sev_functions', env = environment())  
   
-output$sevfunc <- renderUI({ teachingApps::add_rmd('sev-func.Rmd') })
+output$sevfunc <- renderUI({ add_rmd('sev-func.Rmd') })
 
-output$sevprops <- renderUI({ teachingApps::add_rmd('sev-props.Rmd') }) 
+output$sevprops <- renderUI({ add_rmd('sev-props.Rmd') }) 
 }

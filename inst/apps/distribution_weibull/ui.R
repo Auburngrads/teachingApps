@@ -7,7 +7,7 @@ ui = navbarPage(title = 'Weibull Distribution',
 
                 
 tabPanel('Shiny App',
-      teachingApps::add_ui('distribution_weibull_functions')),
+      add_ui('distribution_weibull_functions')),
 
 tabPanel('Distribution Functions',
          uiOutput('weibfunc', class = 'ta-text')),

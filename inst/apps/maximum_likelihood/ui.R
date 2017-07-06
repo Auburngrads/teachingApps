@@ -10,21 +10,21 @@ tabPanel('Background',
 
 tabPanel('Simple Example',  
          uiOutput('example1_1', class = 'ta-text'),
-           teachingApps::add_ui('maximum_likelihood_1obs'),
+           add_ui('maximum_likelihood_1obs'),
          uiOutput('example1_2', class = 'ta-text'),
-           teachingApps::add_ui('maximum_likelihood_2obs'),
+           add_ui('maximum_likelihood_2obs'),
          uiOutput('example1_3', class = 'ta-text')),
 
 tabPanel('Silly Example',
          uiOutput('example2_1', class = 'ta-text'),
-           teachingApps::add_ui('maximum_likelihood_graphical_exp'),
+           add_ui('maximum_likelihood_graphical_exp'),
          uiOutput('example2_2', class = 'ta-text'),
-           teachingApps::add_ui('maximum_likelihood_numerical_exp'),
+           add_ui('maximum_likelihood_numerical_exp'),
          uiOutput('example2_3', class = 'ta-text'),
-           teachingApps::add_ui('maximum_likelihood_numerical_other')),
+           add_ui('maximum_likelihood_numerical_other')),
 
 tabPanel("A Simulation",
-           teachingApps::add_ui('maximum_likelihood_simulation')),
+           add_ui('maximum_likelihood_simulation')),
 
 tabPanel('Details',
          uiOutput('details', class = 'ta-text')))

@@ -7,7 +7,7 @@ ui = navbarPage(title = 'Smallest Extreme Value Distribution',
 
                 
 tabPanel('Shiny App',
-      teachingApps::add_ui('distribution_sev_functions')),
+      add_ui('distribution_sev_functions')),
 
 tabPanel('Distribution Functions',
          uiOutput('sevfunc', class = 'ta-text')),

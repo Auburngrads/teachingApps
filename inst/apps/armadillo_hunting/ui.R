@@ -10,7 +10,7 @@ tabPanel('Overview',
          uiOutput("armadillo_overview", 
                            class = 'ta-text')),
 tabPanel('Planning Tool',
-      fluidRow(teachingApps::add_ui('acceptance_testing_mtbf'))),
+      fluidRow(add_ui('acceptance_testing_mtbf'))),
 
 tabPanel('How To Use The Tool',
          uiOutput("howtomtbf", 

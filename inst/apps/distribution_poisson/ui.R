@@ -7,7 +7,7 @@ ui = navbarPage(title = 'Poisson Distribution',
 
                 
 tabPanel('Shiny App',
-      teachingApps::add_ui('distribution_poisson_functions')),
+      add_ui('distribution_poisson_functions')),
 
 tabPanel('Distribution Functions',
          uiOutput('poifunc', class = 'ta-text')),

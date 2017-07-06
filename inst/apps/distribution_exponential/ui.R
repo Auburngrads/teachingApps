@@ -7,7 +7,7 @@ ui = navbarPage(title = 'Exponential Distribution',
 
 
 tabPanel('Shiny App',
-         teachingApps::add_ui('distribution_exponential_functions')),
+         add_ui('distribution_exponential_functions')),
 
 tabPanel('Distribution Functions',
          uiOutput('expfunc', class = 'ta-text')),

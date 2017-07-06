@@ -7,7 +7,7 @@ ui = navbarPage(title = 'Logistic Distribution',
 
                 
 tabPanel('Shiny App',
-      teachingApps::add_ui('distribution_logistic_functions')),
+      add_ui('distribution_logistic_functions')),
 
 tabPanel('Distribution Functions',
          uiOutput('logfunc', class = 'ta-text')),

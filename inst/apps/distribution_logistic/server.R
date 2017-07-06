@@ -1,8 +1,8 @@
 server = function(input, output, session) {
   
-teachingApps::add_server('distribution_logistic_functions', envir = environment())
+     add_server('distribution_logistic_functions', env = environment())
   
-output$logfunc  <- renderUI({ teachingApps::add_rmd('log-func.Rmd') })
+output$logfunc  <- renderUI({ add_rmd('log-func.Rmd') })
 
-output$logprops <- renderUI({ teachingApps::add_rmd('log-props.Rmd') }) 
+output$logprops <- renderUI({ add_rmd('log-props.Rmd') }) 
 }

@@ -6,7 +6,7 @@ ui = navbarPage(title = 'MTBF Acceptance Test',
                 footer = add_logo(),
 
 tabPanel('Planning Tool',
-      fluidRow(teachingApps::add_ui('acceptance_testing_mtbf'))),
+      fluidRow(add_ui('acceptance_testing_mtbf'))),
 
 tabPanel('How To Use The Tool',
          uiOutput("howtomtbf", 

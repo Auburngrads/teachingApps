@@ -7,7 +7,7 @@ ui = navbarPage(title = 'Geometric Distribution',
 
                 
 tabPanel('Shiny App',
-      teachingApps::add_ui('distribution_geometric_functions')),
+      add_ui('distribution_geometric_functions')),
 
 tabPanel('Distribution Functions',
          uiOutput('geofunc', class = 'ta-text')),
