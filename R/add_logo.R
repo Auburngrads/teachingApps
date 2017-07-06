@@ -24,7 +24,7 @@
 #' @seealso \code{\link{add_logo}}
 #' @export
 create_logo <- 
-function(app_dir, 
+function(app_dir = NULL, 
          git_user = NULL, 
          icon = NULL, 
          img = NULL) {
@@ -66,7 +66,7 @@ logo,
 
 
 
-#' Adds a logo to the footer of a navbarPage app 
+#' Adds a branding logo to the footer of a navbarPage app 
 #'
 #' @importFrom shiny includeCSS getShinyOption tags HTML
 #' 
@@ -75,7 +75,19 @@ logo,
 #' @seealso \code{\link{create_logo}}
 #' 
 #' @export
-add_logo <- function() 
+add_logo <- 
+  function(app_dir = getShinyOption('appDir'), 
+           git_user = getShinyOption('gitUser'), 
+           icon = getShinyOption('icon'), 
+           img = getShinyOption('img')) 
 {
-   cat(paste0('"',getShinyOption("logo"),'"'))
+    
+    shiny::addResourcePath("teachingApps", 
+                       system.file("teachingApps", package = "teachingApps"))  
+
+   HTML(create_logo(app_dir = app_dir,
+               git_user = git_user,
+               icon = icon,
+               img = img))
+    
 }

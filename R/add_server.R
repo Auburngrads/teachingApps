@@ -1,45 +1,47 @@
-#' Nest the server of a smaller app within the server of larger app
+#' Add the server of one app to the server of another app
 #'
 #' @description Sources a \code{server.R} file before parsing and evaluating its contents in a specified environment
 #'
-#' @param app The name of the "smaller" app from which the server will be pulled
-#' @param pkg The package in which \code{appName} exists
+#' @param app The name of the app from which the content of the \code{server.R} will be pulled
+#' @param pkg The package in which \code{app} exists (defaults to \code{teachingApps})
 #' @param env The environment in which the call is made typically \code{environment()}
 #'
-#' @details This function is only used within a \code{tabPanel} portion of a shiny app.  
-#' \code{add_server} may be used with apps stored in other packages.  However, apps are assumed 
-#' to be stored in the apps/ directory located at top level of the package.
+#' @details Currently, this function can be used to insert an \code{server} into
+#'          a \code{navbarPage} app.  The types of apps that can be inserted are:
+#'          
+#'          - \code{fluidPage}
+#'          - \code{bootstrapPage}
+#'          - \code{pageWithSidebar}
+#'          - \code{basicPage}
+#'          - \code{fixedPage} 
+#'          
+#'          A \code{server} can be added as an entire \code{tabPanel} or as a row within 
+#'          within a \code{tabPanel} portion of a shiny app. 
+#'          
+#'          May be used with apps stored in packages other than teachingApps.  
+#'          However, apps are assumed be stored in the apps/ directory located 
+#'          at top level of the package.
 #'  
 #' @return An \code{Observer}-class object resulting from evaluating a \code{server.R} file
 #' @seealso \code{\link{add_ui}},  \code{\link{add_rmd}}
 #' @examples \dontrun{
 #' 
-#' ## server.R from teachingApps::maximum_likelihood
+#' ## server.R from app: 'maximum_likelihood'
 #' 
-#' server = function(input, output, session) {
-#'
-#' output$mleback1 <- renderUI({ teachingApps::add_rmd('background1.Rmd') })
+#' server_ml <- system.file('apps', 
+#'                          'maximum_likelihood',
+#'                          'server.R',
+#'                          package = 'teachingApps') 
+#' browseURL(server_ml)
 #' 
-#' output$example1_1 <- renderUI({ teachingApps::add_rmd('example1_1.Rmd') })
-#'   teachingApps::add_server('likelihood_ace', envir = environment())
-#' output$example1_2 <- renderUI({ teachingApps::add_rmd('example1_2.Rmd') })
-#'   teachingApps::add_server('likelihood_ace2', envir = environment())
-#' output$example1_3 <- renderUI({ teachingApps::add_rmd('example1_3.Rmd') })
+#' ## server.R from app: 'distribution_weibull'
 #' 
+#' server_dw <- system.file('apps', 
+#'                          'distribution_weibull',
+#'                          'server.R',
+#'                          package = 'teachingApps') 
+#' browseURL(server_dw)
 #' 
-#' output$example2_1 <- renderUI({ teachingApps::add_rmd('example2_1.Rmd') })
-#'   teachingApps::add_server('exp_mle', envir = environment())
-#' output$example2_2 <- renderUI({ teachingApps::add_rmd('example2_2.Rmd') })
-#'   teachingApps::add_server('exp_numerical', envir = environment())
-#' output$example2_3 <- renderUI({ teachingApps::add_rmd('example2_3.Rmd') })
-#'   teachingApps::add_server('soln_numerical2', envir = environment())
-#' 
-#'   
-#' teachingApps:::add_server('likelihood_simulation', envir = environment())
-#' 
-#' 
-#' output$details <- renderUI({ teachingApps::add_rmd('details.Rmd') })
-#' }
 #' }
 #' @export
 add_server <- function(app, env = NULL, pkg = 'teachingApps') {

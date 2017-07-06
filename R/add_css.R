@@ -1,7 +1,8 @@
-#' Add CSS style rules to an teachingApp 
+#' Add teachingApps CSS style rules to an app 
 #'
 #' @importFrom shiny getShinyOption tags
-#' 
+#' @details This function should not be called directly but must be 
+#'          be included within the body of an app's \code{ui} 
 #' @return teachingApps style rules defined to an app
 #' @seealso \code{\link{add_theme}}
 #' @export

@@ -43,13 +43,7 @@ aso <- lapply(X = 1:length(opts),
                                        ')'))))
        })
 }
-    if(is.null(icon)) icon = 'fa fa-github'
-         
-    logo <- HTML(teachingApps::create_logo(dir, 
-                                           icon = icon, 
-                                           img = img,
-                                           git_user = git_user))
-    
+
      CSS <- system.file('teachingApps','css','teachingApps.css', package = 'teachingApps')
      
     options('markdown.HTML.stylesheet' = CSS)
@@ -57,6 +51,7 @@ aso <- lapply(X = 1:length(opts),
     shiny::shinyOptions('theme'   = theme)
     shiny::shinyOptions('appDir'  = dir)
     shiny::shinyOptions('appName' = basename(dir))
-    shiny::shinyOptions('CSS'     = CSS)
-    shiny::shinyOptions('logo'    = logo)
+    shiny::shinyOptions('icon'    = icon)
+    shiny::shinyOptions('img'     = img)
+    shiny::shinyOptions('gitUser' = git_user)
 } 

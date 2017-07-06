@@ -1,4 +1,4 @@
-#' Nests an rmarkdown file within an app
+#' Add an rmarkdown file to an app
 #' 
 #' @description Run inline and stand-alone code chunks and include results
 #' as part of a shiny app. Include \code{LaTeX}-typeset equations with MathJax
@@ -7,11 +7,14 @@
 #' @importFrom knitr knit
 #' @importFrom markdown markdownToHTML 
 #' 
-#' @param rmd An rmarkdown file saved in the app directory
+#' @param rmd \code{character} Name of an rmarkdown file saved in the app directory
 #' 
 #' @seealso \code{\link{add_server} \link{add_ui}}
 #' 
-#' @examples \dontrun{# see examples in add_server and add_ui documentation}
+#' @examples 
+#' \dontrun{
+#' # see examples in add_server and add_ui documentation
+#' }
 #' @export
 add_rmd <- function(rmd) {
   

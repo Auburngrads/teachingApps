@@ -1,63 +1,56 @@
-#' Nests the UI of smaller app within the UI of a larger app
+#' Add the UI of one app within the UI of another app
 #' 
 #' @description Sources a \code{ui.R} file before parsing and evaluating its contents in a specified environment
 #' 
-#' @param appName The name of "smaller" app from which the UI will be pulled
-#' @param pkg The package in which \code{appName} exists
-#' 
-#' @details This function should only be used within a \code{tabPanel} portion of a shiny app.  
-#' \code{add_Server} may be used with apps stored in other packages.  However, apps are assumed 
-#' to be stored in the apps/ directory located at top level of the package.
-#' 
-#' @seealso \code{\link{add_server} \link{add_rmd}} 
+#' @param app The name of the app from which the content of the \code{server.R} will be pulled
+#' @param pkg The package in which \code{app} exists (defaults to \code{teachingApps})
+#'
+#' @details Currently, this function can be used to insert an \code{server} into
+#'          a \code{navbarPage} app.  The types of apps that can be inserted are:
+#'          
+#'          - \code{fluidPage}
+#'          - \code{bootstrapPage}
+#'          - \code{pageWithSidebar}
+#'          - \code{basicPage}
+#'          - \code{fixedPage} 
+#'          
+#'          A \code{server} can be added as an entire \code{tabPanel} or as a row within 
+#'          within a \code{tabPanel} portion of a shiny app. 
+#'          
+#'          May be used with apps stored in packages other than teachingApps.  
+#'          However, apps are assumed be stored in the apps/ directory located 
+#'          at top level of the package.
+#'  
+#' @seealso \code{\link{add_server}} \code{\link{add_rmd}} 
 #' @return A list of length 2
 #' \item{head}{A sub list containing the HTML content within the \code{<head>} tag}
 #' \item{body}{A sub list containing the HTML content within the \code{<body>} tag}
 #'
 #' @examples \dontrun{
 #' 
-#' ## ui.R from teachingApps::maximum_likelihood
+#' @examples \dontrun{
 #' 
-#' library(teachingApps)
-#' library('scales')
-#' library(knitr)
-#'          
-#' ui = navbarPage(title = 'Maximum Likelihood',
-#'                 collapsible = T, 
-#'                 position = 'fixed-top',
-#'                 theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
-#'                 header = tags$head(includeCSS(getShinyOption("css"))),
-#'                 footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
+#' ## ui.R from app: 'maximum_likelihood'
 #' 
-#' tabPanel(h4('Background'),
-#'          fluidRow(uiOutput('mleback1'), class = 'shiny-text-output')),
+#' ui_ml <- system.file('apps', 
+#'                      'maximum_likelihood',
+#'                      'server.R',
+#'                      package = 'teachingApps') 
+#' browseURL(ui_ml)
 #' 
-#' tabPanel(h4('Simple Example'),  
-#'          fluidRow(uiOutput('example1_1'), class = 'shiny-text-output'),
-#'          fluidRow(teachingApps::add_ui('likelihood_ace')),
-#'          fluidRow(uiOutput('example1_2'), class = 'shiny-text-output'),
-#'          fluidRow(teachingApps::add_ui('likelihood_ace2')),
-#'          fluidRow(uiOutput('example1_3'), class = 'shiny-text-output')),
+#' ## ui.R from app: 'distribution_weibull'
 #' 
-#' tabPanel(h4('Silly Example'),
-#'          fluidRow(uiOutput('example2_1'), class = 'shiny-text-output'),
-#'          fluidRow(teachingApps::add_ui('exp_mle')),
-#'          fluidRow(uiOutput('example2_2'), class = 'shiny-text-output'),
-#'          fluidRow(teachingApps::add_ui('exp_numerical')),
-#'          fluidRow(uiOutput('example2_3'), class = 'shiny-text-output'),
-#'          fluidRow(teachingApps::add_ui('soln_numerical2'))),
-#' 
-#' tabPanel(h4("A Simulation"),
-#'          fluidRow(teachingApps:::add_ui('likelihood_simulation'))),
-#' 
-#' tabPanel(h4('Details'),
-#'          fluidRow(uiOutput('details'), class = 'shiny-text-output')))
+#' ui_dw <- system.file('apps', 
+#'                      'distribution_weibull',
+#'                      'server.R',
+#'                      package = 'teachingApps') 
+#' browseURL(ui_dw)
 #' 
 #' }
 #' @export
-add_ui <- function(appName, pkg = 'teachingApps') {
+add_ui <- function(app, pkg = 'teachingApps') {
   
-  file  <- system.file('apps', appName, 'ui.R', package = pkg)
+  file  <- system.file('apps', app, 'ui.R', package = pkg)
   serve <- source(file = file)
   
   return(serve[[1]])
