@@ -31,7 +31,7 @@ teachingApp(app_name = NULL, theme = "flatly", width = "100\%",
 A printed shiny app
 }
 \description{
-Renders a teachingApp as a stand-alone app
+Renders a teachingApp as a stand-alone shiny app
     or as an element within an rmarkdown document.
 }
 \details{
@@ -42,13 +42,13 @@ The \code{teachingApps} package provides an infrastructure
 }
 \examples{
 \dontrun{
-teachingApps(app_name = 'distribution_goma', 
+teachingApps(app_name = 'distribution_weibull', 
              theme = 'spacelab', 
-             height = '800px',
-             git_user = 'Auburngrads')
+             height = '800px')
 
 teachingApps(app_name = 'maximum_likelihood_simulation',
-             git_user = 'Auburngrads')
+             theme = 'flatly',
+             height = '600px')
 }
 }
 \seealso{

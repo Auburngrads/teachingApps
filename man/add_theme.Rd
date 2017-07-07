@@ -7,8 +7,16 @@
 add_theme(theme = NULL)
 }
 \arguments{
-\item{theme}{\code{character} A bootstrap theme provided by shinythemes::shinytheme}
+\item{theme}{\code{character} A bootswatch theme name (see details)}
 }
 \description{
 Add a bootswatch color theme to an app
+}
+\details{
+This function should not be called directly but is invoked when an 
+         app is rendered.
+         
+         Themes are provided by calling \code{shinythemes::shinytheme}, 
+         therefore available theme names are those provided by the 
+         \code{shinythemes} package.  By default, \code{theme = 'flatly'}
 }

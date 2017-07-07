@@ -2,16 +2,27 @@
 % Please edit documentation in R/add_logo.R
 \name{add_logo}
 \alias{add_logo}
-\title{Adds a logo to the footer of a navbarPage app}
+\title{Adds a branding logo to the footer of a navbarPage app}
 \usage{
-add_logo()
+add_logo(app_dir = getShinyOption("appDir"),
+  git_user = getShinyOption("gitUser"), icon = getShinyOption("icon"),
+  img = getShinyOption("img"))
+}
+\arguments{
+\item{app_dir}{\code{character} Directory in which the app files are located}
+
+\item{git_user}{\code{character} GitHub account username (see details)}
+
+\item{icon}{\code{character} Name of a fontAwesome icon printed in the app footer}
+
+\item{img}{\code{character} Path to an image printed in the app footer}
 }
 \value{
 A fontAwesome icon or an image printed in the footer of a
         navbarPage app
 }
 \description{
-Adds a logo to the footer of a navbarPage app
+Adds a branding logo to the footer of a navbarPage app
 }
 \seealso{
 \code{\link{create_logo}}

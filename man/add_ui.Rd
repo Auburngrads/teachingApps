@@ -2,14 +2,14 @@
 % Please edit documentation in R/add_ui.R
 \name{add_ui}
 \alias{add_ui}
-\title{Nests the UI of smaller app within the UI of a larger app}
+\title{Add the UI of one app within the UI of another app}
 \usage{
-add_ui(appName, pkg = "teachingApps")
+add_ui(app, pkg = "teachingApps")
 }
 \arguments{
-\item{appName}{The name of "smaller" app from which the UI will be pulled}
+\item{app}{The name of the app from which the content of the \code{server.R} will be pulled}
 
-\item{pkg}{The package in which \code{appName} exists}
+\item{pkg}{The package in which \code{app} exists (defaults to \code{teachingApps})}
 }
 \value{
 A list of length 2
@@ -20,52 +20,44 @@ A list of length 2
 Sources a \code{ui.R} file before parsing and evaluating its contents in a specified environment
 }
 \details{
-This function should only be used within a \code{tabPanel} portion of a shiny app.  
-\code{add_Server} may be used with apps stored in other packages.  However, apps are assumed 
-to be stored in the apps/ directory located at top level of the package.
+Currently, this function can be used to insert an \code{server} into
+         a \code{navbarPage} app.  The types of apps that can be inserted are:
+     \itemize{
+         \item{\code{fluidPage}}{}
+         \item{\code{bootstrapPage}}{}
+         \item{\code{pageWithSidebar}}{}
+         \item{\code{basicPage}}{}
+         \item{\code{fixedPage}}{}
+      }
+         
+         A \code{server} can be added as an entire \code{tabPanel} or as a row within 
+         within a \code{tabPanel} portion of a shiny app. 
+         
+         May be used with apps stored in packages other than teachingApps.  
+         However, apps are assumed be stored in the \code{apps/} directory located 
+         at top level of the package.
 }
 \examples{
 \dontrun{
 
-## ui.R from teachingApps::maximum_likelihood
+## ui.R from app: 'maximum_likelihood'
 
-library(teachingApps)
-library('scales')
-library(knitr)
-         
-ui = navbarPage(title = 'Maximum Likelihood',
-                collapsible = T, 
-                position = 'fixed-top',
-                theme = shinythemes::shinytheme(theme = getShinyOption("theme")),
-                header = tags$head(includeCSS(getShinyOption("css"))),
-                footer = HTML(teachingApps::teachingApp(getShinyOption("appName"))),
+ui_ml <- system.file('apps', 
+                     'maximum_likelihood',
+                     'server.R',
+                     package = 'teachingApps') 
+browseURL(ui_ml)
 
-tabPanel(h4('Background'),
-         fluidRow(uiOutput('mleback1'), class = 'shiny-text-output')),
+## ui.R from app: 'distribution_weibull'
 
-tabPanel(h4('Simple Example'),  
-         fluidRow(uiOutput('example1_1'), class = 'shiny-text-output'),
-         fluidRow(teachingApps::add_ui('likelihood_ace')),
-         fluidRow(uiOutput('example1_2'), class = 'shiny-text-output'),
-         fluidRow(teachingApps::add_ui('likelihood_ace2')),
-         fluidRow(uiOutput('example1_3'), class = 'shiny-text-output')),
-
-tabPanel(h4('Silly Example'),
-         fluidRow(uiOutput('example2_1'), class = 'shiny-text-output'),
-         fluidRow(teachingApps::add_ui('exp_mle')),
-         fluidRow(uiOutput('example2_2'), class = 'shiny-text-output'),
-         fluidRow(teachingApps::add_ui('exp_numerical')),
-         fluidRow(uiOutput('example2_3'), class = 'shiny-text-output'),
-         fluidRow(teachingApps::add_ui('soln_numerical2'))),
-
-tabPanel(h4("A Simulation"),
-         fluidRow(teachingApps:::add_ui('likelihood_simulation'))),
-
-tabPanel(h4('Details'),
-         fluidRow(uiOutput('details'), class = 'shiny-text-output')))
+ui_dw <- system.file('apps', 
+                     'distribution_weibull',
+                     'server.R',
+                     package = 'teachingApps') 
+browseURL(ui_dw)
 
 }
 }
 \seealso{
-\code{\link{add_server} \link{add_rmd}}
+\code{\link{add_server}} \code{\link{add_rmd}}
 }

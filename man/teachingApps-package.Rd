@@ -4,15 +4,11 @@
 \name{teachingApps-package}
 \alias{teachingApps}
 \alias{teachingApps-package}
-\title{teachingApps: Tools to Build, Nest, and Share Shiny Apps - Quickly and Easily}
+\title{teachingApps: Apps for Teaching Statistics, R Programming, and Shiny App Development}
 \description{
-Instantly create shiny app templates and app calling functions
-for use in R packages.  Manage large collections of shiny apps from one
-location.  Update the structure or appearance of apps on the fly.  Nest
-small apps together to create complex 'storyteller' apps. Publish stand-
-alone apps or embed in rmarkdown documents with app calling functions.
-Includes over 100 shiny apps and shiny gadgets for analyzing data and
-teaching various concepts (statistics and R programming).
+Contains apps and gadgets for teaching data analysis and
+statistics concepts along with how to implement them in R.  Includes
+tools to make app development easier and faster by nesting apps together.
 }
 \seealso{
 Useful links:

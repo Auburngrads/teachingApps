@@ -4,7 +4,7 @@
 \alias{create_logo}
 \title{Create a branding logo for a teachingApp}
 \usage{
-create_logo(app_dir, git_user = NULL, icon = NULL, img = NULL)
+create_logo(app_dir = NULL, git_user = NULL, icon = NULL, img = NULL)
 }
 \arguments{
 \item{app_dir}{\code{character} Directory in which the app files are located}

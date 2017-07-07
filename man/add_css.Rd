@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_css.R
 \name{add_css}
 \alias{add_css}
-\title{Add CSS style rules to an teachingApp}
+\title{Add teachingApps CSS style rules to an app}
 \usage{
 add_css()
 }
@@ -10,7 +10,11 @@ add_css()
 teachingApps style rules defined to an app
 }
 \description{
-Add CSS style rules to an teachingApp
+Add teachingApps CSS style rules to an app
+}
+\details{
+This function should not be called directly but must be 
+         be included within the body of an app's \code{ui}
 }
 \seealso{
 \code{\link{add_theme}}
