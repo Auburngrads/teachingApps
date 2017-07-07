@@ -9,17 +9,18 @@
 #' @details Currently, this function can be used to insert an \code{server} into
 #'          a \code{navbarPage} app.  The types of apps that can be inserted are:
 #'          
-#'          - \code{fluidPage}
-#'          - \code{bootstrapPage}
-#'          - \code{pageWithSidebar}
-#'          - \code{basicPage}
-#'          - \code{fixedPage} 
-#'          
+#'      \itemize{
+#'          \item{\code{fluidPage}}{}
+#'          \item{\code{bootstrapPage}}{}
+#'          \item{\code{pageWithSidebar}}{}
+#'          \item{\code{basicPage}}{}
+#'          \item{\code{fixedPage}}{}
+#'       }          
 #'          A \code{server} can be added as an entire \code{tabPanel} or as a row within 
 #'          within a \code{tabPanel} portion of a shiny app. 
 #'          
 #'          May be used with apps stored in packages other than teachingApps.  
-#'          However, apps are assumed be stored in the apps/ directory located 
+#'          However, apps are assumed be stored in the \code{apps/} directory located 
 #'          at top level of the package.
 #'  
 #' @return An \code{Observer}-class object resulting from evaluating a \code{server.R} file

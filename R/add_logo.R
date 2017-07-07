@@ -70,6 +70,11 @@ logo,
 #'
 #' @importFrom shiny includeCSS getShinyOption tags HTML
 #' 
+#' @param app_dir \code{character} Directory in which the app files are located
+#' @param git_user \code{character} GitHub account username (see details) 
+#' @param icon \code{character} Name of a fontAwesome icon printed in the app footer
+#' @param img \code{character} Path to an image printed in the app footer
+#' 
 #' @return A fontAwesome icon or an image printed in the footer of a
 #'         navbarPage app 
 #' @seealso \code{\link{create_logo}}
