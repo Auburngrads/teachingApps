@@ -10,4 +10,4 @@ tabPanel('Background',
          uiOutput('delta', class = 'ta-text')),
 
 tabPanel('Example',
-         uiOutput('greenwood'), class = 'ta-text')))
+         uiOutput('greenwood', class = 'ta-text')))

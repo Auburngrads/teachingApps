@@ -12,7 +12,7 @@ tabPanel('Properties',
 tabPanel('Computing Values in R',
          uiOutput('hazr', class = 'ta-text')),
 
-navbarMenu('Plots'), icon = icon('bar-chart-o'), 
+navbarMenu('Plots', icon = icon('bar-chart-o'), 
 
 tabPanel("Hazard Function Plot",
   sidebarLayout( 
@@ -22,7 +22,6 @@ tabPanel("Hazard Function Plot",
                           outputId = "hazplot", 
                           mode = "r", 
                           theme = "github", 
-                          height = "450px", 
                           value = 
 "par(family = 'serif',mar = c(4,6,2,1))
 
@@ -52,7 +51,6 @@ tabPanel("Bathtub-Shaped Hazard",
                           outputId = "figbtplot", 
                           mode = "r", 
                           theme = "github", 
-                          height = "450px",
                           value = 
 "par(family = 'serif',font = 2)
 
@@ -80,6 +78,6 @@ text(x = c(7.5, 40, 75),
      c('Infant Mortality','Useful Life','Wearout'),
      cex = 1.5)"),
 
-       actionButton("evalfigbt", "Evaluate")),
+      actionButton("evalfigbt", "Evaluate")),
         
-        mainPanel(plotOutput("plotfigbt", height = "600px"), width = 7)))))
+      mainPanel(plotOutput("plotfigbt", height = "600px"), width = 7)))))
