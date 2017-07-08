@@ -6,6 +6,8 @@
 #' @param path Path to a directory containing the app from which the content of the \code{server.R} will be pulled
 #' @param env  Environment in which the call is made, typically \code{environment()}
 #'
+#' @importFrom shiny addResourcePath
+#'
 #' @details Currently, this function can be used to insert an \code{server} into
 #'          a \code{navbarPage} app.  The types of apps that can be inserted are:
 #'          

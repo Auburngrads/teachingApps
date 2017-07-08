@@ -5,6 +5,8 @@
 #' @param app  Name of the app from which the content of the \code{ui.R} will be pulled
 #' @param path Path to a directory containing the app from which the content of the \code{ui.R} will be pulled
 #'
+#' @importFrom shiny addResourcePath
+#'
 #' @details Currently, this function can be used to insert an \code{server} into
 #'          a \code{navbarPage} app.  The types of apps that can be inserted are:
 #'      \itemize{

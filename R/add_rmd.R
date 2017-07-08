@@ -3,7 +3,7 @@
 #' @description Run inline and stand-alone code chunks and include results
 #' as part of a shiny app. Include \code{LaTeX}-typeset equations with MathJax
 #' 
-#' @importFrom shiny getShinyOption withMathJax HTML
+#' @importFrom shiny getShinyOption withMathJax HTML addResourcePath
 #' @importFrom knitr knit
 #' @importFrom markdown markdownToHTML 
 #' 
@@ -35,6 +35,6 @@ add_rmd <- function(rmd) {
     
      }
   
-   withMathJax(HTML(markdown::markdownToHTML(knitr::knit(rmd))))
+   withMathJax(HTML(markdown::markdownToHTML(knitr::knit(file))))
   
 }

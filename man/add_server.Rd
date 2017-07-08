@@ -4,14 +4,14 @@
 \alias{add_server}
 \title{Add the server of one app to the server of another app}
 \usage{
-add_server(app, env = NULL, pkg = "teachingApps")
+add_server(app, path, env = NULL)
 }
 \arguments{
-\item{app}{The name of the app from which the content of the \code{server.R} will be pulled}
+\item{app}{Name of the teachingApp from which the content of the \code{server.R} will be pulled}
 
-\item{env}{The environment in which the call is made typically \code{environment()}}
+\item{path}{Path to a directory containing the app from which the content of the \code{server.R} will be pulled}
 
-\item{pkg}{The package in which \code{app} exists (defaults to \code{teachingApps})}
+\item{env}{Environment in which the call is made, typically \code{environment()}}
 }
 \value{
 An \code{Observer}-class object resulting from evaluating a \code{server.R} file
