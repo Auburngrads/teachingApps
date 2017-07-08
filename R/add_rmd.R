@@ -18,7 +18,22 @@
 #' @export
 add_rmd <- function(rmd) {
   
-   rmd <- file.path(getShinyOption('appDir'), rmd)
+  no_rmd  <- missing(rmd)  || is.null(rmd)  || is.na(rmd)
+  no_path <- missing(path) || is.null(path) || is.na(path)
+  
+  if( no_rmd &&  no_path) stop('Either rmd or path must be specified')
+  if(!no_rmd && !no_path) stop('Only one of app or path should be specified')
+   
+  if(no_path) {
+    
+     file <- file.path(getShinyOption('appDir'), rmd)
+  
+     } else {
+         
+     Path <- shiny::addResourcePath(basename(dirname(path)), dirname(path))
+     file <- file.path(basename(dirname(path)), rmd)
+    
+     }
   
    withMathJax(HTML(markdown::markdownToHTML(knitr::knit(rmd))))
   
