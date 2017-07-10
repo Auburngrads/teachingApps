@@ -19,10 +19,12 @@ links2 <- merge(links2,nodes,by.x = "target",by.y = "name")
 #names(links2) <- c("source","target","value")
 
 d3Network::d3Sankey(Links = links, 
-                         Nodes = nodes, 
-                         Source = 'source', 
-                         Target = 'target',
-                         Value =  'value', NodeID = 'name',
-                         nodeWidth = 3, width = 700)
+                    Nodes = nodes, 
+                    Source = 'source', 
+                    Target = 'target',
+                    Value =  'value', 
+                    NodeID = 'name',
+                    nodeWidth = 3, 
+                    width = 700)
 })        
 }

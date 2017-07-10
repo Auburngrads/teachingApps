@@ -26,3 +26,10 @@ function(...) {
         tck = 0.015,
         family = 'serif',...)
 }
+
+add_less <- function() {
+  
+  cmd <- paste0("lessc ","inst\\scripts\\less\\flatslidy.less", " inst\\scripts\\css\\flatslidy.css")
+
+system(cmd)
+}

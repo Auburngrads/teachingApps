@@ -43,11 +43,11 @@ miniTabstripPanel(
 
   miniTabPanel('Examples', icon = icon('map-o'),
     miniContentPanel(
-        uiOutput("examplemtbf", class = 'ta-text')),
+        uiOutput("examplemtbf", class = 'ta-text'))),
 
   miniTabPanel('Background', icon = icon('map-o'),
     miniContentPanel(
-        uiOutput("backgroundmtbf", class = 'ta-text')),
+        uiOutput("backgroundmtbf", class = 'ta-text'))),
 
   miniTabPanel('About', icon = icon('map-o'),
     miniContentPanel(

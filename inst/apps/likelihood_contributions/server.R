@@ -1,10 +1,7 @@
 server = function(input, output, session) {
 
-observeEvent(input$evalcensor, { 
-  
 output$plotcensor <- renderPlot({
-      
+      input$evalcensor
       return(isolate(eval(parse(text=input$censorplot))))
-})
 })
 }

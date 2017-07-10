@@ -39,4 +39,4 @@ ui = navbarPage(title = 'Program Costs',
 
 tabPanel('How To Use This App',
 
-         mainPanel(withMathJax(uiOutput("howtohist", class = 'ta-text'))))
+         mainPanel(withMathJax(uiOutput("howtohist", class = 'ta-text')))))

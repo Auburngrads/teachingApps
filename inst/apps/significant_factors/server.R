@@ -20,12 +20,12 @@ output$output <- renderPlot({
        model.mat <- rep(1,length(response)),
        model.mat <- as.matrix(data[input$factor2]))
 
-  lm.model <- lm(response~model.mat)
+  lm.model <- lm(response ~ model.mat)
 
   lm.coeff  <- lm.model$coeff
   lm.modmat <- model.matrix(lm.model)
   responses <- lm.modmat%*%lm.coeff
-  range <- mean(responses) + c(-3,3) * sd(response)
+  range <- mean(responses) + c(-3,3) * sd(responses)
   MSE <- sum(lm.model$residuals^2)/(length(lm.model$fitted.values)-2)
   
   models <- lapply(X = responses,

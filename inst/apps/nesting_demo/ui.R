@@ -6,6 +6,7 @@ ui = navbarPage(title = 'Armadillo Hunting',
                 footer = add_logo(),
 
 
+<<<<<<< HEAD
 tabPanel('Overview',
          uiOutput("armadillo_overview", 
                            class = 'ta-text')),
@@ -27,4 +28,21 @@ tabPanel('Background',
 tabPanel('About',
          uiOutput("aboutmtbf", 
                            class = 'ta-text'))))
+=======
+tabPanel('Example 01', add_ui(path = dirs[1])),
+
+tabPanel('Example 02', add_ui(path = dirs[2])),
+
+tabPanel('Example 04', add_ui(path = dirs[4])),
+
+tabPanel('Example 05', add_ui(path = dirs[5])),
+
+tabPanel('Example 09', add_ui(path = dirs[9])),
+
+tabPanel('Example 10', add_ui(path = dirs[10])),
+
+tabPanel('Example 11', add_ui(path = dirs[11]))
+)
+
+>>>>>>> 725cde6e3cf3d4f401624356a8d30a138358fcc1
 

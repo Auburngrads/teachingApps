@@ -7,14 +7,10 @@ ui = navbarPage(title = 'Probability Functions',
 
 
 tabPanel('Overview',
-         uiOutput('overview'), 
-                   class = 'ta-text', 
-                   width = 12)),
+         uiOutput('overview', class = 'ta-text')),
 
 tabPanel('Relationship Table',
-         uiOutput('functable'), 
-                   class = 'ta-text', 
-                   width = 12)),
+         uiOutput('functable', class = 'ta-text')),
                 
 navbarMenu('The Functions', icon = icon('folder-open'),
            
@@ -22,14 +18,10 @@ tabPanel('Cumulative Distribution Function',
 tabsetPanel(type = 'pills',
                                 
   tabPanel('Properties of the CDF',
-           uiOutput('cdfdemo'), 
-                     class = 'ta-text', 
-                     width = 12)),
+           uiOutput('cdfdemo', class = 'ta-text')),
 
   tabPanel('Computing CDF Values in R',
-           uiOutput('cdfr'), 
-                     class = 'ta-text', 
-                     width = 12)),
+           uiOutput('cdfr', class = 'ta-text')),
                                 
   tabPanel('Interactive CDF Shiny App',
     sidebarLayout( 
@@ -39,7 +31,6 @@ tabsetPanel(type = 'pills',
                             outputId = "cdfplot", 
                             mode = "r", 
                             theme = "github", 
-                            height = "450px", 
                             value = 
 "par(family = 'serif',mar = c(4,6,2,1))
 
@@ -64,14 +55,10 @@ tabPanel('Probability Density Function',
         tabsetPanel(type = 'pills',
 
   tabPanel('Properties',
-           uiOutput('pdfdemo'), 
-                     class = 'ta-text', 
-                     width = 12)),
+           uiOutput('pdfdemo', class = 'ta-text')),
 
   tabPanel('Computing Values in R',
-           uiOutput('pdfr'), 
-                     class = 'ta-text', 
-                     width = 12)),
+           uiOutput('pdfr', class = 'ta-text')),
                     
   tabPanel('Shiny App',
     sidebarLayout(
@@ -81,7 +68,6 @@ tabPanel('Probability Density Function',
                             outputId = "pdfplot", 
                             mode = "r", 
                             theme = "github", 
-                            height = "450px", 
                             value = 
 "par(family = 'serif',mar = c(4,6,2,1))
 

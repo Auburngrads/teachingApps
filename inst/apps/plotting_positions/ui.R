@@ -4,14 +4,14 @@ ui = fluidPage(theme = add_theme(getShinyOption('theme')),
 sidebarLayout(
   sidebarPanel(
     sliderInput("plotposn", 
-                label = "Sample Size"), 
+                label = "Sample Size", 
                 min = 5, 
                 max = 100, 
                 value = 5, 
                 step = 5),
     hr(),
     checkboxGroupInput("plotpos",
-                       label = "Plotting Position"), 
+                       label = "Plotting Position", 
                        choices = c("Hazen" = 1,
                                    "Median-Ranks" = 2,
                                    "Weibull"      = 3),
@@ -19,6 +19,6 @@ sidebarLayout(
                        inline = FALSE,
                        width = validateCssUnit("1000")),
     hr(),
-    actionButton("takeSample.pp","Sample Data", width = '100%')),
+    actionButton("takeSample.pp","Sample Data")),
       
-    mainPanel(plotOutput("probplotcompare", height = '600px'))))
+    mainPanel(plotOutput("probplotcompare"))))

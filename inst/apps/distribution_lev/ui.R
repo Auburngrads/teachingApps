@@ -7,7 +7,7 @@ ui = navbarPage(title = 'Largest Extreme Value Distribution',
 
                 
 tabPanel('Shiny App',
-      add_ui('distribution_lev_functions')),
+        add_ui('distribution_lev_functions')),
 
 tabPanel('Distribution Functions',
          uiOutput('levfunc', class = 'ta-text')),

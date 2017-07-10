@@ -2,9 +2,11 @@
 #'
 #' @description Sources a \code{server.R} file before parsing and evaluating its contents in a specified environment
 #'
-#' @param app The name of the app from which the content of the \code{server.R} will be pulled
-#' @param pkg The package in which \code{app} exists (defaults to \code{teachingApps})
-#' @param env The environment in which the call is made typically \code{environment()}
+#' @param app  Name of the teachingApp from which the content of the \code{server.R} will be pulled
+#' @param path Path to a directory containing the app from which the content of the \code{server.R} will be pulled
+#' @param env  Environment in which the call is made, typically \code{environment()}
+#'
+#' @importFrom shiny addResourcePath
 #'
 #' @details Currently, this function can be used to insert an \code{server} into
 #'          a \code{navbarPage} app.  The types of apps that can be inserted are:
@@ -45,11 +47,28 @@
 #' 
 #' }
 #' @export
-add_server <- function(app, env = NULL, pkg = 'teachingApps') {
+add_server <- function(app, path, env = NULL) {
   
-  file  <- system.file('apps', app, 'server.R', package = pkg)
+  no_app  <- missing(app)  || is.null(app)  || is.na(app)
+  no_path <- missing(path) || is.null(path) || is.na(path)
+  
+  if( no_app &&  no_path) stop('Either an app or a path must be specified')
+  if(!no_app && !no_path) stop('Only one app or path should be specified')
+
+  if(no_path) {
+    
+     file <- system.file('apps', app, 'server.R', package = 'teachingApps')
+      
+    } else {
+    
+     shiny::addResourcePath(basename(path), path)
+     file <- file.path(path, 'server.R')
+    
+    }
+       
   serve <- source(file = file)
   texts <- parse(text = body(serve[[1]])[-1])
   
   eval(texts, envir = env)
+  
 }

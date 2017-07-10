@@ -14,7 +14,6 @@ tabPanel("Add Text",
                                 outputId = "textcode", 
                                 mode = "r", 
                                 theme = "github", 
-                                height = "475px", 
                                 value = 
 "set.seed(NULL)
 
@@ -46,7 +45,6 @@ tabPanel("Add Equations",
                                 outputId = "eqncode", 
                                 mode = "r", 
                                 theme = "github",
-                                height = "475px", 
                                 value = 
 "set.seed(NULL)
 
@@ -65,7 +63,7 @@ expression(pi%~~%frac(22,7)+
 
    actionButton("eqneval", "Evaluate")),
         
-   mainPanel(plotOutput("eqn", height = "550px"), width = 7))),
+   mainPanel(plotOutput("eqn"), width = 7))),
 
 tabPanel("Add Points",
       sidebarLayout( 
@@ -75,7 +73,6 @@ tabPanel("Add Points",
                                 outputId = "ptcode", 
                                 mode = "r", 
                                 theme = "github", 
-                                height = "475px", 
                                 value = 
 "set.seed(NULL)
 
@@ -119,7 +116,6 @@ tabPanel("Add A Grid",
                                 outputId = "gridcode", 
                                 mode = "r", 
                                 theme = "github", 
-                                height = "475px", 
                                 value = 
 "set.seed(NULL)
 
@@ -152,7 +148,6 @@ tabPanel("Add A Legend",
                                 outputId = "legcode", 
                                 mode = "r", 
                                 theme = "github", 
-                                height = "475px",
                                 value = 
 "set.seed(4)
 

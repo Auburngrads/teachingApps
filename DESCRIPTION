@@ -1,7 +1,7 @@
 Package: teachingApps
 Type: Package
 Title: Apps for Teaching Statistics, R Programming, and Shiny App Development
-Version: 1.0.1
+Version: 1.0.2
 Date: 2017-06-27
 Authors@R: c(
     person("Jason", "Freels", email = "auburngrads@live.com", role = c("aut","cre")),
