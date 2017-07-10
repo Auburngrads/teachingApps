@@ -14,7 +14,6 @@ tabPanel("Bar Plots",
                              outputId = "barcode", 
                              mode = "r", 
                              theme = "github", 
-                             height = "475px",
                              value = 
 "set.seed(NULL)
 
@@ -52,9 +51,7 @@ tabPanel("Pie Charts",
                               outputId = "piecode", 
                               mode = "r", 
                               theme = "github", 
-                              height = "475px",
                               value = 
-
 "set.seed(NULL)
 
 par(mfrow = c(1,2))
@@ -88,7 +85,6 @@ tabPanel("Box Plots",
                              outputId = "boxcode", 
                              mode = "r", 
                              theme = "github", 
-                             height = "475px",
                              value = 
 "set.seed(NULL)
 
@@ -107,7 +103,7 @@ tabPanel("Trellis Plots",
    sidebarLayout(
       sidebarPanel(
          checkboxGroupInput('mtcars',
-                            label = "mtcars Columns Plotted"), 
+                            label = "mtcars Columns Plotted", 
                             choices = names(datasets::mtcars), 
                             selected = "mpg")),
       mainPanel(plotOutput("trellis", height = "550px")))))

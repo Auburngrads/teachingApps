@@ -6,21 +6,17 @@ ui = navbarPage(title = 'MTBF Acceptance Test',
                 footer = add_logo(),
 
 tabPanel('Planning Tool',
-      fluidRow(add_ui('acceptance_testing_mtbf'))),
+         add_ui('acceptance_testing_mtbf')),
 
 tabPanel('How To Use The Tool',
-         uiOutput("howtomtbf", 
-                        class = 'ta-text')),
+         uiOutput("howtomtbf", class = 'ta-text')),
 
 tabPanel('Examples',
-         uiOutput("examplemtbf", 
-                        class = 'ta-text')),
+         uiOutput("examplemtbf", class = 'ta-text')),
 
 tabPanel('Background',
-         uiOutput("backgroundmtbf", 
-                        class = 'ta-text')),
+         uiOutput("backgroundmtbf", class = 'ta-text')),
 
 tabPanel('About',
-         uiOutput("aboutmtbf", 
-                        class = 'ta-text'))))
+         uiOutput("aboutmtbf", class = 'ta-text')))
 

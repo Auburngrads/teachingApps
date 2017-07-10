@@ -4,12 +4,12 @@
 \alias{add_ui}
 \title{Add the UI of one app within the UI of another app}
 \usage{
-add_ui(app, pkg = "teachingApps")
+add_ui(app, path)
 }
 \arguments{
-\item{app}{The name of the app from which the content of the \code{server.R} will be pulled}
+\item{app}{Name of the app from which the content of the \code{ui.R} will be pulled}
 
-\item{pkg}{The package in which \code{app} exists (defaults to \code{teachingApps})}
+\item{path}{Path to a directory containing the app from which the content of the \code{ui.R} will be pulled}
 }
 \value{
 A list of length 2

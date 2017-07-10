@@ -2,8 +2,10 @@
 #' 
 #' @description Sources a \code{ui.R} file before parsing and evaluating its contents in a specified environment
 #' 
-#' @param app The name of the app from which the content of the \code{server.R} will be pulled
-#' @param pkg The package in which \code{app} exists (defaults to \code{teachingApps})
+#' @param app  Name of the app from which the content of the \code{ui.R} will be pulled
+#' @param path Path to a directory containing the app from which the content of the \code{ui.R} will be pulled
+#'
+#' @importFrom shiny addResourcePath
 #'
 #' @details Currently, this function can be used to insert an \code{server} into
 #'          a \code{navbarPage} app.  The types of apps that can be inserted are:
@@ -48,11 +50,27 @@
 #' 
 #' }
 #' @export
-add_ui <- function(app, pkg = 'teachingApps') {
+add_ui <- function(app, path) {
   
-  file  <- system.file('apps', app, 'ui.R', package = pkg)
-  serve <- source(file = file)
+  no_app  <- missing(app)  || is.null(app)  || is.na(app)
+  no_path <- missing(path) || is.null(path) || is.na(path)
   
-  return(serve[[1]])
+  if( no_app &&  no_path) stop('Either an app or a path must be specified')
+  if(!no_app && !no_path) stop('Only one app or path should be specified')
+
+  if(no_path) {
+    
+     file <- system.file('apps', app, 'ui.R', package = 'teachingApps')
+     
+     } else {
+    
+     shiny::addResourcePath(basename(path), path)
+     file <- file.path(path, 'ui.R')
+       
+     }
+  
+  ui <- source(file = file)
+  
+  return(ui[[1]])
   
 }

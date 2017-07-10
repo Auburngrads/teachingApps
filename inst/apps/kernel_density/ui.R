@@ -8,7 +8,6 @@ sidebarLayout(
                         outputId = "code", 
                         mode = "r", 
                         theme = "github", 
-                        height = '450px',
                         value = 
 "library(scales)
 
@@ -38,4 +37,4 @@ polygon(density(w)$x,
 
           actionButton("eval", "Evaluate")),
         
-          mainPanel(plotOutput("output", height = '600px'))))
+          mainPanel(plotOutput("output", height = '600px'), width = 7)))

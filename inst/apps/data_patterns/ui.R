@@ -12,15 +12,15 @@ ui = fluidPage(theme = add_theme(getShinyOption('theme')),
                             value =
 "par(mfrow = c(1,2), mar = c(4,4,2,0))
 
-N = 50
+n = 50
 
-x.lnor <- rlnorm(n = N, 
+x.lnor <- rlnorm(n = n, 
                  meanlog = 4.5, 
                  sdlog = .2)
-x.weib <- rweibull(n = N, 
+x.weib <- rweibull(n = n, 
                    scale = 120, 
                    shape = 5.5)
-x.exp  <- rexp(n = N, 
+x.exp  <- rexp(n = n, 
                rate = 1/40)
 
 curve(dlnorm(x, meanlog = 4.5, sdlog = 0.2), 
