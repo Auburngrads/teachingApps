@@ -8,7 +8,7 @@
 #' @importFrom markdown markdownToHTML 
 #' 
 #' @param rmd \code{character} Name of an rmarkdown file saved in the app directory
-#' 
+#' @param path Path to a file outside of the app directory
 #' @seealso \code{\link{add_server} \link{add_ui}}
 #' 
 #' @examples 
@@ -16,7 +16,7 @@
 #' # see examples in add_server and add_ui documentation
 #' }
 #' @export
-add_rmd <- function(rmd) {
+add_rmd <- function(rmd, path) {
   
   no_rmd  <- missing(rmd)  || is.null(rmd)  || is.na(rmd)
   no_path <- missing(path) || is.null(path) || is.na(path)
@@ -31,7 +31,7 @@ add_rmd <- function(rmd) {
      } else {
          
      Path <- shiny::addResourcePath(basename(dirname(path)), dirname(path))
-     file <- file.path(basename(dirname(path)), rmd)
+     file <- file.path(path)
     
      }
   
