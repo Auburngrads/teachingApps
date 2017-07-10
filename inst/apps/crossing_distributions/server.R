@@ -60,7 +60,7 @@ output$weib.weib <- renderPlot({
        las = 1, xlab = 'Time (t)', ylab = 'f(t)')
   par(new = TRUE)
   plot(x = wx.range,
-       x = wy.span2, 
+       y = wy.span2, 
        col = 2, type = 'l', lwd = 3, yaxs = 'i',
        xlim = c(min(wx.span1, wx.span2),max(wx.span1, wx.span2)),
        ylim = c(min(wy.span1, wy.span2),max(wy.span1, wy.span2)*1.04),

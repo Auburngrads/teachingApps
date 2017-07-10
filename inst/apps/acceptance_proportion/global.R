@@ -1,2 +1,2 @@
 library(teachingApps)
-needs(shiny, plotly)
+needs::needs(shiny, plotly)

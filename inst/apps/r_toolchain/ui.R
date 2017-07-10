@@ -11,11 +11,9 @@ navbarMenu('Install R',
 tabPanel('On Windows', 
          icon = icon('windows'),
          uiOutput('rwindows', class = 'ta-text')),
-
 tabPanel('On Mac/ios', 
          icon = icon('apple'),
          uiOutput('rmac',  class = 'ta-text')),
-
 tabPanel('On Linux', 
          icon = icon('linux'),
          uiOutput('rlinux', class = 'ta-text'))),

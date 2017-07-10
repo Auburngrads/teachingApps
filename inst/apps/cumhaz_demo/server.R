@@ -4,11 +4,9 @@ output$HAZdemo <- renderUI({ add_rmd('backgroundchaz.Rmd') })
 
 output$HAZr <- renderUI({ add_rmd('rfuncschaz.Rmd') })
 
-observeEvent(input$evalHAZ, { 
-              
 output$plotHAZ <- renderPlot({
-
+  input$evalHAZ
   return(isolate(eval(parse(text=input$HAZplot))))
-})
+
 })
 }

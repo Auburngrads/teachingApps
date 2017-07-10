@@ -1,24 +1,16 @@
 server = function(input, output, session) {
   
-output$hazdemo <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('backgroundhaz.Rmd')))
-})
+output$hazdemo <- renderUI({ add_rmd('backgroundhaz.Rmd') })
 
-output$hazr <- renderUI({ 
-  withMathJax(HTML(includeMarkdown('rfuncshaz.Rmd')))
-})
+output$hazr <- renderUI({ add_rmd('rfuncshaz.Rmd') })
 
-observeEvent(input$evalhaz, { 
 output$plothaz <- renderPlot({
-      
+      input$evalhaz
       return(isolate(eval(parse(text=input$hazplot))))
 })
-})
 
-observeEvent(input$evalfigbt, { 
 output$plotfigbt <- renderPlot({
-      
+      input$evalfigbt
       return(isolate(eval(parse(text=input$figbtplot))))
-})
 })
 }

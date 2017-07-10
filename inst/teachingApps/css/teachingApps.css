@@ -663,7 +663,7 @@ svg g g g text.label {
 }
 
 .btn {
-  font-size: 28px !important;
+  font-size: 1.75vw !important;
   text-transform: uppercase !important;
   font-weight: bold !important;
   width: 100%;

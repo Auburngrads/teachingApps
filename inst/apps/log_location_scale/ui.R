@@ -7,177 +7,25 @@ ui = navbarPage(title = 'Log-Location-Scale Family',
 
 
 tabPanel('Overview',
-         uiOutput('overview'), 
-         class = 'ta-text', 
-         width = 12)),
+         uiOutput('overview', class = 'ta-text')),
 ##########################
 tabPanel('Lognormal',
 ##########################
-fluidRow(
-  column(width = 12,
-     uiOutput('lnorfunc'),
-               class = 'ta-text', width = '100%'))),
-
-fluidRow(
-  column(width = 12,
-     uiOutput('lnorprops'),
-               class = 'ta-text', width = '100%'))),
-
-fluidRow(
-  column(width = 12, 'Interactive Shiny App')),
-
-fluidRow(
-  column(width = 3,
-  sidebarPanel(width = '100%',
-  sliderInput("range.ln", 
-              label = "Range:",
-              min = 0, 
-              max = 50, 
-              value = c(0,20)),
-  hr(),
-  sliderInput("mu.ln", 
-              label = HTML("Log[Mean] (ln[&mu;])"),
-              min = 0, 
-              max = 10, 
-              step = 0.5, 
-              value = 4, 
-              animate = T),
-  hr(),
-  sliderInput("sig.ln", 
-              label = HTML("log[Std Dev] (ln[&sigma;])"),
-              min = .5, 
-              max = 10, 
-              step = 0.5, 
-              value = 1, 
-              animate = T))),
-
-column(width = 9,
-    mainPanel(width = '100%',
- tabsetPanel(type = 'pills',
-  tabPanel(HTML('CDF <script type="math/tex">F(t)</script>'),  
-           metricsgraphicsOutput(height = "550px", "lnorC",height = "600px")),
-  tabPanel(HTML('PDF <script type="math/tex">f(t)</script>'),                
-           metricsgraphicsOutput(height = "550px", "lnorP",height = "600px")),
-  tabPanel(HTML('Survival <script type="math/tex">S(t)</script>'),
-           metricsgraphicsOutput(height = "550px", "lnorR",height = "600px")),
-  tabPanel(HTML('Hazard <script type="math/tex">h(t)</script>'),
-           metricsgraphicsOutput(height = "550px", "lnorh",height = "600px")),
-  tabPanel(HTML('Cum Hazard <script type="math/tex">H(t)</script>'),
-           metricsgraphicsOutput(height = "550px", "lnorH",height = "600px")),
-  tabPanel(HTML('Quantile <script type="math/tex">F^{-1}(p)</script>'),
-           metricsgraphicsOutput(height = "550px", "lnorQ",height = "600px"))))))),
+         uiOutput('lnorfunc',  class = 'ta-text'),
+         uiOutput('lnorprops', class = 'ta-text'),
+         add_ui('distribution_lognormal_functions')),
 
 ##########################
 tabPanel('Weibull',
 ##########################
-fluidRow(
-  column(width = 12,
-     uiOutput('weibfunc'),
-               class = 'ta-text', width = '100%'))),
-
-fluidRow(
-  column(width = 12,
-     uiOutput('weibprops'),
-               class = 'ta-text', width = '100%'))),
-
-fluidRow(
-  column(width = 12, 'Interactive Shiny App')),
-
-fluidRow(
-  column(width = 3,
-  sidebarPanel(width = '100%',
-  sliderInput("range.w", 
-              label = "Range",  
-              min = 0, 
-              max = 50, 
-              value = c(0,25)),
-  hr(),
-  sliderInput("scale.w", 
-              label = HTML("Scale (&eta;)"),  
-              min = 5, 
-              max = 30, 
-              step = 1, 
-              value = 10, 
-              animate = T),
-  hr(),
-  sliderInput("shape.w", 
-              label = HTML("Shape (&beta;)"),  
-              min = .5, 
-              max = 10, 
-              step = .5, 
-              value = .5, 
-              animate = T))),
-
-column(width = 9,
-    mainPanel(width = '100%',
- tabsetPanel(type = 'pills',
-  tabPanel('Distribution Function',
-           metricsgraphicsOutput(height = "550px", "weibC",height = "600px")),
-  tabPanel('Density',
-           metricsgraphicsOutput(height = "550px", "weibP",height = "600px")),
-  tabPanel('Survival',
-           metricsgraphicsOutput(height = "550px", "weibR",height = "600px")),
-  tabPanel('Hazard',
-           metricsgraphicsOutput(height = "550px", "weibh",height = "600px")),
-  tabPanel('Cumulative Hazard',
-           metricsgraphicsOutput(height = "550px", "weibH",height = "600px")),
-  tabPanel('Quantile',
-           metricsgraphicsOutput(height = "550px", "weibQ",height = "600px"))))))),
+         uiOutput('weibfunc',  class = 'ta-text'),
+         uiOutput('weibprops', class = 'ta-text'),
+         add_ui('distribution_weibull_functions')),
 
 ##########################
 tabPanel('Loglogistic',
 ##########################
-fluidRow(
-  column(width = 12,
-     uiOutput('llogisfunc'),
-               class = 'ta-text', width = '100%'))),
-
-fluidRow(
-  column(width = 12,
-     uiOutput('llogisprops'),
-               class = 'ta-text', width = '100%'))),
-
-fluidRow(
-  column(width = 12, 'Interactive Shiny App')),
-
-fluidRow(
-  column(width = 3,
-  sidebarPanel(width = '100%',
-  sliderInput("range.ll", 
-              label = "Range",
-              min = 0, 
-              max = 50, 
-              value = c(0,20)),
-  hr(),
-  sliderInput("mu.ll", 
-              label = HTML("Mean (&mu;)"),
-              min = 0.5, 
-              max = 10, 
-              step = 0.5, 
-              value = 0.5, 
-              animate = T),
-  hr(),
-  sliderInput("sig.ll", 
-              label = HTML("Std Dev (&sigma;)"),
-              min = 0.5, 
-              max = 10, 
-              step = 0.5, 
-              value = 1, 
-              animate = T))),
-
-column(width = 9,
-    mainPanel(width = '100%',
- tabsetPanel(type = 'pills',
-  tabPanel('Distribution Function',
-           metricsgraphicsOutput(height = "550px", "llogC",height = "600px")),
-  tabPanel('Density',
-           metricsgraphicsOutput(height = "550px", "llogP",height = "600px")),
-  tabPanel('Survival',
-           metricsgraphicsOutput(height = "550px", "llogR",height = "600px")),
-  tabPanel('Hazard',
-           metricsgraphicsOutput(height = "550px", "llogh",height = "600px")),
-  tabPanel('Cumulative Hazard',
-           metricsgraphicsOutput(height = "550px", "llogH",height = "600px")),
-  tabPanel('Quantile',
-           metricsgraphicsOutput(height = "550px", "llogQ",height = "600px"))))))))
+         uiOutput('llogisfunc',  class = 'ta-text'),
+         uiOutput('llogisprops', class = 'ta-text'),
+         add_ui('distribution_loglogistic_functions')))
 

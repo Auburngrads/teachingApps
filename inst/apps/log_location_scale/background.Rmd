@@ -1,5 +1,4 @@
 ---
-title: "Location-Scale and Log-Location-Scale Distributions"
 output: html_document
 ---
 
