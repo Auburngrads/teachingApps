@@ -4,10 +4,12 @@
 \alias{add_rmd}
 \title{Add an rmarkdown file to an app}
 \usage{
-add_rmd(rmd)
+add_rmd(rmd, path)
 }
 \arguments{
 \item{rmd}{\code{character} Name of an rmarkdown file saved in the app directory}
+
+\item{path}{Path to a file outside of the app directory}
 }
 \description{
 Run inline and stand-alone code chunks and include results
