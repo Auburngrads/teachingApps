@@ -128,7 +128,7 @@ server = function(input, output) {
                 }
 
                 DT::datatable(map_table, rownames = FALSE,
-                              caption = htmltools::tags$caption(
+                              caption = shiny::tags$caption(
                                       style = 'text-align: center;', caption
                               ))
         })
@@ -279,7 +279,7 @@ server = function(input, output) {
                 caption <- paste("Metric Rankings by Year for", input$country)
 
                 DT::datatable(country_table, rownames = FALSE,
-                              caption = htmltools::tags$caption(
+                              caption = shiny::tags$caption(
                                       style = 'text-align: center;', caption
                               ),
                               options = list(dom = 't'))

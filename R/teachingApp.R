@@ -5,14 +5,36 @@
 #'
 #' @importFrom shinythemes shinytheme
 #' @importFrom shinyAce aceEditor
-#' @importFrom utils View
+#' @importFrom diagram plotmat
+#' @importFrom utils View combn
 #' @importFrom needs needs
+#' @importFrom dygraphs dygraph renderDygraph dySeries dygraphOutput
+#' @importFrom leaflet leafletOutput leaflet addTiles addMarkers renderLeaflet
+#' @importFrom threejs renderGlobe globejs globeOutput
+#' @importFrom d3heatmap d3heatmap renderD3heatmap d3heatmapOutput
+#' @importFrom grDevices rgb rainbow heat.colors terrain.colors cm.colors extendrange
+#' @importFrom scales alpha
+#' @importFrom networkD3 renderSankeyNetwork sankeyNetworkOutput
+#' @importFrom d3Network d3Sankey
+#' @importFrom radarchart chartJSRadarOutput renderChartJSRadar chartJSRadar
+#' @importFrom DT datatable dataTableOutput renderDataTable
+#' @importFrom actuar pllogis dllogis qllogis rllogis
+#' @importFrom dplyr summarise group_by arrange desc select filter ungroup mutate
+#' @importFrom tidyr gather spread
+#' @importFrom DiagrammeR grVizOutput renderGrViz grViz
+#' @importFrom visNetwork visNetwork addFontAwesome visOptions visNodes visInteraction renderVisNetwork visNetworkOutput
+#' @importFrom plotly plotlyOutput renderPlotly plot_ly add_segments layout toRGB
+#' @importFrom miniUI miniPage gadgetTitleBar miniTabPanel miniContentPanel
+#' @importFrom shinydashboard dashboardPage dashboardSidebar dashboardBody infoBox infoBoxOutput renderInfoBox
+#' @importFrom ggplot2 ggplot aes theme_light geom_line
+#' @importFrom graphics polygon par box boxplot pie plot mtext abline axis legend points text grid lines segments curve
+#' @importFrom metricsgraphics metricsgraphicsOutput renderMetricsgraphics mjs_plot mjs_line mjs_labs mjs_add_css_rule mjs_add_line
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
-#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div
+#' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div invalidateLater
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
-#' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel h2 h4
-#' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput
-#' @importFrom shiny updateNumericInput strong stopApp shinyAppDir
+#' @importFrom shiny sidebarPanel mainPanel fluidPage navbarPage tabPanel h2 h4 validateCssUnit
+#' @importFrom shiny tabsetPanel withMathJax updateSelectInput updateSliderInput textOutput
+#' @importFrom shiny updateNumericInput strong stopApp shinyAppDir downloadHandler
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
