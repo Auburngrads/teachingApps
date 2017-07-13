@@ -6,17 +6,23 @@
 \title{Add an rmarkdown file to an app}
 \usage{
 add_rmd(rmd, path)
+<<<<<<< HEAD
 
 add_rmd(rmd, path)
+=======
+>>>>>>> 8f0633dea5da799cab8e03fc56c6b099e85dc324
 }
 \arguments{
 \item{rmd}{\code{character} Name of an rmarkdown file saved in the app directory}
 
 \item{path}{Path to a file outside of the app directory}
+<<<<<<< HEAD
 
 \item{rmd}{\code{character} Name of an rmarkdown file saved in the app directory}
 
 \item{path}{Path to a file outside of the app directory}
+=======
+>>>>>>> 8f0633dea5da799cab8e03fc56c6b099e85dc324
 }
 \description{
 Run inline and stand-alone code chunks and include results
