@@ -6,6 +6,7 @@
 #' @importFrom shinythemes shinytheme
 #' @importFrom shinyAce aceEditor
 #' @importFrom utils View
+#' @importFrom needs needs
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
 #' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
