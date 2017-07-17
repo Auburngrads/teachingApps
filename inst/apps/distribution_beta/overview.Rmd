@@ -1,0 +1,21 @@
+---
+output: html_document
+---
+
+### The Four-Parameter Beta Distribution <script type="math/tex;">BETA(\alpha,\beta,c,d)</script>
+
+This app describes the four-parameter Beta distribution  the 
+
+<script type="math/tex; mode=display">
+\begin{aligned}
+f_Y(y) &= \frac{1}{c-a} f_X\left(\frac{y-a}{c-a}\right)\\\\
+&= \frac{1}{c-a} \left(\frac{y-a}{c-a} \right)^{\alpha-1} \left(\frac{c-y}{c-a} \right)^{\beta-1} \frac{\mathbf{1}(a < y <c)}{B(\alpha,\beta)}\\\\
+&= \frac{(y-a)^{\alpha-1} (c-y)^{\beta-1}}{(c-a)^{\alpha+\beta-1}}\frac{\mathbf{1}(a < y <c)}{B(\alpha,\beta)}
+\end{aligned}
+</script>
+
+- Is the continuous counterpart to the geometric distribution
+
+- Describes the inter-arrival time durations between events in a homogeneous Poisson process
+
+

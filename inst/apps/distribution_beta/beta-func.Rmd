@@ -2,8 +2,8 @@
 output: html_document
 ---
 
-<h3>Functional relationships for <script type="math/tex">\;T \sim EXP(\theta,\gamma),\;\;T \in [0,\infty)</script>
-</h3>
+### Functional relationships for <script type="math/tex">\;T \sim EXP(\theta,\gamma),\;\;T \in [0,\infty)</script>
+
 $$
 \\begin{aligned}
 f(t|\\theta,\\gamma)&=\\frac{1}{\\theta}\\exp\\left(-\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\

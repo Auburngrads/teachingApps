@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-<h3>About the Exponential Distribution</h3>
+<h3>Properties of the Beta Distribution</h3>
 
 - Is the continuous counterpart to the geometric distribution
 

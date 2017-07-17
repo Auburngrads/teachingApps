@@ -5,7 +5,10 @@ ui = navbarPage(title = 'Beta Distribution',
                 header = add_css(),
                 footer = add_logo(),
 
-                
+
+tabPanel('Overview',
+         uiOutput('betaover', class = 'ta-text')),
+                                
 tabPanel('Shiny App',
          add_ui('distribution_beta_functions')),
 
