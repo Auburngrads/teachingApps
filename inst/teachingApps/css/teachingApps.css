@@ -697,6 +697,7 @@ label.control-label {
   font-weight: bold !important;
   display: inline !important;
   padding: 10px 0;
+  line-height: 1.6 !important;
 }
 
 body > nav > div.container-fluid {
@@ -712,6 +713,11 @@ span.navbar-brand {
   font-size: 1.5vw !important; 
   font-weight: bold !important;
   display: inline !important;
+}
+
+.nav-pills > li > a {
+  line-height: 1.25 !important;
+  border-radius: 30px !important;
 }
 
 navbar > ul > li > a > i {
