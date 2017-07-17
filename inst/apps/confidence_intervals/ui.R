@@ -1,22 +1,12 @@
-ui = fluidPage(theme = add_theme(getShinyOption('theme')), 
-               add_css(),
+ui = navbarPage(title = 'Confidence Intervals',
+                collapsible = T, 
+                position = 'fixed-top',
+                theme  = add_theme(getShinyOption('theme')),
+                header = add_css(),
+                footer = add_logo(),
 
-sidebarLayout(
-   sidebarPanel(
-      sliderInput(inputId = "n",
-                  'Sample Size (n)',
-                  value = 10,
-                  min = 2,
-                  max = 50,
-                  step = 1),
-      sliderInput(inputId = "confLevel",
-                  "Confidence Level",
-                  value = 80,
-                  min = 50,
-                  max = 99,
-                  step = 1),
-    actionButton("takeSample","Sample Now", width = '100%'),
-    hr(),
-    actionButton("reset","Start Over", width = '100%')),
- 
- mainPanel(plotOutput('ciplot', height = '600px'))))
+tabPanel('Background',
+         uiOutput('ci_intro', class = 'ta-text')),
+
+tabPanel("Simulation",
+         add_ui('confidence_intervals_simulation')))

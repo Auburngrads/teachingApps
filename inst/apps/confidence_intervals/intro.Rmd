@@ -1,0 +1,32 @@
+---
+output: html_document
+---
+
+### Confidence Intervals
+
+Confidence intervals (CI) are useful tools for quantifying the uncertainty associated with a point estimate.  The amount of uncertainty depends on a associated with du
+
+- What does it mean to say "...the $100\times(1-\alpha)\%$ CI for $\theta =(\underline{\widehat{\theta}},\overline{\widehat{\theta}})$..."
+
+- For $\alpha=0.05,$ a $95\%$ CI on $\theta$ this means 
+
+    + If an experiment were run $i$ times (each run producing a distinct data set) 
+
+    + The true (but unknown) value of $\theta$ would be in the interval $(\underline {\widehat {\theta_{i}}},\overline{\widehat{\theta_{i}}})$ in $95\%$ of those runs.
+
+- A $95\%$ CI on $\theta$ <focus>does not mean</focus> $P(\underline{\widehat{\theta_{i}}} <\theta<\overline{\widehat{\theta_{i}}})=0.95$
+
+    + For each experiment the probability $P(\underline{\widehat{\theta_{i}}} <\theta<\overline{\widehat{\theta_{i}}})$ is either $1$ or $0$ 
+
+    + This is because $\theta$ is either in the interval, or it isn't
+
+### About this app
+
+- The `Examples` tab
+
+    + Walks through a 'not-so-real-world' example showing how ML Estimation works
+
+- The `Details` Tab
+
+    + Presents an interactive simulation showing how likelihood values are computed for different distributions
+

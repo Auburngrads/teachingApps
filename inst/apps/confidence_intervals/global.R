@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(scales)
+needs::needs(scales,knitr)
