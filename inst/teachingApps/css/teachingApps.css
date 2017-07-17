@@ -689,6 +689,8 @@ ul.nav.navbar-nav > li > a  {
   font-size: 1.5vw !important;
   font-weight: bold !important;
   height: 60px !important;
+  line-height: 60px !important;
+  padding:  0 15px !important;
 }
 
 label.control-label {
