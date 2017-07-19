@@ -5,7 +5,8 @@
 # http://shiny.rstudio.com
 #
 
-ui <- fluidPage(title = 'Census', 
+ui <- fluidPage(title = 'Census',
+                theme = shinythemes::shinytheme('flatly'),
 
   # Application title
   titlePanel("USA Census Data"),
