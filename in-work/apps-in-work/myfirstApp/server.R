@@ -1,6 +1,3 @@
-data('df_state_demographics')
-map_data <- df_state_demographics
-
 server <- function(input, output) {
 
   output$map <- renderPlot({
