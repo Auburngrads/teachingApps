@@ -12,9 +12,9 @@ output: html_document
 
 - It has a constant rate of occurrence
 
-- Can be derived from either the binomial, hypergeometric or exponential              distribution
+- Can be derived from either the binomial, hypergeometric or exponential distribution
 
 - The mean is equal to the variance
 
-- Only has one parameter, $\lambda$, which represents the average number of events    in a given time period
+- Only has one parameter, $\lambda$, which represents the average number of events in a given time period
 
