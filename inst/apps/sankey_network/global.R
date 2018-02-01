@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(networkD3,d3Network)
+needs::needs(networkD3)

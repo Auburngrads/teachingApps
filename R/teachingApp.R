@@ -15,7 +15,6 @@
 #' @importFrom grDevices rgb rainbow heat.colors terrain.colors cm.colors extendrange
 #' @importFrom scales alpha
 #' @importFrom networkD3 renderSankeyNetwork sankeyNetworkOutput
-#' @importFrom d3Network d3Sankey
 #' @importFrom radarchart chartJSRadarOutput renderChartJSRadar chartJSRadar
 #' @importFrom DT datatable dataTableOutput renderDataTable
 #' @importFrom actuar pllogis dllogis qllogis rllogis
