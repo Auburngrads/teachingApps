@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // qbisa
 NumericVector qbisa(NumericVector p, const double shape, const double scale);
-RcppExport SEXP teachingApps_qbisa(SEXP pSEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_qbisa(SEXP pSEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -20,7 +20,7 @@ END_RCPP
 }
 // pbisa
 NumericVector pbisa(NumericVector q, const double shape, const double scale);
-RcppExport SEXP teachingApps_pbisa(SEXP qSEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_pbisa(SEXP qSEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -33,7 +33,7 @@ END_RCPP
 }
 // dlbisa
 NumericVector dlbisa(NumericVector z, const double shape);
-RcppExport SEXP teachingApps_dlbisa(SEXP zSEXP, SEXP shapeSEXP) {
+RcppExport SEXP _teachingApps_dlbisa(SEXP zSEXP, SEXP shapeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -45,7 +45,7 @@ END_RCPP
 }
 // dbisa
 NumericVector dbisa(NumericVector x, const double shape, const double scale);
-RcppExport SEXP teachingApps_dbisa(SEXP xSEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_dbisa(SEXP xSEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -58,7 +58,7 @@ END_RCPP
 }
 // rbisa
 NumericVector rbisa(const int n, const double shape, const double scale);
-RcppExport SEXP teachingApps_rbisa(SEXP nSEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_rbisa(SEXP nSEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -71,7 +71,7 @@ END_RCPP
 }
 // qlev
 NumericVector qlev(NumericVector p, const double loc, const double scale);
-RcppExport SEXP teachingApps_qlev(SEXP pSEXP, SEXP locSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_qlev(SEXP pSEXP, SEXP locSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -84,7 +84,7 @@ END_RCPP
 }
 // plev
 NumericVector plev(NumericVector q, const double loc, const double scale);
-RcppExport SEXP teachingApps_plev(SEXP qSEXP, SEXP locSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_plev(SEXP qSEXP, SEXP locSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -97,7 +97,7 @@ END_RCPP
 }
 // dlev
 NumericVector dlev(NumericVector x, const double loc, const double scale);
-RcppExport SEXP teachingApps_dlev(SEXP xSEXP, SEXP locSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_dlev(SEXP xSEXP, SEXP locSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -110,7 +110,7 @@ END_RCPP
 }
 // rlev
 NumericVector rlev(const int n, const double loc, const double scale);
-RcppExport SEXP teachingApps_rlev(SEXP nSEXP, SEXP locSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_rlev(SEXP nSEXP, SEXP locSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -123,7 +123,7 @@ END_RCPP
 }
 // likely2
 LogicalVector likely2(NumericVector times, NumericVector cens, NumericVector params, const double maxll);
-RcppExport SEXP teachingApps_likely2(SEXP timesSEXP, SEXP censSEXP, SEXP paramsSEXP, SEXP maxllSEXP) {
+RcppExport SEXP _teachingApps_likely2(SEXP timesSEXP, SEXP censSEXP, SEXP paramsSEXP, SEXP maxllSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -137,7 +137,7 @@ END_RCPP
 }
 // rcpp_hello_world
 List rcpp_hello_world();
-RcppExport SEXP teachingApps_rcpp_hello_world() {
+RcppExport SEXP _teachingApps_rcpp_hello_world() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -147,7 +147,7 @@ END_RCPP
 }
 // qsev
 NumericVector qsev(NumericVector p, const double loc, const double scale);
-RcppExport SEXP teachingApps_qsev(SEXP pSEXP, SEXP locSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_qsev(SEXP pSEXP, SEXP locSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -160,7 +160,7 @@ END_RCPP
 }
 // psev
 NumericVector psev(NumericVector q, const double loc, const double scale);
-RcppExport SEXP teachingApps_psev(SEXP qSEXP, SEXP locSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_psev(SEXP qSEXP, SEXP locSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -173,7 +173,7 @@ END_RCPP
 }
 // dsev
 NumericVector dsev(NumericVector x, const double loc, const double scale);
-RcppExport SEXP teachingApps_dsev(SEXP xSEXP, SEXP locSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_dsev(SEXP xSEXP, SEXP locSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -186,7 +186,7 @@ END_RCPP
 }
 // rsev
 NumericVector rsev(const int n, const double loc, const double scale);
-RcppExport SEXP teachingApps_rsev(SEXP nSEXP, SEXP locSEXP, SEXP scaleSEXP) {
+RcppExport SEXP _teachingApps_rsev(SEXP nSEXP, SEXP locSEXP, SEXP scaleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -199,21 +199,21 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"teachingApps_qbisa", (DL_FUNC) &teachingApps_qbisa, 3},
-    {"teachingApps_pbisa", (DL_FUNC) &teachingApps_pbisa, 3},
-    {"teachingApps_dlbisa", (DL_FUNC) &teachingApps_dlbisa, 2},
-    {"teachingApps_dbisa", (DL_FUNC) &teachingApps_dbisa, 3},
-    {"teachingApps_rbisa", (DL_FUNC) &teachingApps_rbisa, 3},
-    {"teachingApps_qlev", (DL_FUNC) &teachingApps_qlev, 3},
-    {"teachingApps_plev", (DL_FUNC) &teachingApps_plev, 3},
-    {"teachingApps_dlev", (DL_FUNC) &teachingApps_dlev, 3},
-    {"teachingApps_rlev", (DL_FUNC) &teachingApps_rlev, 3},
-    {"teachingApps_likely2", (DL_FUNC) &teachingApps_likely2, 4},
-    {"teachingApps_rcpp_hello_world", (DL_FUNC) &teachingApps_rcpp_hello_world, 0},
-    {"teachingApps_qsev", (DL_FUNC) &teachingApps_qsev, 3},
-    {"teachingApps_psev", (DL_FUNC) &teachingApps_psev, 3},
-    {"teachingApps_dsev", (DL_FUNC) &teachingApps_dsev, 3},
-    {"teachingApps_rsev", (DL_FUNC) &teachingApps_rsev, 3},
+    {"_teachingApps_qbisa", (DL_FUNC) &_teachingApps_qbisa, 3},
+    {"_teachingApps_pbisa", (DL_FUNC) &_teachingApps_pbisa, 3},
+    {"_teachingApps_dlbisa", (DL_FUNC) &_teachingApps_dlbisa, 2},
+    {"_teachingApps_dbisa", (DL_FUNC) &_teachingApps_dbisa, 3},
+    {"_teachingApps_rbisa", (DL_FUNC) &_teachingApps_rbisa, 3},
+    {"_teachingApps_qlev", (DL_FUNC) &_teachingApps_qlev, 3},
+    {"_teachingApps_plev", (DL_FUNC) &_teachingApps_plev, 3},
+    {"_teachingApps_dlev", (DL_FUNC) &_teachingApps_dlev, 3},
+    {"_teachingApps_rlev", (DL_FUNC) &_teachingApps_rlev, 3},
+    {"_teachingApps_likely2", (DL_FUNC) &_teachingApps_likely2, 4},
+    {"_teachingApps_rcpp_hello_world", (DL_FUNC) &_teachingApps_rcpp_hello_world, 0},
+    {"_teachingApps_qsev", (DL_FUNC) &_teachingApps_qsev, 3},
+    {"_teachingApps_psev", (DL_FUNC) &_teachingApps_psev, 3},
+    {"_teachingApps_dsev", (DL_FUNC) &_teachingApps_dsev, 3},
+    {"_teachingApps_rsev", (DL_FUNC) &_teachingApps_rsev, 3},
     {NULL, NULL, 0}
 };
 
