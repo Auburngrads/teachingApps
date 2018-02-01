@@ -2,21 +2,12 @@
 output: html_document
 ---
 
-<h3>About the Exponential Distribution</h3>
+<h3>About the SEV Distribution</h3>
 
-- Is the continuous counterpart to the geometric distribution
+- Also called the Gumbel distribution
 
-- Describes the inter-arrival time durations between events in a homogeneous Poisson process
+- Pdf is skewed to the left
 
-- Is used to model the "useful-life" region of the bathtub curve
+- Useful when the weakest link's failure determines the failure time of   the process
 
-- Implies that failures are due to random events or chance
-
-- Is a "memoryless" distribution
-
-- Is one of the most commonly used lifetime distributions in reliability analyses
-
-- Is the simplest distribution used in the analysis of reliability data
-
-- In real world scenarios, assuming exponentially distributed failure times is rarely valid
-
+- Used to model minimum values
