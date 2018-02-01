@@ -33,9 +33,11 @@ function(data,
          width = '100%', 
          height = '600px', 
          css = NULL) {
-  
+
+pacman::p_load(shiny, data.table)
+
 ui = fluidPage(theme = shinythemes::shinytheme(theme = theme),
-               if(is.null(css)) teachingApps::add_style(),
+               if(is.null(css)) teachingApps::add_css(),
                
 sidebarLayout(
   sidebarPanel(width = 3,

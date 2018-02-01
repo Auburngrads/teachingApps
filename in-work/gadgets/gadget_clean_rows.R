@@ -35,14 +35,14 @@ function(data,
          height = '600px', 
          css = NULL) {
   
-teachingApps::getPackage('parcoords', repo = 'timelyportfolio')
-teachingApps::getPackage('crosstalk')
+pacman::p_load_gh('timelyportfolio/parcoords')
+pacman::p_load(crosstalk, shiny)
 
 ui = navbarPage(title = 'Data Cleaning App',
                 collapsible = T, 
                 position = 'fixed-top',
                 theme = shinythemes::shinytheme(theme = theme),
-                header = if(is.null(css)) add_style(),
+                header = if(is.null(css)) teachingApps::add_css(),
                 
 tabPanel(h4('Parcoords'),
          fluidRow( parcoordsOutput('DiamondPlot'))),
