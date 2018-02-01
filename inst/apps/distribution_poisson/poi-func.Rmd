@@ -2,15 +2,14 @@
 output: html_document
 ---
 
-<h3>Functional relationships for <script type="math/tex">\;T \sim EXP(\theta,\gamma),\;\;T \in [0,\infty)</script>
+<h3>Functional relationships for <script type="math/tex">\\\\X \sim Poisson(\lambda),\;\;\lambda \in [0,\infty), x=0,1,...;</script>
 </h3>
 $$
 \\begin{aligned}
-f(t|\\theta,\\gamma)&=\\frac{1}{\\theta}\\exp\\left(-\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
-F(t|\\theta,\\gamma)&=1-\\exp\\left(\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
-h(t|\\theta,\\gamma)&=\\frac{1}{\\theta}, t>\\gamma\\\\\\\\\
-t_{p}&=\\gamma-\\log(1-p)\\theta\\\\\\\\
-E[T]&=\\gamma+\\theta\\\\\\\\
-Var[T]&=\\theta^2
+p(x|\\lambda)&=\\frac{e^{-\\lambda}\\lambda^{x}}{x!}\\\\\\\\
+F(x|\\lambda)&=\\sum_{i=0}^{x}\\left(\\frac{e^{-\\lambda}\\lambda^{i}}{i!}\\right)\\\\\\\\
+h(x)&=\\frac{\\lambda{e}^{-\\lambda{t}}}{e^{-\\lambda{t}}}=\\lambda\\\\\\\\\\
+E[X]&=\\lambda\\\\\\\\
+Var[X]&=\\lambda
 \\end{aligned}
 $$
