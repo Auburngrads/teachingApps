@@ -3,7 +3,6 @@
 #' @description Pass app updates from a local inst directory to an app in an installed package
 #'
 #' @importFrom utils browseURL
-#' @importFrom devtools inst
 #' @importFrom rprojroot find_root is_r_package
 #'
 #' @param local_pkg \code{character} Path to the local version of the package from which updates will be passed
@@ -67,7 +66,7 @@ function(local_pkg,
   local_pkg_root <- find_root(local_pkg, 
                                criterion = is_r_package)
   
-    lib_pkg_root <- devtools::inst(basename(local_pkg_root))
+    lib_pkg_root <- inst(basename(local_pkg_root))
    
   if(update_css) {
     
