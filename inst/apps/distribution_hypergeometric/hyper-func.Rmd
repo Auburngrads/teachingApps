@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-<h3>Functional relationships for <script type="math/tex">\;\;X \sim Hypergeometric(N,M,K),  \;x=0,1,2,...,K\\ M-(N-K)\leq\;x\leq\;M;\;N,M,K \geq\;0</script>
+<h3>Functional relationships for <script type="math/tex">\;\;X \sim H(N,M,K),  \;x=0,1,2,...,K\\ M-(N-K)\leq\;x\leq\;M;\;N,M,K \geq\;0</script>
 </h3>
 $$
 \begin{aligned}
