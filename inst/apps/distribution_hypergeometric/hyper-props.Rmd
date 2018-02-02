@@ -1,0 +1,16 @@
+---
+output: html_document
+---
+
+<h3>About the Hypergeometric Distribution</h3>
+
+- Describes the probability of a certain number of successes in a certain number of draws
+
+- Discrete probability distribution
+
+- Probability of a success changes with each draw
+
+- Similar to the binomial distribution, but uses sampling without
+  replacement instead of with replacement
+
+- Finite population
