@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/hadley/devtools.svg?branch=master)](https://travis-ci.org/Auburngrads/teachingApps)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/hadley/devtools?branch=master&svg=true)](https://ci.appveyor.com/project/Auburngrads/teachingApps)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Auburngrads/teachingApps?branch=master&svg=true)](https://ci.appveyor.com/project/Auburngrads/teachingApps)
 [![Coverage Status](https://codecov.io/github/Auburngrads/teachingApps/coverage.svg?branch=master)](https://codecov.io/github/Auburngrads/teachingApps?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/teachingApps)](https://cran.r-project.org/package=teachingApps)
 
