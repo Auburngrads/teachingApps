@@ -1,0 +1,14 @@
+---
+output: html_document
+---
+
+<h3>Functional relationships for <script type="math/tex">\;\;X \sim H(N,M,K),  \;x=0,1,2,...,K\\ M-(N-K)\leq\;x\leq\;M;\;N,M,K \geq\;0</script>
+</h3>
+$$
+\begin{aligned}
+f(x|N,M,K)&=\\frac{\\dbinom{M}{x}\\dbinom{N-M}{K-x}}{\\dbinom{N}{K}}\\\\\\\\
+F(x|N,M,K)&=\sum_{i=0}^{x}\\frac{\\dbinom{M}{i}\\dbinom{N-M}{K-i}}{\\dbinom{N}{K}}\\\\\\\\
+E[X]&=\\frac{KM}{N}\\\\\\\\
+Var[X]&=\\frac{KM}{N}\\frac{(N-M)(N-K)}{N(N-1)}
+\end{aligned}
+$$
