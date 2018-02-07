@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(diagram)
+pacman::p_load(diagram)
