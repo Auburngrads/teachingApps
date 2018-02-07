@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(networkD3)
+pacman::p_load(networkD3)
