@@ -34,8 +34,6 @@ function(data,
          height = '600px', 
          css = NULL) {
 
-pacman::p_load(shiny, data.table)
-
 ui = fluidPage(theme = shinythemes::shinytheme(theme = theme),
                if(is.null(css)) teachingApps::add_css(),
                
