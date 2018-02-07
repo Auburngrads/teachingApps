@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(scales,knitr)
+pacman::p_load(scales,knitr)
