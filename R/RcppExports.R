@@ -42,29 +42,29 @@
 #' @param shape Shape parameter
 #' @param scale Scale parameter
 qbisa <- function(p, shape, scale = 1) {
-    .Call('teachingApps_qbisa', PACKAGE = 'teachingApps', p, shape, scale)
+    .Call('_teachingApps_qbisa', PACKAGE = 'teachingApps', p, shape, scale)
 }
 
 #' @export
 #' @rdname bisa
 pbisa <- function(q, shape, scale = 1) {
-    .Call('teachingApps_pbisa', PACKAGE = 'teachingApps', q, shape, scale)
+    .Call('_teachingApps_pbisa', PACKAGE = 'teachingApps', q, shape, scale)
 }
 
 dlbisa <- function(z, shape) {
-    .Call('teachingApps_dlbisa', PACKAGE = 'teachingApps', z, shape)
+    .Call('_teachingApps_dlbisa', PACKAGE = 'teachingApps', z, shape)
 }
 
 #' @export
 #' @rdname bisa
 dbisa <- function(x, shape, scale = 1) {
-    .Call('teachingApps_dbisa', PACKAGE = 'teachingApps', x, shape, scale)
+    .Call('_teachingApps_dbisa', PACKAGE = 'teachingApps', x, shape, scale)
 }
 
 #' @export
 #' @rdname bisa
 rbisa <- function(n, shape, scale = 1) {
-    .Call('teachingApps_rbisa', PACKAGE = 'teachingApps', n, shape, scale)
+    .Call('_teachingApps_rbisa', PACKAGE = 'teachingApps', n, shape, scale)
 }
 
 #' The Largest Extreme Value Distribution
@@ -106,33 +106,33 @@ rbisa <- function(n, shape, scale = 1) {
 #' @param loc Location parameter
 #' @param scale Scale parameter
 qlev <- function(p, loc = 0, scale = 1) {
-    .Call('teachingApps_qlev', PACKAGE = 'teachingApps', p, loc, scale)
+    .Call('_teachingApps_qlev', PACKAGE = 'teachingApps', p, loc, scale)
 }
 
 #' @export
 #' @rdname lev
 plev <- function(q, loc = 0, scale = 1) {
-    .Call('teachingApps_plev', PACKAGE = 'teachingApps', q, loc, scale)
+    .Call('_teachingApps_plev', PACKAGE = 'teachingApps', q, loc, scale)
 }
 
 #' @export
 #' @rdname lev
 dlev <- function(x, loc = 0, scale = 1) {
-    .Call('teachingApps_dlev', PACKAGE = 'teachingApps', x, loc, scale)
+    .Call('_teachingApps_dlev', PACKAGE = 'teachingApps', x, loc, scale)
 }
 
 #' @export
 #' @rdname lev
 rlev <- function(n, loc = 0, scale = 1) {
-    .Call('teachingApps_rlev', PACKAGE = 'teachingApps', n, loc, scale)
+    .Call('_teachingApps_rlev', PACKAGE = 'teachingApps', n, loc, scale)
 }
 
 likely2 <- function(times, cens, params, maxll) {
-    .Call('teachingApps_likely2', PACKAGE = 'teachingApps', times, cens, params, maxll)
+    .Call('_teachingApps_likely2', PACKAGE = 'teachingApps', times, cens, params, maxll)
 }
 
 rcpp_hello_world <- function() {
-    .Call('teachingApps_rcpp_hello_world', PACKAGE = 'teachingApps')
+    .Call('_teachingApps_rcpp_hello_world', PACKAGE = 'teachingApps')
 }
 
 #' The Smallest Extreme Value Distribution
@@ -173,24 +173,24 @@ rcpp_hello_world <- function() {
 #' @param loc Location parameter
 #' @param scale Scale parameter
 qsev <- function(p, loc = 0, scale = 1) {
-    .Call('teachingApps_qsev', PACKAGE = 'teachingApps', p, loc, scale)
+    .Call('_teachingApps_qsev', PACKAGE = 'teachingApps', p, loc, scale)
 }
 
 #' @export
 #' @rdname sev
 psev <- function(q, loc = 0, scale = 1) {
-    .Call('teachingApps_psev', PACKAGE = 'teachingApps', q, loc, scale)
+    .Call('_teachingApps_psev', PACKAGE = 'teachingApps', q, loc, scale)
 }
 
 #' @export
 #' @rdname sev
 dsev <- function(x, loc = 0, scale = 1) {
-    .Call('teachingApps_dsev', PACKAGE = 'teachingApps', x, loc, scale)
+    .Call('_teachingApps_dsev', PACKAGE = 'teachingApps', x, loc, scale)
 }
 
 #' @export
 #' @rdname sev
 rsev <- function(n, loc = 0, scale = 1) {
-    .Call('teachingApps_rsev', PACKAGE = 'teachingApps', n, loc, scale)
+    .Call('_teachingApps_rsev', PACKAGE = 'teachingApps', n, loc, scale)
 }
 

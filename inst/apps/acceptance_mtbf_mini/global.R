@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(plotly, miniUI)
+pacman::p_load(plotly, miniUI)

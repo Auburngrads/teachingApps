@@ -10,8 +10,9 @@
 #' @param height \code{character} Height of the gadget (in valid css units)
 #' @param css \code{character} Path to a custom css file
 #' 
+#' @import crosstalk
 #' @importFrom shinythemes shinytheme
-#' @importFrom shinygadgets runGadget browserViewer
+#' @importFrom shiny runGadget browserViewer
 #' @importFrom shiny fluidPage tags includeCSS sidebarLayout sidebarPanel
 #' @importFrom shiny uiOutput selectizeInput actionButton reactive h4
 #' @importFrom shiny stopApp observeEvent mainPanel
@@ -35,14 +36,13 @@ function(data,
          height = '600px', 
          css = NULL) {
   
-teachingApps::getPackage('parcoords', repo = 'timelyportfolio')
-teachingApps::getPackage('crosstalk')
+pacman::p_load_gh('timelyportfolio/parcoords')
 
 ui = navbarPage(title = 'Data Cleaning App',
                 collapsible = T, 
                 position = 'fixed-top',
                 theme = shinythemes::shinytheme(theme = theme),
-                header = if(is.null(css)) add_style(),
+                header = if(is.null(css)) teachingApps::add_css(),
                 
 tabPanel(h4('Parcoords'),
          fluidRow( parcoordsOutput('DiamondPlot'))),
@@ -82,7 +82,7 @@ observeEvent(input$done, {
     stopApp(list(data = as.data.frame( data[ids(),] )))
 })
 }
-shinygadgets::runGadget(app = ui,
+              runGadget(app = ui,
                         server = server,
-                        viewer = shinygadgets::browserViewer(browser = getOption("browser")))
+                        viewer = browserViewer(browser = getOption("browser")))
 }

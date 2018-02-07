@@ -7,7 +7,7 @@
 #' @importFrom shinyAce aceEditor
 #' @importFrom diagram plotmat
 #' @importFrom utils View combn
-#' @importFrom needs needs
+#' @importFrom pacman p_load
 #' @importFrom dygraphs dygraph renderDygraph dySeries dygraphOutput
 #' @importFrom leaflet leafletOutput leaflet addTiles addMarkers renderLeaflet
 #' @importFrom threejs renderGlobe globejs globeOutput
@@ -15,7 +15,6 @@
 #' @importFrom grDevices rgb rainbow heat.colors terrain.colors cm.colors extendrange
 #' @importFrom scales alpha
 #' @importFrom networkD3 renderSankeyNetwork sankeyNetworkOutput
-#' @importFrom d3Network d3Sankey
 #' @importFrom radarchart chartJSRadarOutput renderChartJSRadar chartJSRadar
 #' @importFrom DT datatable dataTableOutput renderDataTable
 #' @importFrom actuar pllogis dllogis qllogis rllogis
@@ -48,6 +47,7 @@
 #' @param img \code{character} A path (or URL) to an image to be placed in the footer of a navbarPage app
 #' @param git_user \code{character} GitHub username used in the branding logo
 #' @param more_opts A \code{list} of additional options/objects that can be passed to the app (see Details)
+#' @param launch.browser \code{logical} If \code{TRUE} The app launches in the user's default browser
 #' @param ... A \code{list} of additional options passed to \code{shiny::shinyAppDir()} 
 #' 
 #' @return A printed shiny app
@@ -77,7 +77,8 @@ function(app_name = NULL,
          icon = 'fa fa-github',
          img = NULL,
          git_user = 'Auburngrads',
-         more_opts = list(NA),...)
+         more_opts = list(NA),
+         launch.browser = TRUE,...)
 {
  
     valid_apps <- list.files(system.file("apps", package = "teachingApps"))
@@ -104,6 +105,8 @@ function(app_name = NULL,
                               git_user = git_user)
     
     shiny::shinyAppDir(appDir = dir, 
-                       options = list(height = height, width = width,...))
+                       options = list(height = height, 
+                                      width = width,
+                                      launch.browser = launch.browser,...))
 
 }

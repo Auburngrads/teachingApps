@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(shiny, plotly)
+pacman::p_load(shiny, plotly)

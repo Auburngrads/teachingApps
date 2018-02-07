@@ -6,7 +6,8 @@
 \usage{
 teachingApp(app_name = NULL, theme = "flatly", width = "100\%",
   height = "800px", icon = "fa fa-github", img = NULL,
-  git_user = "Auburngrads", more_opts = list(NA), ...)
+  git_user = "Auburngrads", more_opts = list(NA), launch.browser = TRUE,
+  ...)
 }
 \arguments{
 \item{app_name}{\code{character} Name of the app to be rendered}
@@ -24,6 +25,8 @@ teachingApp(app_name = NULL, theme = "flatly", width = "100\%",
 \item{git_user}{\code{character} GitHub username used in the branding logo}
 
 \item{more_opts}{A \code{list} of additional options/objects that can be passed to the app (see Details)}
+
+\item{launch.browser}{\code{logical} If \code{TRUE} The app launches in the user's default browser}
 
 \item{...}{A \code{list} of additional options passed to \code{shiny::shinyAppDir()}}
 }

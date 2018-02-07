@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(visNetwork)
+pacman::p_load(visNetwork)

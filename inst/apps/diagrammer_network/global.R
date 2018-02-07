@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(DiagrammeR)
+pacman::p_load(DiagrammeR)

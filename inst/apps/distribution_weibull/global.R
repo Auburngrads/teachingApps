@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(metricsgraphics)
+pacman::p_load(metricsgraphics)

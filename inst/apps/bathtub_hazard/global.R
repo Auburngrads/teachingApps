@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(shiny, ggplot2)
+pacman::p_load(shiny, ggplot2)

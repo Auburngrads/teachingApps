@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(scales)
+pacman::p_load(scales)
