@@ -13,29 +13,24 @@
 #' @importFrom shiny radioButtons clickOpts runApp helpText h1 h5 h6 includeCSS
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText
-#' @importFrom shinygadgets runGadget dialogViewer browserViewer
+#' @importFrom shiny runGadget dialogViewer browserViewer
 #' @importFrom stats as.formula lm
 #' @importFrom ggplot2 aes_string geom_point geom_smooth theme_bw coord_cartesian ggplot
 #'
 #' @param data A \code{data.frame} object
-#' @param xvar Column from \code{data} to display on the x-axis
-#' @param yvar Column from \code{data} to display on the y-axis
-#' @param theme Character string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}
+#' @param xvar Column title (as a \code{character}-string) from \code{data} to display on the x-axis
+#' @param yvar Column title (as a \code{character}-string) from \code{data} to display on the y-axis
+#' @param theme \code{character} string naming a color theme bootswatch color theme. Must be one of the themes that can be used in \code{shinythemes::shinytheme()}
 #' @param height Height of the printed app.
 #' @param width Width of the printed app.
 #' @param css Path to a custom css file. If \code{NULL} the default css file is used 
 #' @param ... Additional options passed to \code{shiny::shinyAppDir()} 
 #'  
-#' @details When publishing apps using shinyapps.io or shinyServer, setting code{pub = TRUE} prevents calls to code{install.packages}. Calls to code{install.packages} should not be included within an app and will result in an error.
-#' 
 #' @export 
 gadget_lm <- 
 function(data, xvar, yvar, theme = "flatly", 
          width = '100%', css = NULL, height = '600px',...) 
 {
-  
-  do.call('library', args = list('miniUI'))
-  do.call('library', args = list('ggplot2'))
   
 ui <- miniPage(
     

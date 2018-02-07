@@ -10,7 +10,7 @@
 #' @param css \code{character} Path to a custom css file
 #' 
 #' @importFrom shinythemes shinytheme
-#' @importFrom shinygadgets runGadget browserViewer
+#' @importFrom shiny runGadget browserViewer
 #' @importFrom shiny fluidPage tags includeCSS sidebarLayout sidebarPanel
 #' @importFrom shiny uiOutput selectizeInput actionButton reactive h4
 #' @importFrom shiny stopApp observeEvent mainPanel fluidRow
@@ -83,7 +83,7 @@ clean.data <- reactive({
     
 })
 }
-shinygadgets::runGadget(app = ui,
+              runGadget(app = ui,
                         server = server,
-                        viewer = shinygadgets::browserViewer(browser = getOption("browser")))
+                        viewer = browserViewer(browser = getOption("browser")))
 }
