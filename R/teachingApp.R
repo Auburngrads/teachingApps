@@ -7,7 +7,7 @@
 #' @importFrom shinyAce aceEditor
 #' @importFrom diagram plotmat
 #' @importFrom utils View combn
-#' @importFrom needs needs
+#' @importFrom pacman p_load
 #' @importFrom dygraphs dygraph renderDygraph dySeries dygraphOutput
 #' @importFrom leaflet leafletOutput leaflet addTiles addMarkers renderLeaflet
 #' @importFrom threejs renderGlobe globejs globeOutput
