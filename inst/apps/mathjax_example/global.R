@@ -1,1 +1,1 @@
-needs::needs(shiny)
+pacman::p_load(shiny)
