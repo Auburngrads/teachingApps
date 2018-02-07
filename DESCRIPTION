@@ -15,7 +15,7 @@ BugReports: https://github.com/Auburngrads/teachingApps/issues
 Encoding: UTF-8
 License: GPL (>= 2)
 LazyData: true
-Depends: R (>= 3.1.0), shiny, needs
+Depends: R (>= 3.1.0), shiny, pacman
 Imports: shinyAce,shinythemes,shinydashboard,miniUI,radarchart,dplyr,
          DT,metricsgraphics,leaflet,threejs,d3heatmap,tidyr,datasets,
          plotly,dygraphs,networkD3,d3Network,diagram,DiagrammeR,visNetwork,
