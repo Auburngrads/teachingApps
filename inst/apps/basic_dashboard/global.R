@@ -1,2 +1,2 @@
 library(teachingApps)
-needs::needs(shinydashboard)
+pacman::p_load(shinydashboard)
