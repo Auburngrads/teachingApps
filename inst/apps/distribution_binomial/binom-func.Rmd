@@ -1,0 +1,14 @@
+---
+output: html_document
+---
+
+<h3>Functional relationships for <script type="math/tex">\;X \sim Binomial(n,p),\;\;x=0,1,2,...,n;\;\;0\leq\;p\leq\;1</script>
+</h3>
+$$
+\begin{aligned}
+f(x|n,p)&=\dbinom{n}{x}p^{x}(1-p)^{n-x}\\\\\\\\
+F(x|n,p)&=\sum_{i=0}^{x}\dbinom{n}{i}(p)^{i}(1-p)^{n-i}\\\\\\\\
+E[X]&=np\\\\\\\\
+Var[X]&=np(1-p)
+\end{aligned}
+$$
