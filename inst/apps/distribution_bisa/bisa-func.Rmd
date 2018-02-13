@@ -1,0 +1,16 @@
+---
+output: html_document
+---
+
+<h3>Functional relationships for <script type="math/tex">\;T \sim BISA(\theta,\beta),\;\;t > 0;\;\;\theta\;>0,\;\;\beta\;>0</script>
+</h3>
+$$
+\begin{aligned}
+f(t|\theta,\beta)&=\frac{\sqrt{\frac{t}{\theta}}+\sqrt{\frac{\theta}{t}}}{2\beta{t}}\phi_{nor}(z),\;\;\;\;where\;\;z=\frac{1}{\beta}\left(\sqrt{\frac{t}{\theta}}-\sqrt{\frac{\theta}{t}}\right)\\\\\\\\
+F(t|\theta,\beta)&=\Phi_{nor}(z)\\\\\\\\
+h(t)&=\frac{\sqrt{\frac{t}{\theta}}-\sqrt{\frac{\theta}{t}}}{2\beta{t}}\left[\frac{\phi(z)}{\Phi(-z)}\right]\\\\\\\\
+t_p&=\frac{\theta}{4}\left\{\beta\Phi_{nor}^{-1}(p)+\sqrt{4+[\beta\Phi_{nor}^{-1}(p)]^{2}}\right\}^{2}\\\\\\\\
+E[T]&=\theta\left(1+\frac{\beta^{2}}{2}\right)\\\\\\\\
+Var[T]&=(\theta\beta)^{2}\left(1+\frac{5\beta^{2}}{4}\right)
+\end{aligned}
+$$
