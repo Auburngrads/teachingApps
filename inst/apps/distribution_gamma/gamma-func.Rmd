@@ -1,0 +1,15 @@
+---
+output: html_document
+---
+
+<h3>Functional relationships for <script type="math/tex">\;X \sim GAM(\kappa,\theta),\;\;X \in [0,\infty),\;\;\; \kappa,\theta\; > 0</script>
+</h3>
+$$
+\begin{aligned}
+f(x|\kappa,\theta)&=\frac{1}{\Gamma\left(\kappa\right)\theta^{\kappa}}x^{\kappa-1}e^{-x/\theta}\\\\\\\\
+F(x|\kappa,\theta)&=\frac{\Gamma\left(\kappa,x/\theta\right)}{\Gamma\left(\kappa\right)}\\\\\\\\
+h(x|\kappa,\theta)&=\frac{x^{\kappa-1}e^{-x/\theta}}{\left(\Gamma\left(\kappa\right)-\Gamma\left(\kappa,x/\theta\right)\right)\theta^{\kappa}\Gamma\left(\kappa\right)}\\\\\\\\\
+E[X]&=\kappa\theta\\\\\\\\
+Var[X]&=\kappa\theta^{2}
+\end{aligned}
+$$
