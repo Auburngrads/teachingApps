@@ -1,0 +1,14 @@
+---
+output: html_document
+---
+
+<h3>About the Binomial Distribution</h3>
+
+- Similar to the hypergeometric distribution, but the sampling is done with replacement instead of without replacement
+
+- It is a distribution of the number of successes in n independent trials, where each trial has a binary outcome (success/failure)
+
+- It has to have a fixed number of trials, n
+
+- The probability of success, p,  remains the same across trials
+
