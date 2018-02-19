@@ -1,2 +1,14 @@
 language: r
-cache: packages
+
+sudo: required
+
+env: _R_CHECK_CRAN_INCOMING_=FALSE
+
+r_packages:
+  - covr
+
+r_github_packages:
+  - codecov/example-r
+
+after_success:
+  - Rscript -e 'library(covr);codecov()'
