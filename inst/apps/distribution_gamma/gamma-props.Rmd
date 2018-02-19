@@ -1,0 +1,16 @@
+---
+output: html_document
+---
+
+<h3>About the Gamma Distribution</h3>
+
+- Gamma(1,$\lambda$)= Exponential($\lambda$)
+
+- Special cases of the gamma distribution include the chi-square,
+  erlang,and exponential distributions
+
+- Closely approximates a normal distribution when $\kappa$ is large
+
+- Poisson arrival times have gamma distributions
+
+- It has an exponential right-hand tail
