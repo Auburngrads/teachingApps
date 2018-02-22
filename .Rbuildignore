@@ -6,3 +6,5 @@ keytest.Rmd
 in-work/
 ^.*\.dll$
 ^.*\.o$
+appveyor\.yml$
+codecov\.yml$
