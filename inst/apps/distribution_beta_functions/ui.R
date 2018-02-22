@@ -35,7 +35,7 @@ sidebarLayout(
        tabsetPanel(type = "pills", 
           tabPanel("Distribution Function", 
                    metricsgraphicsOutput(height = "550px", "betaC")), 
-          tabPanel("Mass",
+          tabPanel("Density",
                    metricsgraphicsOutput(height = "550px", "betaP")), 
           tabPanel("Survival", 
                    metricsgraphicsOutput(height = "550px", "betaR")), 
