@@ -8,7 +8,7 @@ server = function(input, output, session) {
   P <- reactive({ dbeta4(t(), min(), max(), input$shape1, input$shape2)})
   R <- reactive({ 1 - C()})
   h <- reactive({ exp(log(P())-log(R()))})
-  H <- reactive({ -1 * log(1 - C())})
+  H <- reactive({ -1 * log(R())})
   Q <- reactive({ qbeta4(p(),min(), max(), input$shape1, input$shape2)})
  df <- reactive({ data.frame(Time = t(), 
                              PROB = p(), 
@@ -27,7 +27,7 @@ output$betaC <- renderMetricsgraphics({
     mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
 })
 output$betaP <- renderMetricsgraphics({
-  mjs_plot(df(), x = Time, y = PMF, decimals = 4)         %>% 
+  mjs_plot(df(), x = Time, y = PDF, decimals = 4)         %>% 
     mjs_line(area = TRUE)                             %>%
     mjs_labs(x_label = "X = x", y_label = "f(x)")      %>% 
     mjs_add_css_rule("{{ID}} .mg-active-datapoint { font-size: 20pt }")
