@@ -2,21 +2,19 @@
 output: html_document
 ---
 
-<h3>About the Exponential Distribution</h3>
+<h3>About the Logistic Distribution</h3>
 
-- Is the continuous counterpart to the geometric distribution
+- No shape parameter
 
-- Describes the inter-arrival time durations between events in a homogeneous Poisson process
+- PDF shifts to the left as $\mu$ decreases
 
-- Is used to model the "useful-life" region of the bathtub curve
+- PDF shifts to the right as $\mu$ increases
 
-- Implies that failures are due to random events or chance
+- The location parameter is the mean, $\mu$
 
-- Is a "memoryless" distribution
+- The CDF is the logistic function
 
-- Is one of the most commonly used lifetime distributions in reliability analyses
+- It starts at negative infinity
 
-- Is the simplest distribution used in the analysis of reliability data
-
-- In real world scenarios, assuming exponentially distributed failure times is rarely valid
-
+- Similar in shape to the normal distribution, but with heavier tails
+  
