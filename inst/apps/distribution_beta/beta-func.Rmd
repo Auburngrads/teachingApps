@@ -2,15 +2,15 @@
 output: html_document
 ---
 
-### Functional relationships for <script type="math/tex">\;T \sim EXP(\theta,\gamma),\;\;T \in [0,\infty)</script>
+### Functional relationships for $\;T \sim BETA(\alpha,\beta, c, d),\;\;T \in [c,d + c]\;\; \alpha,\beta, d > 0$
 
 $$
-\\begin{aligned}
-f(t|\\theta,\\gamma)&=\\frac{1}{\\theta}\\exp\\left(-\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
-F(t|\\theta,\\gamma)&=1-\\exp\\left(\\frac{t-\\gamma}{\\theta}\\right)\\\\\\\\
-h(t|\\theta,\\gamma)&=\\frac{1}{\\theta}, t>\\gamma\\\\\\\\\
-t_{p}&=\\gamma-\\log(1-p)\\theta\\\\\\\\
-E[T]&=\\gamma+\\theta\\\\\\\\
-Var[T]&=\\theta^2
-\\end{aligned}
+\begin{aligned}
+f(t|\alpha,\beta,c,d)&=\frac{(t-c)^{\alpha-1}(d+c-t)^{\beta-1}}{B(\alpha,\beta) (d)^{\alpha+\beta-1}}\\\\\\\\
+F(t|\alpha,\beta,c,d)&=\mathcal{I}_{t}(\alpha,\beta,c,d)=\frac{\int_{0}^{t}(x-c)^{\alpha-1}(d+c-x)^{\beta-1}dx}{B(\alpha,\beta) (d)^{\alpha+\beta-1}}\\\\\\\\
+h(t|\alpha,\beta,c,d)&=\frac{f(t)}{1-F(t)}\quad \\\\\\\\\
+t(p|\alpha,\beta,c,d)&=t(p|\alpha,\beta,0,1) \times d + c \\\\\\\\
+E[T]&=\frac{\alpha}{\alpha + \beta} \times d + c \\\\
+Var[T]&=\frac{\alpha\beta}{(\alpha+\beta)^{2}(\alpha+\beta+1)} \times d + c
+\end{aligned}
 $$
