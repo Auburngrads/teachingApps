@@ -1,13 +1,15 @@
 server = function(input, output, session) {
 
-  t <- reactive({ signif(seq(0,1, length.out = 500), digits = 4) + input$loc.beta })
+  min <- reactive({ input$loc.beta })
+  max <- reactive({ input$scale.beta + input$loc.beta})
+  t <- reactive({ signif(seq(min(), max(), length.out = 500), digits = 4) })
   p <- reactive({ signif(seq(0, 1, length = 500), digits = 4) })
-  C <- reactive({ pbeta(t(), input$shape1, input$shape2)})
-  P <- reactive({ dbeta(t(), input$shape1, input$shape2)})
+  C <- reactive({ pbeta4(t(), min(), max(), input$shape1, input$shape2)})
+  P <- reactive({ dbeta4(t(), min(), max(), input$shape1, input$shape2)})
   R <- reactive({ 1 - C()})
   h <- reactive({ exp(log(P())-log(R()))})
-  H <- reactive({ -1 * log(1 - pbeta(t(),input$shape1, input$shape2))})
-  Q <- reactive({ qbeta(p(),input$shape1, input$shape2)})
+  H <- reactive({ -1 * log(1 - C())})
+  Q <- reactive({ qbeta4(p(),min(), max(), input$shape1, input$shape2)})
  df <- reactive({ data.frame(Time = t(), 
                              PROB = p(), 
                              CDF = C(), 
