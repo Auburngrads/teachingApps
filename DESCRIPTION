@@ -20,9 +20,13 @@ Imports: shinyAce,shinythemes,shinydashboard,miniUI,radarchart,dplyr,
          DT,metricsgraphics,leaflet,threejs,d3heatmap,tidyr,datasets,
          plotly,dygraphs,networkD3,d3Network,diagram,DiagrammeR,visNetwork,
          actuar,markdown,stats,knitr,data.table,Rcpp (>= 0.12.11),
-         rprojroot,utils,devtools,graphics,scales,yaml,magrittr,ggplot2
+         rprojroot,utils,devtools,graphics,scales,yaml,magrittr,ggplot2,
+         RcppNumerical
 NeedsCompilation: yes
 Archs: i386, x64
 Suggests: testthat, rmarkdown
 RoxygenNote: 6.0.1
-LinkingTo: Rcpp
+LinkingTo: Rcpp, 
+           BH (>= 1.58.0-1),
+           RcppEigen,
+           RcppNumerical
