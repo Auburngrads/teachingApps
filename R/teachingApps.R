@@ -1,6 +1,6 @@
 #' @keywords internal
 "_PACKAGE"
 
-#' @useDynLib teachingApps
+#' @useDynLib 'teachingApps', .registration = TRUE
 #' @importFrom Rcpp evalCpp
 NULL
