@@ -2,20 +2,14 @@
 output: html_document
 ---
 
-### The Four-Parameter Beta Distribution <script type="math/tex;">BETA(\alpha,\beta,c,d)</script>
+### The Four-Parameter Beta Distribution $BETA(\alpha,\beta,c,d)$
 
-This app describes the four-parameter Beta distribution  the 
+- Suppose there exists a random variable $X \sim BETA(\alpha,\beta)\; X \in [0,1],\; \alpha,\beta >0$
 
-<script type="math/tex; mode=display">
-\begin{aligned}
-f_Y(y) &= \frac{1}{c-a} f_X\left(\frac{y-a}{c-a}\right)\\\\
-&= \frac{1}{c-a} \left(\frac{y-a}{c-a} \right)^{\alpha-1} \left(\frac{c-y}{c-a} \right)^{\beta-1} \frac{\mathbf{1}(a < y <c)}{B(\alpha,\beta)}\\\\
-&= \frac{(y-a)^{\alpha-1} (c-y)^{\beta-1}}{(c-a)^{\alpha+\beta-1}}\frac{\mathbf{1}(a < y <c)}{B(\alpha,\beta)}
-\end{aligned}
-</script>
+- Now, suppose we wish to extend the support of $X$ outside $[0,1]$ to an arbitray interval.
 
-- Is the continuous counterpart to the geometric distribution
+- This can be accomplished by translating the distribution by $c \in \mathbb{R}$ and rescaling by $d > 0$.
 
-- Describes the inter-arrival time durations between events in a homogeneous Poisson process
+- Applying the transformation $T = X \times d + c$, results in a new random variable $T \sim BETA(\alpha,\beta,c, d),\; T \in [c, c+d],\; \alpha,\beta,d >0$.  
 
-
+- The random variable $T$ is said to follow the four-parameter Beta distribution
