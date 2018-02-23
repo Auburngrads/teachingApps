@@ -34,7 +34,7 @@
 #' @source Birnbaum, Z. W.; Saunders, S. C. (1969), "A new family of life distributions", Journal of Applied Probability, 6 (2): 319–327, JSTOR 3212003, doi:10.2307/3212003
 #' @export
 #' @rdname beta4
-#' @name Scaled and shifted Beta Distribution
+#' @name Four Parameter Beta
 #' @param p Vector of probabilities
 #' @param x Vector of quantiles
 #' @param q Vector of quantiles
@@ -44,12 +44,14 @@
 #' @param shape1 Shape parameter
 #' @param shape2 Shape parameter
 #' @param gap Spacing from \code{min} and \code{max}
+#' @export
 dbeta4 <- function(x, min, max, shape1, shape2, gap = 0) {
     .Call(`_teachingApps_dbeta4`, x, min, max, shape1, shape2, gap)
 }
 
 #' @export
 #' @rdname beta4
+#' @import RcppNumerical
 pbeta4 <- function(q, min, max, shape1, shape2, gap = 0) {
     .Call(`_teachingApps_pbeta4`, q, min, max, shape1, shape2, gap)
 }
