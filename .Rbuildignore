@@ -1,5 +1,6 @@
 ^.*\.Rproj$
 ^\.Rhistory$
+^.*\.Rcheck$
 ^\.Rproj\.user$
 ^\.travis\.yml$
 keytest.Rmd
