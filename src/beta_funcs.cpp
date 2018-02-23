@@ -1,10 +1,18 @@
 // [[Rcpp::depends(BH)]]
+// [[Rcpp::depends(RcppEigen)]]
+// [[Rcpp::depends(RcppNumerical)]]
 
 #include <Rcpp.h>
 #include <boost/math/special_functions/beta.hpp>
+#include <RcppNumerical.h>
+#include <boost/math/distributions/beta.hpp>
+#include <boost/random/mersenne_twister.hpp>
+#include <boost/random/uniform_real_distribution.hpp>
 
 using namespace Rcpp;
 using namespace boost::math;
+using namespace boost::random;
+using namespace Numer;
 
 //' The Four Parameter Beta Distribution
 //' 
@@ -39,7 +47,7 @@ using namespace boost::math;
 //' @source Birnbaum, Z. W.; Saunders, S. C. (1969), "A new family of life distributions", Journal of Applied Probability, 6 (2): 319–327, JSTOR 3212003, doi:10.2307/3212003
 //' @export
 //' @rdname beta4
-//' @name Scaled and shifted Beta Distribution
+//' @name Four Parameter Beta
 //' @param p Vector of probabilities
 //' @param x Vector of quantiles
 //' @param q Vector of quantiles
@@ -49,6 +57,7 @@ using namespace boost::math;
 //' @param shape1 Shape parameter
 //' @param shape2 Shape parameter
 //' @param gap Spacing from \code{min} and \code{max}
+//' @export
 // [[Rcpp::export]]
 NumericVector dbeta4(NumericVector x,
                      double min,
@@ -88,11 +97,6 @@ NumericVector dbeta4(NumericVector x,
 }
 
 
-// [[Rcpp::depends(RcppEigen)]]
-// [[Rcpp::depends(RcppNumerical)]]
-#include <RcppNumerical.h>
-using namespace Numer;
-
 class Ibeta: public Func
 {
 private:
@@ -114,6 +118,7 @@ public:
 
 //' @export
 //' @rdname beta4
+//' @import RcppNumerical
 // [[Rcpp::export]]
 NumericVector pbeta4(NumericVector q,
                      double min, 
@@ -165,13 +170,6 @@ NumericVector pbeta4(NumericVector q,
   return numer / (denom * beta) ;
 }
 
-
-#include <Rcpp.h>
-#include <boost/math/distributions/beta.hpp>
-
-using namespace Rcpp;
-using namespace boost::math;
-
 //' @export
 //' @rdname beta4
 // [[Rcpp::export]]
@@ -195,16 +193,6 @@ NumericVector qbeta4(NumericVector p,
   return randFromDist;
   
   }
-
-
-#include <Rcpp.h>
-#include <boost/math/distributions/beta.hpp>
-#include <boost/random/mersenne_twister.hpp>
-#include <boost/random/uniform_real_distribution.hpp>
-
-using namespace Rcpp;
-using namespace boost::math;
-using namespace boost::random;
 
 //' @export
 //' @rdname beta4
