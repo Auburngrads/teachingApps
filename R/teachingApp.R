@@ -38,6 +38,7 @@
 #' @importFrom shiny includeScript includeMarkdown inputPanel isolate nearPoints
 #' @importFrom shiny observe observeEvent reactiveValues reactive renderText selectInput
 #' @importFrom shiny actionButton selectizeInput plotOutput renderPlot fillRow fillCol
+#' @import     datasets
 #'
 #' @param app_name \code{character} Name of the app to be rendered
 #' @param theme \code{character} Name of a bootswatch color theme (provided by \code{shinythemes::shinytheme})
