@@ -198,10 +198,6 @@ likely2 <- function(times, cens, params, maxll) {
     .Call(`_teachingApps_likely2`, times, cens, params, maxll)
 }
 
-rcpp_hello_world <- function() {
-    .Call(`_teachingApps_rcpp_hello_world`)
-}
-
 #' The Smallest Extreme Value Distribution
 #' @description Density, distribution function, quantile function and 
 #'              random generation for the SEV distribution with location
