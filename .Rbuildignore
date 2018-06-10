@@ -9,3 +9,7 @@ in-work/
 ^.*\.o$
 appveyor\.yml$
 codecov\.yml$
+animation\.gif$
+README\.Rmd$
+README\.html$
+README_files/
