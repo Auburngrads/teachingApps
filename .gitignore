@@ -6,3 +6,7 @@ src/*.so
 src/*.dll
 *.Rcheck
 in-work/
+animation.gif
+README.Rmd
+README.html
+README_files/
