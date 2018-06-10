@@ -198,16 +198,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// rcpp_hello_world
-List rcpp_hello_world();
-RcppExport SEXP _teachingApps_rcpp_hello_world() {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpp_hello_world());
-    return rcpp_result_gen;
-END_RCPP
-}
 // qsev
 NumericVector qsev(NumericVector p, const double loc, const double scale);
 RcppExport SEXP _teachingApps_qsev(SEXP pSEXP, SEXP locSEXP, SEXP scaleSEXP) {
@@ -259,4 +249,31 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(rsev(n, loc, scale));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_teachingApps_dbeta4", (DL_FUNC) &_teachingApps_dbeta4, 6},
+    {"_teachingApps_pbeta4", (DL_FUNC) &_teachingApps_pbeta4, 6},
+    {"_teachingApps_qbeta4", (DL_FUNC) &_teachingApps_qbeta4, 5},
+    {"_teachingApps_rbeta4", (DL_FUNC) &_teachingApps_rbeta4, 5},
+    {"_teachingApps_qbisa", (DL_FUNC) &_teachingApps_qbisa, 3},
+    {"_teachingApps_pbisa", (DL_FUNC) &_teachingApps_pbisa, 3},
+    {"_teachingApps_dlbisa", (DL_FUNC) &_teachingApps_dlbisa, 2},
+    {"_teachingApps_dbisa", (DL_FUNC) &_teachingApps_dbisa, 3},
+    {"_teachingApps_rbisa", (DL_FUNC) &_teachingApps_rbisa, 3},
+    {"_teachingApps_qlev", (DL_FUNC) &_teachingApps_qlev, 3},
+    {"_teachingApps_plev", (DL_FUNC) &_teachingApps_plev, 3},
+    {"_teachingApps_dlev", (DL_FUNC) &_teachingApps_dlev, 3},
+    {"_teachingApps_rlev", (DL_FUNC) &_teachingApps_rlev, 3},
+    {"_teachingApps_likely2", (DL_FUNC) &_teachingApps_likely2, 4},
+    {"_teachingApps_qsev", (DL_FUNC) &_teachingApps_qsev, 3},
+    {"_teachingApps_psev", (DL_FUNC) &_teachingApps_psev, 3},
+    {"_teachingApps_dsev", (DL_FUNC) &_teachingApps_dsev, 3},
+    {"_teachingApps_rsev", (DL_FUNC) &_teachingApps_rsev, 3},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_teachingApps(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
