@@ -239,7 +239,7 @@ table.example {
 
 .nav.nav-pills {
   padding-left: 1%;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 1200px) {
@@ -692,6 +692,12 @@ ul.nav.navbar-nav > li > a  {
   line-height: 60px !important;
   padding:  0 15px !important;
 }
+
+ul.dropdown-menu > li > a  {
+  font-size: 1.5vw !important;
+  font-weight: bold !important;
+}
+
 
 label.control-label {
   
