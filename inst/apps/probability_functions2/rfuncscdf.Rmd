@@ -1,0 +1,17 @@
+---
+output: html_document
+---
+
+### Computing Values For The CDF in R
+
+-  To compute CDF values for distributions in R <focus>remember 'p' for probability function</focus>
+
+    + For $\;T \sim Weibull(\beta,\theta)$<br>$F(t)=$ `pweibull(q = quantile, shape = shape param, scale = scale param)`
+
+    + For $\;T \sim Exponential(\lambda)$<br>$F(t)=$ `pexp(q = quantile, rate = rate parameter)`
+
+    + For $\;T \sim Normal(\mu,\sigma)$<br>$F(t)=$ `pnorm(q = quantile, mean = mean, sd = standard deviation)`
+
+    + For $\;T \sim Lognormal(\mu,\sigma)$<br>$F(t)=$ `plnorm(q = quantile, meanlog = log(mean), sdlog = log(stdev))`
+
+    + For $T \sim Gamma(\kappa,\beta)$<br>$F(t)=$ `pgamma(q = quantile, shape = shape param, scale = scale param)`

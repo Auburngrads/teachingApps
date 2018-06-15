@@ -1,0 +1,17 @@
+---
+output: html_document
+---
+
+### Computing Values For The PDF in R
+
+- To compute values of the pdf in R <focus>remember 'd' for density function</focus>
+
+    - For $\;T \sim Weibull(\beta,\theta)$<br>$f(t)=$ `dweibull(q = quantile, shape = shape param, scale = scale param)`
+
+    - For $\;T \sim Exponential(\lambda)$<br>$f(t)=$ `dexp(q = quantile, rate = rate parameter)`
+
+    - For $\;T \sim Normal(\mu,\sigma)$<br>$f(t)=$ `dnorm(q = quantile, mean = mean, sd = standard deviation)`
+
+    - For $\;T \sim Lognormal(\mu,\sigma)$<br>$f(t)=$ `dlnorm(q = quantile, meanlog = log(mean), sdlog = log(stdev))`
+
+    - For $T \sim Gamma(\kappa,\beta)$<br>$f(t)=$ `dgamma(q = quantile, shape = shape param, scale = scale param)`

@@ -1,0 +1,21 @@
+---
+output: html_document
+---
+
+### Reliability Studies Focus On
+
+- Continuous random variables with "lifetime" distributions, i.e. $(T\in \mathbb{R}^{+}),$
+
+- Modeling failure data using the following six probability functions
+
+    - $\hspace{12pt}F(t)$  -  Cumulative distribution function (CDF)
+
+    - $\hspace{14pt}f(t)$  -  Probability density function (pdf)
+
+    - $\hspace{13pt}S(t)$  -  Reliability (survivor) function
+
+    - $\hspace{14pt}h(t)$  -  Hazard rate (failure rate) function
+
+    - $\hspace{11pt}H(t)$  -  Cumulative hazard function
+
+    - $F^{-1}(p)$  -  Inverse CDF (or quantile function)

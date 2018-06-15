@@ -1,0 +1,9 @@
+---
+output: html_document
+---
+
+### Properties of the PDF
+
+- Relates the possible values of the random variable $T$ to their respective relative probabilities of occurrence
+
+$$f(t)=Pr(T=t), t\in (0,\infty)$$

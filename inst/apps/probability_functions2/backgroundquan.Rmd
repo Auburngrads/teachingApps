@@ -1,0 +1,13 @@
+---
+output: html_document
+---
+
+### Properties of The Quantile Function $t(p)$
+
+- Relates the time at which $100p\%$ of a population will have failed <focus>the inverse of the cdf</focus> 
+
+$$t_{p}=F^{-1}(p)$$
+
+- In general, $t_{p}$ is defined as the <red>smallest</red> time $t$ satisfying $F(t)=p$, 
+
+$$t_{p}=\min(t)|P(T\le t)=F(t)\ge p$$ 
