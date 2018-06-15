@@ -1,0 +1,26 @@
+---
+output: html_document
+---
+
+# Properties of the Survival Function
+
+<hr/>
+
+- The survival function relates the probability that the true (but unknown) value of $T$ is greater than $t$ 
+
+$$S(t)=Pr(T > t), t\in (0,\infty)$$
+
+- The survival function is strictly positive 
+
+$$S(t) \ge 0, \forall t \in \mathbb{R}^{+}$$
+
+- The survival function is non-increasing 
+
+$$\begin{aligned}S(0)&=1\\\\\\\\
+\displaystyle\lim_{t \to \infty} S(t)&=0\end{aligned}$$
+
+- Alternate names
+
+    + The reliability function
+    
+    + The complementary cumulative distribution function
