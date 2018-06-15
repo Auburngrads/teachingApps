@@ -1,0 +1,21 @@
+---
+output: html_document
+---
+
+# Computing Values For the Survival Function in R
+
+<hr/>
+
+- No predefined R function exists for $S(t)$, but we can take advantage of the fact that 
+$$S(t)=1-F(t)$$ 
+
+    + For $\;T \sim Weibull(\beta,\theta)$<br>$S(t)=$ `1 - pweibull(q = quantile, shape = shape param, scale = scale param)`
+
+    + For $\;T \sim Exponential(\lambda)$<br>$S(t)=$ `1 - pexp(q = quantile, rate = rate parameter)`
+
+    + For $\;T \sim Normal(\mu,\sigma)$<br>$S(t)=$ `1 - pnorm(q = quantile, mean = mean, sd = standard deviation)`
+
+    + For $\;T \sim Lognormal(\mu,\sigma)$<br>$S(t)=$ `1 - plnorm(q = quantile, meanlog = log(mean), sdlog = log(stdev))`
+
+    + For $T \sim Gamma(\kappa,\beta)$<br>$S(t)=$ `1-pgamma(q = quantile, shape = shape param, scale = scale param)`
+
