@@ -1,2 +1,2 @@
 library(teachingApps)
-pacman::p_load(scales)
+pacman::p_load(scales, fitdistrplus)
