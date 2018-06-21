@@ -33,7 +33,7 @@ output$norprops <- renderUI({
 # SEV Server #
 ##############
 output$sevfunc <- renderUI({
-   funcs_sev <- system.file('apps','distribution_normal','sev-func.Rmd', package = 'teachingApps')
+   funcs_sev <- system.file('apps','distribution_sev','sev-func.Rmd', package = 'teachingApps')
    add_rmd(path = funcs_sev)
 
 })
