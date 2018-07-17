@@ -6,6 +6,48 @@
 
 using namespace Rcpp;
 
+// sgpdfl
+Rcpp::NumericVector sgpdfl(Rcpp::NumericVector tvec, Rcpp::NumericMatrix gamme, int maxlen, Rcpp::NumericVector answer);
+RcppExport SEXP _teachingApps_sgpdfl(SEXP tvecSEXP, SEXP gammeSEXP, SEXP maxlenSEXP, SEXP answerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type tvec(tvecSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type gamme(gammeSEXP);
+    Rcpp::traits::input_parameter< int >::type maxlen(maxlenSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type answer(answerSEXP);
+    rcpp_result_gen = Rcpp::wrap(sgpdfl(tvec, gamme, maxlen, answer));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sgquan
+Rcpp::NumericVector sgquan(Rcpp::NumericVector pvec, Rcpp::NumericMatrix gamme, int maxlen, Rcpp::NumericVector answer);
+RcppExport SEXP _teachingApps_sgquan(SEXP pvecSEXP, SEXP gammeSEXP, SEXP maxlenSEXP, SEXP answerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type pvec(pvecSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type gamme(gammeSEXP);
+    Rcpp::traits::input_parameter< int >::type maxlen(maxlenSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type answer(answerSEXP);
+    rcpp_result_gen = Rcpp::wrap(sgquan(pvec, gamme, maxlen, answer));
+    return rcpp_result_gen;
+END_RCPP
+}
+// spgeng
+Rcpp::NumericVector spgeng(Rcpp::NumericVector tvec, Rcpp::NumericMatrix gamme, int maxlen, Rcpp::NumericVector answer);
+RcppExport SEXP _teachingApps_spgeng(SEXP tvecSEXP, SEXP gammeSEXP, SEXP maxlenSEXP, SEXP answerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type tvec(tvecSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type gamme(gammeSEXP);
+    Rcpp::traits::input_parameter< int >::type maxlen(maxlenSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type answer(answerSEXP);
+    rcpp_result_gen = Rcpp::wrap(spgeng(tvec, gamme, maxlen, answer));
+    return rcpp_result_gen;
+END_RCPP
+}
 // dbeta4
 NumericVector dbeta4(NumericVector x, double min, double max, double shape1, double shape2, double gap);
 RcppExport SEXP _teachingApps_dbeta4(SEXP xSEXP, SEXP minSEXP, SEXP maxSEXP, SEXP shape1SEXP, SEXP shape2SEXP, SEXP gapSEXP) {
@@ -250,8 +292,25 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// spmlgeng
+Rcpp::NumericVector spmlgeng(Rcpp::NumericVector tvec, Rcpp::NumericMatrix gamme, int maxlen, Rcpp::NumericVector answer);
+RcppExport SEXP _teachingApps_spmlgeng(SEXP tvecSEXP, SEXP gammeSEXP, SEXP maxlenSEXP, SEXP answerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type tvec(tvecSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type gamme(gammeSEXP);
+    Rcpp::traits::input_parameter< int >::type maxlen(maxlenSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type answer(answerSEXP);
+    rcpp_result_gen = Rcpp::wrap(spmlgeng(tvec, gamme, maxlen, answer));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_teachingApps_sgpdfl", (DL_FUNC) &_teachingApps_sgpdfl, 4},
+    {"_teachingApps_sgquan", (DL_FUNC) &_teachingApps_sgquan, 4},
+    {"_teachingApps_spgeng", (DL_FUNC) &_teachingApps_spgeng, 4},
     {"_teachingApps_dbeta4", (DL_FUNC) &_teachingApps_dbeta4, 6},
     {"_teachingApps_pbeta4", (DL_FUNC) &_teachingApps_pbeta4, 6},
     {"_teachingApps_qbeta4", (DL_FUNC) &_teachingApps_qbeta4, 5},
@@ -270,6 +329,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_teachingApps_psev", (DL_FUNC) &_teachingApps_psev, 3},
     {"_teachingApps_dsev", (DL_FUNC) &_teachingApps_dsev, 3},
     {"_teachingApps_rsev", (DL_FUNC) &_teachingApps_rsev, 3},
+    {"_teachingApps_spmlgeng", (DL_FUNC) &_teachingApps_spmlgeng, 4},
     {NULL, NULL, 0}
 };
 
