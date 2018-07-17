@@ -13,3 +13,11 @@ E[X]&=\kappa\theta\\\\\\\\
 Var[X]&=\kappa\theta^{2}
 \end{aligned}
 $$
+
+- Where 
+
+    + $\kappa \in \mathbb{R}^{+}$ is a shape parameter
+    
+    + $\theta \in \mathbb{R}^{+}$ is a scale parameter
+    
+    + $\Gamma_{I}(x,a)$ is the (lower) incomplete gamma function. In R, $\Gamma_{I}(x,a)$ values can be computed using the `gamma_inc(x,a)` function from the `gsl` package
