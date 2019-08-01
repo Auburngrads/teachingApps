@@ -1,3 +1,2 @@
-pacman::p_load(teachingApps)
-library(SMRD)
+library(teachingApps)
 pacman::p_load(metricsgraphics)
