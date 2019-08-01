@@ -1,0 +1,53 @@
+---
+output: html_document
+---
+
+<h3>Functional relationships for <script type="math/tex">\;X \sim EGENG(\mu,\sigma,\lambda),\;\;T \in [0,\infty),\;\;\; \mu \in (-\infty,\infty),\sigma \in (0,\infty),\lambda \in (-\infty, \infty)\; > 0</script>
+</h3>
+
+$$
+\begin{aligned}
+f(t|\mu,\sigma,\lambda)&=\begin{cases} \frac{\lambda}{\sigma t} \phi_{lg}\left[\lambda\omega+ \ln(\lambda^{-2}); \lambda^{-2}\right] &\mbox{if } \lambda \ne 0\\\\
+\frac{1}{\sigma t} \phi_{nor}(\omega) &\mbox{if } \lambda = 0 \end{cases}\\\\
+F(t|\mu,\sigma,\lambda)&=\begin{cases}\Phi_{lg}\left[\lambda\omega+ \ln(\lambda^{-2}); \lambda^{-2}\right] &\mbox{if } \lambda > 0\\\\
+\Phi_{nor}(\omega) &\mbox{if } \lambda = 0\\\\
+1-\Phi_{lg}\left[\lambda\omega+\ln(\lambda^{-2});\lambda^{-2}\right]&\mbox{if }\lambda <0\end{cases}\\\\
+t_{p}&=\exp\left[\mu+\sigma\times \omega(p;\lambda)\right]\\\\
+E[T]&=\exp(\mu+0.5\sigma^2)\\\\
+Var[T]&=\exp(2\mu+\sigma^2)(\exp(\sigma^2)-1)
+\end{aligned}
+$$
+
+- $\mu \in \mathbb{R}$ is a scale parameter
+
+- $\sigma \in \mathbb{R}^{+}$ is a shape parameter
+
+- $\lambda \in \mathbb{R}$ is a shape parameter
+
+- $\phi_{lg}(z;a)$ is the standardized pdf of the log-gamma distribution 
+
+$$
+\Gamma(z) = 
+\begin{cases}
+\int_0^{\infty} x^{z-1}e^{-x}dx \hspace{12pt}\text{ if } z \in \mathbb{R}\\\\
+(z - 1)! \hspace{40pt} \mbox{ if } z \in \mathbb{I}
+\end{cases}
+$$
+
+- $\Gamma_{I}(a,b)$ is the lower incomplete gamma function defined as
+
+$$
+\Gamma_{I}(a,b) = \int_{0}^{b} t^{a-1}e^{-t}dt.
+$$
+
+- $\Gamma_{I}^{-1}(a,b)$ is the inverse of the lower incomplete gamma function defined as
+
+$$
+\Gamma_{I}^{-1}(a,b) = \frac{\Gamma_{I}(b,a)}{\Gamma(b)} = \frac{1}{\Gamma(b)}\int_{0}^{a} t^{b-1}e^{-t}dt.
+$$
+
+- $\Gamma(z)$ values can be computed in R using the base function `gamma(x)` 
+
+- $\Gamma_{I}(a,b)$ values can be computed using the `gamma_inc(a,b)` function from the `gsl` package
+
+- $\Gamma_{I}^{-1}(a,b)$ values can be computed using the `gamma_inc_P(a,b)` function from the `gsl` package

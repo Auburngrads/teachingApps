@@ -1,0 +1,17 @@
+---
+output: html_document
+---
+
+<h3>Properties of the Extended Generalized Gamma Distribution</h3>
+
+- If $\lambda>0,\;\;\;\;\;\;\; T \sim GENG(\mu, \sigma,\lambda)$
+
+- If $\lambda=1,\;\;\;\;\;\;\;T \sim WEIB(\mu,\sigma)$
+
+- If $\lambda=0,\;\;\;\;\;\;\; T \sim LOGNOR(\mu,\sigma)$
+
+- If $\lambda=-1,\;\;\;\; T^{-1} \sim WEIB(-\mu,\sigma), \text{ aka the Frechet distribution }$
+
+- If $\lambda=\sigma,\;\;\;\;\;\;\; T \sim GAM(\theta,\kappa), \text{ where } \theta=\lambda^2\exp(\mu)\text{ and } \kappa=\lambda^{-2}$
+
+- If $\lambda=\sigma=1, T \sim EXP(\theta), \text{ where } \theta=\exp(\mu)$
