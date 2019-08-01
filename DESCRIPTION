@@ -1,8 +1,8 @@
 Package: teachingApps
 Type: Package
 Title: Apps for Teaching Statistics, R Programming, and Shiny App Development
-Version: 1.0.4
-Date: 2018-06-08
+Version: 1.0.5
+Date: 2019-08-01
 Authors@R: c(
     person("Jason", "Freels", email = "auburngrads@live.com", role = c("aut","cre")),
     person("Bradley", "Boehmke", email = "bradleyboehmke@gmail.com", role = c("ctb"))
@@ -26,7 +26,7 @@ Imports: shinyAce,shinythemes,shinydashboard,miniUI,radarchart,dplyr,
 NeedsCompilation: yes
 Archs: i386, x64
 Suggests: testthat, rmarkdown
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 LinkingTo: Rcpp (>= 0.12.14), 
            BH (>= 1.58.0-1),
            RcppEigen,
