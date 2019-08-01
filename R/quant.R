@@ -1,3 +1,4 @@
+#' @importFrom stats qnorm qlogis qexp
 quant <-
 function (p, distribution) 
 {

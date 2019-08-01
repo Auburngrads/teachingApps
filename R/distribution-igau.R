@@ -1,17 +1,19 @@
 #' The Inverse Gaussian Distribution
 #'
+#' @param x A numeric vector of observations
+#' @param q A numeric vector of quantiles
+#' @param p A numeric vector of probabilities
+#' @param shape The shape parameter
+#' @param scale The scale parameter
 #' @export
 #' @rdname Inverse-Gaussian
-
 digau <-
 function (x, shape, scale = 1) 
 {
     return((1/(x)) * dligau(logb(x/scale), shape))
 }
 
-#'
-#'
-
+#' @importFrom stats dnorm
 dligau <-
   function (z, shape) 
   {
@@ -29,9 +31,7 @@ pigau <-
     return(tmp)
   }
 
-#'
-#'
-
+#' @importFrom stats pnorm
 pligau <-
   function (z, shape) 
   {
@@ -42,7 +42,7 @@ pligau <-
 
 #' @export
 #' @rdname Inverse-Gaussian
-
+#' @importFrom stats uniroot
 qigau <-
   function (p, shape = stop("no shape arg"), scale = 1) 
   {
@@ -67,8 +67,6 @@ qigau <-
     return(quant.vec)
   }
 
-#'
-#'
 
 sigau <-
   function (x, shape) 

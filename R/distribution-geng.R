@@ -1,16 +1,22 @@
 #' The Generalized Gamma Distribution
 #'
+#' @param x A numeric vector of observations
+#' @param q A numeric vector of quantiles
+#' @param p A numeric vector of probabilities
+#' @param theta The theta parameter
+#' @param delta The delta parameter
+#' @param varrho The varrho parameter
+#' @param smalldelta A numeric shift value
+#' @param n The number of random observations
 #' @export
 #' @rdname Generalized-Gamma
-
 dgeng <-
 function (x, theta, delta, varrho) 
 {
     return(exp(dlgeng(x, theta, delta, varrho)))
 }
 
-#'
-#'
+#
 
 dlgeng <-
   function (x, theta, delta, varrho) 
@@ -18,8 +24,6 @@ dlgeng <-
     return(dlgengl(logb(x), theta, delta, varrho) - logb(x))
   }
 
-#'
-#'
 
 dgengl <-
   function (y, theta, delta, varrho, smalldelta) 
@@ -27,9 +31,7 @@ dgengl <-
     return(exp(dlgengl(y, theta, delta, varrho)))
   }
 
-#'
-#'
-
+#' @importFrom stats dnorm
 dlgengl <-
   function (y, theta, delta, varrho) 
   {
@@ -55,7 +57,6 @@ dlgengl <-
     return(answer)
   }
 
-#'
 #' @export
 #' @rdname Generalized-Gamma
 
@@ -65,9 +66,7 @@ pgeng <-
     return(pgengl(logb(q), theta, delta, varrho))
   }
 
-#'
-#'
-
+#' @importFrom stats pnorm
 pgengl <-
   function (y, theta, delta, varrho) 
   {
@@ -104,9 +103,7 @@ qgeng <-
     return(exp(qgengl(p, theta, delta, varrho, smalldelta)))
   }
 
-#'
-#'
-
+#' @importFrom stats qgamma qnorm
 qgengl <-
   function (p, theta, delta, varrho, smalldelta = 1e-05) 
   {
@@ -128,6 +125,7 @@ qgengl <-
 
 #' @export
 #' @rdname Generalized-Gamma
+#' @importFrom stats runif
 
 rgeng <-
   function (n, theta, delta, varrho) 
@@ -135,8 +133,6 @@ rgeng <-
     qgeng(runif(n), theta, delta, varrho)
   }
 
-#'
-#'
 
 sgeng <-
   function (x, theta, delta, varrho, smalldelta = 1e-05) 
@@ -144,9 +140,7 @@ sgeng <-
     return(sgengl(logb(x), theta, delta, varrho, smalldelta))
   }
 
-#'
-#'
-
+#' @importFrom stats pgamma pnorm
 sgengl <-
   function (y, theta, delta, varrho, smalldelta = 1e-05) 
   {

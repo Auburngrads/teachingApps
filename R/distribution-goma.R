@@ -1,17 +1,19 @@
 #' The Gompertz Makeham Distribution
 #'
+#' @param x A numeric vector of observations
+#' @param q A numeric vector of quantiles
+#' @param p A numeric vector of probabilities
+#' @param shape A shape parameter
+#' @param shape2 Another shape parameter
+#' @param scale The scale parameter
 #' @export
 #' @rdname Gomphertz-Makeham
-
 
 dgoma <-
 function (x, shape, shape2, scale = 1) 
 {
     return((1/(x)) * dlgoma(logb(x/scale), shape, shape2))
 }
-
-#'
-#'
 
 dlgoma <-
   function (z, shape, shape2) 
@@ -28,9 +30,6 @@ pgoma <-
     return(plgoma(logb(q/scale), shape, shape2))
   }
 
-#'
-#'
-
 plgoma <-
   function (z, shape, shape2) 
   {
@@ -39,7 +38,7 @@ plgoma <-
 
 #' @export
 #' @rdname Gomphertz-Makeham
-
+#' @importFrom stats uniroot
 qgoma <-
   function (p, shape = stop("no shape arg"), shape2 = stop("no shape2 arg"), 
             scale = 1) 
@@ -68,8 +67,6 @@ qgoma <-
     return(quant.vec)
   }
 
-#'
-#'
 
 sgoma <-
   function (x, shape, shape2) 
@@ -77,8 +74,6 @@ sgoma <-
     1 - pgoma(x, shape, shape2)
   }
 
-#'
-#'
 
 slgoma <-
   function (z, shape, shape2) 

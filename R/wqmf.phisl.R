@@ -1,3 +1,4 @@
+#' @importFrom stats dnorm dlogis
 wqmf.phisl <-
 function (z, distribution) 
 {

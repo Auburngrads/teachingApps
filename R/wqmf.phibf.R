@@ -1,3 +1,4 @@
+#' @importFrom stats pnorm plogis pexp
 wqmf.phibf <-
 function (z, distribution) 
 {

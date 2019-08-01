@@ -1,5 +1,12 @@
 #' The Extended Generalized Gamma Distribution
 #'
+#' @param x A numeric vector of observed values
+#' @param mu The location parameter
+#' @param sigma The scale parameter
+#' @param delta The delta parameter
+#' @param q A numeric vector of quantile values
+#' @param p A numeric vector of probability values
+#' @param smalldelta A numeric shift value
 #' @export
 #' @rdname Extended-Generalized-Gamma
 
@@ -9,9 +16,7 @@ function (x, mu, sigma, delta)
     return(exp(dlegengl(x, mu, sigma, delta)))
 }
 
-#'
-#'
-
+#' @importFrom stats dnorm
 dlegengl <-
   function (x, xmu, sigma, delta, smalldelta = 0.001) 
   {
@@ -57,14 +62,12 @@ dlegengl <-
 #' @rdname Extended-Generalized-Gamma
 
 pegeng <-
-  function (q, mu, sigma, delta, distribution = NULL) 
+  function (q, mu, sigma, delta) 
   {
     return(pegengl(logb(q), mu, sigma, delta))
   }
 
-#'
-#'
-
+#' @importFrom stats pnorm
 pegengl <-
   function (q, mu, sigma, delta, distribution = "dummy", smalldelta = 1e-04) 
   {
@@ -110,8 +113,6 @@ pegengl <-
     
   }
 
-#'
-#'
 
 pdlegeng <-
   function (z, mu, sigma, delta) 
@@ -131,7 +132,7 @@ pdlegeng <-
 #' @rdname Extended-Generalized-Gamma
 
 qegengl <-
-  function (p, mu, sigma, delta, distribution = NULL, smalldelta = 1e-04) 
+  function (p, mu, sigma, delta, smalldelta = 1e-04) 
   {
     maxlen <- max(length(p), length(mu), length(delta), length(sigma))
     p <- expand.vec(p, maxlen)
@@ -169,9 +170,7 @@ qegengl <-
     
   }
 
-#'
-#'
-
+#' @importFrom stats pnorm
 segengl <-
   function (x, mu, sigma, delta, smalldelta = 1e-04) 
   {
