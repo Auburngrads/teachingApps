@@ -26,6 +26,15 @@ spgeng <- function(tvec, gamme, maxlen, answer) {
     .Call(`_teachingApps_spgeng`, tvec, gamme, maxlen, answer)
 }
 
+#' R interface for gng log(1-cdf)
+#' @param tvec A numeric vector of observations
+#' @param gamme A numeric matrix containing the parameter values
+#' @param maxlen The number of columns in \code{gamme}
+#' @param answer A numeric vector containing the return values
+spmlgeng <- function(tvec, gamme, maxlen, answer) {
+    .Call(`_teachingApps_spmlgeng`, tvec, gamme, maxlen, answer)
+}
+
 #' The Four Parameter Beta Distribution
 #' 
 #' @description Density, distribution function, quantile function and 
@@ -69,6 +78,7 @@ spgeng <- function(tvec, gamme, maxlen, answer) {
 #' @param shape1 Shape parameter
 #' @param shape2 Shape parameter
 #' @param gap Spacing from \code{min} and \code{max}
+#' @param seed A numeric value for the seed of the random number generator 
 #' @export
 dbeta4 <- function(x, min, max, shape1, shape2, gap = 0) {
     .Call(`_teachingApps_dbeta4`, x, min, max, shape1, shape2, gap)
@@ -89,8 +99,8 @@ qbeta4 <- function(p, min, max, shape1, shape2) {
 
 #' @export
 #' @rdname beta4
-rbeta4 <- function(n, min, max, shape1, shape2) {
-    .Call(`_teachingApps_rbeta4`, n, min, max, shape1, shape2)
+rbeta4 <- function(n, min, max, shape1, shape2, seed = 42) {
+    .Call(`_teachingApps_rbeta4`, n, min, max, shape1, shape2, seed)
 }
 
 #' The Birmbaum-Saunders Distribution
@@ -282,10 +292,9 @@ rsev <- function(n, loc = 0, scale = 1) {
     .Call(`_teachingApps_rsev`, n, loc, scale)
 }
 
-#' R interface for gng log(1-cdf)
-NULL
-
-spmlgeng <- function(tvec, gamme, maxlen, answer) {
-    .Call(`_teachingApps_spmlgeng`, tvec, gamme, maxlen, answer)
+#' @export
+#' @rdname sev
+ssev <- function(x, loc = 0, scale = 1) {
+    .Call(`_teachingApps_ssev`, x, loc, scale)
 }
 
