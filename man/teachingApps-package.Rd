@@ -6,9 +6,9 @@
 \alias{teachingApps-package}
 \title{teachingApps: Apps for Teaching Statistics, R Programming, and Shiny App Development}
 \description{
-Contains apps and gadgets for teaching data analysis and
-statistics concepts along with how to implement them in R.  Includes
-tools to make app development easier and faster by nesting apps together.
+Contains apps and gadgets for teaching data analysis and 
+    statistics concepts along with how to implement them in R.  Includes 
+    tools to make app development easier and faster by nesting apps together.
 }
 \seealso{
 Useful links:
