@@ -4,11 +4,19 @@ output: html_document
 
 <h3>Properties of the Gamma Distribution</h3>
 
-- Is a member of the exponential distribution family of the form
+- The gamma distribution is a member of the exponential family of the form
 
 $$
 \exp\bigg[\frac{-x}{\theta} + (\kappa-1)\log(x) - \log\Big(\Gamma[\kappa]\Big)-\log\Big(\theta^{\kappa}\Big)\bigg]
 $$
+
+- where
+
+    + $\kappa - 1$ and $-\theta^{-1}$ are the natural parameters 
+    
+    + $log[x]$ and $x$ are the sufficient statistics
+
+<h3>Relationships to Other Distributions</h3>
 
 - If $X \sim GAM(\kappa = 1,\theta = \lambda)$, then $X\sim EXP(\lambda)$ where $\lambda$ is a scale parameter
 

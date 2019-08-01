@@ -4,20 +4,37 @@ output: html_document
 
 <h3>Functional relationships for <script type="math/tex">\;X \sim GAM(\kappa,\theta),\;\;X \in [0,\infty),\;\;\; \kappa,\theta\; > 0</script>
 </h3>
+
 $$
 \begin{aligned}
 f(x|\kappa,\theta)&=\frac{1}{\Gamma\left(\kappa\right)\theta^{\kappa}}x^{\kappa-1}e^{-x/\theta}\\\\\\\\
-F(x|\kappa,\theta)&=\frac{\Gamma\left(\kappa,x/\theta\right)}{\Gamma\left(\kappa\right)}\\\\\\\\
-h(x|\kappa,\theta)&=\frac{x^{\kappa-1}e^{-x/\theta}}{\left(\Gamma\left(\kappa\right)-\Gamma\left(\kappa,x/\theta\right)\right)\theta^{\kappa}\Gamma\left(\kappa\right)}\\\\\\\\\
+F(x|\kappa,\theta)&=\frac{\Gamma_{I}\left(\kappa,x/\theta\right)}{\Gamma\left(\kappa\right)}\\\\\\\\
+h(x|\kappa,\theta)&=\frac{x^{\kappa-1}e^{-x/\theta}}{\left(\Gamma\left(\kappa\right)-\Gamma_{I}\left(\kappa,x/\theta\right)\right)\theta^{\kappa}\Gamma\left(\kappa\right)}\\\\\\\\\
 E[X]&=\kappa\theta\\\\\\\\
 Var[X]&=\kappa\theta^{2}
 \end{aligned}
 $$
 
-- Where 
+- $\kappa \in \mathbb{R}^{+}$ is a shape parameter
+    
+- $\theta \in \mathbb{R}^{+}$ is a scale parameter
 
-    + $\kappa \in \mathbb{R}^{+}$ is a shape parameter
-    
-    + $\theta \in \mathbb{R}^{+}$ is a scale parameter
-    
-    + $\Gamma_{I}(x,a)$ is the (lower) incomplete gamma function. In R, $\Gamma_{I}(x,a)$ values can be computed using the `gamma_inc(x,a)` function from the `gsl` package
+- $\Gamma(z)$ is the gamma function defined as 
+
+$$
+\Gamma(z) = 
+\begin{cases}
+\int_0^{\infty} x^{z-1}e^{-x}dx \hspace{12pt}\text{ if } z \in \mathbb{R}\\\\
+(z - 1)! \hspace{40pt} \mbox{ if } z \in \mathbb{I}
+\end{cases}
+$$
+
+- $\Gamma_{I}(a,b)$ is the (lower) incomplete gamma function defined as
+
+$$
+\Gamma_{I}(a,b) = \int_{0}^{b} t^{a-1}e^{-t}dt.
+$$
+
+- $\Gamma(z)$ values can be computed in R using the base function `gamma(x)` 
+
+- $\Gamma_{I}(a,b)$ values can be computed using the `gamma_inc(a,b)` function from the `gsl` package
