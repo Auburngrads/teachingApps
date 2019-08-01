@@ -6,6 +6,7 @@
 \alias{psev}
 \alias{dsev}
 \alias{rsev}
+\alias{ssev}
 \title{The Smallest Extreme Value Distribution}
 \usage{
 qsev(p, loc = 0, scale = 1)
@@ -15,6 +16,8 @@ psev(q, loc = 0, scale = 1)
 dsev(x, loc = 0, scale = 1)
 
 rsev(n, loc = 0, scale = 1)
+
+ssev(x, loc = 0, scale = 1)
 }
 \arguments{
 \item{p}{Vector of probabilities}

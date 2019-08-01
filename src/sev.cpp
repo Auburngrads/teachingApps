@@ -78,3 +78,14 @@ NumericVector rsev(const int n,
   
     return loc + scale * log(-log(1 - runif(n)));
 }
+
+//' @export
+//' @rdname sev
+// [[Rcpp::export]]
+NumericVector ssev(NumericVector x, 
+                   const double loc = 0,
+                   const double scale = 1) {
+  
+    return exp(-1 * exp((x - loc) / scale));
+  
+}
