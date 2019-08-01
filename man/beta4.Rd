@@ -17,7 +17,7 @@ pbeta4(q, min, max, shape1, shape2, gap = 0)
 
 qbeta4(p, min, max, shape1, shape2)
 
-rbeta4(n, min, max, shape1, shape2)
+rbeta4(n, min, max, shape1, shape2, seed = 42)
 }
 \arguments{
 \item{x}{Vector of quantiles}
@@ -37,6 +37,8 @@ rbeta4(n, min, max, shape1, shape2)
 \item{p}{Vector of probabilities}
 
 \item{n}{Number of observations}
+
+\item{seed}{A numeric value for the seed of the random number generator}
 }
 \value{
 \code{dbeta4} gives the density, 

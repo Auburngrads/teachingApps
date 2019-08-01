@@ -1,12 +1,13 @@
 // [[Rcpp::depends(BH)]]
 // [[Rcpp::depends(RcppEigen)]]
 // [[Rcpp::depends(RcppNumerical)]]
+// [[Rcpp::plugins("cpp11")]]
 
 #include <Rcpp.h>
 #include <boost/math/special_functions/beta.hpp>
 #include <RcppNumerical.h>
 #include <boost/math/distributions/beta.hpp>
-#include <boost/random/mersenne_twister.hpp>
+#include <boost/random.hpp>
 #include <boost/random/uniform_real_distribution.hpp>
 
 using namespace Rcpp;
@@ -57,6 +58,7 @@ using namespace Numer;
 //' @param shape1 Shape parameter
 //' @param shape2 Shape parameter
 //' @param gap Spacing from \code{min} and \code{max}
+//' @param seed A numeric value for the seed of the random number generator 
 //' @export
 // [[Rcpp::export]]
 NumericVector dbeta4(NumericVector x,
@@ -182,7 +184,7 @@ NumericVector qbeta4(NumericVector p,
 
   const int N = p.length();
   NumericVector  randFromDist(N);
-  beta_distribution<> dist(shape1, shape2);
+  boost::math::beta_distribution<> dist(shape1, shape2);
   
   for(int i = 0; i < N; i++) {
     
@@ -201,20 +203,21 @@ NumericVector rbeta4(int const n,
                      double min, 
                      double max,
                      double shape1,
-                     double shape2)
+                     double shape2,
+                     double seed = 42)
 {
   
-  boost::mt19937 gen;
-  gen.seed(4294653137UL);
+  boost::mt19937 gen(seed);
+  boost::math::beta_distribution<> dist(shape1, shape2);
+  boost::random::uniform_real_distribution<double> boost_distrib(0, 1); 
+  boost::variate_generator<boost::mt19937&,boost::random::uniform_real_distribution<double> > rng(gen, boost_distrib);
   
   NumericVector  randFromDist(n);
   double         randFromUnif;
-  beta_distribution<> dist(shape1, shape2);
-  boost::random::uniform_real_distribution<double> boost_distrib(0, 1); 
   
   for(int i = 0; i < n; i++) {
     
-    randFromUnif = boost_distrib(gen);
+    randFromUnif = rng();
     randFromDist[i] = quantile(dist, randFromUnif) * (max - min) + min;
     
   }
