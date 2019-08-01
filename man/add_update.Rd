@@ -4,7 +4,8 @@
 \alias{add_update}
 \title{Add an update to a shiny app}
 \usage{
-add_update(local_pkg, ..., app_name, open_dir = FALSE, update_css = FALSE)
+add_update(local_pkg, ..., app_name, open_dir = FALSE,
+  update_css = FALSE)
 }
 \arguments{
 \item{local_pkg}{\code{character} Path to the local version of the package from which updates will be passed}
