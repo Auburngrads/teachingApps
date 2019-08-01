@@ -109,9 +109,9 @@ text(x = rep(70,3),
      font = 2)
 text(x = 60,
      y = 0.028,
-     labels = expression(bold(prod(f(t[i]~symbol('|')~theta),i==1,n)
+     labels = expression(prod(f(t[i]~symbol('|')~theta),i==1,n)
                      ==sum(log~bgroup('[',f(t[i]~symbol('|')~theta),']'),
-                           i==1,n)%->%Log-likelihood)),
+                           i==1,n)%->%Log-likelihood),
      adj = 0,
      cex = 1.8)
 
