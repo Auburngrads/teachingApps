@@ -4,8 +4,8 @@
 \alias{gadget_lm}
 \title{Function Title}
 \usage{
-gadget_lm(data, xvar, yvar, theme = "flatly", width = "100\%", css = NULL,
-  height = "600px", ...)
+gadget_lm(data, xvar, yvar, theme = "flatly", width = "100\%",
+  css = NULL, height = "600px", ...)
 }
 \arguments{
 \item{data}{A \code{data.frame} object}
