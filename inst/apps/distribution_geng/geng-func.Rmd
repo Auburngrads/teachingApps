@@ -1,0 +1,54 @@
+---
+output: html_document
+---
+
+<h3>Functional relationships for <script type="math/tex">\;X \sim GENG(\theta,\beta,\kappa),\;\;T \in [0,\infty),\;\;\; \theta,\beta,\kappa\; > 0</script>
+</h3>
+
+$$
+\begin{aligned}
+f(t|\theta,\beta,\kappa)&=\Gamma_{I}\left[\left(\frac{t}{\theta}\right)^{\beta},\kappa\right]\\\\\\\\
+F(t|\theta,\beta,\kappa)&=\frac{\beta}{\Gamma(\kappa)\theta}\left(\frac{t}{\theta}\right)^{\kappa\beta-1}\exp\left[-\left(\frac{t}{\theta}\right)^{\beta}\right]\\\\\\\\
+t_{p}&=\theta \left[\Gamma_{I}^{-1}(p;\kappa)\right]^{1/\beta}\\\\\\\\
+E[T]&=\frac{\theta\;\Gamma(1/\beta)+\kappa}{\Gamma(\kappa)}\\\\\\\\
+Var[T]&=\theta^2\left[\frac{\Gamma(2/\beta+\kappa)}{\Gamma(\kappa)}-\frac{\Gamma^{2}(1/\beta)+\kappa}{\Gamma^{2}(\kappa)}\right]
+\end{aligned}
+$$
+
+- $\theta \in \mathbb{R}^{+}$ is a scale parameter
+
+- $\beta \in \mathbb{R}^{+}$ is a shape parameter
+
+- $\kappa \in \mathbb{R}^{+}$ is a shape parameter
+    
+- $\kappa \in \mathbb{R}^{+}$ is a shape parameter
+    
+- $\theta \in \mathbb{R}^{+}$ is a scale parameter
+
+- $\Gamma(z)$ is the gamma function defined as 
+
+$$
+\Gamma(z) = 
+\begin{cases}
+\int_0^{\infty} x^{z-1}e^{-x}dx \hspace{12pt}\text{ if } z \in \mathbb{R}\\\\
+(z - 1)! \hspace{40pt} \mbox{ if } z \in \mathbb{I}
+\end{cases}
+$$
+
+- $\Gamma_{I}(a,b)$ is the lower incomplete gamma function defined as
+
+$$
+\Gamma_{I}(a,b) = \int_{0}^{b} t^{a-1}e^{-t}dt.
+$$
+
+- $\Gamma_{I}^{-1}(a,b)$ is the inverse of the lower incomplete gamma function defined as
+
+$$
+\Gamma_{I}^{-1}(a,b) = \frac{\Gamma_{I}(b,a)}{\Gamma(b)} = \frac{1}{\Gamma(b)}\int_{0}^{a} t^{b-1}e^{-t}dt.
+$$
+
+- $\Gamma(z)$ values can be computed in R using the base function `gamma(x)` 
+
+- $\Gamma_{I}(a,b)$ values can be computed using the `gamma_inc(a,b)` function from the `gsl` package
+
+- $\Gamma_{I}^{-1}(a,b)$ values can be computed using the `gamma_inc_P(a,b)` function from the `gsl` package

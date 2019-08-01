@@ -1,0 +1,13 @@
+---
+output: html_document
+---
+
+<h3>Properties of the Generalized Gamma Distribution</h3>
+
+- When $\beta = 1, \;\;\; T \sim GAM(\theta,\kappa)$
+
+- When $\kappa = 1, \;\;\; T \sim WEIB(\theta,\beta)$
+
+- When $(\beta,\kappa) = (1,1), \;\;\; T \sim EXP(\theta)$
+
+- As $\kappa \rightarrow \infty, \;\;\; T\xrightarrow{d} LOGNOR(\log(\theta)+\log(\kappa)/\beta, 1/(\beta\sqrt{\kappa}))$
