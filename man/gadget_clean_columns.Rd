@@ -34,3 +34,4 @@ Shiny gadget used to visually inspect columns in a data set and select columns t
 \dontrun{clean_columns(mtcars)}
 
 }
+\concept{shinygadgets}
