@@ -10,8 +10,12 @@ dgoma(x, shape, shape2, scale = 1)
 
 pgoma(q, shape, shape2, scale = 1)
 
-qgoma(p, shape = stop("no shape arg"), shape2 = stop("no shape2 arg"),
-  scale = 1)
+qgoma(
+  p,
+  shape = stop("no shape arg"),
+  shape2 = stop("no shape2 arg"),
+  scale = 1
+)
 }
 \arguments{
 \item{x}{A numeric vector of observations}
