@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-<h3>Functional relationships for <script type="math/tex">\;X \sim GENG(\theta,\beta,\kappa),\;\;T \in [0,\infty),\;\;\; \theta,\beta,\kappa\; > 0</script>
+<h3>Functional relationships for <script type="math/tex">\;T \sim GENG(\theta,\beta,\kappa),\;\;T \in [0,\infty),\;\;\; \theta,\beta,\kappa\; > 0</script>
 </h3>
 
 $$
