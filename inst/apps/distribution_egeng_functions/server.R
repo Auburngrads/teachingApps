@@ -2,12 +2,12 @@ server = function(input, output, session) {
   
 egeng.t <- reactive({ signif(seq(input$range.egeng[1], input$range.egeng[2], length = 500), digits = 4)})
 egeng.p <- signif(seq(0, 1, length = 500), digits = 4) 
-egeng.C <- reactive({ pegengl(egeng.t(), input$mu.egeng, input$sig.egeng, input$lam.egeng)})
-egeng.P <- reactive({ degengl(egeng.t(), input$mu.egeng, input$sig.egeng, input$lam.egeng)})
+egeng.C <- reactive({ teachingApps:::pegengl(egeng.t(), input$mu.egeng, input$sig.egeng, input$lam.egeng)})
+egeng.P <- reactive({ teachingApps:::degengl(egeng.t(), input$mu.egeng, input$sig.egeng, input$lam.egeng)})
 egeng.R <- reactive({ 1-egeng.C()})
 egeng.h <- reactive({ exp(log(egeng.P())-log(egeng.R()))})
-egeng.H <- reactive({ -1*log(1-pegengl(egeng.t(), input$mu.egeng, input$sig.egeng, input$lam.egeng))})
-egeng.Q <- reactive({ qegengl(egeng.p, input$mu.egeng, input$sig.egeng, input$lam.egeng)})
+egeng.H <- reactive({ -1*log(1-teachingApps:::pegengl(egeng.t(), input$mu.egeng, input$sig.egeng, input$lam.egeng))})
+egeng.Q <- reactive({ teachingApps:::qegengl(egeng.p, input$mu.egeng, input$sig.egeng, input$lam.egeng)})
 egeng.df <- reactive({data.frame(Time  = egeng.t(),
                                  PROB  = egeng.p, 
                                  CDF   = egeng.C(),
