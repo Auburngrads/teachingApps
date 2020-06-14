@@ -4,30 +4,16 @@
 #'     or as an element within an rmarkdown document. 
 #'
 #' @importFrom shinythemes shinytheme
-#' @importFrom shinyAce aceEditor
-#' @importFrom diagram plotmat
 #' @importFrom utils View combn
 #' @importFrom pacman p_load
-#' @importFrom dygraphs dygraph renderDygraph dySeries dygraphOutput
-#' @importFrom leaflet leafletOutput leaflet addTiles addMarkers renderLeaflet
-#' @importFrom threejs renderGlobe globejs globeOutput
-#' @importFrom d3heatmap d3heatmap renderD3heatmap d3heatmapOutput
 #' @importFrom grDevices rgb rainbow heat.colors terrain.colors cm.colors extendrange
 #' @importFrom scales alpha
-#' @importFrom networkD3 renderSankeyNetwork sankeyNetworkOutput
-#' @importFrom radarchart chartJSRadarOutput renderChartJSRadar chartJSRadar
 #' @importFrom DT datatable dataTableOutput renderDataTable
 #' @importFrom actuar pllogis dllogis qllogis rllogis
 #' @importFrom dplyr summarise group_by arrange desc select filter ungroup mutate
-#' @importFrom tidyr gather spread
-#' @importFrom DiagrammeR grVizOutput renderGrViz grViz
-#' @importFrom visNetwork visNetwork addFontAwesome visOptions visNodes visInteraction renderVisNetwork visNetworkOutput
-#' @importFrom plotly plotlyOutput renderPlotly plot_ly add_segments layout toRGB
-#' @importFrom miniUI miniPage gadgetTitleBar miniTabPanel miniContentPanel
 #' @importFrom shinydashboard dashboardPage dashboardSidebar dashboardBody infoBox infoBoxOutput renderInfoBox
 #' @importFrom ggplot2 ggplot aes theme_light geom_line
 #' @importFrom graphics polygon par box boxplot pie plot mtext abline axis legend points text grid lines segments curve
-#' @importFrom metricsgraphics metricsgraphicsOutput renderMetricsgraphics mjs_plot mjs_line mjs_labs mjs_add_css_rule mjs_add_line
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout renderUI titlePanel
 #' @importFrom shiny brushedPoints brushOpts br hr checkboxInput div invalidateLater
 #' @importFrom shiny fixedPanel uiOutput HTML htmlOutput sidebarLayout tags renderUI 
