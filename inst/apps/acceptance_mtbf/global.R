@@ -1,1 +1,1 @@
-pacman::p_load(shiny, plotly)
+pacman::p_load(shiny, plotly, teachingApps)
