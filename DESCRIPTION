@@ -1,8 +1,8 @@
 Package: teachingApps
 Type: Package
 Title: Apps for Teaching Statistics, R Programming, and Shiny App Development
-Version: 1.0.5
-Date: 2019-08-01
+Version: 1.0.8
+Date: 2020-05-12
 Authors@R: c(
     person("Jason", "Freels", email = "auburngrads@live.com", role = c("aut","cre")),
     person("Bradley", "Boehmke", email = "bradleyboehmke@gmail.com", role = c("ctb"))
@@ -16,17 +16,45 @@ BugReports: https://github.com/Auburngrads/teachingApps/issues
 Encoding: UTF-8
 License: GPL (>= 2)
 LazyData: true
-Depends: R (>= 3.1.0), shiny, pacman
-Imports: shinyAce,shinythemes,shinydashboard,miniUI,radarchart,dplyr,
-         DT,metricsgraphics,leaflet,threejs,d3heatmap,tidyr,datasets,
-         plotly,dygraphs,networkD3,diagram,DiagrammeR,visNetwork,
-         actuar,markdown,stats,knitr,data.table,Rcpp (>= 0.12.14),
-         rprojroot,utils,devtools,graphics,scales,yaml,magrittr,ggplot2,
-         RcppNumerical
+Depends: R (>= 3.1.0)
+Imports: shiny, 
+         pacman,
+         shinythemes,
+         shinydashboard,
+         dplyr,
+         DT,
+         datasets,
+         actuar,
+         markdown,
+         stats,
+         knitr,
+         data.table,
+         Rcpp (>= 0.12.14),
+         rprojroot,
+         utils,
+         devtools,
+         graphics,
+         scales,
+         yaml,
+         magrittr,
+         ggplot2,
+         RcppNumerical,
+         miniUI
 NeedsCompilation: yes
 Archs: i386, x64
-Suggests: testthat, rmarkdown
-RoxygenNote: 6.1.1
+Suggests: testthat, 
+          rmarkdown,
+          radarchart,
+          networkD3,
+          diagram,
+          DiagrammeR,
+          visNetwork,
+          metricsgraphics,
+          leaflet,
+          shinyAce,
+          plotly,
+          tidyr
+RoxygenNote: 7.1.0
 LinkingTo: Rcpp (>= 0.12.14), 
            BH (>= 1.58.0-1),
            RcppEigen,
