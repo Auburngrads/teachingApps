@@ -1,0 +1,25 @@
+---
+output: html_document
+---
+
+<h3>About the Birnbaum-Saunders Distribution</h3>
+
+- Also known as fatigue life distribution
+
+- If T ~ BISA($\theta$,$\beta$) and c > 0 then cT ~ BISA($c\theta$,$\beta$)
+
+- If T ~ BISA($\theta$,$\beta$) then 1/T ~ BISA($\theta^{-1}$,$\beta$)
+
+- $h(t;\theta, \beta)$ is always unimodal and isn't always increasing
+
+- $h(0;\theta,\beta)=0$
+
+- $lim_{t \to \infty}h(t;\theta,\beta)=1/(2\theta\beta^{2})$
+
+- It has a close relationship to the IGAU distribution
+
+- Similar to the lognormal distribution
+
+- Used to model failure times
+
+
