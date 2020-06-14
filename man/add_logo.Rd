@@ -4,9 +4,12 @@
 \alias{add_logo}
 \title{Adds a branding logo to the footer of a navbarPage app}
 \usage{
-add_logo(app_dir = getShinyOption("appDir"),
-  git_user = getShinyOption("gitUser"), icon = getShinyOption("icon"),
-  img = getShinyOption("img"))
+add_logo(
+  app_dir = getShinyOption("appDir"),
+  git_user = getShinyOption("gitUser"),
+  icon = getShinyOption("icon"),
+  img = getShinyOption("img")
+)
 }
 \arguments{
 \item{app_dir}{\code{character} Directory in which the app files are located}

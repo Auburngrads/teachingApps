@@ -4,8 +4,14 @@
 \alias{add_options}
 \title{Pass objects and customization options to a shiny app}
 \usage{
-add_options(opts, dir, theme = "flatly", icon = NULL, img = NULL,
-  git_user = NULL)
+add_options(
+  opts,
+  dir,
+  theme = "flatly",
+  icon = NULL,
+  img = NULL,
+  git_user = NULL
+)
 }
 \arguments{
 \item{opts}{A \code{list} of additional options or objects to pass to a shiny app}

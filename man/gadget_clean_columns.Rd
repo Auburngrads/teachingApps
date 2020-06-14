@@ -4,8 +4,14 @@
 \alias{gadget_clean_columns}
 \title{Visually remove columns from data set}
 \usage{
-gadget_clean_columns(data, rownames = TRUE, theme = "flatly",
-  width = "100\%", height = "600px", css = NULL)
+gadget_clean_columns(
+  data,
+  rownames = TRUE,
+  theme = "flatly",
+  width = "100\%",
+  height = "600px",
+  css = NULL
+)
 }
 \arguments{
 \item{data}{A data set}

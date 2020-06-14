@@ -4,10 +4,18 @@
 \alias{teachingApp}
 \title{Render a teachingApp With Options}
 \usage{
-teachingApp(app_name = NULL, theme = "flatly", width = "100\%",
-  height = "800px", icon = "fa fa-github", img = NULL,
-  git_user = "Auburngrads", more_opts = list(NA),
-  launch.browser = TRUE, ...)
+teachingApp(
+  app_name = NULL,
+  theme = "flatly",
+  width = "100\%",
+  height = "800px",
+  icon = "fa fa-github",
+  img = NULL,
+  git_user = "Auburngrads",
+  more_opts = list(NA),
+  launch.browser = TRUE,
+  ...
+)
 }
 \arguments{
 \item{app_name}{\code{character} Name of the app to be rendered}
